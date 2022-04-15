@@ -7,6 +7,7 @@
  */
 
 import {escapeRegExp} from '@angular/compiler/src/util';
+
 import {serializeNodes} from '../../../src/i18n/digest';
 import * as i18n from '../../../src/i18n/i18n_ast';
 import {Xtb} from '../../../src/i18n/serializers/xtb';
@@ -65,45 +66,45 @@ import {Xtb} from '../../../src/i18n/serializers/xtb';
       it('should load XTB files with placeholders', () => {
         const XTB = `<?xml version="1.0" encoding="UTF-8"?>
 <translationbundle>
-  <translation id="8877975308926375834"><ph name="START_PARAGRAPH"/>rab<ph name="CLOSE_PARAGRAPH"/></translation>
+  <translation id="8877975308926375834"><ph name="START_PARAGRAPH">rab<ph name="CLOSE_PARAGRAPH"></translation>
 </translationbundle>`;
 
         expect(loadAsMap(XTB)).toEqual({
-          '8877975308926375834': '<ph name="START_PARAGRAPH"/>rab<ph name="CLOSE_PARAGRAPH"/>'
+          '8877975308926375834': '<ph name="START_PARAGRAPH">rab<ph name="CLOSE_PARAGRAPH">'
         });
       });
 
       it('should replace ICU placeholders with their translations', () => {
         const XTB = `<?xml version="1.0" encoding="UTF-8" ?>
 <translationbundle>
-  <translation id="7717087045075616176">*<ph name="ICU"/>*</translation>
-  <translation id="5115002811911870583">{VAR_PLURAL, plural, =1 {<ph name="START_PARAGRAPH"/>rab<ph name="CLOSE_PARAGRAPH"/>}}</translation>
+  <translation id="7717087045075616176">*<ph name="ICU">*</translation>
+  <translation id="5115002811911870583">{VAR_PLURAL, plural, =1 {<ph name="START_PARAGRAPH">rab<ph name="CLOSE_PARAGRAPH">}}</translation>
 </translationbundle>`;
 
         expect(loadAsMap(XTB)).toEqual({
-          '7717087045075616176': `*<ph name="ICU"/>*`,
+          '7717087045075616176': `*<ph name="ICU">*`,
           '5115002811911870583':
-              `{VAR_PLURAL, plural, =1 {[<ph name="START_PARAGRAPH"/>, rab, <ph name="CLOSE_PARAGRAPH"/>]}}`,
+              `{VAR_PLURAL, plural, =1 {[<ph name="START_PARAGRAPH">, rab, <ph name="CLOSE_PARAGRAPH">]}}`,
         });
       });
 
       it('should load complex XTB files', () => {
         const XTB = `<?xml version="1.0" encoding="UTF-8" ?>
 <translationbundle>
-  <translation id="8281795707202401639"><ph name="INTERPOLATION"/><ph name="START_BOLD_TEXT"/>rab<ph name="CLOSE_BOLD_TEXT"/> oof</translation>
-  <translation id="5115002811911870583">{VAR_PLURAL, plural, =1 {<ph name="START_PARAGRAPH"/>rab<ph name="CLOSE_PARAGRAPH"/>}}</translation>
+  <translation id="8281795707202401639"><ph name="INTERPOLATION"><ph name="START_BOLD_TEXT">rab<ph name="CLOSE_BOLD_TEXT"> oof</translation>
+  <translation id="5115002811911870583">{VAR_PLURAL, plural, =1 {<ph name="START_PARAGRAPH">rab<ph name="CLOSE_PARAGRAPH">}}</translation>
   <translation id="130772889486467622">oof</translation>
-  <translation id="4739316421648347533">{VAR_PLURAL, plural, =1 {{VAR_GENDER, gender, male {<ph name="START_PARAGRAPH"/>rab<ph name="CLOSE_PARAGRAPH"/>}} }}</translation>
+  <translation id="4739316421648347533">{VAR_PLURAL, plural, =1 {{VAR_GENDER, gender, male {<ph name="START_PARAGRAPH">rab<ph name="CLOSE_PARAGRAPH">}} }}</translation>
 </translationbundle>`;
 
         expect(loadAsMap(XTB)).toEqual({
           '8281795707202401639':
-              `<ph name="INTERPOLATION"/><ph name="START_BOLD_TEXT"/>rab<ph name="CLOSE_BOLD_TEXT"/> oof`,
+              `<ph name="INTERPOLATION"><ph name="START_BOLD_TEXT">rab<ph name="CLOSE_BOLD_TEXT"> oof`,
           '5115002811911870583':
-              `{VAR_PLURAL, plural, =1 {[<ph name="START_PARAGRAPH"/>, rab, <ph name="CLOSE_PARAGRAPH"/>]}}`,
+              `{VAR_PLURAL, plural, =1 {[<ph name="START_PARAGRAPH">, rab, <ph name="CLOSE_PARAGRAPH">]}}`,
           '130772889486467622': `oof`,
           '4739316421648347533':
-              `{VAR_PLURAL, plural, =1 {[{VAR_GENDER, gender, male {[<ph name="START_PARAGRAPH"/>, rab, <ph name="CLOSE_PARAGRAPH"/>]}},  ]}}`,
+              `{VAR_PLURAL, plural, =1 {[{VAR_GENDER, gender, male {[<ph name="START_PARAGRAPH">, rab, <ph name="CLOSE_PARAGRAPH">]}},  ]}}`,
         });
       });
     });

@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
-/// <reference types="node"/>
+/// <reference types="node">
 
 'use strict';
 (function(global: any) {

@@ -7,6 +7,7 @@
  */
 import {KeyValueArray} from '../../util/array_utils';
 import {TStylingRange} from '../interfaces/styling';
+
 import {TIcu} from './i18n';
 import {CssSelector} from './projection';
 import {RNode} from './renderer_dom';
@@ -611,8 +612,8 @@ export interface TNode {
    * If `Array.isArray(projection)` then `TNode` is a host element:
    * - `projection` stores the content nodes which are to be projected.
    *    - The nodes represent categories defined by the selector: For example:
-   *      `<ng-content/><ng-content select="abc"/>` would represent the heads for `<ng-content/>`
-   *      and `<ng-content select="abc"/>` respectively.
+   *      `<ng-content/><ng-content select="abc">` would represent the heads for `<ng-content/>`
+   *      and `<ng-content select="abc">` respectively.
    *    - The nodes we store in `projection` are heads only, we used `.next` to get their
    *      siblings.
    *    - The nodes `.next` is sorted/rewritten as part of the projection setup.

@@ -71,15 +71,15 @@ runInEachFileSystem(() => {
             `  <msg id="${
                 useLegacyIds ?
                     '615790887472569365' :
-                    '12345'}" meaning="some meaning">a<ph name="PH"/>b<ph name="PH_1"/>c</msg>`,
-            `  <msg id="someId">a<ph name="PH"/>b<ph name="PH_1"/>c</msg>`,
-            `  <msg id="67890" desc="some description">a<ph name="START_TAG_SPAN"/><ph name="CLOSE_TAG_SPAN"/>c</msg>`,
-            `  <msg id="13579"><ph name="START_BOLD_TEXT"/>b<ph name="CLOSE_BOLD_TEXT"/></msg>`,
+                    '12345'}" meaning="some meaning">a<ph name="PH">b<ph name="PH_1">c</msg>`,
+            `  <msg id="someId">a<ph name="PH">b<ph name="PH_1">c</msg>`,
+            `  <msg id="67890" desc="some description">a<ph name="START_TAG_SPAN"><ph name="CLOSE_TAG_SPAN">c</msg>`,
+            `  <msg id="13579"><ph name="START_BOLD_TEXT">b<ph name="CLOSE_BOLD_TEXT"></msg>`,
             `  <msg id="24680" desc="and description" meaning="meaning">a</msg>`,
             `  <msg id="80808">multi`, `lines</msg>`,
-            `  <msg id="90000">&lt;escape<ph name="double-quotes-&quot;"/>me&gt;</msg>`,
-            `  <msg id="100000">pre-ICU {VAR_SELECT, select, a {a} b {<ph name="INTERPOLATION"/>} c {pre <ph name="INTERPOLATION_1"/> post}} post-ICU</msg>`,
-            `  <msg id="100001">{VAR_PLURAL, plural, one {<ph name="START_BOLD_TEXT"/>something bold<ph name="CLOSE_BOLD_TEXT"/>} other {pre <ph name="START_TAG_SPAN"/>middle<ph name="CLOSE_TAG_SPAN"/> post}}</msg>`,
+            `  <msg id="90000">&lt;escape<ph name="double-quotes-&quot;">me&gt;</msg>`,
+            `  <msg id="100000">pre-ICU {VAR_SELECT, select, a {a} b {<ph name="INTERPOLATION">} c {pre <ph name="INTERPOLATION_1"> post}} post-ICU</msg>`,
+            `  <msg id="100001">{VAR_PLURAL, plural, one {<ph name="START_BOLD_TEXT">something bold<ph name="CLOSE_BOLD_TEXT">} other {pre <ph name="START_TAG_SPAN">middle<ph name="CLOSE_TAG_SPAN"> post}}</msg>`,
             `</messagebundle>\n`
           ].join('\n'));
         });

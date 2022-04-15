@@ -116,9 +116,9 @@ const XLIFF2_TOMERGE = `
     <unit id="703464324060964421">
       <segment>
         <source>
-        <ph id="0" equiv="ICU" disp="{sex, select, other {...} male {...} female {...}}"/>
+        <ph id="0" equiv="ICU" disp="{sex, select, other {...} male {...} female {...}}">
     </source>
-        <target><ph id="0" equiv="ICU" disp="{sex, select, other {...} male {...} female {...}}"/></target>
+        <target><ph id="0" equiv="ICU" disp="{sex, select, other {...} male {...} female {...}}"></target>
       </segment>
     </unit>
     <unit id="5430374139308914421">
@@ -136,9 +136,9 @@ const XLIFF2_TOMERGE = `
       </notes>
       <segment>
         <source>
-        <ph id="0" equiv="ICU" disp="{sexB, select, male {...} female {...}}"/>
+        <ph id="0" equiv="ICU" disp="{sexB, select, male {...} female {...}}">
     </source>
-      <target><ph id="0" equiv="ICU" disp="{sexB, select, male {...} female {...}}"/></target>
+      <target><ph id="0" equiv="ICU" disp="{sexB, select, male {...} female {...}}"></target>
       </segment>
     </unit>
     <unit id="2500580913783245106">
@@ -149,20 +149,20 @@ const XLIFF2_TOMERGE = `
     </unit>
     <unit id="4851788426695310455">
       <segment>
-        <source><ph id="0" equiv="INTERPOLATION" disp="{{ &quot;count = &quot; + count }}"/></source>
-        <target><ph id="0" equiv="INTERPOLATION" disp="{{ &quot;count = &quot; + count }}"/></target>
+        <source><ph id="0" equiv="INTERPOLATION" disp="{{ &quot;count = &quot; + count }}"></source>
+        <target><ph id="0" equiv="INTERPOLATION" disp="{{ &quot;count = &quot; + count }}"></target>
       </segment>
     </unit>
     <unit id="9013357158046221374">
       <segment>
-        <source>sex = <ph id="0" equiv="INTERPOLATION" disp="{{ sex }}"/></source>
-        <target>sexe = <ph id="0" equiv="INTERPOLATION" disp="{{ sex }}"/></target>
+        <source>sex = <ph id="0" equiv="INTERPOLATION" disp="{{ sex }}"></source>
+        <target>sexe = <ph id="0" equiv="INTERPOLATION" disp="{{ sex }}"></target>
       </segment>
     </unit>
     <unit id="8324617391167353662">
       <segment>
-        <source><ph id="0" equiv="CUSTOM_NAME" disp="{{ &quot;custom name&quot; //i18n(ph=&quot;CUSTOM_NAME&quot;) }}"/></source>
-        <target><ph id="0" equiv="CUSTOM_NAME" disp="{{ &quot;custom name&quot; //i18n(ph=&quot;CUSTOM_NAME&quot;) }}"/></target>
+        <source><ph id="0" equiv="CUSTOM_NAME" disp="{{ &quot;custom name&quot; //i18n(ph=&quot;CUSTOM_NAME&quot;) }}"></source>
+        <target><ph id="0" equiv="CUSTOM_NAME" disp="{{ &quot;custom name&quot; //i18n(ph=&quot;CUSTOM_NAME&quot;) }}"></target>
       </segment>
     </unit>
     <unit id="7685649297917455806">
@@ -176,12 +176,12 @@ const XLIFF2_TOMERGE = `
         <source>
     <pc id="0" equivStart="START_HEADING_LEVEL1" equivEnd="CLOSE_HEADING_LEVEL1" type="other" dispStart="&lt;h1&gt;" dispEnd="&lt;/h1&gt;">Markers in html comments</pc>
     <pc id="1" equivStart="START_TAG_DIV" equivEnd="CLOSE_TAG_DIV" type="other" dispStart="&lt;div&gt;" dispEnd="&lt;/div&gt;"></pc>
-    <pc id="2" equivStart="START_TAG_DIV_1" equivEnd="CLOSE_TAG_DIV" type="other" dispStart="&lt;div&gt;" dispEnd="&lt;/div&gt;"><ph id="3" equiv="ICU" disp="{count, plural, =0 {...} =1 {...} =2 {...} other {...}}"/></pc>
+    <pc id="2" equivStart="START_TAG_DIV_1" equivEnd="CLOSE_TAG_DIV" type="other" dispStart="&lt;div&gt;" dispEnd="&lt;/div&gt;"><ph id="3" equiv="ICU" disp="{count, plural, =0 {...} =1 {...} =2 {...} other {...}}"></pc>
 </source>
         <target>
     <pc id="0" equivStart="START_HEADING_LEVEL1" equivEnd="CLOSE_HEADING_LEVEL1" type="other" dispStart="&lt;h1&gt;" dispEnd="&lt;/h1&gt;">Balises dans les commentaires html</pc>
     <pc id="1" equivStart="START_TAG_DIV" equivEnd="CLOSE_TAG_DIV" type="other" dispStart="&lt;div&gt;" dispEnd="&lt;/div&gt;"></pc>
-    <pc id="2" equivStart="START_TAG_DIV_1" equivEnd="CLOSE_TAG_DIV" type="other" dispStart="&lt;div&gt;" dispEnd="&lt;/div&gt;"><ph id="3" equiv="ICU" disp="{count, plural, =0 {...} =1 {...} =2 {...} other {...}}"/></pc>
+    <pc id="2" equivStart="START_TAG_DIV_1" equivEnd="CLOSE_TAG_DIV" type="other" dispStart="&lt;div&gt;" dispEnd="&lt;/div&gt;"><ph id="3" equiv="ICU" disp="{count, plural, =0 {...} =1 {...} =2 {...} other {...}}"></pc>
 </target>
       </segment>
     </unit>
@@ -211,23 +211,23 @@ const XLIFF2_TOMERGE = `
     </unit>
     <unit id="5339604010413301604">
       <segment>
-        <source><ph id="0" equiv="MAP NAME" disp="{{ &apos;test&apos; //i18n(ph=&quot;map name&quot;) }}"/></source>
-        <target><ph id="0" equiv="MAP NAME" disp="{{ &apos;test&apos; //i18n(ph=&quot;map name&quot;) }}"/></target>
+        <source><ph id="0" equiv="MAP NAME" disp="{{ &apos;test&apos; //i18n(ph=&quot;map name&quot;) }}"></source>
+        <target><ph id="0" equiv="MAP NAME" disp="{{ &apos;test&apos; //i18n(ph=&quot;map name&quot;) }}"></target>
       </segment>
     </unit>`;
 
 const LF_LINE_ENDING_XLIFF2_TOMERGE = `    <unit id="4085484936881858615">
       <segment>
-        <source>{VAR_PLURAL, plural, =0 {Found no results} =1 {Found one result} other {Found <ph id="0" equiv="INTERPOLATION" disp="{{response.getItemsList().length}}"/> results} }</source>
-        <target>{VAR_PLURAL, plural, =0 {Pas de réponse} =1 {Une réponse} other {<ph id="0" equiv="INTERPOLATION" disp="{{response.getItemsList().length}}"/> réponses} }</target>
+        <source>{VAR_PLURAL, plural, =0 {Found no results} =1 {Found one result} other {Found <ph id="0" equiv="INTERPOLATION" disp="{{response.getItemsList().length}}"> results} }</source>
+        <target>{VAR_PLURAL, plural, =0 {Pas de réponse} =1 {Une réponse} other {<ph id="0" equiv="INTERPOLATION" disp="{{response.getItemsList().length}}"> réponses} }</target>
       </segment>
     </unit>
 `;
 
 const CRLF_LINE_ENDING_XLIFF2_TOMERGE = `    <unit id="4085484936881858615">
       <segment>
-        <source>{VAR_PLURAL, plural, =0 {Found no results} =1 {Found one result} other {Found <ph id="0" equiv="INTERPOLATION" disp="{{response.getItemsList().length}}"/> results} }</source>
-        <target>{VAR_PLURAL, plural, =0 {Pas de réponse} =1 {Une réponse} other {<ph id="0" equiv="INTERPOLATION" disp="{{response.getItemsList().length}}"/> réponses} }</target>
+        <source>{VAR_PLURAL, plural, =0 {Found no results} =1 {Found one result} other {Found <ph id="0" equiv="INTERPOLATION" disp="{{response.getItemsList().length}}"> results} }</source>
+        <target>{VAR_PLURAL, plural, =0 {Pas de réponse} =1 {Une réponse} other {<ph id="0" equiv="INTERPOLATION" disp="{{response.getItemsList().length}}"> réponses} }</target>
       </segment>
     </unit>
 `;
@@ -314,7 +314,7 @@ const XLIFF2_EXTRACTED = [
       </notes>
       <segment>
         <source>
-        <ph id="0" equiv="ICU" disp="{sex, select, male {...} female {...} other {...}}"/>
+        <ph id="0" equiv="ICU" disp="{sex, select, male {...} female {...} other {...}}">
     </source>
       </segment>
     </unit>`,
@@ -332,7 +332,7 @@ const XLIFF2_EXTRACTED = [
       </notes>
       <segment>
         <source>
-        <ph id="0" equiv="ICU" disp="{sexB, select, male {...} female {...}}"/>
+        <ph id="0" equiv="ICU" disp="{sexB, select, male {...} female {...}}">
     </source>
       </segment>
     </unit>`,
@@ -349,7 +349,7 @@ const XLIFF2_EXTRACTED = [
         <note category="location">file.ts:29</note>
       </notes>
       <segment>
-        <source><ph id="0" equiv="INTERPOLATION" disp="{{ &quot;count = &quot; + count }}"/></source>
+        <source><ph id="0" equiv="INTERPOLATION" disp="{{ &quot;count = &quot; + count }}"></source>
       </segment>
     </unit>`,
   `    <unit id="9013357158046221374">
@@ -357,7 +357,7 @@ const XLIFF2_EXTRACTED = [
         <note category="location">file.ts:30</note>
       </notes>
       <segment>
-        <source>sex = <ph id="0" equiv="INTERPOLATION" disp="{{ sex }}"/></source>
+        <source>sex = <ph id="0" equiv="INTERPOLATION" disp="{{ sex }}"></source>
       </segment>
     </unit>`,
   `    <unit id="8324617391167353662">
@@ -365,7 +365,7 @@ const XLIFF2_EXTRACTED = [
         <note category="location">file.ts:31</note>
       </notes>
       <segment>
-        <source><ph id="0" equiv="CUSTOM_NAME" disp="{{ &quot;custom name&quot; //i18n(ph=&quot;CUSTOM_NAME&quot;) }}"/></source>
+        <source><ph id="0" equiv="CUSTOM_NAME" disp="{{ &quot;custom name&quot; //i18n(ph=&quot;CUSTOM_NAME&quot;) }}"></source>
       </segment>
     </unit>`,
   `    <unit id="7685649297917455806">
@@ -385,7 +385,7 @@ const XLIFF2_EXTRACTED = [
         <source>
     <pc id="0" equivStart="START_HEADING_LEVEL1" equivEnd="CLOSE_HEADING_LEVEL1" type="other" dispStart="&lt;h1&gt;" dispEnd="&lt;/h1&gt;">Markers in html comments</pc>
     <pc id="1" equivStart="START_TAG_DIV" equivEnd="CLOSE_TAG_DIV" type="other" dispStart="&lt;div&gt;" dispEnd="&lt;/div&gt;"></pc>
-    <pc id="2" equivStart="START_TAG_DIV_1" equivEnd="CLOSE_TAG_DIV" type="other" dispStart="&lt;div&gt;" dispEnd="&lt;/div&gt;"><ph id="3" equiv="ICU" disp="{count, plural, =0 {...} =1 {...} =2 {...} other {...}}"/></pc>
+    <pc id="2" equivStart="START_TAG_DIV_1" equivEnd="CLOSE_TAG_DIV" type="other" dispStart="&lt;div&gt;" dispEnd="&lt;/div&gt;"><ph id="3" equiv="ICU" disp="{count, plural, =0 {...} =1 {...} =2 {...} other {...}}"></pc>
 </source>
       </segment>
     </unit>`,
@@ -426,7 +426,7 @@ const XLIFF2_EXTRACTED = [
         <note category="location">file.ts:56</note>
       </notes>
       <segment>
-        <source><ph id="0" equiv="MAP NAME" disp="{{ &apos;test&apos; //i18n(ph=&quot;map name&quot;) }}"/></source>
+        <source><ph id="0" equiv="MAP NAME" disp="{{ &apos;test&apos; //i18n(ph=&quot;map name&quot;) }}"></source>
       </segment>
     </unit>`
 ];
@@ -437,7 +437,7 @@ const LF_LINE_ENDING_XLIFF2_EXTRACTED = `    <unit id="4085484936881858615">
         <note category="location">file.ts:46,52</note>
       </notes>
       <segment>
-        <source>{VAR_PLURAL, plural, =0 {Found no results} =1 {Found one result} other {Found <ph id="0" equiv="INTERPOLATION" disp="{{response.getItemsList().length}}"/> results} }</source>
+        <source>{VAR_PLURAL, plural, =0 {Found no results} =1 {Found one result} other {Found <ph id="0" equiv="INTERPOLATION" disp="{{response.getItemsList().length}}"> results} }</source>
       </segment>
     </unit>`;
 
@@ -447,6 +447,6 @@ const CRLF_LINE_ENDING_XLIFF2_EXTRACTED = `    <unit id="4085484936881858615">
         <note category="location">file.ts:46,52</note>
       </notes>
       <segment>
-        <source>{VAR_PLURAL, plural, =0 {Found no results} =1 {Found one result} other {Found <ph id="0" equiv="INTERPOLATION" disp="{{response.getItemsList().length}}"/> results} }</source>
+        <source>{VAR_PLURAL, plural, =0 {Found no results} =1 {Found one result} other {Found <ph id="0" equiv="INTERPOLATION" disp="{{response.getItemsList().length}}"> results} }</source>
       </segment>
     </unit>`;

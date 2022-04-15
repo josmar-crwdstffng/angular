@@ -6,5 +6,5 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
-/// <reference types="chrome"/>
+/// <reference types="chrome">
 chrome.devtools.panels.create('Angular', 'assets/icon-bw16.png', 'index.html');

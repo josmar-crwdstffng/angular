@@ -93,7 +93,7 @@ runInEachFileSystem(() => {
               `  <file id="ngi18n" original="ng.template"${toAttributes(options)}>`,
               `    <unit id="someId">`,
               `      <segment>`,
-              `        <source>a<ph id="0" equiv="PH" disp="placeholder + 1"/>b<ph id="1" equiv="PH_1"/>c</source>`,
+              `        <source>a<ph id="0" equiv="PH" disp="placeholder + 1">b<ph id="1" equiv="PH_1">c</source>`,
               `      </segment>`,
               `    </unit>`,
               `    <unit id="13579">`,
@@ -118,17 +118,17 @@ runInEachFileSystem(() => {
               `    </unit>`,
               `    <unit id="90000">`,
               `      <segment>`,
-              `        <source>&lt;escape<ph id="0" equiv="double-quotes-&quot;"/>me&gt;</source>`,
+              `        <source>&lt;escape<ph id="0" equiv="double-quotes-&quot;">me&gt;</source>`,
               `      </segment>`,
               `    </unit>`,
               `    <unit id="100000">`,
               `      <segment>`,
-              `        <source>pre-ICU <ph id="0" equiv="ICU" subFlows="SOME_ICU_ID"/> post-ICU</source>`,
+              `        <source>pre-ICU <ph id="0" equiv="ICU" subFlows="SOME_ICU_ID"> post-ICU</source>`,
               `      </segment>`,
               `    </unit>`,
               `    <unit id="SOME_ICU_ID">`,
               `      <segment>`,
-              `        <source>{VAR_SELECT, select, a {a} b {<ph id="0" equiv="INTERPOLATION"/>} c {pre <ph id="1" equiv="INTERPOLATION_1"/> post}}</source>`,
+              `        <source>{VAR_SELECT, select, a {a} b {<ph id="0" equiv="INTERPOLATION">} c {pre <ph id="1" equiv="INTERPOLATION_1"> post}}</source>`,
               `      </segment>`,
               `    </unit>`,
               `    <unit id="100001">`,
@@ -159,7 +159,7 @@ runInEachFileSystem(() => {
               `        <note category="meaning">some meaning</note>`,
               `      </notes>`,
               `      <segment>`,
-              `        <source>a<ph id="0" equiv="PH"/>b<ph id="1" equiv="PH_1"/>c</source>`,
+              `        <source>a<ph id="0" equiv="PH">b<ph id="1" equiv="PH_1">c</source>`,
               `      </segment>`,
               `    </unit>`,
               `  </file>`,
@@ -258,7 +258,7 @@ runInEachFileSystem(() => {
                 'xx', absoluteFrom('/project'), useLegacyIds, options);
             const output = serializer.serialize([mockMessage('1', ['a', 'b'], ['LINE_BREAK'], {})]);
             expect(output).toContain(
-                '<source>a<ph id="0" equiv="LINE_BREAK" type="fmt"/>b</source>',
+                '<source>a<ph id="0" equiv="LINE_BREAK" type="fmt">b</source>',
             );
           });
 
@@ -267,7 +267,7 @@ runInEachFileSystem(() => {
                 'xx', absoluteFrom('/project'), useLegacyIds, options);
             const output = serializer.serialize([mockMessage('2', ['a', 'b'], ['TAG_IMG'], {})]);
             expect(output).toContain(
-                '<source>a<ph id="0" equiv="TAG_IMG" type="image"/>b</source>',
+                '<source>a<ph id="0" equiv="TAG_IMG" type="image">b</source>',
             );
           });
 

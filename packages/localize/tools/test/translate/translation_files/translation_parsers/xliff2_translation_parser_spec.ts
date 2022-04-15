@@ -6,6 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import {ɵcomputeMsgId, ɵmakeParsedTranslation} from '@angular/localize';
+
 import {ParseAnalysis, ParsedTranslationBundle} from '../../../../src/translate/translation_files/translation_parsers/translation_parser';
 import {Xliff2TranslationParser} from '../../../../src/translate/translation_files/translation_parsers/xliff2_translation_parser';
 
@@ -181,8 +182,8 @@ describe('Xliff2TranslationParser', () => {
               `        <note category="location">file.ts:3</note>`,
               `      </notes>`,
               `      <segment>`,
-              `        <source>translatable element <pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;">with placeholders</pc> <ph id="1" equiv="INTERPOLATION" disp="{{ interpolation}}"/></source>`,
-              `        <target><ph id="1" equiv="INTERPOLATION" disp="{{ interpolation}}"/> tnemele elbatalsnart <pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;">sredlohecalp htiw</pc></target>`,
+              `        <source>translatable element <pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;">with placeholders</pc> <ph id="1" equiv="INTERPOLATION" disp="{{ interpolation}}"></source>`,
+              `        <target><ph id="1" equiv="INTERPOLATION" disp="{{ interpolation}}"> tnemele elbatalsnart <pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;">sredlohecalp htiw</pc></target>`,
               `      </segment>`,
               `    </unit>`,
               `  </file>`,
@@ -218,9 +219,9 @@ describe('Xliff2TranslationParser', () => {
               `        <source>translatable <pc id="0" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="other"` +
                   ` dispStart="&lt;span&gt;" dispEnd="&lt;/span&gt;">element <pc id="1" equivStart="START_BOLD_TEXT" equivEnd=` +
                   `"CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;">with placeholders</pc></pc>` +
-                  ` <ph id="2" equiv="INTERPOLATION" disp="{{ interpolation}}"/></source>`,
+                  ` <ph id="2" equiv="INTERPOLATION" disp="{{ interpolation}}"></source>`,
               `        <target><pc id="0" equivStart="START_TAG_SPAN" equivEnd="CLOSE_TAG_SPAN" type="fmt" dispStart="&lt;` +
-                  `span&gt;" dispEnd="&lt;/span&gt;"><ph id="2" equiv="INTERPOLATION" disp="{{ interpolation}}"/> tnemele</pc>` +
+                  `span&gt;" dispEnd="&lt;/span&gt;"><ph id="2" equiv="INTERPOLATION" disp="{{ interpolation}}"> tnemele</pc>` +
                   ` elbatalsnart <pc id="1" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart=` +
                   `"&lt;b&gt;" dispEnd="&lt;/b&gt;">sredlohecalp htiw</pc></target>`,
               `      </segment>`,
@@ -345,8 +346,8 @@ describe('Xliff2TranslationParser', () => {
               `        <note category="location">file.ts:7</note>`,
               `      </notes>`,
               `      <segment>`,
-              `        <source><ph id="0" equiv="LINE_BREAK" type="fmt" disp="&lt;br/&gt;"/><ph id="1" equiv="TAG_IMG" type="image" disp="&lt;img/&gt;"/><ph id="2" equiv="TAG_IMG_1" type="image" disp="&lt;img/&gt;"/></source>`,
-              `        <target><ph id="2" equiv="TAG_IMG_1" type="image" disp="&lt;img/&gt;"/><ph id="1" equiv="TAG_IMG" type="image" disp="&lt;img/&gt;"/><ph id="0" equiv="LINE_BREAK" type="fmt" disp="&lt;br/&gt;"/></target>`,
+              `        <source><ph id="0" equiv="LINE_BREAK" type="fmt" disp="&lt;br/&gt;"><ph id="1" equiv="TAG_IMG" type="image" disp="&lt;img/&gt;"><ph id="2" equiv="TAG_IMG_1" type="image" disp="&lt;img/&gt;"></source>`,
+              `        <target><ph id="2" equiv="TAG_IMG_1" type="image" disp="&lt;img/&gt;"><ph id="1" equiv="TAG_IMG" type="image" disp="&lt;img/&gt;"><ph id="0" equiv="LINE_BREAK" type="fmt" disp="&lt;br/&gt;"></target>`,
               `      </segment>`,
               `    </unit>`,
               `  </file>`,
@@ -412,8 +413,8 @@ describe('Xliff2TranslationParser', () => {
               `        <note category="location">file.ts:10</note>`,
               `      </notes>`,
               `      <segment>`,
-              `        <source>Test: <ph id="0" equiv="ICU" disp="{ count, plural, =0 {...} =other {...}}"/></source>`,
-              `        <target>Le test: <ph id="0" equiv="ICU" disp="{ count, plural, =0 {...} =other {...}}"/></target>`,
+              `        <source>Test: <ph id="0" equiv="ICU" disp="{ count, plural, =0 {...} =other {...}}"></source>`,
+              `        <target>Le test: <ph id="0" equiv="ICU" disp="{ count, plural, =0 {...} =other {...}}"></target>`,
               `      </segment>`,
               `    </unit>`,
               `    <unit id="5207293143089349404">`,
@@ -525,8 +526,8 @@ describe('Xliff2TranslationParser', () => {
               `        <note category="location">file.ts:3</note>`,
               `      </notes>`,
               `      <segment>`,
-              `        <source>translatable element <pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;">with placeholders</pc> <ph id="1" equiv="INTERPOLATION" disp="{{ interpolation}}"/></source>`,
-              `        <target><ph id="1" equiv="INTERPOLATION" disp="{{ interpolation}}"/> tnemele elbatalsnart <pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;">sredlohecalp htiw</pc></target>`,
+              `        <source>translatable element <pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;">with placeholders</pc> <ph id="1" equiv="INTERPOLATION" disp="{{ interpolation}}"></source>`,
+              `        <target><ph id="1" equiv="INTERPOLATION" disp="{{ interpolation}}"> tnemele elbatalsnart <pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;">sredlohecalp htiw</pc></target>`,
               `      </segment>`,
               `    </unit>`,
               `  </file>`,

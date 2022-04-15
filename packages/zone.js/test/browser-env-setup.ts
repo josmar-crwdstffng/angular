@@ -1,4 +1,4 @@
-/// <reference types="node"/>
+/// <reference types="node">
 
 import './browser_symbol_setup';
 import './test_fake_polyfill';

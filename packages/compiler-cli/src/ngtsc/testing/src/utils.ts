@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
-///<reference types="jasmine"/>
+///<reference types="jasmine">
 
 import ts from 'typescript';
 

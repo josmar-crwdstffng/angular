@@ -45,7 +45,7 @@ import {DEFAULT_INTERPOLATION_CONFIG} from '@angular/compiler/src/ml_parser/inte
         expect(_humanizeMessages('<div i18n="m|d"><p><br></p></div>')).toEqual([
           [
             [
-              '<ph tag name="START_PARAGRAPH"><ph tag name="LINE_BREAK"/></ph name="CLOSE_PARAGRAPH">'
+              '<ph tag name="START_PARAGRAPH"><ph tag name="LINE_BREAK"></ph name="CLOSE_PARAGRAPH">'
             ],
             'm', 'd', ''
           ],

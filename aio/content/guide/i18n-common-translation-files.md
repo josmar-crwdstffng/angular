@@ -176,7 +176,7 @@ To translate a `plural`, translate the ICU format match values.
 
 *   `just now`
 *   `one minute ago`
-*   `<x id="INTERPOLATION" equiv-text="{{minutes}}"/> minutes ago`
+*   `<x id="INTERPOLATION" equiv-text="{{minutes}}"> minutes ago`
 
 The following example displays the way to translate.
 

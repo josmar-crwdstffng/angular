@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
-/// <reference types="chrome"/>
+/// <reference types="chrome">
 
 export interface AngularDetection {
   // This is necessary because the runtime

@@ -171,16 +171,16 @@ describe('property interpolation', () => {
     // count.
     @Component({
       template: `
-      <img title="a{{one}}b{{two}}c{{three}}d{{four}}e{{five}}f{{six}}g{{seven}}h{{eight}}i{{nine}}j" alt="a{{one}}b{{two}}c{{three}}d{{four}}e{{five}}f{{six}}g{{seven}}h{{eight}}i{{nine}}j"/>
-      <img title="a{{one}}b{{two}}c{{three}}d{{four}}e{{five}}f{{six}}g{{seven}}h{{eight}}i" alt="a{{one}}b{{two}}c{{three}}d{{four}}e{{five}}f{{six}}g{{seven}}h{{eight}}i"/>
-      <img title="a{{one}}b{{two}}c{{three}}d{{four}}e{{five}}f{{six}}g{{seven}}h" alt="a{{one}}b{{two}}c{{three}}d{{four}}e{{five}}f{{six}}g{{seven}}h"/>
-      <img title="a{{one}}b{{two}}c{{three}}d{{four}}e{{five}}f{{six}}g" alt="a{{one}}b{{two}}c{{three}}d{{four}}e{{five}}f{{six}}g"/>
-      <img title="a{{one}}b{{two}}c{{three}}d{{four}}e{{five}}f" alt="a{{one}}b{{two}}c{{three}}d{{four}}e{{five}}f"/>
-      <img title="a{{one}}b{{two}}c{{three}}d{{four}}e" alt="a{{one}}b{{two}}c{{three}}d{{four}}e"/>
-      <img title="a{{one}}b{{two}}c{{three}}d" alt="a{{one}}b{{two}}c{{three}}d"/>
-      <img title="a{{one}}b{{two}}c" alt="a{{one}}b{{two}}c"/>
-      <img title="a{{one}}b" alt="a{{one}}b"/>
-      <img title="{{one}}" alt="{{one}}"/>
+      <img title="a{{one}}b{{two}}c{{three}}d{{four}}e{{five}}f{{six}}g{{seven}}h{{eight}}i{{nine}}j" alt="a{{one}}b{{two}}c{{three}}d{{four}}e{{five}}f{{six}}g{{seven}}h{{eight}}i{{nine}}j">
+      <img title="a{{one}}b{{two}}c{{three}}d{{four}}e{{five}}f{{six}}g{{seven}}h{{eight}}i" alt="a{{one}}b{{two}}c{{three}}d{{four}}e{{five}}f{{six}}g{{seven}}h{{eight}}i">
+      <img title="a{{one}}b{{two}}c{{three}}d{{four}}e{{five}}f{{six}}g{{seven}}h" alt="a{{one}}b{{two}}c{{three}}d{{four}}e{{five}}f{{six}}g{{seven}}h">
+      <img title="a{{one}}b{{two}}c{{three}}d{{four}}e{{five}}f{{six}}g" alt="a{{one}}b{{two}}c{{three}}d{{four}}e{{five}}f{{six}}g">
+      <img title="a{{one}}b{{two}}c{{three}}d{{four}}e{{five}}f" alt="a{{one}}b{{two}}c{{three}}d{{four}}e{{five}}f">
+      <img title="a{{one}}b{{two}}c{{three}}d{{four}}e" alt="a{{one}}b{{two}}c{{three}}d{{four}}e">
+      <img title="a{{one}}b{{two}}c{{three}}d" alt="a{{one}}b{{two}}c{{three}}d">
+      <img title="a{{one}}b{{two}}c" alt="a{{one}}b{{two}}c">
+      <img title="a{{one}}b" alt="a{{one}}b">
+      <img title="{{one}}" alt="{{one}}">
       `
     })
     class AppComp {

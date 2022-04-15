@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
-/// <reference types="chrome"/>
+/// <reference types="chrome">
 
 import {ApplicationOperations} from 'ng-devtools';
 import {DirectivePosition, ElementPosition} from 'protocol';

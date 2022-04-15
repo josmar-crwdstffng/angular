@@ -24,7 +24,7 @@ import * as xml from '../../../src/i18n/serializers/xml_helper';
     });
 
     it('should serialize xml nodes without children', () => {
-      expect(xml.serialize([new xml.Tag('el', {foo: 'bar'}, [])])).toEqual('<el foo="bar"/>');
+      expect(xml.serialize([new xml.Tag('el', {foo: 'bar'}, [])])).toEqual('<el foo="bar">');
     });
 
     it('should serialize xml nodes with children', () => {
@@ -37,12 +37,12 @@ import * as xml from '../../../src/i18n/serializers/xml_helper';
       expect(xml.serialize([
         new xml.Tag('el', {order: '0'}, []),
         new xml.Tag('el', {order: '1'}, []),
-      ])).toEqual('<el order="0"/><el order="1"/>');
+      ])).toEqual('<el order="0"><el order="1">');
     });
 
     it('should escape attribute values', () => {
       expect(xml.serialize([new xml.Tag('el', {foo: '<">'}, [])]))
-          .toEqual('<el foo="&lt;&quot;&gt;"/>');
+          .toEqual('<el foo="&lt;&quot;&gt;">');
     });
   });
 }

@@ -142,7 +142,7 @@ describe('property bindings', () => {
 
   it('should not stringify non-string values', () => {
     @Component({
-      template: `<input [required]="isRequired"/>`,
+      template: `<input [required]="isRequired">`,
     })
     class Comp {
       isRequired = false;

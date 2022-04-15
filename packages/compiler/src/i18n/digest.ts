@@ -7,8 +7,8 @@
  */
 
 import {Byte, newArray, utf8Encode} from '../util';
-import {BigIntExponentiation} from './big_integer';
 
+import {BigIntExponentiation} from './big_integer';
 import * as i18n from './i18n_ast';
 
 /**
@@ -65,13 +65,13 @@ class _SerializerVisitor implements i18n.Visitor {
 
   visitTagPlaceholder(ph: i18n.TagPlaceholder, context: any): any {
     return ph.isVoid ?
-        `<ph tag name="${ph.startName}"/>` :
+        `<ph tag name="${ph.startName}">` :
         `<ph tag name="${ph.startName}">${
             ph.children.map(child => child.visit(this)).join(', ')}</ph name="${ph.closeName}">`;
   }
 
   visitPlaceholder(ph: i18n.Placeholder, context: any): any {
-    return ph.value ? `<ph name="${ph.name}">${ph.value}</ph>` : `<ph name="${ph.name}"/>`;
+    return ph.value ? `<ph name="${ph.name}">${ph.value}</ph>` : `<ph name="${ph.name}">`;
   }
 
   visitIcuPlaceholder(ph: i18n.IcuPlaceholder, context?: any): any {

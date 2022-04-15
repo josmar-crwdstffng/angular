@@ -9,5 +9,5 @@
   <!ATTLIST ph name CDATA #REQUIRED>
 ]>
 <translationbundle lang="it">
-  <translation id="3291030485717846467">Ciao, <ph name="PH"/>!</translation>
+  <translation id="3291030485717846467">Ciao, <ph name="PH">!</translation>
 </translationbundle>

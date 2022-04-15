@@ -145,7 +145,7 @@ const EXPECTED_XLIFF = `<?xml version="1.0" encoding="UTF-8" ?>
       </trans-unit>
       <trans-unit id="540c5f481129419ef21017f396b6c2d0869ca4d2" datatype="html">
         <source>
-     foo <x id="ICU" equiv-text="{ count, plural, =1 {...} other {...}}"/>
+     foo <x id="ICU" equiv-text="{ count, plural, =1 {...} other {...}}">
     </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/icu.html</context>
@@ -161,9 +161,9 @@ const EXPECTED_XLIFF = `<?xml version="1.0" encoding="UTF-8" ?>
         </context-group>
       </trans-unit>
       <trans-unit id="9311399c1ca7c75f771d77acb129e50581c6ec1f" datatype="html">
-        <source>Name: <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/><x id="NAME" equiv-text="{{
+        <source>Name: <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"><x id="NAME" equiv-text="{{
       name // i18n(ph=&quot;name&quot;)
-    }}"/><x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/></source>
+    }}"><x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/placeholders.html</context>
           <context context-type="linenumber">1</context>
@@ -219,7 +219,7 @@ const EXPECTED_XLIFF2 = `<?xml version="1.0" encoding="UTF-8" ?>
       </notes>
       <segment>
         <source>
-     foo <ph id="0" equiv="ICU" disp="{ count, plural, =1 {...} other {...}}"/>
+     foo <ph id="0" equiv="ICU" disp="{ count, plural, =1 {...} other {...}}">
     </source>
       </segment>
     </unit>
@@ -231,7 +231,7 @@ const EXPECTED_XLIFF2 = `<?xml version="1.0" encoding="UTF-8" ?>
       <segment>
         <source>Name: <pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;"><ph id="1" equiv="NAME" disp="{{
       name // i18n(ph=&quot;name&quot;)
-    }}"/></pc></source>
+    }}"></pc></source>
       </segment>
     </unit>
   </file>

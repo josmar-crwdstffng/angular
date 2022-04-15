@@ -6,6 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import {ɵcomputeMsgId, ɵmakeParsedTranslation} from '@angular/localize';
+
 import {ParseAnalysis, ParsedTranslationBundle} from '../../../../src/translate/translation_files/translation_parsers/translation_parser';
 import {XtbTranslationParser} from '../../../../src/translate/translation_files/translation_parsers/xtb_translation_parser';
 
@@ -130,7 +131,7 @@ describe('XtbTranslationParser', () => {
         const XTB = [
           `<?xml version="1.0" encoding="UTF-8"?>`,
           `<translationbundle>`,
-          `  <translation id="8877975308926375834"><ph name="START_PARAGRAPH"/>rab<ph name="CLOSE_PARAGRAPH"/></translation>`,
+          `  <translation id="8877975308926375834"><ph name="START_PARAGRAPH">rab<ph name="CLOSE_PARAGRAPH"></translation>`,
           `</translationbundle>`,
         ].join('\n');
         const result = doParse('/some/file.xtb', XTB);
@@ -154,7 +155,7 @@ describe('XtbTranslationParser', () => {
           `<?xml version="1.0" encoding="UTF-8"?>`,
           `<translationbundle>`,
           `  <translation id="9051630253697141670">` +
-              `<ph name="START_TAG_SPAN"/><ph name="INTERPOLATION"/> tnemele<ph name="CLOSE_TAG_SPAN"/> elbatalsnart <ph name="START_BOLD_TEXT"/>sredlohecalp htiw<ph name="CLOSE_BOLD_TEXT"/>` +
+              `<ph name="START_TAG_SPAN"><ph name="INTERPOLATION"> tnemele<ph name="CLOSE_TAG_SPAN"> elbatalsnart <ph name="START_BOLD_TEXT">sredlohecalp htiw<ph name="CLOSE_BOLD_TEXT">` +
               `</translation>`,
           `</translationbundle>`,
         ].join('\n');
@@ -176,8 +177,8 @@ describe('XtbTranslationParser', () => {
         const XTB = [
           `<?xml version="1.0" encoding="UTF-8" ?>`,
           `<translationbundle>`,
-          `  <translation id="7717087045075616176">*<ph name="ICU"/>*</translation>`,
-          `  <translation id="5115002811911870583">{VAR_PLURAL, plural, =1 {<ph name="START_PARAGRAPH"/>rab<ph name="CLOSE_PARAGRAPH"/>}}</translation>`,
+          `  <translation id="7717087045075616176">*<ph name="ICU">*</translation>`,
+          `  <translation id="5115002811911870583">{VAR_PLURAL, plural, =1 {<ph name="START_PARAGRAPH">rab<ph name="CLOSE_PARAGRAPH">}}</translation>`,
           `</translationbundle>`,
         ].join('\n');
         const result = doParse('/some/file.xtb', XTB);
@@ -207,7 +208,7 @@ describe('XtbTranslationParser', () => {
       it('should extract translations with only placeholders, which are re-ordered', () => {
         const XTB = [
           `<translationbundle>`,
-          `  <translation id="7118057989405618448"><ph name="TAG_IMG_1"/><ph name="TAG_IMG"/><ph name="LINE_BREAK"/></translation>`,
+          `  <translation id="7118057989405618448"><ph name="TAG_IMG_1"><ph name="TAG_IMG"><ph name="LINE_BREAK"></translation>`,
           `</translationbundle>`,
         ].join('\n');
         const result = doParse('/some/file.xtb', XTB);
@@ -254,8 +255,8 @@ describe('XtbTranslationParser', () => {
          */
         const XTB = [
           `<translationbundle>`,
-          `  <translation id="980940425376233536">Le test: <ph name="ICU" equiv-text="{ count, plural, =0 {...} =other {...}}"/></translation>`,
-          `  <translation id="5207293143089349404">{VAR_PLURAL, plural, =0 {{VAR_SELECT, select, other {<ph name="START_PARAGRAPH"/>profondément imbriqué<ph name="CLOSE_PARAGRAPH"/>}}} =other {beaucoup}}</translation>`,
+          `  <translation id="980940425376233536">Le test: <ph name="ICU" equiv-text="{ count, plural, =0 {...} =other {...}}"></translation>`,
+          `  <translation id="5207293143089349404">{VAR_PLURAL, plural, =0 {{VAR_SELECT, select, other {<ph name="START_PARAGRAPH">profondément imbriqué<ph name="CLOSE_PARAGRAPH">}}} =other {beaucoup}}</translation>`,
           `</translationbundle>`,
         ].join('\n');
         const result = doParse('/some/file.xtb', XTB);

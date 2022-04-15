@@ -44,7 +44,7 @@ const WRITE_XLIFF = `<?xml version="1.0" encoding="UTF-8" ?>
         <note category="location">file.ts:3</note>
       </notes>
       <segment>
-        <source>translatable element <pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;">with placeholders</pc> <ph id="1" equiv="INTERPOLATION" disp="{{ interpolation}}"/></source>
+        <source>translatable element <pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;">with placeholders</pc> <ph id="1" equiv="INTERPOLATION" disp="{{ interpolation}}"></source>
       </segment>
     </unit>
     <unit id="2981514368455622387">
@@ -71,7 +71,7 @@ const WRITE_XLIFF = `<?xml version="1.0" encoding="UTF-8" ?>
         <note category="location">file.ts:6</note>
       </notes>
       <segment>
-        <source><pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;"><pc id="1" equivStart="START_UNDERLINED_TEXT" equivEnd="CLOSE_UNDERLINED_TEXT" type="fmt" dispStart="&lt;u&gt;" dispEnd="&lt;/u&gt;"><ph id="2" equiv="INTERPOLATION" disp="{{interpolation}}"/> Text</pc></pc></source>
+        <source><pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;"><pc id="1" equivStart="START_UNDERLINED_TEXT" equivEnd="CLOSE_UNDERLINED_TEXT" type="fmt" dispStart="&lt;u&gt;" dispEnd="&lt;/u&gt;"><ph id="2" equiv="INTERPOLATION" disp="{{interpolation}}"> Text</pc></pc></source>
       </segment>
     </unit>
     <unit id="8779402634269838862">
@@ -80,7 +80,7 @@ const WRITE_XLIFF = `<?xml version="1.0" encoding="UTF-8" ?>
         <note category="location">file.ts:7</note>
       </notes>
       <segment>
-        <source><ph id="0" equiv="LINE_BREAK" type="fmt" disp="&lt;br/&gt;"/><ph id="1" equiv="TAG_IMG" type="image" disp="&lt;img/&gt;"/><ph id="2" equiv="TAG_IMG_1" type="image" disp="&lt;img/&gt;"/></source>
+        <source><ph id="0" equiv="LINE_BREAK" type="fmt" disp="&lt;br/&gt;"><ph id="1" equiv="TAG_IMG" type="image" disp="&lt;img/&gt;"><ph id="2" equiv="TAG_IMG_1" type="image" disp="&lt;img/&gt;"></source>
       </segment>
     </unit>
     <unit id="6536355551500405293">
@@ -105,7 +105,7 @@ const WRITE_XLIFF = `<?xml version="1.0" encoding="UTF-8" ?>
         <note category="location">file.ts:10</note>
       </notes>
       <segment>
-        <source>Test: <ph id="0" equiv="ICU" disp="{ count, plural, =0 {...} =other {...}}"/></source>
+        <source>Test: <ph id="0" equiv="ICU" disp="{ count, plural, =0 {...} =other {...}}"></source>
       </segment>
     </unit>
     <unit id="5229984852258993423">
@@ -146,8 +146,8 @@ const LOAD_XLIFF = `<?xml version="1.0" encoding="UTF-8" ?>
         <note category="location">file.ts:3</note>
       </notes>
       <segment>
-        <source>translatable element <pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;">with placeholders</pc> <ph id="1" equiv="INTERPOLATION" disp="{{ interpolation}}"/></source>
-        <target><ph id="1" equiv="INTERPOLATION" disp="{{ interpolation}}"/> <pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;">sredlohecalp htiw</pc> tnemele elbatalsnart</target>
+        <source>translatable element <pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;">with placeholders</pc> <ph id="1" equiv="INTERPOLATION" disp="{{ interpolation}}"></source>
+        <target><ph id="1" equiv="INTERPOLATION" disp="{{ interpolation}}"> <pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;">sredlohecalp htiw</pc> tnemele elbatalsnart</target>
       </segment>
     </unit>
     <unit id="2981514368455622387">
@@ -176,8 +176,8 @@ const LOAD_XLIFF = `<?xml version="1.0" encoding="UTF-8" ?>
         <note category="location">file.ts:6</note>
       </notes>
       <segment>
-        <source><pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;"><pc id="1" equivStart="START_UNDERLINED_TEXT" equivEnd="CLOSE_UNDERLINED_TEXT" type="fmt" dispStart="&lt;u&gt;" dispEnd="&lt;/u&gt;"><ph id="2" equiv="INTERPOLATION" disp="{{interpolation}}"/> Text</pc></pc></source>
-        <target><pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;"><pc id="1" equivStart="START_UNDERLINED_TEXT" equivEnd="CLOSE_UNDERLINED_TEXT" type="fmt" dispStart="&lt;u&gt;" dispEnd="&lt;/u&gt;">txeT <ph id="2" equiv="INTERPOLATION" disp="{{interpolation}}"/></pc></pc></target>
+        <source><pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;"><pc id="1" equivStart="START_UNDERLINED_TEXT" equivEnd="CLOSE_UNDERLINED_TEXT" type="fmt" dispStart="&lt;u&gt;" dispEnd="&lt;/u&gt;"><ph id="2" equiv="INTERPOLATION" disp="{{interpolation}}"> Text</pc></pc></source>
+        <target><pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;"><pc id="1" equivStart="START_UNDERLINED_TEXT" equivEnd="CLOSE_UNDERLINED_TEXT" type="fmt" dispStart="&lt;u&gt;" dispEnd="&lt;/u&gt;">txeT <ph id="2" equiv="INTERPOLATION" disp="{{interpolation}}"></pc></pc></target>
       </segment>
     </unit>
     <unit id="8779402634269838862">
@@ -186,8 +186,8 @@ const LOAD_XLIFF = `<?xml version="1.0" encoding="UTF-8" ?>
         <note category="location">file.ts:7</note>
       </notes>
       <segment>
-        <source><ph id="0" equiv="LINE_BREAK" type="fmt" disp="&lt;br/&gt;"/><ph id="1" equiv="TAG_IMG" type="image" disp="&lt;img/&gt;"/><ph id="2" equiv="TAG_IMG_1" type="image" disp="&lt;img/&gt;"/></source>
-        <target><ph id="2" equiv="TAG_IMG_1" type="image" disp="&lt;img/&gt;"/><ph id="1" equiv="TAG_IMG" type="image" disp="&lt;img/&gt;"/><ph id="0" equiv="LINE_BREAK" type="fmt" disp="&lt;br/&gt;"/></target>
+        <source><ph id="0" equiv="LINE_BREAK" type="fmt" disp="&lt;br/&gt;"><ph id="1" equiv="TAG_IMG" type="image" disp="&lt;img/&gt;"><ph id="2" equiv="TAG_IMG_1" type="image" disp="&lt;img/&gt;"></source>
+        <target><ph id="2" equiv="TAG_IMG_1" type="image" disp="&lt;img/&gt;"><ph id="1" equiv="TAG_IMG" type="image" disp="&lt;img/&gt;"><ph id="0" equiv="LINE_BREAK" type="fmt" disp="&lt;br/&gt;"></target>
       </segment>
     </unit>
     <unit id="6536355551500405293">
@@ -214,8 +214,8 @@ const LOAD_XLIFF = `<?xml version="1.0" encoding="UTF-8" ?>
         <note category="location">file.ts:10</note>
       </notes>
       <segment>
-        <source>Test: <ph id="0" equiv="ICU" disp="{ count, plural, =0 {...} =other {...}}"/></source>
-        <target>Test: <ph id="0" equiv="ICU" disp="{ count, plural, =0 {...} =other {...}}"/></target>
+        <source>Test: <ph id="0" equiv="ICU" disp="{ count, plural, =0 {...} =other {...}}"></source>
+        <target>Test: <ph id="0" equiv="ICU" disp="{ count, plural, =0 {...} =other {...}}"></target>
       </segment>
     </unit>
     <unit id="5229984852258993423">
@@ -294,19 +294,19 @@ describe('XLIFF 2.0 serializer', () => {
       expect(loadAsMap(LOAD_XLIFF)).toEqual({
         '1933478729560469763': 'etubirtta elbatalsnart',
         '7056919470098446707':
-            '<ph name="INTERPOLATION"/> <ph name="START_BOLD_TEXT"/>sredlohecalp htiw<ph name="CLOSE_BOLD_TEXT"/> tnemele elbatalsnart',
+            '<ph name="INTERPOLATION"> <ph name="START_BOLD_TEXT">sredlohecalp htiw<ph name="CLOSE_BOLD_TEXT"> tnemele elbatalsnart',
         '2981514368455622387':
-            '{VAR_PLURAL, plural, =0 {[<ph name="START_PARAGRAPH"/>, TEST, <ph name="CLOSE_PARAGRAPH"/>]}}',
+            '{VAR_PLURAL, plural, =0 {[<ph name="START_PARAGRAPH">, TEST, <ph name="CLOSE_PARAGRAPH">]}}',
         'i': 'oof',
         '6440235004920703622':
-            '<ph name="START_BOLD_TEXT"/><ph name="START_UNDERLINED_TEXT"/>txeT <ph name="INTERPOLATION"/><ph name="CLOSE_UNDERLINED_TEXT"/><ph name="CLOSE_BOLD_TEXT"/>',
-        '8779402634269838862': '<ph name="TAG_IMG_1"/><ph name="TAG_IMG"/><ph name="LINE_BREAK"/>',
-        '6536355551500405293': '<ph name="START_TAG_SPAN"/><ph name="CLOSE_TAG_SPAN"/> olleh',
+            '<ph name="START_BOLD_TEXT"><ph name="START_UNDERLINED_TEXT">txeT <ph name="INTERPOLATION"><ph name="CLOSE_UNDERLINED_TEXT"><ph name="CLOSE_BOLD_TEXT">',
+        '8779402634269838862': '<ph name="TAG_IMG_1"><ph name="TAG_IMG"><ph name="LINE_BREAK">',
+        '6536355551500405293': '<ph name="START_TAG_SPAN"><ph name="CLOSE_TAG_SPAN"> olleh',
         'baz':
-            '{VAR_PLURAL, plural, =0 {[{VAR_SELECT, select, other {[<ph name="START_PARAGRAPH"/>, profondément imbriqué, <ph name="CLOSE_PARAGRAPH"/>]}},  ]}}',
-        '6997386649824869937': 'Test: <ph name="ICU"/>',
+            '{VAR_PLURAL, plural, =0 {[{VAR_SELECT, select, other {[<ph name="START_PARAGRAPH">, profondément imbriqué, <ph name="CLOSE_PARAGRAPH">]}},  ]}}',
+        '6997386649824869937': 'Test: <ph name="ICU">',
         '5229984852258993423': '{VAR_PLURAL, plural, =0 {[{VAR_SELECT, select, other {[<ph' +
-            ' name="START_PARAGRAPH"/>, profondément imbriqué, <ph name="CLOSE_PARAGRAPH"/>]}},  ]}, =other {[beaucoup]}}',
+            ' name="START_PARAGRAPH">, profondément imbriqué, <ph name="CLOSE_PARAGRAPH">]}},  ]}, =other {[beaucoup]}}',
         '2340165783990709777': `multi
 lignes`,
         'mrk-test': 'Vous pouvez utiliser votre propre namespace.',

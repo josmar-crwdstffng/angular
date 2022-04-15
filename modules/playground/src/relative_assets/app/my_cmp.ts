@@ -8,7 +8,7 @@
 
 // Declare the AMD dependency on "module" because otherwise the generated AMD module will
 // try to reference "module.id" from the globals, while we want the one from RequireJS.
-/// <amd-dependency path="module" name="module"/>
+/// <amd-dependency path="module" name="module">
 
 // We use the "node" type here because "module.id" is part of "CommonJS" and Bazel compiles
 // with "umd" module resolution which means that "module.id" is not a defined global variable.

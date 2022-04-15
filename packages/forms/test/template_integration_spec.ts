@@ -62,7 +62,7 @@ import {NgModelCustomComp, NgModelCustomWrapper} from './value_accessor_integrat
         // https://github.com/angular/angular/issues/33695
         @Component({
           selector: 'app-root',
-          template: `<input type="radio" value="one" [(ngModel)]="active"/>`
+          template: `<input type="radio" value="one" [(ngModel)]="active">`
         })
         class AppComponent {
           active = 'one';

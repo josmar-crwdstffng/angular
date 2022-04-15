@@ -7412,7 +7412,7 @@ function allTests(os: string) {
           env.write('test.ts', `
             import {Component} from '@angular/core';
             @Component({
-              template: '<input [value]="x ? y"/>',
+              template: '<input [value]="x ? y">',
               selector: 'test-cmp',
             })
             export class TestCmp {
@@ -7445,7 +7445,7 @@ function allTests(os: string) {
           env.write('test.ts', `
               import {Component} from '@angular/core';
               @Component({
-                template: \`<input (click)="x = 'invalid'"/> {{x = 2}}\`,
+                template: \`<input (click)="x = 'invalid'"> {{x = 2}}\`,
                 selector: 'test-cmp',
               })
               export class TestCmp {

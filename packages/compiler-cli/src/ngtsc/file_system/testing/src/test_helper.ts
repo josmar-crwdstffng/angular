@@ -5,7 +5,7 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-/// <reference types="jasmine"/>
+/// <reference types="jasmine">
 import ts from 'typescript';
 
 import {absoluteFrom, setFileSystem} from '../../src/helpers';

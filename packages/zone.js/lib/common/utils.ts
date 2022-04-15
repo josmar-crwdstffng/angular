@@ -11,7 +11,7 @@
  * @suppress {undefinedVars,globalThis,missingRequire}
  */
 
-/// <reference types="node"/>
+/// <reference types="node">
 
 // issue #989, to reduce bundle size, use short name
 /** Object.getOwnPropertyDescriptor */
