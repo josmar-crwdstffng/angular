@@ -1,34 +1,34 @@
 # Gathering and Viewing Usage Analytics
 
-Users can opt in to share their Angular CLI usage data with [Google Analytics](https://support.google.com/analytics/answer/1008015?hl=en), using the [`ng analytics` CLI command](analytics).
-The data is also shared with the Angular team, and used to improve the CLI.
+A user may choose to share Angular CLI usage data with [Google Analytics][GoogleSupportAnalyticsAnswer9306384]
+Use the `ng analytics` Angular CLI command to [enable usage analytics][AioAnalyticsAllowUsageAnalytics].
+The data is also shared with the Angular team, and used to improve the Angular CLI.
 
-The gathering of CLI analytics data is disabled by default, and must be enabled at the project level by individual users.
-It cannot be enabled at the project level for all users.
+The gathering of Angular CLI analytics data is turned off by default, and must be allowed at the project level by each individual user.
+You are not able to turn on the option at the project level for all users.
 
-Data gathered in this way can be viewed on the Google Analytics site, but is not automatically visible on your own organization's Analytics site.
-As an administrator for an Angular development group, you can configure your instance of Angular CLI to be able to see analytics data for your own team's usage of the Angular CLI.
-This configuration option is separate from and in addition to other usage analytics that your users may be sharing with Google.
+Data gathered is displayed on the Google Analytics site, but is not automatically visible on the Analytics site for your organization.
+As an administrator for an Angular development group, you configure your instance of Angular CLI to display the analytics data of usage of the Angular CLI for your team.
+This configuration option is separate from other usage analytics that your users may share with Google.
 
-## Enable access to CLI usage data
+## Enable access to Angular CLI usage data
 
-To configure access to your own users' CLI usage data, use the `ng config` command to add a key to your global [`angular.json` workspace configuration file](guide/workspace-config).
+To configure access to the Angular CLI usage data for a user, use the `ng config` Angular CLI command to add a key to your global [`angular.json` workspace configuration file][AioGuideWorkspaceConfig].
 The key goes under `cli.analyticsSharing` at the top level of the file, outside the `projects` sections.
-The value of the key is your organization's tracking ID, as assigned by Google Analytics.
-This ID is a string that looks like `UA-123456-12`.
+The value of the key is the tracking ID assigned to your organization by Google Analytics.
+<!--This ID is a string that looks like `UA-123456-12`.-->
 
-You can choose to use a descriptive string as the key value, or be assigned a random key when you run the CLI command.
-For example, the following command adds a configuration key named "tracking".
+Use a descriptive string as the key value, or be assigned a random key when you run the Angular CLI command.
 
-<code-example format="shell" language="shell">
+<code-example format="shell" header="ng config: add configuration key" language="shell">
 
-ng config --global cli.analyticsSharing.tracking UA-123456-12
+ng config --global cli.analyticsSharing.{nameOfConfigurationKey} {google-analytics-tracking-id}
 
 </code-example>
 
-To turn off this feature, run the following command:
+To turn off the feature, run the following Angular CLI command.
 
-<code-example format="shell" language="shell">
+<code-example format="shell" header="ng config: remove configuration key" language="shell">
 
 ng config --global cli.analyticsSharing undefined
 
@@ -36,18 +36,18 @@ ng config --global cli.analyticsSharing undefined
 
 ## Per user tracking
 
-You can add a custom user ID to the global configuration, in order to identify unique usage of commands and flags.
-If that user enables CLI analytics for their own project, your analytics display tracks and labels their individual usage.
+Add a custom user ID to the global configuration in order to identify unique usage of commands and flags.
+If the user allows Angular CLI analytics for an user-owned project, your analytics view tracks and labels the usage associated with that user.
 
-<code-example format="shell" language="shell">
+<code-example format="shell" header="ng config: add custom user ID" language="shell">
 
-ng config --global cli.analyticsSharing.uuid SOME_USER_NAME
+ng config --global cli.analyticsSharing.uuid {custom_user_id}
 
 </code-example>
 
-To generate a new random user ID, run the following command:
+To generate a new random user identifier, run the following Angular CLI command.
 
-<code-example format="shell" language="shell">
+<code-example format="shell" header="ng config: add random custom user ID" language="shell">
 
 ng config --global cli.analyticsSharing.uuid ""
 
@@ -55,8 +55,14 @@ ng config --global cli.analyticsSharing.uuid ""
 
 <!-- links -->
 
+[AioAnalyticsAllowUsageAnalytics]: analytics#allow-usage-analytics "Allow usage analytics - Usage Metrics Gathering | Angular"
+
+[AioGuideWorkspaceConfig]: guide/workspace-config "Angular workspace configuration | Angular"
+
 <!-- external links -->
+
+[GoogleSupportAnalyticsAnswer9306384]: https://support.google.com/analytics/answer/9306384 "Get started with Analytics | Analytics Help | Google Help"
 
 <!-- end links -->
 
-@reviewed 2022-02-28
+@reviewed 2022-04-18
