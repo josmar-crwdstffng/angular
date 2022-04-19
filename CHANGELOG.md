@@ -360,16 +360,16 @@ Adrien Crivelli, Alan Agius, Alex Rickabaugh, Andrew Kushnir, Andrew Scott, Dyla
 - Keyframes names are now prefixed with the component's "scope name".
   For example, the following keyframes rule in a component definition,
   whose "scope name" is host-my-cmp:
-  
+
      @keyframes foo { ... }
-  
+
   will become:
-  
+
      @keyframes host-my-cmp_foo { ... }
-  
+
   Any TypeScript/JavaScript code which relied on the names of keyframes rules
   will no longer match.
-  
+
   The recommended solutions in this case are to either:
   - change the component's view encapsulation to the `None` or `ShadowDom`
   - define keyframes rules in global stylesheets (e.g styles.css)
@@ -379,23 +379,23 @@ Adrien Crivelli, Alan Agius, Alex Rickabaugh, Andrew Kushnir, Andrew Scott, Dyla
 - Support for Node.js v12 has been removed as it will become EOL on 2022-04-30. Please use Node.js v14.15 or later.
 - TypeScript versions older than 4.6 are no longer supported.
 - Forms [email] input coercion
-  
+
   Forms [email] input value will be considered as true if it is defined with any value rather
   than false and 'false'.
 - Since Ivy, TestBed doesn't use AOT summaries. The `aotSummaries` fields in TestBed APIs were present, but unused. The fields were deprecated in previous major version and in v14 those fields are removed. The `aotSummaries` fields were completely unused, so you can just drop them from the TestBed APIs usage.
 ### forms
 - Forms classes accept a generic.
-  
+
   Forms model classes now accept a generic type parameter. Untyped versions of these classes are available to opt-out of the new, stricter behavior.
 - objects with a length key set to zero will no longer validate as empty.
-  
+
   This is technically a breaking change, since objects with a key `length` and value `0` will no longer validate as empty. This is a very minor change, and any reliance on this behavior is probably a bug anyway.
 ### http
 - Queries including + will now actually query for + instead of space.
   Most workarounds involving custom codecs will be unaffected.
   Possible server-side workarounds will need to be undone.
 - JSONP will throw an error when headers are set on a reques
-  
+
   JSONP does not support headers being set on requests. Before when
   a request was sent to a JSONP backend that had headers set the headers
   were ignored. The JSONP backend will now throw an error if it
@@ -406,7 +406,7 @@ Adrien Crivelli, Alan Agius, Alex Rickabaugh, Andrew Kushnir, Andrew Scott, Dyla
 - This change may cause a breaking change in unit tests that are implicitly depending on a specific
   number and sequence of change detections in order for their assertions to pass.
 - This may break invalid calls to `TransferState` methods.
-  
+
   This tightens parameter types of `TransferState` usage, and is a minor breaking change which may reveal existing problematic calls.
 ### router
 - The type of `Route.pathMatch` is now stricter. Places that use
@@ -428,7 +428,7 @@ Adrien Crivelli, Alan Agius, Alex Rickabaugh, Andrew Kushnir, Andrew Scott, Dyla
     actually gets set to something completely different. It's set to the
     current internal `UrlTree` of the Router at the time navigation
     occurs.
-  
+
   With this change, there is no exact replacement for the old value of
   `initialUrl` because it was never intended to be exposed.
   `Router.url` is likely the best replacement for this.
@@ -452,7 +452,7 @@ Adrien Crivelli, Alan Agius, Alex Rickabaugh, Andrew Kushnir, Andrew Scott, Dyla
   returned by other guards: only the first value is used.
 ### zone.js
 - in TaskTrackingZoneSpec track a periodic task until it is cancelled
-  
+
   The breaking change is scoped only to the plugin
   `zone.js/plugins/task-tracking`. If you used `TaskTrackingZoneSpec` and
   checked the pending macroTasks e.g. using `(this.ngZone as any)._inner
@@ -461,7 +461,7 @@ Adrien Crivelli, Alan Agius, Alex Rickabaugh, Andrew Kushnir, Andrew Scott, Dyla
   previously the `setInterval` macrotask was no longer tracked after its
   callback was executed for the first time. Now it's tracked until
   the task is explicitly cancelled, e.g  with `clearInterval(id)`.
-  
+
 ## Deprecations
 ### common
 - The `ngModuleFactory` input of the `NgComponentOutlet` directive is deprecated in favor of a newly added `ngModule` input. The `ngModule` input accepts references to the NgModule class directly, without the need to resolve module factory first.
@@ -953,13 +953,13 @@ Alan, Andrew Kushnir, Andrew Scott, Aristeidis Bampakos, Arjen, Daniel Díaz, Da
 <a name="13.2.0"></a>
 # 13.2.0 (2022-01-26)
 ## Deprecations
-### 
+###
 - The `CachedResourceLoader` and `RESOURCE_CACHE_PROVIDER` symbols were previously necessary in some cases to test AOT-compiled components with View Engine, but they are no longer needed since Ivy.
 
 - The `ComponentFactory` and `ComponentFactoryResolver` classes are deprecated. Since Ivy, there is no need to resolve Component factories. Please use other APIs where you Component classes can be used directly (without resolving their factories).
 
 - Since Ivy, the `CompilerOptions.useJit` and `CompilerOptions.missingTranslation` config options are unused, passing them has no effect.
-### 
+###
 | Commit | Type | Description |
 | -- | -- | -- |
 | [9c11183e74](https://github.com/angular/angular/commit/9c11183e74980b12c3c5712df174e90af6f19027) | docs | deprecate `CachedResourceLoader` and `RESOURCE_CACHE_PROVIDER` symbols ([#44749](https://github.com/angular/angular/pull/44749)) |
@@ -1065,13 +1065,13 @@ Aristeidis Bampakos, Dylan Hunn, George Kalpakas, JoostK, Kristiyan Kostadinov, 
 <a name="13.1.0"></a>
 # 13.1.0 (2021-12-09)
 ## Deprecations
-### 
+###
 - The `downgradeModule` function calls with NgModule factories are deprecated. Please use NgModule class based `downgradeModule` calls instead.
 ### common
 - `TestRequest` from `@angular/common/http/testing` no longer
 accepts `ErrorEvent` when simulating XHR errors. Instead, instances of
 `ProgressEvent` should be passed, matching with the native browser behavior.
-### 
+###
 | Commit | Type | Description |
 | -- | -- | -- |
 | [dbc46d68b9](https://github.com/angular/angular/commit/dbc46d68b99f5516209991ee3421292fc8261bec) | docs | deprecate factory-based signature of the `downgradeModule` function ([#44090](https://github.com/angular/angular/pull/44090)) |
@@ -1243,15 +1243,15 @@ change is that `DebugElement.properties['href']` will now return the
 `href` value returned by the native element which will be the full URL
 rather than the internal value of the `RouterLink` `href` property.
 
-- When storing and retrieving a `DetachedRouteHandle`, the Router traverses 
-the `Route` children in order to correctly allow storing a parent route when 
+- When storing and retrieving a `DetachedRouteHandle`, the Router traverses
+the `Route` children in order to correctly allow storing a parent route when
 there are several possible child `Route` configs that can be stored. This allows
 a `RouteReuseStrategy` to store a parent `Route` _and_ a child, while preserving
-the ability to change the child route while restoring the parent. Some 
-implementations of `RouteReuseStrategy` will need to be updated to correctly 
+the ability to change the child route while restoring the parent. Some
+implementations of `RouteReuseStrategy` will need to be updated to correctly
 store and retrieve the `DetachedRouteHandle` of descendants as well as the stored
 parent `ActivatedRouteSnapshot`. Previously, the `Router` would only store
-the parent, making it impossible to change descendant paths when a stored parent 
+the parent, making it impossible to change descendant paths when a stored parent
 was retrieved. See #20114.
 
 - The router will no longer replace the browser URL when a new navigation
@@ -1295,7 +1295,7 @@ return type.
 
 - Ivy made it possible to avoid the need to resolve Component and NgModule factories. Framework APIs allow to use Component and NgModule Types directly. As a result, the `PlatformRef.bootstrapModuleFactory` and a factory-based signature of the `ApplicationRef.bootstrap` method are now obsolete and are now deprecated. The `PlatformRef.bootstrapModuleFactory` calls can be replaced with `PlatformRef.bootstrapModule` ones. The `ApplicationRef.bootstrap` method allows to provide Component Type, so this can be used a replacement for the factory-based calls.
 
-- In ViewEngine, [JIT compilation](https://angular.io/guide/glossary#jit) required special providers (like `Compiler`, `CompilerFactory`, etc) to be injected in the app and corresponding methods to be invoked. With Ivy, JIT compilation takes place implicitly if the Component, NgModule, etc. have not already been [AOT compiled](https://angular.io/guide/glossary#aot). Those special providers were made available in Ivy for backwards-compatibility with ViewEngine to make the transition to Ivy smoother. Since ViewEngine is deprecated and will soon be removed, those symbols are now deprecated as well:
+- In ViewEngine, [JIT compilation][AioGuideGlossaryJustInTimeJitCompilation] required special providers (like `Compiler`, `CompilerFactory`, etc) to be injected in the app and corresponding methods to be invoked. With Ivy, JIT compilation takes place implicitly if the Component, NgModule, etc have not already been [AOT compiled][AioGuideGlossaryAheadOfTimeAotCompilation]. Those special providers were made available in Ivy for backwards-compatibility with ViewEngine to make the transition to Ivy smoother. Since ViewEngine is deprecated and will soon be removed, those symbols are now deprecated as well:
 
 - `ModuleWithComponentFactories`
 - `Compiler`
@@ -3271,3 +3271,14 @@ This release contains the same set the of changes as 11.2.0-next.1.
 
 * **compiler:** remove support for TypeScript 3.9 ([#39313](https://github.com/angular/angular/issues/39313)) ([736e064](https://github.com/angular/angular/commit/736e0644b02bc4606a7ae0c974d1b06e993708f6))
 * **router:** adjust type of parameter in `navigateByUrl` and `createUrlTree` to be more accurate ([#38227](https://github.com/angular/angular/issues/38227)) ([e4f4d18](https://github.com/angular/angular/commit/e4f4d18)), closes [#18798](https://github.com/angular/angular/issues/18798)
+
+<!-- links -->
+
+[AioGuideGlossaryAheadOfTimeAotCompilation]: guide/glossary#ahead-of-time-aot-compilation "ahead-of-time (AOT) compilation - Glossary | Angular"
+[AioGuideGlossaryJustInTimeJitCompilation]: guide/glossary#just-in-time-jit-compilation "just-in-time (JIT) compilation - Glossary | Angular"
+
+<!-- external links -->
+
+<!-- end links -->
+
+@reviewed 2022-04-18

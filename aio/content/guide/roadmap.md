@@ -114,7 +114,6 @@ As part of this project we'd like to implement mixed orientation support for the
   </summary>
   <div class="details-content">
 
-
 ### Allow binding to protected fields in templates
 
 *Completed Q2 2022*
@@ -137,11 +136,11 @@ In Q4 2021 we designed a solution for introducing strict typings for forms and i
 Currently, we are implementing a rollout strategy with an automated migration step that will enable the improvements for existing projects.
 We are first testing the solution with more than 2,500 projects at Google to ensure a smooth migration path for the external community.
 
-### Remove legacy [View Engine](guide/glossary#ve)
+### Remove legacy View Engine
 
 *Completed Q1 2022*
 
-After the transition of all our internal tooling to Ivy is completed, we will remove the legacy View Engine for reduced Angular conceptual overhead, smaller package size, lower maintenance cost, and lower codebase complexity.
+After the transition of all our internal tooling to Ivy is completed, we will remove the legacy [View Engine][AioGuideGlossaryViewEngine] for reduced Angular conceptual overhead, smaller package size, lower maintenance cost, and lower codebase complexity.
 
 ### Simplified Angular mental model with optional NgModules
 
@@ -309,8 +308,10 @@ After that, we will commit up to 20% of our engineering capacity to keep up with
 
 <!-- links -->
 
+[AioGuideGlossaryViewEngine]: guide/glossary#view-engine "View Engine - Glossary | Angular"
+
 <!-- external links -->
 
 <!-- end links -->
 
-@reviewed 2022-02-28
+@reviewed 2022-04-18

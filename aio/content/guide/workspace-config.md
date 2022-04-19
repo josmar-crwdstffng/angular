@@ -189,7 +189,7 @@ In general, the options for which you can configure defaults correspond to the c
 <div class="alert is-helpful">
 
 **NOTE**: <br />
-All options in the configuration file must use [camelCase](guide/glossary#case-conventions), rather than dash-case.
+All options in the configuration file must use [camelCase][AioGuideGlossaryCaseTypes], rather than dash-case.
 
 </div>
 
@@ -503,10 +503,12 @@ These are useful if you only want source maps to map error stack traces in error
 
 <!-- links -->
 
+[AioGuideGlossaryCaseTypes]: guide/glossary#case-types "case types - Glossary | Angular"
+
 [AioGuideI18nCommonMerge]: guide/i18n-common-merge "Common Internationalization task #6: Merge translations into the application | Angular"
 
 <!-- external links -->
 
 <!-- end links -->
 
-@reviewed 2022-02-28
+@reviewed 2022-04-18

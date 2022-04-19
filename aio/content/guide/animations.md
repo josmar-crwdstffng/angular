@@ -103,7 +103,7 @@ This function takes two arguments:
 A unique name like `open` or `closed` and a `style()` function.
 
 Use the `style()` function to define a set of styles to associate with a given state name.
-You must use [*camelCase*](guide/glossary#case-conventions) for style attributes that contain dashes, such as `backgroundColor` or wrap them in quotes, such as `'background-color'`.
+You must use [*camelCase*](guide/glossary#case-types "case types - Glossary | Angular") for style attributes that contain dashes, such as `backgroundColor` or wrap them in quotes, such as `'background-color'`.
 
 Let's see how Angular's [`state()`](api/animations/state) function works with the `style⁣­(⁠)` function to set CSS style attributes.
 In this code snippet, multiple style attributes are set at the same time for the state.
@@ -333,8 +333,10 @@ Check out this [presentation](https://www.youtube.com/watch?v=rnTK9meY5us), show
 
 <!-- links -->
 
+[AioGuideGlossaryCaseTypes]: guide/glossary#case-types "case types - Glossary | Angular"
+
 <!-- external links -->
 
 <!-- end links -->
 
-@reviewed 2022-02-28
+@reviewed 2022-04-18

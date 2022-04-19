@@ -8,7 +8,7 @@ This means that the application generally renders more quickly, giving users a c
 
 For a more detailed look at different techniques and concepts surrounding SSR, check out this [article](https://developers.google.com/web/updates/2019/02/rendering-on-the-web).
 
-Easily prepare an application for server-side rendering using the [Angular CLI](guide/glossary#cli).
+Easily prepare an application for server-side rendering using the [Angular CLI][AioGuideGlossaryCommandLineInterfaceCli].
 The CLI schematic `@nguniversal/express-engine` performs the required steps, as described.
 
 <div class="alert is-helpful">
@@ -331,8 +331,10 @@ Now, on every HTTP request made as part of rendering the application on the serv
 
 <!-- links -->
 
+[AioGuideGlossaryCommandLineInterfaceCli]: guide/glossary#command-line-interface-cli "command-line interface (CLI) - Glossary | Angular"
+
 <!-- external links -->
 
 <!-- end links -->
 
-@reviewed 2022-02-28
+@reviewed 2022-04-18

@@ -2,8 +2,8 @@
  * @license
  * Copyright Google LLC All Rights Reserved.
  *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
+ * Use of this source code is governed by an MIT-style license that can be found in the LICENSE file
+ * at https://angular.io/license
  */
 
 import {CompilerConfig} from '@angular/compiler';
@@ -26,8 +26,9 @@ export const COMPILER_PROVIDERS =
  *
  * @deprecated
  * Ivy JIT mode doesn't require accessing this symbol.
- * See [JIT API changes due to ViewEngine deprecation](guide/deprecations#jit-api-changes) for
- * additional context.
+ * See [JIT API changes due to ViewEngine
+ * deprecation](guide/deprecations#jit-api-changes-due-to-viewengine-deprecation) for additional
+ * context.
  */
 export class JitCompilerFactory implements CompilerFactory {
   private _defaultOptions: CompilerOptions[];
@@ -49,12 +50,12 @@ export class JitCompilerFactory implements CompilerFactory {
         provide: CompilerConfig,
         useFactory: () => {
           return new CompilerConfig({
-            // let explicit values from the compiler options overwrite options
-            // from the app providers
+            // let explicit values from the compiler options overwrite options from the app
+            // providers
             useJit: opts.useJit,
             jitDevMode: isDevMode(),
-            // let explicit values from the compiler options overwrite options
-            // from the app providers
+            // let explicit values from the compiler options overwrite options from the app
+            // providers
             defaultEncapsulation: opts.defaultEncapsulation,
             missingTranslation: opts.missingTranslation,
             preserveWhitespaces: opts.preserveWhitespaces,

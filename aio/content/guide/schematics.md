@@ -11,7 +11,7 @@ Use schematics to enforce architectural rules and conventions, making your proje
 ## Schematics for the Angular CLI
 
 Schematics are part of the Angular ecosystem.
-The [Angular CLI](guide/glossary#cli)  uses schematics to apply transforms to a web-app project.
+The [Angular CLI][AioGuideGlossaryCommandLineInterfaceCli] uses schematics to apply transforms to a web-app project.
 You can modify these schematics, and define new ones to do things like update your code to fix breaking changes in a dependency, for example, or to add a new configuration option or framework to an existing project.
 
 Schematics that are included in the `@schematics/angular` collection are run by default by the commands `ng generate` and `ng add`.
@@ -124,7 +124,9 @@ If you create a new version of your library that introduces potential breaking c
 For example, suppose you want to update the Angular Material library.
 
 <code-example format="shell" language="shell">
+
 ng update &commat;angular/material
+
 </code-example>
 
 This command updates both `@angular/material` and its dependency `@angular/cdk` in your workspace's `package.json`.
@@ -132,8 +134,10 @@ If either package contains an update schematic that covers migration from the ex
 
 <!-- links -->
 
+[AioGuideGlossaryCommandLineInterfaceCli]: guide/glossary#command-line-interface-cli "command-line interface (CLI) - Glossary | Angular"
+
 <!-- external links -->
 
 <!-- end links -->
 
-@reviewed 2022-02-28
+@reviewed 2022-04-18

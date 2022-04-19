@@ -32,10 +32,6 @@ This glossary lists the most prominent terms and a few less familiar ones with u
 [Y][AioGuideGlossaryY]
 [Z][AioGuideGlossaryZ]
 
-<!-- vale Angular.Google_Headings = NO -->
-
-<a id="aot"></a>
-
 ## ahead-of-time (AOT) compilation
 
 The Angular ahead-of-time \(AOT\) compiler converts Angular HTML and TypeScript code into efficient JavaScript code during the build phase. The build phase occurs before the browser downloads and runs the rendered code.
@@ -47,7 +43,7 @@ By compiling your application using the `ngc` command-line tool, you can bootstr
 
 An Angular [component][AioGuideGlossaryComponent] packaged as a [custom element][AioGuideGlossaryCustomElement].
 
-Learn more in [Angular Elements Overview][AioGuideElements].
+Learn more in [Angular web component][AioGuideComponentWeb].
 
 ## Angular package format (APF)
 
@@ -120,11 +116,6 @@ For example, [BrowserBuilder][GithubAngularAngularCliTreePrimaryPackagesAngularD
 The [`ng run`][AioCliRun] Angular CLI command invokes a builder with a specific [target configuration][AioGuideGlossaryTarget].
 The [workspace configuration][AioGuideWorkspaceConfig] file, `angular.json`, contains default configurations for built-in builders.
 
-<a id ="camelcase"></a>
-
-<a id="case-conventions"></a>
-<a id="dash-case"></a>
-
 ## case types
 
 Angular uses capitalization conventions to distinguish the names of various types, as described in the [naming guidelines section][AioGuideStyleguide0201] of the Style Guide.
@@ -133,7 +124,7 @@ Here is a summary of the case types:
 |                                                                           | Details                                                                                                                                                                      | example             |
 |:---                                                                       |:---                                                                                                                                                                          |:---                 |
 | camelCase                                                                 | Symbols, properties, methods, pipe names, non-component directive selectors, constants. <br /> Standard or lower camel case uses lowercase on the first letter of the item.  | `selectedHero`      |
-| UpperCamelCase <br /> PascalCase                                          | Class names, including classes that define components, interfaces, NgModules, directives, and pipes. <br /> Upper camel case uses uppercase on the first letter of the item. | `HeroComponent` |
+| UpperCamelCase <br /> PascalCase                                          | Class names, including classes that define components, interfaces, [NgModules][AioGuideGlossaryNgmodule], directives, and pipes. <br /> Upper camel case uses uppercase on the first letter of the item. | `HeroComponent` |
 | dash-case <br /> kebab-case                                               | Descriptive part of file names, component selectors.                                                                                                                         | `app-hero-list`     |
 | underscore_case <br /> snake_case                                         | Not typically used in Angular. <br /> Snake case uses words connected with underscores.                                                                                      | `convert_link_mode` |
 | UPPER_UNDERSCORE_CASE <br /> UPPER_SNAKE_CASE <br /> SCREAMING_SNAKE_CASE | Traditional for constants. <br /> This case is acceptable, but camelCase is preferred. <br /> Upper snake case uses words in all capital letters connected with underscores. | `FIX_ME`            |
@@ -156,8 +147,6 @@ If you set the `OnPush` change-detection strategy, the change detector runs only
 This typically improves performance.
 To learn more, see [Optimize the change detection in Angular][WebDevFasterAngularChangeDetection].
 
-<a id="decorator"></a>
-
 ## class decorator
 
 A [decorator][AioGuideGlossaryDecoratorDecoration] that appears immediately before a class definition, which declares the class to be of the given type, and provides metadata suitable to the type.
@@ -178,8 +167,6 @@ Some examples are `@Input` and `@Output`.
 ## collection
 
 In Angular, a set of related [schematics][AioGuideGlossarySchematic] collected in an [npm package][AioGuideGlossaryNpmPackage].
-
-<a id="cli"></a>
 
 ## command-line interface (CLI)
 
@@ -211,7 +198,7 @@ See [workspace configuration][AioGuideGlossaryWorkspaceConfig]
 
 A way to insert DOM content from outside a component into the view of the component in a designated spot.
 
-To learn more, see [Responding to changes in content][AioGuideLifecycleHooksRespondingToProjectedContentChanges].
+To learn more, see [Responding to changes in content][AioGuideComponentLifecycleTutorialRespondToProjectedContentChanges].
 
 ## custom element
 
@@ -246,20 +233,38 @@ Read about the following forms of binding of the [Template Syntax][AioGuideTempl
 
 ## declarable
 
-A class that you can add to the `declarations` list of an [NgModule][AioGuideGlossaryNgmodule].
-You can declare [components][AioGuideGlossaryComponent], [directives][AioGuideGlossaryDirective], and [pipes][AioGuideGlossaryPipe], unless they have the `standalone` flag in their decorators set to `true`, which makes them standalone. Note: standalone components/directives/pipes are **not** declarables. More info about standalone classes can be found [below][AioGuideGlossaryStandalone].
+A class that you add to the `declarations` list of an [NgModule][AioGuideGlossaryNgmodule].
+You are able to declare a [component][AioGuideGlossaryComponent], [directive][AioGuideGlossaryDirective], or [pipe][AioGuideGlossaryPipe].
+If the `standalone` flag in the associated decorator is set to `true`, which makes the a [component][AioGuideGlossaryComponent], [directive][AioGuideGlossaryDirective], or [pipe][AioGuideGlossaryPipe] standalone.
 
-Do not declare the following:
+<div class="alert is-helpful">
 
-*   A class already declared as [standalone][AioGuideGlossaryStandalone].
-*   A class that is already declared in another NgModule.
+**NOTE**: <br />
+Standalone component, standalone directive, or standalone pipe is not declarable.
+To learn more, see [standalone][AioGuideGlossaryStandalone].
+
+</div>
+
+Do not declare the following.
+
+*   A class already declared as [standalone][AioGuideGlossaryStandalone]
+*   A class that is already declared in another NgModule
 *   An array of directives imported from another package.
     For example, do not declare `FORMS_DIRECTIVES` from `@angular/forms`.
-*   NgModule classes.
-*   Service classes.
-*   Non-Angular classes and objects, such as strings, numbers, functions, entity models, configurations, business logic, and helper classes.
 
-Note that declarables can also be declared as standalone and simply be imported inside other standalone components or existing NgModules, to learn more, see the [Standalone components guide][AioGuideStandalone].
+*   NgModule class
+*   Service class
+*   Non-Angular class and object.
+    For example, string, number, function, entity model, configuration, business logic, and helper class.
+
+<div class="alert is-helpful">
+
+**NOTE**: <br />
+A declarable may be declared as standalone and imported inside another standalone component or existing NgModule.
+To learn more, see [Getting started with standalone components][AioGuideStandalone].
+
+</div>
+
 ## decorator | decoration
 
 A function that modifies a class or property definition.
@@ -315,7 +320,7 @@ You can use **lowerCamelCase** when describing how to apply the directive to an 
 
 A special-purpose library or API.
 To learn more, see [Domain-specific language][WikipediaWikiDomainSpecificLanguage].
-Angular extends TypeScript with domain-specific languages for a number of domains relevant to Angular applications, defined in NgModules such as [animations][AioGuideAnimations], [forms][AioGuideForms], and [routing and navigation][AioGuideRouter].
+Angular extends TypeScript with domain-specific languages for a number of domains relevant to Angular applications, defined in [NgModules][AioGuideGlossaryNgmodule] such as [animations][AioGuideAnimations], [forms][AioGuideForms], and [routing and navigation][AioGuideRouter].
 
 ## dynamic component loading
 
@@ -326,7 +331,7 @@ See also [custom element][AioGuideGlossaryCustomElement], which provides an easi
 
 ## eager loading
 
-NgModules or components that are loaded on launch are referenced as eager-loaded, to distinguish them from those that are loaded at run time that are referenced as lazy-loaded.
+[NgModules][AioGuideGlossaryNgmodule] or components that are loaded on launch are referenced as eager-loaded, to distinguish them from those that are loaded at run time that are referenced as lazy-loaded.
 See also [lazy loading][AioGuideGlossaryLazyLoading].
 
 ## ECMAScript
@@ -393,7 +398,7 @@ Other items, such as constant values, can also be injectable.
 ## injector
 
 An object in the Angular [dependency-injection][AioGuideGlossaryDependencyInjectionDi] system that can find a named dependency in its cache or create a dependency using a configured [provider][AioGuideGlossaryProvider].
-Injectors are created for NgModules automatically as part of the bootstrap process and are inherited through the component hierarchy.
+Injectors are created for [NgModules][AioGuideGlossaryNgmodule] automatically as part of the bootstrap process and are inherited through the component hierarchy.
 
 *   An injector provides a singleton instance of a dependency, and can inject this same instance in multiple components.
 *   A hierarchy of injectors at the NgModule and component level can provide different instances of a dependency to their own components and child components.
@@ -406,7 +411,7 @@ Learn more about the injector hierarchy in [Hierarchical Dependency Injectors][A
 When defining a [directive][AioGuideGlossaryDirective], the `@Input()` decorator on a directive property makes that property available as a *target* of a [property binding][AioGuidePropertyBinding].
 Data values flow into an input property from the data source identified in the [template expression][AioGuideGlossaryTemplateExpression] to the right of the equal sign.
 
-To learn more, see [`@Input()` and `@Output()` decorator functions][AioGuideInputsOutputs].
+To learn more, see [`@Input()` and `@Output()` decorator functions][AioGuideComponentUsageComponentDataSharingAndInheritance].
 
 ## interpolation
 
@@ -430,8 +435,6 @@ It is now the only supported engine, so everything uses Ivy.
 
 To learn more, see [ECMAScript][AioGuideGlossaryEcmascript].
 To learn more, see also [TypeScript][AioGuideGlossaryTypescript].
-
-<a id="jit"></a>
 
 ## just-in-time (JIT) compilation
 
@@ -470,7 +473,7 @@ An interface that allows you to tap into the lifecycle of [directives][AioGuideG
 Each interface has a single hook method whose name is the interface name prefixed with `ng`.
 For example, the `OnInit` interface has a hook method named `ngOnInit`.
 
-Angular runs these hook methods in the following order:
+Angular runs these hook methods in the following order.
 
 |     | hook method             | Details                                                                                           |
 |:--- |:---                     |:---                                                                                               |
@@ -483,7 +486,7 @@ Angular runs these hook methods in the following order:
 | 7   | `ngAfterViewChecked`    | After every check of the views of a component.                                                    |
 | 8   | `ngOnDestroy`           | Just before the directive is destroyed.                                                           |
 
-To learn more, see [Lifecycle Hooks][AioGuideLifecycleHooks].
+To learn more, see [Lifecycle Hooks][AioGuideComponentLifecycle].
 
 ## module
 
@@ -559,7 +562,7 @@ The object defines the callbacks for the [subscriber][AioGuideGlossarySubscriber
 When defining a [directive][AioGuideGlossaryDirective], the `@Output{}` decorator on a directive property makes that property available as a *target* of [event binding][AioGuideEventBinding].
 Events stream *out* of this property to the receiver identified in the [template expression][AioGuideGlossaryTemplateExpression] to the right of the equal sign.
 
-To learn more, see [`@Input()` and `@Output()` decorator functions][AioGuideInputsOutputs].
+To learn more, see [`@Input()` and `@Output()` decorator functions][AioGuideComponentUsageComponentDataSharingAndInheritance].
 
 ## pipe
 
@@ -707,7 +710,7 @@ You can also use the `schematics` command to add a new schematic to an existing 
 ## scoped package
 
 A way to group related [npm packages][AioGuideNpmPackages].
-NgModules are delivered within scoped packages whose names begin with the Angular *scope name* `@angular`.
+[NgModules][AioGuideGlossaryNgmodule] are delivered within scoped packages whose names begin with the Angular *scope name* `@angular`.
 For example, `@angular/core`, `@angular/common`, `@angular/forms`, and `@angular/router`.
 
 Import a scoped package in the same way that you import a normal package.
@@ -737,14 +740,15 @@ To learn more, see [Introduction to Services and Dependency Injection][AioGuideA
 
 ## standalone
 
-A configuration of [components][AioGuideGlossaryComponent], [directives][AioGuideGlossaryDirective], and [pipes][AioGuideGlossaryPipe] to indicate that this class can be imported directly without declaring it in any [NgModule][AioGuideGlossaryNgmodule].
+A configuration of a [component][AioGuideGlossaryComponent], [directive][AioGuideGlossaryDirective], or [pipe][AioGuideGlossaryPipe] that informs the Angular framework to directly import the class without declaring it in any [NgModule][AioGuideGlossaryNgmodule].
 
-Standalone components, directives and pipes mainly differ from non-standalone ones by:
- - having the `standalone` field of their decorator set to `true`.
- - allowing their direct importing without the need to pass through NgModules.
- - specifying their dependencies directly in their decorator.
+A standalone component, standalone directive, or standalone pipe mainly differs from non-standalone implementation in the following ways.
 
-To learn more, see the [Standalone components guide][AioGuideStandalone].
+*   The `standalone` field of the associated decorator is set to `true`
+*   Allows the direct import without the need to pass through [NgModules][AioGuideGlossaryNgmodule]
+*   Directly specifies the associated dependencies in the associated decorator
+
+To learn more, see [Getting started with standalone components][AioGuideStandalone].
 
 ## structural directive
 
@@ -891,7 +895,7 @@ A parent component can easily change values in its child components because the 
 A failure could occur, however, if a child component tries to change a value in its parent during change detection \(inverting the expected data flow\), because the parent component has already been rendered.
 In development mode, Angular throws the `ExpressionChangedAfterItHasBeenCheckedError` error if your application attempts to do this, rather than silently failing to render the new value.
 
-To avoid this error, a [lifecycle hook][AioGuideLifecycleHooks] method that seeks to make such a change should trigger a new change detection run.
+To avoid this error, a [lifecycle hook][AioGuideComponentLifecycle] method that seeks to make such a change should trigger a new change detection run.
 The new run follows the same direction as before, but succeeds in picking up the new value.
 
 ## Universal
@@ -916,15 +920,11 @@ You can change the structure of elements by inserting, moving, or removing neste
 
 View hierarchies can be loaded and unloaded dynamically as the user navigates through the application, typically under the control of a [router][AioGuideGlossaryRouter].
 
-<a id="ve"></a>
-
 ## View Engine
 
 A previous compilation and rendering pipeline used by Angular.
 It has since been replaced by [Ivy][AioGuideGlossaryIvy] and is no longer in use.
 View Engine was deprecated in version 9 and removed in version 13.
-
-<a id="view-tree"></a>
 
 ## view hierarchy
 
@@ -935,7 +935,7 @@ The view hierarchy is a key part of Angular [change detection][AioGuideGlossaryC
 
 The view hierarchy does not imply a component hierarchy.
 Views that are embedded in the context of a particular hierarchy can be host views of other components.
-Those components can be in the same NgModule as the hosting component, or belong to other NgModules.
+Those components can be in the same NgModule as the hosting component, or belong to other [NgModules][AioGuideGlossaryNgmodule].
 
 ## web component
 
@@ -1018,17 +1018,17 @@ Learn more about zones in this [Brian Ford video][YoutubeWatchV3iqtmusceU].
 
 [AioGuideBuiltInDirectivesDisplayingAndUpdatingPropertiesWithNgmodel]: guide/built-in-directives#displaying-and-updating-properties-with-ngmodel "Displaying and updating properties with ngModel - Built-in directives | Angular"
 
-[AioGuideLifecycleHooks]: guide/lifecycle-hooks "Lifecycle Hooks | Angular"
+[AioGuideComponentLifecycle]: guide/component/component-lifecycle "Component Lifecycle | Angular"
 
-[AioGuideLifecycleHooksRespondingToProjectedContentChanges]: guide/lifecycle-hooks#responding-to-projected-content-changes "Responding to projected content changes - Lifecycle Hooks | Angular"
+[AioGuideComponentLifecycleTutorialRespondToProjectedContentChanges]: guide/component/component-example-lifecycle#respond-to-projected-content-changes "Respond to projected content changes - Example: lifecycle hook methods | Angular"
 
-[AioGuideInputsOutputs]: guide/inputs-outputs "Sharing data between child and parent directives and components | Angular"
+[AioGuideComponentUsageComponentDataSharingAndInheritance]: guide/component/component-usage#component-data-sharing-and-inheritance "Component data sharing and inheritance - Use an Angular component | Angular"
+
+[AioGuideComponentWeb]: guide/component/component-web "Web component | Angular"
 
 [AioGuideCreatingLibrariesIntegratingWithTheCliUsingCodeGenerationSchematics]: guide/creating-libraries#integrating-with-the-cli-using-code-generation-schematics "Integrating with the CLI using code-generation schematics - Creating libraries | Angular"
 
 [AioGuideDependencyInjection]: guide/dependency-injection "Dependency injection in Angular | Angular"
-
-[AioGuideElements]: guide/elements "Angular elements overview | Angular"
 
 [AioGuideEventBinding]: guide/event-binding "Event binding | Angular"
 
@@ -1212,4 +1212,4 @@ Learn more about zones in this [Brian Ford video][YoutubeWatchV3iqtmusceU].
 
 <!-- end links -->
 
-@reviewed 2022-02-28
+@reviewed 2022-04-18

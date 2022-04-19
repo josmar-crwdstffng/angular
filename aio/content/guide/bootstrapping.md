@@ -35,7 +35,7 @@ export class AppModule { }
 
 </code-example>
 
-After the import statements is a class with the **`@NgModule`** [decorator](guide/glossary#decorator '"Decorator" explained').
+After the import statements is a class with the **`@NgModule`** [decorator][AioGuideGlossaryDecoratorDecoration].
 
 The `@NgModule` decorator identifies `AppModule` as an `NgModule` class.
 `@NgModule` takes a metadata object that tells Angular how to compile and launch the application.
@@ -155,8 +155,10 @@ For more on NgModules you're likely to see frequently in applications, see [Freq
 
 <!-- links -->
 
+[AioGuideGlossaryDecoratorDecoration]: guide/glossary#decorator--decoration "decorator | decoration - Glossary | Angular"
+
 <!-- external links -->
 
 <!-- end links -->
 
-@reviewed 2022-02-28
+@reviewed 2022-04-18

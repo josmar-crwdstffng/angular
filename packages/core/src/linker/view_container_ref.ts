@@ -2,8 +2,8 @@
  * @license
  * Copyright Google LLC All Rights Reserved.
  *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
+ * Use of this source code is governed by an MIT-style license that can be found in the LICENSE file
+ * at https://angular.io/license
  */
 
 import {Injector} from '../di/injector';
@@ -37,12 +37,12 @@ import {EmbeddedViewRef, ViewRef} from './view_ref';
 /**
  * Represents a container where one or more views can be attached to a component.
  *
- * Can contain *host views* (created by instantiating a
- * component with the `createComponent()` method), and *embedded views*
- * (created by instantiating a `TemplateRef` with the `createEmbeddedView()` method).
+ * Can contain *host views* (created by instantiating a component with the `createComponent()`
+ * method), and *embedded views* (created by instantiating a `TemplateRef` with the
+ * `createEmbeddedView()` method).
  *
- * A view container instance can contain other view containers,
- * creating a [view hierarchy](guide/glossary#view-tree).
+ * A view container instance can contain other view containers, creating a [view
+ * hierarchy](guide/glossary#view-hierarchy "view hierarchy - Glossary | Angular").
  *
  * @see `ComponentRef`
  * @see `EmbeddedViewRef`
@@ -52,14 +52,14 @@ import {EmbeddedViewRef, ViewRef} from './view_ref';
 export abstract class ViewContainerRef {
   /**
    * Anchor element that specifies the location of this container in the containing view.
-   * Each view container can have only one anchor element, and each anchor element
-   * can have only a single view container.
+   * Each view container can have only one anchor element, and each anchor element can have only a
+   * single view container.
    *
-   * Root elements of views attached to this container become siblings of the anchor element in
-   * the rendered view.
+   * Root elements of views attached to this container become siblings of the anchor element in the
+   * rendered view.
    *
-   * Access the `ViewContainerRef` of an element by placing a `Directive` injected
-   * with `ViewContainerRef` on the element, or use a `ViewChild` query.
+   * Access the `ViewContainerRef` of an element by placing a `Directive` injected with
+   * `ViewContainerRef` on the element, or use a `ViewChild` query.
    *
    * <!-- TODO: rename to anchorElement -->
    */
@@ -95,12 +95,15 @@ export abstract class ViewContainerRef {
    * Instantiates an embedded view and inserts it
    * into this container.
    * @param templateRef The HTML template that defines the view.
-   * @param context The data-binding context of the embedded view, as declared
-   * in the `<ng-template>` usage.
-   * @param options Extra configuration for the created view. Includes:
-   *  * index: The 0-based index at which to insert the new view into this container.
-   *           If not specified, appends the new view as the last entry.
-   *  * injector: Injector to be used within the embedded view.
+   * @param context The data-binding context of the embedded view, as declared in the
+   *     `<ng-template>` usage.
+   * @param options Extra configuration for the created view.
+   * Includes:
+   *  * index:
+   *    The 0-based index at which to insert the new view into this container.
+   *    If not specified, appends the new view as the last entry.
+   *  * injector:
+   *    Injector to be used within the embedded view.
    *
    * @returns The `ViewRef` instance for the newly created view.
    */
@@ -110,11 +113,10 @@ export abstract class ViewContainerRef {
   }): EmbeddedViewRef<C>;
 
   /**
-   * Instantiates an embedded view and inserts it
-   * into this container.
+   * Instantiates an embedded view and inserts it into this container.
    * @param templateRef The HTML template that defines the view.
-   * @param context The data-binding context of the embedded view, as declared
-   * in the `<ng-template>` usage.
+   * @param context The data-binding context of the embedded view, as declared in the
+   *     `<ng-template>` usage.
    * @param index The 0-based index at which to insert the new view into this container.
    * If not specified, appends the new view as the last entry.
    *
@@ -128,18 +130,20 @@ export abstract class ViewContainerRef {
    *
    * @param componentType Component Type to use.
    * @param options An object that contains extra parameters:
-   *  * index: the index at which to insert the new component's host view into this container.
-   *           If not specified, appends the new view as the last entry.
+   *  * index:
+   *    the index at which to insert the new component's host view into this container.
+   *    If not specified, appends the new view as the last entry.
    *  * injector: the injector to use as the parent for the new component.
-   *  * ngModuleRef: an NgModuleRef of the component's NgModule, you should almost always provide
-   *                 this to ensure that all expected providers are available for the component
-   *                 instantiation.
-   *  * environmentInjector: an EnvironmentInjector which will provide the component's environment.
-   *                 you should almost always provide this to ensure that all expected providers
-   *                 are available for the component instantiation. This option is intended to
-   *                 replace the `ngModuleRef` parameter.
+   *  * ngModuleRef:
+   *    an NgModuleRef of the component's NgModule, you should almost always provide this to ensure
+   * that all expected providers are available for the component instantiation.
+   *  * environmentInjector:
+   *    an EnvironmentInjector which will provide the component's environment.
+   *    you should almost always provide this to ensure that all expected providers are available
+   * for the component instantiation. This option is intended to replace the `ngModuleRef`
+   * parameter.
    *  * projectableNodes: list of DOM nodes that should be projected through
-   *                      [`<ng-content>`](api/core/ng-content) of the new component instance.
+   * [`<ng-content>`](api/core/ng-content) of the new component instance.
    *
    * @returns The new `ComponentRef` which contains the component instance and the host view.
    */
@@ -166,8 +170,8 @@ export abstract class ViewContainerRef {
    * @returns The new `ComponentRef` which contains the component instance and the host view.
    *
    * @deprecated Angular no longer requires component factories to dynamically create components.
-   *     Use different signature of the `createComponent` method, which allows passing
-   *     Component class directly.
+   *     Use different signature of the `createComponent` method, which allows passing Component
+   * class directly.
    */
   abstract createComponent<C>(
       componentFactory: ComponentFactory<C>, index?: number, injector?: Injector,
@@ -223,8 +227,8 @@ export abstract class ViewContainerRef {
 }
 
 /**
- * Creates a ViewContainerRef and stores it on the injector. Or, if the ViewContainerRef
- * already exists, retrieves the existing ViewContainerRef.
+ * Creates a ViewContainerRef and stores it on the injector.
+ * Or, if the ViewContainerRef already exists, retrieves the existing ViewContainerRef.
  *
  * @returns The ViewContainerRef instance to use
  */
@@ -235,8 +239,9 @@ export function injectViewContainerRef(): ViewContainerRef {
 
 const VE_ViewContainerRef = ViewContainerRef;
 
-// TODO(alxhub): cleaning up this indirection triggers a subtle bug in Closure in g3. Once the fix
-// for that lands, this can be cleaned up.
+// TODO(alxhub):
+// cleaning up this indirection triggers a subtle bug in Closure in g3.
+// Once the fix for that lands, this can be cleaned up.
 const R3ViewContainerRef = class ViewContainerRef extends VE_ViewContainerRef {
   constructor(
       private _lContainer: LContainer,
@@ -316,8 +321,8 @@ const R3ViewContainerRef = class ViewContainerRef extends VE_ViewContainerRef {
   }): ComponentRef<C>;
   /**
    * @deprecated Angular no longer requires component factories to dynamically create components.
-   *     Use different signature of the `createComponent` method, which allows passing
-   *     Component class directly.
+   * Use different signature of the `createComponent` method, which allows passing Component class
+   * directly.
    */
   override createComponent<C>(
       componentFactory: ComponentFactory<C>, index?: number|undefined,
@@ -337,10 +342,12 @@ const R3ViewContainerRef = class ViewContainerRef extends VE_ViewContainerRef {
     let index: number|undefined;
 
     // This function supports 2 signatures and we need to handle options correctly for both:
-    //   1. When first argument is a Component type. This signature also requires extra
-    //      options to be provided as as object (more ergonomic option).
-    //   2. First argument is a Component factory. In this case extra options are represented as
-    //      positional arguments. This signature is less ergonomic and will be deprecated.
+    //   1. When first argument is a Component type.
+    //      This signature also requires extra options to be provided as as object (more ergonomic
+    //      option).
+    //   2. First argument is a Component factory.
+    //      In this case extra options are represented as positional arguments.
+    //      This signature is less ergonomic and will be deprecated.
     if (isComponentFactory) {
       if (ngDevMode) {
         assertEqual(
@@ -407,9 +414,10 @@ const R3ViewContainerRef = class ViewContainerRef extends VE_ViewContainerRef {
       // subtree.
       const _injector = isComponentFactory ? contextInjector : this.parentInjector;
 
-      // DO NOT REFACTOR. The code here used to have a `injector.get(NgModuleRef, null) ||
-      // undefined` expression which seems to cause internal google apps to fail. This is documented
-      // in the following internal bug issue: go/b/142967802
+      // DO NOT REFACTOR.
+      // The code here used to have a `injector.get(NgModuleRef, null) || undefined` expression
+      // which seems to cause internal google apps to fail. This is documented in the following
+      // internal bug issue: go/b/142967802
       const result = _injector.get(EnvironmentInjector, null);
       if (result) {
         environmentInjector = result;
@@ -435,8 +443,8 @@ const R3ViewContainerRef = class ViewContainerRef extends VE_ViewContainerRef {
 
       const prevIdx = this.indexOf(viewRef);
 
-      // A view might be attached either to this or a different container. The `prevIdx` for
-      // those cases will be:
+      // A view might be attached either to this or a different container.
+      // The `prevIdx` for those cases will be:
       // equal to -1 for views attached to this ViewContainerRef
       // >= 0 for views attached to a different ViewContainerRef
       if (prevIdx !== -1) {
@@ -449,8 +457,8 @@ const R3ViewContainerRef = class ViewContainerRef extends VE_ViewContainerRef {
                 'An attached view should have its PARENT point to a container.');
 
 
-        // We need to re-create a R3ViewContainerRef instance since those are not stored on
-        // LView (nor anywhere else).
+        // We need to re-create a R3ViewContainerRef instance since those are not stored on LView
+        // (nor anywhere else).
         const prevVCRef = new R3ViewContainerRef(
             prevLContainer, prevLContainer[T_HOST] as TDirectiveHostNode, prevLContainer[PARENT]);
 
@@ -495,9 +503,8 @@ const R3ViewContainerRef = class ViewContainerRef extends VE_ViewContainerRef {
 
     if (detachedView) {
       // Before destroying the view, remove it from the container's array of `ViewRef`s.
-      // This ensures the view container length is updated before calling
-      // `destroyLView`, which could recursively call view container methods that
-      // rely on an accurate container length.
+      // This ensures the view container length is updated before calling `destroyLView`, which
+      // could recursively call view container methods that rely on an accurate container length.
       // (e.g. a method on this view container being called by a child directive's OnDestroy
       // lifecycle hook)
       removeFromArray(getOrCreateViewRefs(this._lContainer), adjustedIdx);
@@ -556,15 +563,14 @@ export function createContainerRef(
     lContainer = slotValue;
   } else {
     let commentNode: RComment;
-    // If the host is an element container, the native host element is guaranteed to be a
-    // comment and we can reuse that comment as anchor element for the new LContainer.
-    // The comment node in question is already part of the DOM structure so we don't need to append
-    // it again.
+    // If the host is an element container, the native host element is guaranteed to be a comment
+    // and we can reuse that comment as anchor element for the new LContainer. The comment node in
+    // question is already part of the DOM structure so we don't need to append it again.
     if (hostTNode.type & TNodeType.ElementContainer) {
       commentNode = unwrapRNode(slotValue) as RComment;
     } else {
-      // If the host is a regular element, we have to insert a comment node manually which will
-      // be used as an anchor when inserting elements. In this specific case we use low-level DOM
+      // If the host is a regular element, we have to insert a comment node manually which will be
+      // used as an anchor when inserting elements. In this specific case we use low-level DOM
       // manipulation to insert it.
       const renderer = hostLView[RENDERER];
       ngDevMode && ngDevMode.rendererCreateComment++;

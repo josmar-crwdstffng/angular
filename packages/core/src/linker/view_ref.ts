@@ -2,8 +2,8 @@
  * @license
  * Copyright Google LLC All Rights Reserved.
  *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
+ * Use of this source code is governed by an MIT-style license that can be found in the LICENSE file
+ * at https://angular.io/license
  */
 
 import {ChangeDetectorRef} from '../change_detection/change_detector_ref';
@@ -28,30 +28,30 @@ export abstract class ViewRef extends ChangeDetectorRef {
   abstract get destroyed(): boolean;
 
   /**
-   * A lifecycle hook that provides additional developer-defined cleanup
-   * functionality for views.
-   * @param callback A handler function that cleans up developer-defined data
-   * associated with a view. Called when the `destroy()` method is invoked.
+   * A lifecycle hook that provides additional developer-defined cleanup functionality for views.
+   * @param callback A handler function that cleans up developer-defined data associated with a
+   *     view.
+   * Called when the `destroy()` method is invoked.
    */
   abstract onDestroy(callback: Function): any /** TODO #9100 */;
 }
 
 /**
  * Represents an Angular [view](guide/glossary#view) in a view container.
- * An [embedded view](guide/glossary#view-tree) can be referenced from a component
- * other than the hosting component whose template defines it, or it can be defined
- * independently by a `TemplateRef`.
+ * An [embedded view](guide/glossary#view-hierarchy "view hierarchy - Glossary | Angular") can be
+ * referenced from a component other than the hosting component whose template defines it, or it can
+ * be defined independently by a `TemplateRef`.
  *
  * Properties of elements in a view can change, but the structure (number and order) of elements in
- * a view cannot. Change the structure of elements by inserting, moving, or
- * removing nested views in a view container.
+ * a view cannot. Change the structure of elements by inserting, moving, or removing nested views in
+ * a view container.
  *
  * @see `ViewContainerRef`
  *
  * @usageNotes
  *
- * The following template breaks down into two separate `TemplateRef` instances,
- * an outer one and an inner one.
+ * The following template breaks down into two separate `TemplateRef` instances, an outer one and an
+ * inner one.
  *
  * ```
  * Count: {{items.length}}

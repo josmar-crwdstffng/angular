@@ -75,7 +75,7 @@ Subfolders contain the application source and application-specific configuration
 | `environments/`           | Contains build configuration options for particular target environments. By default there is an unnamed standard development environment and a production \("prod"\) environment. You can define additional target environment configurations.                                                                                                             |
 | `favicon.ico`             | An icon to use for this application in the bookmark bar.                                                                                                                                                                                                                                                                                                   |
 | `index.html`              | The main HTML page that is served when someone visits your site. The CLI automatically adds all JavaScript and CSS files when building your app, so you typically don't need to add any `<script>` or` <link>` tags here manually.                                                                                                                         |
-| `main.ts`                 | The main entry point for your application. Compiles the application with the [JIT compiler](guide/glossary#jit) and bootstraps the application's root module \(AppModule\) to run in the browser. You can also use the [AOT compiler](guide/aot-compiler) without changing any code by appending the `--aot` flag to the CLI `build` and `serve` commands. |
+| `main.ts`                 | The main entry point for your application. Compiles the application with the [JIT compiler][AioGuideGlossaryJustInTimeJitCompilation] and bootstraps the application's root module \(AppModule\) to run in the browser. You can also use the [AOT compiler](guide/aot-compiler) without changing any code by appending the `--aot` flag to the CLI `build` and `serve` commands. |
 | `polyfills.ts`            | Provides polyfill scripts for browser support.                                                                                                                                                                                                                                                                                                             |
 | `styles.sass`             | Lists CSS files that supply styles for a project. The extension reflects the style preprocessor you have configured for the project.                                                                                                                                                                                                                       |
 | `test.ts`                 | The main entry point for your unit tests, with some Angular-specific configuration. You don't typically need to edit this file.                                                                                                                                                                                                                            |
@@ -209,8 +209,10 @@ Under the `projects/` folder, the `my-lib` folder contains your library code.
 
 <!-- links -->
 
+[AioGuideGlossaryJustInTimeJitCompilation]: guide/glossary#just-in-time-jit-compilation "just-in-time (JIT) compilation - Glossary | Angular"
+
 <!-- external links -->
 
 <!-- end links -->
 
-@reviewed 2022-02-28
+@reviewed 2022-04-18

@@ -2,8 +2,8 @@
  * @license
  * Copyright Google LLC All Rights Reserved.
  *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
+ * Use of this source code is governed by an MIT-style license that can be found in the LICENSE file
+ * at https://angular.io/license
  */
 
 import {ChangeDetectorRef} from '../change_detection/change_detection';
@@ -17,8 +17,8 @@ import {ViewRef} from './view_ref';
 
 /**
  * Represents a component created by a `ComponentFactory`.
- * Provides access to the component instance and related objects,
- * and provides the means of destroying the instance.
+ * Provides access to the component instance and related objects, and provides the means of
+ * destroying the instance.
  *
  * @publicApi
  */
@@ -49,8 +49,8 @@ export abstract class ComponentRef<C> {
   abstract get instance(): C;
 
   /**
-   * The [host view](guide/glossary#view-tree) defined by the template
-   * for this component instance.
+   * The [host view](guide/glossary#view-hierarchy "view hierarchy - Glossary | Angular") defined by
+   * the template for this component instance.
    */
   abstract get hostView(): ViewRef;
 
@@ -87,8 +87,8 @@ export abstract class ComponentRef<C> {
  *
  * @publicApi
  *
- * @deprecated Angular no longer requires Component factories. Please use other APIs where
- *     Component class can be used directly.
+ * @deprecated Angular no longer requires Component factories. Please use other APIs where Component
+ *     class can be used directly.
  */
 export abstract class ComponentFactory<C> {
   /**
