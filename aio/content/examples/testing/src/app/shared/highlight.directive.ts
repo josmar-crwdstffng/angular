@@ -5,7 +5,7 @@ import { Directive, ElementRef, Input, OnChanges } from '@angular/core';
 @Directive({ selector: '[highlight]' })
 /**
  * Set backgroundColor for the attached element to highlight color
- * and set the element's customProperty to true
+ * and set the customProperty of the element to true
  */
 export class HighlightDirective implements OnChanges {
 

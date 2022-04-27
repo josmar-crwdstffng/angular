@@ -551,7 +551,7 @@ function getOrCreateTypeCheckScriptInfo(
       throw new Error(`Failed to create script info for ${tcf}`);
     }
   }
-  // Add ScriptInfo to project if it's missing. A ScriptInfo needs to be part of
+  // Add ScriptInfo to project if it is missing. A ScriptInfo needs to be part of
   // the project so that it becomes part of the program.
   if (!project.containsScriptInfo(scriptInfo)) {
     project.addRoot(scriptInfo);

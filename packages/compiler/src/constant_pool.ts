@@ -13,7 +13,7 @@ const CONSTANT_PREFIX = '_c';
 /**
  * `ConstantPool` tries to reuse literal factories when two or more literals are identical.
  * We determine whether literals are identical by creating a key out of their AST using the
- * `KeyVisitor`. This constant is used to replace dynamic expressions which can't be safely
+ * `KeyVisitor`. This constant is used to replace dynamic expressions which cannot be safely
  * converted into a key. E.g. given an expression `{foo: bar()}`, since we don't know what
  * the result of `bar` will be, we create a key that looks like `{foo: <unknown>}`. Note
  * that we use a variable, rather than something like `null` in order to avoid collisions.
@@ -276,7 +276,7 @@ class KeyVisitor implements o.ExpressionVisitor {
 
 function invalid<T>(this: o.ExpressionVisitor, arg: o.Expression|o.Statement): never {
   throw new Error(
-      `Invalid state: Visitor ${this.constructor.name} doesn't handle ${arg.constructor.name}`);
+      `Invalid state: Visitor ${this.constructor.name} does not handle ${arg.constructor.name}`);
 }
 
 function isVariable(e: o.Expression): e is o.ReadVarExpr {

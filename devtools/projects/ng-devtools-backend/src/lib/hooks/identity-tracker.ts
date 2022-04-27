@@ -68,7 +68,7 @@ export class IdentityTracker {
     this._currentDirectiveId.forEach((_: number, dir: any) => {
       if (!allNodes.has(dir)) {
         removedNodes.push({directive: dir, isComponent: !!this.isComponent.get(dir)});
-        // We can't clean these up because during profiling
+        // We cannot clean these up because during profiling
         // they might be requested for removed components
         // this._currentDirectiveId.delete(dir);
         // this._currentDirectivePosition.delete(dir);

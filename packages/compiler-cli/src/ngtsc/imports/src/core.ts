@@ -51,7 +51,7 @@ export class NoopImportRewriter implements ImportRewriter {
 
 /**
  * A mapping of supported symbols that can be imported from within @angular/core, and the names by
- * which they're exported from r3_symbols.
+ * which they are exported from r3_symbols.
  */
 const CORE_SUPPORTED_SYMBOLS = new Map<string, string>([
   ['ɵɵdefineInjectable', 'ɵɵdefineInjectable'],
@@ -83,7 +83,7 @@ export class R3SymbolsImportRewriter implements ImportRewriter {
 
   rewriteSymbol(symbol: string, specifier: string): string {
     if (specifier !== CORE_MODULE) {
-      // This import isn't from core, so ignore it.
+      // This import is not from core, so ignore it.
       return symbol;
     }
 
@@ -92,7 +92,7 @@ export class R3SymbolsImportRewriter implements ImportRewriter {
 
   rewriteSpecifier(specifier: string, inContextOfFile: string): string {
     if (specifier !== CORE_MODULE) {
-      // This module isn't core, so ignore it.
+      // This module is not core, so ignore it.
       return specifier;
     }
 

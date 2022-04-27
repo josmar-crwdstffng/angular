@@ -81,7 +81,7 @@ export interface DomAttributeCompletion {
 }
 
 /**
- * Completion of a DOM property of an element that's distinct from an HTML attribute.
+ * Completion of a DOM property of an element that is distinct from an HTML attribute.
  */
 export interface DomPropertyCompletion {
   kind: AttributeCompletionKind.DomProperty;
@@ -284,7 +284,7 @@ export function buildAttributeCompletionTable(
             }
 
             if (table.has(attrName)) {
-              // Skip this attribute as there's already a binding for it.
+              // Skip this attribute as there is already a binding for it.
               continue;
             }
 
@@ -396,7 +396,7 @@ enum AsciiSortPriority {
  * `[attribute]` - either a static attribute can be generated, or a property binding. However,
  * `<element [attr|]>` is not an attribute context, and so only the property completion `attribute`
  * is generated. Note that this completion does not have the `[]` property binding sugar as its
- * implicitly present in a property binding context (we're already completing within an `[attr|]`
+ * implicitly present in a property binding context (we are already completing within an `[attr|]`
  * expression).
  *
  * If the `insertSnippet` is `true`, the completion entries should includes the property or event

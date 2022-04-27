@@ -3560,7 +3560,7 @@ describe('animation tests', function() {
            flushMicrotasks();
            expect(cmp.startEvent.totalTime).toEqual(9876);
            expect(cmp.startEvent.disabled).toBeFalsy();
-           // the done event isn't fired because it's an actual animation
+           // the done event is not fired because it is an actual animation
          }));
 
       it('should work when there are no animations on the component handling the disable/enable flag',

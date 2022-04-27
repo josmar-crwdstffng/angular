@@ -310,10 +310,10 @@ class _Scanner {
       if (chars.isDigit(this.peek)) {
         // Do nothing.
       } else if (this.peek === chars.$_) {
-        // Separators are only valid when they're surrounded by digits. E.g. `1_0_1` is
-        // valid while `_101` and `101_` are not. The separator can't be next to the decimal
-        // point or another separator either. Note that it's unlikely that we'll hit a case where
-        // the underscore is at the start, because that's a valid identifier and it will be picked
+        // Separators are only valid when they are surrounded by digits. E.g. `1_0_1` is
+        // valid while `_101` and `101_` are not. The separator cannot be next to the decimal
+        // point or another separator either. Note that it is unlikely that we will hit a case where
+        // the underscore is at the start, because that is a valid identifier and it will be picked
         // up earlier in the parsing. We validate for it anyway just in case.
         if (!chars.isDigit(this.input.charCodeAt(this.index - 1)) ||
             !chars.isDigit(this.input.charCodeAt(this.index + 1))) {

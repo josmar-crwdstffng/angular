@@ -152,7 +152,7 @@ export function formatI18nPlaceholderName(name: string, useCamelCase: boolean = 
     return name.toLowerCase();
   }
   let postfix;
-  // eject last element if it's a number
+  // eject last element if it is a number
   if (/^\d+$/.test(chunks[chunks.length - 1])) {
     postfix = chunks.pop();
   }

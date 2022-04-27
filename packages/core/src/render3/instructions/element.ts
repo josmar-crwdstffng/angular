@@ -209,13 +209,13 @@ export function ɵɵelement(
 
 /**
  * Validates that the element is known at runtime and produces
- * an error if it's not the case.
+ * an error if it is not the case.
  * This check is relevant for JIT-compiled components (for AOT-compiled
  * ones this check happens at build time).
  *
  * The element is considered known if either:
- * - it's a known HTML element
- * - it's a known custom element
+ * - it is a known HTML element
+ * - it is a known custom element
  * - the element matches any directive
  * - the element is allowed by one of the schemas
  *
@@ -227,19 +227,19 @@ export function ɵɵelement(
 function validateElementIsKnown(
     element: RElement, tagName: string|null, schemas: SchemaMetadata[]|null,
     hasDirectives: boolean): void {
-  // If `schemas` is set to `null`, that's an indication that this Component was compiled in AOT
+  // If `schemas` is set to `null`, that is an indication that this Component was compiled in AOT
   // mode where this check happens at compile time. In JIT mode, `schemas` is always present and
   // defined as an array (as an empty array in case `schemas` field is not defined) and we should
   // execute the check below.
   if (schemas === null) return;
 
-  // If the element matches any directive, it's considered as valid.
+  // If the element matches any directive, it is considered as valid.
   if (!hasDirectives && tagName !== null) {
-    // The element is unknown if it's an instance of HTMLUnknownElement, or it isn't registered
+    // The element is unknown if it is an instance of HTMLUnknownElement, or it is not registered
     // as a custom element. Note that unknown elements with a dash in their name won't be instances
     // of HTMLUnknownElement in browsers that support web components.
     const isUnknown =
-        // Note that we can't check for `typeof HTMLUnknownElement === 'function'`,
+        // Note that we cannot check for `typeof HTMLUnknownElement === 'function'`,
         // because while most browsers return 'function', IE returns 'object'.
         (typeof HTMLUnknownElement !== 'undefined' && HTMLUnknownElement &&
          element instanceof HTMLUnknownElement) ||

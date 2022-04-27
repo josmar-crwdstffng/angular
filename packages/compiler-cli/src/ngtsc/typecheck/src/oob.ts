@@ -195,7 +195,7 @@ export class OutOfBandDiagnosticRecorderImpl implements OutOfBandDiagnosticRecor
   suboptimalTypeInference(templateId: TemplateId, variables: TmplAstVariable[]): void {
     const mapping = this.resolver.getSourceMapping(templateId);
 
-    // Select one of the template variables that's most suitable for reporting the diagnostic. Any
+    // Select one of the template variables that is most suitable for reporting the diagnostic. Any
     // variable will do, but prefer one bound to the context's $implicit if present.
     let diagnosticVar: TmplAstVariable|null = null;
     for (const variable of variables) {

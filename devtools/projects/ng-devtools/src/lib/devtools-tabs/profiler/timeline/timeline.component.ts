@@ -111,7 +111,7 @@ export class TimelineComponent implements OnDestroy {
             this._graphDataSubject.value.push(this._getBarStyles(frame, multiplicationFactor)));
 
     // We need to pass a new reference, because the CDK virtual scroll
-    // has OnPush strategy, so it doesn't update the UI otherwise.
+    // has OnPush strategy, so it does not update the UI otherwise.
     // If this turns out ot be a bottleneck, we can easily create an immutable reference.
     this._graphDataSubject.next(this._graphDataSubject.value.slice());
   }

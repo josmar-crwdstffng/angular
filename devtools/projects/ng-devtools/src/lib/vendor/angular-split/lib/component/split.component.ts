@@ -626,7 +626,7 @@ export class SplitComponent implements AfterViewInit, OnDestroy {
         this.unit, this.snapshot!.areasAfterGutter, steppedOffset,
         this.snapshot!.allAreasSizePixel);
 
-    // Each gutter side areas can't absorb all offset
+    // Each gutter side areas cannot absorb all offset
     if (areasBefore.remain !== 0 && areasAfter.remain !== 0) {
       if (Math.abs(areasBefore.remain) === Math.abs(areasAfter.remain)) {
       } else if (Math.abs(areasBefore.remain) > Math.abs(areasAfter.remain)) {
@@ -639,14 +639,14 @@ export class SplitComponent implements AfterViewInit, OnDestroy {
             this.snapshot!.allAreasSizePixel);
       }
     }
-    // Areas before gutter can't absorbs all offset > need to recalculate sizes for areas after
+    // Areas before gutter cannot absorbs all offset > need to recalculate sizes for areas after
     // gutter.
     else if (areasBefore.remain !== 0) {
       areasAfter = getGutterSideAbsorptionCapacity(
           this.unit, this.snapshot!.areasAfterGutter, steppedOffset + areasBefore.remain,
           this.snapshot!.allAreasSizePixel);
     }
-    // Areas after gutter can't absorbs all offset > need to recalculate sizes for areas before
+    // Areas after gutter cannot absorbs all offset > need to recalculate sizes for areas before
     // gutter.
     else if (areasAfter.remain !== 0) {
       areasBefore = getGutterSideAbsorptionCapacity(

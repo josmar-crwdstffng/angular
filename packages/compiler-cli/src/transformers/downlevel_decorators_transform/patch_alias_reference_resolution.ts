@@ -30,7 +30,7 @@ interface EmitResolver {
  * so that TypeScript knows about the specified alias declarations being referenced.
  *
  * This exists because TypeScript performs analysis of import usage before transformers
- * run and doesn't refresh its state after transformations. This means that imports
+ * run and does not refresh its state after transformations. This means that imports
  * for symbols used as constructor types are elided due to their original type-only usage.
  *
  * In reality though, since we downlevel decorators and constructor parameters, we want
@@ -61,13 +61,13 @@ interface EmitResolver {
  * The patch we apply to tell TypeScript about actual referenced aliases (i.e. imported symbols),
  * matches conceptually with the logic that runs internally in TypeScript when the
  * `emitDecoratorMetadata` flag is enabled. TypeScript basically surfaces the same problem and
- * solves it conceptually the same way, but obviously doesn't need to access an `@internal` API.
+ * solves it conceptually the same way, but obviously does not need to access an `@internal` API.
  *
  * The set that is returned by this function is meant to be filled with import declaration nodes
  * that have been referenced in a value-position by the transform, such the installed patch can
  * ensure that those import declarations are not elided.
  *
- * See below. Note that this uses sourcegraph as the TypeScript checker file doesn't display on
+ * See below. Note that this uses sourcegraph as the TypeScript checker file does not display on
  * Github.
  * https://sourcegraph.com/github.com/microsoft/TypeScript@3eaa7c65f6f076a08a5f7f1946fd0df7c7430259/-/blob/src/compiler/checker.ts#L31219-31257
  */

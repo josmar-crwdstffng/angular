@@ -414,7 +414,7 @@ export class UmdReflectionHost extends Esm5ReflectionHost {
       return null;
     }
 
-    // Sadly, in the case of `exports.foo = bar`, we can't use `this.findUmdImportParameter(id)`
+    // Sadly, in the case of `exports.foo = bar`, we cannot use `this.findUmdImportParameter(id)`
     // to check whether this `exports` is from the IIFE body arguments, because
     // `this.checker.getSymbolAtLocation(id)` will return the symbol for the `foo` identifier
     // rather than the `exports` identifier.

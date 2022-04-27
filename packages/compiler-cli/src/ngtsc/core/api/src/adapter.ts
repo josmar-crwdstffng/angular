@@ -39,8 +39,8 @@ export type ExtendedCompilerHostMethods =
  * `NgCompilerHost` or implement `NgCompilerAdapter` itself.
  */
 export interface NgCompilerAdapter extends
-    // getCurrentDirectory is removed from `ts.ModuleResolutionHost` because it's optional, and
-    // incompatible with the `ts.CompilerHost` version which isn't. The combination of these two
+    // getCurrentDirectory is removed from `ts.ModuleResolutionHost` because it is optional, and
+    // incompatible with the `ts.CompilerHost` version which is not. The combination of these two
     // still satisfies `ts.ModuleResolutionHost`.
         Omit<ts.ModuleResolutionHost, 'getCurrentDirectory'>,
     Pick<ExtendedTsCompilerHost, 'getCurrentDirectory'|ExtendedCompilerHostMethods>,

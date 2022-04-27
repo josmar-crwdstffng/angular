@@ -143,12 +143,12 @@ export function generateTypeCheckBlock(
 }
 
 /**
- * A code generation operation that's involved in the construction of a Type Check Block.
+ * A code generation operation that is involved in the construction of a Type Check Block.
  *
  * The generation of a TCB is non-linear. Bindings within a template may result in the need to
  * construct certain types earlier than they otherwise would be constructed. That is, if the
  * generation of a TCB for a template is broken down into specific operations (constructing a
- * directive, extracting a variable from a let- operation, etc), then it's possible for operations
+ * directive, extracting a variable from a let- operation, etc), then it is possible for operations
  * earlier in the sequence to depend on operations which occur later in the sequence.
  *
  * `TcbOp` abstracts the different types of operations which are required to convert a template into
@@ -386,7 +386,7 @@ class TcbTemplateBodyOp extends TcbOp {
     if (statements.length === 0) {
       // As an optimization, don't generate the scope's block if it has no statements. This is
       // beneficial for templates that contain for example `<span *ngIf="first"></span>`, in which
-      // case there's no need to render the `NgIf` guard expression. This seems like a minor
+      // case there is no need to render the `NgIf` guard expression. This seems like a minor
       // improvement, however it reduces the number of flow-node antecedents that TypeScript needs
       // to keep into account for such cases, resulting in an overall reduction of
       // type-checking time.
@@ -525,7 +525,7 @@ class TcbGenericDirectiveTypeWithAnyParamsOp extends TcbDirectiveTypeOpBase {
  * _t2.value
  * ```
  * This operation supports more fluent lookups for the `TemplateTypeChecker` when getting a symbol
- * for a reference. In most cases, this isn't essential; that is, the information for the symbol
+ * for a reference. In most cases, this is not essential; that is, the information for the symbol
  * could be gathered without this operation using the `BoundTarget`. However, for the case of
  * ng-template references, we will need this reference variable to not only provide a location in
  * the shim file, but also to narrow the variable to the correct `TemplateRef<T>` type rather than
@@ -642,7 +642,7 @@ class TcbDirectiveCtorOp extends TcbOp {
         continue;
       }
       for (const fieldName of input.fieldNames) {
-        // Skip the field if an attribute has already been bound to it; we can't have a duplicate
+        // Skip the field if an attribute has already been bound to it; we cannot have a duplicate
         // key in the type constructor call.
         if (genericInputs.has(fieldName)) {
           continue;
@@ -1125,7 +1125,7 @@ class TcbComponentContextCompletionOp extends TcbOp {
  *
  * This value is returned whenever `TcbOp`s have a circular dependency. The expression is a non-null
  * assertion of the null value (in TypeScript, the expression `null!`). This construction will infer
- * the least narrow type for whatever it's assigned to.
+ * the least narrow type for whatever it is assigned to.
  */
 const INFER_TYPE_FOR_CIRCULAR_OP_EXPR = ts.factory.createNonNullExpression(ts.factory.createNull());
 
@@ -1361,7 +1361,7 @@ class Scope {
       // This scope does not have a guard, so return the parent's guards as is.
       return parentGuards;
     } else if (parentGuards === null) {
-      // There's no guards from the parent scope, so this scope's guard represents all available
+      // There is no guards from the parent scope, so this scope's guard represents all available
       // guards.
       return this.guard;
     } else {
@@ -1439,7 +1439,7 @@ class Scope {
     // the resolution of such cycles.
     this.opQueue[opIndex] = op.circularFallback();
     const res = op.execute();
-    // Once the operation has finished executing, it's safe to cache the real result.
+    // Once the operation has finished executing, it is safe to cache the real result.
     this.opQueue[opIndex] = res;
     return res;
   }
@@ -1479,7 +1479,7 @@ class Scope {
 
       let ctxIndex: number;
       if (target === null) {
-        // The reference is invalid if it doesn't have a target, so report it as an error.
+        // The reference is invalid if it does not have a target, so report it as an error.
         this.tcb.oobRecorder.missingReferenceTarget(this.tcb.id, ref);
 
         // Any usages of the invalid reference will be resolved to a variable of type any.
@@ -1550,7 +1550,7 @@ class Scope {
       }
 
       this.opQueue.push(new TcbUnclaimedInputsOp(this.tcb, this, node, claimedInputs));
-      // If there are no directives which match this element, then it's a "plain" DOM element (or a
+      // If there are no directives which match this element, then it is a "plain" DOM element (or a
       // web component), and should be checked against the DOM schema. If any directives match,
       // we must assume that the element could be custom (either a component, or a directive like
       // <router-outlet>) and shouldn't validate the element name itself.
@@ -1702,11 +1702,11 @@ class TcbExpressionTranslator {
       // PropertyRead(ImplicitReceiver, 'propName') or Call(ImplicitReceiver, 'methodName').
       //
       // `translate` will first try to `resolve` the outer PropertyRead/Call. If this works,
-      // it's because the `BoundTarget` found an expression target for the whole expression, and
+      // it is because the `BoundTarget` found an expression target for the whole expression, and
       // therefore `translate` will never attempt to `resolve` the ImplicitReceiver of that
       // PropertyRead/Call.
       //
-      // Therefore if `resolve` is called on an `ImplicitReceiver`, it's because no outer
+      // Therefore if `resolve` is called on an `ImplicitReceiver`, it is because no outer
       // PropertyRead/Call resolved to a variable or reference, and therefore this is a
       // property read or method call on the component context itself.
       return ts.factory.createThis();
@@ -1771,7 +1771,7 @@ class TcbExpressionTranslator {
       addParseSpanInfo(node, ast.sourceSpan);
       return node;
     } else {
-      // This AST isn't special after all.
+      // This AST is not special after all.
       return null;
     }
   }
@@ -1949,7 +1949,7 @@ const enum EventParamType {
  *
  * When `eventType` is set to `Infer`, the `$event` parameter will not have an explicit type. This
  * allows for the created handler function to have its `$event` parameter's type inferred based on
- * how it's used, to enable strict type checking of event bindings. When set to `Any`, the `$event`
+ * how it is used, to enable strict type checking of event bindings. When set to `Any`, the `$event`
  * parameter will have an explicit `any` type, effectively disabling strict type checking of event
  * bindings. Alternatively, an explicit type can be passed for the `$event` parameter.
  */
@@ -2012,7 +2012,7 @@ function isSplitTwoWayBinding(
   if (input === undefined || input.sourceSpan !== output.sourceSpan) {
     return false;
   }
-  // Input consumer should be a directive because it's claimed
+  // Input consumer should be a directive because it is claimed
   const inputConsumer = tcb.boundTarget.getConsumerOfBinding(input) as TypeCheckableDirectiveMeta;
   const outputConsumer = tcb.boundTarget.getConsumerOfBinding(output);
   if (outputConsumer === null || inputConsumer.ref === undefined ||

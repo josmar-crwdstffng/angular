@@ -121,11 +121,11 @@ function resolveProvider(
       //
       // The algorithm to process multi providers is as follows:
       // 1) If the multi provider comes from the `viewProviders` of the component:
-      //   a) If the special view providers factory doesn't exist, it is created and pushed.
+      //   a) If the special view providers factory does not exist, it is created and pushed.
       //   b) Else, the multi provider is added to the existing multi factory.
       // 2) If the multi provider comes from the `providers` of the component or of another
       // directive:
-      //   a) If the multi factory doesn't exist, it is created and provider pushed into it.
+      //   a) If the multi factory does not exist, it is created and provider pushed into it.
       //      It is also linked to the multi factory for view providers, if it exists.
       //   b) Else, the multi provider is added to the existing multi factory.
 
@@ -184,7 +184,7 @@ function resolveProvider(
  * Registers the `ngOnDestroy` hook of a provider, if the provider supports destroy hooks.
  * @param tView `TView` in which to register the hook.
  * @param provider Provider whose hook should be registered.
- * @param contextIndex Index under which to find the context for the hook when it's being invoked.
+ * @param contextIndex Index under which to find the context for the hook when it is being invoked.
  * @param indexInFactory Only required for `multi` providers. Index of the provider in the multi
  * provider factory.
  */

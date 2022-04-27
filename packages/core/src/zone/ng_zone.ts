@@ -221,7 +221,7 @@ export class NgZone {
    *
    * Running functions via {@link #runOutsideAngular} allows you to escape Angular's zone and do
    * work that
-   * doesn't trigger Angular change-detection or is subject to Angular's error handling.
+   * does not trigger Angular change-detection or is subject to Angular's error handling.
    *
    * Any future tasks or microtasks scheduled from within this function will continue executing from
    * outside of the Angular zone.

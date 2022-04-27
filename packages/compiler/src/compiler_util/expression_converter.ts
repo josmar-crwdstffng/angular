@@ -130,7 +130,7 @@ export function convertPropertyBinding(
  * the final argument expressions
  * @param expressionWithArgumentsToExtract The expression to visit to figure out what values need to
  * be resolved and what arguments list to build.
- * @param bindingId A name prefix used to create temporary variable names if they're needed for the
+ * @param bindingId A name prefix used to create temporary variable names if they are needed for the
  * arguments generated
  * @returns An array of expressions that can be passed as arguments to instruction expressions like
  * `o.importExpr(R3.propertyInterpolate).callFn(result)`
@@ -363,8 +363,9 @@ class _AstToIrVisitor implements cdAst.AstVisitor {
     }
     args.push(o.literal(ast.strings[ast.strings.length - 1]));
 
-    // If we're dealing with an interpolation of 1 value with an empty prefix and suffix, reduce the
-    // args returned to just the value, because we're going to pass it to a special instruction.
+    // If we are dealing with an interpolation of 1 value with an empty prefix and suffix, reduce
+    // the args returned to just the value, because we are going to pass it to a special
+    // instruction.
     const strings = ast.strings;
     if (strings.length === 2 && strings[0] === '' && strings[1] === '') {
       // Single argument interpolate instructions.
@@ -469,7 +470,7 @@ class _AstToIrVisitor implements cdAst.AstVisitor {
       const localExpr = this._getLocal(ast.name, ast.receiver);
       if (localExpr) {
         if (localExpr instanceof o.ReadPropExpr) {
-          // If the local variable is a property read expression, it's a reference
+          // If the local variable is a property read expression, it is a reference
           // to a 'context.property' value and will be used as the target of the
           // write expression.
           varExpr = localExpr;
@@ -478,7 +479,7 @@ class _AstToIrVisitor implements cdAst.AstVisitor {
           this.usesImplicitReceiver = prevUsesImplicitReceiver;
           this.addImplicitReceiverAccess(ast.name);
         } else {
-          // Otherwise it's an error.
+          // Otherwise it is an error.
           const receiver = ast.name;
           const value = (ast.value instanceof cdAst.PropertyRead) ? ast.value.name : undefined;
           throw new Error(`Cannot assign value "${value}" to template variable "${

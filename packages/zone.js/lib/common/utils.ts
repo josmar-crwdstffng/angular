@@ -49,7 +49,7 @@ export function scheduleMacroTaskWithCurrentZone(
   return Zone.current.scheduleMacroTask(source, callback, data, customSchedule, customCancel);
 }
 
-// Hack since TypeScript isn't compiling this for a worker.
+// Hack since TypeScript is not compiling this for a worker.
 declare const WorkerGlobalScope: any;
 
 export const zoneSymbol = Zone.__symbol__;

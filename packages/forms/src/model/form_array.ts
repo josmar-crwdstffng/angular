@@ -247,7 +247,7 @@ export class FormArray<TControl extends AbstractControl<any> = any> extends Abst
    * the structure of the control.
    *
    * This method performs strict checks, and throws an error if you try
-   * to set the value of a control that doesn't exist or if you exclude the
+   * to set the value of a control that does not exist or if you exclude the
    * value of a control.
    *
    * @usageNotes
@@ -325,7 +325,7 @@ export class FormArray<TControl extends AbstractControl<any> = any> extends Abst
     onlySelf?: boolean,
     emitEvent?: boolean
   } = {}): void {
-    // Even though the `value` argument type doesn't allow `null` and `undefined` values, the
+    // Even though the `value` argument type does not allow `null` and `undefined` values, the
     // `patchValue` can be called recursively and inner data structures might have these values,
     // so we just ignore such cases when a field containing FormArray instance receives `null` or
     // `undefined` as a value.

@@ -22,7 +22,7 @@ export type BrandedPath<B extends string> = string&{
 export type AbsoluteFsPath = BrandedPath<'AbsoluteFsPath'>;
 
 /**
- * A path that's relative to another (unspecified) root.
+ * A path that is relative to another (unspecified) root.
  *
  * This does not necessarily have to refer to a physical file.
  */

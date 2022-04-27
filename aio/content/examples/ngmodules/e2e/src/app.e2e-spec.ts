@@ -27,7 +27,7 @@ describe('NgModule-example', () => {
       contactNameHeader: element.all(by.css('app-contact form h3')).get(0),
       input: element.all(by.css('app-contact form input')).get(0),
       validationError: element.all(by.css('app-contact form .alert')).get(0),
-      saveButton: buttons.get(0), // can't be tested
+      saveButton: buttons.get(0), // cannot be tested
       nextContactButton: buttons.get(1),
       newContactButton: buttons.get(2)
     };
@@ -70,7 +70,7 @@ describe('NgModule-example', () => {
 
   function contactTests(color: string, name?: string) {
     return () => {
-      it("shows the contact's owner", async () => {
+      it("shows the owner of the contact", async () => {
         const contacts = getContactSectionStruct();
         expect(await contacts.header.getText()).toBe(`${name || 'Miss Marple'}'s Contacts`);
       });

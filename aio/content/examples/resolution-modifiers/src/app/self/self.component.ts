@@ -15,5 +15,5 @@ export class SelfComponent {
 // #enddocregion self-component
 
 // This component provides the FlowerService so the injector
-// doesn't have to look further up the injector tree
+// does not have to look further up the injector tree
 

@@ -128,7 +128,7 @@ describe('startWorker()', () => {
           () => done.fail('Expected promise not to resolve'),
           () => done.fail('Expected promise not to reject'));
 
-      // We can't wait forever to verify that the promise is not resolved, but at least verify
+      // We cannot wait forever to verify that the promise is not resolved, but at least verify
       // that it is not resolved immediately.
       setTimeout(done, 100);
     });

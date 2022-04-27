@@ -136,7 +136,7 @@ export class AppVersion implements UpdateSource {
   }
 
   async handleFetch(req: Request, event: ExtendableEvent): Promise<Response|null> {
-    // Check the request against each `AssetGroup` in sequence. If an `AssetGroup` can't handle the
+    // Check the request against each `AssetGroup` in sequence. If an `AssetGroup` cannot handle the
     // request,
     // it will return `null`. Thus, the first non-null response is the SW's answer to the request.
     // So reduce
@@ -144,7 +144,7 @@ export class AppVersion implements UpdateSource {
     // through, and if
     // not the next group is consulted to produce a candidate response.
     const asset = await this.assetGroups.reduce(async (potentialResponse, group) => {
-      // Wait on the previous potential response. If it's not null, it should just be passed
+      // Wait on the previous potential response. If it is not null, it should just be passed
       // through.
       const resp = await potentialResponse;
       if (resp !== null) {
@@ -227,13 +227,13 @@ export class AppVersion implements UpdateSource {
    */
   async lookupResourceWithHash(url: NormalizedUrl, hash: string): Promise<Response|null> {
     // Verify that this version has the requested resource cached. If not,
-    // there's no point in trying.
+    // there is no point in trying.
     if (!this.hashTable.has(url)) {
       return null;
     }
 
     // Next, check whether the resource has the correct hash. If not, any cached
-    // response isn't usable.
+    // response is not usable.
     if (this.hashTable.get(url) !== hash) {
       return null;
     }

@@ -10,7 +10,7 @@ import {runfiles} from '@bazel/runfiles';
 import {CldrStatic} from 'cldrjs';
 import glob from 'glob';
 
-// TypeScript doesn't allow us to import the default export without the `esModuleInterop`. We use
+// TypeScript does not allow us to import the default export without the `esModuleInterop`. We use
 // the NodeJS require function instead as specifying a custom tsconfig complicates the setup
 // unnecessarily.
 // TODO: See if we can improve this by having better types for `cldrjs`.

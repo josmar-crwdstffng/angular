@@ -32,7 +32,7 @@ export class FactoryGenerator implements PerFileShimGenerator, FactoryTracker {
 
     const relativePathToSource = './' + basename(sf.fileName).replace(TS_DTS_SUFFIX, '');
     // Collect a list of classes that need to have factory types emitted for them. This list is
-    // overly broad as at this point the ts.TypeChecker hasn't been created, and can't be used to
+    // overly broad as at this point the ts.TypeChecker hasn't been created, and cannot be used to
     // semantically understand which decorated types are actually decorated with Angular decorators.
     //
     // The exports generated here are pruned in the factory transform during emit.
@@ -59,15 +59,15 @@ export class FactoryGenerator implements PerFileShimGenerator, FactoryTracker {
 
     if (symbolNames.length > 0) {
       // For each symbol name, generate a constant export of the corresponding NgFactory.
-      // This will encompass a lot of symbols which don't need factories, but that's okay
+      // This will encompass a lot of symbols which don't need factories, but that is okay
       // because it won't miss any that do.
       const varLines = symbolNames.map(
           name => `export const ${
               name}NgFactory: i0.ɵNgModuleFactory<any> = new i0.ɵNgModuleFactory(${name});`);
       sourceText += [
-        // This might be incorrect if the current package being compiled is Angular core, but it's
+        // This might be incorrect if the current package being compiled is Angular core, but it is
         // okay to leave in at type checking time. TypeScript can handle this reference via its path
-        // mapping, but downstream bundlers can't. If the current package is core itself, this will
+        // mapping, but downstream bundlers cannot. If the current package is core itself, this will
         // be replaced in the factory transformer before emit.
         `import * as i0 from '@angular/core';`,
         `import {${symbolNames.join(', ')}} from '${relativePathToSource}';`,
@@ -75,7 +75,7 @@ export class FactoryGenerator implements PerFileShimGenerator, FactoryTracker {
       ].join('\n');
     }
 
-    // Add an extra export to ensure this module has at least one. It'll be removed later in the
+    // Add an extra export to ensure this module has at least one. It will be removed later in the
     // factory transformer if it ends up not being needed.
     sourceText += '\nexport const ɵNonEmptyModule = true;';
 
@@ -194,7 +194,7 @@ function transformFactorySourceFile(
               ));
         }
       } else {
-        // Leave the statement alone, as it can't be understood.
+        // Leave the statement alone, as it cannot be understood.
         transformedStatements.push(stmt);
       }
     } else {

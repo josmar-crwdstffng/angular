@@ -107,7 +107,7 @@ export function throwError(msg: string, actual?: any, expected?: any, comparison
 }
 
 export function assertDomNode(node: any): asserts node is Node {
-  // If we're in a worker, `Node` will not be defined.
+  // If we are in a worker, `Node` will not be defined.
   if (!(typeof Node !== 'undefined' && node instanceof Node) &&
       !(typeof node === 'object' && node != null &&
         node.constructor.name === 'WebWorkerRenderNode')) {

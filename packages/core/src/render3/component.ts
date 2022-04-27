@@ -66,7 +66,7 @@ export interface CreateComponentOptions {
    *
    * Example: `LifecycleHooksFeature` is a function that adds lifecycle hook capabilities
    * to root components in a tree-shakable way. It cannot be added to the component
-   * features list because there's no way of knowing when the component will be used as
+   * features list because there is no way of knowing when the component will be used as
    * a root component.
    */
   hostFeatures?: HostFeature[];

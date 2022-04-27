@@ -18,11 +18,11 @@ import {expectProvidersScenario} from './providers_helper';
 import {ComponentFixture} from './render_util';
 
 const Component: typeof _Component = function(...args: any[]): any {
-  // In test we use @Component for documentation only so it's safe to mock out the implementation.
+  // In test we use @Component for documentation only so it is safe to mock out the implementation.
   return () => undefined;
 } as any;
 const Injectable: typeof _Injectable = function(...args: any[]): any {
-  // In test we use @Injectable for documentation only so it's safe to mock out the implementation.
+  // In test we use @Injectable for documentation only so it is safe to mock out the implementation.
   return () => undefined;
 } as any;
 
@@ -1287,7 +1287,7 @@ describe('providers', () => {
   });
 
   // Note: these tests check the behavior of `getInheritedFactory` specifically.
-  // Since `getInheritedFactory` is only generated in AOT, the tests can't be
+  // Since `getInheritedFactory` is only generated in AOT, the tests cannot be
   // ported directly to TestBed while running in JIT mode.
   describe('getInheritedFactory on class with custom decorator', () => {
     function addFoo() {

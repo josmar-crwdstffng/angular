@@ -15,23 +15,23 @@ import {HttpRequest} from './request';
 import {HttpErrorResponse, HttpEvent, HttpEventType, HttpResponse, HttpStatusCode} from './response';
 
 
-// Every request made through JSONP needs a callback name that's unique across the
+// Every request made through JSONP needs a callback name that is unique across the
 // whole page. Each request is assigned an id and the callback name is constructed
 // from that. The next id to be assigned is tracked in a global variable here that
 // is shared among all applications on the page.
 let nextRequestId: number = 0;
 
 /**
- * When a pending <script> is unsubscribed we'll move it to this document, so it won't be
+ * When a pending <script> is unsubscribed we will move it to this document, so it won't be
  * executed.
  */
 let foreignDocument: Document|undefined;
 
-// Error text given when a JSONP script is injected, but doesn't invoke the callback
+// Error text given when a JSONP script is injected, but does not invoke the callback
 // passed in its URL.
 export const JSONP_ERR_NO_CALLBACK = 'JSONP injected script did not invoke callback.';
 
-// Error text given when a request is passed to the JsonpClientBackend that doesn't
+// Error text given when a request is passed to the JsonpClientBackend that does not
 // have a request method JSONP.
 export const JSONP_ERR_WRONG_METHOD = 'JSONP requests must use JSONP request method.';
 export const JSONP_ERR_WRONG_RESPONSE_TYPE = 'JSONP requests must use Json response type.';
@@ -82,7 +82,7 @@ export class JsonpClientBackend implements HttpBackend {
    *
    */
   handle(req: HttpRequest<never>): Observable<HttpEvent<any>> {
-    // Firstly, check both the method and response type. If either doesn't match
+    // Firstly, check both the method and response type. If either does not match
     // then the request was improperly routed here and cannot be handled.
     if (req.method !== 'JSONP') {
       throw new Error(JSONP_ERR_WRONG_METHOD);
@@ -90,7 +90,7 @@ export class JsonpClientBackend implements HttpBackend {
       throw new Error(JSONP_ERR_WRONG_RESPONSE_TYPE);
     }
 
-    // Check the request headers. JSONP doesn't support headers and
+    // Check the request headers. JSONP does not support headers and
     // cannot set any that were supplied.
     if (req.headers.keys().length > 0) {
       throw new Error(JSONP_ERR_HEADERS_NOT_SUPPORTED);
@@ -131,9 +131,9 @@ export class JsonpClientBackend implements HttpBackend {
 
       // cleanup() is a utility closure that removes the <script> from the page and
       // the response callback from the window. This logic is used in both the
-      // success, error, and cancellation paths, so it's extracted out for convenience.
+      // success, error, and cancellation paths, so it is extracted out for convenience.
       const cleanup = () => {
-        // Remove the <script> tag if it's still on the page.
+        // Remove the <script> tag if it is still on the page.
         if (node.parentNode) {
           node.parentNode.removeChild(node);
         }

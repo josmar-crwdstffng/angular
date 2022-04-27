@@ -12,6 +12,7 @@ import {DECLARATION_COMPONENT_VIEW, HEADER_OFFSET, T_HOST} from '../interfaces/v
 import {applyProjection} from '../node_manipulation';
 import {getProjectAsAttrValue, isNodeMatchingSelectorList, isSelectorInSelectorList} from '../node_selector_matcher';
 import {getLView, getTView, setCurrentTNodeAsNotParent} from '../state';
+
 import {getOrCreateTNode} from './shared';
 
 
@@ -62,7 +63,7 @@ export function matchingProjectionSlotIndex(tNode: TNode, projectionSlots: Proje
  * Having a CSS selector in 2 different formats is not ideal, but alternatives have even more
  * drawbacks:
  * - having only a textual form would require runtime parsing of CSS selectors;
- * - we can't have only a parsed as we can't re-construct textual form from it (as entered by a
+ * - we cannot have only a parsed as we cannot re-construct textual form from it (as entered by a
  * template author).
  *
  * @param projectionSlots? A collection of projection slots. A projection slot can be based
@@ -122,7 +123,7 @@ export function ɵɵprojection(
   const tProjectionNode =
       getOrCreateTNode(tView, HEADER_OFFSET + nodeIndex, TNodeType.Projection, null, attrs || null);
 
-  // We can't use viewData[HOST_NODE] because projection nodes can be nested in embedded views.
+  // We cannot use viewData[HOST_NODE] because projection nodes can be nested in embedded views.
   if (tProjectionNode.projection === null) tProjectionNode.projection = selectorIndex;
 
   // `<ng-content>` has no content

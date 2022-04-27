@@ -87,7 +87,7 @@ export class KeyValuePipe implements PipeTransform {
     }
 
     if (!this.differ) {
-      // make a differ for whatever type we've been passed in
+      // make a differ for whatever type we have been passed in
       this.differ = this.differs.find(input).create();
     }
 

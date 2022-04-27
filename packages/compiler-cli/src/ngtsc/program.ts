@@ -58,8 +58,8 @@ export class NgtscProgram implements api.Program {
     if (reuseProgram !== undefined) {
       // Prior to reusing the old program, restore shim tagging for all its `ts.SourceFile`s.
       // TypeScript checks the `referencedFiles` of `ts.SourceFile`s for changes when evaluating
-      // incremental reuse of data from the old program, so it's important that these match in order
-      // to get the most benefit out of reuse.
+      // incremental reuse of data from the old program, so it is important that these match in
+      // order to get the most benefit out of reuse.
       retagAllTsFiles(reuseProgram);
     }
 
@@ -267,8 +267,8 @@ export class NgtscProgram implements api.Program {
            onError: ((message: string) => void)|undefined,
            sourceFiles: ReadonlyArray<ts.SourceFile>|undefined) => {
             if (sourceFiles !== undefined) {
-              // Record successful writes for any `ts.SourceFile` (that's not a declaration file)
-              // that's an input to this write.
+              // Record successful writes for any `ts.SourceFile` (that is not a declaration file)
+              // that is an input to this write.
               for (const writtenSf of sourceFiles) {
                 if (writtenSf.isDeclarationFile) {
                   continue;
@@ -324,7 +324,7 @@ export class NgtscProgram implements api.Program {
       return ((opts && opts.mergeEmitResultsCallback) || mergeEmitResults)(emitResults);
     });
 
-    // Record performance analysis information to disk if we've been asked to do so.
+    // Record performance analysis information to disk if we have been asked to do so.
     if (this.options.tracePerformance !== undefined) {
       const perf = this.compiler.perfRecorder.finalize();
       getFileSystem().writeFile(

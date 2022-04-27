@@ -54,7 +54,7 @@ import {UrlTree} from '../url_tree';
  * The first segment name can be prepended with `/`, `./`, or `../`.
  * * If the first segment begins with `/`, the router looks up the route from the root of the
  *   app.
- * * If the first segment begins with `./`, or doesn't begin with a slash, the router
+ * * If the first segment begins with `./`, or does not begin with a slash, the router
  *   looks in the children of the current activated route.
  * * If the first segment begins with `../`, the router goes up one level in the route tree.
  *
@@ -212,7 +212,7 @@ export class RouterLink implements OnChanges {
   /** @nodoc */
   ngOnChanges(changes: SimpleChanges) {
     // This is subscribed to by `RouterLinkActive` so that it knows to update when there are changes
-    // to the RouterLinks it's tracking.
+    // to the RouterLinks it is tracking.
     this.onChanges.next(this);
   }
 

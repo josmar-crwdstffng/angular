@@ -47,7 +47,7 @@ export function flattenInheritedDirectiveMetadata(
       if (baseMeta !== null) {
         addMetadata(baseMeta);
       } else {
-        // Missing metadata for the base class means it's effectively dynamic.
+        // Missing metadata for the base class means it is effectively dynamic.
         isDynamic = true;
       }
     }

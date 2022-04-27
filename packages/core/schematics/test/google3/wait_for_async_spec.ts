@@ -20,7 +20,8 @@ describe('Google3 waitForAsync TSLint rule', () => {
     tmpDir = join(process.env['TEST_TMPDIR']!, 'google3-test');
     shx.mkdir('-p', tmpDir);
 
-    // We need to declare the Angular symbols we're testing for, otherwise type checking won't work.
+    // We need to declare the Angular symbols we are testing for, otherwise type checking won't
+    // work.
     writeFile('testing.d.ts', `
       export declare function async(fn: Function): any;
     `);

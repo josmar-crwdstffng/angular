@@ -227,8 +227,8 @@ export function getInheritedInjectableDef<T>(type: any): ɵɵInjectableDeclarati
 /** Gets the name of a type, accounting for some cross-browser differences. */
 function getTypeName(type: any): string {
   // `Function.prototype.name` behaves differently between IE and other browsers. In most browsers
-  // it'll always return the name of the function itself, no matter how many other functions it
-  // inherits from. On IE the function doesn't have its own `name` property, but it takes it from
+  // it will always return the name of the function itself, no matter how many other functions it
+  // inherits from. On IE the function does not have its own `name` property, but it takes it from
   // the lowest level in the prototype chain. E.g. if we have `class Foo extends Parent` most
   // browsers will evaluate `Foo.name` to `Foo` while IE will return `Parent`. We work around
   // the issue by converting the function to a string and parsing its name out that way via a regex.

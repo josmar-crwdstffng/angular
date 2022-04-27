@@ -8,7 +8,7 @@
 
 // clang-format off
 // we reexport these symbols just so that they are retained during the dead code elimination
-// performed by rollup while it's creating fesm files.
+// performed by rollup while it is creating fesm files.
 //
 // no code actually imports these symbols from the @angular/core entry point
 export {

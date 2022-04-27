@@ -302,14 +302,14 @@ runInEachFileSystem(() => {
       it('should not produce component template type-check errors if its module is invalid', () => {
         env.tsconfig({'fullTemplateTypeCheck': true});
 
-        // Set up 3 files, each of which declare an NgModule that's invalid in some way. This will
+        // Set up 3 files, each of which declare an NgModule that is invalid in some way. This will
         // produce a bunch of diagnostics related to the issues with the modules. Each module also
         // declares a component with a template that references a <doesnt-exist> element. This test
         // verifies that none of the produced diagnostics mention this nonexistent element, since
-        // no template type-checking should be performed for a component that's part of an invalid
+        // no template type-checking should be performed for a component that is part of an invalid
         // NgModule.
 
-        // This NgModule declares something which isn't a directive/pipe.
+        // This NgModule declares something which is not a directive/pipe.
         env.write('invalid-declaration.ts', `
           import {Component, NgModule} from '@angular/core';
 
@@ -325,7 +325,7 @@ runInEachFileSystem(() => {
           export class Module {}
         `);
 
-        // This NgModule imports something which isn't an NgModule.
+        // This NgModule imports something which is not an NgModule.
         env.write('invalid-import.ts', `
           import {Component, NgModule} from '@angular/core';
 
@@ -345,7 +345,7 @@ runInEachFileSystem(() => {
         `);
 
         // This NgModule imports a DepModule which itself is invalid (it declares something which
-        // isn't a directive/pipe).
+        // is not a directive/pipe).
         env.write('transitive-error-in-import.ts', `
           import {Component, NgModule} from '@angular/core';
 

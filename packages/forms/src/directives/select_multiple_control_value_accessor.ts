@@ -150,7 +150,7 @@ export class SelectMultipleControlValueAccessor extends BuiltInControlValueAcces
       }
       // Degrade to use `options` when `selectedOptions` property is not available.
       // Note: the `selectedOptions` is available in all supported browsers, but the Domino lib
-      // doesn't have it currently, see https://github.com/fgnass/domino/issues/177.
+      // does not have it currently, see https://github.com/fgnass/domino/issues/177.
       else {
         const options = element.options;
         for (let i = 0; i < options.length; i++) {

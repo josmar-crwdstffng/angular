@@ -44,8 +44,8 @@ import {getComponentLViewByIndex, unwrapRNode} from './util/view_utils';
 export function getLContext(target: any): LContext|null {
   let mpValue = readPatchedData(target);
   if (mpValue) {
-    // only when it's an array is it considered an LView instance
-    // ... otherwise it's an already constructed LContext instance
+    // only when it is an array is it considered an LView instance
+    // ... otherwise it is an already constructed LContext instance
     if (isLView(mpValue)) {
       const lView: LView = mpValue!;
       let nodeIndex: number;
@@ -177,7 +177,7 @@ export function attachPatchData(target: any, data: LView|LContext) {
   ngDevMode && assertDefined(target, 'Target expected');
   // Only attach the ID of the view in order to avoid memory leaks (see #41047). We only do this
   // for `LView`, because we have control over when an `LView` is created and destroyed, whereas
-  // we can't know when to remove an `LContext`.
+  // we cannot know when to remove an `LContext`.
   if (isLView(data)) {
     target[MONKEY_PATCH_KEY_NAME] = data[ID];
     registerLView(data);

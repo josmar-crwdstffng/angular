@@ -227,7 +227,7 @@ export class UpgradeModule {
                           return intervalDelegate((...args: any[]) => {
                             // Run callback in the next VM turn - $interval calls
                             // $rootScope.$apply, and running the callback in NgZone will
-                            // cause a '$digest already in progress' error if it's in the
+                            // cause a '$digest already in progress' error if it is in the
                             // same vm turn.
                             setTimeout(() => {
                               this.ngZone.run(() => fn(...args));

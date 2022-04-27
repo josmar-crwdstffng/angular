@@ -18,7 +18,7 @@ describe('find references and rename locations', () => {
   });
 
   afterEach(() => {
-    // Clear env so it's not accidentally carried over to the next test.
+    // Clear env so it is not accidentally carried over to the next test.
     env = undefined!;
   });
 

@@ -8,6 +8,7 @@
 
 import {TrustedHTML} from '../util/security/trusted_type_defs';
 import {trustedHTMLFromString} from '../util/security/trusted_types';
+
 import {getInertBodyHelper, InertBodyHelper} from './inert_body';
 import {_sanitizeUrl, sanitizeSrcset} from './url_sanitizer';
 
@@ -84,7 +85,7 @@ const ARIA_ATTRS = tagSet(
     'aria-relevant,aria-required,aria-roledescription,aria-rowcount,aria-rowindex,aria-rowspan,aria-selected,' +
     'aria-setsize,aria-sort,aria-valuemax,aria-valuemin,aria-valuenow,aria-valuetext');
 
-// NB: This currently consciously doesn't support SVG. SVG sanitization has had several security
+// NB: This currently consciously does not support SVG. SVG sanitization has had several security
 // issues in the past, so it seems safer to leave it out if possible. If support for binding SVG via
 // innerHTML is required, SVG attributes should be added here.
 

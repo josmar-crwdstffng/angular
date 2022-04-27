@@ -38,7 +38,7 @@ export function patchCallbacks(
             prototype[callback] = api.wrapWithCurrentZone(prototype[callback], source);
           }
         } catch {
-          // Note: we leave the catch block empty since there's no way to handle the error related
+          // Note: we leave the catch block empty since there is no way to handle the error related
           // to non-writable property.
         }
       });

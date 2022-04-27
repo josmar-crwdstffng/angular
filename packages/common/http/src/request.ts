@@ -89,7 +89,7 @@ function isUrlSearchParams(value: any): value is URLSearchParams {
  */
 export class HttpRequest<T> {
   /**
-   * The request body, or `null` if one isn't set.
+   * The request body, or `null` if one is not set.
    *
    * Bodies are not enforced to be immutable, as they can include a reference to any
    * user-defined data type. However, interceptors should take care to preserve
@@ -220,7 +220,7 @@ export class HttpRequest<T> {
         this.responseType = options.responseType;
       }
 
-      // Override headers if they're provided.
+      // Override headers if they are provided.
       if (!!options.headers) {
         this.headers = options.headers;
       }
@@ -313,7 +313,7 @@ export class HttpRequest<T> {
     if (isFormData(this.body)) {
       return null;
     }
-    // Blobs usually have their own content type. If it doesn't, then
+    // Blobs usually have their own content type. If it does not, then
     // no type can be inferred.
     if (isBlob(this.body)) {
       return this.body.type || null;
@@ -322,8 +322,8 @@ export class HttpRequest<T> {
     if (isArrayBuffer(this.body)) {
       return null;
     }
-    // Technically, strings could be a form of JSON data, but it's safe enough
-    // to assume they're plain strings.
+    // Technically, strings could be a form of JSON data, but it is safe enough
+    // to assume they are plain strings.
     if (typeof this.body === 'string') {
       return 'text/plain';
     }

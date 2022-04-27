@@ -665,7 +665,7 @@ function optionsReducer<T extends Object>(dst: any, objs: T|T[]): T {
  * the `value` field will be updated properly,
  * but the template will not be refreshed!
  *
- * You'll have to manually trigger the change detection to update the template.
+ * you will have to manually trigger the change detection to update the template.
  *
  * ```
  * constructor(appRef: ApplicationRef, cd: ChangeDetectorRef) {
@@ -938,7 +938,7 @@ export class ApplicationRef {
     }
     this.componentTypes.push(componentFactory.componentType);
 
-    // Create a factory associated with the current module if it's not bound to some other
+    // Create a factory associated with the current module if it is not bound to some other
     const ngModule =
         isBoundToModule(componentFactory) ? undefined : this._injector.get(NgModuleRef);
     const selectorOrNode = rootSelectorOrNode || componentFactory.selector;

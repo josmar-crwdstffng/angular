@@ -166,7 +166,7 @@ export class Meta {
       HTMLMetaElement {
     if (!forceCreation) {
       const selector: string = this._parseSelector(meta);
-      // It's allowed to have multiple elements with the same name so it's not enough to
+      // It's allowed to have multiple elements with the same name so it is not enough to
       // just check that element with the same name already present on the page. We also need to
       // check if element has tag attributes
       const elem = this.getTags(selector).filter(elem => this._containsAttributes(meta, elem))[0];

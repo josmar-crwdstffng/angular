@@ -63,7 +63,7 @@ import {stringifyForError} from './util/stringify_utils';
  *   constructor(myService: MyService, value: String) {
  *     // We expect that Component can see into `viewProviders`.
  *     expect(value).toEqual('viewProviders');
- *     // `MyService` was not declared in `viewProviders` hence it can't see it.
+ *     // `MyService` was not declared in `viewProviders` hence it cannot see it.
  *     expect(myService.value).toEqual('providers');
  *   }
  * }
@@ -163,7 +163,7 @@ export function getOrCreateNodeInjectorForNode(
   const parentLoc = getParentInjectorLocation(tNode, lView);
   const injectorIndex = tNode.injectorIndex;
 
-  // If a parent injector can't be found, its location is set to -1.
+  // If a parent injector cannot be found, its location is set to -1.
   // In that case, we don't need to set up a cumulative bloom
   if (hasParentInjector(parentLoc)) {
     const parentIndex = getParentInjectorIndex(parentLoc);
@@ -477,7 +477,7 @@ function lookupTokenUsingNodeInjector<T>(
     }
 
     // Traverse up the injector tree until we find a potential match or until we know there
-    // *isn't* a match.
+    // *is not* a match.
     while (injectorIndex !== -1) {
       ngDevMode && assertNodeInjector(lView, injectorIndex);
 
@@ -628,7 +628,7 @@ export function getNodeInjectable(
       // It does no harm to try (the hooks just won't exist), but the extra
       // checks are unnecessary and this is a hot path. So we check to see
       // if the index of the dependency is in the directive range for this
-      // tNode. If it's not, we know it's a provider and skip hook registration.
+      // tNode. If it is not, we know it is a provider and skip hook registration.
       if (tView.firstCreatePass && index >= tNode.directiveStart) {
         ngDevMode && assertDirectiveDef(tData[index]);
         registerPreOrderHooks(index, tData[index] as DirectiveDef<any>, tView);
@@ -649,7 +649,7 @@ export function getNodeInjectable(
  * the directive might be provided by the injector.
  *
  * When a directive is public, it is added to the bloom filter and given a unique ID that can be
- * retrieved on the Type. When the directive isn't public or the token is not a directive `null`
+ * retrieved on the Type. When the directive is not public or the token is not a directive `null`
  * is returned as the node injector can not possibly provide that token.
  *
  * @param token the injection token
@@ -679,7 +679,7 @@ export function bloomHashBitOrFactory(token: ProviderToken<any>|string): number|
 }
 
 export function bloomHasToken(bloomHash: number, injectorIndex: number, injectorView: LView|TData) {
-  // Create a mask that targets the specific bit associated with the directive we're looking for.
+  // Create a mask that targets the specific bit associated with the directive we are looking for.
   // JS bit operations are 32 bits, so this will be a number between 2^0 and 2^31, corresponding
   // to bit positions 0 - 31 in a 32 bit integer.
   const mask = 1 << bloomHash;
@@ -728,8 +728,8 @@ export function ɵɵgetInheritedFactory<T>(type: Type<any>): (type: Type<T>) => 
     while (parent && parent !== objectPrototype) {
       const factory = parent[NG_FACTORY_DEF] || getFactoryOf(parent);
 
-      // If we hit something that has a factory and the factory isn't the same as the type,
-      // we've found the inherited factory. Note the check that the factory isn't the type's
+      // If we hit something that has a factory and the factory is not the same as the type,
+      // we have found the inherited factory. Note the check that the factory is not the type's
       // own factory is redundant in most cases, but if the user has custom decorators on the
       // class, this lookup will start one level down in the prototype chain, causing us to
       // find the own factory first and potentially triggering an infinite loop downstream.
@@ -774,7 +774,7 @@ function lookupTokenUsingEmbeddedInjector<T>(
   let currentTNode: TDirectiveHostNode|null = tNode;
   let currentLView: LView|null = lView;
 
-  // When an LView with an embedded view injector is inserted, it'll likely be interlaced with
+  // When an LView with an embedded view injector is inserted, it will likely be interlaced with
   // nodes who may have injectors (e.g. node injector -> embedded view injector -> node injector).
   // Since the bloom filters for the node injectors have already been constructed and we don't
   // have a way of extracting the records from an injector, the only way to maintain the correct
@@ -797,8 +797,8 @@ function lookupTokenUsingEmbeddedInjector<T>(
     // Has an explicit type due to a TS bug: https://github.com/microsoft/TypeScript/issues/33191
     let parentTNode: TElementNode|TContainerNode|null = currentTNode.parent;
 
-    // `TNode.parent` includes the parent within the current view only. If it doesn't exist,
-    // it means that we've hit the view boundary and we need to go up to the next view.
+    // `TNode.parent` includes the parent within the current view only. If it does not exist,
+    // it means that we have hit the view boundary and we need to go up to the next view.
     if (!parentTNode) {
       // Before we go to the next LView, check if the token exists on the current embedded injector.
       const embeddedViewInjector = currentLView[EMBEDDED_VIEW_INJECTOR];

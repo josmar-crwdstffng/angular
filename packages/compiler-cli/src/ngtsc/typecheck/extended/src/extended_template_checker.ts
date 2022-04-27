@@ -55,7 +55,7 @@ export class ExtendedTemplateCheckerImpl implements ExtendedTemplateChecker {
   getDiagnosticsForComponent(component: ts.ClassDeclaration): TemplateDiagnostic[] {
     const template = this.partialCtx.templateTypeChecker.getTemplate(component);
     // Skip checks if component has no template. This can happen if the user writes a
-    // `@Component()` but doesn't add the template, could happen in the language service
+    // `@Component()` but does not add the template, could happen in the language service
     // when users are in the middle of typing code.
     if (template === null) {
       return [];

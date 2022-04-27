@@ -80,7 +80,7 @@ describe('AppComponent & AppModule', () => {
     TestBed
         .configureTestingModule({imports: [AppModule]})
 
-        // Get rid of app's Router configuration otherwise many failures.
+        // Get rid of the Router configuration of the app otherwise many failures.
         // Doing so removes Router declarations; add the Router stubs
         .overrideModule(AppModule, {
           remove: {imports: [AppRoutingModule]},
@@ -110,7 +110,7 @@ function tests() {
     linkDes = fixture.debugElement.queryAll(By.directive(RouterLinkDirectiveStub));
 
     // get attached link directive instances
-    // using each DebugElement's injector
+    // using the injector of each DebugElement
     routerLinks = linkDes.map(de => de.injector.get(RouterLinkDirectiveStub));
   });
   // #enddocregion test-setup

@@ -14,7 +14,7 @@ import {stripExtension} from './util';
 
 
 /**
- * A path that's relative to the logical root of a TypeScript project (one of the project's
+ * A path that is relative to the logical root of a TypeScript project (one of the project's
  * rootDirs).
  *
  * Paths in the type system use POSIX format.
@@ -60,7 +60,7 @@ export class LogicalFileSystem {
       rootDirs: AbsoluteFsPath[],
       private compilerHost: Pick<ts.CompilerHost, 'getCanonicalFileName'>) {
     // Make a copy and sort it by length in reverse order (longest first). This speeds up lookups,
-    // since there's no need to keep going through the array once a match is found.
+    // since there is no need to keep going through the array once a match is found.
     this.rootDirs = rootDirs.concat([]).sort((a, b) => b.length - a.length);
     this.canonicalRootDirs =
         this.rootDirs.map(dir => this.compilerHost.getCanonicalFileName(dir) as AbsoluteFsPath);

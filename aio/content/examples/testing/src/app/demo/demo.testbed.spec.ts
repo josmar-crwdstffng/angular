@@ -281,7 +281,7 @@ describe('demo (with TestBed):', () => {
         // simulate user entering new name in input
         input.value = expectedNewName;
 
-        // that change doesn't flow to the component immediately
+        // that change does not flow to the component immediately
         expect(comp.name)
           .withContext(`comp.name should still be ${expectedOrigName} after value change, before binding happens`)
           .toBe(expectedOrigName);
@@ -323,7 +323,7 @@ describe('demo (with TestBed):', () => {
       // simulate user entering new name in input
       input.value = expectedNewName;
 
-      // that change doesn't flow to the component immediately
+      // that change does not flow to the component immediately
       expect(comp.name)
         .withContext(`comp.name should still be ${expectedOrigName} after value change, before binding happens`)
         .toBe(expectedOrigName);
@@ -431,7 +431,7 @@ describe('demo (with TestBed):', () => {
 
   describe('TestBed component overrides:', () => {
 
-    it("should override ChildComp's template", () => {
+    it("should override the template of the ChildComp", () => {
 
       const fixture = TestBed.configureTestingModule({
         declarations: [Child1Component],
@@ -445,7 +445,7 @@ describe('demo (with TestBed):', () => {
       expect(fixture).toHaveText('Fake');
     });
 
-    it("should override TestProvidersComp's ValueService provider", () => {
+    it("should override the ValueService provider of the TestProvidersComp", () => {
       const fixture = TestBed.configureTestingModule({
         declarations: [TestProvidersComponent],
       })
@@ -474,7 +474,7 @@ describe('demo (with TestBed):', () => {
         .toContain(ValueService);
     });
 
-    it("should override TestViewProvidersComp's ValueService viewProvider", () => {
+    it("should override the ValueService viewProvider of the TestViewProvidersComp", () => {
       const fixture = TestBed.configureTestingModule({
         declarations: [TestViewProvidersComponent],
       })
@@ -491,7 +491,7 @@ describe('demo (with TestBed):', () => {
       expect(fixture).toHaveText('injected value: faked value');
     });
 
-    it("injected provider should not be same as component's provider", () => {
+    it("injected provider should not be same as the provider of the component", () => {
 
       // TestComponent is parent of TestProvidersComponent
       @Component({ template: '<my-service-comp></my-service-comp>' })
@@ -512,7 +512,7 @@ describe('demo (with TestBed):', () => {
 
       let testBedProvider!: ValueService;
 
-      // `inject` uses TestBed's injector
+      // `inject` uses the injector of TestBed
       inject([ValueService], (s: ValueService) => testBedProvider = s)();
       const tcProvider = fixture.debugElement.injector.get(ValueService) as ValueService;
       const tpcProvider = fixture.debugElement.children[0].injector.get(ValueService) as FakeValueService;
@@ -648,7 +648,7 @@ describe('demo (with TestBed):', () => {
         .toBe(true);
     });
 
-    it("should have called child component's OnInit ", () => {
+    it("should have called the OnInit of the child component ", () => {
       fixture.detectChanges();
       getChild();
       expect(child.ngOnInitCalled).toBe(true);
@@ -721,13 +721,13 @@ describe('demo (with TestBed):', () => {
       // The Hard Way: requires detailed knowledge of the parent template
       try {
         childDe = fixture.debugElement.children[4].children[0];
-      } catch (err) { /* we'll report the error */ }
+      } catch (err) { /* we will report the error */ }
 
       // DebugElement.queryAll: if we wanted all of many instances:
       childDe = fixture.debugElement
         .queryAll(de => de.componentInstance instanceof MyIfChildComponent)[0];
 
-      // WE'LL USE THIS APPROACH !
+      // we will USE THIS APPROACH !
       // DebugElement.query: find first instance (if any)
       childDe = fixture.debugElement
         .query(de => de.componentInstance instanceof MyIfChildComponent);

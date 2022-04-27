@@ -19,7 +19,7 @@ export function envIsSupported(): boolean {
     return true;
   }
 
-  // If we're in a browser that doesn't support URL at this point, don't go any further
+  // If we are in a browser that does not support URL at this point, don't go any further
   // since browser builds use requirejs which will fail on the `require` call below.
   if (typeof window !== 'undefined' && window) {
     return false;

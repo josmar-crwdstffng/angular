@@ -10,7 +10,7 @@
  * This file exists to support compilation of @angular/core in Ivy mode.
  *
  * When the Angular compiler processes a compilation unit, it normally writes imports to
- * @angular/core. When compiling the core package itself this strategy isn't usable. Instead, the
+ * @angular/core. When compiling the core package itself this strategy is not usable. Instead, the
  * compiler writes imports to this file.
  *
  * Only a subset of such imports are supported - core is not allowed to declare components or pipes.

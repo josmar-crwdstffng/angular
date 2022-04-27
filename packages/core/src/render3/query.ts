@@ -16,6 +16,7 @@ import {createTemplateRef, TemplateRef as ViewEngine_TemplateRef} from '../linke
 import {createContainerRef, ViewContainerRef} from '../linker/view_container_ref';
 import {assertDefined, assertIndexInRange, assertNumber, throwError} from '../util/assert';
 import {stringify} from '../util/stringify';
+
 import {assertFirstCreatePass, assertLContainer} from './assert';
 import {getNodeInjectable, locateDirectiveOrProvider} from './di';
 import {storeCleanupWithContext} from './instructions/shared';
@@ -339,7 +340,7 @@ function createSpecialToken(lView: LView, tNode: TNode, read: any): any {
 /**
  * A helper function that creates query results for a given view. This function is meant to do the
  * processing once and only once for a given view instance (a set of results for a given view
- * doesn't change).
+ * does not change).
  */
 function materializeViewResults<T>(
     tView: TView, lView: LView, tQuery: TQuery, queryIndex: number): (T|null)[] {

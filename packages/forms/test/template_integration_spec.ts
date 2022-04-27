@@ -2495,7 +2495,7 @@ import {NgModelCustomComp, NgModelCustomWrapper} from './value_accessor_integrat
            fixture.detectChanges();
 
            // Changing validator inputs should not cause `registerOnValidatorChange` to be invoked,
-           // since it's invoked just once during the setup phase.
+           // since it is invoked just once during the setup phase.
            expect(registerOnValidatorChangeFired).toBe(1);
            expect(registerOnAsyncValidatorChangeFired).toBe(1);
          }));

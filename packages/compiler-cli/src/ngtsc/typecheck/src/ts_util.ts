@@ -154,7 +154,7 @@ export function tsUpdateTypeParameterDeclaration(
 export function checkIfClassIsExported(node: ClassDeclaration): boolean {
   // A class is exported if one of two conditions is met:
   // 1) it has the 'export' modifier.
-  // 2) it's declared at the top level, and there is an export statement for the class.
+  // 2) it is declared at the top level, and there is an export statement for the class.
   if (node.modifiers !== undefined &&
       node.modifiers.some(mod => mod.kind === ts.SyntaxKind.ExportKeyword)) {
     // Condition 1 is true, the class has an 'export' keyword attached.

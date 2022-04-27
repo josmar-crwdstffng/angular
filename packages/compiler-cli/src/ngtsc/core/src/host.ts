@@ -19,9 +19,10 @@ import {getRootDirs, isNonDeclarationTsPath, RequiredDelegations} from '../../ut
 import {ExtendedTsCompilerHost, NgCompilerAdapter, NgCompilerOptions, UnifiedModulesHost} from '../api';
 
 // A persistent source of bugs in CompilerHost delegation has been the addition by TS of new,
-// optional methods on ts.CompilerHost. Since these methods are optional, it's not a type error that
-// the delegating host doesn't implement or delegate them. This causes subtle runtime failures. No
-// more. This infrastructure ensures that failing to delegate a method is a compile-time error.
+// optional methods on ts.CompilerHost. Since these methods are optional, it is not a type error
+// that the delegating host does not implement or delegate them. This causes subtle runtime
+// failures. No more. This infrastructure ensures that failing to delegate a method is a
+// compile-time error.
 
 /**
  * Delegates all methods of `ExtendedTsCompilerHost` to a delegate, with the exception of
@@ -106,7 +107,7 @@ export class NgCompilerHost extends DelegatingCompilerHost implements
 
     if (this.resolveModuleNames === undefined) {
       // In order to reuse the module resolution cache during the creation of the type-check
-      // program, we'll need to provide `resolveModuleNames` if the delegate did not provide one.
+      // program, we will need to provide `resolveModuleNames` if the delegate did not provide one.
       this.resolveModuleNames = this.createCachedResolveModuleNamesFunction();
     }
   }
@@ -255,7 +256,7 @@ export class NgCompilerHost extends DelegatingCompilerHost implements
       return shimSf;
     }
 
-    // No, so it's a file which might need shims (or a file which doesn't exist).
+    // No, so it is a file which might need shims (or a file which does not exist).
     const sf =
         this.delegate.getSourceFile(fileName, languageVersion, onError, shouldCreateNewSourceFile);
     if (sf === undefined) {

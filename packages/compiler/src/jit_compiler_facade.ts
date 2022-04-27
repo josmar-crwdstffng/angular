@@ -601,8 +601,8 @@ function extractHostBindings(
       propMetadata[field].forEach(ann => {
         if (isHostBinding(ann)) {
           // Since this is a decorator, we know that the value is a class member. Always access it
-          // through `this` so that further down the line it can't be confused for a literal value
-          // (e.g. if there's a property called `true`).
+          // through `this` so that further down the line it cannot be confused for a literal value
+          // (e.g. if there is a property called `true`).
           bindings.properties[ann.hostPropertyName || field] =
               getSafePropertyAccessString('this', field);
         } else if (isHostListener(ann)) {

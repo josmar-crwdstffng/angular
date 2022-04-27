@@ -57,7 +57,7 @@ describe('event listeners', () => {
         this.counter++;
         this.event = e;
 
-        // stub preventDefault() to check whether it's called
+        // stub preventDefault() to check whether it is called
         Object.defineProperty(
             this.event, 'preventDefault',
             {value: jasmine.createSpy('preventDefault'), writable: true});

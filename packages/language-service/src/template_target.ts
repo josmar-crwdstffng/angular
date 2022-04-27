@@ -75,7 +75,7 @@ export enum TargetNodeKind {
 }
 
 /**
- * An `e.AST` expression that's targeted at a given position, with no additional context.
+ * An `e.AST` expression that is targeted at a given position, with no additional context.
  */
 export interface RawExpression {
   kind: TargetNodeKind.RawExpression;
@@ -97,7 +97,7 @@ export interface CallExpressionInArgContext {
 }
 
 /**
- * A `t.Node` template node that's targeted at a given position, with no additional context.
+ * A `t.Node` template node that is targeted at a given position, with no additional context.
  */
 export interface RawTemplateNode {
   kind: TargetNodeKind.RawTemplateNode;
@@ -105,7 +105,7 @@ export interface RawTemplateNode {
 }
 
 /**
- * A `t.Element` (or `t.Template`) element node that's targeted, where the given position is within
+ * A `t.Element` (or `t.Template`) element node that is targeted, where the given position is within
  * the tag name.
  */
 export interface ElementInTagContext {
@@ -114,7 +114,7 @@ export interface ElementInTagContext {
 }
 
 /**
- * A `t.Element` (or `t.Template`) element node that's targeted, where the given position is within
+ * A `t.Element` (or `t.Template`) element node that is targeted, where the given position is within
  * the element body.
  */
 export interface ElementInBodyContext {
@@ -306,7 +306,7 @@ class TemplateTargetVisitor implements t.Visitor {
     const withinKeySpanOfCurrentNode =
         isTemplateNodeWithKeyAndValue(node) && isWithin(this.position, node.keySpan);
     if (withinKeySpanOfLastNode && !withinKeySpanOfCurrentNode) {
-      // We've already identified that we are within a `keySpan` of a node.
+      // We have already identified that we are within a `keySpan` of a node.
       // Unless we are _also_ in the `keySpan` of the current node (happens with two way bindings),
       // we should stop processing nodes at this point to prevent matching any other nodes. This can
       // happen when the end span of a different node touches the start of the keySpan for the

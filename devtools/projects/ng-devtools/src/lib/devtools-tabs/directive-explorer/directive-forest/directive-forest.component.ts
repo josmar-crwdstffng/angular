@@ -135,7 +135,7 @@ export class DirectiveForestComponent implements OnInit, OnDestroy {
     const scrollParent = this.viewport.elementRef.nativeElement;
     // The top most point we see an element
     const top = scrollParent.scrollTop;
-    // That's the bottom most point we currently see an element.
+    // That is the bottom most point we currently see an element.
     const parentHeight = scrollParent.offsetHeight;
     const bottom = top + parentHeight;
     const idx = this.dataSource.expandedDataValues.findIndex((el) => el.id === node.id);

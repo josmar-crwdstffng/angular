@@ -12,7 +12,7 @@ import {ImportRewriter, validateAndRewriteCoreSymbol} from '../../../src/ngtsc/i
 export class NgccFlatImportRewriter implements ImportRewriter {
   shouldImportSymbol(symbol: string, specifier: string): boolean {
     if (specifier === '@angular/core') {
-      // Don't use imports for @angular/core symbols in a flat bundle, as they'll be visible
+      // Don't use imports for @angular/core symbols in a flat bundle, as they will be visible
       // directly.
       return false;
     } else {

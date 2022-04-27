@@ -58,7 +58,7 @@ import {HammerGestureConfig, HammerGesturesPlugin,} from '@angular/platform-brow
       let someListener: () => void;
 
       // Keep track of whatever value is in `window.Hammer` before the test so it can be
-      // restored afterwards so that this test doesn't care whether Hammer is actually loaded.
+      // restored afterwards so that this test does not care whether Hammer is actually loaded.
       let originalHammerGlobal: any;
 
       // Fake Hammer instance ("mc") used to test the underlying event registration.

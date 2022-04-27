@@ -39,7 +39,7 @@ describe('PhoneCat Application', () => {
         return phoneNameColumn.map((elem) => elem.getText());
       }
 
-      await queryField.sendKeys('tablet');   // Let's narrow the dataset to make the assertions shorter
+      await queryField.sendKeys('tablet');   // Let us narrow the dataset to make the assertions shorter
 
       expect(await getNames()).toEqual([
         'Motorola XOOM\u2122 with Wi-Fi',

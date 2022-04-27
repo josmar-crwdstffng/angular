@@ -12,7 +12,7 @@ export function docRegionSubscriber(console: Console) {
     observer.next(3);
     observer.complete();
 
-    // unsubscribe function doesn't need to do anything in this
+    // unsubscribe function does not need to do anything in this
     // because values are delivered synchronously
     return {unsubscribe() {}};
   }

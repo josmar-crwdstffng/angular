@@ -146,7 +146,7 @@ class LruList {
     previous.next = node.next;
 
     // node.next may or may not be set. If it is, fix the back pointer to skip over node.
-    // If it's not set, then this node happened to be the tail, and the tail needs to be
+    // If it is not set, then this node happened to be the tail, and the tail needs to be
     // updated to point to the previous node (removing the tail).
     if (node.next !== null) {
       // There is a next node, fix its back pointer to skip this node.
@@ -180,7 +180,7 @@ class LruList {
       return;
     }
 
-    // Look up the node in the map, and construct a new entry if it's
+    // Look up the node in the map, and construct a new entry if it is
     const node = this.state.map[url] || {url, next: null, previous: null};
 
     // Step 1: remove the node from its position within the chain, if it is in the chain.
@@ -190,8 +190,8 @@ class LruList {
 
     // Step 2: insert the node at the head of the chain.
 
-    // First, check if there's an existing head node. If there is, it has previous: null.
-    // Its previous pointer should be set to the node we're inserting.
+    // First, check if there is an existing head node. If there is, it has previous: null.
+    // Its previous pointer should be set to the node we are inserting.
     if (this.state.head !== null) {
       this.state.map[this.state.head]!.previous = url;
     }
@@ -307,7 +307,7 @@ export class DataGroup {
     // The URL matches this cache. First, check whether this is a mutating request or not.
     switch (req.method) {
       case 'OPTIONS':
-        // Don't try to cache this - it's non-mutating, but is part of a mutating request.
+        // Don't try to cache this - it is non-mutating, but is part of a mutating request.
         // Most likely SWs don't even see this, but this guard is here just in case.
         return null;
       case 'GET':
@@ -499,7 +499,7 @@ export class DataGroup {
 
         // Otherwise, or if there was an error, assume the response is expired, and evict it.
       } catch {
-        // Some error getting the age for the response. Assume it's expired.
+        // Some error getting the age for the response. Assume it is expired.
       }
 
       lru.remove(req.url);
@@ -579,7 +579,7 @@ export class DataGroup {
   /**
    * Clear the state of the cache for a particular resource.
    *
-   * This doesn't remove the resource from the LRU table, that is assumed to have
+   * This does not remove the resource from the LRU table, that is assumed to have
    * been done already. This clears the GET and HEAD versions of the request from
    * the cache itself, as well as the metadata stored in the age table.
    */

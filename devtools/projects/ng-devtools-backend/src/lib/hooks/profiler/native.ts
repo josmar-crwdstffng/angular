@@ -92,7 +92,7 @@ export class NgProfiler extends Profiler {
     const id = this._tracker.getDirectiveId(context);
 
     // If we can find the position and the ID we assume that this is a component instance.
-    // Alternatively, if we can't find the ID or the position, we assume that this is a
+    // Alternatively, if we cannot find the ID or the position, we assume that this is a
     // context of an embedded view (for example, NgForOfContext, NgIfContext, or a custom one).
     if (position !== undefined && id !== undefined) {
       this._lastDirectiveInstance = context;

@@ -113,7 +113,7 @@ export class BigIntForMultiplication {
    * value for `b` is represented by a storage model that is optimized for this computation.
    *
    * This operation is implemented in N(log2(num)) by continuous halving of the number, where the
-   * least-significant bit (LSB) is tested in each iteration. If the bit is set, the bit's index is
+   * least-significant bit (LSB) is tested in each iteration. If the bit is set, the bit is index is
    * used as exponent into the power-of-two multiplication of `b`.
    *
    * As an example, consider the multiplication num=42, b=1337. In binary 42 is 0b00101010 and the

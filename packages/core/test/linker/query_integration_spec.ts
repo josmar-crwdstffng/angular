@@ -226,7 +226,7 @@ describe('Query API', () => {
       const template = '<has-null-query-condition></has-null-query-condition>';
       TestBed.overrideComponent(MyCompBroken0, {set: {template}});
       expect(() => TestBed.createComponent(MyCompBroken0))
-          .toThrowError(`Can't construct a query for the property "errorTrigger" of "${
+          .toThrowError(`Cannot construct a query for the property "errorTrigger" of "${
               stringify(HasNullQueryCondition)}" since the query selector wasn't defined.`);
     });
   });
@@ -340,7 +340,7 @@ describe('Query API', () => {
           '</needs-content-child-template-ref-app>';
       const view = createTestCmp(MyComp0, template);
 
-      // can't execute checkNoChanges as our view modifies our content children (via a query).
+      // cannot execute checkNoChanges as our view modifies our content children (via a query).
       view.detectChanges(false);
       expect(view.nativeElement).toHaveText('OUTER');
     });
@@ -631,7 +631,7 @@ describe('Query API', () => {
       const view1 = q.vc.createEmbeddedView(q.template, {'x': '1'});
       const view2 = q.vc.createEmbeddedView(q.template, {'x': '2'});
 
-      // 2 views were created and inserted so we've got 2 matching results
+      // 2 views were created and inserted so we have got 2 matching results
       view.detectChanges();
       expect(q.query.map((d: TextDirective) => d.text)).toEqual(['1', '2']);
 

@@ -24,8 +24,8 @@ interface ShimGeneratorData {
 /**
  * Generates and tracks shim files for each original `ts.SourceFile`.
  *
- * The `ShimAdapter` provides an API that's designed to be used by a `ts.CompilerHost`
- * implementation and allows it to include synthetic "shim" files in the program that's being
+ * The `ShimAdapter` provides an API that is designed to be used by a `ts.CompilerHost`
+ * implementation and allows it to include synthetic "shim" files in the program that is being
  * created. It works for both freshly created programs as well as with reuse of an older program
  * (which already may contain shim files and thus have a different creation flow).
  */
@@ -150,7 +150,7 @@ export class ShimAdapter {
       return this.shims.get(fileName)!;
     }
 
-    // .d.ts files can't be shims.
+    // .d.ts files cannot be shims.
     if (isDtsPath(fileName)) {
       this.notShims.add(fileName);
       return null;
@@ -172,7 +172,7 @@ export class ShimAdapter {
         // No .ts file by that name - try .tsx.
         baseFileName = absoluteFrom(prefix + '.tsx');
         if (!this.delegate.fileExists(baseFileName)) {
-          // This isn't a shim after all since there is no original file which would have triggered
+          // This is not a shim after all since there is no original file which would have triggered
           // its generation, even though the path is right. There are a few reasons why this could
           // occur:
           //
@@ -182,7 +182,7 @@ export class ShimAdapter {
           // * when a file is present in one compilation and removed in the next incremental step.
           //
           // Note that this does not add the filename to `notShims`, so this path is not cached.
-          // That's okay as these cases above are edge cases and do not occur regularly in normal
+          // That is okay as these cases above are edge cases and do not occur regularly in normal
           // operations.
           return undefined;
         }

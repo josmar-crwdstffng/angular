@@ -27,7 +27,7 @@ export class TwainService {
       retryWhen(errors => errors.pipe(
         switchMap((error: HttpErrorResponse)  => {
           if (error.status === 404) {
-            // Queried for quote that doesn't exist.
+            // Queried for quote that does not exist.
             this.nextId = 1; // retry with quote id:1
             return of(null); // signal OK to retry
           }

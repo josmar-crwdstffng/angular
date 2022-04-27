@@ -88,7 +88,7 @@ export class ImportManager {
       if (statement.importClause.namedBindings) {
         const namedBindings = statement.importClause.namedBindings;
 
-        // In case a "Type" symbol is imported, we can't use namespace imports
+        // In case a "Type" symbol is imported, we cannot use namespace imports
         // because these only export symbols available at runtime (no types)
         if (ts.isNamespaceImport(namedBindings) && !typeImport) {
           return ts.factory.createPropertyAccessExpression(
@@ -122,7 +122,7 @@ export class ImportManager {
       // Since it can happen that multiple classes need to be imported within the
       // specified source file and we want to add the identifiers to the existing
       // import declaration, we need to keep track of the updated import declarations.
-      // We can't directly update the import declaration for each identifier as this
+      // We cannot directly update the import declaration for each identifier as this
       // would throw off the recorder offsets. We need to keep track of the new identifiers
       // for the import and perform the import transformation as batches per source-file.
       this.updatedImports.set(
@@ -132,7 +132,7 @@ export class ImportManager {
           }));
 
       // Keep track of all updated imports so that we don't generate duplicate
-      // similar imports as these can't be statically analyzed in the source-file yet.
+      // similar imports as these cannot be statically analyzed in the source-file yet.
       this.importCache.push({sourceFile, moduleName, symbolName, identifier: importName});
 
       return importName;
@@ -171,7 +171,7 @@ export class ImportManager {
             importStartIndex, importStartIndex === 0 ? `${newImportText}\n` : `\n${newImportText}`);
 
     // Keep track of all generated imports so that we don't generate duplicate
-    // similar imports as these can't be statically analyzed in the source-file yet.
+    // similar imports as these cannot be statically analyzed in the source-file yet.
     this.importCache.push({sourceFile, symbolName, moduleName, identifier});
 
     return identifier;
@@ -227,7 +227,7 @@ export class ImportManager {
     }
 
     // Walk through the source file and search for an identifier matching
-    // the given name. In that case, it's not guaranteed that this name
+    // the given name. In that case, it is not guaranteed that this name
     // is unique in the given declaration scope and we just return false.
     const nodeQueue: ts.Node[] = [sourceFile];
     while (nodeQueue.length) {

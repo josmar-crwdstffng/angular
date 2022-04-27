@@ -34,7 +34,7 @@ interface PluginCompilerHost extends ts.CompilerHost, Partial<UnifiedModulesHost
 
 /**
  * Mirrors the plugin interface from tsc_wrapped which is currently under active development. To
- * enable progress to be made in parallel, the upstream interface isn't implemented directly.
+ * enable progress to be made in parallel, the upstream interface is not implemented directly.
  * Instead, `TscPlugin` here is structurally assignable to what tsc_wrapped expects.
  */
 interface TscPlugin {
@@ -94,7 +94,7 @@ export class NgTscPlugin implements TscPlugin {
     ignoreForDiagnostics: Set<ts.SourceFile>,
     ignoreForEmit: Set<ts.SourceFile>,
   } {
-    // TODO(alxhub): we provide a `PerfRecorder` to the compiler, but because we're not driving the
+    // TODO(alxhub): we provide a `PerfRecorder` to the compiler, but because we are not driving the
     // compilation, the information captured within it is incomplete, and may not include timings
     // for phases such as emit.
     //
@@ -152,8 +152,8 @@ export class NgTscPlugin implements TscPlugin {
   }
 
   createTransformers(): ts.CustomTransformers {
-    // The plugin consumer doesn't know about our perf tracing system, so we consider the emit phase
-    // as beginning now.
+    // The plugin consumer does not know about our perf tracing system, so we consider the emit
+    // phase as beginning now.
     this.compiler.perfRecorder.phase(PerfPhase.TypeScriptEmit);
     return this.compiler.prepareEmit().transformers;
   }

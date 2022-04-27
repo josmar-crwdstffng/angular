@@ -23,7 +23,7 @@ export class DtsMetadataReader implements MetadataReader {
   constructor(private checker: ts.TypeChecker, private reflector: ReflectionHost) {}
 
   /**
-   * Read the metadata from a class that has already been compiled somehow (either it's in a .d.ts
+   * Read the metadata from a class that has already been compiled somehow (either it is in a .d.ts
    * file, or in a .ts file with a handwritten definition).
    *
    * @param ref `Reference` to the class of interest, with the context of how it was obtained.
@@ -83,7 +83,7 @@ export class DtsMetadataReader implements MetadataReader {
     const ctorParams = this.reflector.getConstructorParameters(clazz);
 
     // A directive is considered to be structural if:
-    // 1) it's a directive, not a component, and
+    // 1) it is a directive, not a component, and
     // 2) it injects `TemplateRef`
     const isStructural = !isComponent && ctorParams !== null && ctorParams.some(param => {
       return param.typeValueReference.kind === TypeValueReferenceKind.IMPORTED &&
@@ -161,7 +161,7 @@ function readBaseClass(clazz: ClassDeclaration, checker: ts.TypeChecker, reflect
     Reference<ClassDeclaration>|'dynamic'|null {
   if (!isNamedClassDeclaration(clazz)) {
     // Technically this is an error in a .d.ts file, but for the purposes of finding the base class
-    // it's ignored.
+    // it is ignored.
     return reflector.hasBaseClass(clazz) ? 'dynamic' : null;
   }
 

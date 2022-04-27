@@ -43,10 +43,10 @@ export class UndecoratedChildMigration implements Migration {
 
     const baseRef = readBaseClass(ref.node, host.reflectionHost, host.evaluator);
     if (baseRef === null) {
-      // Stop: can't migrate a class with no parent.
+      // Stop: cannot migrate a class with no parent.
       return;
     } else if (baseRef === 'dynamic') {
-      // Stop: can't migrate a class with an indeterminate parent.
+      // Stop: cannot migrate a class with an indeterminate parent.
       return;
     }
 
@@ -57,7 +57,7 @@ export class UndecoratedChildMigration implements Migration {
     // is a directive inheritance chain.
     const baseMeta = host.metadata.getDirectiveMetadata(baseRef);
     if (baseMeta === null) {
-      // Stop: this isn't a directive inheritance chain after all.
+      // Stop: this is not a directive inheritance chain after all.
       return;
     }
 

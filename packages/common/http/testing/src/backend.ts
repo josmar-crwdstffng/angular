@@ -19,7 +19,7 @@ import {TestRequest} from './request';
  * and as the `HttpTestingController`.
  *
  * `HttpClientTestingBackend` works by keeping a list of all open requests.
- * As requests come in, they're added to the list. Users can assert that specific
+ * As requests come in, they are added to the list. Users can assert that specific
  * requests were made and then flush them. In the end, a verify() method asserts
  * that no unexpected requests were made.
  *

@@ -164,7 +164,7 @@ export type ɵIsAny<T, Y, N> = 0 extends(1&T) ? Y : N;
 
 /**
  * `TypedOrUntyped` allows one of two different types to be selected, depending on whether the Forms
- * class it's applied to is typed or not.
+ * class it is applied to is typed or not.
  *
  * This is for internal Angular usage to support typed forms; do not directly use it.
  */
@@ -321,7 +321,7 @@ export type ɵGetProperty<T, K> =
     K extends string ? ɵGetProperty<T, ɵCoerceStrArrToNumArr<ɵTokenize<K, '.'>>> :
     // Is is an array
     ɵWriteable<K> extends Array<string|number> ? ɵNavigate<T, ɵWriteable<K>> :
-    // Fall through permissively if we can't calculate the type of K.
+    // Fall through permissively if we cannot calculate the type of K.
     any;
 
 // clang-format on

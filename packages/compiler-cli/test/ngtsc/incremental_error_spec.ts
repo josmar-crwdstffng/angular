@@ -24,7 +24,7 @@ runInEachFileSystem(() => {
       env.tsconfig();
 
       // This file is part of the program, but not referenced by anything else. It can be used by
-      // each test to verify that it isn't re-emitted after incremental builds.
+      // each test to verify that it is not re-emitted after incremental builds.
       env.write('unrelated.ts', `
         export class Unrelated {}
       `);

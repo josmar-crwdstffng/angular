@@ -83,7 +83,7 @@ describe('language-service/compiler integration', () => {
     // the user with secondary errors that stem from a primary root cause. However, this prevents
     // the generation of type check blocks and other metadata within the compiler which drive the
     // Language Service's understanding of components. Therefore in the Language Service, the
-    // compiler is configured to make use of such data even if it's "poisoned". This test verifies
+    // compiler is configured to make use of such data even if it is "poisoned". This test verifies
     // that a component declared in an NgModule with a faulty import still generates template
     // diagnostics.
 
@@ -203,7 +203,7 @@ describe('language-service/compiler integration', () => {
     // When getDiagnostics is called, NgCompiler calls ensureAllShimsForOneFile
     // and caches the source file for 'bar.ts' in the input program.
     // The input program has not picked up the version change because the project
-    // is clean (rightly so since there's no user-initiated change).
+    // is clean (rightly so since there is no user-initiated change).
     expect(project.getDiagnosticsForFile('bar.ts').length).toBe(0);
     // A new program is generated due to addition of typecheck file. During
     // program creation, TS language service does a sweep of all source files,

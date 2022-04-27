@@ -920,11 +920,11 @@ export class NgCompiler {
         localImportStrategy = new LogicalProjectStrategy(
             reflector, new LogicalFileSystem([...this.adapter.rootDirs], this.adapter));
       } else {
-        // Plain relative imports are all that's needed.
+        // Plain relative imports are all that is needed.
         localImportStrategy = new RelativePathStrategy(reflector);
       }
 
-      // The CompilerHost doesn't have fileNameToModuleName, so build an NPM-centric reference
+      // The CompilerHost does not have fileNameToModuleName, so build an NPM-centric reference
       // resolution strategy.
       refEmitter = new ReferenceEmitter([
         // First, try to use local identifiers if available.

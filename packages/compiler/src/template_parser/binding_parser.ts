@@ -52,12 +52,12 @@ export class BindingParser {
       if (typeof expression === 'string') {
         this.parsePropertyBinding(
             propName, expression, true, sourceSpan, sourceSpan.start.offset, undefined, [],
-            // Use the `sourceSpan` for  `keySpan`. This isn't really accurate, but neither is the
+            // Use the `sourceSpan` for  `keySpan`. This is not really accurate, but neither is the
             // sourceSpan, as it represents the sourceSpan of the host itself rather than the
-            // source of the host binding (which doesn't exist in the template). Regardless,
+            // source of the host binding (which does not exist in the template). Regardless,
             // neither of these values are used in Ivy but are only here to satisfy the function
             // signature. This should likely be refactored in the future so that `sourceSpan`
-            // isn't being used inaccurately.
+            // is not being used inaccurately.
             boundProps, sourceSpan);
       } else {
         this._reportError(
@@ -76,12 +76,12 @@ export class BindingParser {
     for (const propName of Object.keys(hostListeners)) {
       const expression = hostListeners[propName];
       if (typeof expression === 'string') {
-        // Use the `sourceSpan` for  `keySpan` and `handlerSpan`. This isn't really accurate, but
+        // Use the `sourceSpan` for  `keySpan` and `handlerSpan`. This is not really accurate, but
         // neither is the `sourceSpan`, as it represents the `sourceSpan` of the host itself
-        // rather than the source of the host binding (which doesn't exist in the template).
+        // rather than the source of the host binding (which does not exist in the template).
         // Regardless, neither of these values are used in Ivy but are only here to satisfy the
         // function signature. This should likely be refactored in the future so that `sourceSpan`
-        // isn't being used inaccurately.
+        // is not being used inaccurately.
         this.parseEvent(
             propName, expression, /* isAssignmentEvent */ false, sourceSpan, sourceSpan, [],
             targetEvents, sourceSpan);
@@ -156,7 +156,7 @@ export class BindingParser {
 
     for (const binding of bindings) {
       // sourceSpan is for the entire HTML attribute. bindingSpan is for a particular
-      // binding within the microsyntax expression so it's more narrow than sourceSpan.
+      // binding within the microsyntax expression so it is more narrow than sourceSpan.
       const bindingSpan = moveParseSourceSpan(sourceSpan, binding.sourceSpan);
       const key = binding.key.source;
       const keySpan = moveParseSourceSpan(sourceSpan, binding.key.span);

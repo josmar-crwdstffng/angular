@@ -159,8 +159,8 @@ function getStyleAttributeString(element: any, key: string, value: string) {
 
 function writeStyleAttribute(element: any) {
   // Read the style property of the element and manually reflect it to the
-  // style attribute. This is needed because Domino on platform-server doesn't
-  // understand the full set of allowed CSS properties and doesn't reflect some
+  // style attribute. This is needed because Domino on platform-server does not
+  // understand the full set of allowed CSS properties and does not reflect some
   // of them automatically.
   let styleAttrValue = '';
   for (let i = 0; i < element.style.length; i++) {
@@ -187,7 +187,7 @@ export function setStyles(element: any, styles: ɵStyleDataMap, formerStyles?: �
       }
       element.style[camelProp] = val;
     });
-    // On the server set the 'style' attribute since it's not automatically reflected.
+    // On the server set the 'style' attribute since it is not automatically reflected.
     if (isNode()) {
       writeStyleAttribute(element);
     }
@@ -200,7 +200,7 @@ export function eraseStyles(element: any, styles: ɵStyleDataMap) {
       const camelProp = dashCaseToCamelCase(prop);
       element.style[camelProp] = '';
     });
-    // On the server set the 'style' attribute since it's not automatically reflected.
+    // On the server set the 'style' attribute since it is not automatically reflected.
     if (isNode()) {
       writeStyleAttribute(element);
     }

@@ -1233,7 +1233,7 @@ describe('TestBed', () => {
         .catch(error => {
           // This should not throw any errors. If an error is thrown, the test will fail.
           // Specifically use `catch` here to mark the test as done and *then* throw the error
-          // so that the test isn't treated as a timeout.
+          // so that the test is not treated as a timeout.
           done();
           throw error;
         });
@@ -1306,7 +1306,7 @@ describe('TestBed', () => {
     // 1) the component should be compiled in the scope of its original module.
     //
     // This condition is tested by having the component (Outer) use another component
-    // (Inner) within its template. Thus, if it's compiled in the correct scope then the
+    // (Inner) within its template. Thus, if it is compiled in the correct scope then the
     // text 'Inner' from the template of (Inner) should appear in the result.
     //
     // 2) the component should be available in the TestingModule scope.
@@ -1377,7 +1377,7 @@ describe('TestBed', () => {
         expect(() => {
           (TestBed as any)[overrideFn](type, {});
           TestBed.createComponent(type);
-        }).toThrowError(new RegExp(`class doesn't have @${decorator} decorator`, 'g'));
+        }).toThrowError(new RegExp(`class does not have @${decorator} decorator`, 'g'));
       });
     });
   });
@@ -1699,7 +1699,7 @@ describe('TestBed', () => {
       class Service {
       }
       TestBed.overrideProvider(Service, {});
-      // Should be able to get a Service instance because it has no dependencies that can't be
+      // Should be able to get a Service instance because it has no dependencies that cannot be
       // resolved
       expect(TestBed.inject(Service)).toBeDefined();
     });
@@ -1745,7 +1745,7 @@ describe('TestBed', () => {
 
 
 describe('TestBed module teardown', () => {
-  // Cast the `TestBed` to the internal data type since we're testing private APIs.
+  // Cast the `TestBed` to the internal data type since we are testing private APIs.
   let TestBed: TestBedRender3;
 
   beforeEach(() => {
@@ -1916,8 +1916,8 @@ describe('TestBed module teardown', () => {
        const styleCountBefore = fixtureDocument.querySelectorAll('style').length;
 
        // Note that we can only assert that the behavior works as expected by checking that the
-       // number of stylesheets has decreased. We can't expect that they'll be zero, because there
-       // may by stylesheets leaking in from other tests that don't use the module teardown
+       // number of stylesheets has decreased. We cannot expect that they will be zero, because
+       // there may by stylesheets leaking in from other tests that don't use the module teardown
        // behavior.
        expect(styleCountBefore).toBeGreaterThan(0);
        TestBed.resetTestingModule();

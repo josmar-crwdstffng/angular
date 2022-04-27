@@ -363,7 +363,7 @@ export interface TypeCheckingTarget {
  *
  * A full Angular environment is not necessary to exercise the template type-checking system.
  * Components only need to be classes which exist, with templates specified in the target
- * configuration. In many cases, it's not even necessary to include source code for test files, as
+ * configuration. In many cases, it is not even necessary to include source code for test files, as
  * that can be auto-generated based on the provided target configuration.
  */
 export function setup(targets: TypeCheckingTarget[], overrides: {

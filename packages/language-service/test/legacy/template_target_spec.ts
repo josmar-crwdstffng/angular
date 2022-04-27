@@ -212,7 +212,7 @@ describe('getTargetAtPosition for template AST', () => {
     const {context} = getTargetAtPosition(nodes, position)!;
     const {node} = context as SingleNodeTarget;
     expect(isExpressionNode(node!)).toBe(true);
-    // It doesn't actually matter if the template target returns the read or the write.
+    // It does not actually matter if the template target returns the read or the write.
     // When the template target returns a property read, we only use the LHS downstream because the
     // RHS would have its own node in the AST that would have been returned instead. The LHS of the
     // `e.PropertyWrite` is the same as the `e.PropertyRead`.
@@ -376,7 +376,7 @@ describe('getTargetAtPosition for template AST', () => {
     const {errors, nodes, position} = parse(`<cmp [(foo)]="b¦ar"></cmp>`);
     expect(errors).toBe(null);
     const {context, parent} = getTargetAtPosition(nodes, position)!;
-    // It doesn't actually matter if the template target returns the read or the write.
+    // It does not actually matter if the template target returns the read or the write.
     // When the template target returns a property read, we only use the LHS downstream because the
     // RHS would have its own node in the AST that would have been returned instead. The LHS of the
     // `e.PropertyWrite` is the same as the `e.PropertyRead`.

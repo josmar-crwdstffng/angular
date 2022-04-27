@@ -28,7 +28,7 @@ if (browserDetection.supportsShadowDom) {
       const compEl = TestBed.createComponent(StyledShadowComponent).nativeElement;
       // Firefox and Chrome return different computed styles. Chrome supports CSS property
       // shorthands in the computed style object while Firefox expects explicit CSS properties.
-      // e.g. we can't use the "border" CSS property for this test as "border" is a shorthand
+      // e.g. we cannot use the "border" CSS property for this test as "border" is a shorthand
       // property and therefore would not work within Firefox.
       expect(window.getComputedStyle(compEl).backgroundColor).toEqual('rgb(0, 0, 0)');
       const redDiv = compEl.shadowRoot.querySelector('div.red');

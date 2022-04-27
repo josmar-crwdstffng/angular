@@ -146,7 +146,7 @@ export function downgradeComponent(info: {
         //           downgraded component and its parent component both belong to the same NgModule.
         //           In that case, we could have used the `parentInjector` as both
         //           `finalModuleInjector` and `finalParentInjector`, but (for simplicity) we are
-        //           treating this case as if they belong to different `NgModule`s. That doesn't
+        //           treating this case as if they belong to different `NgModule`s. That does not
         //           really affect anything, since `parentInjector` has `moduleInjector` as ancestor
         //           and trying to resolve `ComponentFactoryResolver` from either one will return
         //           the same instance.

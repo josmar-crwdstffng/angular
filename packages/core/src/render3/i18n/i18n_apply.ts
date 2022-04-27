@@ -173,7 +173,7 @@ export function applyMutableOpCodes(
             const refIdx = getRefFromIcuCreateOpCode(opCode);
             ngDevMode && assertGreaterThan(refIdx, HEADER_OFFSET, 'Missing ref');
             // `unwrapRNode` is not needed here as all of these point to RNodes as part of the i18n
-            // which can't have components.
+            // which cannot have components.
             const child = lView[refIdx] as RElement;
             ngDevMode && assertDomNode(child);
             nativeInsertBefore(renderer, parentRNode, child, insertInFrontOf, false);

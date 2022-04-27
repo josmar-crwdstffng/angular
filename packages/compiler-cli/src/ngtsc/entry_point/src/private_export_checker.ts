@@ -19,7 +19,7 @@ import {ReferenceGraph} from './reference_graph';
  *
  * This function reconciles two concepts:
  *
- * A class is Exported if it's exported from the main library `entryPoint` file.
+ * A class is Exported if it is exported from the main library `entryPoint` file.
  * A class is Visible if, via Angular semantics, a downstream consumer can import an Exported class
  * and be affected by the class in question. For example, an Exported NgModule may expose a
  * directive class to its consumers. Consumers that import the NgModule may have the directive
@@ -62,8 +62,8 @@ export function checkForPrivateExports(
   });
 
   // Next, go through each exported class and expand it to the set of classes it makes Visible,
-  // using the `ReferenceGraph`. For each Visible class, verify that it's also Exported, and queue
-  // an error if it isn't. `checkedSet` ensures only one error is queued per class.
+  // using the `ReferenceGraph`. For each Visible class, verify that it is also Exported, and queue
+  // an error if it is not. `checkedSet` ensures only one error is queued per class.
   const checkedSet = new Set<DeclarationNode>();
 
   // Loop through each Exported class.

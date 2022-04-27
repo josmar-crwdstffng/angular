@@ -217,7 +217,7 @@ export class RouterLinkActive implements OnChanges, OnDestroy, AfterContentInit 
     const options: boolean|IsActiveMatchOptions =
         isActiveMatchOptions(this.routerLinkActiveOptions) ?
         this.routerLinkActiveOptions :
-        // While the types should disallow `undefined` here, it's possible without strict inputs
+        // While the types should disallow `undefined` here, it is possible without strict inputs
         (this.routerLinkActiveOptions.exact || false);
     return (link: RouterLink|RouterLinkWithHref) =>
                link.urlTree ? router.isActive(link.urlTree, options) : false;

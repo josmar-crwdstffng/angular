@@ -10,6 +10,7 @@ import {DOCUMENT, LocationChangeEvent, LocationChangeListener, PlatformLocation,
 import {Inject, Injectable, Optional} from '@angular/core';
 import {Subject} from 'rxjs';
 import * as url from 'url';
+
 import {INITIAL_CONFIG, PlatformConfig} from './tokens';
 
 function parseUrl(urlStr: string) {
@@ -117,7 +118,7 @@ export class ServerPlatformLocation implements PlatformLocation {
     throw new Error('Not implemented');
   }
 
-  // History API isn't available on server, therefore return undefined
+  // History API is not available on server, therefore return undefined
   getState(): unknown {
     return undefined;
   }

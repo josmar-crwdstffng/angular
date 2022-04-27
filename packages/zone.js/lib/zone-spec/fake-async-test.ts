@@ -190,7 +190,7 @@ class Scheduler {
       this._currentTickRequeuePeriodicEntries = [];
       let current = schedulerQueue[0];
       if (finalTime < current.endTime) {
-        // Done processing the queue since it's sorted by endTime.
+        // Done processing the queue since it is sorted by endTime.
         break;
       } else {
         // Time to run scheduled function. Remove it from the head of queue.
@@ -326,7 +326,7 @@ class FakeAsyncTestZoneSpec implements ZoneSpec {
       namePrefix: string, private trackPendingRequestAnimationFrame = false,
       private macroTaskOptions?: MacroTaskOptions[]) {
     this.name = 'fakeAsyncTestZone for ' + namePrefix;
-    // in case user can't access the construction of FakeAsyncTestSpec
+    // in case user cannot access the construction of FakeAsyncTestSpec
     // user can also define macroTaskOptions by define a global variable.
     if (!this.macroTaskOptions) {
       this.macroTaskOptions = global[Zone.__symbol__('FakeAsyncTestMacroTask')];
@@ -369,7 +369,7 @@ class FakeAsyncTestZoneSpec implements ZoneSpec {
 
   private _requeuePeriodicTimer(fn: Function, interval: number, args: any[], id: number): Function {
     return () => {
-      // Requeue the timer callback if it's not been canceled.
+      // Requeue the timer callback if it is not been canceled.
       if (this.pendingPeriodicTimers.indexOf(id) !== -1) {
         this._scheduler.scheduleFunction(
             fn, interval, {args, isPeriodic: true, id, isRequeuePeriodic: true});

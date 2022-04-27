@@ -20,7 +20,7 @@ export function setFileSystem(fileSystem: FileSystem) {
 }
 
 /**
- * Convert the path `path` to an `AbsoluteFsPath`, throwing an error if it's not an absolute path.
+ * Convert the path `path` to an `AbsoluteFsPath`, throwing an error if it is not an absolute path.
  */
 export function absoluteFrom(path: string): AbsoluteFsPath {
   if (!fs.isRooted(path)) {
@@ -41,13 +41,13 @@ export function absoluteFromSourceFile(sf: {fileName: string}): AbsoluteFsPath {
     sfWithPatch[ABSOLUTE_PATH] = fs.resolve(sfWithPatch.fileName);
   }
 
-  // Non-null assertion needed since TS doesn't narrow the type of fields that use a symbol as a key
-  // apparently.
+  // Non-null assertion needed since TS does not narrow the type of fields that use a symbol as a
+  // key apparently.
   return sfWithPatch[ABSOLUTE_PATH]!;
 }
 
 /**
- * Convert the path `path` to a `PathSegment`, throwing an error if it's not a relative path.
+ * Convert the path `path` to a `PathSegment`, throwing an error if it is not a relative path.
  */
 export function relativeFrom(path: string): PathSegment {
   const normalized = normalizeSeparators(path);

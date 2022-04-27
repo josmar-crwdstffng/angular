@@ -23,7 +23,7 @@ runInEachFileSystem(() => {
      */
     class LockFileUnderTest extends LockFileWithChildProcess {
       // Note that log is initialized in the `createUnlocker()` function that is called from
-      // super(), so we can't initialize it here.
+      // super(), so we cannot initialize it here.
       log!: string[];
       constructor(fs: FileSystem) {
         super(fs, new MockLogger());

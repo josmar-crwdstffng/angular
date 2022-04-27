@@ -2139,7 +2139,7 @@ const ValueAccessorB = createControlValueAccessor('[cva-b]');
              expect(warnSpy.calls.count()).toEqual(1);
              expect(warnSpy.calls.mostRecent().args[0])
                  .toMatch(
-                     /It looks like you're using ngModel on the same form field as formControlName/gi);
+                     /It looks like you are using ngModel on the same form field as formControlName/gi);
 
              fixture.componentInstance.login = 'some value';
              fixture.detectChanges();
@@ -2158,7 +2158,7 @@ const ValueAccessorB = createControlValueAccessor('[cva-b]');
              expect(warnSpy.calls.count()).toEqual(1);
              expect(warnSpy.calls.mostRecent().args[0])
                  .toMatch(
-                     /It looks like you're using ngModel on the same form field as formControl/gi);
+                     /It looks like you are using ngModel on the same form field as formControl/gi);
 
              fixture.componentInstance.login = 'some value';
              fixture.detectChanges();
@@ -2183,7 +2183,7 @@ const ValueAccessorB = createControlValueAccessor('[cva-b]');
              expect(warnSpy.calls.count()).toEqual(2);
              expect(warnSpy.calls.mostRecent().args[0])
                  .toMatch(
-                     /It looks like you're using ngModel on the same form field as formControl/gi);
+                     /It looks like you are using ngModel on the same form field as formControl/gi);
            }));
 
         it('should silence warnings when global provider is provided with "never"',
@@ -4001,7 +4001,7 @@ const ValueAccessorB = createControlValueAccessor('[cva-b]');
         // - FormControlDirective was destroyed and connection to a value accessor and view
         //   validators should also be destroyed.
         // - Since there is a second instance of the FormControlDirective directive present in the
-        //   template, we expect to see see calls to value accessor B (since it's applied to
+        //   template, we expect to see see calls to value accessor B (since it is applied to
         //   that directive instance) and validators applied on a control instance itself (not a
         //   part of a view setup).
         expect(valueAccessorBSpy).toHaveBeenCalledWith('Updated Value');
@@ -4076,7 +4076,7 @@ const ValueAccessorB = createControlValueAccessor('[cva-b]');
         // - `FormControlName` was destroyed and connection to the value accessor A and
         //   validators should also be destroyed.
         // - Since there is a second instance of `FormControlName` directive present in the
-        //   template, we expect to see see calls to the value accessor B (since it's applied to
+        //   template, we expect to see see calls to the value accessor B (since it is applied to
         //   that directive instance) and validators applied on a control instance itself (not a
         //   part of a view setup).
         expect(valueAccessorBSpy).toHaveBeenCalledWith('Updated value');
@@ -4735,7 +4735,7 @@ const ValueAccessorB = createControlValueAccessor('[cva-b]');
 
         const controlB = new FormControl('B');
         // Note: since ControlA and ControlB share the same set of validators and value accessor, we
-        // add spies just ones while configuring ControlA (it's not possible to add spies multiple
+        // add spies just ones while configuring ControlA (it is not possible to add spies multiple
         // times).
         addOwnValidatorsAndAttachSpies(controlB, {});
 
@@ -5081,7 +5081,7 @@ const ValueAccessorB = createControlValueAccessor('[cva-b]');
           fixture.detectChanges();
         }).toThrowError('No value accessor for form control with name: \'control\'');
 
-        // Making sure that cleanup between tests doesn't cause any issues
+        // Making sure that cleanup between tests does not cause any issues
         // for not fully initialized controls.
         expect(() => {
           fixture.destroy();

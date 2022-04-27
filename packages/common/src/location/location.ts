@@ -132,7 +132,7 @@ export class Location implements OnDestroy {
 
   /**
    * Normalizes an external URL path.
-   * If the given URL doesn't begin with a leading slash (`'/'`), adds one
+   * If the given URL does not begin with a leading slash (`'/'`), adds one
    * before normalizing. Adds a hash if `HashLocationStrategy` is
    * in use, or the `APP_BASE_HREF` if the `PathLocationStrategy` is in use.
    *

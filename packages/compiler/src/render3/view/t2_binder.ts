@@ -49,7 +49,7 @@ export class R3TargetBinder<DirectiveT extends DirectiveMeta> implements TargetB
     const {directives, bindings, references} =
         DirectiveBinder.apply(target.template, this.directiveMatcher);
     // Finally, run the TemplateBinder to bind references, variables, and other entities within the
-    // template. This extracts all the metadata that doesn't depend on directive matching.
+    // template. This extracts all the metadata that does not depend on directive matching.
     const {expressions, symbols, nestingLevel, usedPipes} =
         TemplateBinder.applyWithScope(target.template, scope);
     return new R3BoundTarget(
@@ -128,12 +128,12 @@ class Scope implements Visitor {
   }
 
   visitVariable(variable: Variable) {
-    // Declare the variable if it's not already.
+    // Declare the variable if it is not already.
     this.maybeDeclare(variable);
   }
 
   visitReference(reference: Reference) {
-    // Declare the variable if it's not already.
+    // Declare the variable if it is not already.
     this.maybeDeclare(reference);
   }
 
@@ -147,7 +147,7 @@ class Scope implements Visitor {
   visitIcu(icu: Icu) {}
 
   private maybeDeclare(thing: Reference|Variable) {
-    // Declare something with a name, as long as that name isn't taken.
+    // Declare something with a name, as long as that name is not taken.
     if (!this.namedEntities.has(thing.name)) {
       this.namedEntities.set(thing.name, thing);
     }
@@ -156,14 +156,14 @@ class Scope implements Visitor {
   /**
    * Look up a variable within this `Scope`.
    *
-   * This can recurse into a parent `Scope` if it's available.
+   * This can recurse into a parent `Scope` if it is available.
    */
   lookup(name: string): Reference|Variable|null {
     if (this.namedEntities.has(name)) {
       // Found in the local scope.
       return this.namedEntities.get(name)!;
     } else if (this.parentScope !== null) {
-      // Not in the local scope, but there's a parent scope so check there.
+      // Not in the local scope, but there is a parent scope so check there.
       return this.parentScope.lookup(name);
     } else {
       // At the top level and it wasn't found.
@@ -322,8 +322,8 @@ class DirectiveBinder<DirectiveT extends DirectiveMeta> implements Visitor {
 /**
  * Processes a template and extract metadata about expressions and symbols within.
  *
- * This is a companion to the `DirectiveBinder` that doesn't require knowledge of directives matched
- * within the template in order to operate.
+ * This is a companion to the `DirectiveBinder` that does not require knowledge of directives
+ * matched within the template in order to operate.
  *
  * Expressions are visited by the superclass `RecursiveAstVisitor`, with custom logic provided
  * by overridden methods from that visitor.
@@ -486,7 +486,7 @@ class TemplateBinder extends RecursiveAstVisitor implements Visitor {
 
   private maybeMap(scope: Scope, ast: PropertyRead|SafePropertyRead|PropertyWrite, name: string):
       void {
-    // If the receiver of the expression isn't the `ImplicitReceiver`, this isn't the root of an
+    // If the receiver of the expression is not the `ImplicitReceiver`, this is not the root of an
     // `AST` expression that maps to a `Variable` or `Reference`.
     if (!(ast.receiver instanceof ImplicitReceiver)) {
       return;

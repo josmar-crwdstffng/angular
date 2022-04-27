@@ -18,11 +18,11 @@ export class HeroContactComponent {
 
   constructor(
   // #docregion ctor-params
-      @Host() // limit to the host component's instance of the HeroCacheService
+      @Host() // limit to the instance of the HeroCacheService in the host component
       private heroCache: HeroCacheService,
 
       @Host()     // limit search for logger; hides the application-wide logger
-      @Optional() // ok if the logger doesn't exist
+      @Optional() // ok if the logger does not exist
       private loggerService?: LoggerService
   // #enddocregion ctor-params
   ) {

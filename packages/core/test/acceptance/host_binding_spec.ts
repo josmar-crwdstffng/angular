@@ -1093,7 +1093,7 @@ describe('host bindings', () => {
       selector: 'host-binding-comp',
       template: '',
       host: {
-        // Use `attr` since IE doesn't support the `title` property on all elements.
+        // Use `attr` since IE does not support the `title` property on all elements.
         '[attr.id]': `condition ? ['red', id] : 'green'`,
         '[attr.title]': `otherCondition ? [title] : 'other title'`
       }

@@ -77,7 +77,7 @@ export const Decorator = {
     if (decorator.node !== null) {
       return decorator.node;
     } else {
-      // TODO(alxhub): we can't rely on narrowing until TS 3.6 is in g3.
+      // TODO(alxhub): we cannot rely on narrowing until TS 3.6 is in g3.
       return (decorator as SyntheticDecorator).synthesizedFor;
     }
   },
@@ -231,8 +231,8 @@ export const enum TypeValueReferenceKind {
 }
 
 /**
- * A type reference that refers to any type via a `ts.Expression` that's valid within the local file
- * where the type was referenced.
+ * A type reference that refers to any type via a `ts.Expression` that is valid within the local
+ * file where the type was referenced.
  */
 export interface LocalTypeValueReference {
   kind: TypeValueReferenceKind.LOCAL;
@@ -399,7 +399,7 @@ export interface CtorParameter {
   nameNode: ts.BindingName;
 
   /**
-   * Reference to the value of the parameter's type annotation, if it's possible to refer to the
+   * Reference to the value of the parameter's type annotation, if it is possible to refer to the
    * parameter's type as a value.
    *
    * This can either be a reference to a local value, a reference to an imported value, or no
@@ -727,7 +727,7 @@ export interface ReflectionHost {
    * @param id a TypeScript `ts.Identifer` to reflect.
    *
    * @returns metadata about the `Import` if the identifier was imported from another module, or
-   * `null` if the identifier doesn't resolve to an import but instead is locally defined.
+   * `null` if the identifier does not resolve to an import but instead is locally defined.
    */
   getImportOfIdentifier(id: ts.Identifier): Import|null;
 
@@ -858,7 +858,7 @@ export interface ReflectionHost {
   getAdjacentNameOfClass(clazz: ClassDeclaration): ts.Identifier;
 
   /**
-   * Returns `true` if a declaration is exported from the module in which it's defined.
+   * Returns `true` if a declaration is exported from the module in which it is defined.
    *
    * Not all mechanisms by which a declaration is exported can be statically detected, especially
    * when processing already compiled JavaScript. A `false` result does not indicate that the

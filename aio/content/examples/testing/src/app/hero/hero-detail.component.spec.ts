@@ -269,16 +269,16 @@ function heroModuleSetup() {
   // #enddocregion route-bad-id
 
   // Why we must use `fixture.debugElement.injector` in `Page()`
-  it("cannot use `inject` to get component's provided HeroDetailService", () => {
+  it("cannot use `inject` to get the provided HeroDetailService of the component", () => {
     let service: HeroDetailService;
     fixture = TestBed.createComponent(HeroDetailComponent);
     expect(
-        // Throws because `inject` only has access to TestBed's injector
-        // which is an ancestor of the component's injector
+        // Throws because `inject` only has access to the injector of the TestBed
+        // which is an ancestor of the injector of the component
         inject([HeroDetailService], (hds: HeroDetailService) => service = hds))
         .toThrowError(/No provider for HeroDetailService/);
 
-    // get `HeroDetailService` with component's own injector
+    // get `HeroDetailService` with the injector of the component
     service = fixture.debugElement.injector.get(HeroDetailService);
     expect(service)
       .withContext('debugElement.injector')
@@ -394,7 +394,7 @@ class Page {
     const routerSpy = someFixture.debugElement.injector.get(Router) as any;
     this.navigateSpy = routerSpy.navigate;
 
-    // spy on component's `gotoList()` method
+    // spy on the `gotoList()` method of the component
     const someComponent = someFixture.componentInstance;
     this.gotoListSpy = spyOn(someComponent, 'gotoList').and.callThrough();
   }

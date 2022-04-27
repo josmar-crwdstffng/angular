@@ -29,7 +29,7 @@ export class BypassSecurityComponent {
     // Appending an ID to a YouTube URL is safe.
     // Always make sure to construct SafeValue objects as
     // close as possible to the input data so
-    // that it's easier to check if the value is safe.
+    // that it is easier to check if the value is safe.
     this.dangerousVideoUrl = 'https://www.youtube.com/embed/' + id;
     this.videoUrl =
         this.sanitizer.bypassSecurityTrustResourceUrl(this.dangerousVideoUrl);

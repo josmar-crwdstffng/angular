@@ -245,7 +245,7 @@ export class ExpressionTranslatorVisitor<TStatement, TExpression> implements o.E
       }
       return this.imports.generateNamespaceImport(ast.value.moduleName);
     }
-    // If a moduleName is specified, this is a normal import. If there's no module name, it's a
+    // If a moduleName is specified, this is a normal import. If there is no module name, it is a
     // reference to a global/ambient symbol.
     if (ast.value.moduleName !== null) {
       // This is a normal import. Find the imported module.

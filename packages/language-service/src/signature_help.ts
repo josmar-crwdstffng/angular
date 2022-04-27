@@ -106,7 +106,7 @@ export function getSignatureHelp(
 
       // Position the cursor in the TCB at the start of the argument list for the
       // `ts.CallExpression`. This will allow us to get the correct signature help, even though the
-      // template itself doesn't have an expression inside the argument list.
+      // template itself does not have an expression inside the argument list.
       shimPosition = shimNode.arguments.pos;
 
       // In this case, getting the right call AST node is easy.

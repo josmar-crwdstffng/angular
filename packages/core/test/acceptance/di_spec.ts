@@ -871,7 +871,7 @@ describe('di', () => {
          function createTestB() {
            // Setup a standalone injector that provides `TestA`, which is resolved from a
            // standalone child injector that requests `TestA` as a dependency for `TestB`.
-           // Although we're inside a directive factory and therefore have access to the
+           // Although we are inside a directive factory and therefore have access to the
            // directive-level injector, `TestA` has to be resolved from the standalone injector.
            const parent = Injector.create({
              providers: [{provide: TestA, useFactory: () => new TestA('standalone'), deps: []}],
@@ -1535,8 +1535,8 @@ describe('di', () => {
         });
 
         describe('TemplateRef', () => {
-          // SkipSelf doesn't make sense to use with TemplateRef since you
-          // can't inject TemplateRef on a regular element and you can initialize
+          // SkipSelf does not make sense to use with TemplateRef since you
+          // cannot inject TemplateRef on a regular element and you can initialize
           // a child component on a nested `<ng-template>` only when a component/directive
           // on a parent `<ng-template>` is initialized.
           it('should throw when using @SkipSelf for TemplateRef', () => {
@@ -3424,7 +3424,7 @@ describe('di', () => {
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();
 
-    // Making sure that the `@Host` takes effect and token `A` becomes unavailable in DI since it's
+    // Making sure that the `@Host` takes effect and token `A` becomes unavailable in DI since it is
     // defined one level up from the Comp's host view.
     expect(fixture.nativeElement.textContent).toBe('No token A found');
   });
@@ -3437,7 +3437,7 @@ describe('di', () => {
         provide: LOCALE_ID,
         useFactory: () => 'ja-JP',
         // Note: `LOCALE_ID` is also provided within APPLICATION_MODULE_PROVIDERS, so we use it
-        // here as a dep and making sure it doesn't cause cyclic dependency (since @SkipSelf is
+        // here as a dep and making sure it does not cause cyclic dependency (since @SkipSelf is
         // present)
         deps: [[new Inject(LOCALE_ID), new Optional(), new SkipSelf()]]
       }]
@@ -3469,7 +3469,7 @@ describe('di', () => {
       declarations: [MyComp],
       providers: [{
         provide: LOCALE_ID,
-        // we expect `localeDepValue` to be undefined, since it's not provided at a module level
+        // we expect `localeDepValue` to be undefined, since it is not provided at a module level
         useFactory: (localeDepValue: any) => localeDepValue || 'en-GB',
         deps: [[new Inject('LOCALE_ID_DEP'), new Optional()]]
       }]

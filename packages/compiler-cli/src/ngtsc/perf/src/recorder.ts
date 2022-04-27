@@ -134,8 +134,8 @@ export class DelegatingPerfRecorder implements PerfRecorder {
   }
 
   inPhase<T>(phase: PerfPhase, fn: () => T): T {
-    // Note: this doesn't delegate to `this.target.inPhase` but instead is implemented manually here
-    // to avoid adding an additional frame of noise to the stack when debugging.
+    // Note: this does not delegate to `this.target.inPhase` but instead is implemented manually
+    // here to avoid adding an additional frame of noise to the stack when debugging.
     const previousPhase = this.target.phase(phase);
     try {
       return fn();

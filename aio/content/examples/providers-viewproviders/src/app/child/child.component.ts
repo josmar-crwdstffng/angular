@@ -20,7 +20,7 @@ export class ChildComponent {
 
   // viewProviders ensures that only the view gets to see this.
   // With the AnimalService in the viewProviders, the
-  // InspectorComponent doesn't get to see it because the
+  // InspectorComponent does not get to see it because the
   // inspector is in the content.
 
 

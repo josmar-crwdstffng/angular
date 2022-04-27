@@ -14,7 +14,7 @@ export class FakeValueService extends ValueService {
 describe('demo (no TestBed):', () => {
 
   // #docregion ValueService
-  // Straight Jasmine testing without Angular's testing support
+  // Straight Jasmine testing without the testing support in Angular
   describe('ValueService', () => {
     let service: ValueService;
     beforeEach(() => { service = new ValueService(); });

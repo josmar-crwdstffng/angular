@@ -151,7 +151,7 @@ export class TargetedEntryPointFinder extends TracingEntryPointFinder {
   /**
    * Compute whether the `test` path is contained within the `base` path.
    *
-   * Note that this doesn't use a simple `startsWith()` since that would result in a false positive
+   * Note that this does not use a simple `startsWith()` since that would result in a false positive
    * for `test` paths such as `a/b/c-x` when the `base` path is `a/b/c`.
    *
    * Since `fs.relative()` can be quite expensive we check the fast possibilities first.

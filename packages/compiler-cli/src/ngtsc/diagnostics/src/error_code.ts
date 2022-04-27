@@ -229,19 +229,19 @@ export enum ErrorCode {
    * ```
    * {{ foo ?? bar }}
    * ```
-   * When the type of foo doesn't include `null` or `undefined`.
+   * When the type of foo does not include `null` or `undefined`.
    */
   NULLISH_COALESCING_NOT_NULLABLE = 8102,
 
   /**
    * The template type-checking engine would need to generate an inline type check block for a
-   * component, but the current type-checking environment doesn't support it.
+   * component, but the current type-checking environment does not support it.
    */
   INLINE_TCB_REQUIRED = 8900,
 
   /**
    * The template type-checking engine would need to generate an inline type constructor for a
-   * directive or component, but the current type-checking environment doesn't support it.
+   * directive or component, but the current type-checking environment does not support it.
    */
   INLINE_TYPE_CTOR_REQUIRED = 8901,
 

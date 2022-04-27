@@ -1194,12 +1194,12 @@ export class Esm2015ReflectionHost extends TypeScriptReflectionHost implements N
               (classDecorators || (classDecorators = [])).push(entry.decorator);
             }
           } else if (entry.type === 'param:decorators') {
-            // The helper arg represents a decorator for a parameter. Since it's applied to the
+            // The helper arg represents a decorator for a parameter. Since it is applied to the
             // class, it corresponds with a constructor parameter of the class.
             const param = getConstructorParamInfo(entry.index);
             (param.decorators || (param.decorators = [])).push(entry.decorator);
           } else if (entry.type === 'params') {
-            // The helper arg represents the types of the parameters. Since it's applied to the
+            // The helper arg represents the types of the parameters. Since it is applied to the
             // class, it corresponds with the constructor parameters of the class.
             entry.types.forEach(
                 (type, index) => getConstructorParamInfo(index).typeExpression = type);
@@ -1225,7 +1225,7 @@ export class Esm2015ReflectionHost extends TypeScriptReflectionHost implements N
               memberDecorators.set(memberName, decorators);
             }
           } else {
-            // Information on decorated parameters is not interesting for ngcc, so it's ignored.
+            // Information on decorated parameters is not interesting for ngcc, so it is ignored.
           }
         }
       }
@@ -1445,7 +1445,7 @@ export class Esm2015ReflectionHost extends TypeScriptReflectionHost implements N
       if (setterMember) {
         members.push(setterMember);
 
-        // Prevent attaching the decorators to a potential getter. In ES2015, we can't tell where
+        // Prevent attaching the decorators to a potential getter. In ES2015, we cannot tell where
         // the decorators were originally attached to, however we only want to attach them to a
         // single `ClassMember` as otherwise ngtsc would handle the same decorators twice.
         decorators = undefined;

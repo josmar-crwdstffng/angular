@@ -362,7 +362,7 @@ describe('TypeScriptAstFactory', () => {
  * out.
  *
  * The TypeScript printer requires access to the original source of non-synthesized nodes.
- * It uses the source content to output things like text between parts of nodes, which it doesn't
+ * It uses the source content to output things like text between parts of nodes, which it does not
  * store in the AST node itself.
  *
  * So this helper (and its sister `setupExpressions()`) capture the original source file used to

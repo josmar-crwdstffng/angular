@@ -340,7 +340,7 @@ export class FormGroup<TControl extends {[K in keyof TControl]: AbstractControl<
    * ```
    *
    * @throws When strict checks fail, such as setting the value of a control
-   * that doesn't exist or if you exclude a value of a control that does exist.
+   * that does not exist or if you exclude a value of a control that does exist.
    *
    * @param value The new value for the control that matches the structure of the group.
    * @param options Configuration options that determine how the control propagates changes
@@ -403,7 +403,7 @@ export class FormGroup<TControl extends {[K in keyof TControl]: AbstractControl<
     onlySelf?: boolean,
     emitEvent?: boolean
   } = {}): void {
-    // Even though the `value` argument type doesn't allow `null` and `undefined` values, the
+    // Even though the `value` argument type does not allow `null` and `undefined` values, the
     // `patchValue` can be called recursively and inner data structures might have these values, so
     // we just ignore such cases when a field containing FormGroup instance receives `null` or
     // `undefined` as a value.

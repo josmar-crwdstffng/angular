@@ -44,7 +44,7 @@ function detectAngular(win: Window): void {
 
   win.postMessage(
       {
-        // Needs to be inline because we're stringifying
+        // Needs to be inline because we are stringifying
         // this function and executing it with eval.
         isIvy: typeof (ngVersionElement as any)?.__ngContext__ !== 'undefined',
         isAngular,

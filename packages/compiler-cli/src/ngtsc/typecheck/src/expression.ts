@@ -67,7 +67,8 @@ class AstTranslator implements AstVisitor {
       ast = ast.ast;
     }
 
-    // The `EmptyExpr` doesn't have a dedicated method on `AstVisitor`, so it's special cased here.
+    // The `EmptyExpr` does not have a dedicated method on `AstVisitor`, so it is special cased
+    // here.
     if (ast instanceof EmptyExpr) {
       const res = ts.factory.createIdentifier('undefined');
       addParseSpanInfo(res, ast.sourceSpan);
@@ -282,9 +283,8 @@ class AstTranslator implements AstVisitor {
       // "a?.b" becomes (a as any).b, which will of course have type 'any'.
       node = ts.factory.createPropertyAccessExpression(tsCastToAny(receiver), ast.name);
     } else {
-      // The View Engine bug isn't active, so check the entire type of the expression, but the final
-      // result is still inferred as `any`.
-      // "a?.b" becomes (a!.b as any)
+      // The View Engine bug is not active, so check the entire type of the expression, but the
+      // final result is still inferred as `any`. "a?.b" becomes (a!.b as any)
       const expr = ts.factory.createPropertyAccessExpression(
           ts.factory.createNonNullExpression(receiver), ast.name);
       addParseSpanInfo(expr, ast.nameSpan);

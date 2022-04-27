@@ -131,7 +131,7 @@ export function getRootDirs(
   // In Windows the above might not always return posix separated paths
   // See:
   // https://github.com/Microsoft/TypeScript/blob/3f7357d37f66c842d70d835bc925ec2a873ecfec/src/compiler/sys.ts#L650
-  // Also compiler options might be set via an API which doesn't normalize paths
+  // Also compiler options might be set via an API which does not normalize paths
   return rootDirs.map(rootDir => fs.resolve(cwd, host.getCanonicalFileName(rootDir)));
 }
 

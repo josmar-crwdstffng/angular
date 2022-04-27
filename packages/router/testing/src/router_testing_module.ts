@@ -15,13 +15,13 @@ import {EXTRA_ROUTER_TESTING_PROVIDERS} from './extra_router_testing_providers';
 
 function isUrlHandlingStrategy(opts: ExtraOptions|
                                UrlHandlingStrategy): opts is UrlHandlingStrategy {
-  // This property check is needed because UrlHandlingStrategy is an interface and doesn't exist at
+  // This property check is needed because UrlHandlingStrategy is an interface and does not exist at
   // runtime.
   return 'shouldProcessUrl' in opts;
 }
 
 /**
- * Router setup factory function used for testing. Only used internally to keep the factory that's
+ * Router setup factory function used for testing. Only used internally to keep the factory that is
  * marked as publicApi cleaner (i.e. not having _both_ `TitleStrategy` and `DefaultTitleStrategy`).
  */
 export function setupTestingRouterInternal(

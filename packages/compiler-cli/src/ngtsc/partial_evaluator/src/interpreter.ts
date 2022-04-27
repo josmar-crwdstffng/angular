@@ -19,7 +19,6 @@ import {DynamicValue} from './dynamic';
 import {ForeignFunctionResolver} from './interface';
 import {resolveKnownDeclaration} from './known_declaration';
 import {EnumValue, KnownFn, ResolvedModule, ResolvedValue, ResolvedValueArray, ResolvedValueMap} from './result';
-import {SyntheticValue} from './synthetic';
 
 
 
@@ -87,6 +86,7 @@ interface Context {
   scope: Scope;
   foreignFunctionResolver?: ForeignFunctionResolver;
 }
+
 export class StaticInterpreter {
   constructor(
       private host: ReflectionHost, private checker: ts.TypeChecker,
@@ -243,8 +243,8 @@ export class StaticInterpreter {
     const result = this.visitAmbiguousDeclaration(decl, declContext);
     if (result instanceof Reference) {
       // Only record identifiers to non-synthetic references. Synthetic references may not have the
-      // same value at runtime as they do at compile time, so it's not legal to refer to them by the
-      // identifier here.
+      // same value at runtime as they do at compile time, so it is not legal to refer to them by
+      // the identifier here.
       if (!result.synthetic) {
         result.addIdentifier(node);
       }
@@ -287,7 +287,7 @@ export class StaticInterpreter {
       // static value is not necessary.
       //
       // Arguably, since the value cannot be statically determined, we should return a
-      // `DynamicValue`. This returns a `Reference` because it's the same behavior as before
+      // `DynamicValue`. This returns a `Reference` because it is the same behavior as before
       // `visitType` was introduced.
       //
       // TODO(zarend): investigate switching to a `DynamicValue` and verify this won't break any
@@ -424,8 +424,6 @@ export class StaticInterpreter {
       }
     } else if (lhs instanceof DynamicValue) {
       return DynamicValue.fromDynamicInput(node, lhs);
-    } else if (lhs instanceof SyntheticValue) {
-      return DynamicValue.fromSyntheticInput(node, lhs);
     }
 
     return DynamicValue.fromUnknown(node);
@@ -455,42 +453,49 @@ export class StaticInterpreter {
       return DynamicValue.fromInvalidExpressionType(node.expression, lhs);
     }
 
-    const resolveFfrExpr = (expr: ts.Expression) => {
-      let contextExtension: {
-        absoluteModuleName?: string|null,
-        resolutionContext?: string,
-      } = {};
+    // If the function is foreign (declared through a d.ts file), attempt to resolve it with the
+    // foreignFunctionResolver, if one is specified.
+    if (fn.body === null) {
+      let expr: ts.Expression|null = null;
+      if (context.foreignFunctionResolver) {
+        expr = context.foreignFunctionResolver(lhs, node.arguments);
+      }
+      if (expr === null) {
+        return DynamicValue.fromDynamicInput(
+            node, DynamicValue.fromExternalReference(node.expression, lhs));
+      }
 
-      // TODO(alxhub): the condition `fn.body === null` here is vestigial - we probably _do_ want to
-      // change the context like this even for non-null function bodies. But, this is being
-      // redesigned as a refactoring with no behavior changes so that should be done as a follow-up.
-      if (fn.body === null && expr.getSourceFile() !== node.expression.getSourceFile() &&
+      // If the foreign expression occurs in a different file, then assume that the owning module
+      // of the call expression should also be used for the resolved foreign expression.
+      if (expr.getSourceFile() !== node.expression.getSourceFile() &&
           lhs.bestGuessOwningModule !== null) {
-        contextExtension = {
+        context = {
+          ...context,
           absoluteModuleName: lhs.bestGuessOwningModule.specifier,
           resolutionContext: lhs.bestGuessOwningModule.resolutionContext,
         };
       }
 
-      return this.visitFfrExpression(expr, {...context, ...contextExtension});
-    };
-
-    // If the function is foreign (declared through a d.ts file), attempt to resolve it with the
-    // foreignFunctionResolver, if one is specified.
-    if (fn.body === null && context.foreignFunctionResolver !== undefined) {
-      const unresolvable = DynamicValue.fromDynamicInput(
-          node, DynamicValue.fromExternalReference(node.expression, lhs));
-      return context.foreignFunctionResolver(lhs, node, resolveFfrExpr, unresolvable);
+      return this.visitFfrExpression(expr, context);
     }
 
-    const res: ResolvedValue = this.visitFunctionBody(node, fn, context);
+    let res: ResolvedValue = this.visitFunctionBody(node, fn, context);
 
     // If the result of attempting to resolve the function body was a DynamicValue, attempt to use
     // the foreignFunctionResolver if one is present. This could still potentially yield a usable
     // value.
     if (res instanceof DynamicValue && context.foreignFunctionResolver !== undefined) {
-      const unresolvable = DynamicValue.fromComplexFunctionCall(node, fn);
-      return context.foreignFunctionResolver(lhs, node, resolveFfrExpr, unresolvable);
+      const ffrExpr = context.foreignFunctionResolver(lhs, node.arguments);
+      if (ffrExpr !== null) {
+        // The foreign function resolver was able to extract an expression from this function. See
+        // if that expression leads to a non-dynamic result.
+        const ffrRes = this.visitFfrExpression(ffrExpr, context);
+        if (!(ffrRes instanceof DynamicValue)) {
+          // FFR yielded an actual result that is not dynamic, so use that instead of the original
+          // resolution.
+          res = ffrRes;
+        }
+      }
     }
 
     return res;
@@ -499,8 +504,8 @@ export class StaticInterpreter {
   /**
    * Visit an expression which was extracted from a foreign-function resolver.
    *
-   * This will process the result and ensure it's correct for FFR-resolved values, including marking
-   * `Reference`s as synthetic.
+   * This will process the result and ensure it is correct for FFR-resolved values, including
+   * marking `Reference`s as synthetic.
    */
   private visitFfrExpression(expr: ts.Expression, context: Context): ResolvedValue {
     const res = this.visitExpression(expr, context);

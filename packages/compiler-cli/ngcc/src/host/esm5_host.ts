@@ -305,7 +305,7 @@ export class Esm5ReflectionHost extends Esm2015ReflectionHost {
           decorators: decorators || [],
         });
 
-        // Prevent attaching the decorators to a potential getter. In ES5, we can't tell where the
+        // Prevent attaching the decorators to a potential getter. In ES5, we cannot tell where the
         // decorators were originally attached to, however we only want to attach them to a single
         // `ClassMember` as otherwise ngtsc would handle the same decorators twice.
         decorators = undefined;

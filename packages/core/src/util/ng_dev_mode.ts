@@ -14,7 +14,7 @@ declare global {
    * Depending on the current state of the application, ngDevMode may have one of several values.
    *
    * For convenience, the “truthy” value which enables dev mode is also an object which contains
-   * Angular’s performance counters. This is not necessary, but cuts down on boilerplate for the
+   * Angular's performance counters. This is not necessary, but cuts down on boilerplate for the
    * perf counters.
    *
    * ngDevMode may also be set to false. This can happen in one of a few ways:

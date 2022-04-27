@@ -66,7 +66,7 @@ export function createTsConfig(options: TsConfigOptions) {
       'compilationTargetSrc': options.compilationTargetSrc,
       // Override this property from the real tsconfig we read
       // Because we ask for :empty_tsconfig.json, we get the ES6 version which
-      // expects to write externs, yet that doesn't work under this fixture.
+      // expects to write externs, yet that does not work under this fixture.
       'tsickleExternsPath': '',
       // we don't copy the node_modules into our tmp dir, so we should look in
       // the original workspace directory for it

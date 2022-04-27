@@ -35,7 +35,7 @@ function parseUrl(urlStr: string, baseHref: string) {
   const verifyProtocol = /^((http[s]?|ftp):\/\/)/;
   let serverBase: string|undefined;
 
-  // URL class requires full URL. If the URL string doesn't start with protocol, we need to add
+  // URL class requires full URL. If the URL string does not start with protocol, we need to add
   // an arbitrary base URL which can be removed afterward.
   if (!verifyProtocol.test(urlStr)) {
     serverBase = 'http://empty.com/';

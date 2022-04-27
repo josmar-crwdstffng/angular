@@ -129,7 +129,7 @@ export class MockAnimationPlayer extends NoopAnimationPlayer {
     this.previousStyles.forEach((val, prop) => captures.set(prop, val));
 
     if (this.hasStarted()) {
-      // when assembling the captured styles, it's important that
+      // when assembling the captured styles, it is important that
       // we build the keyframe styles in the following order:
       // {other styles within keyframes, ... previousStyles }
       this._keyframes.forEach(kf => {

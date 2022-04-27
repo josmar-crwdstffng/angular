@@ -79,7 +79,7 @@ export function createWithEachNg1VersionFn(setNg1: typeof setAngularJSGlobal) {
             // does not contain useful information on most browsers we run tests against. In order
             // to avoid writing logic to convert the event into a readable error and since just
             // passing the event might cause people to spend unnecessary time debugging the
-            // "ErrorEvent", we create a simple error that doesn't imply that there is a lot of
+            // "ErrorEvent", we create a simple error that does not imply that there is a lot of
             // information within the "ErrorEvent".
             reject(`An error occurred while loading "${scriptUrl}".`);
           };

@@ -35,7 +35,7 @@ messageBus.on('handshake', () => {
   });
 
   // handles case when mouse leaves chrome extension too quickly. unHighlight() is not a very
-  // expensive function and has an if check so it's DOM api call is not called more than necessary
+  // expensive function and has an if check so it is DOM api call is not called more than necessary
   document.addEventListener('mousemove', () => {
     if (!inspectorRunning) {
       unHighlight();

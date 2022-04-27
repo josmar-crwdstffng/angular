@@ -27,8 +27,8 @@ describe('this test', () => {
 
 describe('this test', () => {
   it('aborts a periodic timer', <any>fakeAsync((): void => {
-       // This timer is scheduled but doesn't need to complete for the
-       // test to pass (maybe it's a timeout for some operation).
+       // This timer is scheduled but does not need to complete for the
+       // test to pass (maybe it is a timeout for some operation).
        // Leaving it will cause the test to fail...
        setInterval(() => {}, 100);
 

@@ -38,7 +38,7 @@ export function findExpressionsToMigrate(sourceFile: ts.SourceFile, importManage
       const hasPathMatch = obj.properties.some(p => isPropertyWithName(p, 'pathMatch'));
       const hasPath = obj.properties.some(p => isPropertyWithName(p, 'path'));
       const childrenProperty = obj.properties.find(p => isPropertyWithName(p, 'children'));
-      // The object must have _both_ pathMatch _and_ path for us to be reasonably sure that it's
+      // The object must have _both_ pathMatch _and_ path for us to be reasonably sure that it is
       // a `Route` definition.
       if (hasPath && hasPathMatch) {
         updateCurrentVariableDeclaration();

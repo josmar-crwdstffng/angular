@@ -154,7 +154,7 @@ function decoratorToMetadata(
 /**
  * Whether a given decorator should be treated as an Angular decorator.
  *
- * Either it's used in @angular/core, or it's imported from there.
+ * Either it is used in @angular/core, or it is imported from there.
  */
 function isAngularDecorator(decorator: Decorator, isCore: boolean): boolean {
   return isCore || (decorator.import !== null && decorator.import.from === '@angular/core');

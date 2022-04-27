@@ -255,7 +255,7 @@ describe('url serializer', () => {
       expect(intactChars).toEqual(encodeUriQuery(intactChars));
       // Verify it replaces repeated characters correctly
       expect(paramsEncoded + paramsEncoded).toEqual(encodeUriQuery(params + params));
-      // Verify it doesn't change the case of alpha characters
+      // Verify it does not change the case of alpha characters
       expect(mixedCaseString + paramsEncoded).toEqual(encodeUriQuery(mixedCaseString + params));
     });
 

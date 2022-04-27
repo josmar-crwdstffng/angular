@@ -12,7 +12,7 @@ import {buildDirectiveTree, getLViewFromDirectiveOrElementInstance} from './dire
 import {deeplySerializeSelectedProperties, serializeDirectiveState} from './state-serializer/state-serializer';
 
 // Need to be kept in sync with Angular framework
-// We can't directly import it from framework now
+// We cannot directly import it from framework now
 // because this also pulls up the security policies
 // for Trusted Types, which we reinstantiate.
 enum ChangeDetectionStrategy {
@@ -145,7 +145,7 @@ export const buildDirectiveForest = (): ComponentTreeNode[] => {
 };
 
 // Based on an ElementID we return a specific component node.
-// If we can't find any, we return null.
+// If we cannot find any, we return null.
 export const queryDirectiveForest =
     (position: ElementPosition, forest: ComponentTreeNode[]): ComponentTreeNode|null => {
       if (!position.length) {

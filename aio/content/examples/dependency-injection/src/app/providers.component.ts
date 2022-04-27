@@ -201,7 +201,7 @@ export class Provider8Component {
   template,
   /*
    // #docregion providers-9-interface
-   // Can't use interface as provider token
+   // Cannot use interface as provider token
    [{ provide: AppConfig, useValue: HERO_DI_CONFIG })]
    // #enddocregion providers-9-interface
    */
@@ -213,7 +213,7 @@ export class Provider9Component implements OnInit {
   log = '';
   /*
    // #docregion provider-9-ctor-interface
-   // Can't inject using the interface as the parameter type
+   // Cannot inject using the interface as the parameter type
    constructor(private config: AppConfig){ }
    // #enddocregion provider-9-ctor-interface
    */

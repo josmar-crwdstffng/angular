@@ -13,9 +13,9 @@ export class OptionalComponent {
 }
 // #enddocregion optional-component
 
-// The OptionalService isn't provided here, in the @Injectable()
+// The OptionalService is not provided here, in the @Injectable()
 // providers array, or in the NgModule. If you remove @Optional()
-// from the constructor, you'll get an error.
+// from the constructor, you will get an error.
 
 
 

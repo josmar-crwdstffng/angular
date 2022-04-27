@@ -56,7 +56,7 @@ import {normalizeCSS} from '@angular/platform-browser/testing/src/browser_util';
       expect(s(css, 'contenta')).toEqual(expected);
     });
 
-    // @page rules use a special set of at-rules and selectors and they can't be scoped.
+    // @page rules use a special set of at-rules and selectors and they cannot be scoped.
     // See: https://www.w3.org/TR/css-page-3
     it('should preserve @page rules', () => {
       const contentAttr = 'contenta';

@@ -30,7 +30,7 @@ export enum ImportFlags {
    * Force the generation of a new import when generating a reference, even if an identifier already
    * exists in the target file which could be used instead.
    *
-   * This is sometimes required if there's a risk TypeScript might remove imports during emit.
+   * This is sometimes required if there is a risk TypeScript might remove imports during emit.
    */
   ForceNewImport = 0x01,
 
@@ -285,7 +285,7 @@ export class AbsoluteModuleStrategy implements ReferenceEmitStrategy {
       // relative path.
       return null;
     } else if (!isDeclaration(ref.node)) {
-      // It's not possible to import something which isn't a declaration.
+      // It's not possible to import something which is not a declaration.
       throw new Error(`Debug assert: unable to import a Reference to non-declaration of type ${
           ts.SyntaxKind[ref.node.kind]}.`);
     } else if ((importFlags & ImportFlags.AllowTypeImports) === 0 && isTypeDeclaration(ref.node)) {
@@ -359,7 +359,7 @@ export class AbsoluteModuleStrategy implements ReferenceEmitStrategy {
 }
 
 /**
- * A `ReferenceEmitStrategy` which will refer to declarations via relative paths, provided they're
+ * A `ReferenceEmitStrategy` which will refer to declarations via relative paths, provided they are
  * both in the logical project "space" of paths.
  *
  * This is trickier than it sounds, as the two files may be in different root directories in the
@@ -397,18 +397,18 @@ export class LogicalProjectStrategy implements ReferenceEmitStrategy {
 
     const originPath = this.logicalFs.logicalPathOfSf(context);
     if (originPath === null) {
-      throw new Error(
-          `Debug assert: attempt to import from ${context.fileName} but it's outside the program?`);
+      throw new Error(`Debug assert: attempt to import from ${
+          context.fileName} but it is outside the program?`);
     }
 
-    // There's no way to emit a relative reference from a file to itself.
+    // There is no way to emit a relative reference from a file to itself.
     if (destPath === originPath) {
       return null;
     }
 
     const name = findExportedNameOfNode(ref.node, destSf, this.reflector);
     if (name === null) {
-      // The target declaration isn't exported from the file it's declared in. This is an issue!
+      // The target declaration is not exported from the file it is declared in. This is an issue!
       return {
         kind: ReferenceEmitKind.Failed,
         ref,

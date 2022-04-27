@@ -17,7 +17,7 @@ export function getClosureSafeProperty<T>(objWithPropertyToExtract: T): string {
 
 /**
  * Sets properties on a target object from a source object, but only if
- * the property doesn't already exist on the target object.
+ * the property does not already exist on the target object.
  * @param target The target to set properties on
  * @param source The source of the property keys and values to set
  */

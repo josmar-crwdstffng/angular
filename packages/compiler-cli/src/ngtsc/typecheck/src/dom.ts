@@ -107,7 +107,7 @@ export class RegistryDomSchemaChecker implements DomSchemaChecker {
       const mapping = this.resolver.getSourceMapping(id);
 
       let errorMsg =
-          `Can't bind to '${name}' since it isn't a known property of '${element.name}'.`;
+          `Cannot bind to '${name}' since it is not a known property of '${element.name}'.`;
       if (element.name.startsWith('ng-')) {
         errorMsg +=
             `\n1. If '${

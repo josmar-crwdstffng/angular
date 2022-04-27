@@ -305,10 +305,10 @@ function main(args: string[]): void {
     // entry-point in the metadata, we report a warning as most likely the target
     // is configured incorrectly (e.g. missing `module_name` attribute).
     if (!entryPointInfo) {
-      // Ideally we should throw here, as we got an entry point that doesn't
+      // Ideally we should throw here, as we got an entry point that does not
       // have flat module metadata / bundle index, so it may have been an
-      // ng_module that's missing a module_name attribute.
-      // However, @angular/compiler can't be an ng_module, as it's the internals
+      // ng_module that is missing a module_name attribute.
+      // However, @angular/compiler cannot be an ng_module, as it is the internals
       // of the ngc compiler, yet we want to build an ng_package for it.
       // So ignore package.json files when we are missing data.
       console.error('WARNING: no module metadata for package', packageName);

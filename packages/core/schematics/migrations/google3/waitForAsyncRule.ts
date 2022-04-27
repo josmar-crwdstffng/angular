@@ -15,7 +15,7 @@ import {isReferenceToImport} from '../../utils/typescript/symbol';
 
 // This rule is also used inside of Google by Typescript linting.
 
-/** Name of the deprecated function that we're removing. */
+/** Name of the deprecated function that we are removing. */
 const deprecatedFunction = 'async';
 
 /** Name of the function that will replace the deprecated one. */

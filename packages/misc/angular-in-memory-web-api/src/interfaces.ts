@@ -113,8 +113,8 @@ export class InMemoryBackendConfig implements InMemoryBackendConfigArgs {
           caseSensitiveSearch: false,
           dataEncapsulation: false,   // do NOT wrap content within an object with a `data` property
           delay: 500,                 // simulate latency by delaying response
-          delete404: false,           // don't complain if can't find entity to delete
-          passThruUnknownUrl: false,  // 404 if can't process URL
+          delete404: false,           // don't complain if cannot find entity to delete
+          passThruUnknownUrl: false,  // 404 if cannot process URL
           post204: true,              // don't return the item after a POST
           post409: false,             // don't update existing item with that ID
           put204: true,               // don't return the item after a PUT

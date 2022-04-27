@@ -21,7 +21,7 @@ async function runNgcComamnd() {
 
   let tsickleModule: typeof import('tsickle')|undefined;
 
-  // Load tsickle if it's available. We load it here because tsickle
+  // Load tsickle if it is available. We load it here because tsickle
   // is not needed in all Angular projects directly using `ngc`.
   try {
     tsickleModule = (await import('tsickle')).default;

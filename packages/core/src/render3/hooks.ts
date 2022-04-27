@@ -8,6 +8,7 @@
 
 import {AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, DoCheck, OnChanges, OnDestroy, OnInit} from '../interface/lifecycle_hooks';
 import {assertDefined, assertEqual, assertNotEqual} from '../util/assert';
+
 import {assertFirstCreatePass} from './assert';
 import {NgOnChangesFeatureImpl} from './features/ng_onchanges_feature';
 import {DirectiveDef} from './interfaces/definition';
@@ -189,7 +190,7 @@ export function incrementInitPhaseFlags(lView: LView, initPhase: InitPhaseState)
 }
 
 /**
- * Calls lifecycle hooks with their contexts, skipping init hooks if it's not
+ * Calls lifecycle hooks with their contexts, skipping init hooks if it is not
  * the first LView pass
  *
  * @param currentView The current view

@@ -106,7 +106,7 @@ function compileQuery(query: R3QueryMetadata): o.LiteralMapExpr {
                                        convertFromMaybeForwardRefExpression(query.predicate));
   if (!query.emitDistinctChangesOnly) {
     // `emitDistinctChangesOnly` is special because we expect it to be `true`.
-    // Therefore we explicitly emit the field, and explicitly place it only when it's `false`.
+    // Therefore we explicitly emit the field, and explicitly place it only when it is `false`.
     meta.set('emitDistinctChangesOnly', o.literal(false));
   } else {
     // The linker will assume that an absent `emitDistinctChangesOnly` flag is by default `true`.

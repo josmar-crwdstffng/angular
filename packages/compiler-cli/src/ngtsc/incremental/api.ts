@@ -7,6 +7,7 @@
  */
 
 import ts from 'typescript';
+
 import {AbsoluteFsPath} from '../file_system';
 
 /**
@@ -24,7 +25,7 @@ export interface IncrementalBuild<AnalysisT, FileTypeCheckDataT> {
   priorAnalysisFor(sf: ts.SourceFile): AnalysisT[]|null;
 
   /**
-   * Retrieve the prior type-checking work, if any, that's been done for the given source file.
+   * Retrieve the prior type-checking work, if any, that is been done for the given source file.
    */
   priorTypeCheckingResultsFor(fileSf: ts.SourceFile): FileTypeCheckDataT|null;
 

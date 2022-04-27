@@ -113,9 +113,9 @@ export function setUpLocationSync(ngUpgrade: UpgradeModule, urlType: 'path'|'has
  * - Parsing means that the anchor's `protocol`, `hostname`, `port`, `pathname` and related
  *   properties are all populated to reflect the normalized URL.
  *
- * While this approach has wide compatibility, it doesn't work as expected on IE. On IE, normalizing
- * happens similar to other browsers, but the parsed components will not be set. (E.g. if you assign
- * `a.href = 'foo'`, then `a.protocol`, `a.host`, etc. will not be correctly updated.)
+ * While this approach has wide compatibility, it does not work as expected on IE. On IE,
+ * normalizing happens similar to other browsers, but the parsed components will not be set. (E.g.
+ * if you assign `a.href = 'foo'`, then `a.protocol`, `a.host`, etc. will not be correctly updated.)
  * We work around that by performing the parsing in a 2nd step by taking a previously normalized URL
  * and assigning it again. This correctly populates all properties.
  *

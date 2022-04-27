@@ -143,7 +143,7 @@ function bindingNameEquals(node: ts.BindingName, name: string): boolean {
 export function getSourceCodeForDiagnostic(diag: ts.Diagnostic): string {
   if (diag.file === undefined || diag.start === undefined || diag.length === undefined) {
     throw new Error(
-        `Unable to get source code for diagnostic. Provided diagnostic instance doesn't contain "file", "start" and/or "length" properties.`);
+        `Unable to get source code for diagnostic. Provided diagnostic instance does not contain "file", "start" and/or "length" properties.`);
   }
   const text = diag.file.text;
   return text.slice(diag.start, diag.start + diag.length);

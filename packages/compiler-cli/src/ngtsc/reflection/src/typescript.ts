@@ -38,9 +38,9 @@ export class TypeScriptReflectionHost implements ReflectionHost {
 
     const isDeclaration = tsClazz.getSourceFile().isDeclarationFile;
     // For non-declaration files, we want to find the constructor with a `body`. The constructors
-    // without a `body` are overloads whereas we want the implementation since it's the one that'll
-    // be executed and which can have decorators. For declaration files, we take the first one that
-    // we get.
+    // without a `body` are overloads whereas we want the implementation since it is the one that
+    // will be executed and which can have decorators. For declaration files, we take the first one
+    // that we get.
     const ctor = tsClazz.members.find(
         (member): member is ts.ConstructorDeclaration =>
             ts.isConstructorDeclaration(member) && (isDeclaration || member.body !== undefined));
@@ -101,7 +101,7 @@ export class TypeScriptReflectionHost implements ReflectionHost {
   }
 
   getExportsOfModule(node: ts.Node): Map<string, Declaration>|null {
-    // In TypeScript code, modules are only ts.SourceFiles. Throw if the node isn't a module.
+    // In TypeScript code, modules are only ts.SourceFiles. Throw if the node is not a module.
     if (!ts.isSourceFile(node)) {
       throw new Error(`getExportsOfModule() called on non-SourceFile in TS code`);
     }
@@ -200,14 +200,14 @@ export class TypeScriptReflectionHost implements ReflectionHost {
   }
 
   isStaticallyExported(decl: ts.Node): boolean {
-    // First check if there's an `export` modifier directly on the declaration.
+    // First check if there is an `export` modifier directly on the declaration.
     let topLevel = decl;
     if (ts.isVariableDeclaration(decl) && ts.isVariableDeclarationList(decl.parent)) {
       topLevel = decl.parent.parent;
     }
     if (topLevel.modifiers !== undefined &&
         topLevel.modifiers.some(modifier => modifier.kind === ts.SyntaxKind.ExportKeyword)) {
-      // The node is part of a declaration that's directly exported.
+      // The node is part of a declaration that is directly exported.
       return true;
     }
 
@@ -375,8 +375,8 @@ export class TypeScriptReflectionHost implements ReflectionHost {
       decoratorExpr = decoratorExpr.expression;
     }
 
-    // The final resolved decorator should be a `ts.Identifier` - if it's not, then something is
-    // wrong and the decorator can't be resolved statically.
+    // The final resolved decorator should be a `ts.Identifier` - if it is not, then something is
+    // wrong and the decorator cannot be resolved statically.
     if (!isDecoratorIdentifier(decoratorExpr)) {
       return null;
     }
@@ -470,7 +470,7 @@ export class TypeScriptReflectionHost implements ReflectionHost {
     // large FESM in ngcc). If performance does become an issue here, it should be possible to
     // create a `Set<>`
 
-    // Unfortunately, `ts.Iterator` doesn't implement the iterator protocol, so iteration here is
+    // Unfortunately, `ts.Iterator` does not implement the iterator protocol, so iteration here is
     // done manually.
     const iter = sfSymbol.exports.values();
     let item = iter.next();
@@ -662,7 +662,8 @@ function getFarLeftIdentifier(propertyAccess: ts.PropertyAccessExpression): ts.I
  */
 function getContainingImportDeclaration(node: ts.Node): ts.ImportDeclaration|null {
   return ts.isImportSpecifier(node) ? node.parent!.parent!.parent! :
-                                      ts.isNamespaceImport(node) ? node.parent.parent : null;
+      ts.isNamespaceImport(node)    ? node.parent.parent :
+                                      null;
 }
 
 /**

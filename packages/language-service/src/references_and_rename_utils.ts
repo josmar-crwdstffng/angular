@@ -93,7 +93,7 @@ export function getTargetDetailsAtTemplatePosition(
       }
       case SymbolKind.DomBinding: {
         // Dom bindings aren't currently type-checked (see `checkTypeOfDomBindings`) so they don't
-        // have a shim location. This means we can't match dom bindings to their lib.dom
+        // have a shim location. This means we cannot match dom bindings to their lib.dom
         // reference, but we can still see if they match to a directive.
         if (!(node instanceof TmplAstTextAttribute) && !(node instanceof TmplAstBoundAttribute)) {
           return null;

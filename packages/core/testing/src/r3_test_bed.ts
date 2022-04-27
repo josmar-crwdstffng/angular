@@ -287,7 +287,7 @@ export class TestBedRender3 implements TestBed {
 
     // TestBed does not have an API which can reliably detect the start of a test, and thus could be
     // used to track the state of the NgModule registry and reset it correctly. Instead, when we
-    // know we're in a testing scenario, we disable the check for duplicate NgModule registration
+    // know we are in a testing scenario, we disable the check for duplicate NgModule registration
     // completely.
     setAllowDuplicateNgModuleIdsForTest(true);
   }
@@ -358,8 +358,8 @@ export class TestBedRender3 implements TestBed {
     // description for additional info.
     this.checkGlobalCompilationFinished();
 
-    // Always re-assign the options, even if they're undefined.
-    // This ensures that we don't carry them between tests.
+    // Always re-assign the options, even if the options are undefined.
+    // This ensures that Angular does not carry the options between tests.
     this._instanceTeardownOptions = moduleDef.teardown;
     this._instanceErrorOnUnknownElementsOption = moduleDef.errorOnUnknownElements;
     this._instanceErrorOnUnknownPropertiesOption = moduleDef.errorOnUnknownProperties;
@@ -502,7 +502,7 @@ export class TestBedRender3 implements TestBed {
    *
    * When the TestBed is reset, it clears the JIT module compilation queue, cancelling any
    * in-progress module compilation. This creates a potential hazard - the very first time the
-   * TestBed is initialized (or if it's reset without being initialized), there may be pending
+   * TestBed is initialized (or if it is reset without being initialized), there may be pending
    * compilations of modules declared in global scope. These compilations should be finished.
    *
    * To ensure that globally declared modules have their components scoped properly, this function

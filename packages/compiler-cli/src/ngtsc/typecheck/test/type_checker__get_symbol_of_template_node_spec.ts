@@ -843,7 +843,7 @@ runInEachFileSystem(() => {
         const writeSymbol = templateTypeChecker.getSymbolOfNode(node.outputs[0].handler, cmp)!;
         assertExpressionSymbol(writeSymbol);
         // Note that the symbol returned is for the RHS of the PropertyWrite. The AST
-        // does not support specific designation for the RHS so we assume that's what
+        // does not support specific designation for the RHS so we assume that is what
         // is wanted in this case. We don't support retrieving a symbol for the whole
         // expression and if you want to get a symbol for the '$event', you can
         // use the `value` AST of the `PropertyWrite`.

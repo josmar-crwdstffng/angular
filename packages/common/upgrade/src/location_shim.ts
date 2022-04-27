@@ -196,8 +196,8 @@ export class $locationShim {
               this.$$parse(oldUrl);
               this.$$state = oldState;
             } else {
-              // This block doesn't run when initalizing because it's going to perform the update to
-              // the URL which shouldn't be needed when initalizing.
+              // This block does not run when initalizing because it is going to perform the update
+              // to the URL which shouldn't be needed when initalizing.
               if (urlOrStateChanged) {
                 this.setBrowserUrlWithFallback(
                     newUrl, currentReplace, oldState === this.$$state ? null : this.$$state);
@@ -620,7 +620,7 @@ export class $locationShim {
         if (typeof search === 'string' || typeof search === 'number') {
           this.$$search = this.urlCodec.decodeSearch(search.toString());
         } else if (typeof search === 'object' && search !== null) {
-          // Copy the object so it's never mutated
+          // Copy the object so it is never mutated
           search = {...search};
           // remove object undefined or null properties
           for (const key in search) {

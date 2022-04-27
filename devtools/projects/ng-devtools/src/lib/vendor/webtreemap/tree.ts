@@ -81,7 +81,7 @@ export function flatten(n: Node, join = (parent: string, child: string) => `${pa
 /**
  * rollup fills in the size attribute for nodes by summing their children.
  *
- * Note that it's legal for input data to have a node with a size larger
+ * Note that it is legal for input data to have a node with a size larger
  * than the sum of its children, perhaps because some data was left out.
  */
 export function rollup(n: Node) {

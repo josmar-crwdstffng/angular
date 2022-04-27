@@ -35,7 +35,7 @@ export enum ViewEncapsulation {
   // Historically the 1 value was for `Native` encapsulation which has been removed as of v11.
 
   /**
-   * Doesn't provide any sort of CSS style encapsulation, meaning that all the styles provided
+   * Does not provide any sort of CSS style encapsulation, meaning that all the styles provided
    * via {@link Component#styles styles} or {@link Component#styleUrls styleUrls} are applicable
    * to any HTML element of the application regardless of their host Component.
    */

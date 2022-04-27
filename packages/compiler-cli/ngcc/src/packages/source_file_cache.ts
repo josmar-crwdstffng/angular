@@ -51,7 +51,7 @@ export class SharedFileCache {
 
   /**
    * Attempts to load the source file from the cache, or parses the file into a `ts.SourceFile` if
-   * it's not yet cached. This method assumes that the file will not be modified for the duration
+   * it is not yet cached. This method assumes that the file will not be modified for the duration
    * that this cache is valid for. If that assumption does not hold, the `getVolatileCachedFile`
    * method is to be used instead.
    */

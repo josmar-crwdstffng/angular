@@ -13,11 +13,10 @@ import {ErrorCode, ngErrorCode} from '../../diagnostics';
 import {absoluteFrom, absoluteFromSourceFile, AbsoluteFsPath, getSourceFileOrError} from '../../file_system';
 import {Reference, ReferenceEmitter} from '../../imports';
 import {IncrementalBuild} from '../../incremental/api';
-import {MetaKind} from '../../metadata';
 import {PerfCheckpoint, PerfEvent, PerfPhase, PerfRecorder} from '../../perf';
 import {ProgramDriver, UpdateMode} from '../../program_driver';
 import {ClassDeclaration, isNamedClassDeclaration, ReflectionHost} from '../../reflection';
-import {ComponentScopeKind, ComponentScopeReader, TypeCheckScopeRegistry} from '../../scope';
+import {ComponentScopeReader, TypeCheckScopeRegistry} from '../../scope';
 import {isShim} from '../../shims';
 import {getSourceFileOrNull, isSymbolWithValueDeclaration} from '../../util/src/typescript';
 import {DirectiveInScope, ElementSymbol, FullTemplateMapping, GlobalCompletion, NgTemplateDiagnostic, OptimizeFor, PipeInScope, ProgramTypeCheckAdapter, Symbol, TcbLocation, TemplateDiagnostic, TemplateId, TemplateSymbol, TemplateTypeChecker, TypeCheckableDirectiveMeta, TypeCheckingConfig} from '../api';
@@ -477,7 +476,7 @@ export class TemplateTypeCheckerImpl implements TemplateTypeChecker {
   /**
    * Remove any shim data that depends on inline operations applied to the type-checking program.
    *
-   * This can be useful if new inlines need to be applied, and it's not possible to guarantee that
+   * This can be useful if new inlines need to be applied, and it is not possible to guarantee that
    * they won't overwrite or corrupt existing inlines that are used by such shims.
    */
   clearAllShimDataUsingInlines(): void {
@@ -587,7 +586,7 @@ export class TemplateTypeCheckerImpl implements TemplateTypeChecker {
       for (const directive of scope.directives) {
         for (const selector of CssSelector.parse(directive.selector)) {
           if (selector.element === null || tagMap.has(selector.element)) {
-            // Skip this directive if it doesn't match an element tag, or if another directive has
+            // Skip this directive if it does not match an element tag, or if another directive has
             // already been included with the same element name.
             continue;
           }
@@ -627,54 +626,48 @@ export class TemplateTypeCheckerImpl implements TemplateTypeChecker {
       return null;
     }
 
-    const dependencies = scope.kind === ComponentScopeKind.NgModule ?
-        scope.compilation.dependencies :
-        scope.dependencies;
-
     const data: ScopeData = {
       directives: [],
       pipes: [],
-      isPoisoned: scope.kind === ComponentScopeKind.NgModule ? scope.compilation.isPoisoned :
-                                                               scope.isPoisoned,
+      isPoisoned: scope.compilation.isPoisoned,
     };
 
     const typeChecker = this.programDriver.getProgram().getTypeChecker();
-    for (const dep of dependencies) {
-      if (dep.kind === MetaKind.Directive) {
-        if (dep.selector === null) {
-          // Skip this directive, it can't be added to a template anyway.
-          continue;
-        }
-        const tsSymbol = typeChecker.getSymbolAtLocation(dep.ref.node.name);
-        if (!isSymbolWithValueDeclaration(tsSymbol)) {
-          continue;
-        }
-
-        let ngModule: ClassDeclaration|null = null;
-        const moduleScopeOfDir = this.componentScopeReader.getScopeForComponent(dep.ref.node);
-        if (moduleScopeOfDir !== null && moduleScopeOfDir.kind === ComponentScopeKind.NgModule) {
-          ngModule = moduleScopeOfDir.ngModule;
-        }
-
-        data.directives.push({
-          isComponent: dep.isComponent,
-          isStructural: dep.isStructural,
-          selector: dep.selector,
-          tsSymbol,
-          ngModule,
-        });
-      } else if (dep.kind === MetaKind.Pipe) {
-        const tsSymbol = typeChecker.getSymbolAtLocation(dep.ref.node.name);
-        if (tsSymbol === undefined) {
-          continue;
-        }
-        data.pipes.push({
-          name: dep.name,
-          tsSymbol,
-        });
+    for (const dir of scope.compilation.directives) {
+      if (dir.selector === null) {
+        // Skip this directive, it cannot be added to a template anyway.
+        continue;
       }
+      const tsSymbol = typeChecker.getSymbolAtLocation(dir.ref.node.name);
+      if (!isSymbolWithValueDeclaration(tsSymbol)) {
+        continue;
+      }
+
+      let ngModule: ClassDeclaration|null = null;
+      const moduleScopeOfDir = this.componentScopeReader.getScopeForComponent(dir.ref.node);
+      if (moduleScopeOfDir !== null) {
+        ngModule = moduleScopeOfDir.ngModule;
+      }
+
+      data.directives.push({
+        isComponent: dir.isComponent,
+        isStructural: dir.isStructural,
+        selector: dir.selector,
+        tsSymbol,
+        ngModule,
+      });
     }
 
+    for (const pipe of scope.compilation.pipes) {
+      const tsSymbol = typeChecker.getSymbolAtLocation(pipe.ref.node.name);
+      if (tsSymbol === undefined) {
+        continue;
+      }
+      data.pipes.push({
+        name: pipe.name,
+        tsSymbol,
+      });
+    }
 
     this.scopeCache.set(component, data);
     return data;

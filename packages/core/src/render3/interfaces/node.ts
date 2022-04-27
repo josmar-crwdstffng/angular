@@ -7,6 +7,7 @@
  */
 import {KeyValueArray} from '../../util/array_utils';
 import {TStylingRange} from '../interfaces/styling';
+
 import {TIcu} from './i18n';
 import {CssSelector} from './projection';
 import {RNode} from './renderer_dom';
@@ -74,7 +75,7 @@ export const enum TNodeType {
   // Combined Types These should never be used for `TNode.type` only as a useful way to check
   // if `TNode.type` is one of several choices.
 
-  // See: https://github.com/microsoft/TypeScript/issues/35875 why we can't refer to existing enum.
+  // See: https://github.com/microsoft/TypeScript/issues/35875 why we cannot refer to existing enum.
   AnyRNode = 0b11,        // Text | Element,
   AnyContainer = 0b1100,  // Container | ElementContainer, // See:
 }
@@ -343,7 +344,7 @@ export interface TNode {
    *
    * When DOM nodes are being inserted, normally they are being appended as they are created.
    * Under i18n case, the translated text nodes are created ahead of time as part of the
-   * `ɵɵi18nStart` instruction which means that this `TNode` can't just be appended and instead
+   * `ɵɵi18nStart` instruction which means that this `TNode` cannot just be appended and instead
    * needs to be inserted using `insertBeforeIndex` semantics.
    *
    * Additionally sometimes it is necessary to insert new text nodes as a child of this `TNode`. In
@@ -356,7 +357,7 @@ export interface TNode {
    * </div>
    * ```
    * In the above example the `ɵɵi18nStart` instruction can create `Hello `, `World` and `!` text
-   * nodes. It can also insert `Hello ` and `!` text node as a child of `<div>`, but it can't
+   * nodes. It can also insert `Hello ` and `!` text node as a child of `<div>`, but it cannot
    * insert `World` because the `<span>` node has not yet been created. In such a case the
    * `<span>` `TNode` will have an array which will direct the `<span>` to not only insert
    * itself in front of `!` but also to insert the `World` (created by `ɵɵi18nStart`) into
@@ -398,7 +399,7 @@ export interface TNode {
    *
    * If the index !== -1, it is the index of this node's injector OR the index of a parent
    * injector in the same view. We pass the parent injector index down the node tree of a view so
-   * it's possible to find the parent injector without walking a potentially deep node tree.
+   * it is possible to find the parent injector without walking a potentially deep node tree.
    * Injector indices are not set across view boundaries because there could be multiple component
    * hosts.
    *
@@ -775,7 +776,7 @@ export interface TElementNode extends TNode {
 
   /**
    * If this is a component TNode with projection, this will be an array of projected
-   * TNodes or native nodes (see TNode.projection for more info). If it's a regular element node
+   * TNodes or native nodes (see TNode.projection for more info). If it is a regular element node
    * or a component without projection, it will be null.
    */
   projection: (TNode|RNode[])[]|null;
@@ -806,7 +807,7 @@ export interface TContainerNode extends TNode {
   /**
    * Index in the data[] array.
    *
-   * If it's -1, this is a dynamically created container node that isn't stored in
+   * If it is -1, this is a dynamically created container node that is not stored in
    * data[] (e.g. when you inject ViewContainerRef) .
    */
   index: number;
@@ -895,7 +896,7 @@ export type PropertyAliasValue = (number|string)[];
 /**
  * This array contains information about input properties that
  * need to be set once from attribute data. It's ordered by
- * directive index (relative to element) so it's simple to
+ * directive index (relative to element) so it is simple to
  * look up a specific directive's initial input data.
  *
  * Within each sub-array:

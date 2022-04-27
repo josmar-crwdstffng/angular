@@ -154,7 +154,7 @@ export class KeyValueDiffers {
    *
    * The following example shows how to extend an existing list of factories,
    * which will only be applied to the injector for this component and its children.
-   * This step is all that's required to make a new {@link KeyValueDiffer} available.
+   * This step is all that is required to make a new {@link KeyValueDiffer} available.
    *
    * ```
    * @Component({
@@ -173,7 +173,7 @@ export class KeyValueDiffers {
         // `defaultKeyValueDiffersFactory`.
         return KeyValueDiffers.create(factories, parent || defaultKeyValueDiffersFactory());
       },
-      // Dependency technically isn't optional, but we can provide a better error message this way.
+      // Dependency technically is not optional, but we can provide a better error message this way.
       deps: [[KeyValueDiffers, new SkipSelf(), new Optional()]]
     };
   }

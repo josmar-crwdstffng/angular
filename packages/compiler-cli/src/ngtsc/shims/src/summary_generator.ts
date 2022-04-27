@@ -19,20 +19,20 @@ export class SummaryGenerator implements PerFileShimGenerator {
 
   generateShimForFile(sf: ts.SourceFile, genFilePath: AbsoluteFsPath): ts.SourceFile {
     // Collect a list of classes that need to have factory types emitted for them. This list is
-    // overly broad as at this point the ts.TypeChecker has not been created and so it can't be used
-    // to semantically understand which decorators are Angular decorators. It's okay to output an
-    // overly broad set of summary exports as the exports are no-ops anyway, and summaries are a
+    // overly broad as at this point the ts.TypeChecker has not been created and so it cannot be
+    // used to semantically understand which decorators are Angular decorators. It's okay to output
+    // an overly broad set of summary exports as the exports are no-ops anyway, and summaries are a
     // compatibility layer which will be removed after Ivy is enabled.
     const symbolNames: string[] = [];
     for (const stmt of sf.statements) {
       if (ts.isClassDeclaration(stmt)) {
-        // If the class isn't exported, or if it's not decorated, then skip it.
+        // If the class is not exported, or if it is not decorated, then skip it.
         if (!isExported(stmt) || stmt.decorators === undefined || stmt.name === undefined) {
           continue;
         }
         symbolNames.push(stmt.name.text);
       } else if (ts.isExportDeclaration(stmt)) {
-        // Look for an export statement of the form "export {...};". If it doesn't match that, then
+        // Look for an export statement of the form "export {...};". If it does not match that, then
         // skip it.
         if (stmt.exportClause === undefined || stmt.moduleSpecifier !== undefined ||
             !ts.isNamedExports(stmt.exportClause)) {
@@ -41,9 +41,9 @@ export class SummaryGenerator implements PerFileShimGenerator {
 
         for (const specifier of stmt.exportClause.elements) {
           // At this point, there is no guarantee that specifier here refers to a class declaration,
-          // but that's okay.
+          // but that is okay.
 
-          // Use specifier.name as that's guaranteed to be the exported name, regardless of whether
+          // Use specifier.name as that is guaranteed to be the exported name, regardless of whether
           // specifier.propertyName is set.
           symbolNames.push(specifier.name.text);
         }

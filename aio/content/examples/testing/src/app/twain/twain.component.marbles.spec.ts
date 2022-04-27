@@ -70,7 +70,7 @@ describe('TwainComponent (marbles)', () => {
   });
   // #enddocregion get-quote-test
 
-  // Still need fakeAsync() because of component's setTimeout()
+  // Still need fakeAsync() because of the setTimeout() of the component
   // #docregion error-test
   it('should display error when TwainService fails', fakeAsync(() => {
     // observable error after delay

@@ -81,7 +81,7 @@ describe('TwainComponent', () => {
          fixture.detectChanges();  // onInit()
          // sync spy errors immediately after init
 
-         tick();  // flush the component's setTimeout()
+         tick();  // flush the setTimeout() of the component
 
          fixture.detectChanges();  // update errorMessage within setTimeout()
 

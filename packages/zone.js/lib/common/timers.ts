@@ -60,7 +60,7 @@ export function patchTimer(window: any, setName: string, cancelName: string, nam
 
               // https://github.com/angular/angular/issues/40387
               // Cleanup tasksByHandleId should be handled before scheduleTask
-              // Since some zoneSpec may intercept and doesn't trigger
+              // Since some zoneSpec may intercept and does not trigger
               // scheduleFn(scheduleTask) provided here.
               if (!(options.isPeriodic)) {
                 if (typeof options.handleId === 'number') {

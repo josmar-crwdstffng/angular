@@ -175,7 +175,7 @@ export function setup() {
 
 interface OverwriteResult {
   /**
-   * Position of the cursor, -1 if there isn't one.
+   * Position of the cursor, -1 if there is not one.
    */
   position: number;
   /**
@@ -242,7 +242,7 @@ export class MockService {
       return scriptInfo;
     }
     // There is no script info for external template, so create one.
-    // But we need to make sure it's not a TS file.
+    // But we need to make sure it is not a TS file.
     if (isTypeScriptFile(fileName)) {
       throw new Error(`No existing script info for ${fileName}`);
     }

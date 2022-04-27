@@ -65,7 +65,7 @@ export class ComponentDecoratorHandler implements
   private elementSchemaRegistry = new DomElementSchemaRegistry();
 
   /**
-   * During the asynchronous preanalyze phase, it's necessary to parse the template to extract
+   * During the asynchronous preanalyze phase, it is necessary to parse the template to extract
    * any potential <link> tags which might need to be loaded. This cache ensures that work is not
    * thrown away, and the parsed template is reused during the analyze phase.
    */
@@ -110,7 +110,7 @@ export class ComponentDecoratorHandler implements
     // As a result of the last one, the template must be parsed as part of preanalysis to extract
     // <link> tags, which may involve waiting for the templateUrl to be resolved first.
 
-    // If preloading isn't possible, then skip this step.
+    // If preloading is not possible, then skip this step.
     if (!this.resourceLoader.canPreload) {
       return undefined;
     }
@@ -585,9 +585,9 @@ export class ComponentDecoratorHandler implements
       // requiring new imports (but also in a way that breaks tree shaking).
       //
       // Determining this is challenging, because the TemplateDefinitionBuilder is responsible for
-      // matching directives and pipes in the template; however, that doesn't run until the actual
+      // matching directives and pipes in the template; however, that does not run until the actual
       // compile() step. It's not possible to run template compilation sooner as it requires the
-      // ConstantPool for the overall file being compiled (which isn't available until the
+      // ConstantPool for the overall file being compiled (which is not available until the
       // transform step).
       //
       // Instead, directives/pipes are matched independently here, using the R3TargetBinder. This

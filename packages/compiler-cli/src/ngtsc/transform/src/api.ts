@@ -121,7 +121,7 @@ export interface DecoratorHandler<D, A, S extends SemanticSymbol|null, R> {
    * required for compilation.
    *
    * Returns analyzed metadata if successful, or an array of diagnostic messages if the analysis
-   * fails or the decorator isn't valid.
+   * fails or the decorator is not valid.
    *
    * Analysis should always be a "pure" operation, with no side effects. This is because the
    * detect/analysis steps might be skipped for files which have not changed during incremental

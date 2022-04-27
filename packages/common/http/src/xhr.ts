@@ -68,12 +68,12 @@ export class HttpXhrBackend implements HttpBackend {
       // Add all the requested headers.
       req.headers.forEach((name, values) => xhr.setRequestHeader(name, values.join(',')));
 
-      // Add an Accept header if one isn't present already.
+      // Add an Accept header if one is not present already.
       if (!req.headers.has('Accept')) {
         xhr.setRequestHeader('Accept', 'application/json, text/plain, */*');
       }
 
-      // Auto-detect the Content-Type header if one isn't present already.
+      // Auto-detect the Content-Type header if one is not present already.
       if (!req.headers.has('Content-Type')) {
         const detectedType = req.detectContentTypeHeader();
         // Sometimes Content-Type detection fails.
@@ -100,9 +100,9 @@ export class HttpXhrBackend implements HttpBackend {
       // If progress events are enabled, response headers will be delivered
       // in two events - the HttpHeaderResponse event and the full HttpResponse
       // event. However, since response headers don't change in between these
-      // two events, it doesn't make sense to parse them twice. So headerResponse
-      // caches the data extracted from the response whenever it's first parsed,
-      // to ensure parsing isn't duplicated.
+      // two events, it does not make sense to parse them twice. So headerResponse
+      // caches the data extracted from the response whenever it is first parsed,
+      // to ensure parsing is not duplicated.
       let headerResponse: HttpHeaderResponse|null = null;
 
       // partialFromXhr extracts the HttpHeaderResponse from the current XMLHttpRequest
@@ -163,13 +163,13 @@ export class HttpXhrBackend implements HttpBackend {
             // Attempt the parse. If it fails, a parse error should be delivered to the user.
             body = body !== '' ? JSON.parse(body) : null;
           } catch (error) {
-            // Since the JSON.parse failed, it's reasonable to assume this might not have been a
+            // Since the JSON.parse failed, it is reasonable to assume this might not have been a
             // JSON response. Restore the original body (including any XSSI prefix) to deliver
             // a better error response.
             body = originalBody;
 
             // If this was an error request to begin with, leave it as a string, it probably
-            // just isn't JSON. Otherwise, deliver the parsing error to the user.
+            // just is not JSON. Otherwise, deliver the parsing error to the user.
             if (ok) {
               // Even though the response status was 2xx, this is still an error.
               ok = false;
@@ -240,7 +240,7 @@ export class HttpXhrBackend implements HttpBackend {
           loaded: event.loaded,
         };
 
-        // Set the total number of bytes in the event if it's available.
+        // Set the total number of bytes in the event if it is available.
         if (event.lengthComputable) {
           progressEvent.total = event.total;
         }

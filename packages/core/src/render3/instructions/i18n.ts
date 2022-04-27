@@ -84,7 +84,7 @@ export function ɵɵi18nEnd(): void {
 
 /**
  *
- * Use this instruction to create a translation block that doesn't contain any placeholder.
+ * Use this instruction to create a translation block that does not contain any placeholder.
  * It calls both {@link i18nStart} and {@link i18nEnd} in one instruction.
  *
  * The translation `message` is the value which is locale specific. The translation string may

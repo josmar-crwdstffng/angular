@@ -76,7 +76,7 @@ Object.defineProperties(TestTarget.prototype, {
 });
 
 // Zone symbol prefix may be set in *-env-setup.ts (browser & node),
-// but this file is used in multiple scenarios, and Zone isn't loaded at this point yet.
+// but this file is used in multiple scenarios, and Zone is not loaded at this point yet.
 const zoneSymbolPrefix = global['__Zone_symbol_prefix'] || '__zone_symbol__';
 
 global['__Zone_ignore_on_properties'] =

@@ -609,11 +609,11 @@ runInEachFileSystem(() => {
         // Should get a diagnostic for each line in the template.
         expect(diags.length).toBe(3);
 
-        // Now rebuild without any changes, and verify they're still produced.
+        // Now rebuild without any changes, and verify they are still produced.
         diags = env.driveDiagnostics();
         expect(diags.length).toBe(3);
 
-        // If it's worth testing, it's worth overtesting.
+        // If it is worth testing, it is worth overtesting.
         //
         // Actually, the above only tests the transition from "initial" to "incremental"
         // compilation. The next build verifies that an "incremental to incremental" transition
@@ -726,7 +726,7 @@ runInEachFileSystem(() => {
       it('should recompile when a remote change happens to a scope', () => {
         // The premise of this test is that the component Cmp has a template error (a binding to an
         // unknown property). Cmp is in ModuleA, which imports ModuleB, which declares Dir that has
-        // the property. Because ModuleB doesn't export Dir, it's not visible to Cmp - hence the
+        // the property. Because ModuleB does not export Dir, it is not visible to Cmp - hence the
         // error.
         // In the test, during the incremental rebuild Dir is exported from ModuleB. This is a
         // change to the scope of ModuleA made by changing ModuleB (hence, a "remote change"). The

@@ -143,16 +143,16 @@ export class IncrementalCompilation implements IncrementalBuild<ClassRecord, Fil
       for (const possiblyRedirectedNewFile of program.getSourceFiles()) {
         const sf = toOriginalSourceFile(possiblyRedirectedNewFile);
         const sfPath = absoluteFromSourceFile(sf);
-        // Since we're seeing a file in the incoming program with this name, it can't have been
+        // Since we are seeing a file in the incoming program with this name, it cannot have been
         // deleted.
         deletedTsFiles.delete(sfPath);
 
         if (oldFiles.has(sf)) {
           // This source file has the same object identity as in the previous program. We need to
-          // determine if it's really the same file, or if it might have changed versions since the
+          // determine if it is really the same file, or if it might have changed versions since the
           // last program without changing its identity.
 
-          // If there's no version information available, then this is the same file, and we can
+          // If there is no version information available, then this is the same file, and we can
           // skip it.
           if (oldVersions === null || newVersions === null) {
             continue;
@@ -243,12 +243,12 @@ export class IncrementalCompilation implements IncrementalBuild<ClassRecord, Fil
       // know need to bee re-emitted.
       emitted = new Set(this.step.priorState.emitted);
 
-      // Files need re-emitted if they've logically changed.
+      // Files need re-emitted if they have logically changed.
       for (const sfPath of this.step.logicallyChangedTsFiles) {
         emitted.delete(sfPath);
       }
 
-      // Files need re-emitted if they've semantically changed.
+      // Files need re-emitted if they have semantically changed.
       for (const sfPath of needsEmit) {
         emitted.delete(sfPath);
       }
@@ -330,14 +330,14 @@ export class IncrementalCompilation implements IncrementalBuild<ClassRecord, Fil
       return null;
     }
 
-    // Past results also cannot be reused if they're not available.
+    // Past results also cannot be reused if they are not available.
     if (this.step.priorState.typeCheckResults === null ||
         !this.step.priorState.typeCheckResults.has(sfPath)) {
       return null;
     }
 
     const priorResults = this.step.priorState.typeCheckResults.get(sfPath)!;
-    // If the past results relied on inlining, they're not safe for reuse.
+    // If the past results relied on inlining, they are not safe for reuse.
     if (priorResults.hasInlines) {
       return null;
     }
@@ -346,7 +346,7 @@ export class IncrementalCompilation implements IncrementalBuild<ClassRecord, Fil
   }
 
   safeToSkipEmit(sf: ts.SourceFile): boolean {
-    // If this is a fresh compilation, it's never safe to skip an emit.
+    // If this is a fresh compilation, it is never safe to skip an emit.
     if (this.step === null) {
       return false;
     }

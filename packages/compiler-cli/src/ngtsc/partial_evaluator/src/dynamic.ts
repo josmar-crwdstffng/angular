@@ -41,7 +41,7 @@ export const enum DynamicValueReason {
   EXTERNAL_REFERENCE,
 
   /**
-   * Syntax that `StaticInterpreter` doesn't know how to evaluate, for example a type of
+   * Syntax that `StaticInterpreter` does not know how to evaluate, for example a type of
    * `ts.Expression` that is not supported.
    */
   UNSUPPORTED_SYNTAX,

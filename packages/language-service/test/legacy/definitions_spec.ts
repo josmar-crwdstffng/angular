@@ -245,7 +245,7 @@ describe('definitions', () => {
       const {position} =
           service.overwriteInlineTemplate(APP_COMPONENT, `<div #cha¦rt></div>{{chart}}`);
       const definitionAndBoundSpan = ngLS.getDefinitionAndBoundSpan(APP_COMPONENT, position);
-      // We're already at the definition, so nothing is returned
+      // We are already at the definition, so nothing is returned
       expect(definitionAndBoundSpan).toBeUndefined();
     });
 

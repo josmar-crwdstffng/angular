@@ -162,7 +162,7 @@ export class ModuleWithProvidersAnalyzer {
     if (!isNamedClassDeclaration(ngModuleRef.node) &&
         !isNamedVariableDeclaration(ngModuleRef.node)) {
       throw new Error(`The identity given by ${ngModuleRef.debugName} referenced in "${
-          declaration!.getText()}" doesn't appear to be a "class" declaration.`);
+          declaration!.getText()}" does not appear to be a "class" declaration.`);
     }
 
     const ngModule = ngModuleRef as Reference<ClassDeclaration>;

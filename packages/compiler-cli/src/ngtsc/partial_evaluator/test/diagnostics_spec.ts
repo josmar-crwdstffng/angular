@@ -104,7 +104,7 @@ runInEachFileSystem(os => {
     if (os !== 'Windows' && platform() !== 'win32') {
       describe('traceDynamicValue()', () => {
         it('should not include the origin node if points to a different dynamic node.', () => {
-          // In the below expression, the read of "value" is evaluated to be dynamic, but it's also
+          // In the below expression, the read of "value" is evaluated to be dynamic, but it is also
           // the exact node for which the diagnostic is produced. Therefore, this node is not part
           // of the trace.
           const trace = traceExpression('const value = nonexistent;', 'value');

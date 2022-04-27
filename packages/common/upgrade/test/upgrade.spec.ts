@@ -632,7 +632,7 @@ describe('New URL Parsing', () => {
       mock$rootScope.runWatchers();
       expect($location.state()).toBe(testState);
 
-      // Confirm updating other values doesn't change the value of `state`
+      // Confirm updating other values does not change the value of `state`
       $location.path('/new');
 
       expect($location.state()).toBe(testState);

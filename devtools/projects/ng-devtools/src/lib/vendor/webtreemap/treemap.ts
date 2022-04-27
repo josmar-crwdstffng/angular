@@ -127,7 +127,7 @@ export class TreeMap {
     this.options = defaultOptions(options);
   }
 
-  /** Creates the DOM for a single node if it doesn't have one already. */
+  /** Creates the DOM for a single node if it does not have one already. */
   ensureDOM(node: Node): HTMLElement {
     if (node.dom) return node.dom;
     const dom = document.createElement('div');
@@ -169,7 +169,7 @@ export class TreeMap {
       // additional rectangle included.
       const nextSum = sum + size;
 
-      // Suppose you're laying out along the x axis, so "space"" is the
+      // Suppose you are laying out along the x axis, so "space"" is the
       // available width.  Then the height of the span of rectangles is
       //   height = sum/space
       //
@@ -192,7 +192,7 @@ export class TreeMap {
           (nextSum * nextSum) / (smin * space * space));
       if (lastScore && score > lastScore) {
         // Including this additional rectangle produces worse squareness than
-        // without it.  We're done.
+        // without it.  We are done.
         break;
       }
       lastScore = score;
@@ -218,7 +218,7 @@ export class TreeMap {
     const padding = this.options.padding;
     y1 += padding[0];
     if (padding[1]) {
-      // If there's any right-padding, subtract an extra pixel to allow for the
+      // If there is any right-padding, subtract an extra pixel to allow for the
       // boxes being one pixel wider than necessary.
       x2 -= padding[1] + 1;
     }

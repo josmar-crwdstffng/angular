@@ -35,7 +35,7 @@ function getStacktraceWithCaughtError(): Error {
 }
 
 // Some implementations of exception handling don't create a stack trace if the exception
-// isn't thrown, however it's faster not to actually throw the exception.
+// is not thrown, however it is faster not to actually throw the exception.
 const error = getStacktraceWithUncaughtError();
 const caughtError = getStacktraceWithCaughtError();
 const getStacktrace = error.stack ?

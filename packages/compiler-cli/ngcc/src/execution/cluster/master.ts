@@ -148,7 +148,7 @@ export class ClusterMaster {
     // If the worker's exiting was intentional, nothing to do.
     if (worker.exitedAfterDisconnect) return;
 
-    // The worker exited unexpectedly: Determine it's status and take an appropriate action.
+    // The worker exited unexpectedly: Determine it is status and take an appropriate action.
     const assignment = this.taskAssignments.get(worker.id);
     this.taskAssignments.delete(worker.id);
 

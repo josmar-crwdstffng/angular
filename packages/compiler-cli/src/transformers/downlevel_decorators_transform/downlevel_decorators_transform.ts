@@ -14,7 +14,7 @@ import {isAliasImportDeclaration, loadIsReferencedAliasDeclarationPatch} from '.
 
 /**
  * Whether a given decorator should be treated as an Angular decorator.
- * Either it's used in @angular/core, or it's imported from there.
+ * Either it is used in @angular/core, or it is imported from there.
  */
 function isAngularDecorator(decorator: Decorator, isCore: boolean): boolean {
   return isCore || (decorator.import !== null && decorator.import.from === '@angular/core');
@@ -34,7 +34,7 @@ function isAngularDecorator(decorator: Decorator, isCore: boolean): boolean {
        See: https://github.com/angular/angular-cli/commit/826803d0736b807867caff9f8903e508970ad5e4.
     4. Tsickle relied on `emitDecoratorMetadata` to be set to `true`. This is due to a limitation
        in TypeScript transformers that never has been fixed. We were able to work around this
-       limitation so that `emitDecoratorMetadata` doesn't need to be specified.
+       limitation so that `emitDecoratorMetadata` does not need to be specified.
        See: `patchAliasReferenceResolution` for more details.
 
   Here is a link to the tsickle revision on which this transformer is based:
@@ -95,9 +95,9 @@ function extractMetadataFromSingleDecorator(
  *
  * The property contains an arrow function that returns an array of object literals of the shape:
  *     static ctorParameters = () => [{
- *       type: SomeClass|undefined,  // the type of the param that's decorated, if it's a value.
+ *       type: SomeClass|undefined,  // the type of the param that is decorated, if it is a value.
  *       decorators: [{
- *         type: DecoratorFn,  // the type of the decorator that's invoked.
+ *         type: DecoratorFn,  // the type of the decorator that is invoked.
  *         args: [ARGS],       // the arguments passed to the decorator.
  *       }]
  *     }];
@@ -286,7 +286,7 @@ export function getDownlevelDecoratorsTransform(
     // NB: the .decorators property does not get a @nocollapse property. There
     // is no good reason why - it means .decorators is not runtime accessible
     // if you compile with collapse properties, whereas propDecorators is,
-    // which doesn't follow any stringent logic. However this has been the
+    // which does not follow any stringent logic. However this has been the
     // case previously, and adding it back in leads to substantial code size
     // increases as Closure fails to tree shake these props
     // without @nocollapse.

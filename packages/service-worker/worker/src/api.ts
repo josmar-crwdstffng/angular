@@ -36,7 +36,7 @@ export interface UpdateSource {
   /**
    * Lookup an older version of a resource for which the hash is known.
    *
-   * If an old version of the resource doesn't exist, or exists but does
+   * If an old version of the resource does not exist, or exists but does
    * not match the hash given, this returns null.
    */
   lookupResourceWithHash(url: NormalizedUrl, hash: string): Promise<Response|null>;

@@ -59,7 +59,7 @@ export function getDefaultImportDeclaration(expr: WrappedNodeExpr<unknown>): ts.
  *
  * To avoid this, the compiler must "touch" the imports with `ts.getMutableClone`, and should
  * only do this for imports which are actually consumed. The `DefaultImportTracker` keeps track of
- * these imports as they're encountered and emitted, and implements a transform which can correctly
+ * these imports as they are encountered and emitted, and implements a transform which can correctly
  * flag the imports as required.
  *
  * This problem does not exist for non-default imports as the compiler can easily insert
@@ -112,7 +112,7 @@ export class DefaultImportTracker {
     // Generate a new statement list which preserves any imports present in `importsToPreserve`.
     const statements = sf.statements.map(stmt => {
       if (ts.isImportDeclaration(stmt) && importsToPreserve.has(stmt)) {
-        // Preserving an import that's marked as unreferenced (type-only) is tricky in TypeScript.
+        // Preserving an import that is marked as unreferenced (type-only) is tricky in TypeScript.
         //
         // Various approaches have been tried, with mixed success:
         //
@@ -136,14 +136,14 @@ export class DefaultImportTracker {
         // Therefore, option 5 is the one used here. It seems to be implemented as the correct way
         // to perform option 4, which preserves all the compiler's invariants.
         //
-        // TODO(alxhub): discuss with the TypeScript team and determine if there's a better way to
+        // TODO(alxhub): discuss with the TypeScript team and determine if there is a better way to
         // deal with this issue.
         stmt = ts.getMutableClone(stmt);
       }
       return stmt;
     });
 
-    // Save memory - there's no need to keep these around once the transform has run for the given
+    // Save memory - there is no need to keep these around once the transform has run for the given
     // file.
     this.sourceFileToUsedImports.delete(originalSf);
 

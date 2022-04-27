@@ -70,7 +70,7 @@ class InertDocumentHelper implements InertBodyHelper {
     this.inertDocument = this.defaultDoc.implementation.createHTMLDocument('sanitization-inert');
 
     if (this.inertDocument.body == null) {
-      // usually there should be only one body element in the document, but IE doesn't have any, so
+      // usually there should be only one body element in the document, but IE does not have any, so
       // we need to create one.
       const inertHtml = this.inertDocument.createElement('html');
       this.inertDocument.appendChild(inertHtml);

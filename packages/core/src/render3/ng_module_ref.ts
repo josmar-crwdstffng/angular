@@ -45,8 +45,8 @@ export class NgModuleRef<T> extends viewEngine_NgModuleRef<T> implements Interna
 
   // When bootstrapping a module we have a dependency graph that looks like this:
   // ApplicationRef -> ComponentFactoryResolver -> NgModuleRef. The problem is that if the
-  // module being resolved tries to inject the ComponentFactoryResolver, it'll create a
-  // circular dependency which will result in a runtime error, because the injector doesn't
+  // module being resolved tries to inject the ComponentFactoryResolver, it will create a
+  // circular dependency which will result in a runtime error, because the injector does not
   // exist yet. We work around the issue by creating the ComponentFactoryResolver ourselves
   // and providing it, rather than letting the injector resolve it.
   override readonly componentFactoryResolver: ComponentFactoryResolver =
@@ -73,7 +73,7 @@ export class NgModuleRef<T> extends viewEngine_NgModuleRef<T> implements Interna
 
     // We need to resolve the injector types separately from the injector creation, because
     // the module might be trying to use this ref in its constructor for DI which will cause a
-    // circular error that will eventually error out, because the injector isn't created yet.
+    // circular error that will eventually error out, because the injector is not created yet.
     this._r3Injector.resolveInjectorInitializers();
     this.instance = this.get(ngModuleType);
   }

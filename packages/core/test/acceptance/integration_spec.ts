@@ -1442,7 +1442,7 @@ describe('acceptance integration tests', () => {
       }
       expect(() => {
         TestBed.configureTestingModule({imports: [SomeModule]}).createComponent(FixtureComponent);
-      }).toThrowError(`'SomeModule' module can't import itself`);
+      }).toThrowError(`'SomeModule' module cannot import itself`);
     });
 
     it('should throw with descriptive error message when a directive is passed to imports', () => {

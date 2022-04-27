@@ -46,7 +46,7 @@ export interface AnimationTriggerNames {
 }
 
 /**
- * Metadata regarding a directive that's needed to match it against template elements. This is
+ * Metadata regarding a directive that is needed to match it against template elements. This is
  * provided by a consumer of the t2 APIs.
  */
 export interface DirectiveMeta {
@@ -55,7 +55,7 @@ export interface DirectiveMeta {
    */
   name: string;
 
-  /** The selector for the directive or `null` if there isn't one. */
+  /** The selector for the directive or `null` if there is not one. */
   selector: string|null;
 
   /**

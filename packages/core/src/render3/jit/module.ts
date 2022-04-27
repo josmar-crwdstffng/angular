@@ -94,7 +94,7 @@ export function compileNgModule(moduleType: Type<any>, ngModule: NgModule = {}):
   }
 
   // Because we don't know if all declarations have resolved yet at the moment the
-  // NgModule decorator is executing, we're enqueueing the setting of module scope
+  // NgModule decorator is executing, we are enqueueing the setting of module scope
   // on its declarations to be run at a later time when all declarations for the module,
   // including forward refs, have resolved.
   enqueueModuleForDelayedScoping(moduleType, ngModule);
@@ -119,8 +119,9 @@ export function compileNgModuleDefs(
       if (ngModuleDef === null) {
         if (ngDevMode && ngModule.imports && ngModule.imports.indexOf(moduleType) > -1) {
           // We need to assert this immediately, because allowing it to continue will cause it to
-          // go into an infinite loop before we've reached the point where we throw all the errors.
-          throw new Error(`'${stringifyForError(moduleType)}' module can't import itself`);
+          // go into an infinite loop before we have reached the point where we throw all the
+          // errors.
+          throw new Error(`'${stringifyForError(moduleType)}' module cannot import itself`);
         }
         const compiler = getCompilerFacade(
             {usage: JitCompilerUsage.Decorator, kind: 'NgModule', type: moduleType});
@@ -140,7 +141,7 @@ export function compileNgModuleDefs(
         // Set `schemas` on ngModuleDef to an empty array in JIT mode to indicate that runtime
         // should verify that there are no unknown elements in a template. In AOT mode, that check
         // happens at compile time and `schemas` information is not present on Component and Module
-        // defs after compilation (so the check doesn't happen the second time at runtime).
+        // defs after compilation (so the check does not happen the second time at runtime).
         if (!ngModuleDef.schemas) {
           ngModuleDef.schemas = [];
         }
@@ -296,7 +297,7 @@ function verifySemanticsOfNgModuleDef(
       // Modules don't need to be declared or imported.
       if (combinedDeclarations.lastIndexOf(type) === -1) {
         // We are exporting something which we don't explicitly declare or import.
-        errors.push(`Can't export ${kind} ${stringifyForError(type)} from ${
+        errors.push(`Cannot export ${kind} ${stringifyForError(type)} from ${
             stringifyForError(moduleType)} as it was neither declared nor imported!`);
       }
     }
@@ -584,7 +585,7 @@ export function transitiveScopesForNgModule<T>(moduleType: Type<T>): NgModuleTra
     if (getPipeDef(declaredWithDefs)) {
       scopes.compilation.pipes.add(declared);
     } else {
-      // Either declared has a ɵcmp or ɵdir, or it's a component which hasn't
+      // Either declared has a ɵcmp or ɵdir, or it is a component which hasn't
       // had its template compiled yet. In either case, it gets added to the compilation's
       // directives.
       scopes.compilation.directives.add(declared);

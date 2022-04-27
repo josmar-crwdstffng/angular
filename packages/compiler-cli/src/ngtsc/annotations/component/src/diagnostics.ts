@@ -31,7 +31,7 @@ export function makeCyclicImportInfo(
  * Based loosely on https://github.com/sindresorhus/validate-element-name.
  */
 export function checkCustomElementSelectorForErrors(selector: string): string|null {
-  // Avoid flagging components with an attribute or class selector. This isn't bulletproof since it
+  // Avoid flagging components with an attribute or class selector. This is not bulletproof since it
   // won't catch cases like `foo[]bar`, but we don't need it to be. This is mainly to avoid flagging
   // something like `foo-bar[baz]` incorrectly.
   if (selector.includes('.') || (selector.includes('[') && selector.includes(']'))) {

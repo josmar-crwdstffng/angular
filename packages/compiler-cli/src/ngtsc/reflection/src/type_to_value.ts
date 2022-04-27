@@ -19,7 +19,7 @@ import {TypeValueReference, TypeValueReferenceKind, UnavailableTypeValueReferenc
  */
 export function typeToValue(
     typeNode: ts.TypeNode|null, checker: ts.TypeChecker): TypeValueReference {
-  // It's not possible to get a value expression if the parameter doesn't even have a type.
+  // It's not possible to get a value expression if the parameter does not even have a type.
   if (typeNode === null) {
     return missingType();
   }
@@ -73,12 +73,12 @@ export function typeToValue(
       //   import {Foo as Bar} from 'foo';
 
       if (firstDecl.isTypeOnly) {
-        // The import specifier can't be type-only (e.g. `import {type Foo} from '...')`.
+        // The import specifier cannot be type-only (e.g. `import {type Foo} from '...')`.
         return typeOnlyImport(typeNode, firstDecl);
       }
 
       if (firstDecl.parent.parent.isTypeOnly) {
-        // The import specifier can't be inside a type-only import clause
+        // The import specifier cannot be inside a type-only import clause
         // (e.g. `import type {Foo} from '...')`.
         return typeOnlyImport(typeNode, firstDecl.parent.parent);
       }
@@ -188,7 +188,7 @@ function missingType(): UnavailableTypeValueReference {
 }
 
 /**
- * Attempt to extract a `ts.Expression` that's equivalent to a `ts.TypeNode`, as the two have
+ * Attempt to extract a `ts.Expression` that is equivalent to a `ts.TypeNode`, as the two have
  * different AST shapes but can reference the same symbols.
  *
  * This will return `null` if an equivalent expression cannot be constructed.
@@ -224,7 +224,7 @@ function resolveTypeSymbols(typeRef: ts.TypeReferenceNode, checker: ts.TypeCheck
   // `local` is the `ts.Symbol` for the local `ts.Identifier` for the type.
   // If the type is actually locally declared or is imported by name, for example:
   //   import {Foo} from './foo';
-  // then it'll be the same as `typeRefSymbol`.
+  // then it will be the same as `typeRefSymbol`.
   //
   // If the type is imported via a namespace import, for example:
   //   import * as foo from './foo';

@@ -75,7 +75,7 @@ function paramParser(rawParams: string, codec: HttpParameterCodec): Map<string, 
   if (rawParams.length > 0) {
     // The `window.location.search` can be used while creating an instance of the `HttpParams` class
     // (e.g. `new HttpParams({ fromString: window.location.search })`). The `window.location.search`
-    // may start with the `?` char, so we strip it if it's present.
+    // may start with the `?` char, so we strip it if it is present.
     const params: string[] = rawParams.replace(/^\?/, '').split('&');
     params.forEach((param: string) => {
       const eqIdx = param.indexOf('=');

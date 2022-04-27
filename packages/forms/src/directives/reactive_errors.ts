@@ -11,7 +11,7 @@ import {formArrayNameExample, formControlNameExample, formGroupNameExample, ngMo
 
 export function controlParentException(): Error {
   return new Error(
-      `formControlName must be used with a parent formGroup directive.  You'll want to add a formGroup
+      `formControlName must be used with a parent formGroup directive.  you will want to add a formGroup
       directive and pass it an existing FormGroup instance (you can create one in your class).
 
     Example:
@@ -43,7 +43,7 @@ export function missingFormException(): Error {
 
 export function groupParentException(): Error {
   return new Error(
-      `formGroupName must be used with a parent formGroup directive.  You'll want to add a formGroup
+      `formGroupName must be used with a parent formGroup directive.  you will want to add a formGroup
     directive and pass it an existing FormGroup instance (you can create one in your class).
 
     Example:
@@ -53,7 +53,7 @@ export function groupParentException(): Error {
 
 export function arrayParentException(): Error {
   return new Error(
-      `formArrayName must be used with a parent formGroup directive.  You'll want to add a formGroup
+      `formArrayName must be used with a parent formGroup directive.  you will want to add a formGroup
       directive and pass it an existing FormGroup instance (you can create one in your class).
 
       Example:
@@ -62,7 +62,7 @@ export function arrayParentException(): Error {
 }
 
 export const disabledAttrWarning = `
-  It looks like you're using the disabled attribute with a reactive form directive. If you set disabled to true
+  It looks like you are using the disabled attribute with a reactive form directive. If you set disabled to true
   when you set up this control in your component class, the disabled attribute will actually be set in the DOM for
   you. We recommend using this approach to avoid 'changed after checked' errors.
 
@@ -91,7 +91,7 @@ export const asyncValidatorsDroppedWithOptsWarning = `
 
 export function ngModelWarning(directiveName: string): string {
   return `
-  It looks like you're using ngModel on the same form field as ${directiveName}.
+  It looks like you are using ngModel on the same form field as ${directiveName}.
   Support for using the ngModel input property and ngModelChange event with
   reactive form directives has been deprecated in Angular v6 and will be removed
   in a future version of Angular.
@@ -109,7 +109,7 @@ function describeKey(isFormGroup: boolean, key: string|number): string {
 export function noControlsError(isFormGroup: boolean): string {
   return `
     There are no form controls registered with this ${
-      isFormGroup ? 'group' : 'array'} yet. If you're using ngModel,
+      isFormGroup ? 'group' : 'array'} yet. If you are using ngModel,
     you may want to check next tick (e.g. use setTimeout).
   `;
 }

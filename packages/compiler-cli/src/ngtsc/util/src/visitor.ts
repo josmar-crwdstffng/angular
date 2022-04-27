@@ -9,7 +9,7 @@
 import ts from 'typescript';
 
 /**
- * Result type of visiting a node that's typically an entry in a list, which allows specifying that
+ * Result type of visiting a node that is typically an entry in a list, which allows specifying that
  * nodes should be added before the visited node in the output.
  */
 export type VisitListEntryResult<B extends ts.Node, T extends B> = {
@@ -99,7 +99,7 @@ export abstract class Visitor {
 
   private _maybeProcessStatements<T extends ts.Node&{statements: ts.NodeArray<ts.Statement>}>(
       node: T): T {
-    // Shortcut - if every statement doesn't require nodes to be prepended or appended,
+    // Shortcut - if every statement does not require nodes to be prepended or appended,
     // this is a no-op.
     if (node.statements.every(stmt => !this._before.has(stmt) && !this._after.has(stmt))) {
       return node;

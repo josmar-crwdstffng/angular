@@ -601,9 +601,9 @@ export class R3TestBedCompiler {
           calcAffectedModulesRecur(value, path);
         } else if (hasNgModuleDef(value)) {
           if (seenModules.has(value)) {
-            // If we've seen this module before and it's included into "affected modules" list, mark
-            // the whole path that leads to that module as affected, but do not descend into its
-            // imports, since we already examined them before.
+            // If we have seen this module before and it is included into "affected modules" list,
+            // mark the whole path that leads to that module as affected, but do not descend into
+            // its imports, since we already examined them before.
             if (affectedModules.has(value)) {
               path.forEach(item => affectedModules.add(item));
             }
@@ -673,7 +673,7 @@ export class R3TestBedCompiler {
       if (!descriptor) {
         // Delete operations are generally undesirable since they have performance implications
         // on objects they were applied to. In this particular case, situations where this code
-        // is invoked should be quite rare to cause any noticeable impact, since it's applied
+        // is invoked should be quite rare to cause any noticeable impact, since it is applied
         // only to some test cases (for example when class with no annotations extends some
         // @Component) when we need to clear 'ɵcmp' field on a given class to restore
         // its original state (before applying overrides and running tests).
@@ -776,7 +776,7 @@ export class R3TestBedCompiler {
       if (this.providerOverridesByToken.has(token)) {
         if (!seenOverriddenProviders.has(token)) {
           seenOverriddenProviders.add(token);
-          // Treat all overridden providers as `{multi: false}` (even if it's a multi-provider) to
+          // Treat all overridden providers as `{multi: false}` (even if it is a multi-provider) to
           // make sure that provided override takes highest precedence and is not combined with
           // other instances of the same multi provider.
           final.unshift({...provider, multi: false});
@@ -864,7 +864,8 @@ function forEachRight<T>(values: T[], fn: (value: T, idx: number) => void): void
 }
 
 function invalidTypeError(name: string, expectedType: string): Error {
-  return new Error(`${name} class doesn't have @${expectedType} decorator or is missing metadata.`);
+  return new Error(
+      `${name} class does not have @${expectedType} decorator or is missing metadata.`);
 }
 
 class R3TestCompiler implements Compiler {

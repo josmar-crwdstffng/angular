@@ -359,7 +359,7 @@ function processTNodeChildren(tNode: ITNode|null, buf: string[]) {
 }
 
 class TViewData extends Array {}
-let TVIEWDATA_EMPTY: unknown[];  // can't initialize here or it will not be tree shaken, because
+let TVIEWDATA_EMPTY: unknown[];  // cannot initialize here or it will not be tree shaken, because
                                  // `LView` constructor could have side-effects.
 /**
  * This function clones a blueprint and creates TData.

@@ -203,7 +203,7 @@ Zone.__load_patch('XHR', (global: any, Zone: ZoneType) => {
 
     function clearTask(task: Task) {
       const data = <XHROptions>task.data;
-      // Note - ideally, we would call data.target.removeEventListener here, but it's too late
+      // Note - ideally, we would call data.target.removeEventListener here, but it is too late
       // to prevent it from firing. So instead, we store info for the event listener.
       data.aborted = true;
       return abortNative!.apply(data.target, data.args);

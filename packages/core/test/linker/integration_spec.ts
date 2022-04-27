@@ -1611,7 +1611,7 @@ describe('integration tests', function() {
       const fixture = TestBed.createComponent(MyComp);
       fixture.detectChanges();
       expect(spy.calls.mostRecent().args[0])
-          .toMatch(/Can't bind to 'unknown' since it isn't a known property of 'div'./);
+          .toMatch(/Cannot bind to 'unknown' since it is not a known property of 'div'./);
     });
 
     it('should throw on bindings to unknown properties', () => {
@@ -1622,7 +1622,7 @@ describe('integration tests', function() {
       const fixture = TestBed.createComponent(MyComp);
       fixture.detectChanges();
       expect(spy.calls.mostRecent().args[0])
-          .toMatch(/Can't bind to 'ngForIn' since it isn't a known property of 'div'./);
+          .toMatch(/Cannot bind to 'ngForIn' since it is not a known property of 'div'./);
     });
 
     it('should not throw for property binding to a non-existing property when there is a matching directive property',

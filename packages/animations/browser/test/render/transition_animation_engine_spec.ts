@@ -324,7 +324,7 @@ describe('TransitionAnimationEngine', () => {
             transition('* => *', [style({height: '0px'}), animate(1234, style({height: '100px'}))])
           ]));
 
-      // we do this so that the next transition has a starting value that isn't null
+      // we do this so that the next transition has a starting value that is not null
       setProperty(element, engine, 'myTrigger', '123');
       engine.flush();
 

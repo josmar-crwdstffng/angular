@@ -14,7 +14,7 @@ import {ErrorCode, ExtendedTemplateDiagnosticName} from '../../../diagnostics';
 import {NgTemplateDiagnostic, TemplateTypeChecker} from '../../api';
 
 /**
- * A Template Check receives information about the template it's checking and returns
+ * A Template Check receives information about the template it is checking and returns
  * information about the diagnostics to be generated.
  */
 export interface TemplateCheck<Code extends ErrorCode> {
@@ -132,7 +132,7 @@ class TemplateVisitor<Code extends ErrorCode> extends RecursiveAstVisitor implem
   visitTemplate(template: TmplAstTemplate) {
     this.visitAllNodes(template.attributes);
     if (template.tagName === 'ng-template') {
-      // Only visit input/outputs/templateAttrs if this isn't an inline template node
+      // Only visit input/outputs/templateAttrs if this is not an inline template node
       // generated for a structural directive (like `<div *ngIf></div>`). These nodes
       // would be visited when the underlying element of an inline template node is processed.
       this.visitAllNodes(template.inputs);

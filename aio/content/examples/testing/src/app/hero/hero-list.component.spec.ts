@@ -108,7 +108,7 @@ describe('HeroListComponent', () => {
       .toBe(true);
   });
 
-  it("the `HighlightDirective` is among the element's providers", () => {
+  it("the `HighlightDirective` is among the providers of the element", () => {
     expect(page.highlightDe.providerTokens)
       .withContext('HighlightDirective')
       .toContain(HighlightDirective);
@@ -150,7 +150,7 @@ class Page {
     // Find the first element with an attached HighlightDirective
     this.highlightDe = fixture.debugElement.query(By.directive(HighlightDirective));
 
-    // Get the component's injected router navigation spy
+    // Get the injected router navigation spy of the component
     const routerSpy = fixture.debugElement.injector.get(Router);
     this.navSpy = routerSpy.navigate as jasmine.Spy;
   }

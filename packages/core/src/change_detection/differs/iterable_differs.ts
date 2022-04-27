@@ -222,7 +222,7 @@ export class IterableDiffers {
    *
    * The following example shows how to extend an existing list of factories,
    * which will only be applied to the injector for this component and its children.
-   * This step is all that's required to make a new {@link IterableDiffer} available.
+   * This step is all that is required to make a new {@link IterableDiffer} available.
    *
    * ```
    * @Component({
@@ -241,7 +241,7 @@ export class IterableDiffers {
         // `defaultIterableDiffersFactory`.
         return IterableDiffers.create(factories, parent || defaultIterableDiffersFactory());
       },
-      // Dependency technically isn't optional, but we can provide a better error message this way.
+      // Dependency technically is not optional, but we can provide a better error message this way.
       deps: [[IterableDiffers, new SkipSelf(), new Optional()]]
     };
   }

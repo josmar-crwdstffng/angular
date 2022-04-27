@@ -36,7 +36,8 @@ describe('Typed Forms migration', () => {
       projects: {t: {architect: {build: {options: {tsConfig: './tsconfig.json'}}}}}
     }));
 
-    // We need to declare the Angular symbols we're testing for, otherwise type checking won't work.
+    // We need to declare the Angular symbols we are testing for, otherwise type checking won't
+    // work.
     writeFile('/node_modules/@angular/forms/index.d.ts', `
       export interface FormControl<T = any> {}
       type FormControlInterface<T = any> = FormControl<T>;

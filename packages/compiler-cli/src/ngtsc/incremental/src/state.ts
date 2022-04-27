@@ -107,7 +107,8 @@ export interface DeltaIncrementalState {
 }
 
 /**
- * State produced by a compilation that's usable as the starting point for a subsequent compilation.
+ * State produced by a compilation that is usable as the starting point for a subsequent
+ * compilation.
  *
  * Discriminated by the `IncrementalStateKind` enum.
  */

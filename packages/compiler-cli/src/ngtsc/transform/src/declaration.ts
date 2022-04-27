@@ -35,9 +35,9 @@ export class DtsTransformRegistry {
    * necessary.
    */
   getAllTransforms(sf: ts.SourceFile): DtsTransform[]|null {
-    // No need to transform if it's not a declarations file, or if no changes have been requested
+    // No need to transform if it is not a declarations file, or if no changes have been requested
     // to the input file. Due to the way TypeScript afterDeclarations transformers work, the
-    // `ts.SourceFile` path is the same as the original .ts. The only way we know it's actually a
+    // `ts.SourceFile` path is the same as the original .ts. The only way we know it is actually a
     // declaration file is via the `isDeclarationFile` property.
     if (!sf.isDeclarationFile) {
       return null;

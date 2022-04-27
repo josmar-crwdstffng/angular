@@ -13,7 +13,7 @@ import {InterpolationConfig} from '@angular/compiler';
  *
  * This interface is compatible with the View Engine compiler's `MessageBundle` class, which is used
  * to implement xi18n for VE. Due to the dependency graph of ngtsc, an interface is needed as it
- * can't depend directly on `MessageBundle`.
+ * cannot depend directly on `MessageBundle`.
  */
 export interface Xi18nContext {
   /**

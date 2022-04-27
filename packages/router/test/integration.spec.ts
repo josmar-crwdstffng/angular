@@ -2441,7 +2441,7 @@ describe('Integration', () => {
     it('should allow guards alter data resolved by routes',
        fakeAsync(inject([Router], (router: Router) => {
          // This is not documented or recommended behavior but is here to prevent unexpected
-         // regressions. This behavior isn't necessary 'by design' but it was discovered during a
+         // regressions. This behavior is not necessary 'by design' but it was discovered during a
          // refactor that some teams depend on it.
          const fixture = createRoot(router, RootCmp);
 
@@ -3932,7 +3932,7 @@ describe('Integration', () => {
              router.navigateByUrl('/team/33/user/fedor');
              advance(fixture);
 
-             // this doesn't work cause we cannot deactivate fedor
+             // this does not work cause we cannot deactivate fedor
              router.navigateByUrl('/team/44');
              advance(fixture);
              expect(location.path()).toEqual('/team/33/user/fedor');
@@ -4374,7 +4374,7 @@ describe('Integration', () => {
 
            expectEvents(recordedEvents, [
              [NavigationStart, '/lazyFalse/loaded'],
-             // No GuardCheck events as `canLoad` is a special guard that's not actually part of
+             // No GuardCheck events as `canLoad` is a special guard that is not actually part of
              // the guard lifecycle.
              [NavigationCancel, '/lazyFalse/loaded'],
 
@@ -4409,7 +4409,7 @@ describe('Integration', () => {
 
            expectEvents(recordedEvents, [
              [NavigationStart, '/lazyFalse/loaded'],
-             // No GuardCheck events as `canLoad` is a special guard that's not actually part of
+             // No GuardCheck events as `canLoad` is a special guard that is not actually part of
              // the guard lifecycle.
              [NavigationCancel, '/lazyFalse/loaded'],
 

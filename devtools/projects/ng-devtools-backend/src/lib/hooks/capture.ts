@@ -56,7 +56,7 @@ const getEventStart = (map: Record<string, number>, directive: any, label: strin
 const getHooks = (onFrame: (frame: ProfilerFrame) => void): Partial<Hooks> => {
   const timeStartMap: Record<string, number> = {};
   return {
-    // We flush here because it's possible the current node to overwrite
+    // We flush here because it is possible the current node to overwrite
     // an existing removed node.
     onCreate(
         directive: any, node: Node, _: number, isComponent: boolean, position: ElementPosition):

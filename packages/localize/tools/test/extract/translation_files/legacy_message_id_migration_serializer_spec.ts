@@ -6,11 +6,13 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import {ɵParsedMessage} from '@angular/localize';
+
 import {Diagnostics} from '../../../src/diagnostics';
 import {LegacyMessageIdMigrationSerializer} from '../../../src/extract/translation_files/legacy_message_id_migration_serializer';
+
 import {mockMessage} from './mock_message';
 
-// Doesn't need to run in each file system since it doesn't interact with the file system.
+// Does not need to run in each file system since it does not interact with the file system.
 
 describe('LegacyMessageIdMigrationSerializer', () => {
   let serializer: LegacyMessageIdMigrationSerializer;

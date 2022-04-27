@@ -1277,7 +1277,7 @@ runInEachFileSystem(() => {
          // During `ModuleWithProviders` analysis, return statements in methods are evaluated using
          // the partial evaluator to identify whether they correspond with a `ModuleWithProviders`
          // function. If an arbitrary method has a return statement that calls into an external
-         // module which doesn't have declaration files, ngcc would attempt to reflect on said
+         // module which does not have declaration files, ngcc would attempt to reflect on said
          // module using the reflection host of the entry-point. This would crash in the case where
          // e.g. the entry-point is UMD and the external module would be CommonJS, as the UMD
          // reflection host would throw because it is unable to deal with CommonJS.
@@ -2542,7 +2542,7 @@ runInEachFileSystem(() => {
           typings: '0.0.0-PLACEHOLDER',
         });
 
-        // Doesn't touch original source files
+        // Does not touch original source files
         expect(fs.readFile(_(`/node_modules/@angular/common/esm2015/src/common_module.js`)))
             .not.toMatch(ANGULAR_CORE_IMPORT_REGEX);
         // Or create a backup of the original
@@ -2680,7 +2680,7 @@ runInEachFileSystem(() => {
         expect((loadPackage('@angular/common') as any).esm2015_ivy_ngcc)
             .toEqual('__ivy_ngcc__/esm2015/common.js');
 
-        // Doesn't touch original files
+        // Does not touch original files
         expect(fs.readFile(_(`/node_modules/@angular/common/esm2015/src/common_module.js`)))
             .not.toMatch(ANGULAR_CORE_IMPORT_REGEX);
         // Or create a backup of the original

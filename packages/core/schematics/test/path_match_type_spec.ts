@@ -34,7 +34,8 @@ describe('PathMatch type migration', () => {
       version: 1,
       projects: {t: {architect: {build: {options: {tsConfig: './tsconfig.json'}}}}}
     }));
-    // We need to declare the Angular symbols we're testing for, otherwise type checking won't work.
+    // We need to declare the Angular symbols we are testing for, otherwise type checking won't
+    // work.
     writeFile('/node_modules/@angular/router/index.d.ts', `
       export declare interface Route {
       }

@@ -402,7 +402,7 @@ export function setInI18nBlock(isInI18nBlock: boolean): void {
  * Set a new binding root index so that host template functions can execute.
  *
  * Bindings inside the host template are 0 index. But because we don't know ahead of time
- * how many host bindings we have we can't pre-compute them. For this reason they are all
+ * how many host bindings we have we cannot pre-compute them. For this reason they are all
  * 0 index and we just shift the root so that they match next available location in the LView.
  *
  * @param bindingRootIndex Root index for `hostBindings`
@@ -474,7 +474,7 @@ function getDeclarationTNode(lView: LView): TNode|null {
     return lView[T_HOST];
   }
 
-  // Remaining TNode type is `TViewType.Root` which doesn't have a parent TNode.
+  // Remaining TNode type is `TViewType.Root` which does not have a parent TNode.
   return null;
 }
 
@@ -508,13 +508,13 @@ export function enterDI(lView: LView, tNode: TNode, flags: InjectFlags) {
         if (parentTNode === null) break;
 
         // In this case, a parent exists and is definitely an element. So it will definitely
-        // have an existing lView as the declaration view, which is why we can assume it's defined.
+        // have an existing lView as the declaration view, which is why we can assume it is defined.
         ngDevMode && assertDefined(parentLView, 'Parent LView should be defined');
         parentLView = parentLView[DECLARATION_VIEW]!;
 
         // In Ivy there are Comment nodes that correspond to ngIf and NgFor embedded directives
         // We want to skip those and look only at Elements and ElementContainers to ensure
-        // we're looking at true parent nodes, and not content or other types.
+        // we are looking at true parent nodes, and not content or other types.
         if (parentTNode.type & (TNodeType.Element | TNodeType.ElementContainer)) {
           break;
         }

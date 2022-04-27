@@ -777,7 +777,7 @@ describe('styling', () => {
     fixture.detectChanges();
     const html = fixture.nativeElement.innerHTML;
 
-    // We have to check the `style` attribute, because `element.style.prop` doesn't include
+    // We have to check the `style` attribute, because `element.style.prop` does not include
     // `!important`. Use a regex, because the different renderers produce different whitespace.
     expect(html).toMatch(/style=["|']width:\s*50px\s*!important/);
 
@@ -799,7 +799,7 @@ describe('styling', () => {
     fixture.detectChanges();
     const html = fixture.nativeElement.innerHTML;
 
-    // We have to check the `style` attribute, because `element.style.prop` doesn't include
+    // We have to check the `style` attribute, because `element.style.prop` does not include
     // `!important`. Use a regex, because the different renderers produce different whitespace.
     expect(html).toMatch(/style=["|']width:\s*50px\s*!important/);
 
@@ -821,7 +821,7 @@ describe('styling', () => {
     fixture.detectChanges();
     const html = fixture.nativeElement.innerHTML;
 
-    // We have to check the `style` attribute, because `element.style.prop` doesn't include
+    // We have to check the `style` attribute, because `element.style.prop` does not include
     // `!important`. Use a regex, because the different renderers produce different whitespace.
     expect(html).toMatch(/style=["|']margin-right:\s*5px\s*!important/);
 
@@ -843,7 +843,7 @@ describe('styling', () => {
     fixture.detectChanges();
     const html = fixture.nativeElement.innerHTML;
 
-    // We have to check the `style` attribute, because `element.style.prop` doesn't include
+    // We have to check the `style` attribute, because `element.style.prop` does not include
     // `!important`. Use a regex, because the different renderers produce different whitespace.
     expect(html).toMatch(/style=["|']height:\s*25px\s*!important;\s*width:\s*50px\s*!important/);
 
@@ -865,7 +865,7 @@ describe('styling', () => {
     fixture.detectChanges();
     const html = fixture.nativeElement.innerHTML;
 
-    // We have to check the `style` attribute, because `element.style.prop` doesn't include
+    // We have to check the `style` attribute, because `element.style.prop` does not include
     // `!important`. Use a regex, because the different renderers produce different whitespace.
     expect(html).toMatch(/style=["|']height:\s*25px;\s*width:\s*50px\s*!important/);
 
@@ -908,7 +908,7 @@ describe('styling', () => {
     const html = fixture.nativeElement.innerHTML;
 
     // Note that check the raw HTML, because (at the time of writing) the Node-based renderer
-    // that we use to run tests doesn't support `clip-path` in `CSSStyleDeclaration`.
+    // that we use to run tests does not support `clip-path` in `CSSStyleDeclaration`.
     expect(html).toMatch(/style=["|']clip-path:\s*url\(.*#test.*\)/);
   });
 
@@ -2148,7 +2148,7 @@ describe('styling', () => {
     const html = fixture.nativeElement.innerHTML;
 
     // Note that check the raw HTML, because (at the time of writing) the Node-based renderer
-    // that we use to run tests doesn't support `clip-path` in `CSSStyleDeclaration`.
+    // that we use to run tests does not support `clip-path` in `CSSStyleDeclaration`.
     expect(html).toMatch(/style=["|']clip-path:\s*url\(.*#test.*\)/);
   });
 
@@ -2849,7 +2849,7 @@ describe('styling', () => {
     const span = fixture.nativeElement.querySelector('span');
     expect(span.classList).not.toContain('disabled');
 
-    // The issue we're testing for happens after the second change detection.
+    // The issue we are testing for happens after the second change detection.
     fixture.detectChanges();
     expect(span.classList).not.toContain('disabled');
   });
@@ -2877,7 +2877,7 @@ describe('styling', () => {
        const div = fixture.nativeElement.querySelector('div');
        expect(div.classList.contains('disabled')).toBe(false);
 
-       // The issue we're testing for happens after the second change detection.
+       // The issue we are testing for happens after the second change detection.
        fixture.detectChanges();
        expect(div.classList.contains('disabled')).toBe(false);
      });

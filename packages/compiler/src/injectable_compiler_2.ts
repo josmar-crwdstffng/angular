@@ -85,7 +85,7 @@ export function compileInjectable(
       };
     }
   } else if (meta.useValue !== undefined) {
-    // Note: it's safe to use `meta.useValue` instead of the `USE_VALUE in meta` check used for
+    // Note: it is safe to use `meta.useValue` instead of the `USE_VALUE in meta` check used for
     // client code because meta.useValue is an Expression which will be defined even if the actual
     // value is undefined.
     result = compileFactoryFunction({

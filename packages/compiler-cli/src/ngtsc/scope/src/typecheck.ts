@@ -52,7 +52,7 @@ export interface TypeCheckScope {
  */
 export class TypeCheckScopeRegistry {
   /**
-   * Cache of flattened directive metadata. Because flattened metadata is scope-invariant it's
+   * Cache of flattened directive metadata. Because flattened metadata is scope-invariant it is
    * cached individually, such that all scopes refer to the same flattened metadata.
    */
   private flattenedDirectiveMetaCache = new Map<ClassDeclaration, DirectiveMeta>();

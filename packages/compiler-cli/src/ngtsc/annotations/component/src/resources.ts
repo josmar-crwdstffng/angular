@@ -171,7 +171,7 @@ export function extractTemplate(
       };
 
       // Indirect templates cannot be mapped to a particular byte range of any input file, since
-      // they're computed by expressions that may span many files. Don't attempt to map them back
+      // they are computed by expressions that may span many files. Don't attempt to map them back
       // to a given file.
       sourceMapUrl = null;
     }
@@ -232,7 +232,7 @@ function parseExtractedTemplate(
   // errors, etc. There are three main problems:
   //
   // 1. `preserveWhitespaces: false` annihilates the correctness of template source mapping, as
-  //    the whitespace transformation changes the contents of HTML text nodes before they're
+  //    the whitespace transformation changes the contents of HTML text nodes before they are
   //    parsed into Angular expressions.
   // 2. `preserveLineEndings: false` causes growing misalignments in templates that use '\r\n'
   //    line endings, by normalizing them to '\n'.

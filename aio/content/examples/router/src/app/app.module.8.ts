@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule // CLI adds AppRoutingModule to the AppModule's imports array
+    AppRoutingModule // CLI adds AppRoutingModule to the imports array of the AppModule
   ],
   providers: [],
   bootstrap: [AppComponent]

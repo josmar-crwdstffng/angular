@@ -48,7 +48,7 @@ export function ɵɵhostProperty<T>(
  * synthetic host binding (e.g. `@HostBinding('@foo')`) properly gets rendered in
  * the component's renderer. Normally all host bindings are evaluated with the parent
  * component's renderer, but, in the case of animation @triggers, they need to be
- * evaluated with the sub component's renderer (because that's where the animation
+ * evaluated with the sub component's renderer (because that is where the animation
  * triggers are defined).
  *
  * Do not use this instruction as a replacement for `elementProperty`. This instruction

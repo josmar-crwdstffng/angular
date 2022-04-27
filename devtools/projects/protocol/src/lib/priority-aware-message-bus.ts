@@ -29,7 +29,7 @@ type TopicBlockSequence = {
   [method in Topic]?: Topic[];
 };
 
-// We can't refresh the view until we've received
+// We cannot refresh the view until we have received
 // a response with the latest nested properties.
 const TOPIC_BLOCK_SEQUENCE: TopicBlockSequence = {
   getLatestComponentExplorerView: ['getNestedProperties'],

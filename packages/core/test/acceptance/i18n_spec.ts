@@ -29,7 +29,7 @@ describe('runtime i18n', () => {
     TestBed.configureTestingModule({
       declarations: [AppComp, DirectiveWithTplRef, UppercasePipe],
       // In some of the tests we use made-up tag names for better readability, however
-      // they'll cause validation errors. Add the `NO_ERRORS_SCHEMA` so that we don't have
+      // they will cause validation errors. Add the `NO_ERRORS_SCHEMA` so that we don't have
       // to declare dummy components for each one of them.
       schemas: [NO_ERRORS_SCHEMA],
     });
@@ -648,7 +648,7 @@ describe('runtime i18n', () => {
     });
 
     describe('ICU', () => {
-      // In the case of ICUs we can't create TNodes for each ICU part, as different ICU
+      // In the case of ICUs we cannot create TNodes for each ICU part, as different ICU
       // instances may have different selections active and hence have different shape. In
       // such a case a single `TIcuContainerNode` should be generated only.
       it('should create a single dynamic TNode for ICU', () => {
@@ -667,7 +667,7 @@ describe('runtime i18n', () => {
           `IcuContainer(<!--ICU ${HEADER_OFFSET + 0}:0-->)`
         ]);
         // We want to ensure that the ICU container does not have any content!
-        // This is because the content is instance dependent and therefore can't be shared
+        // This is because the content is instance dependent and therefore cannot be shared
         // across `TNode`s.
         expect(lViewDebug.nodes[0].children.map(toTypeContent)).toEqual([]);
         expect(fixture.nativeElement.innerHTML)
@@ -692,7 +692,7 @@ describe('runtime i18n', () => {
           `IcuContainer(<!--ICU ${HEADER_OFFSET + 1}:0-->)`,
         ]);
         // We want to ensure that the ICU container does not have any content!
-        // This is because the content is instance dependent and therefore can't be shared
+        // This is because the content is instance dependent and therefore cannot be shared
         // across `TNode`s.
         expect(lView.debug!.nodes[0].children.map(toTypeContent)).toEqual([]);
         expect(fixture.nativeElement.innerHTML)
@@ -2678,7 +2678,7 @@ describe('runtime i18n', () => {
     fixture.detectChanges();
 
     // Remove the reflect attribute, because the attribute order in innerHTML
-    // isn't guaranteed in different browsers so it could throw off our assertions.
+    // is not guaranteed in different browsers so it could throw off our assertions.
     const button = fixture.nativeElement.querySelector('button');
     button.removeAttribute('ng-reflect-dialog-result');
 

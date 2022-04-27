@@ -82,7 +82,7 @@ export enum PerfPhase {
   TypeScriptEmit,
 
   /**
-   * Time spent by Angular performing code transformations of ASTs as they're about to be emitted.
+   * Time spent by Angular performing code transformations of ASTs as they are about to be emitted.
    *
    * This includes the actual code generation step for templates, and occurs during the emit phase
    * (but is tracked separately from `TypeScriptEmit` time).

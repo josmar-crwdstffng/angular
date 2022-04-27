@@ -36,8 +36,8 @@ function assertSameOrNotExisting(id: string, type: Type<any>|null, incoming: Typ
  *
  * This is generated as a side-effect of NgModule compilation. Note that the `id` is passed in
  * explicitly and not read from the NgModule definition. This is for two reasons: it avoids a
- * megamorphic read, and in JIT there's a chicken-and-egg problem where the NgModule may not be
- * fully resolved when it's registered.
+ * megamorphic read, and in JIT there is a chicken-and-egg problem where the NgModule may not be
+ * fully resolved when it is registered.
  *
  * @codeGenApi
  */

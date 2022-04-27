@@ -68,7 +68,7 @@ describe('ContributorListComponent', () => {
 
   it('should set the query to the first group when user selects unknown name', () => {
     component = getComponent();
-    component.selectGroup('GDE'); // a legit group that isn't the first
+    component.selectGroup('GDE'); // a legit group that is not the first
 
     component.selectGroup('foo'); // not a legit group name
     expect(locationService.searchResult.group).toBe('Angular');

@@ -439,7 +439,7 @@ function roundNumber(parsedNumber: ParsedNumber, minFrac: number, maxFrac: numbe
 
   let dropTrailingZeros = fractionSize !== 0;
   // Minimal length = nb of decimals required + current nb of integers
-  // Any number besides that is optional and can be removed if it's a trailing 0
+  // Any number besides that is optional and can be removed if it is a trailing 0
   const minLen = minFrac + parsedNumber.integerLen;
   // Do any carrying, e.g. a digit was rounded up to 10
   const carry = digits.reduceRight(function(carry, d, i, digits) {

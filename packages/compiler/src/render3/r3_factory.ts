@@ -8,6 +8,7 @@
 import {InjectFlags} from '../core';
 import * as o from '../output/output_ast';
 import {Identifiers as R3} from '../render3/r3_identifiers';
+
 import {R3CompiledExpression, R3Reference, typeWithParameters} from './util';
 
 
@@ -233,7 +234,7 @@ function compileInjectDependency(
 
     // If this dependency is optional or otherwise has non-default flags, then additional
     // parameters describing how to inject the dependency must be passed to the inject function
-    // that's being used.
+    // that is being used.
     let flagsParam: o.LiteralExpr|null =
         (flags !== InjectFlags.Default || dep.optional) ? o.literal(flags) : null;
 

@@ -178,7 +178,7 @@ function getExtendedConfigPathWorker(
   } else {
     const parseConfigHost = createParseConfigHost(host, fs);
 
-    // Path isn't a rooted or relative path, resolve like a module.
+    // Path is not a rooted or relative path, resolve like a module.
     const {
       resolvedModule,
     } =

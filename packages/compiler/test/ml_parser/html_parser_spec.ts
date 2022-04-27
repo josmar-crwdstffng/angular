@@ -135,7 +135,7 @@ import {humanizeDom, humanizeDomSourceSpans, humanizeLineColumn, humanizeNodes} 
 
         /**
          * Certain elements (like <tr> or <col>) require parent elements of a certain type (ex. <tr>
-         * can only be inside <tbody> / <thead>). The Angular HTML parser doesn't validate those
+         * can only be inside <tbody> / <thead>). The Angular HTML parser does not validate those
          * HTML compliancy rules as "problematic" elements can be projected - in such case HTML (as
          * written in an Angular template) might be "invalid" (spec-wise) but the resulting DOM will
          * still be correct.

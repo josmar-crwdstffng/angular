@@ -15,7 +15,7 @@ describe('FileReader', ifEnvSupports('FileReader', function() {
            const data = 'Hello, World!';
            const testZone = Zone.current.fork({name: 'TestZone'});
 
-           // Android 4.3's native browser doesn't implement add/RemoveEventListener for FileReader
+           // Android 4.3's native browser does not implement add/RemoveEventListener for FileReader
            function supportsEventTargetFns() {
              return !!FileReader.prototype.addEventListener &&
                  !!FileReader.prototype.removeEventListener;

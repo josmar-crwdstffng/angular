@@ -195,7 +195,7 @@ describe('security integration tests', function() {
       const spy = spyOn(console, 'error');
       const fixture = TestBed.createComponent(SecuredComponent);
       fixture.detectChanges();
-      expect(spy.calls.mostRecent().args[0]).toMatch(/Can't bind to 'xlink:href'/);
+      expect(spy.calls.mostRecent().args[0]).toMatch(/Cannot bind to 'xlink:href'/);
     });
 
     it('should escape unsafe HTML values', () => {

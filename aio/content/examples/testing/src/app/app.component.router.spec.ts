@@ -70,7 +70,7 @@ describe('AppComponent & RouterTestingModule', () => {
        expectElementOf(AboutComponent);
      }));
 
-  // Can't navigate to lazy loaded modules with this technique
+  // Cannot navigate to lazy loaded modules with this technique
   xit('should navigate to "Heroes" on click (not working yet)', fakeAsync(() => {
         createComponent();
         page.heroesLinkDe.nativeElement.click();
@@ -85,7 +85,7 @@ describe('AppComponent & RouterTestingModule', () => {
 import { HeroModule } from './hero/hero.module';  // should be lazy loaded
 import { HeroListComponent } from './hero/hero-list.component';
 
-///////// Can't get lazy loaded Heroes to work yet
+///////// Cannot get lazy loaded Heroes to work yet
 xdescribe('AppComponent & Lazy Loading (not working yet)', () => {
   beforeEach(waitForAsync(() => {
     TestBed

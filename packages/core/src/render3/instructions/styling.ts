@@ -25,6 +25,7 @@ import {insertTStylingBinding} from '../styling/style_binding_list';
 import {getLastParsedKey, getLastParsedValue, parseClassName, parseClassNameNext, parseStyle, parseStyleNext} from '../styling/styling_parser';
 import {NO_CHANGE} from '../tokens';
 import {getNativeByIndex} from '../util/view_utils';
+
 import {setDirectiveInputsWhichShadowsStyling} from './property';
 
 
@@ -317,7 +318,7 @@ export function wrapInStaticStylingKey(
       // in the priority.
       stylingKey = collectStylingFromDirectives(null, tData, tNode, stylingKey, isClassBased);
       stylingKey = collectStylingFromTAttrs(stylingKey, tNode.attrs, isClassBased);
-      // We know that if we have styling binding in template we can't have residual.
+      // We know that if we have styling binding in template we cannot have residual.
       residual = null;
     }
   } else {
@@ -786,7 +787,8 @@ function findStylingValue(
       valueAtLViewIndex = isStylingMap ? EMPTY_ARRAY : undefined;
     }
     let currentValue = isStylingMap ? keyValueArrayGet(valueAtLViewIndex, prop) :
-                                      key === prop ? valueAtLViewIndex : undefined;
+        key === prop                ? valueAtLViewIndex :
+                                      undefined;
     if (containsStatics && !isStylingValuePresent(currentValue)) {
       currentValue = keyValueArrayGet(rawKey as KeyValueArray<any>, prop);
     }

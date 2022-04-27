@@ -89,8 +89,8 @@ class IvyTransformationVisitor extends Visitor {
 
   override visitClassDeclaration(node: ts.ClassDeclaration):
       VisitListEntryResult<ts.Statement, ts.ClassDeclaration> {
-    // If this class is not registered in the map, it means that it doesn't have Angular decorators,
-    // thus no further processing is required.
+    // If this class is not registered in the map, it means that it does not have Angular
+    // decorators, thus no further processing is required.
     if (!this.classCompilationMap.has(node)) {
       return {node};
     }
@@ -117,7 +117,7 @@ class IvyTransformationVisitor extends Visitor {
         // Closure compiler transforms the form `Service.ɵprov = X` into `Service$ɵprov = X`. To
         // prevent this transformation, such assignments need to be annotated with @nocollapse.
         // Note that tsickle is typically responsible for adding such annotations, however it
-        // doesn't yet handle synthetic fields added during other transformations.
+        // does not yet handle synthetic fields added during other transformations.
         ts.addSyntheticLeadingComment(
             property, ts.SyntaxKind.MultiLineCommentTrivia, '* @nocollapse ',
             /* hasTrailingNewLine */ false);

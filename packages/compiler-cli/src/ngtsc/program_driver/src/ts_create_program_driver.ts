@@ -90,7 +90,7 @@ class UpdatedProgramHost extends DelegatingCompilerHost {
     // that program reuse will be as efficient as possible.
     let delegateSf: ts.SourceFile|undefined = this.originalProgram.getSourceFile(fileName);
     if (delegateSf === undefined) {
-      // Something went wrong and a source file is being requested that's not in the original
+      // Something went wrong and a source file is being requested that is not in the original
       // program. Just in case, try to retrieve it from the delegate.
       delegateSf = this.delegate.getSourceFile(
           fileName, languageVersion, onError, shouldCreateNewSourceFile)!;
@@ -107,7 +107,7 @@ class UpdatedProgramHost extends DelegatingCompilerHost {
     } else {
       sf = delegateSf;
     }
-    // TypeScript doesn't allow returning redirect source files. To avoid unforeseen errors we
+    // TypeScript does not allow returning redirect source files. To avoid unforeseen errors we
     // return the original source file instead of the redirect target.
     sf = toUnredirectedSourceFile(sf);
 
@@ -157,11 +157,11 @@ export class TsCreateProgramDriver implements ProgramDriver {
   updateFiles(contents: Map<AbsoluteFsPath, FileUpdate>, updateMode: UpdateMode): void {
     if (contents.size === 0) {
       // No changes have been requested. Is it safe to skip updating entirely?
-      // If UpdateMode is Incremental, then yes. If UpdateMode is Complete, then it's safe to skip
+      // If UpdateMode is Incremental, then yes. If UpdateMode is Complete, then it is safe to skip
       // only if there are no active changes already (that would be cleared by the update).
 
       if (updateMode !== UpdateMode.Complete || this.sfMap.size === 0) {
-        // No changes would be made to the `ts.Program` anyway, so it's safe to do nothing here.
+        // No changes would be made to the `ts.Program` anyway, so it is safe to do nothing here.
         return;
       }
     }

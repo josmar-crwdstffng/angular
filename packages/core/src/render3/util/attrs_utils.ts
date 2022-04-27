@@ -105,7 +105,7 @@ export function isNameOnlyAttributeMarker(marker: string|AttributeMarker|CssSele
 export function isAnimationProp(name: string): boolean {
   // Perf note: accessing charCodeAt to check for the first character of a string is faster as
   // compared to accessing a character at index 0 (ex. name[0]). The main reason for this is that
-  // charCodeAt doesn't allocate memory to return a substring.
+  // charCodeAt does not allocate memory to return a substring.
   return name.charCodeAt(0) === CharCode.AT_SIGN;
 }
 

@@ -28,7 +28,7 @@ export class ThemeToggleComponent {
   }
 
   private initializeThemeFromPreferences(): void {
-    // Check whether there's an explicit preference in localStorage.
+    // Check whether there is an explicit preference in localStorage.
     const storedPreference = this.storage.getItem(storageKey);
 
     // If we do have a preference in localStorage, use that. Otherwise,
@@ -61,7 +61,7 @@ export class ThemeToggleComponent {
   }
 
   private updateRenderedTheme(): void {
-    // If we're calling this method, the user has explicitly interacted with the theme toggle.
+    // If we are calling this method, the user has explicitly interacted with the theme toggle.
     const customLinkElement = this.document.getElementById('aio-custom-theme') as HTMLLinkElement | null;
     if (customLinkElement) {
       customLinkElement.href = `${this.getThemeName()}-theme.css`;

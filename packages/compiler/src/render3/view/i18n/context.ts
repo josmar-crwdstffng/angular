@@ -106,7 +106,7 @@ export class I18nContext {
   appendProjection(node: i18n.I18nMeta, index: number) {
     // Add open and close tags at the same time, since `<ng-content>` has no content,
     // so when we come across `<ng-content>` we can register both open and close tags.
-    // Note: runtime i18n logic doesn't distinguish `<ng-content>` tag placeholders and
+    // Note: runtime i18n logic does not distinguish `<ng-content>` tag placeholders and
     // regular element tag placeholders, so we generate element placeholders for both types.
     this.appendTag(TagType.ELEMENT, node as i18n.TagPlaceholder, index, false);
     this.appendTag(TagType.ELEMENT, node as i18n.TagPlaceholder, index, true);

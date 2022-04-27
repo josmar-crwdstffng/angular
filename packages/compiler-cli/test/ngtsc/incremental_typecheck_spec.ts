@@ -439,7 +439,7 @@ runInEachFileSystem(() => {
         // This test verifies that changing the type of an `ngTemplateGuard` static member has the
         // desired effect of type-narrowing the bound input expression within the template according
         // to the new type of the `ngTemplateGuard` static member. Initially, an "invocation" type
-        // context guard is used, but it's ineffective at narrowing an expression that explicitly
+        // context guard is used, but it is ineffective at narrowing an expression that explicitly
         // compares against null. An incremental step changes the type of the guard to be of type
         // `binding`.
         env.write('dir.ts', `
@@ -1037,7 +1037,7 @@ runInEachFileSystem(() => {
            const diags = env.driveDiagnostics();
            expect(diags.length).toBe(1);
            expect(diags[0].messageText)
-               .toContain(`Can't bind to 'parent' since it isn't a known property of 'div'.`);
+               .toContain(`Cannot bind to 'parent' since it is not a known property of 'div'.`);
          });
 
       it('should type-check derived directives when the public API of the grandparent class is affected',
@@ -1112,7 +1112,8 @@ runInEachFileSystem(() => {
            const diags = env.driveDiagnostics();
            expect(diags.length).toBe(1);
            expect(diags[0].messageText)
-               .toContain(`Can't bind to 'grandparent' since it isn't a known property of 'div'.`);
+               .toContain(
+                   `Cannot bind to 'grandparent' since it is not a known property of 'div'.`);
          });
 
       it('should type-check derived directives when a base class is added to a grandparent', () => {
@@ -1182,13 +1183,13 @@ runInEachFileSystem(() => {
           export class Mod {}
         `);
 
-        // `Cmp` already binds to the `grandgrandparent` input but it's not available, as
+        // `Cmp` already binds to the `grandgrandparent` input but it is not available, as
         // `Granparent` does not yet extend from `Grandgrandparent`.
         const diags = env.driveDiagnostics();
         expect(diags.length).toBe(1);
         expect(diags[0].messageText)
             .toContain(
-                `Can't bind to 'grandgrandparent' since it isn't a known property of 'div'.`);
+                `Cannot bind to 'grandgrandparent' since it is not a known property of 'div'.`);
 
         // Now fix the issue by adding the base class to `Grandparent`; this should allow
         // type-checking to succeed.
@@ -1291,7 +1292,7 @@ runInEachFileSystem(() => {
            expect(diags.length).toBe(1);
            expect(diags[0].messageText)
                .toContain(
-                   `Can't bind to 'grandgrandparent' since it isn't a known property of 'div'.`);
+                   `Cannot bind to 'grandgrandparent' since it is not a known property of 'div'.`);
          });
 
       it('should type-check derived directives when the base class of a grandparent changes',
@@ -1374,7 +1375,7 @@ runInEachFileSystem(() => {
 
            // Now switch the base class of `Grandparent` from `GrandgrandparentA` to
            // `GrandgrandparentB` causes the input binding to `grandgrandparentA` to be reported as
-           // an error, as it's no longer available.
+           // an error, as it is no longer available.
            env.write('grandparent.ts', `
              import {Directive, Input} from '@angular/core';
              import {GrandgrandparentB} from './grandgrandparent-b';
@@ -1389,7 +1390,7 @@ runInEachFileSystem(() => {
            expect(diags.length).toBe(1);
            expect(diags[0].messageText)
                .toContain(
-                   `Can't bind to 'grandgrandparentA' since it isn't a known property of 'div'.`);
+                   `Cannot bind to 'grandgrandparentA' since it is not a known property of 'div'.`);
          });
     });
   });

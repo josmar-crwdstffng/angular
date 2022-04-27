@@ -244,7 +244,7 @@ export function createTNodeAtIndex(
       createTNode(tView, parent as TElementNode | TContainerNode, type, index, name, attrs);
   // Assign a pointer to the first child node of a given view. The first node is not always the one
   // at index 0, in case of i18n, index 0 can be the instruction `i18nStart` and the first node has
-  // the index 1 or more, so we can't just check node index.
+  // the index 1 or more, so we cannot just check node index.
   if (tView.firstChild === null) {
     tView.firstChild = tNode;
   }
@@ -534,7 +534,7 @@ function executeTemplate<T>(
   try {
     setSelectedIndex(-1);
     if (isUpdatePhase && lView.length > HEADER_OFFSET) {
-      // When we're updating, inherently select 0 so we don't
+      // When we are updating, inherently select 0 so we don't
       // have to generate that instruction for most update blocks.
       selectIndexInternal(tView, lView, HEADER_OFFSET, !!ngDevMode && isInCheckNoChangesMode());
     }
@@ -604,7 +604,7 @@ export function saveResolvedLocalsInData(
 
 /**
  * Gets TView from a template function or creates a new TView
- * if it doesn't already exist.
+ * if it does not already exist.
  *
  * @param def ComponentDef
  * @returns TView
@@ -612,8 +612,8 @@ export function saveResolvedLocalsInData(
 export function getOrCreateTComponentView(def: ComponentDef<any>): TView {
   const tView = def.tView;
 
-  // Create a TView if there isn't one, or recreate it if the first create pass didn't
-  // complete successfully since we can't know for sure whether it's in a usable shape.
+  // Create a TView if there is not one, or recreate it if the first create pass didn't
+  // complete successfully since we cannot know for sure whether it is in a usable shape.
   if (tView === null || tView.incompleteFirstPass) {
     // Declaration node here is null since this function is called when we dynamically create a
     // component and hence there is no declaration.
@@ -1112,12 +1112,12 @@ export function setNgReflectProperties(
 
 /**
  * Validates that the property of the element is known at runtime and returns
- * false if it's not the case.
+ * false if it is not the case.
  * This check is relevant for JIT-compiled components (for AOT-compiled
  * ones this check happens at build time).
  *
  * The property is considered known if either:
- * - it's a known property of the element
+ * - it is a known property of the element
  * - the element is allowed by one of the schemas
  * - the property is used for animations
  *
@@ -1129,7 +1129,7 @@ export function setNgReflectProperties(
 function validateProperty(
     element: RElement|RComment, tagName: string|null, propName: string,
     schemas: SchemaMetadata[]|null): boolean {
-  // If `schemas` is set to `null`, that's an indication that this Component was compiled in AOT
+  // If `schemas` is set to `null`, that is an indication that this Component was compiled in AOT
   // mode where this check happens at compile time. In JIT mode, `schemas` is always present and
   // defined as an array (as an empty array in case `schemas` field is not defined) and we should
   // execute the check below.
@@ -1430,7 +1430,7 @@ function findDirectiveDefMatches(
                     `Please use a different tag to activate the ${stringify(def.type)} component.`);
 
             if (tNode.flags & TNodeFlags.isComponentHost) {
-              // If another component has been matched previously, it's the first element in the
+              // If another component has been matched previously, it is the first element in the
               // `matches` array, see how we store components/directives in `matches` below.
               throwMultipleComponentError(tNode, matches[0].type, def.type);
             }
@@ -1664,7 +1664,7 @@ function generateInitialInputs(inputs: {[key: string]: string}, attrs: TAttribut
       continue;
     }
 
-    // If we hit any other attribute markers, we're done anyway. None of those are valid inputs.
+    // If we hit any other attribute markers, we are done anyway. None of those are valid inputs.
     if (typeof attrName === 'number') break;
 
     if (inputs.hasOwnProperty(attrName as string)) {
@@ -1761,7 +1761,7 @@ function markTransplantedViewsForRefresh(lView: LView) {
       }
       // Note, it is possible that the `movedViews` is tracking views that are transplanted *and*
       // those that aren't (declaration component === insertion component). In the latter case,
-      // it's fine to add the flag, as we will clear it immediately in
+      // it is fine to add the flag, as we will clear it immediately in
       // `refreshEmbeddedViews` for the view currently being refreshed.
       movedLView[FLAGS] |= LViewFlags.RefreshTransplantedView;
     }
@@ -1850,7 +1850,7 @@ function renderComponent(hostLView: LView, componentHostIdx: number) {
  * 1. App template begins processing.
  * 2. First <comp> is matched as a component and its LView is created.
  * 3. Second <comp> is matched as a component and its LView is created.
- * 4. App template completes processing, so it's time to check child templates.
+ * 4. App template completes processing, so it is time to check child templates.
  * 5. First <comp> template is checked. It has a directive, so its def is pushed to blueprint.
  * 6. Second <comp> template is checked. Its blueprint has been updated by the first
  * <comp> template, but its LView was created before this update, so it is out of sync.
@@ -2009,7 +2009,7 @@ export function checkNoChangesInternal<T>(tView: TView, view: LView, context: T)
  * Checks the change detector on a root view and its components, and throws if any changes are
  * detected.
  *
- * This is used in development mode to verify that running change detection doesn't
+ * This is used in development mode to verify that running change detection does not
  * introduce other changes.
  *
  * @param lView The view which the change detection should be checked on.

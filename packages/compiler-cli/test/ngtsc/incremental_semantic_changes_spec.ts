@@ -865,7 +865,7 @@ runInEachFileSystem(() => {
           // Mod depends directly on PipeA and PipeB.
           '/mod.js',
 
-          // Cmp depends on the public APIs of PipeA and PipeB, which have changed (as they've
+          // Cmp depends on the public APIs of PipeA and PipeB, which have changed (as they have
           // swapped).
           '/cmp.js',
         ]);
@@ -1378,7 +1378,7 @@ runInEachFileSystem(() => {
 
         env.driveMain();
 
-        // The annotations on DepA and DepB are swapped. This ensures that when we're comparing the
+        // The annotations on DepA and DepB are swapped. This ensures that when we are comparing the
         // public API of these symbols to the prior program, the prior symbols are of a different
         // type (pipe vs directive) than the new symbols, which should lead to a re-emit.
         env.write('dep.ts', `

@@ -65,7 +65,7 @@ export class WebAnimationsPlayer implements AnimationPlayer {
   }
 
   private _preparePlayerBeforeStart() {
-    // this is required so that the player doesn't start to animate right away
+    // this is required so that the player does not start to animate right away
     if (this._delay) {
       this._resetDomPlayerState();
     } else {
@@ -83,7 +83,7 @@ export class WebAnimationsPlayer implements AnimationPlayer {
 
   /** @internal */
   _triggerWebAnimation(element: any, keyframes: Array<ɵStyleDataMap>, options: any): DOMAnimation {
-    // jscompiler doesn't seem to know animate is a native property because it's not fully
+    // jscompiler does not seem to know animate is a native property because it is not fully
     // supported yet across common browsers (we polyfill it for Edge/Safari) [CL #143630929]
     return element['animate'](this._convertKeyframesToObject(keyframes), options) as DOMAnimation;
   }

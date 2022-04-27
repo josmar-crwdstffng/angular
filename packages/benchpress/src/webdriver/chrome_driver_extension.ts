@@ -218,7 +218,7 @@ function normalizeEvent(chromeEvent: {[key: string]: any}, data: PerfLogEvent): 
   } else if (ph === 'R') {
     // mark events from navigation timing
     ph = 'I';
-    // Chrome 65+ doesn't allow user timing measurements across page loads.
+    // Chrome 65+ does not allow user timing measurements across page loads.
     // Instead, we use performance marks with special names.
     if (chromeEvent['name'].match(/-bpstart/)) {
       data['name'] = chromeEvent['name'].slice(0, -8);

@@ -63,8 +63,8 @@ export function setUpControl(control: FormControl, dir: NgControl): void {
  * @param control Form control which should be cleaned up.
  * @param dir Directive that should be disconnected from a given control.
  * @param validateControlPresenceOnChange Flag that indicates whether onChange handler should
- *     contain asserts to verify that it's not called once directive is destroyed. We need this flag
- *     to avoid potentially breaking changes caused by better control cleanup introduced in #39235.
+ *     contain asserts to verify that it is not called once directive is destroyed. We need this
+ * flag to avoid potentially breaking changes caused by better control cleanup introduced in #39235.
  */
 export function cleanUpControl(
     control: FormControl|null, dir: NgControl,
@@ -76,7 +76,7 @@ export function cleanUpControl(
   };
 
   // The `valueAccessor` field is typically defined on FromControl and FormControlName directive
-  // instances and there is a logic in `selectValueAccessor` function that throws if it's not the
+  // instances and there is a logic in `selectValueAccessor` function that throws if it is not the
   // case. We still check the presence of `valueAccessor` before invoking its methods to make sure
   // that cleanup works correctly if app code or tests are setup to ignore the error thrown from
   // `selectValueAccessor`. See https://github.com/angular/angular/issues/40521.

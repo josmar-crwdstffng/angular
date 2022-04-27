@@ -22,7 +22,7 @@ import {ComponentFixture, createComponent, TemplateFixture} from './render_util'
 
 
 const Component: typeof _Component = function(...args: any[]): any {
-  // In test we use @Component for documentation only so it's safe to mock out the implementation.
+  // In test we use @Component for documentation only so it is safe to mock out the implementation.
   return () => undefined;
 } as any;
 

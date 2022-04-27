@@ -211,7 +211,7 @@ export abstract class MockFileSystem implements FileSystem {
     }
 
     // The loop exits before checking the existence of /node_modules/typescript at the top level.
-    // This is intentional - if no /node_modules/typescript exists anywhere in the tree, there's
+    // This is intentional - if no /node_modules/typescript exists anywhere in the tree, there is
     // nothing this function can do about it, and TS may error later if it looks for a lib.d.ts file
     // within this directory. It might be okay, though, if TS never checks for one.
     return topLevelNodeModules;
@@ -286,7 +286,7 @@ export abstract class MockFileSystem implements FileSystem {
       }
       if (segments.length > 0) {
         if (isFile(current)) {
-          // Reaching a file when there's still remaining segments means that the requested path
+          // Reaching a file when there is still remaining segments means that the requested path
           // does not actually exist.
           current = null;
           break;

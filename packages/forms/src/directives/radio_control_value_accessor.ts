@@ -26,8 +26,8 @@ function throwNameError() {
 
 /**
  * Internal-only NgModule that works as a host for the `RadioControlRegistry` tree-shakable
- * provider. Note: the `InternalFormsSharedModule` can not be used here directly, since it's
- * declared *after* the `RadioControlRegistry` class and the `providedIn` doesn't support
+ * provider. Note: the `InternalFormsSharedModule` can not be used here directly, since it is
+ * declared *after* the `RadioControlRegistry` class and the `providedIn` does not support
  * `forwardRef` logic.
  */
 @NgModule()

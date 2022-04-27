@@ -219,7 +219,7 @@ export function insertTStylingBinding(
 
     // If we don't have template bindings then `tail` is 0.
     const hasTemplateBindings = tmplTail !== 0;
-    // This is important to know because that means that the `head` can't point to the first
+    // This is important to know because that means that the `head` cannot point to the first
     // template bindings (there are none.) Instead the head points to the tail of the template.
     if (hasTemplateBindings) {
       // template head's "prev" will point to last host binding or to 0 if no host bindings yet

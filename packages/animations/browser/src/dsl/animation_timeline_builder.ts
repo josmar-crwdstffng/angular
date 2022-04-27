@@ -80,8 +80,8 @@ const LEAVE_TOKEN_REGEX = new RegExp(LEAVE_TOKEN, 'g');
  *   animate(1000, style({ width: 100 })),
  *   animate(1000, style({ width: 200 })),
  *   animate(1000, style({ width: 300 }))
- *   animate(1000, style({ width: 400, height: 400 })) // notice how `height` doesn't exist anywhere
- * else
+ *   animate(1000, style({ width: 400, height: 400 })) // notice how `height` does not exist
+ * anywhere else
  * ])
  * ```
  *

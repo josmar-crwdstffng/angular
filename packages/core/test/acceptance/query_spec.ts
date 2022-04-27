@@ -830,7 +830,7 @@ describe('query logic', () => {
     /**
      * A helper function to check if a given object looks like ElementRef. It is used in place of
      * the `instanceof ElementRef` check since ivy returns a type that looks like ElementRef (have
-     * the same properties but doesn't pass the instanceof ElementRef test)
+     * the same properties but does not pass the instanceof ElementRef test)
      */
     function isElementRefLike(result: any): boolean {
       return result.nativeElement != null;
@@ -1243,8 +1243,8 @@ describe('query logic', () => {
 
       /**
        * ViewContainerRef API allows "moving" a view to the same (previous) index. Such operation
-       * has no observable effect on the rendered UI (displays stays the same) but internally we've
-       * got 2 implementation choices when it comes to "moving" a view:
+       * has no observable effect on the rendered UI (displays stays the same) but internally we
+       * have got 2 implementation choices when it comes to "moving" a view:
        * - systematically detach and insert a view - this would result in unnecessary processing
        * when the previous and new indexes for the move operation are the same;
        * - detect the situation where the indexes are the same and do no processing in such case.

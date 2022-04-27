@@ -16,14 +16,14 @@ import {EmittedReference, ImportFlags, ReferenceEmitKind, ReferenceEmitStrategy}
 import {Reference} from './references';
 
 
-// Escape anything that isn't alphanumeric, '/' or '_'.
+// Escape anything that is not alphanumeric, '/' or '_'.
 const CHARS_TO_ESCAPE = /[^a-zA-Z0-9/_]/g;
 
 /**
  * A host for the aliasing system, which allows for alternative exports/imports of directives/pipes.
  *
  * Given an import of an NgModule (e.g. `CommonModule`), the compiler must generate imports to the
- * directives and pipes exported by this module (e.g. `NgIf`) when they're used in a particular
+ * directives and pipes exported by this module (e.g. `NgIf`) when they are used in a particular
  * template. In its default configuration, if the compiler is not directly able to import the
  * component from another file within the same project, it will attempt to import the component
  * from the same (absolute) path by which the module was imported. So in the above example if
@@ -123,7 +123,7 @@ export class UnifiedModulesAliasingHost implements AliasingHost {
       // `maybeAliasSymbolAs`.
       return null;
     }
-    // viaModule is the module it'll actually be imported from.
+    // viaModule is the module it will actually be imported from.
     const moduleName = this.unifiedModulesHost.fileNameToModuleName(via.fileName, via.fileName);
     return new ExternalExpr({moduleName, name: this.aliasName(decl, via)});
   }
@@ -143,11 +143,11 @@ export class UnifiedModulesAliasingHost implements AliasingHost {
 }
 
 /**
- * An `AliasingHost` which exports directives from any file containing an NgModule in which they're
+ * An `AliasingHost` which exports directives from any file containing an NgModule in which they are
  * declared/exported, under a private symbol name.
  *
  * These exports support cases where an NgModule is imported deeply from an absolute module path
- * (that is, it's not part of an Angular Package Format entrypoint), and the compiler needs to
+ * (that is, it is not part of an Angular Package Format entrypoint), and the compiler needs to
  * import any matched directives/pipes from the same path (to the NgModule file). See README.md for
  * more details.
  */
@@ -176,7 +176,7 @@ export class PrivateExportAliasingHost implements AliasingHost {
     const exports = this.host.getExportsOfModule(context);
     if (exports === null) {
       // Something went wrong, and no exports were available at all. Bail rather than risk creating
-      // re-exports when they're not needed.
+      // re-exports when they are not needed.
       throw new Error(`Could not determine the exports of: ${context.fileName}`);
     }
     let found: boolean = false;
@@ -196,7 +196,7 @@ export class PrivateExportAliasingHost implements AliasingHost {
    * A `PrivateExportAliasingHost` only generates re-exports and does not direct the compiler to
    * directly consume the aliases it creates.
    *
-   * Instead, they're consumed indirectly: `AbsoluteModuleStrategy` `ReferenceEmitterStrategy` will
+   * Instead, they are consumed indirectly: `AbsoluteModuleStrategy` `ReferenceEmitterStrategy` will
    * select these alias exports automatically when looking for an export of the directive/pipe from
    * the same path as the NgModule was imported.
    *

@@ -60,7 +60,7 @@ export class ScrollService implements OnDestroy {
         .pipe(takeUntil(this.onDestroy))
         .subscribe(() => this.updateScrollLocationHref());
 
-    // Change scroll restoration strategy to `manual` if it's supported.
+    // Change scroll restoration strategy to `manual` if it is supported.
     if (this.supportManualScrollRestoration) {
       history.scrollRestoration = 'manual';
 
@@ -136,7 +136,7 @@ export class ScrollService implements OnDestroy {
           // Delay scrolling by the specified amount to allow time for async layout to complete.
           setTimeout(() => this.scroll(), delay);
         } else {
-          // If the location doesn't contain a hash, we scroll to the top of the page.
+          // If the location does not contain a hash, we scroll to the top of the page.
           this.scrollToTop();
         }
       }

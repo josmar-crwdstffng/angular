@@ -15,19 +15,19 @@ import {ɵɵpipe, ɵɵpipeBind1} from '../../src/render3/pipe';
 import {TemplateFixture} from './render_util';
 
 const Pipe: typeof _Pipe = function(...args: any[]): any {
-  // In test we use @Pipe for documentation only so it's safe to mock out the implementation.
+  // In test we use @Pipe for documentation only so it is safe to mock out the implementation.
   return () => undefined;
 } as any;
 
 const Injectable: typeof _Injectable = function(...args: any[]): any {
-  // In test we use @Injectable for documentation only so it's safe to mock out the implementation.
+  // In test we use @Injectable for documentation only so it is safe to mock out the implementation.
   return () => undefined;
 } as any;
 
 
 describe('pipe', () => {
-  // This test isn't in `acceptance`, because we can't capture the same behavior that we want
-  // when going through `TestBed`. Here we're testing the behavior of AOT-compiled code which
+  // This test is not in `acceptance`, because we cannot capture the same behavior that we want
+  // when going through `TestBed`. Here we are testing the behavior of AOT-compiled code which
   // differs from the JIT code in `TestBed`, because it includes a `ɵɵgetInheritedFactory` call
   // when the pipe is using inheritance.
   it('should be able to use DI in a Pipe that extends an Injectable', () => {

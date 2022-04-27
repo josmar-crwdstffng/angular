@@ -357,7 +357,7 @@ runInEachFileSystem(() => {
 
       it('should correctly compute the package path for a target whose name contains the string of another package',
          () => {
-           // Create the "my-lib" package - it doesn't need to be a real entry-point
+           // Create the "my-lib" package - it does not need to be a real entry-point
            const myLibPath = _Abs('/project/dist/my-lib');
            loadTestFiles([{
              name: fs.resolve(myLibPath, 'package.json'),

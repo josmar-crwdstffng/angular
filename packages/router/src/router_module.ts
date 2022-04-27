@@ -378,7 +378,7 @@ export interface ExtraOptions {
    * any path or parameter information. The function takes three parameters:
    *
    * - `'URIError'` - Error thrown when parsing a bad URL.
-   * - `'UrlSerializer'` - UrlSerializer that’s configured with the router.
+   * - `'UrlSerializer'` - UrlSerializer that is configured with the router.
    * - `'url'` -  The malformed URL that caused the URIError
    * */
   malformedUriErrorHandler?:
@@ -420,7 +420,7 @@ export interface ExtraOptions {
    *
    * `<a [routerLink]="['../a']">Link to A</a>`
    *
-   * In other words, you're required to use `../` rather than `./` when the relative link
+   * In other words, you are required to use `../` rather than `./` when the relative link
    * resolution is set to `'legacy'`.
    *
    * The default in v11 is `corrected`.

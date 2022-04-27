@@ -83,10 +83,10 @@ const resolvedPromise = (() => Promise.resolve(null))();
  *
  * {@example forms/ts/simpleNgModel/simple_ng_model_example.ts region='Component'}
  *
- * When using the `ngModel` within `<form>` tags, you'll also need to supply a `name` attribute
+ * When using the `ngModel` within `<form>` tags, you will also need to supply a `name` attribute
  * so that the control can be registered with the parent form under that name.
  *
- * In the context of a parent form, it's often unnecessary to include one-way or two-way binding,
+ * In the context of a parent form, it is often unnecessary to include one-way or two-way binding,
  * as the parent form syncs the value for you. You access its properties by exporting it into a
  * local template variable using `ngForm` such as (`#f="ngForm"`). Use the variable where
  * needed on form submission.
@@ -104,7 +104,7 @@ const resolvedPromise = (() => Promise.resolve(null))();
  * ### Using a standalone ngModel within a group
  *
  * The following example shows you how to use a standalone ngModel control
- * within a form. This controls the display of the form, but doesn't contain form data.
+ * within a form. This controls the display of the form, but does not contain form data.
  *
  * ```html
  * <form>
@@ -187,7 +187,7 @@ export class NgModel extends NgControl implements OnChanges, OnDestroy {
    * as a standalone control.
    *
    * **standalone**: When set to true, the `ngModel` will not register itself with its parent form,
-   * and acts as if it's not in the form. Defaults to false. If no parent form exists, this option
+   * and acts as if it is not in the form. Defaults to false. If no parent form exists, this option
    * has no effect.
    *
    * **updateOn**: Defines the event upon which the form control value and validity update.
@@ -225,8 +225,8 @@ export class NgModel extends NgControl implements OnChanges, OnDestroy {
       if (this._registered) {
         this._checkName();
         if (this.formDirective) {
-          // We can't call `formDirective.removeControl(this)`, because the `name` has already been
-          // changed. We also can't reset the name temporarily since the logic in `removeControl`
+          // We cannot call `formDirective.removeControl(this)`, because the `name` has already been
+          // changed. We also cannot reset the name temporarily since the logic in `removeControl`
           // is inside a promise and it won't run immediately. We work around it by giving it an
           // object with the same shape instead.
           const oldName = changes['name'].previousValue;

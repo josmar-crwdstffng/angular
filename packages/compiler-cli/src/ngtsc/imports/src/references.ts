@@ -32,13 +32,13 @@ export class Reference<T extends ts.Node = ts.Node> {
    * The compiler's best guess at an absolute module specifier which owns this `Reference`.
    *
    * This is usually determined by tracking the import statements which led the compiler to a given
-   * node. If any of these imports are absolute, it's an indication that the node being imported
+   * node. If any of these imports are absolute, it is an indication that the node being imported
    * might come from that module.
    *
    * It is not _guaranteed_ that the node in question is exported from its `bestGuessOwningModule` -
    * that is mostly a convention that applies in certain package formats.
    *
-   * If `bestGuessOwningModule` is `null`, then it's likely the node came from the current program.
+   * If `bestGuessOwningModule` is `null`, then it is likely the node came from the current program.
    */
   readonly bestGuessOwningModule: OwningModule|null;
 
@@ -65,7 +65,7 @@ export class Reference<T extends ts.Node = ts.Node> {
 
   /**
    * The best guess at which module specifier owns this particular reference, or `null` if there
-   * isn't one.
+   * is not one.
    */
   get ownedByModuleGuess(): string|null {
     if (this.bestGuessOwningModule !== null) {
@@ -101,7 +101,7 @@ export class Reference<T extends ts.Node = ts.Node> {
 
 
   /**
-   * Record a `ts.Identifier` by which it's valid to refer to this node, within the context of this
+   * Record a `ts.Identifier` by which it is valid to refer to this node, within the context of this
    * `Reference`.
    */
   addIdentifier(identifier: ts.Identifier): void {

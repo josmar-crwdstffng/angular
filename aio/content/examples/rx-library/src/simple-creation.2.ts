@@ -14,7 +14,7 @@ export function docRegionInterval(console: Console) {
   const secondsCounter = interval(1000);
   // Subscribe to begin publishing values
   const subscription = secondsCounter.subscribe(n =>
-    console.log(`It's been ${n + 1} seconds since subscribing!`));
+    console.log(`It has been ${n + 1} seconds since subscribing!`));
 
   // #enddocregion interval
   return subscription;

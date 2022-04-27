@@ -25,7 +25,7 @@ export const COMPILER_PROVIDERS =
  * @publicApi
  *
  * @deprecated
- * Ivy JIT mode doesn't require accessing this symbol.
+ * Ivy JIT mode does not require accessing this symbol.
  * See [JIT API changes due to ViewEngine deprecation](guide/deprecations#jit-api-changes) for
  * additional context.
  */

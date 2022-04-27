@@ -640,7 +640,7 @@ export interface TView {
   /**
    * Full registry of directives and components that may be found in this view.
    *
-   * It's necessary to keep a copy of the full def list on the TView so it's possible
+   * It's necessary to keep a copy of the full def list on the TView so it is possible
    * to render template functions without a host component.
    */
   directiveRegistry: DirectiveDefList|null;
@@ -651,7 +651,7 @@ export interface TView {
    * The property is either an array of `PipeDefs`s or a function which returns the array of
    * `PipeDefs`s. The function is necessary to be able to support forward declarations.
    *
-   * It's necessary to keep a copy of the full def list on the TView so it's possible
+   * It's necessary to keep a copy of the full def list on the TView so it is possible
    * to render template functions without a host component.
    */
   pipeRegistry: PipeDefList|null;
@@ -727,7 +727,7 @@ export interface TView {
    * saves on memory (70 bytes per array) and on a few bytes of code size (for two
    * separate for loops).
    *
-   * If it's a native DOM listener or output subscription being stored:
+   * If it is a native DOM listener or output subscription being stored:
    * 1st index is: event name  `name = tView.cleanup[i+0]`
    * 2nd index is: index of native element or a function that retrieves global target (window,
    *               document or body) reference based on the native element:
@@ -741,7 +741,7 @@ export interface TView {
    *         `useCaptureOrIndx >= 0` `removeListener = LView[CLEANUP][useCaptureOrIndx]`
    *         `useCaptureOrIndx <  0` `subscription = LView[CLEANUP][-useCaptureOrIndx]`
    *
-   * If it's an output subscription or query list destroy hook:
+   * If it is an output subscription or query list destroy hook:
    * 1st index is: output unsubscribe function / query list destroy function
    * 2nd index is: index of function context in LView.cleanupInstances[]
    *               `tView.cleanup[i+0].call(lView[CLEANUP][tView.cleanup[i+1]])`
@@ -862,8 +862,8 @@ export type HookData = HookEntry[];
  * - Even indices represent the context with which hooks should be called.
  * - Odd indices are the hook functions themselves. If a value at an odd index is an array,
  *   it represents the destroy hooks of a `multi` provider where:
- *     - Even indices represent the index of the provider for which we've registered a destroy hook,
- *       inside of the `multi` provider array.
+ *     - Even indices represent the index of the provider for which we have registered a destroy
+ * hook, inside of the `multi` provider array.
  *     - Odd indices are the destroy hook functions.
  * For example:
  * LView: `[0, 1, 2, AService, 4, [BService, CService, DService]]`
@@ -878,7 +878,7 @@ export type DestroyHookData = (HookEntry|HookData)[];
 /**
  * Static data that corresponds to the instance-specific data array on an LView.
  *
- * Each node's static data is stored in tData at the same index that it's stored
+ * Each node's static data is stored in tData at the same index that it is stored
  * in the data array.  Any nodes that do not have static data store a null value in
  * tData to avoid a sparse array.
  *

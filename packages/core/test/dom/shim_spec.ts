@@ -6,8 +6,8 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
-// This isn't used for anything, but for some reason Bazel won't
-// serve the file if there isn't at least one import.
+// This is not used for anything, but for some reason Bazel won't
+// serve the file if there is not at least one import.
 import '@angular/core/testing';
 
 {

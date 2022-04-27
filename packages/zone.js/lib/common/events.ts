@@ -257,7 +257,7 @@ export function patchEventTarget(
      */
     function buildEventListenerOptions(options: any, passive: boolean) {
       if (!passiveSupported && typeof options === 'object' && options) {
-        // doesn't support passive but user want to pass an object as options.
+        // does not support passive but user want to pass an object as options.
         // this will not work on some old browser, so we just pass a boolean
         // as useCapture parameter
         return !!options.capture;

@@ -62,8 +62,8 @@ export function compileComponent(type: Type<any>, metadata: Component): void {
   // Metadata may have resources which need to be resolved.
   maybeQueueResolutionOfComponentResources(type, metadata);
 
-  // Note that we're using the same function as `Directive`, because that's only subset of metadata
-  // that we need to create the ngFactoryDef. We're avoiding using the component metadata
+  // Note that we are using the same function as `Directive`, because that is only subset of
+  // metadata that we need to create the ngFactoryDef. We are avoiding using the component metadata
   // because we'd have to resolve the asynchronous templates.
   addDirectiveFactoryDef(type, metadata);
 
@@ -445,7 +445,7 @@ function extractQueriesMetadata(
         if (isQueryAnn(ann)) {
           if (!ann.selector) {
             throw new Error(
-                `Can't construct a query for the property "${field}" of ` +
+                `Cannot construct a query for the property "${field}" of ` +
                 `"${stringifyForError(type)}" since the query selector wasn't defined.`);
           }
           if (annotations.some(isInputAnnotation)) {

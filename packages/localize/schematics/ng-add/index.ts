@@ -78,7 +78,7 @@ function prependToTargetFiles(
     fileList.forEach((path: string): void => {
       const data = host.read(path);
       if (!data) {
-        // If the file doesn't exist, just ignore it.
+        // If the file does not exist, just ignore it.
         return;
       }
 

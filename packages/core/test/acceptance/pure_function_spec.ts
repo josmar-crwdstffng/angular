@@ -54,7 +54,7 @@ describe('components using pure function instructions internally', () => {
       expect(firstArray).not.toBe(myComp.names);
 
       // The property should not be set if the exp value is the same, so artificially
-      // setting the property to ensure it's not overwritten.
+      // setting the property to ensure it is not overwritten.
       myComp.names = ['should not be overwritten'];
       fixture.detectChanges();
 
@@ -210,7 +210,7 @@ describe('components using pure function instructions internally', () => {
       expect(myComp.names).toEqual(['Nancy', 'Frank', 'Bess', 'Ned']);
 
       // The property should not be set if the exp value is the same, so artificially
-      // setting the property to ensure it's not overwritten.
+      // setting the property to ensure it is not overwritten.
       myComp.names = ['should not be overwritten'];
       fixture.detectChanges();
       expect(myComp.names).toEqual(['should not be overwritten']);
@@ -434,7 +434,7 @@ describe('components using pure function instructions internally', () => {
       });
 
       // The property should not be set if the exp value is the same, so artificially
-      // setting the property to ensure it's not overwritten.
+      // setting the property to ensure it is not overwritten.
       objectComp.config = ['should not be overwritten'];
       fixture.detectChanges();
       expect(objectComp.config).toEqual(['should not be overwritten']);

@@ -52,7 +52,7 @@ const renderStringifyConstructorWithToStringTime = benchmarkRefresh('constructor
 const renderStringifyToStringMonoTime = benchmarkRefresh('toString mono');
 const renderStringifyToStringWithToStringMonoTime = benchmarkRefresh('toString with toString mono');
 
-// Important! This code is somewhat repetitive, but we can't move it out into something like
+// Important! This code is somewhat repetitive, but we cannot move it out into something like
 // `benchmark(name, stringifyFn)`, because passing in the function as a parameter breaks inlining.
 
 // String concatenation

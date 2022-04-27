@@ -27,7 +27,7 @@ export function eventTargetLegacyPatch(_global: any, api: _ZonePrivate) {
     apis.push(EVENT_TARGET);
   } else {
     // Note: EventTarget is not available in all browsers,
-    // if it's not available, we instead patch the APIs in the IDL that inherit from EventTarget
+    // if it is not available, we instead patch the APIs in the IDL that inherit from EventTarget
     apis = NO_EVENT_TARGET;
   }
 

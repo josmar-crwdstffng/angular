@@ -40,7 +40,7 @@ export class ShimReferenceTagger {
   }
 
   /**
-   * Tag `sf` with any needed references if it's not a shim itself.
+   * Tag `sf` with any needed references if it is not a shim itself.
    */
   tag(sf: ts.SourceFile): void {
     if (!this.enabled || sf.isDeclarationFile || isShim(sf) || this.tagged.has(sf) ||

@@ -500,8 +500,8 @@ interface ZoneSpec {
 /**
  *  A delegate when intercepting zone operations.
  *
- *  A ZoneDelegate is needed because a child zone can't simply invoke a method on a parent zone. For
- *  example a child zone wrap can't just call parent zone wrap. Doing so would create a callback
+ *  A ZoneDelegate is needed because a child zone cannot simply invoke a method on a parent zone.
+ * For example a child zone wrap cannot just call parent zone wrap. Doing so would create a callback
  *  which is bound to the parent zone. What we are interested in is intercepting the callback before
  *  it is bound to any zone. Furthermore, we also need to pass the targetZone (zone which received
  *  the original request) to the delegate.
@@ -685,7 +685,7 @@ const Zone: ZoneType = (function(global: any) {
   }
   mark('Zone');
 
-  // Initialize before it's accessed below.
+  // Initialize before it is accessed below.
   // __Zone_symbol_prefix global can be used to override the default zone
   // symbol prefix with a custom one if needed.
   const symbolPrefix = global['__Zone_symbol_prefix'] || '__zone_symbol__';
@@ -700,7 +700,7 @@ const Zone: ZoneType = (function(global: any) {
     // some other lib also registered a global object named Zone), we may need
     // to throw an error, but sometimes user may not want this error.
     // For example,
-    // we have two web pages, page1 includes zone.js, page2 doesn't.
+    // we have two web pages, page1 includes zone.js, page2 does not.
     // and the 1st time user load page1 and page2, everything work fine,
     // but when user load page2 again, error occurs because global['Zone'] already exists.
     // so we add a flag to let user choose whether to throw this error or not.
@@ -1098,7 +1098,7 @@ const Zone: ZoneType = (function(global: any) {
       const parentHasTask = parentDelegate && parentDelegate._hasTaskZS;
       if (zoneSpecHasTask || parentHasTask) {
         // If we need to report hasTask, than this ZS needs to do ref counting on tasks. In such
-        // a case all task related interceptors must go through this ZD. We can't short circuit it.
+        // a case all task related interceptors must go through this ZD. We cannot short circuit it.
         this._hasTaskZS = zoneSpecHasTask ? zoneSpec : DELEGATE_ZS;
         this._hasTaskDlgt = parentDelegate;
         this._hasTaskDlgtOwner = this;

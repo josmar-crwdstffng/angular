@@ -324,7 +324,7 @@ describe('directives', () => {
       }
 
       @Component({
-        // Note that below we're checking the case where the `test` attribute is after
+        // Note that below we are checking the case where the `test` attribute is after
         // one `class`, one `attribute` and one other binding.
         template: `
           <div class="a" style="font-size: 10px;" [disabled]="true" [test]="test"></div>

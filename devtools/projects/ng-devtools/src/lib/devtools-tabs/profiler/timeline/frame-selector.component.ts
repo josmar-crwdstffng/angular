@@ -165,7 +165,7 @@ export class FrameSelectorComponent implements OnInit, OnDestroy {
     const scrollParent = this.viewport.elementRef.nativeElement;
     // The left most point we see an element
     const left = scrollParent.scrollLeft;
-    // That's the right most point we currently see an element.
+    // That is the right most point we currently see an element.
     const right = left + scrollParent.offsetWidth;
     const itemLeft = index * this.itemWidth;
     if (itemLeft < left) {

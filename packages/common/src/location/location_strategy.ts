@@ -86,7 +86,7 @@ export const APP_BASE_HREF = new InjectionToken<string>('appBaseHref');
  * [path](https://en.wikipedia.org/wiki/Uniform_Resource_Locator#Syntax) of the
  * browser's URL.
  *
- * If you're using `PathLocationStrategy`, you must provide a {@link APP_BASE_HREF}
+ * If you are using `PathLocationStrategy`, you must provide a {@link APP_BASE_HREF}
  * or add a `<base href>` element to the document.
  *
  * For instance, if you provide an `APP_BASE_HREF` of `'/my/app/'` and call

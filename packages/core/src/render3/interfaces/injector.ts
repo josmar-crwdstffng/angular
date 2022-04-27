@@ -84,13 +84,13 @@ export const NO_PARENT_INJECTOR: RelativeInjectorLocation = -1 as any;
  *
  * Each of these slots (aside from the last slot) contains a bloom filter. This bloom filter
  * determines whether a directive is available on the associated node or not. This prevents us
- * from searching the directives array at this level unless it's probable the directive is in it.
+ * from searching the directives array at this level unless it is probable the directive is in it.
  *
  * See: https://en.wikipedia.org/wiki/Bloom_filter for more about bloom filters.
  *
  * Because all injectors have been flattened into `LView` and `TViewData`, they cannot typed
  * using interfaces as they were previously. The start index of each `LInjector` and `TInjector`
- * will differ based on where it is flattened into the main array, so it's not possible to know
+ * will differ based on where it is flattened into the main array, so it is not possible to know
  * the indices ahead of time and save their types here. The interfaces are still included here
  * for documentation purposes.
  *
@@ -121,7 +121,7 @@ export const NO_PARENT_INJECTOR: RelativeInjectorLocation = -1 as any;
  *    [7]: number;
  *
  *    // We need to store a reference to the injector's parent so DI can keep looking up
- *    // the injector tree until it finds the dependency it's looking for.
+ *    // the injector tree until it finds the dependency it is looking for.
  *    [PARENT_INJECTOR]: number;
  * }
  *

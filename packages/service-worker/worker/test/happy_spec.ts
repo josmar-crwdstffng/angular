@@ -2501,7 +2501,7 @@ describe('Driver', () => {
       await server.clearRequests();
 
       // Create multiple navigation requests to prove no navigation request was made.
-      // By default the navigation request is not sent, it's replaced
+      // By default the navigation request is not sent, it is replaced
       // with the index request - thus, the `this is foo` value.
       expect(await makeNavigationRequest(scope, '/', '')).toBe('this is foo');
       expect(await makeNavigationRequest(scope, '/foo', '')).toBe('this is foo');

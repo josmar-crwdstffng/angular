@@ -170,7 +170,7 @@ export function expectEmit(
           const regexp = assertIdentifiers[id];
           if (!regexp.test(name)) {
             throw Error(`${description}: The matching identifier "${id}" is "${
-                name}" which doesn't match ${regexp}`);
+                name}" which does not match ${regexp}`);
           }
         }
       }

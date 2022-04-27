@@ -132,7 +132,7 @@ function isUsageOfFormsImport(
   if (importName === declName) return true;
 
   // In the case of FormControl's overridden exported constructor, the value name and declaration
-  // name are not exactly the same. For our purposes, it's enough to check whether the latter is a
+  // name are not exactly the same. For our purposes, it is enough to check whether the latter is a
   // substring of the former.
   if (declName === formControl && importName.includes(declName)) return true;
 

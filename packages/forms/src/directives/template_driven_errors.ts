@@ -16,7 +16,7 @@ export function modelParentException(): Error {
 
     ${formControlNameExample}
 
-    Or, if you'd like to avoid registering this form control, indicate that it's standalone in ngModelOptions:
+    Or, if you'd like to avoid registering this form control, indicate that it is standalone in ngModelOptions:
 
     Example:
 

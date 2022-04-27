@@ -111,9 +111,9 @@ export function docRegionMulticastSequence(console: Console, runSequence: boolea
 
       return {
         unsubscribe() {
-          // Remove from the observers array so it's no longer notified
+          // Remove from the observers array so it is no longer notified
           observers.splice(observers.indexOf(observer), 1);
-          // If there's no more listeners, do cleanup
+          // If there is no more listeners, do cleanup
           if (observers.length === 0) {
             clearTimeout(timeoutId);
           }

@@ -332,7 +332,7 @@ export class TraitCompiler implements ProgramTypeCheckAdapter {
           break;
         }
 
-        // Otherwise, it's safe to accept the multiple decorators here. Update some of the metadata
+        // Otherwise, it is safe to accept the multiple decorators here. Update some of the metadata
         // regarding this class.
         record.traits.push(trait);
         record.hasPrimaryHandler = record.hasPrimaryHandler || isPrimaryHandler;
@@ -447,7 +447,7 @@ export class TraitCompiler implements ProgramTypeCheckAdapter {
         }
 
         if (handler.resolve === undefined) {
-          // No resolution of this trait needed - it's considered successful by default.
+          // No resolution of this trait needed - it is considered successful by default.
           trait = trait.toResolved(null, null);
           continue;
         }

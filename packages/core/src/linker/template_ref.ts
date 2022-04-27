@@ -114,7 +114,7 @@ export function injectTemplateRef<T>(): TemplateRef<T>|null {
  *
  * @param hostTNode The node on which a TemplateRef is requested
  * @param hostLView The `LView` to which the node belongs
- * @returns The TemplateRef instance or null if we can't create a TemplateRef on a given node type
+ * @returns The TemplateRef instance or null if we cannot create a TemplateRef on a given node type
  */
 export function createTemplateRef<T>(hostTNode: TNode, hostLView: LView): TemplateRef<T>|null {
   if (hostTNode.type & TNodeType.Container) {

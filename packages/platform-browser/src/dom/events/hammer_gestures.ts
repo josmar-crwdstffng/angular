@@ -207,7 +207,7 @@ export class HammerGesturesPlugin extends EventManagerPlugin {
       zone.runOutsideAngular(
           () => this._loaderPromise!
                     .then(() => {
-                      // If Hammer isn't actually loaded when the custom loader resolves, give up.
+                      // If Hammer is not actually loaded when the custom loader resolves, give up.
                       if (!(window as any).Hammer) {
                         if (typeof ngDevMode === 'undefined' || ngDevMode) {
                           this.console.warn(

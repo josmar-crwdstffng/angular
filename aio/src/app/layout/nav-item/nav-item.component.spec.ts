@@ -137,7 +137,7 @@ describe('NavItemComponent', () => {
     });
 
     describe('when headerClicked()', () => {
-      // current node doesn't matter in these tests.
+      // current node does not matter in these tests.
 
       it('should expand when headerClicked() and previously collapsed', () => {
         component.isExpanded = false;

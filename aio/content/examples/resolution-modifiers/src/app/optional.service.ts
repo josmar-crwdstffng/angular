@@ -4,4 +4,4 @@ import { Injectable } from '@angular/core';
 export class OptionalService {
 }
 
-// This service isn't provided anywhere.
+// This service is not provided anywhere.

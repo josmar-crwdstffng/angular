@@ -15,7 +15,7 @@ describe('What is Angular', () => {
 
   beforeEach(() => browser.get(''));
 
-  // helper function to test what's logged to the console
+  // helper function to test what is logged to the console
   async function logChecker(contents: string) {
     const logs = await browser.manage().logs().get(logging.Type.BROWSER);
     const messages = logs.filter(({ message }) => message.indexOf(contents) !== -1 ? true : false);

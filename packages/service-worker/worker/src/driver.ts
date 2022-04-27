@@ -64,7 +64,7 @@ export class Driver implements Debuggable, UpdateSource {
 
   /**
    * Tracks whether the SW is in an initialized state or not. Before initialization,
-   * it's not legal to respond to requests.
+   * it is not legal to respond to requests.
    */
   initialized: Promise<void>|null = null;
 
@@ -121,7 +121,7 @@ export class Driver implements Debuggable, UpdateSource {
     // The install event is triggered when the service worker is first installed.
     this.scope.addEventListener('install', (event) => {
       // SW code updates are separate from application updates, so code updates are
-      // almost as straightforward as restarting the SW. Because of this, it's always
+      // almost as straightforward as restarting the SW. Because of this, it is always
       // safe to skip waiting until application tabs are closed, and activate the new
       // SW version immediately.
       event!.waitUntil(this.scope.skipWaiting());
@@ -131,7 +131,7 @@ export class Driver implements Debuggable, UpdateSource {
     // first activated.
     this.scope.addEventListener('activate', (event) => {
       event!.waitUntil((async () => {
-        // As above, it's safe to take over from existing clients immediately, since the new SW
+        // As above, it is safe to take over from existing clients immediately, since the new SW
         // version will continue to serve the old application.
         await this.scope.clients.claim();
 
@@ -197,7 +197,7 @@ export class Driver implements Debuggable, UpdateSource {
       return;
     }
 
-    // If the SW is in a broken state where it's not safe to handle requests at all,
+    // If the SW is in a broken state where it is not safe to handle requests at all,
     // returning causes the request to fall back on the network. This is preferred over
     // `respondWith(fetch(req))` because the latter still shows in DevTools that the
     // request was handled by the SW.
@@ -251,7 +251,7 @@ export class Driver implements Debuggable, UpdateSource {
       return;
     }
 
-    // If the message doesn't have the expected signature, ignore it.
+    // If the message does not have the expected signature, ignore it.
     const data = event.data;
     if (!data || !data.action) {
       return;
@@ -270,7 +270,7 @@ export class Driver implements Debuggable, UpdateSource {
         return;
       }
 
-      // Handle the message and keep the SW alive until it's handled.
+      // Handle the message and keep the SW alive until it is handled.
       await this.ensureInitialized(event);
       await this.handleMessage(data, event.source);
     })());
@@ -282,12 +282,12 @@ export class Driver implements Debuggable, UpdateSource {
       return;
     }
 
-    // Handle the push and keep the SW alive until it's handled.
+    // Handle the push and keep the SW alive until it is handled.
     msg.waitUntil(this.handlePush(msg.data.json()));
   }
 
   private onClick(event: NotificationEvent): void {
-    // Handle the click event and keep the SW alive until it's handled.
+    // Handle the click event and keep the SW alive until it is handled.
     event.waitUntil(this.handleClick(event.notification, event.action));
   }
 
@@ -415,7 +415,7 @@ export class Driver implements Debuggable, UpdateSource {
   }
 
   async updateClient(client: Client): Promise<boolean> {
-    // Figure out which version the client is on. If it's not on the latest,
+    // Figure out which version the client is on. If it is not on the latest,
     // it needs to be moved.
     const existing = this.clientVersionMap.get(client.id);
     if (existing === this.latestHash) {
@@ -427,7 +427,7 @@ export class Driver implements Debuggable, UpdateSource {
     let previous: Object|undefined = undefined;
 
     // Look up the application data associated with the existing version. If there
-    // isn't any, fall back on using the hash.
+    // is not any, fall back on using the hash.
     if (existing !== undefined) {
       const existingVersion = this.versions.get(existing)!;
       previous = this.mergeHashWithAppData(existingVersion.manifest, existing);
@@ -476,7 +476,7 @@ export class Driver implements Debuggable, UpdateSource {
     try {
       if (appVersion !== null) {
         try {
-          // Handle the request. First try the AppVersion. If that doesn't work, fall back on the
+          // Handle the request. First try the AppVersion. If that does not work, fall back on the
           // network.
           res = await appVersion.handleFetch(event.request, event);
         } catch (err: any) {
@@ -494,7 +494,7 @@ export class Driver implements Debuggable, UpdateSource {
       }
 
       // The response will be `null` only if no `AppVersion` can be assigned to the request or if
-      // the assigned `AppVersion`'s manifest doesn't specify what to do about the request.
+      // the assigned `AppVersion`'s manifest does not specify what to do about the request.
       // In that case, just fall back on the network.
       if (res === null) {
         return this.safeFetch(event.request);
@@ -512,7 +512,7 @@ export class Driver implements Debuggable, UpdateSource {
   }
 
   /**
-   * Attempt to quickly reach a state where it's safe to serve responses.
+   * Attempt to quickly reach a state where it is safe to serve responses.
    */
   private async initialize(): Promise<void> {
     // On initialization, all of the serialized state is read out of the 'control'
@@ -692,7 +692,7 @@ export class Driver implements Debuggable, UpdateSource {
         if (this.state !== DriverReadyState.NORMAL) {
           // It's not safe to serve new clients in the current state. It's possible that
           // this is an existing client which has not been mapped yet (see below) but
-          // even if that is the case, it's invalid to make an assignment to a known
+          // even if that is the case, it is invalid to make an assignment to a known
           // invalid version, even if that assignment was previously implicit. Return
           // undefined here to let the caller know that no assignment is possible at
           // this time.
@@ -709,7 +709,7 @@ export class Driver implements Debuggable, UpdateSource {
         // In case 1, the latest version can safely be used.
         // In case 2, the latest version can be used, with the assumption that the previous
         // navigation request was answered under the same version. This assumption relies
-        // on the fact that it's unlikely an update will come in between the navigation
+        // on the fact that it is unlikely an update will come in between the navigation
         // request and requests for subsequent resources on that page.
 
         // First validate the current state.
@@ -1095,7 +1095,7 @@ export class Driver implements Debuggable, UpdateSource {
       // Firstly, determine which version this client is on.
       const version = this.clientVersionMap.get(client.id);
       if (version === undefined) {
-        // Unmapped client - assume it's the latest.
+        // Unmapped client - assume it is the latest.
         return;
       }
 
@@ -1114,7 +1114,7 @@ export class Driver implements Debuggable, UpdateSource {
       // Firstly, determine which version this client is on.
       const version = this.clientVersionMap.get(client.id);
       if (version === undefined) {
-        // Unmapped client - assume it's the latest.
+        // Unmapped client - assume it is the latest.
         return;
       }
 

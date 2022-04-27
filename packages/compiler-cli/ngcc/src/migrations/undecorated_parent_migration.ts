@@ -74,7 +74,7 @@ export class UndecoratedParentMigration implements Migration {
       // Inject an `@Directive()` decorator for the base class.
       host.injectSyntheticDecorator(baseClazz, createDirectiveDecorator(baseClazz));
 
-      // If the base class has a constructor, there's no need to continue walking up the
+      // If the base class has a constructor, there is no need to continue walking up the
       // inheritance chain. The injected decorator ensures that a factory is generated that does
       // not delegate to the base class.
       if (hasConstructor(host, baseClazz)) {

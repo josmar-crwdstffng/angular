@@ -27,7 +27,7 @@ import {getInsertInFrontOfRNodeWithI18n, processI18nInsertBefore} from '../node_
  *
  * In an ideal world `TNode.insertBeforeIndex` would always be `TNode.next.index`. However,
  * this will not work because `TNode.next.index` may be larger than `TNode.index` which means that
- * the next node is not yet created and therefore we can't insert in front of it.
+ * the next node is not yet created and therefore we cannot insert in front of it.
  *
  * Rule1: `TNode.insertBeforeIndex = null` if `TNode.next === null` (Initial condition, as we don't
  *        know if there will be further `TNode`s inserted after.)

@@ -16,7 +16,7 @@ export type TypeReferenceTranslator = (type: ts.TypeReferenceNode) => ts.TypeRef
 
 /**
  * A marker to indicate that a type reference is ineligible for emitting. This needs to be truthy
- * as it's returned from `ts.forEachChild`, which only returns truthy values.
+ * as it is returned from `ts.forEachChild`, which only returns truthy values.
  */
 type INELIGIBLE = {
   __brand: 'ineligible';

@@ -56,7 +56,7 @@ export function makeTemplateDiagnostic(
   } else if (mapping.type === 'indirect' || mapping.type === 'external') {
     // For indirect mappings (template was declared inline, but ngtsc couldn't map it directly
     // to a string constant in the decorator), the component's file name is given with a suffix
-    // indicating it's not the TS file being displayed, but a template.
+    // indicating it is not the TS file being displayed, but a template.
     // For external temoplates, the HTML filename is used.
     const componentSf = mapping.componentClass.getSourceFile();
     const componentName = mapping.componentClass.name.text;

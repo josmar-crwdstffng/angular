@@ -75,7 +75,7 @@ describe('tsserver', () => {
     it('should be attached to project', () => {
       const scriptInfo = service.getScriptInfo(TEST_TEMPLATE);
       // Script info for external template must be attached to a project because
-      // that's the primary mechanism used in the extension to locate the right
+      // that is the primary mechanism used in the extension to locate the right
       // language service instance. See
       // https://github.com/angular/vscode-ng-language-service/blob/b048f5f6b9996c5cf113b764c7ffe13d9eeb4285/server/src/session.ts#L192
       expect(scriptInfo.isAttached(project)).toBeTrue();

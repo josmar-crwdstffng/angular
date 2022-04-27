@@ -7,7 +7,9 @@
  */
 
 import ts from 'typescript';
+
 import {SemanticSymbol} from '../../incremental/semantic_graph';
+
 import {DecoratorHandler, DetectResult} from './api';
 
 export enum TraitState {
@@ -43,7 +45,7 @@ export enum TraitState {
  * represented in the type system. This includes any possible transitions from one type to the next.
  *
  * This not only simplifies the implementation, but ensures traits are monomorphic objects as
- * they're all just "views" in the type system of the same object (which never changes shape).
+ * they are all just "views" in the type system of the same object (which never changes shape).
  */
 export type Trait<D, A, S extends SemanticSymbol|null, R> = PendingTrait<D, A, S, R>|
     SkippedTrait<D, A, S, R>|AnalyzedTrait<D, A, S, R>|ResolvedTrait<D, A, S, R>;
@@ -59,7 +61,7 @@ export const Trait = {
 };
 
 /**
- * The part of the `Trait` interface that's common to all trait states.
+ * The part of the `Trait` interface that is common to all trait states.
  */
 export interface TraitBase<D, A, S extends SemanticSymbol|null, R> {
   /**

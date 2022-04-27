@@ -164,15 +164,15 @@ describe('HttpClient testing', () => {
     // verify() should fail because haven't handled the pending request.
     expect(() => httpTestingController.verify()).toThrow();
 
-    // Now get and flush the request so that afterEach() doesn't fail
+    // Now get and flush the request so that afterEach() does not fail
     const req = httpTestingController.expectOne('some/api');
     req.flush(null);
   });
 
   // Proves that verify in afterEach() really would catch error
-  // if test doesn't simulate the HTTP response.
+  // if test does not simulate the HTTP response.
   //
-  // Must disable this test because can't catch an error in an afterEach().
+  // Must disable this test because cannot catch an error in an afterEach().
   // Uncomment if you want to confirm that afterEach() does the job.
   // it('afterEach() should fail when HTTP response not simulated',() => {
   //   // Sends request which is never handled by this test

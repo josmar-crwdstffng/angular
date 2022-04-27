@@ -27,7 +27,7 @@ export class AppComponent {
     <input #ref2 type="text" [(ngModel)]="secondExample" />
   </ng-template>
 
-  <!-- Attempting to access ref2 from outside the above template doesn't work. -->
+  <!-- Attempting to access ref2 from outside the above template does not work. -->
   <span>Value: {{ ref2?.value }}</span>`;
 
     public ngForExample = `<ng-container *ngFor="let i of [1,2]">
@@ -35,7 +35,7 @@ export class AppComponent {
   </ng-container>
 
   <!-- The template is instantiated twice because *ngFor iterates
-  over the two items in the array, so it's impossible to define what ref2 is referencing.-->
+  over the two items in the array, so it is impossible to define what ref2 is referencing.-->
 
   {{ ref.value }}`;
 

@@ -39,7 +39,7 @@ export const diff = <T>(differ: DefaultIterableDiffer<T>, a: T[], b: T[]):
         // that we haven't already set the previousIndex while
         // iterating, we need to check that. If we have, we assign
         // this array item to a new object. We don't want to risk
-        // changing the properties of an object we'll use in the future.
+        // changing the properties of an object we will use in the future.
         if (!alreadySet[record.previousIndex]) {
           a[record.currentIndex] = a[record.previousIndex];
         } else {

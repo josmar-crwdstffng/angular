@@ -583,7 +583,7 @@ describe('Generator', () => {
         {positive: false, regex: '^\\/relative\\/base\\/href\\/negative\\/relative\\/.*$'},
       ]);
 
-      // We can't correctly handle double dots in `baseHref`, so leave them as literal matches.
+      // We cannot correctly handle double dots in `baseHref`, so leave them as literal matches.
       expect(processNavigationUrls('../double/dots/', customNavigationUrls)).toEqual([
         {positive: true, regex: '^https:\\/\\/host\\/positive\\/external\\/.*$'},
         {positive: false, regex: '^https:\\/\\/host\\/negative\\/external\\/.*$'},

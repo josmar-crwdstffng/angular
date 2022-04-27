@@ -56,8 +56,8 @@ export class LocalModuleScopeRegistry implements MetadataRegistry, ComponentScop
    * A map of components from the current compilation unit to the NgModule which declared them.
    *
    * As components and directives are not distinguished at the NgModule level, this map may also
-   * contain directives. This doesn't cause any problems but isn't useful as there is no concept of
-   * a directive's compilation scope.
+   * contain directives. This does not cause any problems but is not useful as there is no concept
+   * of a directive's compilation scope.
    */
   private declarationToModule = new Map<ClassDeclaration, DeclarationData>();
 
@@ -109,7 +109,7 @@ export class LocalModuleScopeRegistry implements MetadataRegistry, ComponentScop
     const ngModule = data.ref.node;
     this.moduleToRef.set(data.ref.node, data.ref);
     // Iterate over the module's declarations, and add them to declarationToModule. If duplicates
-    // are found, they're instead tracked in duplicateDeclarations.
+    // are found, they are instead tracked in duplicateDeclarations.
     for (const decl of data.declarations) {
       this.registerDeclarationOfModule(ngModule, decl, data.rawDeclarations);
     }
@@ -203,7 +203,7 @@ export class LocalModuleScopeRegistry implements MetadataRegistry, ComponentScop
       duplicateDeclMap.set(ngModule, declData);
       this.duplicateDeclarations.set(decl.node, duplicateDeclMap);
 
-      // Remove the directive/pipe from `declarationToModule` as it's a duplicate declaration, and
+      // Remove the directive/pipe from `declarationToModule` as it is a duplicate declaration, and
       // therefore not valid.
       this.declarationToModule.delete(decl.node);
     } else {
@@ -232,7 +232,7 @@ export class LocalModuleScopeRegistry implements MetadataRegistry, ComponentScop
     }
 
     // Errors produced during computation of the scope are recorded here. At the end, if this array
-    // isn't empty then `undefined` will be cached and returned to indicate this scope is invalid.
+    // is not empty then `undefined` will be cached and returned to indicate this scope is invalid.
     const diagnostics: ts.Diagnostic[] = [];
 
     // At this point, the goal is to produce two distinct transitive sets:
@@ -259,13 +259,13 @@ export class LocalModuleScopeRegistry implements MetadataRegistry, ComponentScop
     //       one, add them to the export scope of this NgModule.
     //    b) Otherwise, it should be a class in the compilation scope of this NgModule. If it is,
     //       add it to the export scope.
-    //    c) If it's neither an NgModule nor a directive/pipe in the compilation scope, then this
+    //    c) If it is neither an NgModule nor a directive/pipe in the compilation scope, then this
     //       is an error.
 
     //
     let isPoisoned = false;
     if (this.modulesWithStructuralErrors.has(ngModule.ref.node)) {
-      // If the module contains declarations that are duplicates, then it's considered poisoned.
+      // If the module contains declarations that are duplicates, then it is considered poisoned.
       isPoisoned = true;
     }
 
@@ -297,13 +297,13 @@ export class LocalModuleScopeRegistry implements MetadataRegistry, ComponentScop
         continue;
       }
 
-      // The import wasn't an NgModule. Maybe it's a standalone entity?
+      // The import wasn't an NgModule. Maybe it is a standalone entity?
       const directive = this.fullReader.getDirectiveMetadata(decl);
       if (directive !== null) {
         if (directive.isStandalone) {
           compilationDirectives.set(directive.ref.node, directive);
         } else {
-          // Error: can't import a non-standalone component/directive.
+          // Error: cannot import a non-standalone component/directive.
           diagnostics.push(makeNotStandaloneDiagnostic(
               this, decl, ngModule.rawImports, directive.isComponent ? 'component' : 'directive'));
           isPoisoned = true;
@@ -383,7 +383,7 @@ export class LocalModuleScopeRegistry implements MetadataRegistry, ComponentScop
     }
 
     // 3) process exports.
-    // Exports can contain modules, components, or directives. They're processed differently.
+    // Exports can contain modules, components, or directives. They are processed differently.
     // Modules are straightforward. Directives and pipes from exported modules are added to the
     // export maps. Directives/pipes are different - they might be exports of declared types or
     // imported types.
@@ -644,7 +644,7 @@ function invalidReexport(
     isStandalone: boolean): ts.Diagnostic {
   // The root error is the same here - this export is not valid. Give a helpful error message based
   // on the specific circumstance.
-  let message = `Can't be exported from this NgModule, as `;
+  let message = `Cannot be exported from this NgModule, as `;
   if (isStandalone) {
     // Standalone types need to be imported into an NgModule before they can be re-exported.
     message += 'it must be imported first';

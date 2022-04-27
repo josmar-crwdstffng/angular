@@ -107,7 +107,7 @@ export class UpgradeAdapter {
   /**
    * An internal map of ng1 components which need to up upgraded to ng2.
    *
-   * We can't upgrade until injector is instantiated and we can retrieve the component metadata.
+   * We cannot upgrade until injector is instantiated and we can retrieve the component metadata.
    * For this reason we keep a list of components to upgrade until ng1 injector is bootstrapped.
    *
    * @internal

@@ -133,7 +133,7 @@ export class LocationService {
     }
 
     // If there is a target and it is not `_self` then we take this
-    // as a signal that it doesn't want to be intercepted.
+    // as a signal that it does not want to be intercepted.
     // TODO: should we also allow an explicit `_self` target to opt-out?
     const anchorTarget = anchor.target;
     if (anchorTarget && anchorTarget !== '_self') {

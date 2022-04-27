@@ -25,7 +25,7 @@ export class HeroDetailComponent {
   lineThrough = '';
   @Input() prefix = '';
 
-  // This component makes a request but it can't actually delete a hero.
+  // This component makes a request but it cannot actually delete a hero.
   deleteRequest = new EventEmitter<Hero>();
 
   delete() {

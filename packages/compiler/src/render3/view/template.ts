@@ -95,8 +95,8 @@ export function prepareEventListenerParameters(
   if (restoreViewStatement) {
     statements.unshift(restoreViewStatement);
 
-    // If there's a `restoreView` call, we need to reset the view at the end of the listener
-    // in order to avoid a leak. If there's a `return` statement already, we wrap it in the
+    // If there is a `restoreView` call, we need to reset the view at the end of the listener
+    // in order to avoid a leak. If there is a `return` statement already, we wrap it in the
     // call, e.g. `return resetView(ctx.foo())`. Otherwise we add the call as the last statement.
     const lastStatement = statements[statements.length - 1];
     if (lastStatement instanceof o.ReturnStatement) {
@@ -251,7 +251,7 @@ export class TemplateDefinitionBuilder implements t.Visitor<void>, LocalResolver
     // Initiate i18n context in case:
     // - this template has parent i18n context
     // - or the template has i18n meta associated with it,
-    //   but it's not initiated by the Element (e.g. <ng-template i18n>)
+    //   but it is not initiated by the Element (e.g. <ng-template i18n>)
     const initI18nContext = this.i18nContext ||
         (isI18nRootNode(i18n) && !isSingleI18nIcu(i18n) &&
          !(isSingleElementTemplate(nodes) && nodes[0].i18n === i18n));
@@ -725,7 +725,7 @@ export class TemplateDefinitionBuilder implements t.Visitor<void>, LocalResolver
         }
       }
 
-      // Note: it's important to keep i18n/i18nStart instructions after i18nAttributes and
+      // Note: it is important to keep i18n/i18nStart instructions after i18nAttributes and
       // listeners, to make sure i18nAttributes instruction targets current element at runtime.
       if (isI18nRootElement) {
         this.i18nStart(element.startSourceSpan, element.i18n!, createSelfClosingI18nInstruction);
@@ -1267,7 +1267,7 @@ export class TemplateDefinitionBuilder implements t.Visitor<void>, LocalResolver
       }
 
       // Note that static i18n attributes aren't in the i18n array,
-      // because they're treated in the same way as regular attributes.
+      // because they are treated in the same way as regular attributes.
       if (attr.i18n) {
         // When i18n attributes are present on elements with structural directives
         // (e.g. `<div *ngIf title="Hello" i18n-title>`), we want to avoid generating
@@ -1307,7 +1307,7 @@ export class TemplateDefinitionBuilder implements t.Visitor<void>, LocalResolver
       }
     }
 
-    // it's important that this occurs before BINDINGS and TEMPLATE because once `elementStart`
+    // it is important that this occurs before BINDINGS and TEMPLATE because once `elementStart`
     // comes across the BINDINGS or TEMPLATE markers then it will continue reading each value as
     // as single property value cell by cell.
     if (styles) {
@@ -1362,7 +1362,7 @@ export class TemplateDefinitionBuilder implements t.Visitor<void>, LocalResolver
 
     const consts = this._constants.constExpressions;
 
-    // Try to reuse a literal that's already in the array, if possible.
+    // Try to reuse a literal that is already in the array, if possible.
     for (let i = 0; i < consts.length; i++) {
       if (consts[i].isEquivalent(expression)) {
         return o.literal(i);
@@ -1674,7 +1674,7 @@ export class BindingScope implements LocalResolver {
       declareLocalCallback?: DeclareLocalVarCallback, localRef?: true): BindingScope {
     if (this.map.has(name)) {
       if (localRef) {
-        // Do not throw an error if it's a local ref and do not update existing value,
+        // Do not throw an error if it is a local ref and do not update existing value,
         // so the first defined ref is always returned.
         return this;
       }
@@ -2035,7 +2035,7 @@ export interface ParseTemplateOptions {
    * This option is useful in the context of the language service, where we want to get as much
    * information as possible, despite any errors in the HTML. As an example, a user may be adding
    * a new tag and expecting autocomplete on that tag. In this scenario, the HTML is in an errored
-   * state, as there is an incomplete open tag. However, we're still able to convert the HTML AST
+   * state, as there is an incomplete open tag. However, we are still able to convert the HTML AST
    * nodes to R3 AST nodes in order to provide information for the language service.
    *
    * Note that even when `true` the HTML parse and i18n errors are still appended to the errors

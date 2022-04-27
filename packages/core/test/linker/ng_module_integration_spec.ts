@@ -119,7 +119,7 @@ describe('NgModule', () => {
       }
 
       expect(() => createModule(SomeModule))
-          .toThrowError(`Can't export directive ${stringify(SomeDirective)} from ${
+          .toThrowError(`Cannot export directive ${stringify(SomeDirective)} from ${
               stringify(SomeModule)} as it was neither declared nor imported!`);
     });
 
@@ -129,7 +129,7 @@ describe('NgModule', () => {
       }
 
       expect(() => createModule(SomeModule))
-          .toThrowError(`Can't export pipe ${stringify(SomePipe)} from ${
+          .toThrowError(`Cannot export pipe ${stringify(SomePipe)} from ${
               stringify(SomeModule)} as it was neither declared nor imported!`);
     });
 
@@ -234,7 +234,7 @@ describe('NgModule', () => {
       const spy = spyOn(console, 'error');
       const fixture = createComp(ComponentUsingInvalidProperty, SomeModule);
       fixture.detectChanges();
-      expect(spy.calls.mostRecent().args[0]).toMatch(/Can't bind to 'someUnknownProp'/);
+      expect(spy.calls.mostRecent().args[0]).toMatch(/Cannot bind to 'someUnknownProp'/);
     });
 
     it('should not error on unknown bound properties on custom elements when using the CUSTOM_ELEMENTS_SCHEMA',
@@ -278,7 +278,7 @@ describe('NgModule', () => {
     });
 
     it('should throw when registering a duplicate module', () => {
-      // TestBed disables the error that's being tested here, so temporarily re-enable it.
+      // TestBed disables the error that is being tested here, so temporarily re-enable it.
       setAllowDuplicateNgModuleIdsForTest(false);
 
       @NgModule({id: token})
@@ -873,7 +873,7 @@ describe('NgModule', () => {
         class MyService1 {
           public innerService: MyService2;
           constructor(injector: Injector) {
-            // Create MyService2 before it it's initialized by TestModule.
+            // Create MyService2 before it it is initialized by TestModule.
             this.innerService = injector.get(MyService2);
           }
         }

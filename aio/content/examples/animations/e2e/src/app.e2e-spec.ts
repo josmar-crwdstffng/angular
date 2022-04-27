@@ -275,7 +275,7 @@ describe('Animation Tests', () => {
       await newPageSleepFor(queryingAnimationDuration);
     });
 
-    it(`should disable the button for the animation's duration`, async () => {
+    it(`should disable the button for the duration of the animation`, async () => {
       const toggleButton = getToggleButton();
       expect(await toggleButton.isEnabled()).toBe(true);
 

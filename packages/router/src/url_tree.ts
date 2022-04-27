@@ -440,8 +440,8 @@ function serializeSegment(segment: UrlSegmentGroup, root: boolean): string {
 
 /**
  * Encodes a URI string with the default encoding. This function will only ever be called from
- * `encodeUriQuery` or `encodeUriSegment` as it's the base set of encodings to be used. We need
- * a custom encoding because encodeURIComponent is too aggressive and encodes stuff that doesn't
+ * `encodeUriQuery` or `encodeUriSegment` as it is the base set of encodings to be used. We need
+ * a custom encoding because encodeURIComponent is too aggressive and encodes stuff that does not
  * have to be encoded per https://url.spec.whatwg.org.
  */
 function encodeUriString(s: string): string {

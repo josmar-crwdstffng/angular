@@ -14,7 +14,7 @@ describe('CopyDefinitionFeature', () => {
     // It would be nice if the base component could be JIT compiled. However, this creates
     // a getter for ɵcmp which precludes adding a static definition of that field for the
     // child class.
-    // TODO(alxhub): see if there's a cleaner way to do this.
+    // TODO(alxhub): see if there is a cleaner way to do this.
     class BaseComponent {
       name!: string;
       static ɵcmp = defineComponent({

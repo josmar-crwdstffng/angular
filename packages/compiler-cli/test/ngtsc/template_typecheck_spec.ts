@@ -2132,7 +2132,7 @@ export declare class AnimationEvent {
         const diags = env.driveDiagnostics();
         expect(diags.length).toBe(1);
         expect(diags[0].messageText)
-            .toBe(`Can't bind to 'foo' since it isn't a known property of 'div'.`);
+            .toBe(`Cannot bind to 'foo' since it is not a known property of 'div'.`);
       });
 
       it('should have a descriptive error for unknown properties with an "ng-" prefix', () => {
@@ -2151,7 +2151,7 @@ export declare class AnimationEvent {
         const diags = env.driveDiagnostics();
         expect(diags.length).toBe(1);
         expect(diags[0].messageText)
-            .toBe(`Can't bind to 'foo' since it isn't a known property of 'div'.`);
+            .toBe(`Cannot bind to 'foo' since it is not a known property of 'div'.`);
       });
 
       it('should convert property names when binding special properties', () => {
@@ -2195,7 +2195,7 @@ export declare class AnimationEvent {
 1. If 'custom-element' is an Angular component, then verify that it is part of this module.
 2. If 'custom-element' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.`);
            expect(diags[1].messageText)
-               .toBe(`Can't bind to 'foo' since it isn't a known property of 'custom-element'.
+               .toBe(`Cannot bind to 'foo' since it is not a known property of 'custom-element'.
 1. If 'custom-element' is an Angular component and it has 'foo' input, then verify that it is part of this module.
 2. If 'custom-element' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
 3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.`);

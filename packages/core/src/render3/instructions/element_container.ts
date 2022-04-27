@@ -29,7 +29,7 @@ function elementContainerStartFirstCreatePass(
   const attrs = getConstant<TAttributes>(tViewConsts, attrsIndex);
   const tNode = getOrCreateTNode(tView, index, TNodeType.ElementContainer, 'ng-container', attrs);
 
-  // While ng-container doesn't necessarily support styling, we use the style context to identify
+  // While ng-container does not necessarily support styling, we use the style context to identify
   // and execute directives on the ng-container.
   if (attrs !== null) {
     computeStaticStyling(tNode, attrs, true);
@@ -55,7 +55,7 @@ function elementContainerStartFirstCreatePass(
  * @returns This function returns itself so that it may be chained.
  *
  * Even if this instruction accepts a set of attributes no actual attribute values are propagated to
- * the DOM (as a comment node can't have attributes). Attributes are here only for directive
+ * the DOM (as a comment node cannot have attributes). Attributes are here only for directive
  * matching purposes and setting initial inputs of directives.
  *
  * @codeGenApi

@@ -85,9 +85,9 @@ export interface NgccEntryPointConfig {
   override?: PackageJsonFormatPropertiesMap;
 
   /**
-   * Normally, ngcc will skip compilation of entrypoints that contain imports that can't be resolved
-   * or understood. If this option is specified, ngcc will proceed with compiling the entrypoint
-   * even in the face of such missing dependencies.
+   * Normally, ngcc will skip compilation of entrypoints that contain imports that cannot be
+   * resolved or understood. If this option is specified, ngcc will proceed with compiling the
+   * entrypoint even in the face of such missing dependencies.
    */
   ignoreMissingDependencies?: boolean;
 

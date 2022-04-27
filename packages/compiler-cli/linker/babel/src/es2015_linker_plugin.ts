@@ -71,7 +71,7 @@ export function createEs2015LinkerPlugin({fileSystem, logger, ...options}: Linke
         if (fileLinker === null) {
           // Any statements that are inserted upon program exit will be visited outside of an active
           // linker context. These call expressions are known not to contain partial declarations,
-          // so it's safe to skip visiting those call expressions.
+          // so it is safe to skip visiting those call expressions.
           return;
         }
 

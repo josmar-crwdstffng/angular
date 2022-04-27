@@ -33,7 +33,7 @@ export class QuickInfoBuilder {
     }
 
     // If the cursor lands on the receiver of a method call, we have to look
-    // at the entire call in order to figure out if it's a call to `$any`.
+    // at the entire call in order to figure out if it is a call to `$any`.
     if (this.parent !== null && isDollarAny(this.parent) && this.parent.receiver === this.node) {
       return createDollarAnyQuickInfo(this.parent);
     }

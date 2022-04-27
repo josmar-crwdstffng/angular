@@ -97,12 +97,12 @@ export class DocViewerComponent implements OnDestroy {
     const embeddedToc = targetElem.querySelector('aio-toc.embedded');
 
     if (titleEl && titleEl.parentNode && needsToc && !embeddedToc) {
-      // Add an embedded ToC if it's needed and there isn't one in the content already.
+      // Add an embedded ToC if it is needed and there is not one in the content already.
       const toc = document.createElement('aio-toc');
       toc.className = 'embedded';
       titleEl.parentNode.insertBefore(toc, titleEl.nextSibling);
     } else if (!needsToc && embeddedToc) {
-      // Remove the embedded Toc if it's there and not needed.
+      // Remove the embedded Toc if it is there and not needed.
       embeddedToc.remove();
     }
 

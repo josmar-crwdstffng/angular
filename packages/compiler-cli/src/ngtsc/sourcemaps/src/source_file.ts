@@ -500,7 +500,7 @@ class IndexedSet<V> {
   readonly values: V[] = [];
 
   /**
-   * Add the `value` to the `values` array, if it doesn't already exist; returning the index of the
+   * Add the `value` to the `values` array, if it does not already exist; returning the index of the
    * `value` in the `values` array.
    *
    * If the `value` already exists then the index of that `value` is returned, otherwise the new

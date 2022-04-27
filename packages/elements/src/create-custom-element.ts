@@ -145,7 +145,7 @@ export function createCustomElement<P>(
       // it is not safe to set `ngElementStrategy` in the constructor and assume it will be
       // available inside the methods.
       //
-      // TODO(andrewseguin): Add e2e tests that cover cases where the constructor isn't called. For
+      // TODO(andrewseguin): Add e2e tests that cover cases where the constructor is not called. For
       // now this is tested using a Google internal test suite.
       if (!this._ngElementStrategy) {
         const strategy = this._ngElementStrategy =

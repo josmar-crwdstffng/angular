@@ -29,7 +29,7 @@ export class InsertionComponent {
 
   constructor(readonly changeDetector: ChangeDetectorRef) {}
 
-  // use trackBy to ensure profile isn't affected by the cost to refresh ngFor.
+  // use trackBy to ensure profile is not affected by the cost to refresh ngFor.
   trackByIndex(index: number, item: any) {
     return index;
   }

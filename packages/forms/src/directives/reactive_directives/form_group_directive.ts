@@ -300,12 +300,12 @@ export class FormGroupDirective extends ControlContainer implements Form, OnChan
       const oldCtrl = dir.control;
       const newCtrl = this.form.get(dir.path);
       if (oldCtrl !== newCtrl) {
-        // Note: the value of the `dir.control` may not be defined, for example when it's a first
+        // Note: the value of the `dir.control` may not be defined, for example when it is a first
         // `FormControl` that is added to a `FormGroup` instance (via `addControl` call).
         cleanUpControl(oldCtrl || null, dir);
 
         // Check whether new control at the same location inside the corresponding `FormGroup` is an
-        // instance of `FormControl` and perform control setup only if that's the case.
+        // instance of `FormControl` and perform control setup only if that is the case.
         // Note: we don't need to clear the list of directives (`this.directives`) here, it would be
         // taken care of in the `removeControl` method invoked when corresponding `formControlName`
         // directive instance is being removed (invoked from `FormControlName.ngOnDestroy`).

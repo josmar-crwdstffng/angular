@@ -389,7 +389,7 @@ class SomeComponent {
                }]))
                .then(() => expect(false).toBe(true), (e) => {
                  expect(e).toBe('Test');
-                 // Error rethrown will be seen by the exception handler since it's after
+                 // Error rethrown will be seen by the exception handler since it is after
                  // construction.
                  expect(mockConsole.res[0].join('#')).toEqual('ERROR#Test');
                });
@@ -551,7 +551,7 @@ class SomeComponent {
              multi: true
            }]));
            expect(() => defaultPlatform.bootstrapModuleFactory(moduleFactory)).toThrow('Test');
-           // Error rethrown will be seen by the exception handler since it's after
+           // Error rethrown will be seen by the exception handler since it is after
            // construction.
            expect(mockConsole.res[0].join('#')).toEqual('ERROR#Test');
          }));

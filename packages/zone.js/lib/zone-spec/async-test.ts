@@ -182,7 +182,7 @@ Zone.__load_patch('asynctest', (global: any, Zone: ZoneType, api: _ZonePrivate) 
    * complete when all asynchronous calls within this zone are done.
    */
   (Zone as any)[api.symbol('asyncTest')] = function asyncTest(fn: Function): (done: any) => any {
-    // If we're running using the Jasmine test framework, adapt to call the 'done'
+    // If we are running using the Jasmine test framework, adapt to call the 'done'
     // function when asynchronous activity is finished.
     if (global.jasmine) {
       // Not using an arrow function to preserve context passed from call site
@@ -244,9 +244,9 @@ Zone.__load_patch('asynctest', (global: any, Zone: ZoneType, api: _ZonePrivate) 
           () => {
             // Need to restore the original zone.
             if (proxyZoneSpec.getDelegate() == testZoneSpec) {
-              // Only reset the zone spec if it's
+              // Only reset the zone spec if it is
               // sill this one. Otherwise, assume
-              // it's OK.
+              // it is OK.
               proxyZoneSpec.setDelegate(previousDelegate);
             }
             (testZoneSpec as any).unPatchPromiseForTest();
@@ -257,7 +257,7 @@ Zone.__load_patch('asynctest', (global: any, Zone: ZoneType, api: _ZonePrivate) 
           (error: any) => {
             // Need to restore the original zone.
             if (proxyZoneSpec.getDelegate() == testZoneSpec) {
-              // Only reset the zone spec if it's sill this one. Otherwise, assume it's OK.
+              // Only reset the zone spec if it is sill this one. Otherwise, assume it is OK.
               proxyZoneSpec.setDelegate(previousDelegate);
             }
             (testZoneSpec as any).unPatchPromiseForTest();

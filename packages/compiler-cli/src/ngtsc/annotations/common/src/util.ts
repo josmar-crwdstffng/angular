@@ -269,7 +269,7 @@ export function resolveProvidersRequiringFactory(
     let tokenClass: Reference|null = null;
 
     if (Array.isArray(provider)) {
-      // If we ran into an array, recurse into it until we've resolve all the classes.
+      // If we ran into an array, recurse into it until we have resolve all the classes.
       provider.forEach(processProviders);
     } else if (provider instanceof Reference) {
       tokenClass = provider;
@@ -290,7 +290,7 @@ export function resolveProvidersRequiringFactory(
       const constructorParameters = reflector.getConstructorParameters(tokenClass.node);
 
       // Note that we only want to capture providers with a non-trivial constructor,
-      // because they're the ones that might be using DI and need to be decorated.
+      // because they are the ones that might be using DI and need to be decorated.
       if (constructorParameters !== null && constructorParameters.length > 0) {
         providers.add(tokenClass as Reference<ClassDeclaration>);
       }

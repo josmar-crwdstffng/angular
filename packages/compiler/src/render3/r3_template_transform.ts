@@ -151,7 +151,7 @@ class HtmlAstToIvyAst implements html.Visitor {
         // *-attributes
         if (elementHasInlineTemplate) {
           this.reportError(
-              `Can't have multiple template bindings on one element. Use only one attribute prefixed with *`,
+              `Cannot have multiple template bindings on one element. Use only one attribute prefixed with *`,
               attribute.sourceSpan);
         }
         isTemplateBinding = true;

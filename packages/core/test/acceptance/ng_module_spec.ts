@@ -253,7 +253,7 @@ describe('NgModule', () => {
       const fixture = TestBed.createComponent(MyComp);
       fixture.detectChanges();
       expect(spy.calls.mostRecent().args[0])
-          .toMatch(/Can't bind to 'unknown-prop' since it isn't a known property of 'div'/);
+          .toMatch(/Cannot bind to 'unknown-prop' since it is not a known property of 'div'/);
     });
     it('should throw an error with errorOnUnknownProperties on unknown props if NO_ERRORS_SCHEMA is absent',
        () => {
@@ -441,7 +441,7 @@ describe('NgModule', () => {
       fixture.detectChanges();
 
       expect(spy.calls.mostRecent()?.args[0])
-          .toMatch(/Can't bind to 'unknownProp' since it isn't a known property of 'ng-content'/);
+          .toMatch(/Cannot bind to 'unknownProp' since it is not a known property of 'ng-content'/);
     });
 
     it('should throw an error on unknown property bindings on ng-content when errorOnUnknownProperties is enabled',
@@ -471,7 +471,7 @@ describe('NgModule', () => {
 
       expect(spy.calls.mostRecent()?.args[0])
           .toMatch(
-              /Can't bind to 'unknown-prop' since it isn't a known property of 'ng-container'/);
+              /Cannot bind to 'unknown-prop' since it is not a known property of 'ng-container'/);
     });
 
     it('should throw error on unknown property bindings on ng-container when errorOnUnknownProperties is enabled',

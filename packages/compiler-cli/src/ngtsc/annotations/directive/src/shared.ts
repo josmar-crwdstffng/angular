@@ -59,7 +59,7 @@ export function extractDirectiveMetadata(
   }
 
   if (directive.has('jit')) {
-    // The only allowed value is true, so there's no need to expand further.
+    // The only allowed value is true, so there is no need to expand further.
     return undefined;
   }
 
@@ -347,8 +347,8 @@ export function extractHostBindings(
           }
 
           // Since this is a decorator, we know that the value is a class member. Always access it
-          // through `this` so that further down the line it can't be confused for a literal value
-          // (e.g. if there's a property called `true`). There is no size penalty, because all
+          // through `this` so that further down the line it cannot be confused for a literal value
+          // (e.g. if there is a property called `true`). There is no size penalty, because all
           // values (except literals) are converted to `ctx.propName` eventually.
           bindings.properties[hostPropertyName] = getSafePropertyAccessString('this', member.name);
         });
@@ -535,7 +535,7 @@ function parseDecoratedFields(
   return fields.reduce((results, field) => {
     const fieldName = field.member.name;
     field.decorators.forEach(decorator => {
-      // The decorator either doesn't have an argument (@Input()) in which case the property
+      // The decorator either does not have an argument (@Input()) in which case the property
       // name is used, or it has one argument (@Output('named')).
       if (decorator.args == null || decorator.args.length === 0) {
         results[fieldName] = fieldName;

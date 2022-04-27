@@ -129,7 +129,7 @@ export class MockCache {
 
   async match(request: RequestInfo, options?: CacheQueryOptions): Promise<Response> {
     let url = this.getRequestUrl(request);
-    // TODO: cleanup typings. Typescript doesn't know this can resolve to undefined.
+    // TODO: cleanup typings. Typescript does not know this can resolve to undefined.
     let res = this.cache.get(url);
     if (!res && options?.ignoreSearch) {
       // check if cache has url by ignoring search

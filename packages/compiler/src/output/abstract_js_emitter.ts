@@ -16,7 +16,7 @@ import * as o from './output_ast';
  * typically constructed with a function called `__makeTemplateObject(cooked, raw)`, but it may not
  * be available in all environments.
  *
- * This is a JavaScript polyfill that uses __makeTemplateObject when it's available, but otherwise
+ * This is a JavaScript polyfill that uses __makeTemplateObject when it is available, but otherwise
  * creates an inline helper with the same functionality.
  *
  * In the inline function, if `Object.defineProperty` is available we use that to attach the `raw`

@@ -196,10 +196,10 @@ export function renderDetachView(tView: TView, lView: LView) {
  * call onDestroy callbacks.
  *
  * Notes:
- *  - Because it's used for onDestroy calls, it needs to be bottom-up.
+ *  - Because it is used for onDestroy calls, it needs to be bottom-up.
  *  - Must process containers instead of their views to avoid splicing
  *  when views are destroyed and re-added.
- *  - Using a while loop because it's faster than recursion
+ *  - Using a while loop because it is faster than recursion
  *  - Destroy only called on movement to sibling or movement to parent (laterally or up)
  *
  *  @param rootView The view to destroy
@@ -247,7 +247,7 @@ export function destroyViewTree(rootView: LView): void {
  * Inserts a view into a container.
  *
  * This adds the view to the container's array of active views in the correct
- * position. It also adds the view's elements to the DOM if the container isn't a
+ * position. It also adds the view's elements to the DOM if the container is not a
  * root node of another view (in that case, the view's elements will be added when
  * the container's parent view is added later).
  *
@@ -413,7 +413,7 @@ export function destroyLView(tView: TView, lView: LView) {
 function cleanUpView(tView: TView, lView: LView): void {
   if (!(lView[FLAGS] & LViewFlags.Destroyed)) {
     // Usually the Attached flag is removed when the view is detached from its parent, however
-    // if it's a root view, the flag won't be unset hence why we're also removing on destroy.
+    // if it is a root view, the flag won't be unset hence why we are also removing on destroy.
     lView[FLAGS] &= ~LViewFlags.Attached;
 
     // Mark the LView as destroyed *before* executing the onDestroy hooks. An onDestroy hook
@@ -556,7 +556,7 @@ export function getParentRElement(tView: TView, tNode: TNode, lView: LView): REl
 }
 
 /**
- * Get closest `RElement` or `null` if it can't be found.
+ * Get closest `RElement` or `null` if it cannot be found.
  *
  * If `TNode` is `TNodeType.Element` => return `RElement` at `LView[tNode.index]` location.
  * If `TNode` is `TNodeType.ElementContainer|IcuContain` => return the parent (recursively).
@@ -568,12 +568,12 @@ export function getParentRElement(tView: TView, tNode: TNode, lView: LView): REl
  * @param tNode: `TNode` for which we wish to retrieve `RElement` (or `null` if host element is
  *     needed).
  * @param lView: Current `LView`.
- * @returns `null` if the `RElement` can't be determined at this time (no parent / projection)
+ * @returns `null` if the `RElement` cannot be determined at this time (no parent / projection)
  */
 export function getClosestRElement(tView: TView, tNode: TNode|null, lView: LView): RElement|null {
   let parentTNode: TNode|null = tNode;
   // Skip over element and ICU containers as those are represented by a comment node and
-  // can't be used as a render parent.
+  // cannot be used as a render parent.
   while (parentTNode !== null &&
          (parentTNode.type & (TNodeType.ElementContainer | TNodeType.Icu))) {
     tNode = parentTNode;
@@ -592,10 +592,10 @@ export function getClosestRElement(tView: TView, tNode: TNode|null, lView: LView
       ngDevMode && assertTNodeForLView(parentTNode, lView);
       const encapsulation =
           (tView.data[parentTNode.directiveStart] as ComponentDef<unknown>).encapsulation;
-      // We've got a parent which is an element in the current view. We just need to verify if the
+      // We have got a parent which is an element in the current view. We just need to verify if the
       // parent element is not a component. Component's content nodes are not inserted immediately
       // because they will be projected, and so doing insert at this point would be wasteful.
-      // Since the projection would then move it to its final destination. Note that we can't
+      // Since the projection would then move it to its final destination. Note that we cannot
       // make this assumption when using the Shadow DOM, because the native projection placeholders
       // (<content> or <slot>) have to be in place as elements are being inserted.
       if (encapsulation === ViewEncapsulation.None ||

@@ -6,10 +6,10 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
-import {Location} from '@angular/common';
+import {Location, PopStateEvent} from '@angular/common';
 import {Compiler, Injectable, Injector, NgModuleRef, NgZone, Type, ɵConsole as Console} from '@angular/core';
-import {BehaviorSubject, combineLatest, EMPTY, Observable, of, Subject, SubscriptionLike} from 'rxjs';
-import {catchError, defaultIfEmpty, filter, finalize, map, switchMap, take, tap} from 'rxjs/operators';
+import {BehaviorSubject, EMPTY, Observable, of, Subject, SubscriptionLike} from 'rxjs';
+import {catchError, filter, finalize, map, switchMap, tap} from 'rxjs/operators';
 
 import {createRouterState} from './create_router_state';
 import {createUrlTree} from './create_url_tree';
@@ -25,7 +25,7 @@ import {TitleStrategy} from './page_title_strategy';
 import {DefaultRouteReuseStrategy, RouteReuseStrategy} from './route_reuse_strategy';
 import {RouterConfigLoader} from './router_config_loader';
 import {ChildrenOutletContexts} from './router_outlet_context';
-import {ActivatedRoute, ActivatedRouteSnapshot, createEmptyState, RouterState, RouterStateSnapshot} from './router_state';
+import {ActivatedRoute, createEmptyState, RouterState, RouterStateSnapshot} from './router_state';
 import {isNavigationCancelingError, navigationCancelingError, Params} from './shared';
 import {DefaultUrlHandlingStrategy, UrlHandlingStrategy} from './url_handling_strategy';
 import {containsTree, createEmptyUrlTree, IsActiveMatchOptions, UrlSerializer, UrlTree} from './url_tree';
@@ -392,7 +392,7 @@ export const subsetMatchOptions: IsActiveMatchOptions = {
 export class Router {
   /**
    * Represents the activated `UrlTree` that the `Router` is configured to handle (through
-   * `UrlHandlingStrategy`). That is, after we find the route config tree that we're going to
+   * `UrlHandlingStrategy`). That is, after we find the route config tree that we are going to
    * activate, run guards, and are just about to activate the route, we set the currentUrlTree.
    *
    * This should match the `browserUrlTree` when a navigation succeeds. If the
@@ -402,7 +402,7 @@ export class Router {
   /**
    * Meant to represent the entire browser url after a successful navigation. In the life of a
    * navigation transition:
-   * 1. The rawUrl represents the full URL that's being navigated to
+   * 1. The rawUrl represents the full URL that is being navigated to
    * 2. We apply redirects, which might only apply to _part_ of the URL (due to
    * `UrlHandlingStrategy`).
    * 3. Right before activation (because we assume activation will succeed), we update the
@@ -476,7 +476,7 @@ export class Router {
    * A handler for errors thrown by `Router.parseUrl(url)`
    * when `url` contains an invalid character.
    * The most common case is a `%` sign
-   * that's not encoded and is not part of a percent encoded sequence.
+   * that is not encoded and is not part of a percent encoded sequence.
    */
   malformedUriErrorHandler:
       (error: URIError, urlSerializer: UrlSerializer,
@@ -884,30 +884,6 @@ export class Router {
                        });
                      }),
 
-                     // --- LOAD COMPONENTS ---
-                     switchTap((t: NavigationTransition) => {
-                       const loadComponents =
-                           (route: ActivatedRouteSnapshot): Array<Observable<void>> => {
-                             const loaders: Array<Observable<void>> = [];
-                             if (route.routeConfig?.loadComponent &&
-                                 !route.routeConfig._loadedComponent) {
-                               loaders.push(this.configLoader.loadComponent(route.routeConfig)
-                                                .pipe(
-                                                    tap(loadedComponent => {
-                                                      route.component = loadedComponent;
-                                                    }),
-                                                    map(() => void 0),
-                                                    ));
-                             }
-                             for (const child of route.children) {
-                               loaders.push(...loadComponents(child));
-                             }
-                             return loaders;
-                           };
-                       return combineLatest(loadComponents(t.targetSnapshot!.root))
-                           .pipe(defaultIfEmpty(), take(1));
-                     }),
-
                      map((t: NavigationTransition) => {
                        const targetRouterState = createRouterState(
                            this.routeReuseStrategy, t.targetSnapshot!, t.currentRouterState);
@@ -971,7 +947,7 @@ export class Router {
                        // return a new object rather than modifying the one in the outermost
                        // `switchMap`.
                        //  The fix can likely be to:
-                       //  1. Rename the outer `t` variable so it's not shadowed all the time and
+                       //  1. Rename the outer `t` variable so it is not shadowed all the time and
                        //  confusing
                        //  2. Keep reassigning to the outer variable after each stage to ensure it
                        //  gets updated. Or change the implementations to not return a copy.
@@ -983,9 +959,9 @@ export class Router {
                        if (isNavigationCancelingError(e)) {
                          const redirecting = isUrlTree(e.url);
                          if (!redirecting) {
-                           // Set property only if we're not redirecting. If we landed on a page and
-                           // redirect to `/` route, the new navigation is going to see the `/`
-                           // isn't a change from the default currentUrlTree and won't navigate.
+                           // Set property only if we are not redirecting. If we landed on a page
+                           // and redirect to `/` route, the new navigation is going to see the `/`
+                           // is not a change from the default currentUrlTree and won't navigate.
                            // This is only applicable with initial navigation, so setting
                            // `navigated` only when not redirecting resolves this scenario.
                            this.navigated = true;
@@ -1000,21 +976,27 @@ export class Router {
                          if (!redirecting) {
                            t.resolve(false);
                          } else {
-                           const mergedTree =
-                               this.urlHandlingStrategy.merge(e.url, this.rawUrlTree);
-                           const extras = {
-                             skipLocationChange: t.extras.skipLocationChange,
-                             // The URL is already updated at this point if we have 'eager' URL
-                             // updates or if the navigation was triggered by the browser (back
-                             // button, URL bar, etc). We want to replace that item in history if
-                             // the navigation is rejected.
-                             replaceUrl: this.urlUpdateStrategy === 'eager' ||
-                                 isBrowserTriggeredNavigation(t.source)
-                           };
+                           // setTimeout is required so this navigation finishes with
+                           // the return EMPTY below. If it is not allowed to finish
+                           // processing, there can be multiple navigations to the same
+                           // URL.
+                           setTimeout(() => {
+                             const mergedTree =
+                                 this.urlHandlingStrategy.merge(e.url, this.rawUrlTree);
+                             const extras = {
+                               skipLocationChange: t.extras.skipLocationChange,
+                               // The URL is already updated at this point if we have 'eager' URL
+                               // updates or if the navigation was triggered by the browser (back
+                               // button, URL bar, etc). We want to replace that item in history if
+                               // the navigation is rejected.
+                               replaceUrl: this.urlUpdateStrategy === 'eager' ||
+                                   isBrowserTriggeredNavigation(t.source)
+                             };
 
-                           this.scheduleNavigation(
-                               mergedTree, 'imperative', null, extras,
-                               {resolve: t.resolve, reject: t.reject, promise: t.promise});
+                             this.scheduleNavigation(
+                                 mergedTree, 'imperative', null, extras,
+                                 {resolve: t.resolve, reject: t.reject, promise: t.promise});
+                           }, 0);
                          }
 
                          /* All other errors should reset to the router's internal URL reference to
@@ -1413,7 +1395,7 @@ export class Router {
       if (restoredState && restoredState.ɵrouterPageId) {
         targetPageId = restoredState.ɵrouterPageId;
       } else {
-        // If we're replacing the URL or doing a silent navigation, we do not want to increment the
+        // If we are replacing the URL or doing a silent navigation, we do not want to increment the
         // page id because we aren't pushing a new entry to history.
         if (extras.replaceUrl || extras.skipLocationChange) {
           targetPageId = this.browserPageId ?? 0;
@@ -1488,7 +1470,7 @@ export class Router {
         this.resetUrlToCurrentUrlTree();
       } else {
         // The browser URL and router state was not updated before the navigation cancelled so
-        // there's no restoration needed.
+        // there is no restoration needed.
       }
     } else if (this.canceledNavigationResolution === 'replace') {
       // TODO(atscott): It seems like we should _always_ reset the state here. It would be a no-op

@@ -54,7 +54,7 @@ describe(
                 const fetchZone = Zone.current;
                 expect(fetchZone.name).toBe(testZone.name);
 
-                // Android 4.3- doesn't support response.blob()
+                // Android 4.3- does not support response.blob()
                 if (response.blob) {
                   response.blob().then(function(blob: any) {
                     expect(Zone.current.name).toBe(fetchZone.name);
@@ -75,7 +75,7 @@ describe(
                 const fetchZone = Zone.current;
                 expect(fetchZone.name).toBe(testZone.name);
 
-                // Android 4.3- doesn't support response.arrayBuffer()
+                // Android 4.3- does not support response.arrayBuffer()
                 if (response.arrayBuffer) {
                   response.arrayBuffer().then(function(blob: any) {
                     expect(Zone.current).toBe(fetchZone);

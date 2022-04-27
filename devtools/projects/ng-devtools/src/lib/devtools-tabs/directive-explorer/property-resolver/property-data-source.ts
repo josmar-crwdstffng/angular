@@ -84,8 +84,8 @@ export class PropertyDataSource extends DataSource<FlatNode> {
   private _toggleNode(node: FlatNode, expand: boolean): void {
     const index = this.data.indexOf(node);
     // If we cannot find the current node, or the current node is not expandable
-    // or...if it's expandable but it does have a value, or we're collapsing
-    // we're not interested in fetching its children.
+    // or...if it is expandable but it does have a value, or we are collapsing
+    // we are not interested in fetching its children.
     if (index < 0 || !node.expandable || node.prop.descriptor.value || !expand) {
       return;
     }

@@ -71,7 +71,7 @@ Zone.__load_patch('jasmine', (global: any, Zone: ZoneType, api: _ZonePrivate) =>
             // it installs the browser rejection handler through the `global.addEventListener`.
             // This code may be run in the browser environment where `process` is not defined, and
             // this will lead to a runtime exception since Webpack 5 removed automatic Node.js
-            // polyfills. Note, that events are named differently, it's `unhandledRejection` in
+            // polyfills. Note, that events are named differently, it is `unhandledRejection` in
             // Node.js and `unhandledrejection` in the browser.
             const originalHandlers: any[] = isNode ? process.listeners('unhandledRejection') :
                                                      global.eventListeners('unhandledrejection');

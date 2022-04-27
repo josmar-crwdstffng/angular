@@ -53,7 +53,7 @@ describe('PhoneCat Application', () => {
         return phoneNameColumn.map((elem: ElementFinder) => elem.getText());
       }
 
-      await queryField.sendKeys('tablet');   // Let's narrow the dataset to make the assertions shorter
+      await queryField.sendKeys('tablet');   // Let us narrow the dataset to make the assertions shorter
       await waitForCount(phoneNameColumn, 2);
 
       expect(await getNames()).toEqual([

@@ -22,7 +22,7 @@ describe('SwUpdatesService', () => {
   // Helpers
   // NOTE:
   //   Because `SwUpdatesService` uses the `interval` operator, it needs to be instantiated and
-  //   destroyed inside the `fakeAsync` zone (when `fakeAsync` is used for the test). Thus, we can't
+  //   destroyed inside the `fakeAsync` zone (when `fakeAsync` is used for the test). Thus, we cannot
   //   run `setup()`/`tearDown()` in `beforeEach()`/`afterEach()` blocks. We use the `run()` helper
   //   to call them inside each test's zone.
   const setup = (isSwUpdateEnabled: boolean) => {

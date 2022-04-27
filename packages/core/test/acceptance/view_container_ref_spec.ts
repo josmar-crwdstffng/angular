@@ -262,12 +262,12 @@ describe('ViewContainerRef', () => {
       const vcrHostElement = fixture.nativeElement.querySelector('#vcr > div');
 
       expect(vcrHostElement.classList.contains('class-a')).toBe(true);
-      // `class-b` should not be present, since it's wrapped in `:not()` selector
+      // `class-b` should not be present, since it is wrapped in `:not()` selector
       expect(vcrHostElement.classList.contains('class-b')).toBe(false);
       expect(vcrHostElement.classList.contains('class-c')).toBe(true);
 
       expect(vcrHostElement.getAttribute('attr-a')).toBe('a');
-      // `attr-b` should not be present, since it's wrapped in `:not()` selector
+      // `attr-b` should not be present, since it is wrapped in `:not()` selector
       expect(vcrHostElement.getAttribute('attr-b')).toBe(null);
       expect(vcrHostElement.getAttribute('attr-c')).toBe('');
 
@@ -636,7 +636,7 @@ describe('ViewContainerRef', () => {
       const cmpt = fixture.componentInstance;
       const viewRef = cmpt.templates.first.createEmbeddedView({});
 
-      // ViewContainerRef is empty and we've got a reference to a view that was not attached
+      // ViewContainerRef is empty and we have got a reference to a view that was not attached
       // anywhere
       expect(cmpt.vcr.indexOf(viewRef)).toBe(-1);
 
@@ -1330,7 +1330,7 @@ describe('ViewContainerRef', () => {
       @Component({
         template: `
           <div>Some random content</div>
-          <!-- Note that it's important for the test that the <svg> element is last. -->
+          <!-- Note that it is important for the test that the <svg> element is last. -->
           <svg></svg>
         `
       })
@@ -1347,7 +1347,7 @@ describe('ViewContainerRef', () => {
       TestBed.configureTestingModule({declarations: [DynamicComponent]});
       const fixture = TestBed.createComponent(TestComp);
 
-      // Note: it's important that we **don't** call `fixture.detectChanges` between here and
+      // Note: it is important that we **don't** call `fixture.detectChanges` between here and
       // the component being created, because running change detection will reset Ivy's
       // namespace state which will make the test pass.
 
@@ -1504,7 +1504,7 @@ describe('ViewContainerRef', () => {
               MyClassWithoutComponentDecorator);
         };
         expect(createComponent)
-            .toThrowError(/Provided Component class doesn't contain Component definition./);
+            .toThrowError(/Provided Component class does not contain Component definition./);
       });
 
       describe('`options` argument handling', () => {

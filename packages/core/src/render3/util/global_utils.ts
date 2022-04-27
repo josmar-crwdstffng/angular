@@ -8,6 +8,7 @@
 import {assertDefined} from '../../util/assert';
 import {global} from '../../util/global';
 import {setProfiler} from '../profiler';
+
 import {applyChanges} from './change_detection_utils';
 import {getComponent, getContext, getDirectiveMetadata, getDirectives, getHostElement, getInjector, getListeners, getOwningComponent, getRootComponents} from './discovery_utils';
 
@@ -70,9 +71,9 @@ export declare type GlobalDevModeContainer = {
  */
 export function publishGlobalUtil(name: string, fn: Function): void {
   if (typeof COMPILED === 'undefined' || !COMPILED) {
-    // Note: we can't export `ng` when using closure enhanced optimization as:
+    // Note: we cannot export `ng` when using closure enhanced optimization as:
     // - closure declares globals itself for minified names, which sometimes clobber our `ng` global
-    // - we can't declare a closure extern as the namespace `ng` is already used within Google
+    // - we cannot declare a closure extern as the namespace `ng` is already used within Google
     //   for typings for AngularJS (via `goog.provide('ng....')`).
     const w = global as any as GlobalDevModeContainer;
     ngDevMode && assertDefined(fn, 'function not defined');

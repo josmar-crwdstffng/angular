@@ -14,7 +14,7 @@ import {invalidPipeArgumentError} from './invalid_pipe_argument_error';
 
 /**
  * Optionally-provided default timezone to use for all instances of `DatePipe` (such as `'+0430'`).
- * If the value isn't provided, the `DatePipe` will use the end-user's local system timezone.
+ * If the value is not provided, the `DatePipe` will use the end-user's local system timezone.
  */
 export const DATE_PIPE_DEFAULT_TIMEZONE = new InjectionToken<string>('DATE_PIPE_DEFAULT_TIMEZONE');
 

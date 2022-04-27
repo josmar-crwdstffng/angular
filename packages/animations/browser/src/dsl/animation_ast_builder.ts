@@ -27,7 +27,7 @@ const SELF_TOKEN_REGEX = new RegExp(`\s*${SELF_TOKEN}\s*,?`, 'g');
  * following corner-cases will be validated:
  *
  * 1. Overlap of animations
- * Given that a CSS property cannot be animated in more than one place at the same time, it's
+ * Given that a CSS property cannot be animated in more than one place at the same time, it is
  * important that this behavior is detected and validated. The way in which this occurs is that
  * each time a style property is examined, a string-map containing the property will be updated with
  * the start and end times for when the property is used within an animation step.

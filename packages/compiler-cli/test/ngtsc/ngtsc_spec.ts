@@ -477,7 +477,7 @@ function allTests(os: string) {
     });
 
     // This test triggers the Tsickle compiler which asserts that the file-paths
-    // are valid for the real OS. When on non-Windows systems it doesn't like paths
+    // are valid for the real OS. When on non-Windows systems it does not like paths
     // that start with `C:`.
     if (os !== 'Windows' || platform() === 'win32') {
       describe('when closure annotations are requested', () => {
@@ -2537,7 +2537,7 @@ function allTests(os: string) {
 
         it('should report an error when using a missing type as injection token', () => {
           // This test replicates the situation where a symbol does not have any
-          // declarations at all, e.g. because it's imported from a missing module. This
+          // declarations at all, e.g. because it is imported from a missing module. This
           // would result in a semantic TypeScript diagnostic which we ignore in this
           // test to verify that ngtsc's analysis is able to operate in this situation.
           env.tsconfig({strictInjectionParameters: true});
@@ -3382,8 +3382,8 @@ function allTests(os: string) {
       expect(jsContents).toMatch(contentQueryRegExp('\\w+', 5, 'TemplateRef'));
 
       // match `i0.ɵɵviewQuery(_c2, 5)`
-      // Note that while ViewQuery doesn't necessarily make sense on a directive,
-      // because it doesn't have a view, we still need to handle it because a component
+      // Note that while ViewQuery does not necessarily make sense on a directive,
+      // because it does not have a view, we still need to handle it because a component
       // could extend the directive.
       expect(jsContents).toMatch(viewQueryRegExp('\\w+', 5));
     });
@@ -4188,7 +4188,7 @@ function allTests(os: string) {
           export class TestModule {}
       `);
 
-        // Trick the compiler into thinking it's compiling @angular/core.
+        // Trick the compiler into thinking it is compiling @angular/core.
         env.write('r3_symbols.ts', 'export const ITS_JUST_ANGULAR = true;');
 
         env.driveMain();
@@ -4744,7 +4744,7 @@ function allTests(os: string) {
          env.driveMain();
          const jsContents = trim(env.getContents('test.js'));
          expect(jsContents).not.toContain(`import { MyType } from './types';`);
-         // Note: `type: undefined` below, since MyType can't be represented as a value
+         // Note: `type: undefined` below, since MyType cannot be represented as a value
          expect(jsContents).toMatch(setClassMetadataRegExp('type: undefined'));
        });
 
@@ -4768,7 +4768,7 @@ function allTests(os: string) {
       env.driveMain();
       const jsContents = trim(env.getContents('test.js'));
       expect(jsContents).not.toContain(`import { KeyCodes } from './keycodes';`);
-      // Note: `type: undefined` below, since KeyCodes can't be represented as a value
+      // Note: `type: undefined` below, since KeyCodes cannot be represented as a value
       expect(jsContents).toMatch(setClassMetadataRegExp('type: undefined'));
     });
 
@@ -5682,7 +5682,7 @@ function allTests(os: string) {
         @NgModule({declarations: [Dir], exports: [Dir]})
         class DirModule {}
 
-        // This module is, but it doesn't re-export the module, so it doesn't make the module and
+        // This module is, but it does not re-export the module, so it does not make the module and
         // directive visible.
         @NgModule({imports: [DirModule]})
         export class Module {}
@@ -6051,7 +6051,7 @@ function allTests(os: string) {
     });
 
     // These tests trigger the Tsickle compiler which asserts that the file-paths
-    // are valid for the real OS. When on non-Windows systems it doesn't like paths
+    // are valid for the real OS. When on non-Windows systems it does not like paths
     // that start with `C:`.
     if (os !== 'Windows' || platform() === 'win32') {
       describe('@fileoverview Closure annotations', () => {
@@ -6837,7 +6837,7 @@ function allTests(os: string) {
             .toContain(
                 'styles: [' +
                 // This style is present in both components, but was not extracted into
-                // a separate var since it doesn't reach length threshold (50 chars) in
+                // a separate var since it does not reach length threshold (50 chars) in
                 // `ConstantPool`.
                 '"span[_ngcontent-%COMP%] { font-size: larger; }", ' +
                 // Style that is present in both components, but reaches length
@@ -6851,7 +6851,7 @@ function allTests(os: string) {
             .toContain(
                 'styles: [' +
                 // This style is present in both components, but was not extracted into
-                // a separate var since it doesn't reach length threshold (50 chars) in
+                // a separate var since it does not reach length threshold (50 chars) in
                 // `ConstantPool`.
                 '"span[_ngcontent-%COMP%] { font-size: larger; }", ' +
                 // Style that is present in both components, but reaches length

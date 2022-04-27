@@ -102,7 +102,7 @@ export function i18nStartFirstCreatePass(
           // not succeed (thus `icuExpression` remains a string).
           // Note: we intentionally retain the error here by not using `ngDevMode`, because
           // the value can change based on the locale and users aren't guaranteed to hit
-          // an invalid string while they're developing.
+          // an invalid string while they are developing.
           if (typeof icuExpression !== 'object') {
             throw new Error(`Unable to parse ICU expression in "${message}" message.`);
           }
@@ -167,7 +167,7 @@ function createTNodeAndAddOpCode(
   }
   if (parentTNode === null) {
     // If we don't have a parent that means that we can eagerly add nodes.
-    // If we have a parent than these nodes can't be added now (as the parent has not been created
+    // If we have a parent than these nodes cannot be added now (as the parent has not been created
     // yet) and instead the `parentTNode` is responsible for adding it. See
     // `TNode.insertBeforeIndex`
     opCode |= I18nCreateOpCode.APPEND_EAGERLY;
@@ -239,11 +239,11 @@ export function i18nAttributesFirstPass(tView: TView, index: number, values: str
       const message = values[i + 1];
 
       if (message !== '') {
-        // Check if attribute value contains an ICU and throw an error if that's the case.
+        // Check if attribute value contains an ICU and throw an error if that is the case.
         // ICUs in element attributes are not supported.
         // Note: we intentionally retain the error here by not using `ngDevMode`, because
         // the `value` can change based on the locale and users aren't guaranteed to hit
-        // an invalid string while they're developing.
+        // an invalid string while they are developing.
         if (ICU_REGEXP.test(message)) {
           throw new Error(
               `ICU expressions are not supported in attributes. Message: "${message}".`);
@@ -529,7 +529,7 @@ export function i18nParseTextIntoPartsAndICU(pattern: string): (string|IcuExpres
   const braceStack = [];
   const results: (string|IcuExpression)[] = [];
   const braces = /[{}]/g;
-  // lastIndex doesn't get set to 0 so we have to.
+  // lastIndex does not get set to 0 so we have to.
   braces.lastIndex = 0;
 
   let match;
@@ -618,7 +618,7 @@ function walkIcuTree(
             const attr = elAttrs.item(i)!;
             const lowerAttrName = attr.name.toLowerCase();
             const hasBinding = !!attr.value.match(BINDING_REGEXP);
-            // we assume the input string is safe, unless it's using a binding
+            // we assume the input string is safe, unless it is using a binding
             if (hasBinding) {
               if (VALID_ATTRS.hasOwnProperty(lowerAttrName)) {
                 if (URI_ATTRS[lowerAttrName]) {

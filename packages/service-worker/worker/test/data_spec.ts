@@ -288,7 +288,7 @@ describe('data cache', () => {
 
       await serverUpdate.nextRequest;
 
-      // Since the network request doesn't return within the timeout of 1,000ms,
+      // Since the network request does not return within the timeout of 1,000ms,
       // this should return cached data.
       scope.advance(2000);
 
@@ -387,7 +387,7 @@ describe('data cache', () => {
 
       await serverUpdate.nextRequest;
 
-      // Since the network request doesn't return within the timeout of 1,000ms,
+      // Since the network request does not return within the timeout of 1,000ms,
       // this should return cached data.
       scope.advance(2000);
       await res;

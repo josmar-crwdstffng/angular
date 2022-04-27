@@ -236,7 +236,7 @@ export function compileComponentFromMetadata(
     meta.encapsulation = core.ViewEncapsulation.None;
   }
 
-  // Only set view encapsulation if it's not the default value
+  // Only set view encapsulation if it is not the default value
   if (meta.encapsulation !== core.ViewEncapsulation.Emulated) {
     definitionMap.set('encapsulation', o.literal(meta.encapsulation));
   }
@@ -247,7 +247,7 @@ export function compileComponentFromMetadata(
         'data', o.literalMap([{key: 'animation', value: meta.animations, quoted: false}]));
   }
 
-  // Only set the change detection flag if it's defined and it's not the default.
+  // Only set the change detection flag if it is defined and it is not the default.
   if (changeDetection != null && changeDetection !== core.ChangeDetectionStrategy.Default) {
     definitionMap.set('changeDetection', o.literal(changeDetection));
   }
@@ -595,7 +595,7 @@ function createHostBindingsFunction(
         {reference: R3.syntheticHostProperty, paramsOrFn: bindingParams, span: null});
   }
 
-  // since we're dealing with directives/components and both have hostBinding
+  // since we are dealing with directives/components and both have hostBinding
   // functions, we need to generate a special hostAttrs instruction that deals
   // with both the assignment of styling as well as static attributes to the host
   // element. The instruction below will instruct all initial styling (styling

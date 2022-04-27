@@ -77,7 +77,7 @@ export function getComponent<T>(element: Element): T|null {
  * owns the element (in this case, the result is the same as calling `getOwningComponent`).
  *
  * @param element Element for which to get the surrounding component instance.
- * @returns Instance of the component that is around the element or null if the element isn't
+ * @returns Instance of the component that is around the element or null if the element is not
  *    inside any component.
  *
  * @publicApi
@@ -206,7 +206,7 @@ export function getInjectionTokens(element: Element): any[] {
  * @globalApi ng
  */
 export function getDirectives(node: Node): {}[] {
-  // Skip text nodes because we can't have directives associated with them.
+  // Skip text nodes because we cannot have directives associated with them.
   if (node instanceof Text) {
     return [];
   }

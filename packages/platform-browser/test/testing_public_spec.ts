@@ -795,7 +795,7 @@ const bTok = new InjectionToken<string>('b');
         describe('providers', () => {
           // TODO(alxhub): disable while we figure out how this should work
           xit('should use set up providers', fakeAsync(() => {
-                // Keeping this component inside the test is needed to make sure it's not resolved
+                // Keeping this component inside the test is needed to make sure it is not resolved
                 // prior to this test, thus having ɵcmp and a reference in resource
                 // resolution queue. This is done to check external resoution logic in isolation by
                 // configuring TestBed with the necessary ResourceLoader instance.
@@ -917,7 +917,7 @@ Did you run and wait for 'resolveComponentResources()'?`);
           const fixture = TestBed.createComponent(ComponentUsingInvalidProperty);
           fixture.detectChanges();
         })();
-        expect(spy.calls.mostRecent().args[0]).toMatch(/Can't bind to 'someUnknownProp'/);
+        expect(spy.calls.mostRecent().args[0]).toMatch(/Cannot bind to 'someUnknownProp'/);
       });
     });
 

@@ -168,7 +168,7 @@ describe('ComponentFactoryNgElementStrategy', () => {
       strategy.setInputValue('fooFoo', 'fooFoo-1');
       expect(strategy.getInputValue('fooFoo')).toBe('fooFoo-1');
 
-      // Sanity check: componentRef isn't changed since its not even on the strategy
+      // Sanity check: componentRef is not changed since its not even on the strategy
       expect(componentRef.instance.fooFoo).toBe(undefined);
     });
 
@@ -367,7 +367,7 @@ describe('ComponentFactoryNgElementStrategy', () => {
     it('should be able to call if not connected', fakeAsync(() => {
          strategy.disconnect();
 
-         // Sanity check: the strategy doesn't have an instance of the componentRef anyways
+         // Sanity check: the strategy does not have an instance of the componentRef anyways
          expect(componentRef.destroy).not.toHaveBeenCalled();
        }));
 

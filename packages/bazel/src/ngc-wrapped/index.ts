@@ -342,10 +342,10 @@ export function compile({
     const flatModuleOutPath =
         path.posix.join(bazelOpts.package, compilerOpts.flatModuleOutFile + '.ts');
 
-    // The bundle index file is synthesized in bundle_index_host so it's not in the
+    // The bundle index file is synthesized in bundle_index_host so it is not in the
     // compilationTargetSrc.
     // However we still want to give it an AMD module name for devmode.
-    // We can't easily tell which file is the synthetic one, so we build up the path we expect
+    // We cannot easily tell which file is the synthetic one, so we build up the path we expect
     // it to have and compare against that.
     if (fileName === path.posix.join(compilerOpts.baseUrl, flatModuleOutPath)) return true;
 
@@ -373,7 +373,7 @@ export function compile({
   if (allDepsCompiledWithBazel) {
     // Note: The default implementation would work as well,
     // but we can be faster as we know how `toSummaryFileName` works.
-    // Note: We can't do this if some deps have been compiled with the command line,
+    // Note: We cannot do this if some deps have been compiled with the command line,
     // as that has a different implementation of fromSummaryFileName / toSummaryFileName
     ngHost.fromSummaryFileName = (fileName: string, referringLibFileName: string) => {
       const workspaceRelative = fileName.split('/').splice(1).join('/');
@@ -434,7 +434,7 @@ export function compile({
 
   if (bazelOpts.tsickleExternsPath) {
     // Note: when tsickleExternsPath is provided, we always write a file as a
-    // marker that compilation succeeded, even if it's empty (just containing an
+    // marker that compilation succeeded, even if it is empty (just containing an
     // @externs).
     fs.writeFileSync(bazelOpts.tsickleExternsPath, externs);
   }
@@ -601,7 +601,7 @@ export function patchNgHostWithFileNameToModuleName(
     // The ngsummary comes from an upstream ng_module rule.
     // The upstream rule based its imports on ngsummary file which was generated from a
     // metadata.json file that was published to npm in an Angular library.
-    // However, the ngsummary doesn't propagate the 'importAs' from the original metadata.json
+    // However, the ngsummary does not propagate the 'importAs' from the original metadata.json
     // so we would normally not be able to supply the correct module name for it.
     // For example, if the rootDir-relative filePath is
     //  node_modules/@angular/material/toolbar/typings/index

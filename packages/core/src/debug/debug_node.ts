@@ -201,7 +201,7 @@ export class DebugElement extends DebugNode {
     // that are set through `Renderer2`). The problem is that the browser will lowercase all names,
     // however since we have the attributes already on the TNode, we can preserve the case by going
     // through them once, adding them to the `attributes` map and putting their lower-cased name
-    // into an array. Afterwards when we're going through the native DOM attributes, we can check
+    // into an array. Afterwards when we are going through the native DOM attributes, we can check
     // whether we haven't run into an attribute already through the TNode.
     if (tNodeAttrs) {
       let i = 0;
@@ -335,7 +335,7 @@ export class DebugElement extends DebugNode {
    * Triggers the event by its name if there is a corresponding listener in the element's
    * `listeners` collection.
    *
-   * If the event lacks a listener or there's some other problem, consider
+   * If the event lacks a listener or there is some other problem, consider
    * calling `nativeElement.dispatchEvent(eventObject)`.
    *
    * @param eventName The name of the event to trigger
@@ -355,7 +355,7 @@ export class DebugElement extends DebugNode {
       }
     });
 
-    // We need to check whether `eventListeners` exists, because it's something
+    // We need to check whether `eventListeners` exists, because it is something
     // that Zone.js only adds to `EventTarget` in browser environments.
     if (typeof node.eventListeners === 'function') {
       // Note that in Ivy we wrap event listeners with a call to `event.preventDefault` in some
@@ -472,9 +472,9 @@ function _queryNodeChildren(
       }
 
       // We also have to query the DOM directly in order to catch elements inserted through
-      // Renderer2. Note that this is __not__ optimal, because we're walking similar trees multiple
+      // Renderer2. Note that this is __not__ optimal, because we are walking similar trees multiple
       // times. ViewEngine could do it more efficiently, because all the insertions go through
-      // Renderer2, however that's not the case in Ivy. This approach is being used because:
+      // Renderer2, however that is not the case in Ivy. This approach is being used because:
       // 1. Matching the ViewEngine behavior would mean potentially introducing a depedency
       //    from `Renderer2` to Ivy which could bring Ivy code into ViewEngine.
       // 2. We would have to make `Renderer3` "know" about debug nodes.

@@ -831,8 +831,8 @@ describe('downlevel decorator transform', () => {
     it('should not result in a stack overflow for a large number of files', () => {
       // The decorators transform used to patch `ts.EmitResolver.isReferencedAliasDeclaration`
       // repeatedly for each source file in the program, causing a stack overflow once a large
-      // number of source files was reached. This test verifies that emit succeeds even when there's
-      // lots of source files. See https://github.com/angular/angular/issues/40276.
+      // number of source files was reached. This test verifies that emit succeeds even when there
+      // is lots of source files. See https://github.com/angular/angular/issues/40276.
       context.writeFile('foo.d.ts', `
          export declare class Foo {};
        `);

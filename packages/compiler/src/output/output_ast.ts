@@ -1344,7 +1344,7 @@ export const enum JSDocTagName {
 }
 
 /*
- * TypeScript has an API for JSDoc already, but it's not exposed.
+ * TypeScript has an API for JSDoc already, but it is not exposed.
  * https://github.com/Microsoft/TypeScript/issues/7393
  * For now we create types that are similar to theirs so that migrating
  * to their API will be easier. See e.g. `ts.JSDocTag` and `ts.JSDocComment`.

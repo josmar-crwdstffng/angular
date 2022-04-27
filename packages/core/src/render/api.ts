@@ -56,7 +56,7 @@ export abstract class RendererFactory2 {
  * Create your custom renderer using `RendererFactory2`.
  *
  * Use a custom renderer to bypass Angular's templating and
- * make custom UI changes that can't be expressed declaratively.
+ * make custom UI changes that cannot be expressed declaratively.
  * For example if you need to set a property or an attribute whose name is
  * not statically known, use the `setProperty()` or
  * `setAttribute()` method.
@@ -146,7 +146,7 @@ export abstract class Renderer2 {
    * @returns The parent node, or null if there is no parent.
    * For WebWorkers, always returns true.
    * This is because the check is synchronous,
-   * and the caller can't rely on checking for null.
+   * and the caller cannot rely on checking for null.
    */
   abstract parentNode(node: any): any;
   /**
@@ -155,7 +155,7 @@ export abstract class Renderer2 {
    * @returns The sibling node, or null if there is no sibling.
    * For WebWorkers, always returns a value.
    * This is because the check is synchronous,
-   * and the caller can't rely on checking for null.
+   * and the caller cannot rely on checking for null.
    */
   abstract nextSibling(node: any): any;
   /**
@@ -251,8 +251,8 @@ function getOrCreateRenderer2(lView: LView): Renderer2 {
 
 /** Injects a Renderer2 for the current component. */
 export function injectRenderer2(): Renderer2 {
-  // We need the Renderer to be based on the component that it's being injected into, however since
-  // DI happens before we've entered its view, `getLView` will return the parent view instead.
+  // We need the Renderer to be based on the component that it is being injected into, however since
+  // DI happens before we have entered its view, `getLView` will return the parent view instead.
   const lView = getLView();
   const tNode = getCurrentTNode()!;
   const nodeAtIndex = getComponentLViewByIndex(tNode.index, lView);

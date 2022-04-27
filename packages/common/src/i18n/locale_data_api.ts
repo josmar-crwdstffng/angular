@@ -658,7 +658,7 @@ export function getCurrencySymbol(code: string, format: 'wide'|'narrow', locale 
   return currency[ɵCurrencyIndex.Symbol] || code;
 }
 
-// Most currencies have cents, that's why the default is 2
+// Most currencies have cents, that is why the default is 2
 const DEFAULT_NB_OF_CURRENCY_DIGITS = 2;
 
 /**

@@ -347,7 +347,7 @@ function getDefinitionForExpressionAtPosition(
     containerName: '',
     // Reading the template is expensive, so don't provide a preview.
     // TODO(ayazhafiz): Consider providing an actual span:
-    //  1. We're likely to read the template anyway
+    //  1. We are likely to read the template anyway
     //  2. We could show just the first 100 chars or so
     textSpan: {start: 0, length: 0},
     fileName: resourceForExpression.path,

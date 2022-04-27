@@ -56,7 +56,7 @@ export function ɵɵlistener(
  * synthetic host listener (e.g. `@HostListener('@foo.start')`) properly gets rendered
  * in the component's renderer. Normally all host listeners are evaluated with the
  * parent component's renderer, but, in the case of animation @triggers, they need
- * to be evaluated with the sub component's renderer (because that's where the
+ * to be evaluated with the sub component's renderer (because that is where the
  * animation triggers are defined).
  *
  * Do not use this instruction as a replacement for `listener`. This instruction
@@ -157,12 +157,12 @@ function listenerInternal(
       // we just register a first handler function as a native event listener and then chain
       // (coalesce) other handler functions on top of the first native handler function.
       let existingListener = null;
-      // Please note that the coalescing described here doesn't happen for events specifying an
+      // Please note that the coalescing described here does not happen for events specifying an
       // alternative target (ex. (document:click)) - this is to keep backward compatibility with the
       // view engine.
       // Also, we don't have to search for existing listeners is there are no directives
-      // matching on a given node as we can't register multiple event handlers for the same event in
-      // a template (this would mean having duplicate attributes).
+      // matching on a given node as we cannot register multiple event handlers for the same event
+      // in a template (this would mean having duplicate attributes).
       if (!eventTargetResolver && isTNodeDirectiveHost) {
         existingListener = findExistingListener(tView, lView, eventName, tNode.index);
       }

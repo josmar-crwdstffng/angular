@@ -131,7 +131,7 @@ export class NavigationService {
   }
 
   /**
-   * Add tooltip to node if it doesn't have one and have title.
+   * Add tooltip to node if it does not have one and have title.
    * If don't want tooltip, specify `"tooltip": ""` in navigation.json
    */
   private ensureHasTooltip(node: NavigationNode) {

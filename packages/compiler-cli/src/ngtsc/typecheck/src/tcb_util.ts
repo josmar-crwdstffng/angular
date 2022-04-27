@@ -62,7 +62,7 @@ export enum TcbInliningRequirement {
 
   /**
    * Inlining should be used due to the component's generic bounds, but a non-inlining fallback
-   * method can be used if that's not possible.
+   * method can be used if that is not possible.
    */
   ShouldInlineForGenericBounds,
 
@@ -137,7 +137,7 @@ export function findSourceLocation(
   // Search for comments until the TCB's function declaration is encountered.
   while (node !== undefined && !ts.isFunctionDeclaration(node)) {
     if (hasIgnoreForDiagnosticsMarker(node, sourceFile) && isDiagnosticsRequest) {
-      // There's an ignore marker on this node, so the diagnostic should not be reported.
+      // There is an ignore marker on this node, so the diagnostic should not be reported.
       return null;
     }
 
@@ -163,7 +163,7 @@ function getTemplateId(
   // Walk up to the function declaration of the TCB, the file information is attached there.
   while (!ts.isFunctionDeclaration(node)) {
     if (hasIgnoreForDiagnosticsMarker(node, sourceFile) && isDiagnosticRequest) {
-      // There's an ignore marker on this node, so the diagnostic should not be reported.
+      // There is an ignore marker on this node, so the diagnostic should not be reported.
       return null;
     }
     node = node.parent;

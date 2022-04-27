@@ -8,7 +8,7 @@
 
 import {global as _global} from './global';
 
-// When Symbol.iterator doesn't exist, retrieves the key used in es6-shim
+// When Symbol.iterator does not exist, retrieves the key used in es6-shim
 declare const Symbol: any;
 let _symbolIterator: any = null;
 export function getSymbolIterator(): string|symbol {

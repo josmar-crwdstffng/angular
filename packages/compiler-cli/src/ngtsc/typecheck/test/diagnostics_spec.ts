@@ -152,7 +152,7 @@ runInEachFileSystem(() => {
 
       expect(messages).toEqual([
         `TestComponent.html(1, 29): Property 'heihgt' does not exist on type 'TestComponent'. Did you mean 'height'?`,
-        `TestComponent.html(1, 6): Can't bind to 'srcc' since it isn't a known property of 'img'.`,
+        `TestComponent.html(1, 6): Cannot bind to 'srcc' since it is not a known property of 'img'.`,
       ]);
     });
 
@@ -212,8 +212,8 @@ runInEachFileSystem(() => {
     it('does not repeat diagnostics for missing pipes in directive inputs', () => {
       // The directive here is structured so that a type constructor is used, which results in each
       // input binding being processed twice. This results in the 'uppercase' pipe being resolved
-      // twice, and since it doesn't exist this operation will fail. The test is here to verify that
-      // failing to resolve the pipe twice only produces a single diagnostic (no duplicates).
+      // twice, and since it does not exist this operation will fail. The test is here to verify
+      // that failing to resolve the pipe twice only produces a single diagnostic (no duplicates).
       const messages = diagnose(
           '<div *dir="let x of name | uppercase"></div>', `
             class Dir<T> {

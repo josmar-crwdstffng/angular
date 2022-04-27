@@ -236,7 +236,7 @@ runInEachFileSystem(() => {
         }));
         const result = resolver.sortEntryPointsByDependency(
             getEntryPointsWithDeps(resolver, [first, second, sixthIgnoreMissing]));
-        // sixth has no missing dependencies, but it has _invalid_ dependencies, so it's not
+        // sixth has no missing dependencies, but it has _invalid_ dependencies, so it is not
         // compiled.
         expect(result.entryPoints).toEqual([]);
       });

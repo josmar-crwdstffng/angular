@@ -197,7 +197,7 @@ class MockNgZone extends NgZone {
 
              tick(200);
              ngZone.run(() => clearTimeout(id));
-             // fakeAsync doesn't trigger NgZones whenStable
+             // fakeAsync does not trigger NgZones whenStable
              ngZone.stable();
 
              tick(1);

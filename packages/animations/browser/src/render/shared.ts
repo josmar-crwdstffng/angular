@@ -23,9 +23,9 @@ export function isBrowser(): boolean {
 }
 
 export function isNode(): boolean {
-  // Checking only for `process` isn't enough to identify whether or not we're in a Node
+  // Checking only for `process` is not enough to identify whether or not we are in a Node
   // environment, because Webpack by default will polyfill the `process`. While we can discern
-  // that Webpack polyfilled it by looking at `process.browser`, it's very Webpack-specific and
+  // that Webpack polyfilled it by looking at `process.browser`, it is very Webpack-specific and
   // might not be future-proof. Instead we look at the stringified version of `process` which
   // is `[object process]` in Node and `[object Object]` when polyfilled.
   return typeof process !== 'undefined' && {}.toString.call(process) === '[object process]';
@@ -162,7 +162,7 @@ if (_isNode || typeof Element !== 'undefined') {
   if (!isBrowser()) {
     _contains = (elm1, elm2) => elm1.contains(elm2);
   } else {
-    // Read the document element in an IIFE that's been marked pure to avoid a top-level property
+    // Read the document element in an IIFE that is been marked pure to avoid a top-level property
     // read that may prevent tree-shaking.
     _documentElement = /* @__PURE__ */ (() => document.documentElement)();
     _contains = (elm1, elm2) => {

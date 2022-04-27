@@ -114,7 +114,7 @@ export interface PendingShimData {
 
 
   /**
-   * Map of `TemplateId` to information collected about the template as it's ingested.
+   * Map of `TemplateId` to information collected about the template as it is ingested.
    */
   templates: Map<TemplateId, TemplateData>;
 }
@@ -298,7 +298,7 @@ export class TypeCheckContextImpl implements TypeCheckContext {
         this.inlining === InliningMode.Error) {
       // It's suggested that this TCB should be generated inline due to the component's generic
       // bounds, but inlining is not supported by the current environment. Use a non-inline type
-      // check block, but fall back to `any` generic parameters since the generic bounds can't be
+      // check block, but fall back to `any` generic parameters since the generic bounds cannot be
       // referenced in that context. This will infer a less useful type for the component, but allow
       // for type-checking it in an environment where that would not be possible otherwise.
       shimData.file.addTypeCheckBlock(

@@ -401,7 +401,7 @@ function commonTests() {
       runNgZoneNoLog(() => macroTask(_log.fn('run')));
 
       // the only practical use-case to run a callback inside the zone is
-      // change detection after "onMicrotaskEmpty". That's the only case tested.
+      // change detection after "onMicrotaskEmpty". That is the only case tested.
       let turnDone = false;
       _zone.onMicrotaskEmpty.subscribe({
         next: () => {

@@ -29,9 +29,9 @@ export function dashCaseToCamelCase(input: string): string {
  */
 export function exportNgVar(name: string, value: any): void {
   if (typeof COMPILED === 'undefined' || !COMPILED) {
-    // Note: we can't export `ng` when using closure enhanced optimization as:
+    // Note: we cannot export `ng` when using closure enhanced optimization as:
     // - closure declares globals itself for minified names, which sometimes clobber our `ng` global
-    // - we can't declare a closure extern as the namespace `ng` is already used within Google
+    // - we cannot declare a closure extern as the namespace `ng` is already used within Google
     //   for typings for angularJS (via `goog.provide('ng....')`).
     const ng = global['ng'] = (global['ng'] as {[key: string]: any} | undefined) || {};
     ng[name] = value;

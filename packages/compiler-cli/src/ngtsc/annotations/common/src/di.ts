@@ -105,8 +105,8 @@ export function getConstructorDependencies(
 
 
 /**
- * Convert `ConstructorDeps` into the `R3DependencyMetadata` array for those deps if they're valid,
- * or into an `'invalid'` signal if they're not.
+ * Convert `ConstructorDeps` into the `R3DependencyMetadata` array for those deps if they are valid,
+ * or into an `'invalid'` signal if they are not.
  *
  * This is a companion function to `validateConstructorDependencies` which accepts invalid deps.
  */
@@ -144,7 +144,7 @@ export function validateConstructorDependencies(
   } else if (deps.deps !== null) {
     return deps.deps;
   } else {
-    // TODO(alxhub): this cast is necessary because the g3 typescript version doesn't narrow here.
+    // TODO(alxhub): this cast is necessary because the g3 typescript version does not narrow here.
     // There is at least one error.
     const error = (deps as {errors: ConstructorDepError[]}).errors[0];
     throw createUnsuitableInjectionTokenError(clazz, error);

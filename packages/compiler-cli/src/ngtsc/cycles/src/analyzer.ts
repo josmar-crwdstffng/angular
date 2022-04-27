@@ -44,7 +44,7 @@ export class CycleAnalyzer {
   /**
    * Record a synthetic import from `from` to `to`.
    *
-   * This is an import that doesn't exist in the `ts.Program` but will be considered as part of the
+   * This is an import that does not exist in the `ts.Program` but will be considered as part of the
    * import graph for cycle creation.
    */
   recordSyntheticImport(from: ts.SourceFile, to: ts.SourceFile): void {

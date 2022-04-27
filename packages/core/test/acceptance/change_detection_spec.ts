@@ -434,7 +434,7 @@ describe('change detection', () => {
 
       fixture.detectChanges();
       expect(parent.doCheckCount).toEqual(2);
-      // parent isn't checked, so child doCheck won't run
+      // parent is not checked, so child doCheck won't run
       expect(comp.doCheckCount).toEqual(1);
       expect(fixture.nativeElement.textContent.trim()).toEqual('1 - 1 - Nancy');
 
@@ -575,7 +575,7 @@ describe('change detection', () => {
            fixture.componentInstance.cdr.detectChanges();
            expect(fixture.componentInstance.doCheckCount).toEqual(1);
            expect(fixture.componentInstance.myComp.doCheckCount).toEqual(2);
-           // OnPush child is not dirty, so its change isn't rendered.
+           // OnPush child is not dirty, so its change is not rendered.
            expect(fixture.nativeElement.textContent).toEqual('1 - Nancy');
          });
 

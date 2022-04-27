@@ -113,7 +113,7 @@ export class Environment implements ReferenceEmitEnvironment {
   /**
    * Generate a `ts.Expression` that references the given node.
    *
-   * This may involve importing the node into the file if it's not declared there already.
+   * This may involve importing the node into the file if it is not declared there already.
    */
   reference(ref: Reference<ClassDeclaration<ts.ClassDeclaration>>): ts.Expression {
     // Disable aliasing for imports generated in a template type-checking context, as there is no
@@ -138,7 +138,7 @@ export class Environment implements ReferenceEmitEnvironment {
   /**
    * Generate a `ts.TypeNode` that references the given node as a type.
    *
-   * This may involve importing the node into the file if it's not declared there already.
+   * This may involve importing the node into the file if it is not declared there already.
    */
   referenceType(ref: Reference): ts.TypeNode {
     const ngExpr = this.refEmitter.emit(

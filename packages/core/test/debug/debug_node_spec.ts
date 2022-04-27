@@ -570,7 +570,7 @@ class TestCmptWithPropInterpolation {
 
       let debugNodes = fixture.debugElement.queryAllNodes(By.directive(TextDirective));
 
-      // we've got just one directive on <ng-template>
+      // we have got just one directive on <ng-template>
       expect(debugNodes.length).toBe(1);
       expect(debugNodes[0].injector.get(TextDirective).text).toBe('first');
 
@@ -626,8 +626,8 @@ class TestCmptWithPropInterpolation {
       expect(firstChild).toBeTruthy();
       expect(() => {
         // `destroyNode` needs to be null checked, because only ViewEngine provides a
-        // `DebugRenderer2` which has the behavior we're testing for. Ivy provides
-        // `BaseAnimationRenderer` which doesn't have the issue.
+        // `DebugRenderer2` which has the behavior we are testing for. Ivy provides
+        // `BaseAnimationRenderer` which does not have the issue.
         renderer.destroyNode?.(firstChild);
         renderer.destroyNode?.(firstChild);
       }).not.toThrow();
@@ -949,7 +949,7 @@ class TestCmptWithPropInterpolation {
       const fixture = TestBed.createComponent(TestComponent);
 
       // Ivy depends on `eventListeners` to pick up events that haven't been registered through
-      // Angular templates. At the time of writing Zone.js doesn't add `eventListeners` in Node
+      // Angular templates. At the time of writing Zone.js does not add `eventListeners` in Node
       // environments so we have to skip the test.
       if (typeof fixture.debugElement.nativeElement.eventListeners === 'function') {
         const event = {value: true};
@@ -1091,7 +1091,7 @@ class TestCmptWithPropInterpolation {
       const content = fixture.componentInstance.content.nativeElement;
 
       // Move the content element outside the component
-      // so that it can't be reached via querySelector.
+      // so that it cannot be reached via querySelector.
       parent.appendChild(content);
 
       expect(fixture.debugElement.query(By.css('.content'))).toBeTruthy();

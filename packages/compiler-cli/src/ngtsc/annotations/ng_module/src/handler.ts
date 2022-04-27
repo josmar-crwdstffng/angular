@@ -12,8 +12,8 @@ import ts from 'typescript';
 import {ErrorCode, FatalDiagnosticError, makeDiagnostic, makeRelatedInformation} from '../../../diagnostics';
 import {assertSuccessfulReferenceEmit, Reference, ReferenceEmitter} from '../../../imports';
 import {isArrayEqual, isReferenceEqual, isSymbolEqual, SemanticReference, SemanticSymbol} from '../../../incremental/semantic_graph';
-import {InjectableClassRegistry, MetadataReader, MetadataRegistry, MetaKind} from '../../../metadata';
-import {DynamicValue, PartialEvaluator, ResolvedValue, SyntheticValue} from '../../../partial_evaluator';
+import {InjectableClassRegistry, MetadataReader, MetadataRegistry} from '../../../metadata';
+import {PartialEvaluator, ResolvedValue} from '../../../partial_evaluator';
 import {PerfEvent, PerfRecorder} from '../../../perf';
 import {ClassDeclaration, Decorator, isNamedClassDeclaration, ReflectionHost, reflectObjectLiteral, typeNodeToValueExpr} from '../../../reflection';
 import {LocalModuleScopeRegistry, ScopeData} from '../../../scope';
@@ -21,18 +21,17 @@ import {getDiagnosticNode} from '../../../scope/src/util';
 import {FactoryTracker} from '../../../shims/api';
 import {AnalysisOutput, CompileResult, DecoratorHandler, DetectResult, HandlerPrecedence, ResolveResult} from '../../../transform';
 import {getSourceFile} from '../../../util/src/typescript';
-import {combineResolvers, compileDeclareFactory, compileNgFactoryDefField, createValueHasWrongTypeError, extractClassMetadata, extractSchemas, findAngularDecorator, forwardRefResolver, getProviderDiagnostics, getValidConstructorDependencies, isExpressionForwardReference, ReferencesRegistry, resolveProvidersRequiringFactory, toR3Reference, unwrapExpression, wrapFunctionExpressionsInParens, wrapTypeReference} from '../../common';
+import {combineResolvers, compileDeclareFactory, compileNgFactoryDefField, createValueHasWrongTypeError, extractClassMetadata, findAngularDecorator, forwardRefResolver, getProviderDiagnostics, getValidConstructorDependencies, isExpressionForwardReference, ReferencesRegistry, resolveProvidersRequiringFactory, toR3Reference, unwrapExpression, wrapFunctionExpressionsInParens, wrapTypeReference} from '../../common';
 
 export interface NgModuleAnalysis {
   mod: R3NgModuleMetadata;
-  inj: Omit<R3InjectorMetadata, 'imports'>;
+  inj: R3InjectorMetadata;
   fac: R3FactoryMetadata;
   classMetadata: R3ClassMetadata|null;
   declarations: Reference<ClassDeclaration>[];
   rawDeclarations: ts.Expression|null;
   schemas: SchemaMetadata[];
-  imports: TopLevelImportedExpression[];
-  importRefs: Reference<ClassDeclaration>[];
+  imports: Reference<ClassDeclaration>[];
   rawImports: ts.Expression|null;
   exports: Reference<ClassDeclaration>[];
   rawExports: ts.Expression|null;
@@ -174,13 +173,12 @@ export class NgModuleDecoratorHandler implements
     const ngModule = reflectObjectLiteral(meta);
 
     if (ngModule.has('jit')) {
-      // The only allowed value is true, so there's no need to expand further.
+      // The only allowed value is true, so there is no need to expand further.
       return {};
     }
 
     const moduleResolvers = combineResolvers([
-      (fn, call, resolve, unresolvable) =>
-          this._extractModuleFromModuleWithProvidersFn(fn, call, resolve, unresolvable),
+      ref => this._extractModuleFromModuleWithProvidersFn(ref.node),
       forwardRefResolver,
     ]);
 
@@ -193,10 +191,9 @@ export class NgModuleDecoratorHandler implements
       rawDeclarations = ngModule.get('declarations')!;
       const declarationMeta = this.evaluator.evaluate(rawDeclarations, forwardRefResolver);
       declarationRefs =
-          this.resolveTypeList(rawDeclarations, declarationMeta, name, 'declarations', 0)
-              .references;
+          this.resolveTypeList(rawDeclarations, declarationMeta, name, 'declarations');
 
-      // Look through the declarations to make sure they're all a part of the current compilation.
+      // Look through the declarations to make sure they are all a part of the current compilation.
       for (const ref of declarationRefs) {
         if (ref.node.getSourceFile().isDeclarationFile) {
           const errorNode: ts.Expression = ref.getOriginForDiagnostics(rawDeclarations);
@@ -205,7 +202,7 @@ export class NgModuleDecoratorHandler implements
               ErrorCode.NGMODULE_INVALID_DECLARATION, errorNode,
               `Cannot declare '${
                   ref.node.name
-                      .text}' in an NgModule as it's not a part of the current compilation.`,
+                      .text}' in an NgModule as it is not a part of the current compilation.`,
               [makeRelatedInformation(
                   ref.node.name, `'${ref.node.name.text}' is declared here.`)]));
         }
@@ -221,34 +218,57 @@ export class NgModuleDecoratorHandler implements
     if (ngModule.has('imports')) {
       rawImports = ngModule.get('imports')!;
       const importsMeta = this.evaluator.evaluate(rawImports, moduleResolvers);
-      importRefs = this.resolveTypeList(rawImports, importsMeta, name, 'imports', 0).references;
+      importRefs = this.resolveTypeList(rawImports, importsMeta, name, 'imports');
     }
     let exportRefs: Reference<ClassDeclaration>[] = [];
     let rawExports: ts.Expression|null = null;
     if (ngModule.has('exports')) {
       rawExports = ngModule.get('exports')!;
       const exportsMeta = this.evaluator.evaluate(rawExports, moduleResolvers);
-      exportRefs = this.resolveTypeList(rawExports, exportsMeta, name, 'exports', 0).references;
+      exportRefs = this.resolveTypeList(rawExports, exportsMeta, name, 'exports');
       this.referencesRegistry.add(node, ...exportRefs);
     }
     let bootstrapRefs: Reference<ClassDeclaration>[] = [];
     if (ngModule.has('bootstrap')) {
       const expr = ngModule.get('bootstrap')!;
       const bootstrapMeta = this.evaluator.evaluate(expr, forwardRefResolver);
-      bootstrapRefs = this.resolveTypeList(expr, bootstrapMeta, name, 'bootstrap', 0).references;
+      bootstrapRefs = this.resolveTypeList(expr, bootstrapMeta, name, 'bootstrap');
+    }
 
-      // Verify that the `@NgModule.bootstrap` list doesn't have Standalone Components.
-      for (const ref of bootstrapRefs) {
-        const dirMeta = this.metaReader.getDirectiveMetadata(ref);
-        if (dirMeta?.isStandalone) {
-          diagnostics.push(makeStandaloneBootstrapDiagnostic(node, ref, expr));
+    const schemas: SchemaMetadata[] = [];
+    if (ngModule.has('schemas')) {
+      const rawExpr = ngModule.get('schemas')!;
+      const result = this.evaluator.evaluate(rawExpr);
+      if (!Array.isArray(result)) {
+        throw createValueHasWrongTypeError(rawExpr, result, `NgModule.schemas must be an array`);
+      }
+
+      for (const schemaRef of result) {
+        if (!(schemaRef instanceof Reference)) {
+          throw createValueHasWrongTypeError(
+              rawExpr, result, 'NgModule.schemas must be an array of schemas');
+        }
+        const id = schemaRef.getIdentityIn(schemaRef.node.getSourceFile());
+        if (id === null || schemaRef.ownedByModuleGuess !== '@angular/core') {
+          throw createValueHasWrongTypeError(
+              rawExpr, result, 'NgModule.schemas must be an array of schemas');
+        }
+        // Since `id` is the `ts.Identifer` within the schema ref's declaration file, it is safe to
+        // use `id.text` here to figure out which schema is in use. Even if the actual reference was
+        // renamed when the user imported it, these names will match.
+        switch (id.text) {
+          case 'CUSTOM_ELEMENTS_SCHEMA':
+            schemas.push(CUSTOM_ELEMENTS_SCHEMA);
+            break;
+          case 'NO_ERRORS_SCHEMA':
+            schemas.push(NO_ERRORS_SCHEMA);
+            break;
+          default:
+            throw createValueHasWrongTypeError(
+                rawExpr, schemaRef, `'${schemaRef.debugName}' is not a valid NgModule schema`);
         }
       }
     }
-
-    const schemas = ngModule.has('schemas') ?
-        extractSchemas(ngModule.get('schemas')!, this.evaluator, 'NgModule') :
-        [];
 
     let id: Expression|null = null;
     if (ngModule.has('id')) {
@@ -320,47 +340,20 @@ export class NgModuleDecoratorHandler implements
                                               rawProviders) :
         null;
 
-    const topLevelImports: TopLevelImportedExpression[] = [];
+    // At this point, only add the module's imports as the injectors' imports. Any exported modules
+    // are added during `resolve`, as we need scope information to be able to filter out directives
+    // and pipes from the module exports.
+    const injectorImports: WrappedNodeExpr<ts.Expression>[] = [];
     if (ngModule.has('imports')) {
-      const rawImports = unwrapExpression(ngModule.get('imports')!);
-
-      let topLevelExpressions: ts.Expression[] = [];
-      if (ts.isArrayLiteralExpression(rawImports)) {
-        for (const element of rawImports.elements) {
-          if (ts.isSpreadElement(element)) {
-            // Because `imports` allows nested arrays anyway, a spread expression (`...foo`) can be
-            // treated the same as a direct reference to `foo`.
-            topLevelExpressions.push(element.expression);
-            continue;
-          }
-          topLevelExpressions.push(element);
-        }
-      } else {
-        // Treat the whole `imports` expression as top-level.
-        topLevelExpressions.push(rawImports);
-      }
-
-      let absoluteIndex = 0;
-      for (const importExpr of topLevelExpressions) {
-        const resolved = this.evaluator.evaluate(importExpr, moduleResolvers);
-
-        const {references, hasModuleWithProviders} =
-            this.resolveTypeList(importExpr, [resolved], node.name.text, 'imports', absoluteIndex);
-        absoluteIndex += references.length;
-
-        topLevelImports.push({
-          expression: importExpr,
-          resolvedReferences: references,
-          hasModuleWithProviders,
-        });
-      }
+      injectorImports.push(new WrappedNodeExpr(ngModule.get('imports')!));
     }
 
-    const injectorMetadata: Omit<R3InjectorMetadata, 'imports'> = {
+    const injectorMetadata: R3InjectorMetadata = {
       name,
       type,
       internalType,
       providers: wrapperProviders,
+      imports: injectorImports,
     };
 
     const factoryMetadata: R3FactoryMetadata = {
@@ -382,9 +375,8 @@ export class NgModuleDecoratorHandler implements
         fac: factoryMetadata,
         declarations: declarationRefs,
         rawDeclarations,
-        imports: topLevelImports,
+        imports: importRefs,
         rawImports,
-        importRefs,
         exports: exportRefs,
         rawExports,
         providers: rawProviders,
@@ -407,11 +399,10 @@ export class NgModuleDecoratorHandler implements
     // during the compile() phase, the module's metadata is available for selector scope
     // computation.
     this.metaRegistry.registerNgModuleMetadata({
-      kind: MetaKind.NgModule,
       ref: new Reference(node),
       schemas: analysis.schemas,
       declarations: analysis.declarations,
-      imports: analysis.importRefs,
+      imports: analysis.imports,
       exports: analysis.exports,
       rawDeclarations: analysis.rawDeclarations,
       rawImports: analysis.rawImports,
@@ -446,47 +437,6 @@ export class NgModuleDecoratorHandler implements
     const data: NgModuleResolution = {
       injectorImports: [],
     };
-
-    // Add all top-level imports from the `imports` field to the injector imports.
-    for (const topLevelImport of analysis.imports) {
-      if (topLevelImport.hasModuleWithProviders) {
-        // We have no choice but to emit expressions which contain MWPs, as we cannot filter on
-        // individual references.
-        data.injectorImports.push(new WrappedNodeExpr(topLevelImport.expression));
-        continue;
-      }
-
-      const refsToEmit: Reference<ClassDeclaration>[] = [];
-      for (const ref of topLevelImport.resolvedReferences) {
-        const dirMeta = this.metaReader.getDirectiveMetadata(ref);
-        if (dirMeta !== null && !dirMeta.isComponent) {
-          // Skip emit of directives in imports - directives can't carry providers.
-          continue;
-        }
-
-        const pipeMeta = dirMeta === null ? this.metaReader.getPipeMetadata(ref) : null;
-        if (pipeMeta !== null) {
-          // Skip emit of pipes in imports - pipes can't carry providers.
-          continue;
-        }
-
-        refsToEmit.push(ref);
-      }
-
-      if (refsToEmit.length === topLevelImport.resolvedReferences.length) {
-        // All references within this top-level import should be emitted, so just use the user's
-        // expression.
-        data.injectorImports.push(new WrappedNodeExpr(topLevelImport.expression));
-      } else {
-        // Some references have been filtered out. Emit references to individual classes.
-        const context = node.getSourceFile();
-        for (const ref of refsToEmit) {
-          const emittedRef = this.refEmitter.emit(ref, context);
-          assertSuccessfulReferenceEmit(emittedRef, topLevelImport.expression, 'class');
-          data.injectorImports.push(emittedRef.expression);
-        }
-      }
-    }
 
     if (scope !== null && !scope.compilation.isPoisoned) {
       // Using the scope information, extend the injector's imports using the modules that are
@@ -536,10 +486,7 @@ export class NgModuleDecoratorHandler implements
       {inj, mod, fac, classMetadata, declarations}: Readonly<NgModuleAnalysis>,
       {injectorImports}: Readonly<NgModuleResolution>): CompileResult[] {
     const factoryFn = compileNgFactoryDefField(fac);
-    const ngInjectorDef = compileInjector({
-      ...inj,
-      imports: injectorImports,
-    });
+    const ngInjectorDef = compileInjector(this.mergeInjectorImports(inj, injectorImports));
     const ngModuleDef = compileNgModule(mod);
     const statements = ngModuleDef.statements;
     const metadata = classMetadata !== null ? compileClassMetadata(classMetadata) : null;
@@ -553,15 +500,22 @@ export class NgModuleDecoratorHandler implements
       node: ClassDeclaration, {inj, fac, mod, classMetadata}: Readonly<NgModuleAnalysis>,
       {injectorImports}: Readonly<NgModuleResolution>): CompileResult[] {
     const factoryFn = compileDeclareFactory(fac);
-    const injectorDef = compileDeclareInjectorFromMetadata({
-      ...inj,
-      imports: injectorImports,
-    });
+    const injectorDef =
+        compileDeclareInjectorFromMetadata(this.mergeInjectorImports(inj, injectorImports));
     const ngModuleDef = compileDeclareNgModuleFromMetadata(mod);
     const metadata = classMetadata !== null ? compileDeclareClassMetadata(classMetadata) : null;
     this.insertMetadataStatement(ngModuleDef.statements, metadata);
     // NOTE: no remote scoping required as this is banned in partial compilation.
     return this.compileNgModule(factoryFn, injectorDef, ngModuleDef);
+  }
+
+  /**
+   *  Merge the injector imports (which are 'exports' that were later found to be NgModules)
+   *  computed during resolution with the ones from analysis.
+   */
+  private mergeInjectorImports(inj: R3InjectorMetadata, injectorImports: Expression[]):
+      R3InjectorMetadata {
+    return {...inj, imports: [...inj.imports, ...injectorImports]};
   }
 
   /**
@@ -648,27 +602,12 @@ export class NgModuleDecoratorHandler implements
    * Given a `FunctionDeclaration`, `MethodDeclaration` or `FunctionExpression`, check if it is
    * typed as a `ModuleWithProviders` and return an expression referencing the module if available.
    */
-  private _extractModuleFromModuleWithProvidersFn(
-      fn: Reference<ts.FunctionDeclaration|ts.MethodDeclaration|ts.FunctionExpression>,
-      node: ts.CallExpression, resolve: (expr: ts.Expression) => ResolvedValue,
-      unresolvable: DynamicValue): SyntheticValue<ResolvedModuleWithProviders>|DynamicValue {
-    const rawType = fn.node.type || null;
-
-    const type = rawType &&
-        (this._reflectModuleFromTypeParam(rawType, fn.node) ||
-         this._reflectModuleFromLiteralType(rawType));
-    if (type === null) {
-      return unresolvable;
-    }
-    const ngModule = resolve(type);
-    if (!(ngModule instanceof Reference) || !isNamedClassDeclaration(ngModule.node)) {
-      return unresolvable;
-    }
-
-    return new SyntheticValue({
-      ngModule: ngModule as Reference<ClassDeclaration>,
-      mwpCall: node,
-    });
+  private _extractModuleFromModuleWithProvidersFn(node: ts.FunctionDeclaration|
+                                                  ts.MethodDeclaration|
+                                                  ts.FunctionExpression): ts.Expression|null {
+    const type = node.type || null;
+    return type &&
+        (this._reflectModuleFromTypeParam(type, node) || this._reflectModuleFromLiteralType(type));
   }
 
   /**
@@ -680,7 +619,7 @@ export class NgModuleDecoratorHandler implements
   private _reflectModuleFromTypeParam(
       type: ts.TypeNode,
       node: ts.FunctionDeclaration|ts.MethodDeclaration|ts.FunctionExpression): ts.Expression|null {
-    // Examine the type of the function to see if it's a ModuleWithProviders reference.
+    // Examine the type of the function to see if it is a ModuleWithProviders reference.
     if (!ts.isTypeReferenceNode(type)) {
       return null;
     }
@@ -696,17 +635,17 @@ export class NgModuleDecoratorHandler implements
     // Look at the type itself to see where it comes from.
     const id = this.reflector.getImportOfIdentifier(typeName);
 
-    // If it's not named ModuleWithProviders, bail.
+    // If it is not named ModuleWithProviders, bail.
     if (id === null || id.name !== 'ModuleWithProviders') {
       return null;
     }
 
-    // If it's not from @angular/core, bail.
+    // If it is not from @angular/core, bail.
     if (!this.isCore && id.from !== '@angular/core') {
       return null;
     }
 
-    // If there's no type parameter specified, bail.
+    // If there is no type parameter specified, bail.
     if (type.typeArguments === undefined || type.typeArguments.length !== 1) {
       const parent =
           ts.isMethodDeclaration(node) && ts.isClassDeclaration(node.parent) ? node.parent : null;
@@ -759,10 +698,8 @@ export class NgModuleDecoratorHandler implements
    * Compute a list of `Reference`s from a resolved metadata value.
    */
   private resolveTypeList(
-      expr: ts.Node, resolvedList: ResolvedValue, className: string, arrayName: string,
-      absoluteIndex: number):
-      {references: Reference<ClassDeclaration>[], hasModuleWithProviders: boolean} {
-    let hasModuleWithProviders = false;
+      expr: ts.Node, resolvedList: ResolvedValue, className: string,
+      arrayName: string): Reference<ClassDeclaration>[] {
     const refList: Reference<ClassDeclaration>[] = [];
     if (!Array.isArray(resolvedList)) {
       throw createValueHasWrongTypeError(
@@ -770,52 +707,40 @@ export class NgModuleDecoratorHandler implements
           `Expected array when reading the NgModule.${arrayName} of ${className}`);
     }
 
-    for (let idx = 0; idx < resolvedList.length; idx++) {
-      let entry = resolvedList[idx];
+    resolvedList.forEach((entry, idx) => {
       // Unwrap ModuleWithProviders for modules that are locally declared (and thus static
       // resolution was able to descend into the function and return an object literal, a Map).
-      if (entry instanceof SyntheticValue && isResolvedModuleWithProviders(entry)) {
-        entry = entry.value.ngModule;
-        hasModuleWithProviders = true;
-      } else if (entry instanceof Map && entry.has('ngModule')) {
+      if (entry instanceof Map && entry.has('ngModule')) {
         entry = entry.get('ngModule')!;
-        hasModuleWithProviders = true;
       }
 
       if (Array.isArray(entry)) {
         // Recurse into nested arrays.
-        const recursiveResult =
-            this.resolveTypeList(expr, entry, className, arrayName, absoluteIndex);
-        refList.push(...recursiveResult.references);
-        absoluteIndex += recursiveResult.references.length;
-        hasModuleWithProviders = hasModuleWithProviders || recursiveResult.hasModuleWithProviders;
+        refList.push(...this.resolveTypeList(expr, entry, className, arrayName));
       } else if (entry instanceof Reference) {
         if (!this.isClassDeclarationReference(entry)) {
           throw createValueHasWrongTypeError(
               entry.node, entry,
-              `Value at position ${absoluteIndex} in the NgModule.${arrayName} of ${
+              `Value at position ${idx} in the NgModule.${arrayName} of ${
                   className} is not a class`);
         }
         refList.push(entry);
-        absoluteIndex += 1;
       } else {
         // TODO(alxhub): Produce a better diagnostic here - the array index may be an inner array.
         throw createValueHasWrongTypeError(
             expr, entry,
-            `Value at position ${absoluteIndex} in the NgModule.${arrayName} of ${
+            `Value at position ${idx} in the NgModule.${arrayName} of ${
                 className} is not a reference`);
       }
-    }
+    });
 
-    return {
-      references: refList,
-      hasModuleWithProviders,
-    };
+    return refList;
   }
 }
 
 function isNgModule(node: ClassDeclaration, compilation: ScopeData): boolean {
-  return !compilation.dependencies.some(dep => dep.ref.node === node);
+  return !compilation.directives.some(directive => directive.ref.node === node) &&
+      !compilation.pipes.some(pipe => pipe.ref.node === node);
 }
 
 /**

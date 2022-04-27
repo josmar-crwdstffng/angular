@@ -80,7 +80,7 @@ export class UploaderService {
    * @param file - File object for file being uploaded
    *
    * When no `UploadInterceptor` and no server,
-   * you'll end up here in the error handler.
+   * you will end up here in the error handler.
    */
   private handleError(file: File) {
     const userMessage = `${file.name} upload failed.`;

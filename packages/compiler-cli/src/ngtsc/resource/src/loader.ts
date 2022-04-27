@@ -165,7 +165,7 @@ export class AdapterResourceLoader implements ResourceLoader {
   private fallbackResolve(url: string, fromFile: string): string|null {
     let candidateLocations: string[];
     if (url.startsWith('/')) {
-      // This path is not really an absolute path, but instead the leading '/' means that it's
+      // This path is not really an absolute path, but instead the leading '/' means that it is
       // rooted in the project rootDirs. So look for it according to the rootDirs.
       candidateLocations = this.getRootedCandidateLocations(url);
     } else {

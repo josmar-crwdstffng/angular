@@ -230,7 +230,7 @@ export class ExpandingRowHost implements AfterViewInit, OnDestroy, ExpandingRowH
    * this row when another row is focused.
    */
   handleRowFocus(row: ExpandingRow): void {
-    // Do not blur then refocus the row if it's already selected.
+    // Do not blur then refocus the row if it is already selected.
     if (row === this.focusedRow) {
       return;
     }

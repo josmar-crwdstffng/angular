@@ -72,7 +72,7 @@ export class ImportGraph {
   }
 
   /**
-   * Add a record of an import from `sf` to `imported`, that's not present in the original
+   * Add a record of an import from `sf` to `imported`, that is not present in the original
    * `ts.Program` but will be remembered by the `ImportGraph`.
    */
   addSyntheticImport(sf: ts.SourceFile, imported: ts.SourceFile): void {

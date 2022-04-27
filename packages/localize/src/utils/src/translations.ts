@@ -38,7 +38,7 @@ export function isMissingTranslationError(e: any): e is MissingTranslationError 
  * `substitutions`) using the given `translations`.
  *
  * The tagged-string is parsed to extract its `messageId` which is used to find an appropriate
- * `ParsedTranslation`. If this doesn't match and there are legacy ids then try matching a
+ * `ParsedTranslation`. If this does not match and there are legacy ids then try matching a
  * translation using those.
  *
  * If one is found then it is used to translate the message into a new set of `messageParts` and

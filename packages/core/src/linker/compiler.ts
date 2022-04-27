@@ -26,7 +26,7 @@ import {NgModuleFactory} from './ng_module_factory';
  * @publicApi
  *
  * @deprecated
- * Ivy JIT mode doesn't require accessing this symbol.
+ * Ivy JIT mode does not require accessing this symbol.
  * See [JIT API changes due to ViewEngine deprecation](guide/deprecations#jit-api-changes) for
  * additional context.
  */
@@ -48,7 +48,7 @@ export class ModuleWithComponentFactories<T> {
  * @publicApi
  *
  * @deprecated
- * Ivy JIT mode doesn't require accessing this symbol.
+ * Ivy JIT mode does not require accessing this symbol.
  * See [JIT API changes due to ViewEngine deprecation](guide/deprecations#jit-api-changes) for
  * additional context.
  */
@@ -146,7 +146,7 @@ export const COMPILER_OPTIONS = new InjectionToken<CompilerOptions[]>('compilerO
  * @publicApi
  *
  * @deprecated
- * Ivy JIT mode doesn't require accessing this symbol.
+ * Ivy JIT mode does not require accessing this symbol.
  * See [JIT API changes due to ViewEngine deprecation](guide/deprecations#jit-api-changes) for
  * additional context.
  */

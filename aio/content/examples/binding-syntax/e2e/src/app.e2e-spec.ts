@@ -6,7 +6,7 @@ describe('Binding syntax e2e tests', () => {
   beforeEach(() => browser.get(''));
 
 
-  // helper function used to test what's logged to the console
+  // helper function used to test what is logged to the console
   async function logChecker(contents: string) {
     const logs = await browser.manage().logs().get(logging.Type.BROWSER);
     const messages = logs.filter(({ message }) => message.indexOf(contents) !== -1 ? true : false);

@@ -34,7 +34,7 @@ export function makeDuplicateDeclarationError(
       continue;
     }
     // Try to find the reference to the declaration within the declarations array, to hang the
-    // error there. If it can't be found, fall back on using the NgModule's name.
+    // error there. If it cannot be found, fall back on using the NgModule's name.
     const contextNode = decl.ref.getOriginForDiagnostics(decl.rawDeclarations, decl.ngModule.name);
     context.push(makeRelatedInformation(
         contextNode,
@@ -164,12 +164,12 @@ export function checkInheritanceOfDirective(
     evaluator: PartialEvaluator): ts.Diagnostic|null {
   if (!reflector.isClass(node) || reflector.getConstructorParameters(node) !== null) {
     // We should skip nodes that aren't classes. If a constructor exists, then no base class
-    // definition is required on the runtime side - it's legal to inherit from any class.
+    // definition is required on the runtime side - it is legal to inherit from any class.
     return null;
   }
 
   // The extends clause is an expression which can be as dynamic as the user wants. Try to
-  // evaluate it, but fall back on ignoring the clause if it can't be understood. This is a View
+  // evaluate it, but fall back on ignoring the clause if it cannot be understood. This is a View
   // Engine compatibility hack: View Engine ignores 'extends' expressions that it cannot understand.
   let baseClass = readBaseClass(node, reflector, evaluator);
 
@@ -184,16 +184,16 @@ export function checkInheritanceOfDirective(
       return null;
     }
 
-    // If the base class has a blank constructor we can skip it since it can't be using DI.
+    // If the base class has a blank constructor we can skip it since it cannot be using DI.
     const baseClassConstructorParams = reflector.getConstructorParameters(baseClass.node);
     const newParentClass = readBaseClass(baseClass.node, reflector, evaluator);
 
     if (baseClassConstructorParams !== null && baseClassConstructorParams.length > 0) {
-      // This class has a non-trivial constructor, that's an error!
+      // This class has a non-trivial constructor, that is an error!
       return getInheritedUndecoratedCtorDiagnostic(node, baseClass, reader);
     } else if (baseClassConstructorParams !== null || newParentClass === null) {
       // This class has a trivial constructor, or no constructor + is the
-      // top of the inheritance chain, so it's okay.
+      // top of the inheritance chain, so it is okay.
       return null;
     }
 

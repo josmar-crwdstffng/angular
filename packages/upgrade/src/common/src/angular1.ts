@@ -115,7 +115,7 @@ export interface IAttributes {
 export interface ITranscludeFunction {
   // If the scope is provided, then the cloneAttachFn must be as well.
   (scope: IScope, cloneAttachFn: ICloneAttachFunction): IAugmentedJQuery;
-  // If one argument is provided, then it's assumed to be the cloneAttachFn.
+  // If one argument is provided, then it is assumed to be the cloneAttachFn.
   (cloneAttachFn?: ICloneAttachFunction): IAugmentedJQuery;
 }
 export interface ICloneAttachFunction {

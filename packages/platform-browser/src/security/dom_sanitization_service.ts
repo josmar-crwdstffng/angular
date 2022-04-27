@@ -14,42 +14,42 @@ export {SecurityContext};
 
 
 /**
- * Marker interface for a value that's safe to use in a particular context.
+ * Marker interface for a value that is safe to use in a particular context.
  *
  * @publicApi
  */
 export interface SafeValue {}
 
 /**
- * Marker interface for a value that's safe to use as HTML.
+ * Marker interface for a value that is safe to use as HTML.
  *
  * @publicApi
  */
 export interface SafeHtml extends SafeValue {}
 
 /**
- * Marker interface for a value that's safe to use as style (CSS).
+ * Marker interface for a value that is safe to use as style (CSS).
  *
  * @publicApi
  */
 export interface SafeStyle extends SafeValue {}
 
 /**
- * Marker interface for a value that's safe to use as JavaScript.
+ * Marker interface for a value that is safe to use as JavaScript.
  *
  * @publicApi
  */
 export interface SafeScript extends SafeValue {}
 
 /**
- * Marker interface for a value that's safe to use as a URL linking to a document.
+ * Marker interface for a value that is safe to use as a URL linking to a document.
  *
  * @publicApi
  */
 export interface SafeUrl extends SafeValue {}
 
 /**
- * Marker interface for a value that's safe to use as a URL to load executable code from.
+ * Marker interface for a value that is safe to use as a URL to load executable code from.
  *
  * @publicApi
  */

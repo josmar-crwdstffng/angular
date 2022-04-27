@@ -135,7 +135,7 @@ export class ApiListComponent implements OnInit {
     const {query, status, type} = this.locationService.search();
 
     const q = (query || '').toLowerCase();
-    // Hack: can't bind to query because input cursor always forced to end-of-line.
+    // Hack: cannot bind to query because input cursor always forced to end-of-line.
     this.queryEl.nativeElement.value = q;
 
     this.status = this.statuses.find(x => x.value === status) || this.statuses[0];

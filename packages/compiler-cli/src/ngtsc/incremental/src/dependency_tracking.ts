@@ -53,7 +53,7 @@ export class FileDependencyGraph<T extends {fileName: string} = ts.SourceFile> i
    *
    * 1. For files which have not logically changed, their dependencies from `previous` are added to
    *    `this` graph.
-   * 2. For files which have logically changed, they're added to a set of logically changed files
+   * 2. For files which have logically changed, they are added to a set of logically changed files
    *    which is eventually returned.
    *
    * In essence, for build `n`, this method performs:

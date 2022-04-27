@@ -212,7 +212,7 @@ export class AnimationTransitionNamespace {
 
     const isRemoval = toState.value === VOID_VALUE;
 
-    // normally this isn't reached by here, however, if an object expression
+    // normally this is not reached by here, however, if an object expression
     // is passed in then it may be a new object each time. Comparing the value
     // is important since that will stay the same despite there being a new object.
     // The removal arc here is special cased because the same element is triggered
@@ -1039,7 +1039,7 @@ export class TransitionAnimationEngine {
 
         // even though the element may not be in the DOM, it may still
         // be added at a later point (due to the mechanics of content
-        // projection and/or dynamic component insertion) therefore it's
+        // projection and/or dynamic component insertion) therefore it is
         // important to still style the element.
         if (nodeIsOrphaned) {
           player.onStart(() => eraseStyles(element, instruction.fromStyles));
@@ -1241,7 +1241,7 @@ export class TransitionAnimationEngine {
     // find all of the sub players' corresponding inner animation players
     subPlayers.forEach(player => {
       // even if no players are found for a sub animation it
-      // will still complete itself after the next tick since it's Noop
+      // will still complete itself after the next tick since it is Noop
       const playersForElement = skippedPlayersMap.get(player.element);
       if (playersForElement && playersForElement.length) {
         const innerPlayer = optimizeGroupPlayer(playersForElement);
@@ -1301,7 +1301,7 @@ export class TransitionAnimationEngine {
       }
     }
 
-    // this is required so the cleanup method doesn't remove them
+    // this is required so the cleanup method does not remove them
     allLeaveNodes.length = 0;
 
     rootPlayers.forEach(player => {
@@ -1633,7 +1633,7 @@ function deleteOrUnsetInMap<T, V>(map: Map<T, V[]>, key: T, value: V) {
 }
 
 function normalizeTriggerValue(value: any): any {
-  // we use `!= null` here because it's the most simple
+  // we use `!= null` here because it is the most simple
   // way to test against a "falsy" value without mixing
   // in empty strings or a zero value. DO NOT OPTIMIZE.
   return value != null ? value : null;
@@ -1687,7 +1687,7 @@ function cloakAndComputeStyles(
 
 /*
 Since the Angular renderer code will return a collection of inserted
-nodes in all areas of a DOM tree, it's up to this algorithm to figure
+nodes in all areas of a DOM tree, it is up to this algorithm to figure
 out which nodes are roots for each animation @trigger.
 
 By placing each inserted node into a Set and traversing upwards, it

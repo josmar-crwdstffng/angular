@@ -102,7 +102,7 @@ export function isNodeMatchingSelector(
   const nameOnlyMarkerIdx = getNameOnlyMarkerIndex(nodeAttrs);
 
   // When processing ":not" selectors, we skip to the next ":not" if the
-  // current one doesn't match
+  // current one does not match
   let skipToNextSelector = false;
 
   for (let i = 0; i < selector.length; i++) {
@@ -113,7 +113,7 @@ export function isNodeMatchingSelector(
         return false;
       }
       // If we are skipping to the next :not() and this mode flag is positive,
-      // it's a part of the current :not() selector, and we should keep skipping
+      // it is a part of the current :not() selector, and we should keep skipping
       if (skipToNextSelector && isPositive(current)) continue;
       skipToNextSelector = false;
       mode = (current as number) | (mode & SelectorFlags.NOT);

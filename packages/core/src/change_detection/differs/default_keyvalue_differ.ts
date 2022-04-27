@@ -216,7 +216,7 @@ export class DefaultKeyValueDiffer<K, V> implements KeyValueDiffer<K, V>, KeyVal
       }
 
       // Update `record.previousValue` with the value of the item before the changes
-      // We need to update all changed items (that's those which have been added and changed)
+      // We need to update all changed items (that is those which have been added and changed)
       for (record = this._changesHead; record !== null; record = record._nextChanged) {
         record.previousValue = record.currentValue;
       }

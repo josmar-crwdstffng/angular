@@ -86,7 +86,7 @@ interface Meta {
 
 
 /**
- * Convert a set of placeholders to a string (as it's expected from compiler).
+ * Convert a set of placeholders to a string (as it is expected from compiler).
  */
 function i18nPlaceholdersToString(placeholders: Placeholder[]): string {
   if (placeholders.length === 0) return '';

@@ -24,7 +24,7 @@
   The intention here is to support only the styling features which can be
   relatively simply implemented. The goal is to allow users to avoid the
   most obvious pitfalls and do so without compromising performance significantly.
-  For ShadowDOM styling that's not covered here, a set of best practices
+  For ShadowDOM styling that is not covered here, a set of best practices
   can be provided that should allow users to accomplish more complex styling.
 
   The following is a list of specific ShadowDOM styling features and a brief
@@ -396,7 +396,7 @@ export class ShadowCss {
    * }
    *
    * Similar logic applies to `@page` rules which can contain a particular set of properties,
-   * as well as some specific at-rules. Since they can't be encapsulated, we have to strip
+   * as well as some specific at-rules. Since they cannot be encapsulated, we have to strip
    * any scoping selectors from them. For more information: https://www.w3.org/TR/css-page-3
    * ```
    */
@@ -518,7 +518,7 @@ export class ShadowCss {
     // this behavior to avoid breaking legacy apps (it should not match).
     // The behavior should be:
     // - `tag:host` -> `tag[h]` (this is to avoid breaking legacy apps, should not match anything)
-    // - `tag :host` -> `tag [h]` (`tag` is not scoped because it's considered part of a
+    // - `tag :host` -> `tag [h]` (`tag` is not scoped because it is considered part of a
     //   `:host-context(tag)`)
     const hasHost = selector.indexOf(_polyfillHostNoCombinator) > -1;
     // Only scope parts after the first `-shadowcsshost-no-combinator` when it is present
@@ -557,11 +557,11 @@ class SafeSelector {
     // The WS in [attr="va lue"] would otherwise be interpreted as a selector separator.
     selector = this._escapeRegexMatches(selector, /(\[[^\]]*\])/g);
 
-    // CSS allows for certain special characters to be used in selectors if they're escaped.
+    // CSS allows for certain special characters to be used in selectors if they are escaped.
     // E.g. `.foo:blue` won't match a class called `foo:blue`, because the colon denotes a
     // pseudo-class, but writing `.foo\:blue` will match, because the colon was escaped.
     // Replace all escape sequences (`\` followed by a character) with a placeholder so
-    // that our handling of pseudo-selectors doesn't mess with them.
+    // that our handling of pseudo-selectors does not mess with them.
     selector = this._escapeRegexMatches(selector, /(\\.)/g);
 
     // Replaces the expression in `:nth-child(2n + 1)` with a placeholder.

@@ -7,7 +7,6 @@
  */
 
 import {CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA, SchemaMetadata, SecurityContext} from '../core';
-
 import {isNgContainer, isNgContent} from '../ml_parser/tags';
 import {dashCaseToCamelCase} from '../util';
 
@@ -309,7 +308,7 @@ export class DomElementSchemaRegistry extends ElementSchemaRegistry {
       }
 
       if (schemaMetas.some((schema) => schema.name === CUSTOM_ELEMENTS_SCHEMA.name)) {
-        // Can't tell now as we don't know which properties a custom element will get
+        // Cannot tell now as we don't know which properties a custom element will get
         // once it is instantiated
         return true;
       }

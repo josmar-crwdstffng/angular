@@ -129,7 +129,7 @@ export class Parser {
    *
    * @param templateKey name of directive, without the * prefix. For example: ngIf, ngFor
    * @param templateValue RHS of the microsyntax attribute
-   * @param templateUrl template filename if it's external, component filename if it's inline
+   * @param templateUrl template filename if it is external, component filename if it is inline
    * @param absoluteKeyOffset start of the `templateKey`
    * @param absoluteValueOffset start of the `templateValue`
    */
@@ -335,7 +335,7 @@ export class Parser {
         return charIndex;
       }
 
-      // Nothing else in the expression matters after we've
+      // Nothing else in the expression matters after we have
       // hit a comment so look directly for the end token.
       if (input.startsWith('//', charIndex)) {
         return input.indexOf(expressionEnd, charIndex);
@@ -617,7 +617,7 @@ export class _ParseAST {
         if (nameId !== null) {
           nameSpan = this.sourceSpan(nameStart);
         } else {
-          // No valid identifier was found, so we'll assume an empty pipe name ('').
+          // No valid identifier was found, so we will assume an empty pipe name ('').
           nameId = '';
 
           // However, there may have been whitespace present between the pipe character and the next
@@ -929,7 +929,7 @@ export class _ParseAST {
         const key = this.expectIdentifierOrKeywordOrString();
         keys.push({key, quoted});
 
-        // Properties with quoted keys can't use the shorthand syntax.
+        // Properties with quoted keys cannot use the shorthand syntax.
         if (quoted) {
           this.expectCharacter(chars.$COLON);
           values.push(this.parsePipe());
@@ -1004,7 +1004,7 @@ export class _ParseAST {
     // When parsing assignment events (originating from two-way-binding aka banana-in-a-box syntax),
     // it is valid for the primary expression to be terminated by the non-null operator. This
     // primary expression is substituted as LHS of the assignment operator to achieve
-    // two-way-binding, such that the LHS could be the non-null operator. The grammar doesn't
+    // two-way-binding, such that the LHS could be the non-null operator. The grammar does not
     // naturally allow for this syntax, so assignment events are parsed specially.
     if ((this.parseFlags & ParseFlags.AssignmentEvent) && this.next.isOperator('!') &&
         this.peek(1).isOperator('=')) {
@@ -1284,7 +1284,7 @@ export class _ParseAST {
    * The following are conditional recovery points:
    *   - ')', '}', ']' if one of calling productions is expecting one of these symbols
    *     - This allows skip() to recover from errors such as '(a.) + 1' allowing more of the AST to
-   *       be retained (it doesn't skip any tokens as the ')' is retained because of the '(' begins
+   *       be retained (it does not skip any tokens as the ')' is retained because of the '(' begins
    *       an '(' <expr> ')' production).
    *       The recovery points of grouping symbols must be conditional as they must be skipped if
    *       none of the calling productions are not expecting the closing token else we will never

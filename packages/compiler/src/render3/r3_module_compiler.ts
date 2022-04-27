@@ -21,7 +21,7 @@ export enum R3SelectorScopeMode {
   /**
    * Emit the declarations inline into the module definition.
    *
-   * This option is useful in certain contexts where it's known that JIT support is required. The
+   * This option is useful in certain contexts where it is known that JIT support is required. The
    * tradeoff here is that this emit style prevents directives and pipes from being tree-shaken if
    * they are unused, but the NgModule is used.
    */
@@ -189,9 +189,9 @@ export function compileNgModule(meta: R3NgModuleMetadata): R3CompiledExpression 
     }
   } else if (selectorScopeMode === R3SelectorScopeMode.SideEffect) {
     // In this mode, scope information is not passed into `ɵɵdefineNgModule` as it
-    // would prevent tree-shaking of the declarations, imports and exports references. Instead, it's
-    // patched onto the NgModule definition with a `ɵɵsetNgModuleScope` call that's guarded by the
-    // `ngJitMode` flag.
+    // would prevent tree-shaking of the declarations, imports and exports references. Instead, it
+    // is patched onto the NgModule definition with a `ɵɵsetNgModuleScope` call that is guarded by
+    // the `ngJitMode` flag.
     const setNgModuleScopeCall = generateSetNgModuleScopeCall(meta);
     if (setNgModuleScopeCall !== null) {
       statements.push(setNgModuleScopeCall);

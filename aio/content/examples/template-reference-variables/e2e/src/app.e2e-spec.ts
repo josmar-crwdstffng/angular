@@ -3,7 +3,7 @@ import { browser, element, by, logging } from 'protractor';
 describe('Template-reference-variables-example', () => {
   beforeEach(() => browser.get(''));
 
-  // helper function used to test what's logged to the console
+  // helper function used to test what is logged to the console
   async function logChecker(contents: string) {
     const logs = await browser
       .manage()

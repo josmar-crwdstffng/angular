@@ -288,7 +288,7 @@ export function renderTemplate<T>(
   if (componentView === null) {
     const renderer = providedRendererFactory.createRenderer(null, null);
 
-    // We need to create a root view so it's possible to look up the host element through its index
+    // We need to create a root view so it is possible to look up the host element through its index
     const tView = createTView(TViewType.Root, null, null, 1, 0, null, null, null, null, null);
     const hostLView = createLView(
         null, tView, {}, LViewFlags.CheckAlways | LViewFlags.IsRoot, null, null,

@@ -196,7 +196,7 @@ export abstract class ViewContainerRef {
    * Returns the index of a view within the current container.
    * @param viewRef The view to query.
    * @returns The 0-based index of the view's position in this container,
-   * or `-1` if this container doesn't contain the view.
+   * or `-1` if this container does not contain the view.
    */
   abstract indexOf(viewRef: ViewRef): number;
 
@@ -356,7 +356,7 @@ const R3ViewContainerRef = class ViewContainerRef extends VE_ViewContainerRef {
       if (ngDevMode) {
         assertDefined(
             getComponentDef(componentFactoryOrType),
-            `Provided Component class doesn't contain Component definition. ` +
+            `Provided Component class does not contain Component definition. ` +
                 `Please check whether provided class has @Component decorator.`);
         assertEqual(
             typeof indexOrOptions !== 'number', true,
@@ -396,7 +396,7 @@ const R3ViewContainerRef = class ViewContainerRef extends VE_ViewContainerRef {
       // using a provided injector first, then fall back to the parent injector of this
       // `ViewContainerRef` instance.
       //
-      // For the factory-less case, it's critical to establish a connection with the module
+      // For the factory-less case, it is critical to establish a connection with the module
       // injector tree (by retrieving an instance of an `NgModuleRef` and accessing its injector),
       // so that a component can use DI tokens provided in MgModules. For this reason, we can not
       // rely on the provided injector, since it might be detached from the DI tree (for example, if
@@ -520,7 +520,7 @@ const R3ViewContainerRef = class ViewContainerRef extends VE_ViewContainerRef {
     }
     if (ngDevMode) {
       assertGreaterThan(index, -1, `ViewRef index must be positive, got ${index}`);
-      // +1 because it's legal to insert at the end.
+      // +1 because it is legal to insert at the end.
       assertLessThan(index, this.length + 1 + shift, 'index');
     }
     return index;

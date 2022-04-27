@@ -9,7 +9,7 @@ let nextId = 1;
 export class PeekABooDirective implements OnInit {
   constructor(private logger: LoggerService) { }
 
-  // implement OnInit's `ngOnInit` method
+  // implement OnInit is `ngOnInit` method
   ngOnInit() {
     this.logIt('OnInit');
   }

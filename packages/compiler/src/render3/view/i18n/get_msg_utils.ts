@@ -38,7 +38,7 @@ const GOOG_GET_MSG = 'goog.getMsg';
  *   },
  *   // Options bag.
  *   {
- *     // Maps each placeholder to the original Angular source code which generates it's value.
+ *     // Maps each placeholder to the original Angular source code which generates it is value.
  *     original_code: {
  *       'interpolation': '{{ sender }}',
  *       'startTagSpan': '<span class="receiver">',
@@ -74,7 +74,7 @@ export function createGoogleGetMsgStatements(
                                   value: message.placeholders[param] ?
                                       // Get source span for typical placeholder if it exists.
                                       o.literal(message.placeholders[param].sourceSpan.toString()) :
-                                      // Otherwise must be an ICU expression, get it's source span.
+                                      // Otherwise must be an ICU expression, get it is source span.
                                       o.literal(
                                           message.placeholderToMessage[param]
                                               .nodes.map((node) => node.sourceSpan.toString())

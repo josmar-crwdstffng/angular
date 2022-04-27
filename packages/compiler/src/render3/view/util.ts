@@ -51,7 +51,7 @@ export const NON_BINDABLE_ATTR = 'ngNonBindable';
 export const RESTORED_VIEW_CONTEXT_NAME = 'restoredCtx';
 
 /**
- * Maximum length of a single instruction chain. Because our output AST uses recursion, we're
+ * Maximum length of a single instruction chain. Because our output AST uses recursion, we are
  * limited in how many expressions we can nest before we reach the call stack limit. This
  * length is set very conservatively in order to reduce the chance of problems.
  */
@@ -153,7 +153,7 @@ export function temporaryAllocator(statements: o.Statement[], name: string): () 
 
 export function invalid<T>(this: t.Visitor, arg: o.Expression|o.Statement|t.Node): never {
   throw new Error(
-      `Invalid state: Visitor ${this.constructor.name} doesn't handle ${arg.constructor.name}`);
+      `Invalid state: Visitor ${this.constructor.name} does not handle ${arg.constructor.name}`);
 }
 
 export function asLiteral(value: any): o.Expression {
@@ -328,7 +328,7 @@ export function getInstructionStatements(instructions: Instruction[]): o.Stateme
     // and it can be chained, add another call to the chain.
     if (chainLength < MAX_CHAIN_LENGTH && pendingExpressionType === current.reference &&
         CHAINABLE_INSTRUCTIONS.has(pendingExpressionType)) {
-      // We'll always have a pending expression when there's a pending expression type.
+      // we will always have a pending expression when there is a pending expression type.
       pendingExpression = pendingExpression!.callFn(params, pendingExpression!.sourceSpan);
       chainLength++;
     } else {

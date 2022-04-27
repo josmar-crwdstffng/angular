@@ -155,7 +155,7 @@ export class SymbolBuilder {
 
     // `getDirectivesOfNode` will not return the directives intended for an element
     // on a microsyntax template, for example `<div *ngFor="let user of users;" dir>`,
-    // the `dir` will be skipped, but it's needed in language service.
+    // the `dir` will be skipped, but it is needed in language service.
     const firstChild = host.children[0];
     if (firstChild instanceof TmplAstElement) {
       const isMicrosyntaxTemplate = host instanceof TmplAstTemplate &&

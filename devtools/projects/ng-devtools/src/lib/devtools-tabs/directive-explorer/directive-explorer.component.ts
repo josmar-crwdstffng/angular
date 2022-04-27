@@ -97,8 +97,8 @@ export class DirectiveExplorerComponent implements OnInit, OnDestroy {
 
   handleNodeSelection(node: IndexedNode|null): void {
     if (node) {
-      // We want to guarantee that we're not reusing any of the previous properties.
-      // That's possible if the user has selected an NgForOf and after that
+      // We want to guarantee that we are not reusing any of the previous properties.
+      // That is possible if the user has selected an NgForOf and after that
       // they select another NgForOf instance. In this case, we don't want to diff the props
       // we want to render from scratch.
       if (this._clickedElement && !sameDirectives(this._clickedElement, node)) {
@@ -173,7 +173,7 @@ export class DirectiveExplorerComponent implements OnInit, OnDestroy {
 
   private _getPropertyQuery(): PropertyQuery {
     // Here we handle the case when a given element has already been selected.
-    // We check if we're dealing with the same instance (i.e., if we have the same
+    // We check if we are dealing with the same instance (i.e., if we have the same
     // set of directives and component on it), if we do, we want to get the same
     // set of properties which are already expanded.
     if (!this._clickedElement || !this.currentSelectedElement ||

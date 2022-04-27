@@ -163,7 +163,7 @@ function extractInjectableMetadata(
     };
   } else if (decorator.args.length === 1) {
     const metaNode = decorator.args[0];
-    // Firstly make sure the decorator argument is an inline literal - if not, it's illegal to
+    // Firstly make sure the decorator argument is an inline literal - if not, it is illegal to
     // transport references from one location to another. This is the problem that lowering
     // used to solve - if this restriction proves too undesirable we can re-implement lowering.
     if (!ts.isObjectLiteralExpression(metaNode)) {

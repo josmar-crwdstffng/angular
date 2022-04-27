@@ -277,7 +277,7 @@ export class ViewRef<T> implements viewEngine_EmbeddedViewRef<T>, viewEngine_Int
   /**
    * Checks the change detector and its children, and throws if any changes are detected.
    *
-   * This is used in development mode to verify that running change detection doesn't
+   * This is used in development mode to verify that running change detection does not
    * introduce other changes.
    */
   checkNoChanges(): void {

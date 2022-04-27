@@ -103,8 +103,8 @@ export abstract class ChangeDetectorRef {
   /**
    * Checks the change detector and its children, and throws if any changes are detected.
    *
-   * Use in development mode to verify that running change detection doesn't introduce
-   * other changes. Calling it in production mode is a noop.
+   * Use in development mode to verify that running change detection does not introduce
+   * other changes. Calling it in production mode is a no-op.
    */
   abstract checkNoChanges(): void;
 

@@ -7,6 +7,7 @@
  */
 
 import ts from 'typescript';
+
 import {AbsoluteFsPath} from '../../file_system';
 
 export interface FileUpdate {
@@ -65,7 +66,7 @@ export interface ProgramDriver {
 export enum UpdateMode {
   /**
    * A complete update creates a completely new overlay of type-checking code on top of the user's
-   * original program, which doesn't include type-checking code from previous calls to
+   * original program, which does not include type-checking code from previous calls to
    * `updateFiles`.
    */
   Complete,

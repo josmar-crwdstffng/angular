@@ -10,5 +10,5 @@ import { Component } from '@angular/core';
   `
 })
 export class HelloWorldComponent {
-  // The code in this class drives the component's behavior.
+  // The code in this class drives the behavior of the component.
 }

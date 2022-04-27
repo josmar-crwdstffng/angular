@@ -125,7 +125,7 @@ export abstract class BackendService {
       return this.getPassThruBackend().handle(req);
     }
 
-    // 404 - can't handle this request
+    // 404 - cannot handle this request
     resOptions = this.createErrorResponseOptions(
         url, STATUS.NOT_FOUND, `Collection '${collectionName}' not found`);
     return this.createResponse$(() => resOptions);
@@ -472,7 +472,7 @@ export abstract class BackendService {
   /** Parse the id as a number. Return original value if not a number. */
   protected parseId(collection: any[], collectionName: string, id: string): any {
     if (!this.isCollectionIdNumeric(collection, collectionName)) {
-      // Can't confirm that `id` is a numeric type; don't parse as a number
+      // Cannot confirm that `id` is a numeric type; don't parse as a number
       // or else `'42'` -> `42` and _get by id_ fails.
       return id;
     }
@@ -482,7 +482,7 @@ export abstract class BackendService {
 
   /**
    * return true if can determine that the collection's `item.id` is a number
-   * This implementation can't tell if the collection is empty so it assumes NO
+   * This implementation cannot tell if the collection is empty so it assumes NO
    * */
   protected isCollectionIdNumeric<T extends {id: any}>(collection: T[], collectionName: string):
       boolean {
@@ -516,7 +516,7 @@ export abstract class BackendService {
       let urlRoot = '';
       if (loc.host !== this.config.host) {
         // url for a server on a different host!
-        // assume it's collection is actually here too.
+        // assume it is collection is actually here too.
         drop = 1;  // the leading slash
         urlRoot = loc.protocol + '//' + loc.host + '/';
       }

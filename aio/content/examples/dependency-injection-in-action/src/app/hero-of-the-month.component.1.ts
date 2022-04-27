@@ -19,7 +19,7 @@ export class HeroOfTheMonthComponent {
 }
 // #enddocregion
 
-// This NgModule exists only to avoid the Angular language service's "undeclared component" error
+// This NgModule exists only to avoid the "undeclared component" error of the Angular language service
 @NgModule({
   declarations: [ HeroOfTheMonthComponent ]
 })

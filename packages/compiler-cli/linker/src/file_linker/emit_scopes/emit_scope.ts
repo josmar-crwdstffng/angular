@@ -40,7 +40,7 @@ export class EmitScope<TStatement, TExpression> {
 
     if (definition.statements.length > 0) {
       // Definition statements must be emitted "after" the declaration for which the definition is
-      // being emitted. However, the linker only transforms individual declaration calls, and can't
+      // being emitted. However, the linker only transforms individual declaration calls, and cannot
       // insert statements after definitions. To work around this, the linker transforms the
       // definition into an IIFE which executes the definition statements before returning the
       // definition expression.

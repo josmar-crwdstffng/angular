@@ -83,7 +83,7 @@ export class ComponentDataSource extends DataSource<FlatNode> {
           expandable: expandable(node),
           id: getId(node),
           // We can compare the nodes in the navigation functions above
-          // based on this identifier directly, since it's a reference type
+          // based on this identifier directly, since it is a reference type
           // and the reference is preserved after transformation.
           position: node.position,
           name: node.component ? node.component.name : node.element,
