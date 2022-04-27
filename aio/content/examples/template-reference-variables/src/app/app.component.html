@@ -66,13 +66,13 @@
   <!-- #enddocregion template-ref-vars-scope1 -->
 </div>
 
-<!-- In this case there's a "hidden" ng-template around the
+<!-- In this case there is a "hidden" ng-template around the
   span and the definition of the variable is outside of it. Thus, you access a template variable from a parent template (which is logical as the context is inherited). -->
 
-<p>Here's the desugared syntax:</p>
+<p>Here is the desugared syntax:</p>
 <pre><code [innerText]="desugared1"></code></pre>
 
-<h3>Accessing from outside parent template. (Doesn't work.)</h3>
+<h3>Accessing from outside parent template. (Does not work.)</h3>
 <!-- Accessing the template reference variable from outside the parent template does
 not work. The value to the right is empty and changing the
 value of the input will have no effect. -->
@@ -83,13 +83,13 @@ value of the input will have no effect. -->
   <!-- uncomment the above and the app breaks -->
 </div>
 
-<p>Here's the desugared syntax:</p>
+<p>Here is the desugared syntax:</p>
 <pre><code [innerText]="desugared2"></code></pre>
 
 <h3>*ngFor and template reference variable scope</h3>
 
 <!-- The template is instantiated twice because *ngFor iterates
-  over the two items in the array, so it's impossible to define what ref2 is referencing. -->
+  over the two items in the array, so it is impossible to define what ref2 is referencing. -->
 
 <pre><code [innerText]="ngForExample"></code></pre>
 
