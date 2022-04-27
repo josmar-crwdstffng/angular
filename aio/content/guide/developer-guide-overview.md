@@ -14,7 +14,7 @@ To get the most out of these developer guides, you should review the following t
 *   [Getting started tutorial][AioStart]
 *   [Understanding Angular][AioGuideUnderstandingAngularOverview]
 
-## Learn about Angular's features
+## Learn about the features of Angular
 
 <div class="card-container">
   <a href="guide/routing-overview" class="docs-card" title="Routing and navigation developer guide">

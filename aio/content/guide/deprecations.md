@@ -1,7 +1,7 @@
 # Deprecated APIs and features
 
 Angular strives to balance innovation and stability.
-Sometimes, APIs and features become obsolete and need to be removed or replaced so that Angular can stay current with new best practices, changing dependencies, or changes in the \(web\) platform itself.
+Sometimes, APIs and features become obsolete and need to be removed or replaced so that Angular can stay current with new best practices, changing dependencies, or changes in the \(web\) platform.
 
 To make these transitions as easy as possible, we deprecate APIs and features for a period of time before removing them.
 This gives you time to update your applications to the latest APIs and best practices.
@@ -11,7 +11,7 @@ This guide contains a summary of all Angular APIs and features that are currentl
 <div class="alert is-helpful">
 
 Features and APIs that were deprecated in v6 or earlier are candidates for removal in version 9 or any later major version.
-For information about Angular's deprecation and removal practices, see [Angular Release Practices](guide/releases#deprecation-practices "Angular Release Practices: Deprecation practices").
+For information about the deprecation and removal practices in Angular, see [Angular Release Practices](guide/releases#deprecation-practices "Angular Release Practices: Deprecation practices").
 
 For step-by-step instructions on how to update to the latest Angular release, use the interactive update guide at [update.angular.io](https://update.angular.io).
 
@@ -104,7 +104,7 @@ In the [API reference section](api) of this site, deprecated APIs are indicated 
 | API                                                                                           | Replacement                                         | Deprecation announced | Details |
 |:---                                                                                           |:---                                                 |:---                   |:---     |
 | [`CurrencyPipe` - `DEFAULT_CURRENCY_CODE`](api/common/CurrencyPipe#currency-code-deprecation) | `{provide: DEFAULT_CURRENCY_CODE, useValue: 'USD'}` | v9                    | From v11 the default code will be extracted from the locale data given by `LOCALE_ID`, rather than `USD`. |
-| [`NgComponentOutlet.ngComponentOutletNgModuleFactory`](api/common/NgComponentOutlet)          | `NgComponentOutlet.ngComponentOutletNgModule`       | v14                   | Use the `ngComponentOutletNgModule` input instead. This input doesn't require resolving NgModule factory. |
+| [`NgComponentOutlet.ngComponentOutletNgModuleFactory`](api/common/NgComponentOutlet)          | `NgComponentOutlet.ngComponentOutletNgModule`       | v14                   | Use the `ngComponentOutletNgModule` input instead. This input does not require resolving NgModule factory. |
 
 <a id="common-http"></a>
 
@@ -131,10 +131,10 @@ In the [API reference section](api) of this site, deprecated APIs are indicated 
 | `ViewChildren.emitDistinctChangesOnly` / `ContentChildren.emitDistinctChangesOnly`                         | none \(was part of [issue #40091](https://github.com/angular/angular/issues/40091)\)                                                                              |                       | This is a temporary flag introduced as part of bugfix of [issue #40091](https://github.com/angular/angular/issues/40091) and will be removed.                                                                                                                      |
 | Factory-based signature of [`ApplicationRef.bootstrap`](api/core/ApplicationRef#bootstrap)                 | Type-based signature of [`ApplicationRef.bootstrap`](api/core/ApplicationRef#bootstrap)                                                                           | v13                   | With Ivy, there is no need to resolve Component factory and Component Type can be provided directly.                                                                                                                                                               |
 | [`PlatformRef.bootstrapModuleFactory`](api/core/PlatformRef#bootstrapModuleFactory)                        | [`PlatformRef.bootstrapModule`](api/core/PlatformRef#bootstrapModule)                                                                                             | v13                   | With Ivy, there is no need to resolve NgModule factory and NgModule Type can be provided directly.                                                                                                                                                                 |
-| [`ModuleWithComponentFactories`](api/core/ModuleWithComponentFactories)                                    | none                                                                                                                                                              | v13                   | Ivy JIT mode doesn't require accessing this symbol. See [JIT API changes due to ViewEngine deprecation](#jit-api-changes) for additional context.                                                                                                                  |
-| [`Compiler`](api/core/Compiler)                                                                            | none                                                                                                                                                              | v13                   | Ivy JIT mode doesn't require accessing this symbol. See [JIT API changes due to ViewEngine deprecation](#jit-api-changes) for additional context.                                                                                                                  |
-| [`CompilerFactory`](api/core/CompilerFactory)                                                              | none                                                                                                                                                              | v13                   | Ivy JIT mode doesn't require accessing this symbol. See [JIT API changes due to ViewEngine deprecation](#jit-api-changes) for additional context.                                                                                                                  |
-| [`NgModuleFactory`](api/core/NgModuleFactory)                                                              | Use non-factory based framework APIs like [PlatformRef.bootstrapModule](api/core/PlatformRef#bootstrapModule) and [createNgModuleRef](api/core/createNgModuleRef) | v13                   | Ivy JIT mode doesn't require accessing this symbol. See [JIT API changes due to ViewEngine deprecation](#jit-api-changes) for additional context.                                                                                                                  |
+| [`ModuleWithComponentFactories`](api/core/ModuleWithComponentFactories)                                    | none                                                                                                                                                              | v13                   | Ivy JIT mode does not require accessing this symbol. See [JIT API changes due to ViewEngine deprecation](#jit-api-changes) for additional context.                                                                                                                  |
+| [`Compiler`](api/core/Compiler)                                                                            | none                                                                                                                                                              | v13                   | Ivy JIT mode does not require accessing this symbol. See [JIT API changes due to ViewEngine deprecation](#jit-api-changes) for additional context.                                                                                                                  |
+| [`CompilerFactory`](api/core/CompilerFactory)                                                              | none                                                                                                                                                              | v13                   | Ivy JIT mode does not require accessing this symbol. See [JIT API changes due to ViewEngine deprecation](#jit-api-changes) for additional context.                                                                                                                  |
+| [`NgModuleFactory`](api/core/NgModuleFactory)                                                              | Use non-factory based framework APIs like [PlatformRef.bootstrapModule](api/core/PlatformRef#bootstrapModule) and [createNgModuleRef](api/core/createNgModuleRef) | v13                   | Ivy JIT mode does not require accessing this symbol. See [JIT API changes due to ViewEngine deprecation](#jit-api-changes) for additional context.                                                                                                                  |
 | [Factory-based signature of `ViewContainerRef.createComponent`](api/core/ViewContainerRef#createComponent) | [Type-based signature of `ViewContainerRef.createComponent`](api/core/ViewContainerRef#createComponent)                                                           | v13                   | Angular no longer requires component factories to dynamically create components. Use different signature of the `createComponent` method, which allows passing Component class directly.                                                                           |
 | [`ComponentFactory`](api/core/ComponentFactory)                                                            | Use non-factory based framework APIs.                                                                                                                             | v13                   | Since Ivy, Component factories are not required. Angular provides other APIs where Component classes can be used directly.                                                                                                                                         |
 | [`ComponentFactoryResolver`](api/core/ComponentFactoryResolver)                                            | Use non-factory based framework APIs.                                                                                                                             | v13                   | Since Ivy, Component factories are not required, thus there is no need to resolve them.                                                                                                                                                                            |
@@ -262,7 +262,7 @@ Templates should use the more widely documented syntaxes for binding and referen
 
 ### `<template>` tag
 
-The `<template>` tag was deprecated in v4 to avoid colliding with the DOM's element of the same name \(such as when using web components\).
+The `<template>` tag was deprecated in v4 to avoid colliding with the element of the same name in the DOM \(such as when using web components\).
 Use `<ng-template>` instead.
 For more information, see the [Ahead-of-Time Compilation](guide/aot-compiler) guide.
 
@@ -280,13 +280,13 @@ Now deprecated:
 
 This support was deprecated for several reasons.
 First, developers found this pattern confusing.
-It seems like the actual `ngModel` directive is being used, but in fact it's an input/output property named `ngModel` on the reactive form directive that approximates some, but not all, of the directive's behavior.
-It allows getting and setting a value and intercepting value events, but some of `ngModel`'s other features, such as delaying updates with`ngModelOptions` or exporting the directive, don't work.
+It seems like the actual `ngModel` directive is being used, but in fact it is an input/output property named `ngModel` on the reactive form directive that approximates some, but not all, of the behavior of the directive.
+It allows getting and setting a value and intercepting value events, but some of other features of the `ngModel`, such as delaying updates with`ngModelOptions` or exporting the directive, do not work.
 
 In addition, this pattern mixes template-driven and reactive forms strategies, which prevents taking advantage of the full benefits of either strategy.
 Setting the value in the template violates the template-agnostic principles behind reactive forms, whereas adding a `FormControl`/`FormGroup` layer in the class removes the convenience of defining forms in the template.
 
-To update your code before support is removed, you'll want to decide whether to stick with reactive form directives \(and get/set values using reactive forms patterns\) or switch to template-driven directives.
+To update your code before support is removed, you will want to decide whether to stick with reactive form directives \(and get/set values using reactive forms patterns\) or switch to template-driven directives.
 
 **After** \(choice 1 - use reactive forms\):
 
@@ -335,7 +335,7 @@ A dev mode warning was added in v14 to warn if a created `UrlTree` relies on the
 
 ### loadChildren string syntax
 
-When Angular first introduced lazy routes, there wasn't browser support for dynamically loading additional JavaScript.
+When Angular first introduced lazy routes, there was not browser support for dynamically loading additional JavaScript.
 Angular created our own scheme using the syntax `loadChildren: './lazy/lazy.module#LazyModule'` and built tooling to support it.
 Now that ECMAScript dynamic import is supported in many browsers, Angular is moving toward this new syntax.
 
@@ -359,9 +359,9 @@ Prior to version 7, the `import()` syntax only works in JIT mode \(with view eng
 <div class="alert is-helpful">
 
 **Declaration syntax**: <br />
-It's important to follow the route declaration syntax `loadChildren: () => import('&hellip;').then(m => m.ModuleName)` to allow `ngc` to discover the lazy-loaded module and the associated `NgModule`.
+It is important to follow the route declaration syntax `loadChildren: () => import('&hellip;').then(m => m.ModuleName)` to allow `ngc` to discover the lazy-loaded module and the associated `NgModule`.
 You can find the complete list of allowed syntax constructs [here](https://github.com/angular/angular-cli/blob/a491b09800b493fe01301387fa9a025f7c7d4808/packages/ngtools/webpack/src/transformers/import_factory.ts#L104-L113).
-These restrictions will be relaxed with the release of Ivy since it'll no longer use `NgFactories`.
+These restrictions will be relaxed with the release of Ivy since it will no longer use `NgFactories`.
 
 </div>
 
@@ -416,7 +416,7 @@ In a future version, we will throw to indicate that the write is not supported.
 
 ### Binding to `innerText` in `platform-server`
 
-[Domino](https://github.com/fgnass/domino), which is used in server-side rendering, doesn't support `innerText`, so in platform-server's "domino adapter", there was special code to fall back to `textContent` if you tried to bind to `innerText`.
+[Domino](https://github.com/fgnass/domino), which is used in server-side rendering, does not support `innerText`, so in the "domino adapter" of the platform-server, there was special code to fall back to `textContent` if you tried to bind to `innerText`.
 
 These two properties have subtle differences, so switching to `textContent` under the hood can be surprising to users.
 For this reason, we are deprecating this behavior.
@@ -433,7 +433,7 @@ All of the `wtf*` APIs are deprecated and will be removed in a future version.
 ### `entryComponents` and `ANALYZE_FOR_ENTRY_COMPONENTS` no longer required
 
 Previously, the `entryComponents` array in the `NgModule` definition was used to tell the compiler which components would be created and inserted dynamically.
-With Ivy, this isn't a requirement anymore and the `entryComponents` array can be removed from existing module declarations.
+With Ivy, this is not a requirement anymore and the `entryComponents` array can be removed from existing module declarations.
 The same applies to the `ANALYZE_FOR_ENTRY_COMPONENTS` injection token.
 
 <div class="alert is-helpful">
@@ -452,8 +452,8 @@ This type represents an `NgModule` along with additional providers.
 Angular version 9 deprecates use of `ModuleWithProviders` without an explicitly generic type, where the generic type refers to the type of the `NgModule`.
 In a future version of Angular, the generic will no longer be optional.
 
-If you're using the CLI, `ng update` should [migrate your code automatically](guide/migration-module-with-providers).
-If you're not using the CLI, you can add any missing generic types to your application manually.
+If you are using the CLI, `ng update` should [migrate your code automatically](guide/migration-module-with-providers).
+If you are not using the CLI, you can add any missing generic types to your application manually.
 For example:
 
 **Before**:
@@ -468,7 +468,7 @@ For example:
 
 ### Internet Explorer 11
 
-Angular support for Microsoft's Internet Explorer 11 \(IE11\) is deprecated and will be removed in Angular v13.
+Angular support for Internet Explorer 11 \(IE11\) by Microsoft is deprecated and will be removed in Angular v13.
 Ending IE11 support allows Angular to take advantage of web platform APIs present only in evergreen browsers, resulting in better APIs for developers and more capabilities for application users.
 An additional motivation behind this removal is the drop in global usage of IE11 to just ~1% \(as of March 2021\).
 For full rationale and discussion behind this deprecation, see [RFC: Internet Explorer 11 support deprecation and removal](https://github.com/angular/angular/issues/41840).
@@ -509,7 +509,7 @@ When compiling your application using the AOT compiler, your templates are type-
 Before Angular 9 there existed only two strictness levels of template type checking as determined by [the `fullTemplateTypeCheck` compiler option](guide/angular-compiler-options).
 In version 9 the `strictTemplates` family of compiler options has been introduced as a more fine-grained approach to configuring how strict your templates are being type-checked.
 
-The `fullTemplateTypeCheck` flag is being deprecated in favor of the new `strictTemplates` option and its related compiler options.
+The `fullTemplateTypeCheck` flag is being deprecated in favor of the new `strictTemplates` option and the associated related compiler options.
 Projects that currently have `fullTemplateTypeCheck: true` configured can migrate to the following set of compiler options to achieve the same level of type-checking:
 
 <code-example language="json" header="tsconfig.app.json">
@@ -544,7 +544,7 @@ Since ViewEngine is deprecated and will soon be removed, those symbols are now d
 <div class="alert is-important">
 
 **IMPORTANT**: <br />
-this deprecation doesn't affect JIT mode in Ivy \(JIT remains available with Ivy, however we are exploring a possibility of deprecating it in the future.
+this deprecation does not affect JIT mode in Ivy \(JIT remains available with Ivy, however we are exploring a possibility of deprecating it in the future.
 See [RFC: Exploration of use-cases for Angular JIT compilation mode](https://github.com/angular/angular/issues/43133)\).
 
 </div>

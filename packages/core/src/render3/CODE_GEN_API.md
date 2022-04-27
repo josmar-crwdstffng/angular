@@ -8,4 +8,4 @@ Ivy exports a number of functions prefixed with `ɵɵ`, for example `ɵɵelement
 ### Guidance
 
 - Do not use `ɵɵ` functions directly. They are meant to be used in generated code.
-- Do not create new `ɵɵ` functions, it's not a convention that Angular consumes, and it is liable to confuse other developers into thinking consuming Angular's `ɵɵ` functions is a good pattern to follow.
+- Do not create new `ɵɵ` functions, it is not a convention that Angular consumes, and it is liable to confuse other developers into thinking consuming the `ɵɵ` functions in Angular is a good pattern to follow.

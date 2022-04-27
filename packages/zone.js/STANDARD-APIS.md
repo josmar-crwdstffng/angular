@@ -1,4 +1,4 @@
-# Zone.js's support for standard apis
+# support for standard apis in Zone.js
 
 Zone.js patched most standard APIs such as DOM event listeners, XMLHttpRequest in Browser, EventEmitter and fs API in Node.js so they can be in zone.
 
@@ -129,7 +129,7 @@ It also passes promise A+ tests.
 
 ## UnpatchedEvents
 
-Sometimes we don't want some `event` to be patched by `zone.js`, we can instruct zone.js to leave
+Sometimes we do not want some `event` to be patched by `zone.js`, we can instruct zone.js to leave
 these `event` to be unpatched by following settings.
 
 ```javascript

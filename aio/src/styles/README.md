@@ -35,7 +35,7 @@ For each area/component, there is a sub-directory in either `1-layouts/` or `2-m
 Each such sub-directory contains a `<name>.scss` file with styles for the corresponding area/component and may also contain a `<name>-theme.scss` file with styles related to theming.
 See the next section for more details.
 
-When appropriate, the styles in these files should be scoped to the targeted component (for example, by using the component's selector).
+When appropriate, the styles in these files should be scoped to the targeted component (for example, by using the selector of the component).
 
 
 ## Theming
@@ -71,7 +71,7 @@ When building the app the following styles bundles are generated:
 - [One bundle per theme](https://github.com/angular/angular/blob/62b5a6cb079e489d91982abe88d644d73feb73f3/aio/angular.json#L45-L54), which is loaded "on demand" and contains theme-specific styles.
 
 A theme bundle is [loaded at runtime](https://github.com/angular/angular/blob/62b5a6cb079e489d91982abe88d644d73feb73f3/aio/src/index.html#L33-L36) using the CSS [`@import` rule](https://developer.mozilla.org/en-US/docs/Web/CSS/@import).
-The appropriate theme is chosen based on the user's preference (either through an operating system setting or a user agent setting) using the [`prefers-color-scheme` media query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme).
+The appropriate theme is chosen based on the preference of the user (either through an operating system setting or a user agent setting) using the [`prefers-color-scheme` media query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme).
 
 Once the application has bootstrapped, the theme [may be updated](https://github.com/angular/angular/blob/62b5a6cb079e489d91982abe88d644d73feb73f3/aio/src/app/shared/theme-picker/theme-toggle.component.ts#L49-L72) based on a previously stored application-specific preference.
 Whenever the user explicitly changes the theme using the theme-toggle component, the new preference [is stored](https://github.com/angular/angular/blob/62b5a6cb079e489d91982abe88d644d73feb73f3/aio/src/app/shared/theme-picker/theme-toggle.component.ts#L89) for use in future visits.

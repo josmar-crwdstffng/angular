@@ -6,7 +6,7 @@ We maintain a small list of some of the top Angular resources from across the co
 
 ## How do I get listed?
 
-While we can't accept all contributions, qualifying contributions can be submitted via a PR adding yourself to the `resources.json` file. All contributions should be in the appropriate section and must meet the following criteria:
+While we cannot accept all contributions, qualifying contributions can be submitted via a PR adding yourself to the `resources.json` file. All contributions should be in the appropriate section and must meet the following criteria:
 
 1.  Your contribution must be valid, and contain a link to a page talking specifically about using Angular
 1.  Your contribution should have a clear and concise title and description

@@ -1,12 +1,12 @@
 # Angular Framework Coding Standards
 
-The coding practices in this doc apply only to development on Angular itself, not applications
+The coding practices in this doc apply only to development on Angular, not applications
 built _with_ Angular. (Though you can follow them too if you really want).
 
 ## Code style
 
 The [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html) is the
-basis for Angular's coding style, with additional guidance here pertaining to TypeScript. The team
+basis for the coding style in Angular, with additional guidance here pertaining to TypeScript. The team
 uses `clang-format` to automatically format code; automatic formatting is enforced by CI.
 
 ## Code practices
@@ -14,7 +14,7 @@ uses `clang-format` to automatically format code; automatic formatting is enforc
 ### Write useful comments
 
 Comments that explain what some block of code does are nice; they can tell you something in less
-time than it would take to follow through the code itself.
+time than it would take to follow through the code.
 
 Comments that explain why some block of code exists at all, or does something the way it does,
 are _invaluable_. The "why" is difficult, or sometimes impossible, to track down without seeking out
@@ -71,7 +71,7 @@ You can ignore this guidance when necessary for performance reasons in framework
 #### Optional arguments
 
 Use optional function arguments only when such an argument makes sense for an API or when required
-for performance. Don't use optional arguments merely for convenience in implementation.
+for performance. Do not use optional arguments merely for convenience in implementation.
 
 ### TypeScript
 
@@ -89,7 +89,7 @@ and generate additional code when targeting older browsers.
 compatibility.
 * Avoid long or complex getters and setters. If the logic of an accessor would take more than
 three lines, introduce a new method to contain the logic.
-* A getter should immediately precede its corresponding setter.
+* A getter should immediately precede the associated corresponding setter.
 * Decorators such as `@Input` should be applied to the getter and not the setter.
 * Always use a `readonly` property instead of a getter (with no setter) when possible.
 
@@ -145,7 +145,7 @@ Boolean properties and return values should use "Whether..." as opposed to "True
 
 #### Try-Catch
 
-Only use `try-catch` blocks when dealing with legitimately unexpected errors. Don't use `try` to
+Only use `try-catch` blocks when dealing with legitimately unexpected errors. Do not use `try` to
 avoid checking for expected error conditions such as null dereference or out-of-bound array access.
 
 Each `try-catch` block **must** include a comment that explains the
@@ -171,7 +171,7 @@ Use `readonly` members wherever possible.
 
 ##### Observables
 
-Don't suffix observables with `$`.
+Do not suffix observables with `$`.
 
 ##### Classes
 

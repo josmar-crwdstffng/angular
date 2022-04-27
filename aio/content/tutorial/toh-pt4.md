@@ -13,14 +13,14 @@ For the sample application that this page describes, see the <live-example></liv
 
 ## Why services
 
-Components shouldn't fetch or save data directly and they certainly shouldn't knowingly present fake data.
+Components should not fetch or save data directly and they certainly should not knowingly present fake data.
 They should focus on presenting data and delegate data access to a service.
 
-In this tutorial, you'll create a `HeroService` that all application classes can use to get heroes.
-Instead of creating that service with the [`new` keyword](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/new), you'll rely on Angular [*dependency injection*](guide/dependency-injection) to inject it into the `HeroesComponent` constructor.
+In this tutorial, you will create a `HeroService` that all application classes can use to get heroes.
+Instead of creating that service with the [`new` keyword](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/new), you will rely on Angular [*dependency injection*](guide/dependency-injection) to inject it into the `HeroesComponent` constructor.
 
-Services are a great way to share information among classes that *don't know each other*.
-You'll create a `MessageService` and inject it in two places.
+Services are a great way to share information among classes that *do not know each other*.
+you will create a `MessageService` and inject it in two places.
 
 *   Inject in `HeroService`, which uses the service to send a message
 *   Inject in `MessagesComponent`, which displays that message, and also displays the ID when the user clicks a hero
@@ -42,8 +42,8 @@ The command generates a skeleton `HeroService` class in `src/app/hero.service.ts
 ### `@Injectable()` services
 
 Notice that the new service imports the Angular `Injectable` symbol and annotates the class with the `@Injectable()` decorator. This marks the class as one that participates in the *dependency injection system*.
-The `HeroService` class is going to provide an injectable service, and it can also have its own injected dependencies.
-It doesn't have any dependencies yet, but [it will soon](#inject-message-service).
+The `HeroService` class is going to provide an injectable service, and it can also have the associated injected dependencies.
+It does not have any dependencies yet, but [it will soon](#inject-message-service).
 
 The `@Injectable()` decorator accepts a metadata object for the service, the same way the `@Component()` decorator did for your component classes.
 
@@ -52,7 +52,7 @@ The `@Injectable()` decorator accepts a metadata object for the service, the sam
 The `HeroService` could get hero data from anywhere &mdash;a web service, local storage, or a mock data source.
 
 Removing data access from components means you can change your mind about the implementation anytime, without touching any components.
-They don't know how the service works.
+They do not know how the service works.
 
 The implementation in *this* tutorial will continue to deliver *mock heroes*.
 
@@ -106,7 +106,7 @@ At this point, the code will differ from the `HeroService` in the ["final code r
 
 Open the `HeroesComponent` class file.
 
-Delete the `HEROES` import, because you won't need that anymore.
+Delete the `HEROES` import, because you will not need that anymore.
 Import the `HeroService` instead.
 
 <code-example header="src/app/heroes/heroes.component.ts (import HeroService)" path="toh-pt4/src/app/heroes/heroes.component.ts" region="hero-service-import"></code-example>
@@ -137,11 +137,11 @@ Create a method to retrieve the heroes from the service.
 
 ### Call it in `ngOnInit()`
 
-While you could call `getHeroes()` in the constructor, that's not the best practice.
+While you could call `getHeroes()` in the constructor, that is not the best practice.
 
 Reserve the constructor for minimal initialization such as wiring constructor parameters to properties.
-The constructor shouldn't *do anything*.
-It certainly shouldn't call a function that makes HTTP requests to a remote server as a *real* data service would.
+The constructor should not *do anything*.
+It certainly should not call a function that makes HTTP requests to a remote server as a *real* data service would.
 
 Instead, call `getHeroes()` inside the [*ngOnInit lifecycle hook*](guide/lifecycle-hooks) and let Angular call `ngOnInit()` at an appropriate time *after* constructing a `HeroesComponent` instance.
 
@@ -159,7 +159,7 @@ The `HeroesComponent` consumes the `getHeroes()` result as if heroes could be fe
 <code-example header="src/app/heroes/heroes.component.ts" path="toh-pt4/src/app/heroes/heroes.component.1.ts" region="get-heroes"></code-example>
 
 This will not work in a real application.
-You're getting away with it now because the service currently returns *mock heroes*.
+You are getting away with it now because the service currently returns *mock heroes*.
 But soon the application will fetch heroes from a remote server, which is an inherently *asynchronous* operation.
 
 The `HeroService` must wait for the server to respond,
@@ -174,8 +174,8 @@ In this tutorial, `HeroService.getHeroes()` will return an `Observable` because 
 
 `Observable` is one of the key classes in the [RxJS library](https://rxjs.dev).
 
-In a [later tutorial on HTTP](tutorial/toh-pt6), you'll learn that Angular's `HttpClient` methods return RxJS `Observable`s.
-In this tutorial, you'll simulate getting data from the server with the RxJS `of()` function.
+In a [later tutorial on HTTP](tutorial/toh-pt6), you will learn that the `HttpClient` methods in Angular return RxJS `Observable`s.
+In this tutorial, you will simulate getting data from the server with the RxJS `of()` function.
 
 Open the `HeroService` file and import the `Observable` and `of` symbols from RxJS.
 
@@ -189,7 +189,7 @@ Replace the `getHeroes()` method with the following:
 
 <div class="alert is-helpful">
 
-In the [HTTP tutorial](tutorial/toh-pt6), you'll call `HttpClient.get<Hero[]>()` which also returns an `Observable<Hero[]>` that emits  *a single value*, an array of heroes from the body of the HTTP response.
+In the [HTTP tutorial](tutorial/toh-pt6), you will call `HttpClient.get<Hero[]>()` which also returns an `Observable<Hero[]>` that emits  *a single value*, an array of heroes from the body of the HTTP response.
 
 </div>
 
@@ -198,7 +198,7 @@ In the [HTTP tutorial](tutorial/toh-pt6), you'll call `HttpClient.get<Hero[]>()`
 The `HeroService.getHeroes` method used to return a `Hero[]`.
 Now it returns an `Observable<Hero[]>`.
 
-You'll have to adjust to that difference in `HeroesComponent`.
+you will have to adjust to that difference in `HeroesComponent`.
 
 Find the `getHeroes` method and replace it with the following code \(shown side-by-side with the previous version for comparison\)
 
@@ -209,14 +209,14 @@ Find the `getHeroes` method and replace it with the following code \(shown side-
 
 `Observable.subscribe()` is the critical difference.
 
-The previous version assigns an array of heroes to the component's `heroes` property.
-The assignment occurs *synchronously*, as if the server could return heroes instantly or the browser could freeze the UI while it waited for the server's response.
+The previous version assigns an array of heroes to the `heroes` property of the component.
+The assignment occurs *synchronously*, as if the server could return heroes instantly or the browser could freeze the UI while it waited for the response form the server.
 
-That *won't work* when the `HeroService` is actually making requests of a remote server.
+That *will not work* when the `HeroService` is actually making requests of a remote server.
 
 The new version waits for the `Observable` to emit the array of heroes &mdash;which could happen now or several minutes from now.
 The `subscribe()` method passes the emitted array to the callback,
-which sets the component's `heroes` property.
+which sets the `heroes` property of the component.
 
 This asynchronous approach *will work* when the `HeroService` requests heroes from the server.
 
@@ -257,11 +257,11 @@ ng generate service message
 
 </code-example>
 
-Open `MessageService` and replace its contents with the following.
+Open `MessageService` and replace the associated contents with the following.
 
 <code-example header="src/app/message.service.ts" path="toh-pt4/src/app/message.service.ts"></code-example>
 
-The service exposes its cache of `messages` and two methods:
+The service exposes the associated cache of `messages` and two methods:
 One to `add()` a message to the cache and another to `clear()` the cache.
 
 <a id="inject-message-service"></a>
@@ -303,7 +303,7 @@ Angular will inject the singleton `MessageService` into that property when it cr
 
 <code-example header="src/app/messages/messages.component.ts" path="toh-pt4/src/app/messages/messages.component.ts" region="ctor"></code-example>
 
-The `messageService` property **must be public** because you're going to bind to it in the template.
+The `messageService` property **must be public** because you are going to bind to it in the template.
 
 <div class="alert is-important">
 
@@ -317,19 +317,19 @@ Replace the CLI-generated `MessagesComponent` template with the following.
 
 <code-example header="src/app/messages/messages.component.html" path="toh-pt4/src/app/messages/messages.component.html"></code-example>
 
-This template binds directly to the component's `messageService`.
+This template binds directly to the `messageService` of the component.
 
 |                                              | Details |
 |:---                                          |:---     |
-| `*ngIf`                                      | Only displays the messages area if there are messages to show. |
-| `*ngFor`                                     | Presents the list of messages in repeated `<div>` elements.    |
-| Angular [event binding](guide/event-binding) | Binds the button's click event to `MessageService.clear()`.    |
+| `*ngIf`                                      | Only displays the messages area if there are messages to show.   |
+| `*ngFor`                                     | Presents the list of messages in repeated `<div>` elements.      |
+| Angular [event binding](guide/event-binding) | Binds the click event of the button to `MessageService.clear()`. |
 
 The messages will look better when you add the private CSS styles to `messages.component.css` as listed in one of the ["final code review"](#final-code-review) tabs below.
 
 ## Add additional messages to hero service
 
-The following example shows how to send and display a message each time the user clicks on a hero, showing a history of the user's selections.
+The following example shows how to send and display a message each time the user clicks on a hero, showing a history of the selections from the user.
 This will be helpful when you get to the next section on [Routing](tutorial/toh-pt5).
 
 <code-example header="src/app/heroes/heroes.component.ts" path="toh-pt4/src/app/heroes/heroes.component.ts"></code-example>
@@ -358,12 +358,12 @@ Here are the code files discussed on this page.
 ## Summary
 
 *   You refactored data access to the `HeroService` class
-*   You registered the `HeroService` as the *provider* of its service at the root level so that it can be injected anywhere in the application
+*   You registered the `HeroService` as the *provider* of the associated service at the root level so that it can be injected anywhere in the application
 *   You used [Angular Dependency Injection](guide/dependency-injection) to inject it into a component
 *   You gave the `HeroService` `get data` method an asynchronous signature
 *   You discovered `Observable` and the RxJS `Observable` library
 *   You used RxJS `of()` to return an observable of mock heroes \(`Observable<Hero[]>`\)
-*   The component's `ngOnInit` lifecycle hook calls the `HeroService` method, not the constructor
+*   The `ngOnInit` lifecycle hook of the component calls the `HeroService` method, not the constructor
 *   You created a `MessageService` for loosely-coupled communication between classes
 *   The `HeroService` injected into a component is created with another injected service, `MessageService`
 

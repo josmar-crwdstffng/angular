@@ -4,15 +4,15 @@ This page provides a conceptual overview of a dependency injection technique tha
 Designing your library with *lightweight injection tokens* helps optimize the bundle size of client applications that use your library.
 
 You can manage the dependency structure among your components and injectable services to optimize bundle size by using [tree-shakable providers](guide/architecture-services#introduction-to-services-and-dependency-injection).
-This normally ensures that if a provided component or service is never actually used by the app, the compiler can eliminate its code from the bundle.
+This normally ensures that if a provided component or service is never actually used by the app, the compiler can eliminate the associated code from the bundle.
 
 However, due to the way Angular stores injection tokens, it is possible that such an unused component or service can end up in the bundle anyway.
 This page describes a dependency-injection design pattern that supports proper tree-shaking by using lightweight injection tokens.
 
 The lightweight injection token design pattern is especially important for library developers.
-It ensures that when an application uses only some of your library's capabilities, the unused code can be eliminated from the client's application bundle.
+It ensures that when an application uses only some of the capabilities of your library, the unused code can be eliminated from the application bundle of the client.
 
-When an application uses your library, there might be some services that your library supplies which the client application doesn't use.
+When an application uses your library, there might be some services that your library supplies which the client application does not use.
 In this case, the application developer should expect that service to be tree-shaken, and not contribute to the size of the compiled application.
 Because the application developer cannot know about or remedy a tree-shaking problem in the library, it is the responsibility of the library developer to do so.
 To prevent the retention of unused components, your library should use the lightweight injection token design pattern.
@@ -50,7 +50,7 @@ class LibCardComponent {
 
 </code-example>
 
-Because `<lib-header>` is optional, the element can appear in the template in its minimal form, `<lib-card></lib-card>`.
+Because `<lib-header>` is optional, the element can appear in the template in the associated minimal form, `<lib-card></lib-card>`.
 In this case, `<lib-header>` is not used and you would expect it to be tree-shaken, but that is not what happens.
 This is because `LibCardComponent` actually contains two references to the `LibHeaderComponent`.
 
@@ -139,7 +139,7 @@ This lets full tree shaking of `LibHeaderComponent` take place.
 The `LibHeaderToken` is retained, but it is only a class declaration, with no concrete implementation.
 It is small and does not materially impact the application size when retained after compilation.
 
-Instead, `LibHeaderComponent` itself implements the abstract `LibHeaderToken` class.
+Instead, the `LibHeaderComponent` component implements the abstract `LibHeaderToken` class.
 You can safely use that token as the provider in the component definition, allowing Angular to correctly inject the concrete type.
 
 To summarize, the lightweight injection token pattern consists of the following.
@@ -153,7 +153,7 @@ To summarize, the lightweight injection token pattern consists of the following.
 
 A component that injects a lightweight injection token might need to invoke a method in the injected class.
 Because the token is now an abstract class, and the injectable component implements that class, you must also declare an abstract method in the abstract lightweight injection token class.
-The implementation of the method \(with all of its code overhead\) resides in the injectable component that can be tree-shaken.
+The implementation of the method \(with all of the associated code overhead\) resides in the injectable component that can be tree-shaken.
 This lets the parent communicate with the child \(if it is present\) in a type-safe manner.
 
 For example, the `LibCardComponent` now queries `LibHeaderToken` rather than `LibHeaderComponent`.
@@ -195,7 +195,7 @@ class LibCardComponent implement AfterContentInit {
 
 In this example the parent  queries the token to obtain the child component, and stores the resulting component reference if it is present.
 Before calling a method in the child, the parent component checks to see if the child component is present.
-If the child component has been tree-shaken, there is no runtime reference to it, and no call to its method.
+If the child component has been tree-shaken, there is no runtime reference to it, and no call to the associated method.
 
 ### Naming your lightweight injection token
 
@@ -203,7 +203,7 @@ Lightweight injection tokens are only useful with components.
 The Angular style guide suggests that you name components using the "Component" suffix.
 The example "LibHeaderComponent" follows this convention.
 
-To maintain the relationship between the component and its token while still distinguishing between them, the recommended style is to use the component base name with the suffix "`Token`" to name your lightweight injection tokens: "`LibHeaderToken`".
+To maintain the relationship between the component and the associated token while still distinguishing between them, the recommended style is to use the component base name with the suffix "`Token`" to name your lightweight injection tokens: "`LibHeaderToken`".
 
 <!-- links -->
 

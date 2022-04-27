@@ -5,32 +5,30 @@ that emulates CRUD operations over a RESTy API.
 
 It intercepts Angular `Http` and `HttpClient` requests that would otherwise go to the remote server and redirects them to an in-memory data store that you control.
 
-See [Austin McDaniel's article](https://medium.com/@amcdnl/mocking-with-angular-more-than-just-unit-testing-cbb7908c9fcc)
+For more information, see [Mocking with Angular: More than just unit testing](https://medium.com/@amcdnl/mocking-with-angular-more-than-just-unit-testing-cbb7908c9fcc "Mocking with Angular: More than just unit testing | by Austin | Medium").
 for a quick introduction.
 
-_This package used to live [in its own repository](https://github.com/angular/in-memory-web-api)._
+_This package used to live [in an associated repository](https://github.com/angular/in-memory-web-api)._
 
-### _It used to work and now it doesn't :-(_
+### _It used to work and now it does not :-(_
 
 Perhaps you installed a new version of this library? Check the
 [CHANGELOG.md](https://github.com/angular/angular/blob/main/packages/misc/angular-in-memory-web-api/CHANGELOG.md)
 for breaking changes that may have affected your app.
 
-If that doesn't explain it, create an
-[issue on github](https://github.com/angular/angular/issues),
-preferably with a small repro.
+If that does not explain it, create an [issue](https://github.com/angular/angular/issues "Issues | angular/angular | GitHub") on GitHub, preferably with a small repro.
 
 ## Use cases
 
 * Demo apps that need to simulate CRUD data persistence operations without a real server.
-You won't have to build and start a test server.
+You will not have to build and start a test server.
 
 * Whip up prototypes and proofs of concept.
 
 * Share examples with the community in a web coding environment such as Plunker or CodePen.
 Create Angular issues and StackOverflow answers supported by live code.
 
-* Simulate operations against data collections that aren't yet implemented on your dev/test server.
+* Simulate operations against data collections that are not yet implemented on your dev or test server. 
 You can pass requests thru to the dev/test server for collections that are supported.
 
 * Write unit test apps that read and write data.
@@ -38,21 +36,17 @@ Avoid the hassle of intercepting multiple http calls and manufacturing sequences
 The in-memory data store resets for each test so there is no cross-test data pollution.
 
 * End-to-end tests. If you can toggle the app into test mode
-using the in-memory web api, you won't disturb the real database.
+using the in-memory web api, you will not disturb the real database.
 This can be especially useful for CI (continuous integration) builds.
 
-
->**LIMITATIONS**
+> **LIMITATIONS**
 >
->The _in-memory-web-api_ exists primarily to support the
-[Angular documentation](https://angular.io/docs/ts/latest/ "Angular documentation web site").
-It is not supposed to emulate every possible real world web API and is not intended for production use.
+> The _in-memory-web-api_ exists primarily to support the [Angular documentation](https://angular.io/docs/ts/latest/ "Angular documentation web site").
+> It is not supposed to emulate every possible real world web API and is not intended for production use.
 >
->Most importantly, it is ***always experimental***.
-We will make breaking changes and we won't feel bad about it
-because this is a development tool, not a production product.
-We do try to tell you about such changes in the `CHANGELOG.md`
-and we fix bugs as fast as we can.
+> Most importantly, it is ***always experimental***.
+> The Angular team makes breaking changes and does not feel bad about it; because this is a development tool, not a production product.
+> We do try to tell you about such changes in the `CHANGELOG.md` and we fix bugs as fast as we can.
 
 ## HTTP request handling
 This in-memory web api service processes an HTTP request and
@@ -105,13 +99,13 @@ export class InMemHeroService implements InMemoryDbService {
 It would have to be asynchronous if you initialized your in-memory database service from a JSON file.
 Return the database _object_, an _observable_ of that object, or a _promise_ of that object. The tests include an example of all three.
 
-* The in-memory web api calls your `InMemoryDbService` data service class's  `createDb` method on two occasions.
+* The in-memory web api calls the `createDb` method of your `InMemoryDbService` data service class on two occasions.
 
   1. when it handles the _first_ HTTP request
   1. when it receives a `resetdb` [command](#commands).
 
   In the command case, the service passes in a `RequestInfo` object,
-  enabling the `createDb` logic to adjust its behavior per the client request. See the tests for examples.
+  enabling the `createDb` logic to adjust the associated behavior per the client request. See the tests for examples.
 
 ### Import the in-memory web api module
 
@@ -176,7 +170,7 @@ The `InMemoryBackendConfigArgs` defines a set of options. Add them as the second
 
 ## Request evaluation order
 This service can evaluate requests in multiple ways depending upon the configuration.
-Here's how it reasons:
+Here is how it reasons:
 1. If it looks like a [command](#commands), process as a command.
 2. If the [HTTP method is overridden](#method-override), try the override.
 3. If the resource name (after the api base path) matches one of the configured collections, process that.
@@ -231,8 +225,8 @@ When the last segment of the _api base path_ is "commands", the `collectionName`
 
 Example URLs:
 ```sh
-  commands/resetdb   // Reset the "database" to its original state
-  commands/config    // Get or update this service's config object
+  commands/resetdb   // Reset the "database" to the associated original state
+  commands/config    // Get or update the config object of this service
 ```
 
 Usage:
@@ -246,8 +240,8 @@ Command requests do not simulate real remote data access.
 They ignore the latency delay and respond as quickly as possible.
 
 The `resetDb` command
-calls your `InMemoryDbService` data service's  [`createDb` method](#createDb) with the `RequestInfo` object,
-enabling the `createDb` logic to adjust its behavior per the client request.
+calls the [`createDb` method](#createDb) of your `InMemoryDbService` data service with the `RequestInfo` object,
+enabling the `createDb` logic to adjust the associated behavior per the client request.
 
 In the following example, the client includes a reset option in the command request body:
 ```ts
@@ -324,13 +318,13 @@ The service will blindly use that `id`; it does not check for uniqueness.
 If you do not specify the `id`, the service generates one via the `genId` method.
 
 You can override the default id generator with a method called `genId` in your `InMemoryDbService`.
-Your method receives the new item's collection and collection name.
+Your method receives the collection and collection name of the new item.
 It should return the generated id.
 If your generator returns `null`|`undefined`, the service uses the default generator.
 
 ## _responseInterceptor_
 
-You can change the response returned by the service's default HTTP methods.
+You can change the response returned by the default HTTP methods of the service.
 A typical reason to intercept is to add a header that your application is expecting.
 
 To intercept responses, add a `responseInterceptor` method to your `InMemoryDbService` class.
@@ -342,12 +336,12 @@ responseOptions = this.responseInterceptor(responseOptions, requestInfo);
 <a id="method-override"></a>
 ## HTTP method interceptors
 
-You may have HTTP requests that the in-memory web api can't handle properly.
+You may have HTTP requests that the in-memory web api cannot handle properly.
 
 You can override any HTTP method by implementing a method
 of that name in your `InMemoryDbService`.
 
-Your method's name must be the same as the HTTP method name but **all lowercase**.
+The name of your method must be the same as the HTTP method name but **all lowercase**.
 The in-memory web api calls it with a `RequestInfo` object that contains request data and utility methods.
 
 For example, if you implemented a `get` method, the web api would be called like this:
@@ -360,10 +354,11 @@ observable.  It _should be "cold"_.
 
 * `null`/`undefined` - you decided not to intervene,
 perhaps because you wish to intercept only certain paths for the given HTTP method.
-The service continues with its default processing of the HTTP request.
+The service continues with the associated default processing of the HTTP request.
 
 The `RequestInfo` is an interface defined in `src/in-mem/interfaces.ts`.
-Its members include:
+The members of `RequestInfo` include:
+
 ```ts
 req: Request;           // the request object from the client
 collectionName: string; // calculated from the request url
@@ -372,6 +367,7 @@ id: any;                // the item `id` (if specified)
 url: string;            // the url in the request
 utils: RequestInfoUtilities; // helper functions
 ```
+
 The functions in `utils` can help you analyze the request
 and compose a response.
 

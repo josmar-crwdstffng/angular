@@ -12,13 +12,13 @@ This document provides information and guidelines for working with fixup commits
 ## <a name="about-fixup-commits"></a> What are fixup commits
 
 At their core, fixup commits are just regular commits with a special commit message:
-The first line of their commit message starts with "fixup! " (notice the space after "!") followed by the first line of the commit message of an earlier commit (it doesn't have to be the immediately preceding one).
+The first line of their commit message starts with "fixup! " (notice the space after "!") followed by the first line of the commit message of an earlier commit (it does not have to be the immediately preceding one).
 
 The purpose of a fixup commit is to modify an earlier commit.
 I.e. it allows adding more changes in a new commit, but "marking" them as belonging to an earlier commit.
 `Git` provides tools to make it easy to squash fixup commits into the original commit at a later time (see [below](#squash-fixup-commits) for details).
 
-For example, let's assume you have added the following commits to your branch:
+For example, let us assume you have added the following commits to your branch:
 
 ```
 feat: first commit

@@ -2,7 +2,7 @@
 
 ## What does this schematic do?
 
-If you're using i18n, this schematic adds an import statement for `@angular/localize` to `polyfills.ts` that will look something like this:
+If you are using i18n, this schematic adds an import statement for `@angular/localize` to `polyfills.ts` that will look something like this:
 
 <code-example format="typescript" language="typescript">
 
@@ -13,7 +13,7 @@ import '&commat;angular/localize/init';
 
 </code-example>
 
-It also lists `@angular/localize` as a dependency in your app's `package.json` to ensure the import is found.
+It also lists `@angular/localize` as a dependency in the `package.json` of your app to ensure the import is found.
 
 <code-example format="json" language="json">
 
@@ -31,7 +31,7 @@ The symbol is loaded by importing the `@angular/localize/init` module, which has
 
 ## Why is this migration necessary?
 
-Prior to Angular version 9, Angular's internationalization \(i18n\) system inlined translated messages into the compiled output as part of this template compilation.
+Prior to Angular version 9, the internationalization \(i18n\) system in Angular inlined translated messages into the compiled output as part of this template compilation.
 This approach required running the template compiler once per target locale, often leading to slow production build times.
 
 In the new i18n system, the Angular compiler tags i18n messages in the compiled code with a global `$localize` handler.
@@ -47,14 +47,14 @@ If this import is missing, you will see an error message like this:
 
 <code-example format="output" hideCopy language="shell">
 
-Error: It looks like your application or one of its dependencies is using i18n.
+Error: It looks like your application or one of the associated dependencies is using i18n.
 Angular 9 introduced a global &grave;&dollar;localize()&grave; function that needs to be loaded.
 Please run &grave;ng add &commat;angular/localize&grave; from the Angular CLI.
 (For non-CLI projects, add `import '&commat;angular/localize/init';` to your polyfills.ts file)
 
 </code-example>
 
-This schematic automatically adds the `@angular/localize/init` import for you if your app uses Angular's i18n APIs.
+This schematic automatically adds the `@angular/localize/init` import for you if your app uses the i18n APIs in Angular.
 
 ## Why is my tslint failing?
 

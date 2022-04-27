@@ -5,8 +5,7 @@ perform well and contain fewer bugs.
 
 ## Angular debug tools in the dev console
 
-Angular provides a set of debug tools that are accessible from any browser's
-developer console. In Chrome the dev console can be accessed by pressing
+Angular provides a set of debug tools that are accessible from the developer console of any browser. In Chrome the dev console can be accessed by pressing
 Ctrl + Shift + j.
 
 ### Enabling debug tools
@@ -44,14 +43,14 @@ ng.profiler.timeChangeDetection();
 
 If your application is janky (it misses frames) or is slow according to other
 metrics, it is important to find the root cause of the issue. Change detection
-is a phase in Angular's lifecycle that detects changes in values that are
+is a phase in the lifecycle of Angular that detects changes in values that are
 bound to UI, and if it finds a change it performs the corresponding UI update.
 However, sometimes it is hard to tell if the slowness is due to the act of
 computing the changes being slow, or due to the act of applying those changes
 to the UI. For your application to be performant it is important that the
 process of computing changes is very fast. For best results it should be under
 3 milliseconds in order to leave room for the application logic, the UI updates
-and browser's rendering pipeline to fit within the 16 millisecond frame
+and rendering pipeline of the browser to fit within the 16 millisecond frame
 (assuming the 60 FPS target frame rate).
 
 Change detection profiler repeatedly performs change detection without invoking
@@ -115,7 +114,7 @@ discussion is outside the scope of this document (TODO link to docs), but here
 are some key concepts in brief.
 
 By default Angular uses "dirty checking" mechanism for finding model changes.
-This mechanism involves evaluating every bound expression that's active on the
+This mechanism involves evaluating every bound expression that is active on the
 UI. These usually include text interpolation via `{{expression}}` and property
 bindings via `[prop]="expression"`. If any of the evaluated expressions are
 costly to compute they could contribute to slow change detection. A good way to

@@ -12,7 +12,7 @@ about the features and tools that can help you develop and deliver Angular appli
 *   The **Main Concepts** section located in the table of contents contains several topics that explain how to connect the application data in your [components](guide/glossary#component) to your page-display [templates](guide/glossary#template), to create a complete interactive application.
 *   The [NgModules](guide/ngmodules) guide provides in-depth information on the modular structure of an Angular application.
 *   The [Routing and navigation](guide/router) guide provides in-depth information on how to construct applications that allow a user to navigate to different [views](guide/glossary#view) within your single-page application.
-*   The [Dependency injection](guide/dependency-injection) guide provides in-depth information on how to construct an application such that each component class can acquire the services and objects it needs to perform its function.
+*   The [Dependency injection](guide/dependency-injection) guide provides in-depth information on how to construct an application such that each component class can acquire the services and objects it needs to perform the associated function.
 
 ## Responsive programming
 
@@ -20,11 +20,11 @@ The [template syntax](guide/template-syntax) and related topics contain details 
 
 Additional pages and sections describe some basic programming techniques for Angular applications.
 
-*   [Lifecycle hooks](guide/lifecycle-hooks): Tap into key moments in the lifetime of a component, from its creation to its destruction, by implementing the lifecycle hook interfaces.
+*   [Lifecycle hooks](guide/lifecycle-hooks): Tap into key moments in the lifetime of a component, from the associated creation to the associated destruction, by implementing the lifecycle hook interfaces.
 *   [Observables and event processing](guide/observables): How to use observables with components and services to publish and subscribe to messages of any type, such as user-interaction events and asynchronous operation results.
 *   [Angular elements](guide/elements): How to package components as *custom elements* using Web Components, a web standard for defining new HTML elements in a framework-agnostic way.
 *   [Forms](guide/forms-overview): Support complex data entry scenarios with HTML-based input validation.
-*   [Animations](guide/animations): Use Angular's animation library to animate component behavior
+*   [Animations](guide/animations): Use the animation library in Angular to animate component behavior
 without deep knowledge of animation techniques or CSS.
 
 ## Client-server interaction
@@ -44,8 +44,8 @@ For some platforms and applications, you might also want to use the PWA \(Progre
 *   [Compilation](guide/aot-compiler): Angular provides just-in-time \(JIT\) compilation for the development environment, and ahead-of-time \(AOT\) compilation for the production environment.
 *   [Testing platform](guide/testing): Run unit tests on your application parts as they interact with the Angular framework.
 *   [Deployment](guide/deployment): Learn techniques for deploying your Angular application to a remote server.
-*   [Security guidelines](guide/security): Learn about Angular's built-in protections against common web-application vulnerabilities and attacks such as cross-site scripting attacks.
-*   [Internationalization][AioGuideI18nOverview]: Make your application available in multiple languages with Angular's internationalization \(i18n\) tools.
+*   [Security guidelines](guide/security): Learn about the protections built into Angular against common web-application vulnerabilities and attacks such as cross-site scripting attacks.
+*   [Internationalization][AioGuideI18nOverview]: Make your application available in multiple languages with the internationalization \(i18n\) tools in Angular.
 *   [Accessibility](guide/accessibility): Make your application accessible to all users.
 
 ## File structure, configuration, and dependencies
@@ -59,8 +59,8 @@ For some platforms and applications, you might also want to use the PWA \(Progre
 ## Extending Angular
 
 *   [Angular libraries](guide/libraries): Learn about using and creating re-usable libraries.
-*   [Schematics](guide/schematics): Learn about customizing and extending the CLI's generation capabilities.
-*   [CLI builders](guide/cli-builder): Learn about customizing and extending the CLI's ability to apply tools to perform complex tasks, such as building and testing applications.
+*   [Schematics](guide/schematics): Learn about customizing and extending the generation capabilities of the Angular CLI.
+*   [CLI builders](guide/cli-builder): Learn about customizing and extending the ability of the Angular CLI to apply tools to perform complex tasks, such as building and testing applications.
 
 <!-- links -->
 

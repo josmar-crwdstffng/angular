@@ -8,15 +8,15 @@ These are required. You can find the values for `SAUCE_USERNAME` and `SAUCE_ACCE
 If you are having trouble running Saucelabs tests locally you can contact [Joey Perrott](https://github.com/josephperrott) or [Greg Magolan](https://github.com/gregmagolan) for support.
 
 1. On OSX and Windows, you will also need to set `SAUCE_CONNECT` to the path of your `sc` binary (Sauce Connect Proxy).
-You will have to download Sauce Connect Proxy if you don't already have it downloaded. 
-It's available on the SauceLabs website [here](https://wiki.saucelabs.com/display/DOCS/Downloading+Sauce+Connect+Proxy).
+You will have to download Sauce Connect Proxy if you do not already have it downloaded. 
+It is available on the SauceLabs website [here](https://wiki.saucelabs.com/display/DOCS/Downloading+Sauce+Connect+Proxy).
 Unzip it and point the SAUCE_CONNECT env variable to the `sc` binary.
 
 ```
 export SAUCE_CONNECT=/{path_to_sc}/bin/sc
 ```
 
-Note: it will not work to use the Sauce Connect that's already in node_modules unless you are using Linux. 
+Note: it will not work to use the Sauce Connect that is already in node_modules unless you are using Linux. 
 Download the one above for other platforms.
 
 3. Once you have your environment variables set up, run the setup task in the root of the repo:
@@ -94,7 +94,7 @@ These saucelabs targets must have a few important tags:
 
 **Q: How do I get the tests to run on IE? I only see Chromium.**
 
-If you see something like this at the end of your test output, it means you're not actually running SauceLabs: 
+If you see something like this at the end of your test output, it means you are not actually running SauceLabs: 
 
 ```
 INFO: Build completed successfully, 43 total actions

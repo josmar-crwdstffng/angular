@@ -80,7 +80,7 @@ This logger gets the user from an injected `UserService` instance.
 
 <code-example path="dependency-injection/src/app/providers.component.ts" region="EvenBetterLogger"></code-example>
 
-The injector needs providers for both this new logging service and its dependent `UserService`.
+The injector needs providers for both this new logging service and the associated dependent `UserService`.
 
 <a id="aliased-class-providers"></a>
 
@@ -93,7 +93,7 @@ In this way, `OldLogger` is an alias for `NewLogger`.
 
 <code-example path="dependency-injection/src/app/providers.component.ts" region="providers-6b"></code-example>
 
-Be sure you don't alias `OldLogger` to `NewLogger` with `useClass`, as this creates two different `NewLogger` instances.
+Be sure you do not alias `OldLogger` to `NewLogger` with `useClass`, as this creates two different `NewLogger` instances.
 
 <a id="provideparent"></a>
 
@@ -107,15 +107,15 @@ To streamline your code, extract that logic into a helper function using the `pr
 
 <code-example header="dependency-injection-in-action/src/app/parent-finder.component.ts" path="dependency-injection-in-action/src/app/parent-finder.component.ts" region="provide-the-parent"></code-example>
 
-Now you can add a parent provider to your components that's easier to read and understand.
+Now you can add a parent provider to your components that is easier to read and understand.
 
 <code-example header="dependency-injection-in-action/src/app/parent-finder.component.ts" path="dependency-injection-in-action/src/app/parent-finder.component.ts" region="alice-providers"></code-example>
 
 ### Aliasing multiple class interfaces
 
-To alias multiple parent types, each with its own class interface token, configure `provideParent()` to accept more arguments.
+To alias multiple parent types, each with an associated class interface token, configure `provideParent()` to accept more arguments.
 
-Here's a revised version that defaults to `parent` but also accepts an optional second parameter for a different parent class interface.
+Here is a revised version that defaults to `parent` but also accepts an optional second parameter for a different parent class interface.
 
 <code-example header="dependency-injection-in-action/src/app/parent-finder.component.ts" path="dependency-injection-in-action/src/app/parent-finder.component.ts" region="provide-parent"></code-example>
 
@@ -158,7 +158,7 @@ The following example defines a token, `APP_CONFIG` of the type `InjectionToken`
 
 <code-example header="src/app/app.config.ts" path="dependency-injection/src/app/app.config.ts" region="token"></code-example>
 
-The optional type parameter, `<AppConfig>`, and the token description, `app.config`, specify the token's purpose.
+The optional type parameter, `<AppConfig>`, and the token description, `app.config`, specify the purpose of the token.
 
 Next, register the dependency provider in the component using the `InjectionToken` object of `APP_CONFIG`.
 
@@ -173,9 +173,9 @@ Now, inject the configuration object into the constructor with `@Inject()` param
 #### Interfaces and dependency injection
 
 Though the TypeScript `AppConfig` interface supports typing within the class, the `AppConfig` interface plays no role in dependency injection.
-In TypeScript, an interface is a design-time artifact, and doesn't have a runtime representation, or token, that the DI framework can use.
+In TypeScript, an interface is a design-time artifact, and does not have a runtime representation, or token, that the DI framework can use.
 
-When the transpiler changes TypeScript to JavaScript, the interface disappears because JavaScript doesn't have interfaces.
+When the transpiler changes TypeScript to JavaScript, the interface disappears because JavaScript does not have interfaces.
 
 Because there is no interface for Angular to find at runtime, the interface cannot be a token, nor can you inject it.
 

@@ -4,7 +4,7 @@
 ## Create directory with secrets
 For security reasons, sensitive info (such as tokens and passwords) are not hardcoded into the
 docker image, nor passed as environment variables at runtime. They are passed to the docker
-container from the host VM as files inside a directory. Each file's name is the name of the variable
+container from the host VM as files inside a directory. The name of each file is the name of the variable
 and the file content is the value. These are read from inside the running container when necessary.
 
 More info on how to create `secrets` directory and files can be found

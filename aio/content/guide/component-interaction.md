@@ -28,7 +28,7 @@ This cookbook contains recipes for common component communication scenarios in w
 
 The second `@Input` aliases the child component property name `masterName` as `'master'`.
 
-The `HeroParentComponent` nests the child `HeroChildComponent` inside an `*ngFor` repeater, binding its `master` string property to the child's `master` alias, and each iteration's `hero` instance to the child's `hero` property.
+The `HeroParentComponent` nests the child `HeroChildComponent` inside an `*ngFor` repeater, binding the associated `master` string property to the `master` alias of the child, and the `hero` instance of each iteration to the `hero` property of the child.
 
 <code-example header="component-interaction/src/app/hero-parent.component.ts" path="component-interaction/src/app/hero-parent.component.ts"></code-example>
 
@@ -58,7 +58,7 @@ The setter of the `name` input property in the child `NameChildComponent` trims 
 
 <code-example header="component-interaction/src/app/name-child.component.ts" path="component-interaction/src/app/name-child.component.ts"></code-example>
 
-Here's the `NameParentComponent` demonstrating name variations including a name with all spaces:
+Here is the `NameParentComponent` demonstrating name variations including a name with all spaces:
 
 <code-example header="component-interaction/src/app/name-parent.component.ts" path="component-interaction/src/app/name-parent.component.ts"></code-example>
 
@@ -98,7 +98,7 @@ The `VersionParentComponent` supplies the `minor` and `major` values and binds b
 
 <code-example header="component-interaction/src/app/version-parent.component.ts" path="component-interaction/src/app/version-parent.component.ts"></code-example>
 
-Here's the output of a button-pushing sequence:
+Here is the output of a button-pushing sequence:
 
 <div class="lightbox">
 
@@ -121,7 +121,7 @@ Test that ***both*** input properties are set initially and that button clicks t
 The child component exposes an `EventEmitter` property with which it `emits` events when something happens.
 The parent binds to that event property and reacts to those events.
 
-The child's `EventEmitter` property is an ***output property***, typically adorned with an [@Output() decorator](guide/inputs-outputs#output) as seen in this `VoterComponent`:
+The `EventEmitter` property of the child is an ***output property***, typically adorned with an [@Output() decorator](guide/inputs-outputs#output) as seen in this `VoterComponent`:
 
 <code-example header="component-interaction/src/app/voter.component.ts" path="component-interaction/src/app/voter.component.ts"></code-example>
 
@@ -155,7 +155,7 @@ Do both by creating a template reference variable for the child element and then
 <a id="countdown-timer-example"></a>
 
 The following is a child `CountdownTimerComponent` that repeatedly counts down to zero and launches a rocket.
-The `start` and `stop` methods control the clock and a countdown status message displays in its own template.
+The `start` and `stop` methods control the clock and a countdown status message displays in the associated template.
 
 <code-example header="component-interaction/src/app/countdown-timer.component.ts" path="component-interaction/src/app/countdown-timer.component.ts"></code-example>
 
@@ -163,12 +163,12 @@ The `CountdownLocalVarParentComponent` that hosts the timer component is as foll
 
 <code-example header="component-interaction/src/app/countdown-parent.component.ts" path="component-interaction/src/app/countdown-parent.component.ts" region="lv"></code-example>
 
-The parent component cannot data bind to the child's `start` and `stop` methods nor to its `seconds` property.
+The parent component cannot data bind to the `start` and `stop` methods of the child nor to the associated `seconds` property.
 
 Place a local variable, `#timer`, on the tag `<countdown-timer>` representing the child component.
-That gives you a reference to the child component and the ability to access *any of its properties or methods* from within the parent template.
+That gives you a reference to the child component and the ability to access *any of the associated properties or methods* from within the parent template.
 
-This example wires parent buttons to the child's `start` and `stop` and uses interpolation to display the child's `seconds` property.
+This example wires parent buttons to the `start` and `stop` of the child and uses interpolation to display the `seconds` property of the child.
 
 Here, the parent and child are working together.
 
@@ -182,7 +182,7 @@ Here, the parent and child are working together.
 
 ### Test it for Parent interacts with child using *local variable*
 
-Test that the seconds displayed in the parent template match the seconds displayed in the child's status message.
+Test that the seconds displayed in the parent template match the seconds displayed in the status message of the child.
 Test also that clicking the *Stop* button pauses the countdown timer:
 
 <code-example header="component-interaction/e2e/src/app.e2e-spec.ts" path="component-interaction/e2e/src/app.e2e-spec.ts" region="countdown-timer-tests"></code-example>
@@ -195,16 +195,16 @@ Test also that clicking the *Stop* button pauses the countdown timer:
 
 The *local variable* approach is straightforward.
 But it is limited because the parent-child wiring must be done entirely within the parent template.
-The parent component *itself* has no access to the child.
+The associated parent component has no access to the child.
 
-You can't use the *local variable* technique if the parent component's *class* relies on the child component's *class*.
+You cannot use the *local variable* technique if the *class* of the parent component relies on the *class* of the child component.
 The parent-child relationship of the components is not established within each components respective *class* with the *local variable* technique.
 Because the *class* instances are not connected to one another, the parent *class* cannot access the child *class* properties and methods.
 
 When the parent component *class* requires that kind of access, ***inject*** the child component into the parent as a *ViewChild*.
 
 The following example illustrates this technique with the same [Countdown Timer](guide/component-interaction#countdown-timer-example) example.
-Neither its appearance nor its behavior changes.
+Neither the associated appearance nor the associated behavior changes.
 The child [CountdownTimerComponent](guide/component-interaction#countdown-timer-example) is the same as well.
 
 <div class="alert is-helpful">
@@ -224,16 +224,16 @@ First, you have to import references to the `ViewChild` decorator and the `After
 Next, inject the child `CountdownTimerComponent` into the private `timerComponent` property using the `@ViewChild` property decoration.
 
 The `#timer` local variable is gone from the component metadata.
-Instead, bind the buttons to the parent component's own `start` and `stop` methods and present the ticking seconds in an interpolation around the parent component's `seconds` method.
+Instead, bind the buttons to the `start` and `stop` methods of the parent component and present the ticking seconds in an interpolation around the `seconds` method of the parent component.
 
 These methods access the injected timer component directly.
 
 The `ngAfterViewInit()` lifecycle hook is an important wrinkle.
-The timer component isn't available until *after* Angular displays the parent view.
+The timer component is not available until *after* Angular displays the parent view.
 So it displays `0` seconds initially.
 
-Then Angular calls the `ngAfterViewInit` lifecycle hook at which time it is *too late* to update the parent view's display of the countdown seconds.
-Angular's unidirectional data flow rule prevents updating the parent view's in the same cycle.
+Then Angular calls the `ngAfterViewInit` lifecycle hook at which time it is *too late* to update the display of the countdown seconds in the parent view.
+The unidirectional data flow rule in Angular prevents updating the parent views in the same cycle.
 The application must *wait one turn* before it can display the seconds.
 
 Use `setTimeout()` to wait one tick and then revise the `seconds()` method so that it takes future values from the timer component.
@@ -248,21 +248,21 @@ Use [the same countdown timer tests](guide/component-interaction#countdown-tests
 
 ## Parent and children communicate using a service
 
-A parent component and its children share a service whose interface enables bi-directional communication *within the family*.
+A parent component and the associated children share a service whose interface enables bi-directional communication *within the family*.
 
-The scope of the service instance is the parent component and its children.
+The scope of the service instance is the parent component and the associated children.
 Components outside this component subtree have no access to the service or their communications.
 
 This `MissionService` connects the `MissionControlComponent` to multiple `AstronautComponent` children.
 
 <code-example header="component-interaction/src/app/mission.service.ts" path="component-interaction/src/app/mission.service.ts"></code-example>
 
-The `MissionControlComponent` both provides the instance of the service that it shares with its children \(through the `providers` metadata array\) and injects that instance into itself through its constructor:
+The `MissionControlComponent` both provides the instance of the service that it shares with the associated children \(through the `providers` metadata array\) and self-injects that instance through the associated constructor:
 
 <code-example header="component-interaction/src/app/missioncontrol.component.ts" path="component-interaction/src/app/missioncontrol.component.ts"></code-example>
 
-The `AstronautComponent` also injects the service in its constructor.
-Each `AstronautComponent` is a child of the `MissionControlComponent` and therefore receives its parent's service instance:
+The `AstronautComponent` also injects the service in the associated constructor.
+Each `AstronautComponent` is a child of the `MissionControlComponent` and therefore receives the service instance of the associated parent:
 
 <code-example header="component-interaction/src/app/astronaut.component.ts" path="component-interaction/src/app/astronaut.component.ts"></code-example>
 
@@ -270,10 +270,10 @@ Each `AstronautComponent` is a child of the `MissionControlComponent` and theref
 
 Notice that this example captures the `subscription` and `unsubscribe()` when the `AstronautComponent` is destroyed.
 This is a memory-leak guard step.
-There is no actual risk in this application because the lifetime of a `AstronautComponent` is the same as the lifetime of the application itself.
+There is no actual risk in this application because the lifetime of a `AstronautComponent` is the same as the lifetime of the application.
 That *would not* always be true in a more complex application.
 
-You don't add this guard to the `MissionControlComponent` because, as the parent,
+You do not add this guard to the `MissionControlComponent` because, as the parent,
 it controls the lifetime of the `MissionService`.
 
 </div>

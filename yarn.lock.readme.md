@@ -1,6 +1,6 @@
 All of our npm dependencies are locked via the `yarn.lock` file for the following reasons:
 
-- our project has lots of dependencies which update at unpredictable times, so it's important that
+- our project has lots of dependencies which update at unpredictable times, so it is important that
   we update them explicitly once in a while rather than implicitly when any of us runs `yarn install`
 - locked dependencies allow us to reuse yarn cache on CircleCI, significantly speeding up our builds
   (by 5 minutes or more)
@@ -21,5 +21,4 @@ in `package.json`
 
 To Remove an existing dependency do the following: run `yarn remove <packagename>`
 
-
-Once you've changed the dependency, commit the changes to `package.json` & `yarn.lock`, and you are done.
+After you change the dependency, commit the changes to `package.json` and `yarn.lock`; you are done.

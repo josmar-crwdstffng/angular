@@ -1,6 +1,6 @@
 # Glossary
 
-Angular has its own vocabulary.
+Angular has an associated vocabulary.
 Most Angular terms are common English words or computing terms that have a specific meaning within the Angular system.
 
 This glossary lists the most prominent terms and a few less familiar ones with unusual or unexpected definitions.
@@ -104,7 +104,7 @@ A way to initialize and launch an application or system.
 In Angular, the `AppModule` root NgModule of an application has a `bootstrap` property that identifies the top-level [components][AioGuideGlossaryComponent] of the application.
 During the bootstrap process, Angular creates and inserts these components into the `index.html` host web page.
 You can bootstrap multiple applications in the same `index.html`.
-Each application contains its own components.
+Each application contains the associated components.
 
 Learn more in [Bootstrapping][AioGuideBootstrapping].
 
@@ -286,7 +286,7 @@ A lookup token associated with a dependency [provider][AioGuideGlossaryProvider]
 A class that can modify the structure of the DOM or modify attributes in the DOM and component data model.
 A directive class definition is immediately preceded by a `@Directive()` [decorator][AioGuideGlossaryDecoratorDecoration] that supplies metadata.
 
-A directive class is usually associated with an HTML element or attribute, and that element or attribute is often referred to as the directive itself.
+A directive class is usually associated with an HTML element or attribute, and that element or attribute is often referred to as the directive.
 When Angular finds a directive in an HTML [template][AioGuideGlossaryTemplate], it creates the matching directive class instance and gives the instance control over that portion of the browser DOM.
 
 There are three categories of directive:
@@ -377,7 +377,7 @@ To learn more, see [Form Validation][AioGuideFormValidation].
 
 ## immutability
 
-The inability to alter the state of a value after its creation.
+The inability to alter the state of a value after the associated creation.
 [Reactive forms][AioGuideGlossaryReactiveForms] perform immutable changes in that each change to the data model produces a new data model rather than modifying the existing one.
 [Template-driven forms][AioGuideGlossaryTemplateDrivenForms] perform mutable changes with `NgModel` and [two-way data binding][AioGuideGlossaryDataBinding] to modify the existing data model in place.
 
@@ -389,7 +389,7 @@ Other items, such as constant values, can also be injectable.
 
 ## injector
 
-An object in the Angular [dependency-injection][AioGuideGlossaryDependencyInjectionDi] system that can find a named dependency in its cache or create a dependency using a configured [provider][AioGuideGlossaryProvider].
+An object in the Angular [dependency-injection][AioGuideGlossaryDependencyInjectionDi] system that can find a named dependency in the associated cache or create a dependency using a configured [provider][AioGuideGlossaryProvider].
 Injectors are created for NgModules automatically as part of the bootstrap process and are inherited through the component hierarchy.
 
 *   An injector provides a singleton instance of a dependency, and can inject this same instance in multiple components.
@@ -473,7 +473,7 @@ Angular runs these hook methods in the following order:
 |:--- |:---                     |:---                                                                                               |
 | 1   | `ngOnChanges`           | When an [input][AioGuideGlossaryInput] or [output][AioGuideGlossaryOutput] binding value changes. |
 | 2   | `ngOnInit`              | After the first `ngOnChanges`.                                                                    |
-| 3   | `ngDoCheck`             | Developer's custom change detection.                                                              |
+| 3   | `ngDoCheck`             | The custom change detection for the Developer.                                                              |
 | 4   | `ngAfterContentInit`    | After component content initialized.                                                              |
 | 5   | `ngAfterContentChecked` | After every check of component content.                                                           |
 | 6   | `ngAfterViewInit`       | After the views of a component are initialized.                                                   |
@@ -534,7 +534,7 @@ The most recent implementation is internally referred to as `ngtsc` because it i
 
 A producer of multiple values, which it pushes to [subscribers][AioGuideGlossarySubscriber].
 Used for asynchronous event handling throughout Angular.
-You execute an observable by subscribing to it with its `subscribe()` method, passing callbacks for notifications of new values, errors, or completion.
+You execute an observable by subscribing to it with the associated `subscribe()` method, passing callbacks for notifications of new values, errors, or completion.
 
 Observables can deliver in one the following ways a single value or multiple values of any type to subscribers.
 
@@ -601,7 +601,7 @@ An object that implements one of the [`Provider`][AioApiCoreProvider] interfaces
 A provider object defines how to obtain an injectable dependency associated with a [DI token][AioGuideGlossaryDiToken].
 An [injector][AioGuideGlossaryInjector] uses the provider to create a new instance of a dependency for a class that requires it.
 
-Angular registers its own providers with every injector, for services that Angular defines.
+Angular registers the associated providers with every injector, for services that Angular defines.
 You can register your own providers for services that your application needs.
 
 See also [service][AioGuideGlossaryService].
@@ -660,7 +660,7 @@ Angular dynamically renders the template based on the current router state.
 
 ## routing component
 
-An Angular [component][AioGuideGlossaryComponent] with a `RouterOutlet` directive in its template that displays views based on router navigations.
+An Angular [component][AioGuideGlossaryComponent] with a `RouterOutlet` directive in the associated template that displays views based on router navigations.
 
 To learn more, see [Routing and Navigation][AioGuideRouter].
 
@@ -744,7 +744,7 @@ To learn more, see [Structural Directives][AioGuideStructuralDirectives].
 A function that defines how to obtain or generate values or messages to be published.
 This function is executed when a consumer runs the `subscribe()` method of an [observable][AioGuideGlossaryObservable].
 
-The act of subscribing to an observable triggers its execution, associates callbacks with it, and creates a `Subscription` object that lets you unsubscribe.
+The act of subscribing to an observable triggers the associated runtime, associates callbacks with it, and creates a `Subscription` object that lets you unsubscribe.
 
 The `subscribe()` method takes an [observer][AioGuideGlossaryObserver] JavaScript object with up to three callbacks, one for each type of notification that an observable can deliver.
 
@@ -795,7 +795,7 @@ When using template-driven forms:
 *   The "source of truth" is the template.
     The validation is defined using attributes on the individual input elements.
 
-*   [Two-way binding][AioGuideGlossaryDataBinding] with `ngModel` keeps the component model synchronized with the user's entry into the input elements.
+*   [Two-way binding][AioGuideGlossaryDataBinding] with `ngModel` keeps the component model synchronized with the entry for the user into the input elements.
 *   Behind the scenes, Angular creates a new control for each input element, provided you have set up a `name` attribute and two-way binding for each input.
 *   The associated Angular directives are prefixed with `ng` such as `ngForm`, `ngModel`, and `ngModelGroup`.
 
@@ -855,7 +855,7 @@ Schematic [rules][AioGuideGlossaryRule] take a tree object as input, operate on 
 
 ## TypeScript
 
-A programming language based on JavaScript that is notable for its optional typing system.
+A programming language based on JavaScript that is notable for the associated optional typing system.
 TypeScript provides compile-time type checking and strong tooling support
 The type checking and tooling support include code completion, refactoring, inline documentation, and intelligent search.
 Many code editors and IDEs support TypeScript either natively or with plug-ins.
@@ -873,8 +873,8 @@ To learn more, see [TypeScript configuration][AioGuideTypescriptConfiguration].
 A data flow model where the component tree is always checked for changes in one direction from parent to child, which prevents cycles in the change detection graph.
 
 In practice, this means that data in Angular flows downward during change detection.
-A parent component can easily change values in its child components because the parent is checked first.
-A failure could occur, however, if a child component tries to change a value in its parent during change detection \(inverting the expected data flow\), because the parent component has already been rendered.
+A parent component can easily change values in the associated child components because the parent is checked first.
+A failure could occur, however, if a child component tries to change a value in the associated parent during change detection \(inverting the expected data flow\), because the parent component has already been rendered.
 In development mode, Angular throws the `ExpressionChangedAfterItHasBeenCheckedError` error if your application attempts to do this, rather than silently failing to render the new value.
 
 To avoid this error, a [lifecycle hook][AioGuideLifecycleHooks] method that seeks to make such a change should trigger a new change detection run.
@@ -892,7 +892,7 @@ To learn more, see [Angular Universal: server-side rendering][AioGuideUniversal]
 The smallest grouping of display elements that can be created and destroyed together.
 Angular renders a view under the control of one or more [directives][AioGuideGlossaryDirective].
 
-A [component][AioGuideGlossaryComponent] class and its associated [template][AioGuideGlossaryTemplate] define a view.
+A [component][AioGuideGlossaryComponent] class and the associated associated [template][AioGuideGlossaryTemplate] define a view.
 A view is specifically represented by a `ViewRef` instance associated with a component.
 A view that belongs immediately to a component is referenced as a *host view*.
 Views are typically collected into [view hierarchies][AioGuideGlossaryViewHierarchy].

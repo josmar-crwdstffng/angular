@@ -7,8 +7,8 @@ This topic describes how you can help keep Angular content up-to-date by reviewi
 
 ## Before you begin
 
-You can review content even if you've never contributed to Angular before.
-However, you may find it helpful to have the [Contributing to Angular](https://github.com/angular/angular/blob/main/CONTRIBUTING.md) guide available if you're filing your first pull request in the repository.
+You are able to review content even if you have never contributed to Angular before.
+However, you may find it helpful to have the [Contributing to Angular](https://github.com/angular/angular/blob/main/CONTRIBUTING.md) guide available if you are filing your first pull request in the repository.
 
 ## Reviewing content (`@reviewed`)
 
@@ -22,7 +22,7 @@ On the published topic, this reviewed information appears at the bottom of the t
 
 </div>
 
-This reviewed date indicates when someone last reviewed the topic to ensure that its contents were accurate.
+This reviewed date indicates when someone last reviewed the topic to ensure that the associated contents were accurate.
 
 You can review a topic using either the GitHub user interface or in an editor on your local machine.
 You can also review any topic that you like.
@@ -40,7 +40,7 @@ You can also review any topic that you like.
 
 1.  Read through the topic.
 1.  If the topic requires an update, either [file an issue](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#submit-issue) that describes the update required, or [create a pull request](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#submit-pr) with the update.
-1.  Update the `@reviewed` tag, either through the [GitHub user interface](guide/updating-content-github-ui) or through Angular's [standard pull request process](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#submit-pr).
+1.  Update the `@reviewed` tag, either through the [GitHub user interface](guide/updating-content-github-ui) or through the [standard pull request process](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#submit-pr) for Angular.
 
 <a id="review-criteria"></a>
 

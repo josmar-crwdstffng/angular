@@ -8,14 +8,14 @@ require a circular dependency, uses "remote scoping" via the `setComponentScope`
 There are two files, `index.ts` and `trigger.ts`. `index.ts` contains the NgModule and a simple
 component (`<dep>`).
 
-`trigger.ts` contains a component `TriggerComponent` that uses `<dep>` in its template. Normally,
-Ivy would want `DepComponent` to be listed in `TriggerComponent`'s definition. However, this
-requires adding an import from `trigger.ts` -> `index.ts`, and there's already an import from
+`trigger.ts` contains a component `TriggerComponent` that uses `<dep>` in the associated template. Normally,
+Ivy would want `DepComponent` to be listed in the definition of the TriggerComponent`. However, this
+requires adding an import from `trigger.ts` -> `index.ts`, and there is already an import from
 `index.ts` to `trigger.ts` (for the NgModule).
 
-In this case, ngtsc decides to set the directives in `TriggerComponent`'s definition via a different
+In this case, ngtsc decides to set the directives in the definition of the `TriggerComponent` via a different
 mechanism: remote scoping. Alongside the NgModule (in `index.ts`) a call to `setComponentScope` is
-generated which sets up `TriggerComponent`'s definition correctly, without introducing any imports.
+generated which sets up the definition of the `TriggerComponent` correctly, without introducing any imports.
 This call is not tree-shakeable, but does not create a cycle.
 
 The symbol test here verifies that `setComponentScope` is used, and the e2e spec verifies that the

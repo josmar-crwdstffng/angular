@@ -1,4 +1,4 @@
-# Zone.js's support for non standard apis
+# Support for non standard APIs in Zone.js
 
 Zone.js patched most standard APIs such as DOM event listeners, XMLHttpRequest in Browser, EventEmitter and fs API in Node.js so they can be in zone.
 
@@ -113,8 +113,8 @@ to load the patch, you should load in the following order.
 
 ## Usage
 
-By default, those APIs' support will not be loaded in zone.js or zone-node.js,
-so if you want to load those API's support, you should load those files by yourself.
+By default, the support of those APIs will not be loaded in zone.js or zone-node.js,
+so if you want to load the support of those APIs, you should load those files by yourself.
 
 For example, if you want to add MediaQuery patch, you should do like this:
 

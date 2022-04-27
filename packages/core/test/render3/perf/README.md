@@ -16,7 +16,7 @@ node dist/bin/packages/core/test/render3/perf/${BENCHMARK}_lib.debug.min.js
 node --no-turbo-inlining --inspect-brk dist/bin/packages/core/test/render3/perf/${BENCHMARK}_lib.debug.min.js
 ```
 
-then connect with a debugger (the `--inspect-brk` option will make sure that benchmark execution doesn't start until a debugger is connected and the code execution is manually resumed). 
+then connect with a debugger (the `--inspect-brk` option will make sure that benchmark execution does not start until a debugger is connected and the code execution is manually resumed). 
 
 The actual benchmark code has calls that will start (`console.profile`) and stop (`console.profileEnd`) a profiling session.
 

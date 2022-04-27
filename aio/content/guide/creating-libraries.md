@@ -25,7 +25,7 @@ You should be very careful when choosing the name of your library if you want to
 See [Publishing your library](guide/creating-libraries#publishing-your-library).
   
 Avoid using a name that is prefixed with `ng-`, such as `ng-library`.
-The `ng-` prefix is a reserved keyword used from the Angular framework and its libraries.
+The `ng-` prefix is a reserved keyword used from the Angular framework and the associated libraries.
 The `ngx-` prefix is preferred as a convention used to denote that the library is suitable for use with Angular.
 It is also an excellent indication to consumers of the registry to differentiate between libraries of different JavaScript frameworks.
 
@@ -88,7 +88,7 @@ Your library should supply documentation \(typically a README file\) for install
 To make your solution reusable, you need to adjust it so that it does not depend on application-specific code.
 Here are some things to consider in migrating application functionality to a library.
 
-*   Declarations such as components and pipes should be designed as stateless, meaning they don't rely on or alter external variables.
+*   Declarations such as components and pipes should be designed as stateless, meaning they do not rely on or alter external variables.
     If you do rely on state, you need to evaluate every case and decide whether it is application state or state that the library would manage.
 
 *   Any observables that the components subscribe to internally should be cleaned up and disposed of during the lifecycle of those components
@@ -97,7 +97,7 @@ Here are some things to consider in migrating application functionality to a lib
 *   Check all internal dependencies.
     *   For custom classes or interfaces used in components or service, check whether they depend on additional classes or interfaces that also need to be migrated
     *   Similarly, if your library code depends on a service, that service needs to be migrated
-    *   If your library code or its templates depend on other libraries \(such as Angular Material, for instance\), you must configure your library with those dependencies
+    *   If your library code or the associated templates depend on other libraries \(such as Angular Material, for instance\), you must configure your library with those dependencies
 
 *   Consider how you provide services to client applications.
 
@@ -117,13 +117,13 @@ A library typically includes *reusable code* that defines components, services, 
 A library is packaged into an npm package for publishing and sharing.
 This package can also include [schematics](guide/glossary#schematic) that provide instructions for generating or transforming code directly in your project, in the same way that the CLI creates a generic new component with `ng generate component`.
 A schematic that is packaged with a library can, for example, provide the Angular CLI with the information it needs to generate a component that configures and uses a particular feature, or set of features, defined in that library.
-One example of this is [Angular Material's navigation schematic](https://material.angular.io/guide/schematics#navigation-schematic) which configures the CDK's [BreakpointObserver](https://material.angular.io/cdk/layout/overview#breakpointobserver) and uses it with Material's [MatSideNav](https://material.angular.io/components/sidenav/overview) and [MatToolbar](https://material.angular.io/components/toolbar/overview) components.
+One example of this is the [navigation schematic in Angular Material](https://material.angular.io/guide/schematics#navigation-schematic) which configures the [BreakpointObserver](https://material.angular.io/cdk/layout/overview#breakpointobserver) in CDK and uses it with the [MatSideNav](https://material.angular.io/components/sidenav/overview) and [MatToolbar](https://material.angular.io/components/toolbar/overview) components in Material.
 
 Create and include the following kinds of schematics:
 
 *   Include an installation schematic so that `ng add` can add your library to a project
 *   Include generation schematics in your library so that `ng generate` can scaffold your defined artifacts \(components, services, tests\) in a project
-*   Include an update schematic so that `ng update` can update your library's dependencies and provide migrations for breaking changes in new releases
+*   Include an update schematic so that `ng update` can update the dependencies of your library and provide migrations for breaking changes in new releases
 
 What you include in your library depends on your task.
 For example, you could define a schematic to create a dropdown that is pre-populated with canned data to show how to add it to an application.
@@ -197,7 +197,7 @@ If a library lists `@angular/core` in `dependencies` instead of `peerDependencie
 
 ## Using your own library in applications
 
-You don't have to publish your library to the npm package manager to use it the same workspace, but you do have to build it first.
+You do not have to publish your library to the npm package manager to use it the same workspace, but you do have to build it first.
 
 To use your own library in an application:
 
@@ -220,8 +220,8 @@ To use your own library in an application:
 
 ### Building and rebuilding your library
 
-The build step is important if you haven't published your library as an npm package and then installed the package back into your application from npm.
-For instance, if you clone your git repository and run `npm install`, your editor shows the `my-lib` imports as missing if you haven't yet built your library.
+The build step is important if you have not published your library as an npm package and then installed the package back into your application from npm.
+For instance, if you clone your git repository and run `npm install`, your editor shows the `my-lib` imports as missing if you have not yet built your library.
 
 <div class="alert is-helpful">
 
@@ -229,7 +229,7 @@ When you import something from a library in an Angular application, Angular look
 When you install a library package, the mapping is in the `node_modules` folder.
 When you build your own library, it has to find the mapping in your `tsconfig` paths.
 
-Generating a library with the Angular CLI automatically adds its path to the `tsconfig` file.
+Generating a library with the Angular CLI automatically adds the associated path to the `tsconfig` file.
 The Angular CLI uses the `tsconfig` paths to tell the build system where to find the library.
 
 For more information, see [Path mapping overview](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping).
@@ -280,30 +280,30 @@ There are two distribution formats to use when publishing a library:
 
 For publishing to npm use the partial-Ivy format as it is stable between patch versions of Angular.
 
-Avoid compiling libraries with full-Ivy code if you are publishing to npm because the generated Ivy instructions are not part of Angular's public API, and so might change between patch versions.
+Avoid compiling libraries with full-Ivy code if you are publishing to npm because the generated Ivy instructions are not part of the public API in Angular, and so might change between patch versions.
 
 ## Ensuring library version compatibility
 
-The Angular version used to build an application should always be the same or greater than the Angular versions used to build any of its dependent libraries.
+The Angular version used to build an application should always be the same or greater than the Angular versions used to build any of the associated dependent libraries.
 For example, if you had a library using Angular version 13, the application that depends on that library should use Angular version 13 or later.
 Angular does not support using an earlier version for the application.
 
 If you intend to publish your library to npm, compile with partial-Ivy code by setting `"compilationMode": "partial"` in `tsconfig.prod.json`.
 This partial format is stable between different versions of Angular, so is safe to publish to npm.
-Code with this format is processed during the application build using the same version of the Angular compiler, ensuring that the application and all of its libraries use a single version of Angular.
+Code with this format is processed during the application build using the same version of the Angular compiler, ensuring that the application and all of the associated libraries use a single version of Angular.
 
-Avoid compiling libraries with full-Ivy code if you are publishing to npm because the generated Ivy instructions are not part of Angular's public API, and so might change between patch versions.
+Avoid compiling libraries with full-Ivy code if you are publishing to npm because the generated Ivy instructions are not part of public API in Angular, and so might change between patch versions.
 
-If you've never published a package in npm before, you must create a user account.
+If you have never published a package in npm before, you must create a user account.
 Read more in [Publishing npm Packages](https://docs.npmjs.com/getting-started/publishing-npm-packages).
 
 ## Consuming partial-Ivy code outside the Angular CLI
 
-An application installs many Angular libraries from npm into its `node_modules` directory.
+An application installs many Angular libraries from npm into the associated `node_modules` directory.
 However, the code in these libraries cannot be bundled directly along with the built application as it is not fully compiled.
 To finish compilation, use the Angular linker.
 
-For applications that don't use the Angular CLI, the linker is available as a [Babel](https://babeljs.io) plugin.
+For applications that do not use the Angular CLI, the linker is available as a [Babel](https://babeljs.io) plugin.
 The plugin is to be imported from `@angular/compiler-cli/linker/babel`.
 
 The Angular linker Babel plugin supports build caching, meaning that libraries only need to be processed by the linker a single time, regardless of other npm operations.

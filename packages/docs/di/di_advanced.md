@@ -1,6 +1,6 @@
 # Dependency Injection (DI): Documentation (Advanced Topics)
 
-This document talks about advanced topics related to the DI module and how it is used in Angular. You don't have to know this to use DI in Angular or independently.
+This document talks about advanced topics related to the DI module and how it is used in Angular. You do not have to know this to use DI in Angular or independently.
 
 ### Key
 
@@ -74,9 +74,9 @@ Imagine the following scenario:
    Child1    Child2
 ```
 
-Here both Child1 and Child2 are children of ParentInjector. Child2 marks this relationship as host. ParentInjector might want to expose two different sets of providers for its "regular" children and its "host" children. providers visible to "regular" children are called "public" and providers visible to "host" children are called "private". This is an advanced use case used by Angular, where components can provide different sets of providers for their children and their view.
+Here both Child1 and Child2 are children of ParentInjector. Child2 marks this relationship as host. ParentInjector might want to expose two different sets of providers for the associated "regular" children and the associated "host" children. providers visible to "regular" children are called "public" and providers visible to "host" children are called "private". This is an advanced use case used by Angular, where components can provide different sets of providers for their children and their view.
 
-Let's look at this example.
+Let us look at this example.
 
 ```
 class Car {
@@ -100,7 +100,7 @@ parent.get(Car); // this works
 regularChild.get(Car); // this works
 ```
 
-Now, let's mark `Engine` as private:
+Now, let us mark `Engine` as private:
 
 ```
 class Car {
@@ -124,7 +124,7 @@ parent.get(Car); // this throws
 regularChild.get(Car); // this throws
 ```
 
-Now, let's mark `Engine` as both public and private:
+Now, let us mark `Engine` as both public and private:
 
 ```
 class Car {
@@ -150,18 +150,18 @@ regularChild.get(Car); // this works
 
 ## Angular and DI
 
-Now let's see how Angular uses DI behind the scenes.
+Now let us see how Angular uses DI behind the scenes.
 
 The right mental model is to think that every DOM element has an Injector. (In practice, only interesting elements containing directives will have an injector, but this is a performance optimization)
 
 There are two properties that can be used to configure DI: providers and viewProviders.
 
-- `providers` affects the element and its children.
-- `viewProviders` affects the component's view.
+- `providers` affects the element and the associated children.
+- `viewProviders` affects the view of the component.
 
 Every directive can declare injectables via `providers`, but only components can declare `viewProviders`.
 
-Let's look at a complex example that shows how the injector tree gets created.
+Let us look at a complex example that shows how the injector tree gets created.
 
 ```
 <my-component my-directive>
@@ -231,5 +231,5 @@ Injector2 [                                                 Injector3 [
 ]                                                           ]
 ```
 
-As you can see the component and its providers can be seen by its children and its view. The view providers can be seen only by the view. And the providers of other directives can be seen only their children.
+As you can see the component and the associated providers can be seen by the associated children and the associated view. The view providers can be seen only by the view. And the providers of other directives can be seen only their children.
 

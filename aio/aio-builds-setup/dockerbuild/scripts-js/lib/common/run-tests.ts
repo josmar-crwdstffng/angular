@@ -1,4 +1,4 @@
-// We can't use `import...from` here, because of the following mess:
+// We cannot use `import...from` here, because of the following mess:
 // - GitHub project `jasmine/jasmine` is `jasmine-core` on npm and its typings `@types/jasmine`.
 // - GitHub project `jasmine/jasmine-npm` is `jasmine` on npm and has no typings.
 //

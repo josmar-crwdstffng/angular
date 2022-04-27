@@ -28,7 +28,7 @@ along with a brief explanation of what they mean:
 ## `https://ngbuilds.io/can-have-public-preview/<pr>`
 
 - **200 (OK)**:
-  Whether the PR can have a public preview (based on its author, label, changed files).
+  Whether the PR can have a public preview (based on the associated author, label, changed files).
   _Response type:_ JSON
   _Response format:_
   ```ts

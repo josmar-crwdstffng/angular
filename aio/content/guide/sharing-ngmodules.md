@@ -26,13 +26,13 @@ export class SharedModule { }
 
 Notice the following:
 
-*   It imports the `CommonModule` because the module's component needs common directives
+*   It imports the `CommonModule` because the component of the module needs common directives
 *   It declares and exports the utility pipe, directive, and component classes
 *   It re-exports the `CommonModule` and `FormsModule`
 
 By re-exporting `CommonModule` and `FormsModule`, any other module that imports this `SharedModule`, gets access to directives like `NgIf` and `NgFor` from `CommonModule` and can bind to component properties with `[(ngModel)]`, a directive in the `FormsModule`.
 
-Even though the components declared by `SharedModule` might not bind with `[(ngModel)]` and there may be no need for `SharedModule` to import `FormsModule`, `SharedModule` can still export `FormsModule` without listing it among its `imports`.
+Even though the components declared by `SharedModule` might not bind with `[(ngModel)]` and there may be no need for `SharedModule` to import `FormsModule`, `SharedModule` can still export `FormsModule` without listing it among the associated `imports`.
 This way, you can give other modules access to `FormsModule` without having to import it directly into the `@NgModule` decorator.
 
 ## More on NgModules

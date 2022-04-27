@@ -3,7 +3,7 @@
 To improve cross platform support, all file access (and path manipulation)
 is now done through a well known interface (`FileSystem`).
 
-Note that `FileSystem` extends `ReadonlyFileSystem`, which itself extends
+Note that `FileSystem` extends `ReadonlyFileSystem`, which extends
 `PathManipulation`.
 If you are using a file-system object you should only ask for the type that supports
 all the methods that you require.
@@ -21,7 +21,7 @@ methods to avoid having to pass `FileSystem` objects around all the time.
 The result of this is that one must be careful to ensure that the file-system
 has been initialized before using any of these helper methods.
 To prevent this happening accidentally the current file system always starts out
-as an instance of `InvalidFileSystem`, which will throw an error if any of its
+as an instance of `InvalidFileSystem`, which will throw an error if any of the associated
 methods are called.
 
 Generally it is safer to explicitly pass file-system objects to constructors or

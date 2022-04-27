@@ -131,7 +131,7 @@ NOTE:
 
 `EXPANDO` contains information on data which size is not known at compile time.
 Examples include:
-- `Component`/`Directives` since we don't know at compile time which directives will match.
+- `Component`/`Directives` since we do not know at compile time which directives will match.
 - Host bindings, since until we match the directives it is unclear how many host bindings need to be allocated.
 
 ```typescript
@@ -201,7 +201,7 @@ The above will create the following layout:
 ## `EXPANDO` and Injection
 
 `EXPANDO` will also store the injection information for the element.
-This is because at the time of compilation we don't know about all of the injection tokens which will need to be created.
+This is because at the time of compilation we do not know about all of the injection tokens which will need to be created.
 (The injection tokens are part of the Component hence hide behind a selector and are not available to the parent component.)
 
 Injection needs to store three things:
@@ -214,8 +214,8 @@ The `LProtoViewData` is initialized by the `ProvidesFeature`.
 
 Injection tokens are sorted into three sections:
 1. `directives`: Used to denote eagerly created items representing directives and component.
-2. `providers`: Used to denote items visible to component, component's view and component's content.
-3. `viewProviders`: Used to denote items only visible to the component's view.
+2. `providers`: Used to denote items visible to component, the view of the component, and the content of the component.
+3. `viewProviders`: Used to denote items only visible to the view of the component.
 
 ```typescript
 @Component({
@@ -328,12 +328,12 @@ Adding them always there would prevent tree shaking so they need to be lazily in
 
 NOTE:
 An interesting thing about these objects is that they are not memoized `injector.get(ElementRef) !== injector.get(ElementRef)`.
-This could be considered a bug, it means that we don't have to allocate storage space for them.
+This could be considered a bug, it means that we do not have to allocate storage space for them.
 
 We should treat these special objects like any other token. `directiveInject()` already reads a special `NG_ELEMENT_ID`
 property set on directives to locate their bit in the bloom filter. We can set this same property on special objects,
 but point to a factory function rather than an element ID number. When we check that property in `directiveInject()`
-and see that it's a function, we know to invoke the factory function directly instead of searching the node tree.
+and see that it is a function, we know to invoke the factory function directly instead of searching the node tree.
 
 ```typescript
 class ElementRef {
@@ -359,7 +359,7 @@ class Injector {
 ```
 
 NOTE:
-We can't declare `useFactory` in this case because it would make the generic DI system depend on the Ivy renderer.
+We cannot declare `useFactory` in this case because it would make the generic DI system depend on the Ivy renderer.
 Instead we have unique token `'__node_injector__'` which we use for recognizing the `Injector` in tree shakable way.
 
 ## `inject` Implementation

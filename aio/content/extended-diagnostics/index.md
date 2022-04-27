@@ -22,7 +22,7 @@ Each diagnostic can be configured as either:
     The compiler will exit with a non-zero status code if one or more errors are emitted.
 *   `suppress` - The compiler does *not* emit the diagnostic at all.
 
-Check severity can be configured in the project's `tsconfig.json` file:
+Check severity can be configured in the `tsconfig.json` file of the project:
 
 <code-example format="jsonc" language="jsonc">
 
@@ -31,7 +31,7 @@ Check severity can be configured in the project's `tsconfig.json` file:
     "extendedDiagnostics": {
       // The categories to use for specific diagnostics.
       "checks": {
-        // Maps check name to its category.
+        // Maps check name to the associated category.
         "invalidBananaInBox": "suppress"
       },
 

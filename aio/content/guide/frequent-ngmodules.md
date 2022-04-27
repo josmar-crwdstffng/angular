@@ -46,11 +46,11 @@ For more information on the difference, see [JavaScript Modules vs. NgModules](g
 ## `BrowserModule` and `CommonModule`
 
 `BrowserModule` imports `CommonModule`, which contributes many common directives such as `ngIf` and `ngFor`.
-Additionally, `BrowserModule` re-exports `CommonModule` making all of its directives available to any module that imports `BrowserModule`.
+Additionally, `BrowserModule` re-exports `CommonModule` making all of the associated directives available to any module that imports `BrowserModule`.
 
 For applications that run in the browser, import `BrowserModule` in the root `AppModule` because it provides services that are essential to launch and run a browser application.
-`BrowserModule`'s providers are for the whole application so it should only be in the root module, not in feature modules.
-Feature modules only need the common directives in `CommonModule`; they don't need to re-install app-wide providers.
+The providers of the `BrowserModule` are for the whole application so it should only be in the root module, not in feature modules.
+Feature modules only need the common directives in `CommonModule`; they do not need to re-install app-wide providers.
 
 If you do import `BrowserModule` into a lazy loaded feature module, Angular returns an error telling you to use `CommonModule` instead.
 

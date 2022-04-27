@@ -32,7 +32,7 @@ Here are some key differences:
 
 *   Observables are not executed until a consumer subscribes.
     The `subscribe()` executes the defined behavior once, and it can be called again.
-    Each subscription has its own computation.
+    Each subscription has the associated computation.
     Resubscription causes recomputation of values.
 
     <code-example header="src/observables.ts (observable)" path="comparing-observables/src/observables.ts" region="observable"></code-example>
@@ -66,7 +66,7 @@ Here are some key differences:
 
 ### Error handling
 
-*   Observable execution errors are delivered to the subscriber's error handler, and the subscriber automatically unsubscribes from the observable.
+*   Observable execution errors are delivered to the error handler of the subscriber, and the subscriber automatically unsubscribes from the observable.
 
     <code-example header="src/observables.ts (error)" path="comparing-observables/src/observables.ts" region="error"></code-example>
 

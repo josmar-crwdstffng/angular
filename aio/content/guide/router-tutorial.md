@@ -2,9 +2,9 @@
 
 This tutorial describes how to build a single-page application, SPA that uses multiple Angular routes.
 
-In a Single Page Application \(SPA\), all of your application's functions exist in a single HTML page.
-As users access your application's features, the browser needs to render only the parts that matter to the user, instead of loading a new page.
-This pattern can significantly improve your application's user experience.
+In a Single Page Application \(SPA\), all of the functions of your application exist in a single HTML page.
+As users access the features of your application, the browser needs to render only the parts that matter to the user, instead of loading a new page.
+This pattern can significantly improve the user experience of your application.
 
 To define how users navigate through your application, you use routes.
 Add routes to define how users navigate from one part of your application to another.
@@ -14,7 +14,7 @@ To explore a sample application featuring the contents of this tutorial, see the
 
 ## Objectives
 
-*   Organize a sample application's features into modules.
+*   Organize the features of a sample application into modules.
 *   Define how to navigate to a component.
 *   Pass information to a component using a parameter.
 *   Structure routes by nesting several routes.
@@ -78,7 +78,7 @@ This application will have two components: *crisis-list* and *heroes-list*.
 
     <code-example header="src/app/heroes-list/heroes-list.component.html" path="router-tutorial/src/app/heroes-list/heroes-list.component.html"></code-example>
 
-1.  In your code editor, open the file, `app.component.html` and replace its contents with the following HTML.
+1.  In your code editor, open the file, `app.component.html` and replace the associated contents with the following HTML.
 
     <code-example header="src/app/app.component.html" path="router-tutorial/src/app/app.component.html" region="setup"></code-example>
 
@@ -107,7 +107,7 @@ You import this module from `@angular/router`.
 
 ## Define your routes
 
-In this section, you'll define two routes:
+In this section, you will define two routes:
 
 *   The route `/crisis-center` opens the `crisis-center` component.
 *   The route `/heroes-list` opens the `heroes-list` component.
@@ -148,7 +148,7 @@ To implement this functionality, you add the `router-outlet` directive to your t
 
 View your updated application in your browser.
 You should see only the application title.
-To view the `crisis-list` component, add `crisis-list` to the end of the path in your browser's address bar.
+To view the `crisis-list` component, add `crisis-list` to the end of the path in the address bar of your browser.
 For example:
 
 <code-example format="https" language="https">
@@ -170,11 +170,11 @@ http://localhost:4200/heroes-list
 ## Control navigation with UI elements
 
 Currently, your application supports two routes.
-However, the only way to use those routes is for the user to manually type the path in the browser's address bar.
-In this section, you'll add two links that users can click to navigate between the `heroes-list` and `crisis-list` components.
-You'll also add some CSS styles.
+However, the only way to use those routes is for the user to manually type the path in the address bar of the browser.
+In this section, you will add two links that users can click to navigate between the `heroes-list` and `crisis-list` components.
+you will also add some CSS styles.
 While these styles are not required, they make it easier to identify the link for the currently-displayed component.
-You'll add that functionality in the next section.
+you will add that functionality in the next section.
 
 1.  Open the `app.component.html` file and add the following HTML below the title.
 
@@ -192,8 +192,8 @@ When you click on a link, the corresponding component appears.
 
 ## Identify the active route
 
-While users can navigate your application using the links you added in the previous section, they don't have a straightforward way to identify what the active route is.
-Add this functionality using Angular's `routerLinkActive` directive.
+While users can navigate your application using the links you added in the previous section, they do not have a straightforward way to identify what the active route is.
+Add this functionality using the `routerLinkActive` directive in Angular.
 
 1.  From your code editor, open the `app.component.html` file.
 1.  Update the anchor tags to include the `routerLinkActive` directive.
@@ -215,7 +215,7 @@ In this step of the tutorial, you add a route that redirects the user to display
 
     <code-example header="src/app/app.module.ts" path="router-tutorial/src/app/app.module.ts" region="import-redirect"></code-example>
 
-    Notice that this new route uses an empty string as its path.
+    Notice that this new route uses an empty string as the associated path.
     In addition, it replaces the `component` property with two new ones:
 
     | Properties   | Details |
@@ -229,7 +229,7 @@ Now when you open your application, it displays the `heroes-list` component by d
 
 It is possible for a user to try to access a route that you have not defined.
 To account for this behavior, the best practice is to display a 404 page.
-In this section, you'll create a 404 page and update your route configuration to show that page for any unspecified routes.
+In this section, you will create a 404 page and update your route configuration to show that page for any unspecified routes.
 
 1.  From the terminal, create a new component, `PageNotFound`.
 
@@ -239,7 +239,7 @@ In this section, you'll create a 404 page and update your route configuration to
 
     </code-example>
 
-1.  From your code editor, open the `page-not-found.component.html` file and replace its contents with the following HTML.
+1.  From your code editor, open the `page-not-found.component.html` file and replace the associated contents with the following HTML.
 
     <code-example header="src/app/page-not-found/page-not-found.component.html" path="router-tutorial/src/app/page-not-found/page-not-found.component.html"></code-example>
 
@@ -260,12 +260,12 @@ In this section, you'll create a 404 page and update your route configuration to
     </div>
 
 Try navigating to a non-existing route on your application, such as `http://localhost:4200/powers`.
-This route doesn't match anything defined in your `app.module.ts` file.
+This route does not match anything defined in your `app.module.ts` file.
 However, because you defined a wildcard route, the application automatically displays your `PageNotFound` component.
 
 ## Next steps
 
-At this point, you have a basic application that uses Angular's routing feature to change what components the user can see based on the URL address.
+At this point, you have a basic application that uses the routing feature in Angular to change what components the user can see based on the URL address.
 You have extended these features to include a redirect, as well as a wildcard route to display a custom 404 page.
 
 For more information about routing, see the following topics:

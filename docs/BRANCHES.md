@@ -6,7 +6,7 @@ merging PRs and publishing releases. Before reading, you should understand
 
 ## Distribution tags on npm
 
-Angular's branching relates directly to versions published on npm. We will reference these [npm
+The branching in Angular relates directly to versions published on npm. We will reference these [npm
 distribution tags](https://docs.npmjs.com/cli/v6/commands/npm-dist-tag#purpose) throughout:
 
 | Tag    | Description                                                                       |
@@ -17,8 +17,9 @@ distribution tags](https://docs.npmjs.com/cli/v6/commands/npm-dist-tag#purpose) 
 
 ## Branch naming
 
-Angular's main branch is `main`. This branch always represents the absolute latest changes. The
-code on `main` always represents a pre-release version, often published with the `next` tag on npm.
+The primary branch in Angular is `main`.
+This branch always represents the absolute latest changes.
+The code on `main` always represents a pre-release version, often published with the `next` tag on npm.
 
 For each minor and major version increment, a new branch is created. These branches use a naming
 scheme matching `\d+\.\d+\.x` and receive subsequent patch changes for that version range. For
@@ -84,8 +85,8 @@ There are five labels that target PRs to versions:
 | target: rc    | A change that should be explicitly included in an active release candidate. |
 | target: lts   | A critical security or browser compatibility fix for LTS releases.          |
 
-Every PR must have exactly one `target: *` label. Angular's dev tooling will merge the pull request
-into its base branch and then cherry-pick the commits to the appropriate branches based on the
+Every PR must have exactly one `target: *` label. The developer tooling in Angular will merge the pull request
+into the associated base branch and then cherry-pick the commits to the appropriate branches based on the
 specified target label.
 
 The vast majority of pull requests will target `major`, `minor`, or `patch` based on the contents of

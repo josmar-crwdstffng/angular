@@ -8,7 +8,7 @@ For the example application that this page describes, see the <live-example name
 
 </div>
 
-For more information on Angular's built-in structural directives, such as `NgIf`, `NgForOf`, and `NgSwitch`, see [Built-in directives](guide/built-in-directives).
+For more information on the structural directives built into Angular, such as `NgIf`, `NgForOf`, and `NgSwitch`, see [Built-in directives](guide/built-in-directives).
 
 <a id="unless"></a>
 
@@ -42,7 +42,7 @@ When `condition` is `false`, the browser displays the sentence.
 
     <code-example header="src/app/unless.directive.ts (ctor)" path="structural-directives/src/app/unless.directive.ts" region="ctor"></code-example>
 
-    The `UnlessDirective` creates an [embedded view](api/core/EmbeddedViewRef "API: EmbeddedViewRef") from the Angular-generated `<ng-template>` and inserts that view in a [view container](api/core/ViewContainerRef "API: ViewContainerRef") adjacent to the directive's original `<p>` host element.
+    The `UnlessDirective` creates an [embedded view](api/core/EmbeddedViewRef "API: EmbeddedViewRef") from the Angular-generated `<ng-template>` and inserts that view in a [view container](api/core/ViewContainerRef "API: ViewContainerRef") adjacent to the original `<p>` host element of the directive.
 
     [`TemplateRef`](api/core/TemplateRef "API: TemplateRef") helps you get to the `<ng-template>` contents and [`ViewContainerRef`](api/core/ViewContainerRef "API: ViewContainerRef") accesses the view container.
 
@@ -52,7 +52,7 @@ When `condition` is `false`, the browser displays the sentence.
 
     Angular sets the `appUnless` property whenever the value of the condition changes.
 
-    *   If the condition is falsy and Angular hasn't created the view previously, the setter causes the view container to create the embedded view from the template
+    *   If the condition is falsy and Angular has not created the view previously, the setter causes the view container to create the embedded view from the template
     *   If the condition is truthy and the view is currently displayed, the setter clears the container, which disposes of the view
 
 The complete directive is as follows:
@@ -61,7 +61,7 @@ The complete directive is as follows:
 
 ### Testing the directive
 
-In this section, you'll update your application to test the `UnlessDirective`.
+In this section, you will update your application to test the `UnlessDirective`.
 
 1.  Add a `condition` set to `false` in the `AppComponent`.
 
@@ -94,14 +94,14 @@ To verify that the directive works, click the button to change the value of `con
 ## Structural directive shorthand
 
 The asterisk, `*`,  syntax on a structural directive, such as `*ngIf`, is shorthand that Angular interprets into a longer form.
-Angular transforms the asterisk in front of a structural directive into an `<ng-template>` that surrounds the host element and its descendants.
+Angular transforms the asterisk in front of a structural directive into an `<ng-template>` that surrounds the host element and the associated descendants.
 
-The following is an example of `*ngIf` that displays the hero's name if `hero` exists:
+The following is an example of `*ngIf` that displays the name of the hero if `hero` exists:
 
 <code-example header="src/app/app.component.html (asterisk)" path="structural-directives/src/app/app.component.html" region="asterisk"></code-example>
 
 The `*ngIf` directive moves to the `<ng-template>` where it becomes a property binding in square brackets, `[ngIf]`.
-The rest of the `<div>`, including its class attribute, moves inside the `<ng-template>`.
+The rest of the `<div>`, including the associated class attribute, moves inside the `<ng-template>`.
 
 <code-example header="src/app/app.component.html (ngif-template)" path="structural-directives/src/app/app.component.html" region="ngif-template"></code-example>
 
@@ -129,20 +129,20 @@ The `let` keyword declares a template input variable that you can reference with
 The input variables in this example are `hero`, `i`, and `odd`.
 The parser translates `let hero`, `let i`, and `let odd` into variables named `let-hero`, `let-i`, and `let-odd`.
 The `let-i` and `let-odd` variables become `let i=index` and `let odd=odd`.
-Angular sets `i` and `odd` to the current value of the context's `index` and `odd` properties.
+Angular sets `i` and `odd` to the current value of the `index` and `odd` properties of the context.
 
-The parser applies PascalCase to all directives and prefixes them with the directive's attribute name, such as ngFor.
+The parser applies PascalCase to all directives and prefixes them with the attribute name of the directive, such as ngFor.
 For example, the `ngFor` input properties, `of` and `trackBy`, map to `ngForOf` and `ngForTrackBy`.
-As the `NgFor` directive loops through the list, it sets and resets properties of its own context object.
-These properties can include, but aren't limited to, `index`, `odd`, and a special property named `$implicit`.
+As the `NgFor` directive loops through the list, it sets and resets properties of the associated context object.
+These properties can include, but are not limited to, `index`, `odd`, and a special property named `$implicit`.
 
-Angular sets `let-hero` to the value of the context's `$implicit` property, which `NgFor` has initialized with the hero for the current iteration.
+Angular sets `let-hero` to the value of the `$implicit` property of the context, which `NgFor` has initialized with the hero for the current iteration.
 
 For more information, see the [NgFor API](api/common/NgForOf "API: NgFor") and [NgForOf API](api/common/NgForOf) documentation.
 
 ### Creating template fragments with `<ng-template>`
 
-Angular's `<ng-template>` element defines a template that doesn't render anything by default.
+The `<ng-template>` element in Angular defines a template that does not render anything by default.
 With `<ng-template>`, you can render the content manually for full control over how the content displays.
 
 If there is no structural directive and you wrap some elements in an `<ng-template>`, those elements disappear.
@@ -223,8 +223,8 @@ For more information, see [Template type checking](guide/template-typecheck "Tem
 
 ### Making in-template type requirements more specific with template guards
 
-A structural directive in a template controls whether that template is rendered at run time, based on its input expression.
-To help the compiler catch template type errors, you should specify as closely as possible the required type of a directive's input expression when it occurs inside the template.
+A structural directive in a template controls whether that template is rendered at run time, based on the associated input expression.
+To help the compiler catch template type errors, you should specify as closely as possible the required type of the input expression of a directive when it occurs inside the template.
 
 A type guard function narrows the expected type of an input expression to a subset of types that might be passed to the directive within the template at run time.
 You can provide such a function to help the type-checker infer the proper type for the expression at compile time.
@@ -234,7 +234,7 @@ To provide the specific type requirement, the `NgIf` directive defines a [static
 The `binding` value is a special case for a common kind of type-narrowing where the input expression is evaluated in order to satisfy the type requirement.
 
 To provide a more specific type for an input expression to a directive within the template, add an `ngTemplateGuard_xx` property to the directive, where the suffix to the static property name, `xx`, is the `@Input()` field name.
-The value of the property can be either a general type-narrowing function based on its return type, or the string `"binding"`, as in the case of `NgIf`.
+The value of the property can be either a general type-narrowing function based on the associated return type, or the string `"binding"`, as in the case of `NgIf`.
 
 For example, consider the following structural directive that takes the result of a template expression as an input:
 
@@ -262,7 +262,7 @@ export class AppComponent {
 </code-example>
 
 In this example, the `LoadingState<T>` type permits either of two states, `Loaded<T>` or `Loading`.
-The expression used as the directive's `state` input is of the umbrella type `LoadingState`, as it's unknown what the loading state is at that point.
+The expression used as the `state` input of the directive is of the umbrella type `LoadingState`, as it is unknown what the loading state is at that point.
 
 The `IfLoadedDirective` definition declares the static field `ngTemplateGuard_state`, which expresses the narrowing behavior.
 Within the `AppComponent` template, the `*ifLoaded` structural directive should render this template only when `state` is actually `Loaded<Person>`.
@@ -270,7 +270,7 @@ The type guard lets the type checker infer that the acceptable type of `state` w
 
 <a id="narrowing-context-type"></a>
 
-### Typing the directive's context
+### Type the context of the directive
 
 If your structural directive provides a context to the instantiated template, you can properly type it inside the template by providing a static `ngTemplateContextGuard` function.
 The following snippet shows an example of such a function.

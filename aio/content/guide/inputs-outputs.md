@@ -21,7 +21,7 @@ Consider the following hierarchy:
 
 The `<parent-component>` serves as the context for the `<child-component>`.
 
-`@Input()` and `@Output()` give a child component a way to communicate with its parent component.
+`@Input()` and `@Output()` give a child component a way to communicate with the associated parent component.
 `@Input()` lets a parent component update data in the child component.
 Conversely, `@Output()` lets the child send data to a parent component.
 
@@ -29,7 +29,7 @@ Conversely, `@Output()` lets the child send data to a parent component.
 
 ## Sending data to a child component
 
-The `@Input()` decorator in a child component or directive signifies that the property can receive its value from its parent component.
+The `@Input()` decorator in a child component or directive signifies that the property can receive the associated value from the associated parent component.
 
 <div class="lightbox">
 
@@ -54,10 +54,10 @@ Next, in the child component template, add the following:
 
 ### Configuring the parent component
 
-The next step is to bind the property in the parent component's template.
+The next step is to bind the property in the template of the parent component.
 In this example, the parent component template is `app.component.html`.
 
-1.  Use the child's selector, here `<app-item-detail>`, as a directive within the parent component template.
+1.  Use the selector of the child, here `<app-item-detail>`, as a directive within the parent component template.
 1.  Use [property binding](guide/property-binding) to bind the `item` property in the child to the `currentItem` property of the parent.
 
     <code-example header="src/app/app.component.html" path="inputs-outputs/src/app/app.component.html" region="input-parent"></code-example>
@@ -81,7 +81,7 @@ The binding source, the part to the right of the equal sign, is the data that th
 
 ### Watching for `@Input()` changes
 
-To watch for changes on an `@Input()` property, use `OnChanges`, one of Angular's [lifecycle hooks](guide/lifecycle-hooks).
+To watch for changes on an `@Input()` property, use `OnChanges`, one of the [lifecycle hooks](guide/lifecycle-hooks) in Angular.
 See the [`OnChanges`](guide/lifecycle-hooks#onchanges) section of the [Lifecycle Hooks](guide/lifecycle-hooks) guide for more details and examples.
 
 <a id="output"></a>
@@ -119,7 +119,7 @@ The `EventEmitter` then relays the data to the parent component.
     </code-example>
 
 1.  In the component class, decorate a property with `@Output()`.
-    The following example `newItemEvent` `@Output()` has a type of `EventEmitter`, which means it's an event.
+    The following example `newItemEvent` `@Output()` has a type of `EventEmitter`, which means it is an event.
 
     <code-example header="src/app/item-output/item-output.component.ts" path="inputs-outputs/src/app/item-output/item-output.component.ts" region="item-output"></code-example>
 
@@ -129,7 +129,7 @@ The `EventEmitter` then relays the data to the parent component.
     |:---                          |:---     |
     | `@Output()`                  | A decorator function marking the property as a way for data to go from the child to the parent. |
     | `newItemEvent`               | The name of the `@Output()`.                                                                    |
-    | `EventEmitter<string>`       | The `@Output()`'s type.                                                                         |
+    | `EventEmitter<string>`       | The type of the `@Output()`.                                                                         |
     | `new EventEmitter<string>()` | Tells Angular to create a new event emitter and that the data it emits is of type string.       |
 
     For more information on `EventEmitter`, see the [EventEmitter API documentation](api/core/EventEmitter).
@@ -140,9 +140,9 @@ The `EventEmitter` then relays the data to the parent component.
 
     The `addNewItem()` function uses the `@Output()`, `newItemEvent`, to raise an event with the value the user types into the `<input>`.
 
-### Configuring the child's template
+### Configur the template of the child
 
-The child's template has two controls.
+The template of the child has two controls.
 The first is an HTML `<input>` with a [template reference variable](guide/template-reference-variables), `#newItem`, where the user types in an item name.
 The `value` property of the `#newItem` variable stores what the user types into the `<input>`.
 
@@ -151,7 +151,7 @@ The `value` property of the `#newItem` variable stores what the user types into 
 The second element is a `<button>` with a `click` [event binding](guide/event-binding).
 
 The `(click)` event is bound to the `addNewItem()` method in the child component class.
-The `addNewItem()` method takes as its argument the value of the `#newItem.value` property.
+The `addNewItem()` method takes the value of the `#newItem.value` property as the associated argument.
 
 ### Configuring the parent component
 
@@ -161,10 +161,10 @@ The `AppComponent` in this example features a list of `items` in an array and a 
 
 The `addItem()` method takes an argument in the form of a string and then adds that string to the `items` array.
 
-### Configuring the parent's template
+### Configur the template of the parent
 
-1.  In the parent's template, bind the parent's method to the child's event.
-1.  Put the child selector, here `<app-item-output>`, within the parent component's template, `app.component.html`.
+1.  In the template of the parent, bind the method of the parent to the event of the child.
+1.  Put the child selector, here `<app-item-output>`, within the template of the parent component, `app.component.html`.
 
     <code-example header="src/app/app.component.html" path="inputs-outputs/src/app/app.component.html" region="output-parent"></code-example>
 
@@ -172,7 +172,7 @@ The `addItem()` method takes an argument in the form of a string and then adds t
 
     The `$event` contains the data that the user types into the `<input>` in the child template UI.
 
-    To see the `@Output()` working, add the following to the parent's template:
+    To see the `@Output()` working, add the following to the template of the parent:
 
     <code-example format="html" language="html">
 
@@ -183,7 +183,7 @@ The `addItem()` method takes an argument in the form of a string and then adds t
     </code-example>
 
     The `*ngFor` iterates over the items in the `items` array.
-    When you enter a value in the child's `<input>` and click the button, the child emits the event and the parent's `addItem()` method pushes the value to the `items` array and new item renders in the list.
+    When you enter a value in the `<input>` of the child and click the button, the child emits the event and the `addItem()` method of the parent pushes the value to the `items` array and new item renders in the list.
 
 ## Using `@Input()` and `@Output()` together
 
@@ -191,8 +191,8 @@ Use `@Input()` and `@Output()` on the same child component as follows:
 
 <code-example header="src/app/app.component.html" path="inputs-outputs/src/app/app.component.html" region="together"></code-example>
 
-The target, `item`, which is an `@Input()` property in the child component class, receives its value from the parent's property, `currentItem`.
-When you click delete, the child component raises an event, `deleteRequest`, which is the argument for the parent's `crossOffItem()` method.
+The target, `item`, which is an `@Input()` property in the child component class, receives an associated value from the `currentItem` property of the parent.
+When you click delete, the child component raises an event, `deleteRequest`, which is the argument for the `crossOffItem()` method of the parent.
 
 The following diagram shows the different parts of the `@Input()` and `@Output()` on the `<app-input-output>` child component.
 

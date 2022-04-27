@@ -23,7 +23,7 @@ export class AppComponent { &hellip; }
 
 </code-example>
 
-When you need that module's code in another module, use an `import` statement as follows:
+When you need the code of that module in another module, use an `import` statement as follows:
 
 <code-example format="typescript" language="typescript">
 
@@ -31,12 +31,12 @@ import { AppComponent } from './app.component';
 
 </code-example>
 
-Each module has its own top-level scope.
+Each module has an associated top-level scope.
 In other words, top-level variables and functions in a module are not seen in other scripts or modules.
 Each module provides a namespace for identifiers to prevent them from clashing with identifiers in other modules.
 With multiple modules, you can prevent accidental global variables by creating a single global namespace and adding sub-modules to it.
 
-The Angular framework itself is loaded as a set of JavaScript modules.
+The Angular framework is loaded as a set of JavaScript modules.
 
 ## NgModules: Classes with metadata for compiling
 
@@ -45,15 +45,15 @@ NgModules are specific to Angular.
 While classes with an `@NgModule` decorator are by convention kept in their own files, they differ from JavaScript modules because they include this metadata.
 
 The `@NgModule` metadata plays an important role in guiding the Angular compilation process that converts the application code you write into highly performant JavaScript code.
-The metadata describes how to compile a component's template and how to create an [injector](guide/glossary#injector "Definition of injector") at runtime.
-It identifies the NgModule's [components](guide/glossary#component "Definition of component"), [directives](guide/glossary#directive "Definition of directive"), and [pipes](guide/glossary#pipe "Definition of pipe)"),
+The metadata describes how to compile the template of a component and how to create an [injector](guide/glossary#injector "Definition of injector") at runtime.
+It identifies the [components](guide/glossary#component "Definition of component"), [directives](guide/glossary#directive "Definition of directive"), and [pipes](guide/glossary#pipe "Definition of pipe)") of the NgModule,
 and makes some of them public through the `exports` property so that external components can use them.
 You can also use an NgModule to add [providers](guide/glossary#provider "Definition of provider") for [services](guide/glossary#service "Definition of a service"), so that the services are available elsewhere in your application.
 
 Rather than defining all member classes in one giant file as a JavaScript module, declare which components, directives, and pipes belong to the NgModule in the `@NgModule.declarations` list.
 These classes are called [declarables](guide/glossary#declarable "Definition of a declarable").
 An NgModule can export only the declarable classes it owns or imports from other NgModules.
-It doesn't declare or export any other kind of class.
+It does not declare or export any other kind of class.
 Declarables are the only classes that matter to the Angular compilation process.
 
 For a complete description of the NgModule metadata properties, see [Using the NgModule metadata](guide/ngmodule-api "Using the NgModule metadata").
@@ -68,7 +68,7 @@ The root NgModule starts with `import` statements to import JavaScript modules.
 It then configures the `@NgModule` with the following arrays:
 
 *   `declarations`: The components, directives, and pipes that belong to the NgModule.
-  A new application project's root NgModule has only one component, called `AppComponent`.
+    The root NgModule of a new application project has only one component, called `AppComponent`.
 
 *   `imports`: Other NgModules you are using, so that you can use their declarables.
   The newly generated root NgModule imports [`BrowserModule`](api/platform-browser/BrowserModule "BrowserModule NgModule") in order to use browser-specific services such as [DOM](https://www.w3.org/TR/DOM-Level-2-Core/introduction.html "Definition of Document Object Model") rendering, sanitization, and location.

@@ -102,8 +102,8 @@ The following top-level configuration properties are available for each project,
 
 | Property      | Details |
 |:---           |:---     |
-| `root`        | The root folder for this project's files, relative to the workspace folder. Empty for the initial app, which resides at the top level of the workspace. |
-| `sourceRoot`  | The root folder for this project's source files.                                                                                                        |
+| `root`        | The root folder for the files of this project, relative to the workspace folder. Empty for the initial app, which resides at the top level of the workspace. |
+| `sourceRoot`  | The root folder for the source files of this project.                                                                                                        |
 | `projectType` | One of "application" or "library". An application can run independently in a browser, while a library cannot.                                           |
 | `prefix`      | A string that Angular prepends to generated selectors. Can be customized to identify an application or feature area.                                    |
 | `schematics`  | A set of schematics that customize the `ng generate` sub-command option defaults for this project. See the [Generation schematics](#schematics) section.|
@@ -219,10 +219,10 @@ By default, the `ng build` command uses the `production` configuration, which ap
 *   Rewriting code to use short, mangled names \(minification\)
 
 You can define and name additional alternate configurations \(such as `stage`, for instance\) appropriate to your development process.
-Some examples of different build configurations are `stable`, `archive`, and `next` used by AIO itself, and the individual locale-specific configurations required for building localized versions of an application.
+Some examples of different build configurations are `stable`, `archive`, and `next` used by Angular, and the individual locale-specific configurations required for building localized versions of an application.
 For details, see [Internationalization (i18n)][AioGuideI18nCommonMerge].
 
-You can select an alternate configuration by passing its name to the `--configuration` command line flag.
+You can select an alternate configuration by passing the associated name to the `--configuration` command line flag.
 
 You can also pass in more than one configuration name as a comma-separated list.
 For example, to apply both `stage` and `fr` build configurations, use the command `ng build --configuration stage,fr`.
@@ -241,7 +241,7 @@ Some additional options can only be set through the configuration file, either b
 
 | Options properties         | Details |
 |:---                        |:---     |
-| `assets`                   | An object containing paths to static assets to add to the global context of the project. The default paths point to the project's icon file and its `assets` folder. See more in the [Assets configuration](#asset-config) section.                                                                     |
+| `assets`                   | An object containing paths to static assets to add to the global context of the project. The default paths point to the icon file of the project and the associated `assets` folder. See more in the [Assets configuration](#asset-config) section.                                                                     |
 | `styles`                   | An array of style files to add to the global context of the project. Angular CLI supports CSS imports and all major CSS preprocessors: [sass/scss](https://sass-lang.com) and [less](http://lesscss.org). See more in the [Styles and scripts configuration](#style-script-config) section.             |
 | `stylePreprocessorOptions` | An object containing option-value pairs to pass to style preprocessors. See more in the [Styles and scripts configuration](#style-script-config) section.                                                                                                                                               |
 | `scripts`                  | An object containing JavaScript script files to add to the global context of the project. The scripts are loaded exactly as if you had added them in a `<script>` tag inside `index.html`. See more in the [Styles and scripts configuration](#style-script-config) section.                            |
@@ -341,7 +341,7 @@ The following example uses the `ignore` field to exclude certain files in the as
 ### Styles and scripts configuration
 
 An array entry for the `styles` and `scripts` options can be a simple path string, or an object that points to an extra entry-point file.
-The associated builder will load that file and its dependencies as a separate bundle during the build.
+The associated builder will load that file and the associated dependencies as a separate bundle during the build.
 With a configuration object, you have the option of naming the bundle for the entry point, using a `bundleName` field.
 
 The bundle is injected by default, but you can set `inject` to false to exclude the bundle from injection.
@@ -447,7 +447,7 @@ There are several options that can be used to fine-tune the optimization of an a
 
 | Options  | Details                                                                                                                                                                                                                                                                    | Value type | Default value |
 |:---      |:---                                                                                                                                                                                                                                                                        |:---        |:---           |
-| `inline` | Reduce [render blocking requests](https://web.dev/render-blocking-resources) by inlining external Google Fonts and Adobe Fonts CSS definitions in the application's HTML index file. <div class="alert is-helpful"> **NOTE**: <br /> This requires internet access. </div> | `boolean`  | `true`        |
+| `inline` | Reduce [render blocking requests](https://web.dev/render-blocking-resources) by inlining external Google Fonts and Adobe Fonts CSS definitions in the HTML index file of the application. <div class="alert is-helpful"> **NOTE**: <br /> This requires internet access. </div> | `boolean`  | `true`        |
 
 You can supply a value such as the following to apply optimization to one or the other:
 
@@ -497,7 +497,7 @@ The example below shows how to toggle one or more values to configure the source
 <div class="alert is-helpful">
 
 When using hidden source maps, source maps will not be referenced in the bundle.
-These are useful if you only want source maps to map error stack traces in error reporting tools, but don't want to expose your source maps in the browser developer tools.
+These are useful if you only want source maps to map error stack traces in error reporting tools, but do not want to expose your source maps in the browser developer tools.
 
 </div>
 

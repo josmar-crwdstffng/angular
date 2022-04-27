@@ -19,7 +19,7 @@ This sample application is much like the one in the [*Tour of Heroes* tutorial](
 
 <div class="alert is-helpful">
 
-If you'd like to experiment with the application that this guide describes, <live-example name="testing" noDownload>run it in your browser</live-example> or <live-example name="testing" downloadOnly>download and run it locally</live-example>.
+If you would like to experiment with the application that this guide describes, <live-example name="testing" noDownload>run it in your browser</live-example> or <live-example name="testing" downloadOnly>download and run it locally</live-example>.
 
 </div>
 
@@ -88,7 +88,7 @@ Search the web for more details about Jasmine and Karma configuration.
 ### Other test frameworks
 
 You can also unit test an Angular application with other testing libraries and test runners.
-Each library and runner has its own distinctive installation procedures, configuration, and syntax.
+Each library and runner has the associated distinctive installation procedures, configuration, and syntax.
 
 Search the web to learn more.
 
@@ -113,7 +113,7 @@ Adopt these two conventions in your own projects for *every kind* of test file.
 
 #### Place your spec file next to the file it tests
 
-It's a good idea to put unit test spec files in the same folder
+It is a good idea to put unit test spec files in the same folder
 as the application source code files that they test:
 
 *   Such tests are painless to find
@@ -128,10 +128,10 @@ as the application source code files that they test:
 
 Application integration specs can test the interactions of multiple parts
 spread across folders and modules.
-They don't really belong to any part in particular, so they don't have a
+They do not really belong to any part in particular, so they do not have a
 natural home next to any one file.
 
-It's often better to create an appropriate folder for them in the `tests` directory.
+It is often better to create an appropriate folder for them in the `tests` directory.
 
 Of course specs that test the test helpers belong in the `test` folder,
 next to their corresponding helper files.
@@ -210,11 +210,11 @@ This article explains how to configure your project to run Circle CI and Travis 
 
     </code-example>
 
-    This does the same things as the CircleCI configuration, except that Travis doesn't come with Chrome, so use Chromium instead.
+    This does the same things as the CircleCI configuration, except that Travis does not come with Chrome, so use Chromium instead.
 
 1.  Commit your changes and push them to your repository.
 1.  [Sign up for Travis CI](https://travis-ci.org/auth) and [add your project](https://travis-ci.org/profile).
-    You'll need to push a new commit to trigger a build.
+    you will need to push a new commit to trigger a build.
 
     *   Learn more about Travis CI testing from [Travis CI documentation](https://docs.travis-ci.com).
 
@@ -266,7 +266,7 @@ This article explains how to configure your project to run Circle CI and Travis 
     This configuration caches `node_modules/` in the `install` job and re-uses the cached `node_modules/` in the `test` job.
 
 1.  [Sign up for GitLab CI](https://gitlab.com/users/sign_in) and [add your project](https://gitlab.com/projects/new).
-    You'll need to push a new commit to trigger a build.
+    you will need to push a new commit to trigger a build.
 
 1.  Commit your changes and push them to your repository.
     *   Learn more about GitLab CI testing from [GitLab CI/CD documentation](https://docs.gitlab.com/ee/ci).
@@ -300,7 +300,7 @@ This article explains how to configure your project to run Circle CI and Travis 
     </code-example>
 
 1.  [Sign up for GitHub](https://github.com/join) and [add your project](https://github.com/new).
-    You'll need to push a new commit to trigger a build.
+    you will need to push a new commit to trigger a build.
 
 1.  Commit your changes and push them to your repository.
     *   Learn more about GitHub Actions from [GitHub Actions documentation](https://docs.github.com/en/actions)
@@ -311,7 +311,7 @@ While the CLI command `ng test` is generally running the CI tests in your enviro
 
 There is a configuration file for the [Karma JavaScript test runner](https://karma-runner.github.io/latest/config/configuration-file.html), which you must adjust to start Chrome without sandboxing.
 
-We'll be using [Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome#cli) in these examples.
+we will be using [Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome#cli) in these examples.
 
 *   In the Karma configuration file, `karma.conf.js`, add a custom launcher called ChromeHeadlessCI below browsers:
 
@@ -338,14 +338,14 @@ ng test --no-watch --no-progress --browsers=ChromeHeadlessCI
 <div class="alert is-helpful">
 
 **NOTE**: <br />
-Right now, you'll also want to include the `--disable-gpu` flag if you're running on Windows.
+Right now, you will also want to include the `--disable-gpu` flag if you are running on Windows.
 See [crbug.com/737678](https://crbug.com/737678).
 
 </div>
 
 ## More information on testing
 
-After you've set up your application for testing, you might find the following testing guides useful.
+After you have set up your application for testing, you might find the following testing guides useful.
 
 |                                                                    | Details |
 |:---                                                                |:---     |

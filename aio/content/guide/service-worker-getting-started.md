@@ -68,7 +68,7 @@ Your application should load normally.
 <div class="alert is-helpful">
 
 **TIP**: <br />
-When testing Angular service workers, it's a good idea to use an incognito or private window in your browser to ensure the service worker doesn't end up reading from a previous leftover state, which can cause unexpected behavior.
+When testing Angular service workers, it is a good idea to use an incognito or private window in your browser to ensure the service worker does not end up reading from a previous leftover state, which can cause unexpected behavior.
 
 </div>
 
@@ -97,7 +97,7 @@ In Chrome:
 
 Now the application has no access to network interaction.
 
-For applications that do not use the Angular service worker, refreshing now would display Chrome's Internet disconnected page that says "There is no Internet connection".
+For applications that do not use the Angular service worker, refreshing now would display the Internet disconnected page in Chrome that says "There is no Internet connection".
 
 With the addition of an Angular service worker, the application behavior changes.
 On a refresh, the page loads normally.
@@ -115,11 +115,11 @@ Look at the Network tab to verify that the service worker is active.
 **NOTE**: <br />
 Under the "Size" column, the requests state is `(ServiceWorker)`.
 This means that the resources are not being loaded from the network.
-Instead, they are being loaded from the service worker's cache.
+Instead, they are being loaded from the cache of the service worker.
 
 </div>
 
-### What's being cached?
+### What is being cached?
 
 Notice that all of the files the browser needs to render this application are cached.
 The `ngsw-config.json` boilerplate configuration is set up to cache the specific resources used by the CLI:
@@ -144,10 +144,10 @@ Pay attention to two key points:
 
 ### Making changes to your application
 
-Now that you've seen how service workers cache your application, the next step is understanding how updates work.
+Now that you have seen how service workers cache your application, the next step is understanding how updates work.
 Make a change to the application, and watch the service worker install the update:
 
-1.  If you're testing in an incognito window, open a second blank tab.
+1.  If you are testing in an incognito window, open a second blank tab.
     This keeps the incognito and the cache state alive during your test.
 
 1.  Close the application tab, but not the window.
@@ -180,8 +180,8 @@ Now look at how the browser and service worker handle the updated application.
 
     What went wrong?
     Nothing, actually.
-    The Angular service worker is doing its job and serving the version of the application that it has **installed**, even though there is an update available.
-    In the interest of speed, the service worker doesn't wait to check for updates before it serves the application that it has cached.
+    The Angular service worker is doing the associated job and serving the version of the application that it has **installed**, even though there is an update available.
+    In the interest of speed, the service worker does not wait to check for updates before it serves the application that it has cached.
 
     Look at the `http-server` logs to see the service worker requesting `/ngsw.json`.
     This is how the service worker checks for updates.

@@ -30,7 +30,7 @@ const routes: Routes = [
 
 </code-example>
 
-In the lazy-loaded module's routing module, add a route for the component.
+In the routing module of the lazy-loaded module, add a route for the component.
 
 <code-example header="Routing module for lazy loaded module (excerpt)">
 
@@ -57,7 +57,7 @@ There are two main steps to setting up a lazy-loaded feature module:
 
 ### Set up an app
 
-If you don't already have an app, follow the following steps to create one with the CLI.
+If you do not already have an app, follow the following steps to create one with the CLI.
 If you already have an app, skip to [Configure the routes](#config-routes).
 Enter the following command where `customer-app` is the name of your app:
 
@@ -79,7 +79,7 @@ See [Keeping Up to Date](guide/updating).
 
 ### Create a feature module with routing
 
-Next, you'll need a feature module with a component to route to.
+Next, you will need a feature module with a component to route to.
 To make one, enter the following command in the terminal, where `customers` is the name of the feature module.
 The path for loading the `customers` feature modules is also `customers` because it is specified with the `--route` option:
 
@@ -92,12 +92,12 @@ ng generate module customers --route customers --module app.module
 This creates a `customers` folder having the new lazy-loadable feature module `CustomersModule` defined in the `customers.module.ts` file and the routing module `CustomersRoutingModule` defined in the `customers-routing.module.ts` file.
 The command automatically declares the `CustomersComponent` and imports `CustomersRoutingModule` inside the new feature module.
 
-Because the new module is meant to be lazy-loaded, the command does NOT add a reference to the new feature module in the application's root module file, `app.module.ts`.
+Because the new module is meant to be lazy-loaded, the command does NOT add a reference to the new feature module in the `app.module.ts` root module file of the application.
 Instead, it adds the declared route, `customers` to the `routes` array declared in the module provided as the `--module` option.
 
 <code-example header="src/app/app-routing.module.ts" path="lazy-loading-ngmodules/src/app/app-routing.module.ts" region="routes-customers"></code-example>
 
-Notice that the lazy-loading syntax uses `loadChildren` followed by a function that uses the browser's built-in `import('...')` syntax for dynamic imports.
+Notice that the lazy-loading syntax uses `loadChildren` followed by a function that uses the `import('...')` syntax built into the browser for dynamic imports.
 The import path is the relative path to the module.
 
 <div class="callout is-helpful">
@@ -113,7 +113,7 @@ By default the CLI generates projects with stricter file inclusions intended to 
 
 ### Add another feature module
 
-Use the same command to create a second lazy-loaded feature module with routing, along with its stub component.
+Use the same command to create a second lazy-loaded feature module with routing, along with the associated stub component.
 
 <code-example format="shell" language="shell">
 
@@ -163,22 +163,22 @@ In the `app-routing.module.ts` file, update the `routes` array with the followin
 
 The first two paths are the routes to the `CustomersModule` and the `OrdersModule`.
 The final entry defines a default route.
-The empty path matches everything that doesn't match an earlier path.
+The empty path matches everything that does not match an earlier path.
 
 ### Inside the feature module
 
 Next, take a look at the `customers.module.ts` file.
-If you're using the CLI and following the steps outlined in this page, you don't have to do anything here.
+If you are using the CLI and following the steps outlined in this page, you do not have to do anything here.
 
 <code-example header="src/app/customers/customers.module.ts" path="lazy-loading-ngmodules/src/app/customers/customers.module.ts" id="customers.module.ts" region="customers-module"></code-example>
 
 The `customers.module.ts` file imports the `customers-routing.module.ts` and `customers.component.ts` files.
-`CustomersRoutingModule` is listed in the `@NgModule` `imports` array giving `CustomersModule` access to its own routing module.
+`CustomersRoutingModule` is listed in the `@NgModule` `imports` array giving `CustomersModule` access to the associated routing module.
 `CustomersComponent` is in the `declarations` array, which means `CustomersComponent` belongs to the `CustomersModule`.
 
-The `app-routing.module.ts` then imports the feature module, `customers.module.ts` using JavaScript's dynamic import.
+The `app-routing.module.ts` then imports the feature module, `customers.module.ts` using the dynamic import in JavaScript.
 
-The feature-specific route definition file `customers-routing.module.ts` imports its own feature component defined in the `customers.component.ts` file, along with the other JavaScript import statements.
+The feature-specific route definition file `customers-routing.module.ts` imports the associated feature component defined in the `customers.component.ts` file, along with the other JavaScript import statements.
 It then maps the empty path to the `CustomersComponent`.
 
 <code-example header="src/app/customers/customers-routing.module.ts" path="lazy-loading-ngmodules/src/app/customers/customers-routing.module.ts" id="customers-routing.module.ts" region="customers-routing-module"></code-example>
@@ -186,7 +186,7 @@ It then maps the empty path to the `CustomersComponent`.
 The `path` here is set to an empty string because the path in `AppRoutingModule` is already set to `customers`, so this route in the `CustomersRoutingModule`, is already within the `customers` context.
 Every route in this routing module is a child route.
 
-The other feature module's routing module is configured similarly.
+The routing module of the other feature module is configured similarly.
 
 <code-example header="src/app/orders/orders-routing.module.ts (excerpt)" path="lazy-loading-ngmodules/src/app/orders/orders-routing.module.ts" id="orders-routing.module.ts" region="orders-routing-module-detail"></code-example>
 
@@ -246,7 +246,7 @@ You can preload modules or component data.
 
 ### Preloading modules
 
-Preloading modules improves UX by loading parts of your application in the background so users don't have to wait for the elements to download when they activate a route.
+Preloading modules improves UX by loading parts of your application in the background so users do not have to wait for the elements to download when they activate a route.
 
 To enable preloading of all lazy loaded modules, import the `PreloadAllModules` token from the Angular `router`.
 
@@ -307,17 +307,17 @@ export class CrisisDetailResolverService implements Resolve&lt;Crisis&gt; {
 
 </code-example>
 
-Import this resolver into your module's routing module.
+Import this resolver into the routing module of your module.
 
-<code-example header="Feature module's routing module (excerpt)">
+<code-example header="The routing module of the feature module (excerpt)">
 
 import { CrisisDetailResolverService } from './crisis-detail-resolver.service';
 
 </code-example>
 
-Add a `resolve` object to the component's `route` configuration.
+Add a `resolve` object to the `route` configuration of the component.
 
-<code-example header="Feature module's routing module (excerpt)">
+<code-example header="The routing module of the feature module (excerpt)">
 {
   path: '/your-path',
   component: YourComponent,
@@ -327,9 +327,9 @@ Add a `resolve` object to the component's `route` configuration.
 }
 </code-example>
 
-In the component's constructor, inject an instance of the `ActivatedRoute` class that represents the current route.
+In the constructor of the component, inject an instance of the `ActivatedRoute` class that represents the current route.
 
-<code-example header="Component's constructor (excerpt)">
+<code-example header="The constructor of the component (excerpt)">
 
 import { ActivatedRoute } from '&commat;angular/router';
 
@@ -342,7 +342,7 @@ class YourComponent {
 
 Use the injected instance of the `ActivatedRoute` class to access `data` associated with a given route.
 
-<code-example header="Component's ngOnInit lifecycle hook (excerpt)">
+<code-example header="The ngOnInit lifecycle hook of the component (excerpt)">
 
 import { ActivatedRoute } from '&commat;angular/router';
 

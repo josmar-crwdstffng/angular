@@ -63,7 +63,7 @@ We want to ensure the content outside the main tutorials is self-sufficient with
 
 ### Explore hydration and server-side rendering usability improvements
 
-As part of this effort we'll explore the problem space of hydration with server-side rendering, different approaches, and opportunities for Angular. As outcome of this project we'll have validation of the effort as well as a plan for action.
+As part of this effort we will explore the problem space of hydration with server-side rendering, different approaches, and opportunities for Angular. As outcome of this project we will have validation of the effort as well as a plan for action.
 
 ### Revamp performance dashboards to detect regressions
 
@@ -96,7 +96,7 @@ To encourage this practice, we will be working on more ergonomic code-splitting 
 
 Develop and publish an in-depth guide on change detection.
 Develop content for performance profiling of Angular applications.
-Cover how change detection interacts with Zone.js and explain when it gets triggered, how to profile its duration, as well as common practices for performance optimization.
+Cover how change detection interacts with Zone.js and explain when it gets triggered, how to profile the associated duration, as well as common practices for performance optimization.
 
 ### Ensure smooth adoption for future RxJS changes (version 8 and beyond)
 
@@ -234,7 +234,7 @@ To ensure stability, we will continue iterating on the implementation to enable 
 *Completed Q1 2021*
 
 Loading external stylesheets is a blocking operation, which means that the browser cannot start rendering your application until it loads all the referenced CSS.
-Having render-blocking resources in the header of a page can significantly impact its load performance, for example, its [first contentful paint](https://web.dev/first-contentful-paint).
+Having render-blocking resources in the header of a page can significantly impact the associated load performance, for example, the associated [first contentful paint](https://web.dev/first-contentful-paint).
 To make apps faster, we have been collaborating with the Google Chrome team on inlining critical CSS and loading the rest of the styles asynchronously.
 
 ### Improve debugging with better Angular error messages
@@ -249,7 +249,7 @@ We have been working on making error messages more discoverable by adding associ
 *Completed Q1 2021*
 
 We will redefine the user learning journeys and refresh the introductory documentation.
-We will clearly state the benefits of Angular, how to explore its capabilities and provide guidance so developers can become proficient with the framework in as little time as possible.
+We will clearly state the benefits of Angular, how to explore the associated capabilities and provide guidance so developers can become proficient with the framework in as little time as possible.
 
 ### Expand component harnesses best practices
 

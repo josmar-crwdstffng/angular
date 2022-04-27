@@ -3,13 +3,13 @@
 Service workers augment the traditional web deployment model and empower applications to deliver a user experience with the reliability and performance on par with code that is written to run on your operating system and hardware.
 Adding a service worker to an Angular application is one of the steps for turning an application into a [Progressive Web App](https://developers.google.com/web/progressive-web-apps) \(also known as a PWA\).
 
-At its simplest, a service worker is a script that runs in the web browser and manages caching for an application.
+At the simplest implmentation, a service worker is a script that runs in the web browser and manages caching for an application.
 
 Service workers function as a network proxy.
 They intercept all outgoing HTTP requests made by the application and can choose how to respond to them.
 For example, they can query a local cache and deliver a cached response if one is available.
-Proxying isn't limited to requests made through programmatic APIs, such as `fetch`; it also includes resources referenced in HTML and even the initial request to `index.html`.
-Service worker-based caching is thus completely programmable and doesn't rely on server-specified caching headers.
+Proxying is not limited to requests made through programmatic APIs, such as `fetch`; it also includes resources referenced in HTML and even the initial request to `index.html`.
+Service worker-based caching is thus completely programmable and does not rely on server-specified caching headers.
 
 Unlike the other scripts that make up an application, such as the Angular application bundle, the service worker is preserved after the user closes the tab.
 The next time that browser loads the application, the service worker loads first, and can intercept every request for resources to load the application.
@@ -24,7 +24,7 @@ Angular applications, as single-page applications, are in a prime position to be
 Starting with version 5.0.0, Angular ships with a service worker implementation.
 Angular developers can take advantage of this service worker and benefit from the increased reliability and performance it provides, without needing to code against low-level APIs.
 
-Angular's service worker is designed to optimize the end user experience of using an application over a slow or unreliable network connection, while also minimizing the risks of serving outdated content.
+The service worker in Angular is designed to optimize the end user experience of using an application over a slow or unreliable network connection, while also minimizing the risks of serving outdated content.
 
 To achieve this, the Angular service worker follows these guidelines:
 
@@ -41,10 +41,10 @@ To achieve this, the Angular service worker follows these guidelines:
     The previous version of the application is served until an update is installed and ready.
 
 *   The service worker conserves bandwidth when possible.
-    Resources are only downloaded if they've changed.
+    Resources are only downloaded if they have changed.
 
 To support these behaviors, the Angular service worker loads a *manifest* file from the server.
-The file, called `ngsw.json` \(not to be confused with the [web app manifest](https://developer.mozilla.org/docs/Web/Manifest)\), describes the resources to cache and includes hashes of every file's contents.
+The file, called `ngsw.json` \(not to be confused with the [web app manifest](https://developer.mozilla.org/docs/Web/Manifest)\), describes the resources to cache and includes hashes of the contents of every file.
 When an update to the application is deployed, the contents of the manifest change, informing the service worker that a new version of the application should be downloaded and cached.
 This manifest is generated from a CLI-generated configuration file called `ngsw-config.json`.
 
@@ -94,7 +94,7 @@ The rest of the articles in this section specifically address the Angular implem
 
 For more information about service workers in general, see [Service Workers: an Introduction](https://developers.google.com/web/fundamentals/primers/service-workers).
 
-For more information about browser support, see the [browser support](https://developers.google.com/web/fundamentals/primers/service-workers/#browser_support) section of [Service Workers: an Introduction](https://developers.google.com/web/fundamentals/primers/service-workers), Jake Archibald's [Is Serviceworker ready?](https://jakearchibald.github.io/isserviceworkerready), and [Can I Use](https://caniuse.com/serviceworkers).
+For more information about browser support, see the [browser support](https://developers.google.com/web/fundamentals/primers/service-workers/#browser_support) section of [Service Workers: an Introduction](https://developers.google.com/web/fundamentals/primers/service-workers), ["Is Serviceworker ready?" by Jake Archibald](https://jakearchibald.github.io/isserviceworkerready), and [Can I Use](https://caniuse.com/serviceworkers).
 
 For additional recommendations and examples, see:
 

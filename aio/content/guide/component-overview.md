@@ -22,7 +22,7 @@ To create a component, verify that you have met the following prerequisites:
 
 1.  [Install the Angular CLI.](guide/setup-local#install-the-angular-cli)
 1.  [Create an Angular workspace](guide/setup-local#create-a-workspace-and-initial-application) with initial application.
-    If you don't have a project, create one using `ng new <project-name>`, where `<project-name>` is the name of your Angular application.
+    If you do not have a project, create one using `ng new <project-name>`, where `<project-name>` is the name of your Angular application.
 
 ## Creating a component
 
@@ -74,17 +74,17 @@ To create a new component manually:
 
     <code-example path="component-overview/src/app/component-overview/component-overview.component.ts" region="selector"></code-example>
 
-    For more information on choosing a selector, see [Specifying a component's selector](#specifying-a-components-css-selector).
+    For more information on choosing a selector, see [Specify the CSS selector of a component](#specify-the-css-selector-of-a-component).
 
 1.  Define the HTML template that the component uses to display information.
     In most cases, this template is a separate HTML file.
 
     <code-example path="component-overview/src/app/component-overview/component-overview.component.ts" region="templateUrl"></code-example>
 
-    For more information on defining a component's template, see [Defining a component's template](#defining-a-components-template).
+    For more information about defining the template of a component, see [Define the template of a component](#define-the-template-of-a-component).
 
-1.  Select the styles for the component's template.
-    In most cases, you define the styles for your component's template in a separate file.
+1.  Select the styles for the template of the component.
+    In most cases, you define the styles for the template of your component in a separate file.
 
     <code-example path="component-overview/src/app/component-overview/component-overview.component.ts" region="decorator"></code-example>
 
@@ -92,17 +92,17 @@ To create a new component manually:
 
     <code-example path="component-overview/src/app/component-overview/component-overview.component.ts" region="class"></code-example>
 
-## Specifying a component's CSS selector
+## Specify the CSS selector of a component
 
 Every component requires a CSS *selector*. A selector instructs Angular to instantiate this component wherever it finds the corresponding tag in template HTML.
-For example, consider a component `hello-world.component.ts` that defines its selector as `app-hello-world`.
+For example, consider a component `hello-world.component.ts` that defines the associated selector as `app-hello-world`.
 This selector instructs Angular to instantiate this component any time the tag `<app-hello-world>` appears in a template.
 
-Specify a component's selector by adding a `selector` statement to the `@Component` decorator.
+Specify the selector of a component by adding a `selector` statement to the `@Component` decorator.
 
 <code-example path="component-overview/src/app/component-overview/component-overview.component.ts" region="selector"></code-example>
 
-## Defining a component's template
+## Define the template of a component
 
 A template is a block of HTML that tells Angular how to render the component in your application.
 Define a template for your component in one of two ways: by referencing an external file, or directly within the component.
@@ -127,9 +127,9 @@ You cannot have both statements in a component.
 
 </div>
 
-## Declaring a component's styles
+## Declare the styles of a component
 
-Declare component styles used for its template in one of two ways:
+Declare component styles uses for the associated template in one of two ways:
 By referencing an external file, or directly within the component.
 
 To declare the styles for a component in a separate file, add a `styleUrls` property to the `@Component` decorator.

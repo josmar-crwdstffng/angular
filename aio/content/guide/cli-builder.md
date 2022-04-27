@@ -63,7 +63,7 @@ To create a builder, use the `createBuilder()` CLI Builder function, and return 
 
 <code-example header="src/my-builder.ts (builder skeleton)" path="cli-builder/src/my-builder.ts" region="builder-skeleton"></code-example>
 
-Now let's add some logic to it.
+Now let us add some logic to it.
 The following code retrieves the source and destination file paths from user options and copies the file from the source to the destination \(using the [Promise version of the built-in NodeJS `copyFile()` function](https://nodejs.org/api/fs.html#fs_fspromises_copyfile_src_dest_mode)\).
 If the copy operation fails, it returns an error with a message about the underlying problem.
 
@@ -74,7 +74,7 @@ If the copy operation fails, it returns an error with a message about the underl
 By default, `copyFile()` does not print anything to the process standard output or error.
 If an error occurs, it might be difficult to understand exactly what the builder was trying to do when the problem occurred.
 Add some additional context by logging additional information using the `Logger` API.
-This also lets the builder itself be executed in a separate process, even if the standard output and error are deactivated \(as in an [Electron app](https://electronjs.org)\).
+This also lets the associated builder be executed in a separate process, even if the standard output and error are deactivated \(as in an [Electron app](https://electronjs.org)\).
 
 You can retrieve a `Logger` instance from the context.
 
@@ -90,13 +90,13 @@ The status string is unmodified unless you pass in a new string value.
 
 You can see an [example](https://github.com/angular/angular-cli/blob/ba21c855c0c8b778005df01d4851b5a2176edc6f/packages/angular_devkit/build_angular/src/tslint/index.ts#L107) of how the `tslint` builder reports progress.
 
-In our example, the copy operation either finishes or is still executing, so there's no need for a progress report, but you can report status so that a parent builder that called our builder would know what's going on.
+In our example, the copy operation either finishes or is still executing, so there is no need for a progress report, but you can report status so that a parent builder that called our builder would know what is going on.
 Use the `context.reportStatus()` method to generate a status string of any length.
 
 <div class="alert is-helpful">
 
 **NOTE**: <br />
-There's no guarantee that a long string will be shown entirely; it could be cut to fit the UI that displays it.
+There is no guarantee that a long string will be shown entirely; it could be cut to fit the UI that displays it.
 
 </div>
 
@@ -144,7 +144,7 @@ For more information, see the [JSON schemas website](http://json-schema.org).
 
 </div>
 
-To link our builder implementation with its schema and name, you need to create a *builder definition* file, which you can point to in `package.json`.
+To link our builder implementation with the associated schema and name, you need to create a *builder definition* file, which you can point to in `package.json`.
 
 Create a file named `builders.json` that looks like this:
 
@@ -192,7 +192,7 @@ You did this in the previous section when you accessed `options.source` and `opt
 A builder must have a defined target that associates it with a specific input configuration and [project](guide/glossary#project).
 
 Targets are defined in the `angular.json` [CLI configuration file](guide/workspace-config).
-A target specifies the builder to use, its default options configuration, and named alternative configurations.
+A target specifies the builder to use, the associated default options configuration, and named alternative configurations.
 The Architect tool uses the target definition to resolve input options for a given run.
 
 The `angular.json` file has a section for each project, and the "architect" section of each project configures targets for builders used by CLI commands such as 'build', 'test', and 'lint'.
@@ -235,7 +235,7 @@ You might also add more alternative configurations to the `build` target, to def
 
 #### Target strings
 
-The generic `ng run` CLI command takes as its first argument a target string of the following form.
+The generic `ng run` CLI command takes as the associated first argument a target string of the following form.
 
 <code-example format="shell" language="shell">
 
@@ -279,7 +279,7 @@ Only the  `context.scheduleTarget()` method resolves the configuration and overr
 
 ### Default architect configuration
 
-Let's create a simple `angular.json` file that puts target configurations into context.
+Let us create a simple `angular.json` file that puts target configurations into context.
 
 You can publish the builder to npm \(see [Publishing your Library](guide/creating-libraries#publishing-your-library)\), and install it using the following command:
 
@@ -335,12 +335,12 @@ This target tells the builder to copy the `package.json` file.
 
 You need to update the `angular.json` file to add a target for this builder to the "architect" section of our new project.
 
-*   We'll add a new target section to the "architect" object for our project
+*   we will add a new target section to the "architect" object for our project
 *   The target named "copy-package" uses our builder, which you published to `@example/copy-file`.
     \(See [Publishing your Library](guide/creating-libraries#publishing-your-library).\)
 
 *   The options object provides default values for the two inputs that you defined; `source`, which is the existing file you are copying, and `destination`, the path you want to copy to
-*   The `configurations` key is optional, we'll leave it out for now
+*   The `configurations` key is optional, we will leave it out for now
 
 <code-example format="json" header="angular.json" language="json">
 
@@ -387,7 +387,7 @@ You need to update the `angular.json` file to add a target for this builder to t
 
 ### Running the builder
 
-To run our builder with the new target's default configuration, use the following CLI command.
+To run our builder with the default configuration of the new target, use the following CLI command.
 
 <code-example format="shell" language="shell">
 
@@ -416,10 +416,10 @@ Use integration testing for your builder, so that you can use the Architect sche
 *   In the builder source directory, you have created a new test file `my-builder.spec.ts`.
     The code creates new instances of `JsonSchemaRegistry` \(for schema validation\), `TestingArchitectHost` \(an in-memory implementation of `ArchitectHost`\), and `Architect`.
 
-*   We've added a `builders.json` file next to the builder's `package.json` file, and modified the package file to point to it.
+*   We have added a `builders.json` file next to the `package.json` file of the builder, and modified the package file to point to it.
 
-Here's an example of a test that runs the copy file builder.
-The test uses the builder to copy the `package.json` file and validates that the copied file's contents are the same as the source.
+Here is an example of a test that runs the copy file builder.
+The test uses the builder to copy the `package.json` file and validates that the contents of the copied file are the same as the source.
 
 <code-example header="src/my-builder.spec.ts" path="cli-builder/src/my-builder.spec.ts"></code-example>
 
@@ -440,20 +440,20 @@ Architect can support watch mode, but there are some things to look out for.
     Architect subscribes to the Observable until it completes and might reuse it if the builder is scheduled again with the same arguments.
 
 *   The builder should always emit a `BuilderOutput` object after each execution.
-    Once it's been executed, it can enter a watch mode, to be triggered by an external event.
+    Once it is been executed, it can enter a watch mode, to be triggered by an external event.
     If an event triggers it to restart, the builder should execute the `context.reportRunning()` function to tell Architect that it is running again.
     This prevents Architect from stopping the builder if another run is scheduled.
 
-When your builder calls `BuilderRun.stop()` to exit watch mode, Architect unsubscribes from the builder's Observable and calls the builder's teardown logic to clean up.
+When your builder calls `BuilderRun.stop()` to exit watch mode, Architect unsubscribes from the Observable of the builder and calls the teardown logic of the builder to clean up.
 \(This behavior also allows for long running builds to be stopped and cleaned up.\)
 
 In general, if your builder is watching an external event, you should separate your run into three phases.
 
 | Phases     | Details |
 |:---        |:---     |
-| Running    | For example, webpack compiles. This ends when webpack finishes and your builder emits a `BuilderOutput` object.                                                                                                                                              |
-| Watching   | Between two runs, watch an external event stream. For example, webpack watches the file system for any changes. This ends when webpack restarts building, and `context.reportRunning()` is called. This goes back to step 1.                                 |
-| Completion | Either the task is fully completed \(for example, webpack was supposed to run a number of times\), or the builder run was stopped \(using `BuilderRun.stop()`\). Your teardown logic is executed, and Architect unsubscribes from your builder's Observable. |
+| Running    | For example, webpack compiles. This ends when webpack finishes and your builder emits a `BuilderOutput` object.                                                                                                                                                   |
+| Watching   | Between two runs, watch an external event stream. For example, webpack watches the file system for any changes. This ends when webpack restarts building, and `context.reportRunning()` is called. This goes back to step 1.                                      |
+| Completion | Either the task is fully completed \(for example, webpack was supposed to run a number of times\), or the builder run was stopped \(using `BuilderRun.stop()`\). Your teardown logic is executed, and Architect unsubscribes from the Observable of your builder. |
 
 ## Summary
 

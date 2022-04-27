@@ -1,9 +1,9 @@
 # Dependency injection in Angular
 
-Dependencies are services or objects that a class needs to perform its function.
+Dependencies are services or objects that a class needs to perform the associated function.
 Dependency injection, or DI, is a design pattern in which a class requests dependencies from external sources rather than creating them.
 
-Angular's DI framework provides dependencies to a class upon instantiation.
+The DI framework in Angular provides dependencies to a class upon instantiation.
 Use Angular DI to increase flexibility and modularity in your applications.
 
 <div class="alert is-helpful">
@@ -45,7 +45,7 @@ If you define the component before the service, Angular returns a run-time null 
 
 Injecting services results in making them visible to a component.
 
-To inject a dependency in a component's `constructor()`, supply a constructor argument with the dependency type.
+To inject a dependency in the `constructor()` of a component, supply a constructor argument with the dependency type.
 The following example specifies the `HeroService` in the `HeroListComponent` constructor.
 The type of `heroService` is `HeroService`.
 
@@ -59,7 +59,7 @@ For more information, see [Providing dependencies in modules](guide/providers) a
 ## Using services in other services
 
 When a service depends on another service, follow the same pattern as injecting into a component.
-In the following example `HeroService` depends on a `Logger` service to report its activities.
+In the following example `HeroService` depends on a `Logger` service to report the associated activities.
 
 First, import the `Logger` service.
 Next, inject the `Logger` service in the `HeroService` `constructor()` by specifying `private logger: Logger` within the parentheses.

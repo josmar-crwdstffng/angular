@@ -39,7 +39,7 @@ aio-verify-setup
 ```
 
 Sometimes, the errors in the unit test log are not enough to tell you what went wrong.
-In that case you can also look at the log of the preview-server itself.
+In that case you can also look at the associated log of the preview-server.
 A helper script that runs the unit tests (i.e. `aio-verify-setup`) and displays the
 last relevant test-preview-server log is:
 

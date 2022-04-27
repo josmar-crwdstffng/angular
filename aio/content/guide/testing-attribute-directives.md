@@ -3,22 +3,22 @@
 # Testing Attribute Directives
 
 An *attribute directive* modifies the behavior of an element, component or another directive.
-Its name reflects the way the directive is applied: as an attribute on a host element.
+The name of the attribute directive reflects the way the directive is applied: as an attribute on a host element.
 
 <div class="alert is-helpful">
 
-If you'd like to experiment with the application that this guide describes, <live-example name="testing" noDownload>run it in your browser</live-example> or <live-example name="testing" downloadOnly>download and run it locally</live-example>.
+If you would like to experiment with the application that this guide describes, <live-example name="testing" noDownload>run it in your browser</live-example> or <live-example name="testing" downloadOnly>download and run it locally</live-example>.
 
 </div>
 
 ## Testing the `HighlightDirective`
 
-The sample application's `HighlightDirective` sets the background color of an element based on either a data bound color or a default color \(lightgray\).
+The `HighlightDirective` of the sample application sets the background color of an element based on either a data bound color or a default color \(lightgray\).
 It also sets a custom property of the element \(`customProperty`\) to `true` for no reason other than to show that it can.
 
 <code-example header="app/shared/highlight.directive.ts" path="testing/src/app/shared/highlight.directive.ts"></code-example>
 
-It's used throughout the application, perhaps most simply in the `AboutComponent`:
+It is used throughout the application, perhaps most simply in the `AboutComponent`:
 
 <code-example header="app/about/about.component.ts" path="testing/src/app/about/about.component.ts"></code-example>
 
@@ -26,11 +26,11 @@ Testing the specific use of the `HighlightDirective` within the `AboutComponent`
 
 <code-example header="app/about/about.component.spec.ts" path="testing/src/app/about/about.component.spec.ts" region="tests"></code-example>
 
-However, testing a single use case is unlikely to explore the full range of a directive's capabilities.
+However, testing a single use case is unlikely to explore the full range of the capabilities of the directive.
 Finding and testing all components that use the directive is tedious, brittle, and almost as unlikely to afford full coverage.
 
 *Class-only tests* might be helpful, but attribute directives like this one tend to manipulate the DOM.
-Isolated unit tests don't touch the DOM and, therefore, do not inspire confidence in the directive's efficacy.
+Isolated unit tests do not touch the DOM and, therefore, do not inspire confidence in the efficacy of the directive.
 
 A better solution is to create an artificial test component that demonstrates all ways to apply the directive.
 
@@ -63,7 +63,7 @@ A few techniques are noteworthy:
     But feel free to exploit the `nativeElement` when that seems easier or more clear than the abstraction.
 
 *   Angular adds a directive to the injector of the element to which it is applied.
-    The test for the default color uses the injector of the second `<h2>` to get its `HighlightDirective` instance and its `defaultColor`.
+    The test for the default color uses the injector of the second `<h2>` to get the associated `HighlightDirective` instance and the associated `defaultColor`.
 
 *   `DebugElement.properties` affords access to the artificial custom property that is set by the directive
 

@@ -1,6 +1,6 @@
 # Get data from a server
 
-In this tutorial, you'll add the following data persistence features with help from Angular's `HttpClient`.
+In this tutorial, you will add the following data persistence features with help from the `HttpClient` in Angular.
 
 *   The `HeroService` gets hero data with HTTP requests
 *   Users can add, edit, and delete heroes and save these changes over HTTP
@@ -14,7 +14,7 @@ For the sample application that this page describes, see the <live-example></liv
 
 ## Enable HTTP services
 
-`HttpClient` is Angular's mechanism for communicating with a remote server over HTTP.
+`HttpClient` is the mechanism in Angular for communicating with a remote server over HTTP.
 
 Make `HttpClient` available everywhere in the application in two steps.
 First, add it to the root `AppModule` by importing it:
@@ -31,15 +31,15 @@ This tutorial sample mimics communication with a remote data server by using the
 
 After installing the module, the application will make requests to and receive responses from the `HttpClient` without knowing that the *In-memory Web API* is intercepting those requests, applying them to an in-memory data store, and returning simulated responses.
 
-By using the In-memory Web API, you won't have to set up a server to learn about `HttpClient`.
+By using the In-memory Web API, you will not have to set up a server to learn about `HttpClient`.
 
 <div class="alert is-important">
 
 **IMPORTANT**: <br />
 The In-memory Web API module has nothing to do with HTTP in Angular.
 
-If you're reading this tutorial to learn about `HttpClient`, you can [skip over](#import-heroes) this step.
-If you're coding along with this tutorial, stay here and add the In-memory Web API now.
+If you are reading this tutorial to learn about `HttpClient`, you can [skip over](#import-heroes) this step.
+If you are coding along with this tutorial, stay here and add the In-memory Web API now.
 
 </div>
 
@@ -74,9 +74,9 @@ Replace the default contents of `in-memory-data.service.ts` with the following:
 <code-example header="src/app/in-memory-data.service.ts" path="toh-pt6/src/app/in-memory-data.service.ts" region="init"></code-example>
 
 The `in-memory-data.service.ts` file will take over the function of `mock-heroes.ts`.
-However, don't delete `mock-heroes.ts` yet, as you still need it for a few more steps of this tutorial.
+However, do not delete `mock-heroes.ts` yet, as you still need it for a few more steps of this tutorial.
 
-When the server is ready, you'll detach the In-memory Web API, and the application's requests will go through to the server.
+When the server is ready, you will detach the In-memory Web API, and the requests of the application will go through to the server.
 
 <a id="import-heroes"></a>
 
@@ -90,7 +90,7 @@ Still in the `HeroService`, inject `HttpClient` into the constructor in a privat
 
 <code-example path="toh-pt6/src/app/hero.service.ts" header="src/app/hero.service.ts" region="ctor" ></code-example>
 
-Notice that you keep injecting the `MessageService` but since you'll call it so frequently, wrap it in a private `log()` method:
+Notice that you keep injecting the `MessageService` but since you will call it so frequently, wrap it in a private `log()` method:
 
 <code-example path="toh-pt6/src/app/hero.service.ts" header="src/app/hero.service.ts" region="log" ></code-example>
 
@@ -112,7 +112,7 @@ Convert that method to use `HttpClient` as follows:
 Refresh the browser.
 The hero data should successfully load from the mock server.
 
-You've swapped `of()` for `http.get()` and the application keeps working without any other changes
+You have swapped `of()` for `http.get()` and the application keeps working without any other changes
 because both functions return an `Observable<Hero[]>`.
 
 ### `HttpClient` methods return one value
@@ -133,7 +133,7 @@ In practice, it will only return a single hero array.
 `HttpClient.get()` returns the body of the response as an untyped JSON object by default.
 Applying the optional type specifier, `<Hero[]>` , adds TypeScript capabilities, which reduce errors during compile time.
 
-The server's data API determines the shape of the JSON data.
+The data API of the server determines the shape of the JSON data.
 The *Tour of Heroes* data API returns the hero data as an array.
 
 <div class="alert is-helpful">
@@ -141,18 +141,18 @@ The *Tour of Heroes* data API returns the hero data as an array.
 Other APIs may bury the data that you want within an object.
 You might have to dig that data out by processing the `Observable` result with the RxJS `map()` operator.
 
-Although not discussed here, there's an example of `map()` in the `getHeroNo404()` method included in the sample source code.
+Although not discussed here, there is an example of `map()` in the `getHeroNo404()` method included in the sample source code.
 
 </div>
 
 ### Error handling
 
-Things go wrong, especially when you're getting data from a remote server.
+Things go wrong, especially when you are getting data from a remote server.
 The `HeroService.getHeroes()` method should catch errors and do something appropriate.
 
 To catch errors, you **"pipe" the observable** result from `http.get()` through an RxJS `catchError()` operator.
 
-Import the `catchError` symbol from `rxjs/operators`, along with some other operators you'll need later.
+Import the `catchError` symbol from `rxjs/operators`, along with some other operators you will need later.
 
 <code-example header="src/app/hero.service.ts" path="toh-pt6/src/app/hero.service.ts" region="import-rxjs-operators"></code-example>
 
@@ -167,7 +167,7 @@ The following `handleError()` method reports the error and then returns an innoc
 
 #### `handleError`
 
-The following `handleError()` will be shared by many `HeroService` methods so it's generalized to meet their different needs.
+The following `handleError()` will be shared by many `HeroService` methods so it is generalized to meet their different needs.
 
 Instead of handling the error directly, it returns an error handler function to `catchError` that it has configured with both the name of the operation that failed and a safe return value.
 
@@ -181,8 +181,8 @@ Because each service method returns a different kind of `Observable` result, `ha
 
 The `HeroService` methods will **tap** into the flow of observable values and send a message, using the `log()` method, to the message area at the bottom of the page.
 
-They'll do that with the RxJS `tap()` operator, which looks at the observable values, does something with those values, and passes them along.
-The `tap()` call back doesn't touch the values themselves.
+They will do that with the RxJS `tap()` operator, which looks at the observable values, does something with those values, and passes them along.
+The `tap()` call back does not touch the values themselves.
 
 Here is the final version of `getHeroes()` with the `tap()` that logs the operation.
 
@@ -201,13 +201,13 @@ Update the `HeroService` `getHero()` method with the following to make that requ
 
 There are three significant differences from  `getHeroes()`:
 
-*   `getHero()` constructs a request URL with the desired hero's id
+*   `getHero()` constructs a request URL with the ID of the desired hero
 *   The server should respond with a single hero rather than an array of heroes
 *   `getHero()` returns an `Observable<Hero>` \("*an observable of Hero objects*"\) rather than an observable of hero *arrays*
 
 ## Update heroes
 
-Edit a hero's name in the hero detail view.
+Edit the name of a hero in the hero detail view.
 As you type, the hero name updates the heading at the top of the page.
 But when you click the "go back button", the changes are lost.
 
@@ -235,7 +235,7 @@ The `HttpClient.put()` method takes three parameters:
 *   Options
 
 The URL is unchanged.
-The heroes web API knows which hero to update by looking at the hero's `id`.
+The heroes web API knows which hero to update by looking at the `id` of the hero.
 
 The heroes web API expects a special header in HTTP save requests.
 That header is in the `httpOptions` constant defined in the `HeroService`.
@@ -249,19 +249,19 @@ The hero now appears in the list with the changed name.
 
 ## Add a new hero
 
-To add a hero, this application only needs the hero's name.
+To add a hero, this application only needs the name of the hero.
 You can use an `<input>` element paired with an add button.
 
 Insert the following into the `HeroesComponent` template, after the heading:
 
 <code-example header="src/app/heroes/heroes.component.html (add)" path="toh-pt6/src/app/heroes/heroes.component.html" region="add"></code-example>
 
-In response to a click event, call the component's click handler, `add()`, and then clear the input field so that it's ready for another name.
+In response to a click event, call the `add()` click handler of the component, and then clear the input field so that it is ready for another name.
 Add the following to the `HeroesComponent` class:
 
 <code-example header="src/app/heroes/heroes.component.ts (add)" path="toh-pt6/src/app/heroes/heroes.component.ts" region="add"></code-example>
 
-When the given name is non-blank, the handler creates a `Hero`-like object from the name \(it's only missing the `id`\) and passes it to the services `addHero()` method.
+When the given name is non-blank, the handler creates a `Hero`-like object from the name \(it is only missing the `id`\) and passes it to the services `addHero()` method.
 
 When `addHero()` saves successfully, the `subscribe()` callback receives the new hero and pushes it into to the `heroes` list for display.
 
@@ -289,16 +289,16 @@ The HTML for the list of heroes should look like this:
 <code-example header="src/app/heroes/heroes.component.html (list of heroes)" path="toh-pt6/src/app/heroes/heroes.component.html" region="list"></code-example>
 
 To position the delete button at the far right of the hero entry, add some CSS to the `heroes.component.css`.
-You'll find that CSS in the [final review code](#heroescomponent) below.
+you will find that CSS in the [final review code](#heroescomponent) below.
 
 Add the `delete()` handler to the component class.
 
 <code-example header="src/app/heroes/heroes.component.ts (delete)" path="toh-pt6/src/app/heroes/heroes.component.ts" region="delete"></code-example>
 
-Although the component delegates hero deletion to the `HeroService`, it remains responsible for updating its own list of heroes.
-The component's `delete()` method immediately removes the *hero-to-delete* from that list, anticipating that the `HeroService` will succeed on the server.
+Although the component delegates hero deletion to the `HeroService`, it remains responsible for updating the associated list of heroes.
+The `delete()` method of the component immediately removes the *hero-to-delete* from that list, anticipating that the `HeroService` will succeed on the server.
 
-There's really nothing for the component to do with the `Observable` returned by `heroService.deleteHero()` **but it must subscribe anyway**.
+There is really nothing for the component to do with the `Observable` returned by `heroService.deleteHero()` **but it must subscribe anyway**.
 
 <div class="alert is-important">
 
@@ -306,7 +306,7 @@ If you neglect to `subscribe()`, the service will not send the delete request to
 As a rule, an `Observable` *does nothing* until something subscribes.
 
 Confirm this for yourself by temporarily removing the `subscribe()`, clicking "Dashboard", then clicking "Heroes".
-You'll see the full list of heroes again.
+you will see the full list of heroes again.
 
 </div>
 
@@ -318,7 +318,7 @@ Notice the following key points:
 
 *   `deleteHero()` calls `HttpClient.delete()`
 *   The URL is the heroes resource URL plus the `id` of the hero to delete
-*   You don't send data as you did with `put()` and `post()`
+*   You do not send data as you did with `put()` and `post()`
 *   You still send the `httpOptions`
 
 Refresh the browser and try the new delete functionality.
@@ -328,7 +328,7 @@ Refresh the browser and try the new delete functionality.
 In this last exercise, you learn to chain `Observable` operators together so you can minimize the number of similar HTTP requests and consume network bandwidth economically.
 
 You will add a heroes search feature to the Dashboard.
-As the user types a name into a search box, you'll make repeated HTTP requests for heroes filtered by that name.
+As the user types a name into a search box, you will make repeated HTTP requests for heroes filtered by that name.
 Your goal is to issue only as many requests as necessary.
 
 #### `HeroService.searchHeroes()`
@@ -369,7 +369,7 @@ Replace the generated `HeroSearchComponent` template with an `<input>` and a lis
 
 Add private CSS styles to `hero-search.component.css` as listed in the [final code review](#herosearchcomponent) below.
 
-As the user types in the search box, an input event binding calls the component's `search()` method with the new search box value.
+As the user types in the search box, an input event binding calls the `search()` method of the component with the new search box value.
 
 <a id="asyncpipe"></a>
 
@@ -381,8 +381,8 @@ The `$` is a convention that indicates `heroes$` is an `Observable`, not an arra
 
 <code-example header="src/app/hero-search/hero-search.component.html" path="toh-pt6/src/app/hero-search/hero-search.component.html" region="async"></code-example>
 
-Since `*ngFor` can't do anything with an `Observable`, use the pipe \(`|`\) character followed by `async`.
-This identifies Angular's `AsyncPipe` and subscribes to an `Observable` automatically so you won't have to do so in the component class.
+Since `*ngFor` cannot do anything with an `Observable`, use the pipe \(`|`\) character followed by `async`.
+This identifies the `AsyncPipe` in Angular and subscribes to an `Observable` automatically so you will not have to do so in the component class.
 
 ### Edit the `HeroSearchComponent` class
 
@@ -394,7 +394,7 @@ Notice the declaration of `heroes$` as an `Observable`:
 
 <code-example header="src/app/hero-search/hero-search.component.ts" path="toh-pt6/src/app/hero-search/hero-search.component.ts" region="heroes-stream"></code-example>
 
-You'll set it in [`ngOnInit()`](#search-pipe).
+you will set it in [`ngOnInit()`](#search-pipe).
 Before you do, focus on the definition of `searchTerms`.
 
 ### The `searchTerms` RxJS subject
@@ -403,12 +403,12 @@ The `searchTerms` property is an RxJS `Subject`.
 
 <code-example header="src/app/hero-search/hero-search.component.ts" path="toh-pt6/src/app/hero-search/hero-search.component.ts" region="searchTerms"></code-example>
 
-A `Subject` is both a source of observable values and an `Observable` itself.
+A `Subject` is both a source of observable values and an `Observable`.
 You can subscribe to a `Subject` as you would any `Observable`.
 
-You can also push values into that `Observable` by calling its `next(value)` method as the `search()` method does.
+You can also push values into that `Observable` by calling the associated `next(value)` method as the `search()` method does.
 
-The event binding to the textbox's `input` event calls the `search()` method.
+The event binding to the `input` event of the textbox calls the `search()` method.
 
 <code-example header="src/app/hero-search/hero-search.component.html" path="toh-pt6/src/app/hero-search/hero-search.component.html" region="input"></code-example>
 
@@ -423,14 +423,14 @@ Passing a new search term directly to the `searchHeroes()` after every user keys
 
 Instead, the `ngOnInit()` method pipes the `searchTerms` observable through a sequence of RxJS operators that reduce the number of calls to the `searchHeroes()`, ultimately returning an observable of timely hero search results \(each a `Hero[]`\).
 
-Here's a closer look at the code.
+Here is a closer look at the code.
 
 <code-example header="src/app/hero-search/hero-search.component.ts" path="toh-pt6/src/app/hero-search/hero-search.component.ts" region="search"></code-example>
 
 Each operator works as follows:
 
 *   `debounceTime(300)` waits until the flow of new string events pauses for 300 milliseconds before passing along the latest string.
-    You'll never make requests more frequently than 300ms.
+    you will never make requests more frequently than 300ms.
 
 *   `distinctUntilChanged()` ensures that a request is sent only if the filter text changed.
 
@@ -448,7 +448,7 @@ Results from prior calls are canceled and discarded.
 <div class="alert is-helpful">
 
 **NOTE**: <br />
-Canceling a previous `searchHeroes()` Observable doesn't actually abort a pending HTTP request.
+Canceling a previous `searchHeroes()` Observable does not actually abort a pending HTTP request.
 Unwanted results are discarded before they reach your application code.
 
 </div>
@@ -456,13 +456,13 @@ Unwanted results are discarded before they reach your application code.
 </div>
 
 Remember that the component *class* does not subscribe to the `heroes$` *observable*.
-That's the job of the [`AsyncPipe`](#asyncpipe) in the template.
+That is the job of the [`AsyncPipe`](#asyncpipe) in the template.
 
 #### Try it
 
 Run the application again.
 In the *Dashboard*, enter some text in the search box.
-If you enter characters that match any existing hero names, you'll see something like this.
+If you enter characters that match any existing hero names, you will see something like this.
 
 <div class="lightbox">
 
@@ -529,7 +529,7 @@ Here are the code files discussed on this page \(all in the `src/app/` folder\).
 
 ## Summary
 
-You're at the end of your journey, and you've accomplished a lot.
+You are at the end of your journey, and you have accomplished a lot.
 
 *   You added the necessary dependencies to use HTTP in the app
 *   You refactored `HeroService` to load heroes from a web API
@@ -539,6 +539,6 @@ You're at the end of your journey, and you've accomplished a lot.
 *   You learned how to use observables
 
 This concludes the "Tour of Heroes" tutorial.
-You're ready to learn more about Angular development in the fundamentals section, starting with the [Architecture](guide/architecture "Architecture") guide.
+You are ready to learn more about Angular development in the fundamentals section, starting with the [Architecture](guide/architecture "Architecture") guide.
 
 @reviewed 2022-02-28

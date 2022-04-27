@@ -4,7 +4,7 @@ To check that your services are working as you intend, you can write tests speci
 
 <div class="alert is-helpful">
 
-If you'd like to experiment with the application that this guide describes, <live-example name="testing" noDownload>run it in your browser</live-example> or <live-example name="testing" downloadOnly>download and run it locally</live-example>.
+If you would like to experiment with the application that this guide describes, <live-example name="testing" noDownload>run it in your browser</live-example> or <live-example name="testing" downloadOnly>download and run it locally</live-example>.
 
 </div>
 
@@ -18,13 +18,13 @@ Here are some synchronous and asynchronous unit tests of the `ValueService` writ
 ## Services with dependencies
 
 Services often depend on other services that Angular injects into the constructor.
-In many cases, you can create and *inject* these dependencies by hand while calling the service's constructor.
+In many cases, you can create and *inject* these dependencies by hand while calling the constructor of the service.
 
 The `MasterService` is a simple example:
 
 <code-example header="app/demo/demo.ts" path="testing/src/app/demo/demo.ts" region="MasterService"></code-example>
 
-`MasterService` delegates its only method, `getValue`, to the injected `ValueService`.
+`MasterService` delegates the only associated method, `getValue`, to the injected `ValueService`.
 
 Here are several ways to test it.
 
@@ -51,10 +51,10 @@ Angular testing utilities make it straightforward to investigate how injected se
 
 Your application relies on Angular [dependency injection (DI)](guide/dependency-injection) to create services.
 When a service has a dependent service, DI finds or creates that dependent service.
-And if that dependent service has its own dependencies, DI finds-or-creates them as well.
+And if that dependent service has the associated dependencies, DI finds-or-creates them as well.
 
-As service *consumer*, you don't worry about any of this.
-You don't worry about the order of constructor arguments or how they're created.
+As service *consumer*, you do not worry about any of this.
+You do not worry about the order of constructor arguments or how they are created.
 
 As a service *tester*, you must at least think about the first level of service dependencies but you *can* let Angular DI do the service creation and deal with constructor argument order when you use the `TestBed` testing utility to provide and create services.
 
@@ -67,7 +67,7 @@ The `TestBed` creates a dynamically-constructed Angular *test* module that emula
 
 The `TestBed.configureTestingModule()` method takes a metadata object that can have most of the properties of an [@NgModule](guide/ngmodules).
 
-To test a service, you set the `providers` metadata property with an array of the services that you'll test or mock.
+To test a service, you set the `providers` metadata property with an array of the services that you will test or mock.
 
 <code-example header="app/demo/demo.testbed.spec.ts (provide ValueService in beforeEach)" path="testing/src/app/demo/demo.testbed.spec.ts" region="value-service-before-each"></code-example>
 
@@ -78,7 +78,7 @@ Then inject it inside a test by calling `TestBed.inject()` with the service clas
 **NOTE**: <br />
 `TestBed.get()` was deprecated as of Angular version 9.
 To help minimize breaking changes, Angular introduces a new function called `TestBed.inject()`, which you should use instead.
-For information on the removal of `TestBed.get()`, see its entry in the [Deprecations index](guide/deprecations#index).
+For information on the removal of `TestBed.get()`, see the associated entry in the [Deprecations index](guide/deprecations#index).
 
 </div>
 
@@ -104,18 +104,18 @@ The test consumes that spy in the same way it did earlier.
 
 Most test suites in this guide call `beforeEach()` to set the preconditions for each `it()` test and rely on the `TestBed` to create classes and inject services.
 
-There's another school of testing that never calls `beforeEach()` and prefers to create classes explicitly rather than use the `TestBed`.
+There is another school of testing that never calls `beforeEach()` and prefers to create classes explicitly rather than use the `TestBed`.
 
-Here's how you might rewrite one of the `MasterService` tests in that style.
+Here is how you might rewrite one of the `MasterService` tests in that style.
 
 Begin by putting re-usable, preparatory code in a *setup* function instead of `beforeEach()`.
 
 <code-example header="app/demo/demo.spec.ts (setup)" path="testing/src/app/demo/demo.spec.ts" region="no-before-each-setup"></code-example>
 
 The `setup()` function returns an object literal with the variables, such as `masterService`, that a test might reference.
-You don't define *semi-global* variables \(for example, `let masterService: MasterService`\) in the body of the `describe()`.
+You do not define *semi-global* variables \(for example, `let masterService: MasterService`\) in the body of the `describe()`.
 
-Then each test invokes `setup()` in its first line, before continuing with steps that manipulate the test subject and assert expectations.
+Then each test invokes `setup()` in the associated first line, before continuing with steps that manipulate the test subject and assert expectations.
 
 <code-example path="testing/src/app/demo/demo.spec.ts" region="no-before-each-test"></code-example>
 

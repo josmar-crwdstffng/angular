@@ -86,7 +86,7 @@ A best practice is to run your project locally before you deploy it. To run your
 
     <div class="alert is-helpful">
 
-    If the above `ng build` command throws an error about missing packages, append the missing dependencies in your local project's `package.json` file to match the one in the downloaded StackBlitz project.
+    If the above `ng build` command throws an error about missing packages, append the missing dependencies in the `package.json` file of your local project to match the one in the downloaded StackBlitz project.
 
     </div>
 
@@ -96,18 +96,18 @@ A best practice is to run your project locally before you deploy it. To run your
 
 ## What's next
 
-In this tutorial, you've laid the foundation to explore the Angular world in areas such as mobile development, UX/UI development, and server-side rendering.
-You can go deeper by studying more of Angular's features, engaging with the vibrant community, and exploring the robust ecosystem.
+In this tutorial, you have laid the foundation to explore the Angular world in areas such as mobile development, UX/UI development, and server-side rendering.
+You can go deeper by studying more of the features in Angular, engaging with the vibrant community, and exploring the robust ecosystem.
 
 ### Learning more Angular
 
-For a more in-depth tutorial that leads you through building an application locally and exploring many of Angular's most popular features, see [Tour of Heroes](tutorial).
+For a more in-depth tutorial that leads you through building an application locally and exploring many of the most popular features in Angular, see [Tour of Heroes](tutorial).
 
-To explore Angular's foundational concepts, see the guides in the Understanding Angular section such as [Angular Components Overview](guide/component-overview) or [Template syntax](guide/template-syntax).
+To explore the foundational concepts of Angular, see the guides in the Understanding Angular section such as [Angular Components Overview](guide/component-overview) or [Template syntax](guide/template-syntax).
 
 ### Joining the community
 
-[Tweet that you've completed this tutorial](https://twitter.com/intent/tweet?url=https://angular.io/start&text=I%20just%20finished%20the%20Angular%20Getting%20Started%20Tutorial "Angular on Twitter"), tell us what you think, or submit [suggestions for future editions](https://github.com/angular/angular/issues/new/choose "Angular GitHub repository new issue form").
+[Tweet that you have completed this tutorial](https://twitter.com/intent/tweet?url=https://angular.io/start&text=I%20just%20finished%20the%20Angular%20Getting%20Started%20Tutorial "Angular on Twitter"), tell us what you think, or submit [suggestions for future editions](https://github.com/angular/angular/issues/new/choose "Angular GitHub repository new issue form").
 
 Keep current by following the [Angular blog](https://blog.angular.io/ "Angular blog").
 

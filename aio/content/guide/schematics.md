@@ -48,7 +48,7 @@ As a library developer, you can create your own collections of custom schematics
 
 *   An *add schematic* lets developers install your library in an Angular workspace using `ng add`
 *   *Generation schematics* can tell the `ng generate` subcommands how to modify projects, add configurations and scripts, and scaffold artifacts that are defined in your library
-*   An *update schematic* can tell the `ng update` command how to update your library's dependencies and adjust for breaking changes when you release a new version
+*   An *update schematic* can tell the `ng update` command how to update the dependencies of your library and adjust for breaking changes when you release a new version
 
 For more details of what these look like and how to create them, see:
 
@@ -85,7 +85,7 @@ ng generate &commat;angular/material:table &lt;component-name&gt;
 
 ### Update schematics
 
- The `ng update` command can be used to update your workspace's library dependencies.
+ The `ng update` command can be used to update the library dependencies of your workspace.
  If you supply no options or use the help option, the command examines your workspace and suggests libraries to update.
 
 <code-example format="shell" language="shell">
@@ -127,7 +127,7 @@ For example, suppose you want to update the Angular Material library.
 ng update &commat;angular/material
 </code-example>
 
-This command updates both `@angular/material` and its dependency `@angular/cdk` in your workspace's `package.json`.
+This command updates both `@angular/material` and the associated dependency `@angular/cdk` in the `package.json` of your workspace.
 If either package contains an update schematic that covers migration from the existing version to a new version, the command runs that schematic on your workspace.
 
 <!-- links -->

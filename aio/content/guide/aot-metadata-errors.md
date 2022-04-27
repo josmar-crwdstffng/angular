@@ -21,11 +21,11 @@ The following are metadata errors you may encounter, with explanations and sugge
 
 <div class="alert is-helpful">
 
-*The compiler encountered an expression it didn't understand while evaluating Angular metadata.*
+*The compiler encountered an expression it did not understand while evaluating Angular metadata.*
 
 </div>
 
-Language features outside of the compiler's [restricted expression syntax](guide/aot-compiler#expression-syntax)
+Language features outside of the [restricted expression syntax](guide/aot-compiler#expression-syntax) for the compiler
 can produce this error, as seen in the following example:
 
 <code-example format="typescript" language="typescript">
@@ -42,9 +42,9 @@ const prop = typeof Fooish; // typeof is not valid in metadata
 </code-example>
 
 You can use `typeof` and bracket notation in normal application code.
-You just can't use those features within expressions that define Angular metadata.
+You just cannot use those features within expressions that define Angular metadata.
 
-Avoid this error by sticking to the compiler's [restricted expression syntax](guide/aot-compiler#expression-syntax)
+Avoid this error by sticking to the [restricted expression syntax](guide/aot-compiler#expression-syntax) of the compiler
 when writing Angular metadata
 and be wary of new or unusual TypeScript features.
 
@@ -58,9 +58,9 @@ and be wary of new or unusual TypeScript features.
 
 </div>
 
-The compiler encountered a referenced to a locally defined symbol that either wasn't exported or wasn't initialized.
+The compiler encountered a referenced to a locally defined symbol that either was not exported or was not initialized.
 
-Here's a `provider` example of the problem.
+Here is a `provider` example of the problem.
 
 <code-example format="typescript" language="typescript">
 
@@ -78,7 +78,7 @@ export class MyComponent {}
 
 </code-example>
 
-The compiler generates the component factory, which includes the `useValue` provider code, in a separate module. *That* factory module can't reach back to *this* source module to access the local \(non-exported\) `foo` variable.
+The compiler generates the component factory, which includes the `useValue` provider code, in a separate module. *That* factory module cannot reach back to *this* source module to access the local \(non-exported\) `foo` variable.
 
 You could fix the problem by initializing `foo`.
 
@@ -98,7 +98,7 @@ providers: [
 
 </code-example>
 
-Alternatively, you can fix it by exporting `foo` with the expectation that `foo` will be assigned at runtime when you actually know its value.
+Alternatively, you can fix it by exporting `foo` with the expectation that `foo` will be assigned at runtime when you actually know the associated value.
 
 <code-example format="typescript" language="typescript">
 
@@ -116,11 +116,11 @@ export class MyComponent {}
 
 </code-example>
 
-Adding `export` often works for variables referenced in metadata such as `providers` and `animations` because the compiler can generate *references* to the exported variables in these expressions. It doesn't need the *values* of those variables.
+Adding `export` often works for variables referenced in metadata such as `providers` and `animations` because the compiler can generate *references* to the exported variables in these expressions. It does not need the *values* of those variables.
 
-Adding `export` doesn't work when the compiler needs the *actual value*
+Adding `export` does not work when the compiler needs the *actual value*
 in order to generate code.
-For example, it doesn't work for the `template` property.
+For example, it does not work for the `template` property.
 
 <code-example format="typescript" language="typescript">
 
@@ -149,10 +149,10 @@ Prefixing the declaration with `export` merely produces a new error, "[`Only ini
 
 </div>
 
-The compiler found a reference to an exported variable or static field that wasn't initialized.
+The compiler found a reference to an exported variable or static field that was not initialized.
 It needs the value of that variable to generate code.
 
-The following example tries to set the component's `template` property to the value of the exported `someTemplate` variable which is declared but *unassigned*.
+The following example tries to set the `template` property of the component to the value of the exported `someTemplate` variable which is declared but *unassigned*.
 
 <code-example format="typescript" language="typescript">
 
@@ -167,7 +167,7 @@ export class MyComponent {}
 
 </code-example>
 
-You'd also get this error if you imported `someTemplate` from some other module and neglected to initialize it there.
+You should also get this error if you imported `someTemplate` from some other module and neglected to initialize it there.
 
 <code-example format="typescript" language="typescript">
 
@@ -211,7 +211,7 @@ export class MyComponent {}
 
 </div>
 
-Metadata referenced a class that wasn't exported.
+Metadata referenced a class that was not exported.
 
 For example, you may have defined a class and used it as an injection token in a providers array but neglected to export that class.
 
@@ -250,7 +250,7 @@ export abstract class MyStrategy { }
 
 <div class="alert is-helpful">
 
-*Metadata referenced a function that wasn't exported.*
+*Metadata referenced a function that was not exported.*
 
 </div>
 
@@ -296,7 +296,7 @@ export function myStrategy() { &hellip; }
 </div>
 
 The compiler does not currently support [function expressions or lambda functions](guide/aot-compiler#function-expression).
-For example, you cannot set a provider's `useFactory` to an anonymous function or arrow function like this.
+For example, you cannot set the `useFactory` of a provider to an anonymous function or arrow function like this.
 
 <code-example format="typescript" language="typescript">
 
@@ -310,7 +310,7 @@ For example, you cannot set a provider's `useFactory` to an anonymous function o
 
 </code-example>
 
-You also get this error if you call a function or method in a provider's `useValue`.
+You also get this error if you call a function or method in the `useValue` of a provider.
 
 <code-example format="typescript" language="typescript">
 
@@ -398,14 +398,14 @@ import { configuration } from './configuration';
 
 <div class="alert is-helpful">
 
-*The compiler encountered a type and can't determine which module exports that type.*
+*The compiler encountered a type and cannot determine which module exports that type.*
 
 </div>
 
 This can happen if you refer to an ambient type.
 For example, the `Window` type is an ambient type declared in the global `.d.ts` file.
 
-You'll get an error if you reference it in the component constructor, which the compiler must statically analyze.
+you will get an error if you reference it in the component constructor, which the compiler must statically analyze.
 
 <code-example format="typescript" language="typescript">
 
@@ -417,10 +417,10 @@ export class MyComponent {
 
 </code-example>
 
-TypeScript understands ambient types so you don't import them.
+TypeScript understands ambient types so you do not import them.
 The Angular compiler does not understand a type that you neglect to export or import.
 
-In this case, the compiler doesn't understand how to inject something with the `Window` token.
+In this case, the compiler does not understand how to inject something with the `Window` token.
 
 Do not refer to ambient types in metadata expressions.
 
@@ -432,7 +432,7 @@ you can finesse the problem in four steps:
 1.  Add a `useFactory` provider with that factory function.
 1.  Use `@Inject` to inject the instance.
 
-Here's an illustrative example.
+Here is an illustrative example.
 
 <code-example format="typescript" language="typescript">
 
@@ -457,7 +457,7 @@ export class MyComponent {
 The `Window` type in the constructor is no longer a problem for the compiler because it
 uses the `@Inject(WINDOW)` to generate the injection code.
 
-Angular does something similar with the `DOCUMENT` token so you can inject the browser's `document` object \(or an abstraction of it, depending upon the platform in which the application runs\).
+Angular does something similar with the `DOCUMENT` token so you can inject the `document` object of the browser \(or an abstraction of it, depending upon the platform in which the application runs\).
 
 <code-example format="typescript" language="typescript">
 
@@ -505,7 +505,7 @@ provider: [{ provide: Foo, useValue: { '0': 'test' } }]
 
 <div class="alert is-helpful">
 
-*Angular couldn't determine the value of the [enum member](https://www.typescriptlang.org/docs/handbook/enums.html) that you referenced in metadata.*
+*Angular could not determine the value of the [enum member](https://www.typescriptlang.org/docs/handbook/enums.html) that you referenced in metadata.*
 
 </div>
 
@@ -571,7 +571,7 @@ The AOT compiler does not support tagged template expressions; avoid them in met
 
 This error can occur if you use an expression in the `extends` clause of a class.
 
-<!--todo: Chuck: After reviewing your PR comment I'm still at a loss. See [comment there](https://github.com/angular/angular/pull/17712#discussion_r132025495). -->
+<!--todo: Chuck: After reviewing your PR comment I am still at a loss. See [comment there](https://github.com/angular/angular/pull/17712#discussion_r132025495). -->
 
 <!-- links -->
 

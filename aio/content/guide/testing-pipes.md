@@ -4,7 +4,7 @@ You can test [pipes](guide/pipes) without the Angular testing utilities.
 
 <div class="alert is-helpful">
 
-If you'd like to experiment with the application that this guide describes, <live-example name="testing" noDownload>run it in your browser</live-example> or <live-example name="testing" downloadOnly>download and run it locally</live-example>.
+If you would like to experiment with the application that this guide describes, <live-example name="testing" noDownload>run it in your browser</live-example> or <live-example name="testing" downloadOnly>download and run it locally</live-example>.
 
 </div>
 
@@ -15,7 +15,7 @@ The `transform` implementation rarely interacts with the DOM.
 Most pipes have no dependence on Angular other than the `@Pipe` metadata and an interface.
 
 Consider a `TitleCasePipe` that capitalizes the first letter of each word.
-Here's an implementation with a regular expression.
+Here is an implementation with a regular expression.
 
 <code-example header="app/shared/title-case.pipe.ts" path="testing/src/app/shared/title-case.pipe.ts"></code-example>
 
@@ -29,7 +29,7 @@ Use simple Jasmine to explore the expected cases and the edge cases.
 ## Writing DOM tests to support a pipe test
 
 These are tests of the pipe *in isolation*.
-They can't tell if the `TitleCasePipe` is working properly as applied in the application components.
+They cannot tell if the `TitleCasePipe` is working properly as applied in the application components.
 
 Consider adding component tests such as this one:
 

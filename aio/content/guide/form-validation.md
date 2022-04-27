@@ -28,7 +28,7 @@ Angular uses directives to match these attributes with validator functions in th
 
 Every time the value of a form control changes, Angular runs validation and generates either a list of validation errors that results in an `INVALID` status, or null, which results in a VALID status.
 
-You can then inspect the control's state by exporting `ngModel` to a local template variable.
+You can then inspect the state of the control by exporting `ngModel` to a local template variable.
 The following example exports `NgModel` into a variable called `name`:
 
 <code-example header="template/hero-form-template.component.html (name)" path="form-validation/src/app/template/hero-form-template.component.html" region="name-with-error-msg"></code-example>
@@ -40,7 +40,7 @@ Notice the following features illustrated by the example.
     For more information, see the [Custom validators](#custom-validators) section.
 
 *   `#name="ngModel"` exports `NgModel` into a local variable called `name`.
-    `NgModel` mirrors many of the properties of its underlying `FormControl` instance, so you can use this in the template to check for control states such as `valid` and `dirty`.
+    `NgModel` mirrors many of the properties of the associated underlying `FormControl` instance, so you can use this in the template to check for control states such as `valid` and `dirty`.
     For a full list of control properties, see the [AbstractControl](api/forms/AbstractControl) API reference.
 
     *   The `*ngIf` on the `<div>` element reveals a set of nested message `divs` but only if the `name` is invalid and the control is either `dirty` or `touched`.
@@ -81,7 +81,7 @@ Each must complete before errors are set.
 
 ### Built-in validator functions
 
-You can choose to [write your own validator functions](#custom-validators), or you can use some of Angular's built-in validators.
+You can choose to [write your own validator functions](#custom-validators), or you can use some of the validators built into Angular.
 
 The same built-in validators that are available as attributes in template-driven forms, such as `required` and `minlength`, are all available to use as functions from the `Validators` class.
 For a full list of built-in validators, see the [Validators](api/forms/Validators) API reference.
@@ -100,7 +100,7 @@ All of these validators are synchronous, so they are passed as the second argume
 Notice that you can support multiple validators by passing the functions in as an array.
 
 This example also adds a few getter methods.
-In a reactive form, you can always access any form control through the `get` method on its parent group, but sometimes it's useful to define getters as shorthand for the template.
+In a reactive form, you can always access any form control through the `get` method on the associated parent group, but sometimes it is useful to define getters as shorthand for the template.
 
 If you look at the template for the `name` input again, it is fairly similar to the template-driven example.
 
@@ -110,16 +110,16 @@ This form differs from the template-driven version in that it no longer exports 
 Instead, it uses the `name` getter defined in  the component class.
 
 Notice that the `required` attribute is still present in the template.
-Although it's not necessary for validation, it should be retained to for accessibility purposes.
+Although it is not necessary for validation, it should be retained to for accessibility purposes.
 
 <a id="custom-validators"></a>
 
 ## Defining custom validators
 
-The built-in validators don't always match the exact use case of your application, so you sometimes need to create a custom validator.
+The built-in validators do not always match the exact use case of your application, so you sometimes need to create a custom validator.
 
 Consider the `forbiddenNameValidator` function from previous [reactive-form examples](#reactive-component-class).
-Here's what the definition of that function looks like.
+Here is what the definition of that function looks like.
 
 <code-example header="shared/forbidden-name.directive.ts (forbiddenNameValidator)" path="form-validation/src/app/shared/forbidden-name.directive.ts" region="custom-validator"></code-example>
 
@@ -150,7 +150,7 @@ In reactive forms, add a custom validator by passing the function directly to th
 In template-driven forms, add a directive to the template, where the directive wraps the validator function.
 For example, the corresponding `ForbiddenValidatorDirective` serves as a wrapper around the `forbiddenNameValidator`.
 
-Angular recognizes the directive's role in the validation process because the directive registers itself with the `NG_VALIDATORS` provider, as shown in the following example.
+Angular recognizes the role of the directive in the validation process because the directive self-registers with the `NG_VALIDATORS` provider, as shown in the following example.
 `NG_VALIDATORS` is a predefined provider with an extensible collection of validators.
 
 <code-example header="shared/forbidden-name.directive.ts (providers)" path="form-validation/src/app/shared/forbidden-name.directive.ts" region="directive-providers"></code-example>
@@ -160,7 +160,7 @@ Here is the rest of the directive to help you get an idea of how it all comes to
 
 <code-example header="shared/forbidden-name.directive.ts (directive)" path="form-validation/src/app/shared/forbidden-name.directive.ts" region="directive"></code-example>
 
-Once the `ForbiddenValidatorDirective` is ready, you can add its selector, `appForbiddenName`, to any input element to activate it.
+Once the `ForbiddenValidatorDirective` is ready, you can add the associated selector, `appForbiddenName`, to any input element to activate it.
 For example:
 
 <code-example header="template/hero-form-template.component.html (forbidden-name-input)" path="form-validation/src/app/template/hero-form-template.component.html" region="name-input"></code-example>
@@ -168,9 +168,9 @@ For example:
 <div class="alert is-helpful">
 
 Notice that the custom validation directive is instantiated with `useExisting` rather than `useClass`.
-The registered validator must be *this instance* of the `ForbiddenValidatorDirective` &mdash;the instance in the form with its `forbiddenName` property bound to "bob".
+The registered validator must be *this instance* of the `ForbiddenValidatorDirective` &mdash;the instance in the form with the associated `forbiddenName` property bound to "bob".
 
-If you were to replace `useExisting` with `useClass`, then you'd be registering a new class instance, one that doesn't have a `forbiddenName`.
+If you were to replace `useExisting` with `useClass`, then you should be registering a new class instance, one that does not have a `forbiddenName`.
 
 </div>
 
@@ -190,7 +190,7 @@ The following classes are currently supported.
 *   `.ng-submitted` \(enclosing form element only\)
 
 In the following example, the hero form uses the `.ng-valid` and `.ng-invalid` classes to
-set the color of each form control's border.
+set the color of the border of each form control.
 
 <code-example header="forms.css (status classes)" path="form-validation/src/assets/forms.css"></code-example>
 
@@ -224,7 +224,7 @@ const heroForm = new FormGroup({
 
 Notice that the `name` and `alterEgo` are sibling controls.
 To evaluate both controls in a single custom validator, you must perform the validation in a common ancestor control: the `FormGroup`.
-You query the `FormGroup` for its child controls so that you can compare their values.
+You query the `FormGroup` for the associated child controls so that you can compare their values.
 
 To add a validator to the `FormGroup`, pass the new validator in as the second argument on creation.
 
@@ -245,10 +245,10 @@ The validator code is as follows.
 The `identity` validator implements the `ValidatorFn` interface.
 It takes an Angular control object as an argument and returns either null if the form is valid, or `ValidationErrors` otherwise.
 
-The validator retrieves the child controls by calling the `FormGroup`'s [get](api/forms/AbstractControl#get) method, then compares the values of the `name` and `alterEgo` controls.
+The validator retrieves the child controls by calling the [get](api/forms/AbstractControl#get) method of the `FormGroup`, then compares the values of the `name` and `alterEgo` controls.
 
-If the values do not match, the hero's identity remains secret, both are valid, and the validator returns null.
-If they do match, the hero's identity is revealed and the validator must mark the form as invalid by returning an error object.
+If the values do not match, the identity of the hero remains secret, both are valid, and the validator returns null.
+If they do match, the identity of the hero is revealed and the validator must mark the form as invalid by returning an error object.
 
 To provide better user experience, the template shows an appropriate error message when the form is invalid.
 
@@ -287,7 +287,7 @@ Asynchronous validation happens after the synchronous validation, and is perform
 This check lets forms avoid potentially expensive async validation processes \(such as an HTTP request\) if the more basic validation methods have already found invalid input.
 
 After asynchronous validation begins, the form control enters a `pending` state.
-Inspect the control's `pending` property and use it to give visual feedback about the ongoing validation operation.
+Inspect the `pending` property of the control and use it to give visual feedback about the ongoing validation operation.
 
 A common UI pattern is to show a spinner while the async validation is being performed.
 The following example shows how to achieve this in a template-driven form.
@@ -320,7 +320,7 @@ interface HeroesService {
 </code-example>
 
 In a real world application, the `HeroesService` would be responsible for making an HTTP request to the hero database to check if the alter ego is available.
-From the validator's point of view, the actual implementation of the service is not important, so the example can just code against the `HeroesService` interface.
+From the point of view of the validator, the actual implementation of the service is not important, so the example can just code against the `HeroesService` interface.
 
 As the validation begins, the `UniqueAlterEgoValidator` delegates to the `HeroesService` `isAlterEgoTaken()` method with the current control value.
 At this point the control is marked as `pending` and remains in this state until the observable chain returned from the `validate()` method completes.
@@ -344,7 +344,7 @@ To use an async validator in reactive forms, begin by injecting the validator in
 
 Then, pass the validator function directly to the `FormControl` to apply it.
 
-In the following example, the `validate` function of `UniqueAlterEgoValidator` is applied to `alterEgoControl` by passing it to the control's `asyncValidators` option and binding it to the instance of `UniqueAlterEgoValidator` that was injected into `HeroFormReactiveComponent`.
+In the following example, the `validate` function of `UniqueAlterEgoValidator` is applied to `alterEgoControl` by passing it to the `asyncValidators` option of the control and binding it to the instance of `UniqueAlterEgoValidator` that was injected into `HeroFormReactiveComponent`.
 The value of `asyncValidators` can be either a single async validator function, or an array of functions.
 To learn more about `FormControl` options, see the [AbstractControlOptions](api/forms/AbstractControlOptions) API reference.
 
@@ -358,7 +358,7 @@ In the example below, the directive injects the `UniqueAlterEgoValidator` class 
 
 <code-example path="form-validation/src/app/shared/alter-ego.directive.ts" region="async-validator-directive"></code-example>
 
-Then, as with synchronous validators, add the directive's selector to an input to activate it.
+Then, as with synchronous validators, add the selector of the directive to an input to activate it.
 
 <code-example header="template/hero-form-template.component.html (unique-alter-ego-input)" path="form-validation/src/app/template/hero-form-template.component.html" region="alterEgo-input"></code-example>
 

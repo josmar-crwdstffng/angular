@@ -1,4 +1,4 @@
-Angular's `<ng-template>` element defines a template that is not rendered by default.
+The `<ng-template>` element in Angular defines a template that is not rendered by default.
 
 With `<ng-template>`, you can define template content that is only being rendered by Angular when you, whether directly or indirectly, specifically instruct it to do so, allowing you to have full control over how and when the content is displayed.
 

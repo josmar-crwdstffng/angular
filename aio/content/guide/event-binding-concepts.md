@@ -10,7 +10,7 @@ The template statement performs an action in response to the event.
 ## Handling events
 
 A common way to handle events is to pass the event object, `$event`, to the method handling the event.
-The `$event` object often contains information the method needs, such as a user's name or an image URL.
+The `$event` object often contains information the method needs, such as the name of a user or an image URL.
 
 The target event determines the shape of the `$event` object.
 If the target event is a native DOM element event, then `$event` is a [DOM event object](https://developer.mozilla.org/docs/Web/Events), with properties such as `target` and `target.value`.
@@ -31,7 +31,7 @@ If the event belongs to a directive or component, `$event` has the shape that th
 <div class="alert is-helpful">
 
 The type of `$event.target` is only `EventTarget` in the template.
-In the `getValue()` method, the target is cast to an `HTMLInputElement` to allow type-safe access to its `value` property.
+In the `getValue()` method, the target is cast to an `HTMLInputElement` to allow type-safe access to the associated `value` property.
 
 <code-example path="event-binding/src/app/app.component.ts" region="getValue"></code-example>
 

@@ -1,6 +1,6 @@
 # Angular documentation localization guidelines
 
-One way to contribute to Angular's documentation is to localize it into another language.
+One way to contribute to the documentation in Angular is to localize it into another language.
 This topic describes what you need to know to localize Angular and have it listed on our [Localized documentation](guide/localized-documentation) page.
 
 ## Before you begin

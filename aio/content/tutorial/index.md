@@ -6,7 +6,7 @@
 
 In this tutorial, you build your own application from the ground up, providing experience with the typical development process, as well as an introduction to basic app-design concepts, tools, and terminology.
 
-If you're completely new to Angular, you might want to try the [**Try it now**](start) quick-start application first.
+If you are completely new to Angular, you might want to try the [**Try it now**](start) quick-start application first.
 It is based on a ready-made  partially-completed project, which you can examine and modify in the StackBlitz interactive development environment, where you can see the results in real time.
 
 The "Try it" tutorial covers the same major topics &mdash;components, template syntax, routing, services, and accessing data using HTTP&mdash; in a condensed format, following the most current best practices.
@@ -15,11 +15,11 @@ The "Try it" tutorial covers the same major topics &mdash;components, template s
 
 This *Tour of Heroes* tutorial shows you how to set up your local development environment and develop an application using the [Angular CLI tool](cli "CLI command reference"), and provides an introduction to the fundamentals of Angular.
 
-The *Tour of Heroes* application that you build helps a staffing agency manage its stable of heroes.
-The application has many of the features you'd expect to find in any data-driven application.
-The finished application acquires and displays a list of heroes, edits a selected hero's detail, and navigates among different views of heroic data.
+The *Tour of Heroes* application that you build helps a staffing agency manage the associated stable of heroes.
+The application has many of the features you would expect to find in any data-driven application.
+The finished application acquires and displays a list of heroes, edits the detail of a selected hero, and navigates among different views of heroic data.
 
-You will find references to and expansions of this application domain in many of the examples used throughout the Angular documentation, but you don't necessarily need to work through this tutorial to understand those examples.
+You will find references to and expansions of this application domain in many of the examples used throughout the Angular documentation, but you do not necessarily need to work through this tutorial to understand those examples.
 
 By the end of this tutorial you will be able to do the following:
 
@@ -33,7 +33,7 @@ By the end of this tutorial you will be able to do the following:
 *   Create a shared [service](guide/glossary#service "Service definition") to assemble the heroes
 *   Use [routing](guide/glossary#router "Router definition") to navigate among different views and their components
 
-You'll learn enough Angular to get started and gain confidence that Angular can do whatever you need it to do.
+you will learn enough Angular to get started and gain confidence that Angular can do whatever you need it to do.
 
 <div class="callout is-helpful">
 
@@ -44,9 +44,9 @@ After completing all tutorial steps, the final application will look like this:
 
 </div>
 
-## What you'll build
+## What you will build
 
-Here's a visual idea of where this tutorial leads, beginning with the "Dashboard"
+Here is a visual idea of where this tutorial leads, beginning with the "Dashboard"
 view and the most heroic heroes:
 
 <div class="lightbox">
@@ -57,7 +57,7 @@ view and the most heroic heroes:
 
 You can click the two links above the dashboard \("Dashboard" and "Heroes"\) to navigate between this Dashboard view and a Heroes view.
 
-If you click the dashboard hero "Magneta," the router opens a "Hero Details" view where you can change the hero's name.
+If you click the dashboard hero "Magneta," the router opens a "Hero Details" view where you can change the name of the hero.
 
 <div class="lightbox">
 
@@ -87,7 +87,7 @@ The following diagram captures all of the navigation options.
 
 </div>
 
-Here's the application in action:
+Here is the application in action:
 
 <div class="lightbox">
 

@@ -26,7 +26,7 @@ Two-way binding combines property binding with event binding:
 
 ## Adding two-way data binding
 
-Angular's two-way binding syntax is a combination of square brackets and parentheses, `[()]`.
+The two-way binding syntax in Angular is a combination of square brackets and parentheses, `[()]`.
 The `[()]` syntax combines the brackets of property binding, `[]`, with the parentheses of event binding, `()`, as follows.
 
 <code-example header="src/app/app.component.html" path="two-way-binding/src/app/app.component.html" region="two-way-syntax"></code-example>

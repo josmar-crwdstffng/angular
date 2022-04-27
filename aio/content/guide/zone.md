@@ -2,7 +2,7 @@
 
 A zone is an execution context that persists across async tasks.
 You can think of it as [thread-local storage](https://en.wikipedia.org/wiki/Thread-local_storage) for JavaScript VMs.
-This guide describes how to use Angular's NgZone to automatically detect changes in the component to update HTML.
+This guide describes how to use the NgZone in Angular to automatically detect changes in the component to update HTML.
 
 ## Fundamentals of change detection
 
@@ -19,7 +19,7 @@ In such methods, you can also update a property of the Angular component, which 
 
 <code-example header="src/app/click-me.component.ts" path="user-input/src/app/click-me.component.ts" region="click-me-component"></code-example>
 
-In both of the above examples, the component's code updates only the property of the component.
+In both of the above examples, the code of the component updates only the property of the component.
 However, the HTML is also updated automatically.
 This guide describes how and when Angular renders the HTML based on the data from the Angular component.
 
@@ -336,8 +336,8 @@ This service creates a zone named `angular` to automatically trigger change dete
 ### NgZone `run()` and `runOutsideOfAngular()`
 
 `Zone` handles most asynchronous APIs such as `setTimeout()`, `Promise.then()`, and `addEventListener()`.
-For the full list, see the [Zone Module document](https://github.com/angular/angular/blob/main/packages/zone.js/MODULE.md).
-Therefore in those asynchronous APIs, you don't need to trigger change detection manually.
+For the full list, see [Modules](https://github.com/angular/angular/blob/main/packages/zone.js/MODULE.md "Modules | packages/zone.js - angular/angular | GitHub").
+Therefore in those asynchronous APIs, you do not need to trigger change detection manually.
 
 There are still some third party APIs that Zone does not handle.
 In those cases, the `NgZone` service provides a [`run()`](api/core/NgZone#run) method that allows you to execute a function inside the Angular zone.
@@ -362,7 +362,7 @@ export class AppComponent implements OnInit {
 </code-example>
 
 By default, all asynchronous operations are inside the Angular zone, which triggers change detection automatically.
-Another common case is when you don't want to trigger change detection.
+Another common case is when you do not want to trigger change detection.
 In that situation, you can use another `NgZone` method: [`runOutsideAngular()`](api/core/NgZone#runoutsideangular).
 
 <code-example format="typescript" language="typescript">
@@ -371,12 +371,12 @@ export class AppComponent implements OnInit {
   constructor(private ngZone: NgZone) {}
   ngOnInit() {
     // You know no data will be updated,
-    // so you don't want to trigger change detection in this
+    // so you do not want to trigger change detection in this
     // specified operation. Instead, call ngZone.runOutsideAngular()
     this.ngZone.runOutsideAngular(() =&gt; {
       setTimeout(() =&gt; {
         // update component data
-        // but don't trigger change detection.
+        // but do not trigger change detection.
       });
     });
   }
@@ -392,7 +392,7 @@ If you are using the Angular CLI, this step is done automatically, and you will 
 <code-example format="typescript" language="typescript">
 
 /***************************************************************************************************
- &ast; Zone JS is required by default for Angular itself.
+ &ast; Zone JS is required by default for Angular.
  */
 import 'zone.js';  // Included with Angular CLI.
 
@@ -437,7 +437,7 @@ For more information about what you can configure, see the [Zone.js](https://git
 
 `Zone` helps Angular know when to trigger change detection and let the developers focus on the application development.
 By default, `Zone` is loaded and works without additional configuration.
-However, you don't necessarily have to use `Zone` to make Angular work.
+However, you do not necessarily have to use `Zone` to make Angular work.
 Instead, you can opt to trigger change detection on your own.
 
 <div class="alert is-helpful">
@@ -455,7 +455,7 @@ To remove Zone.js, make the following changes.
     <code-example format="typescript" language="typescript">
 
     /***************************************************************************************************
-     &ast; Zone JS is required by default for Angular itself.
+     &ast; Zone JS is required by default for Angular.
      */
     // import 'zone.js';  // Included with Angular CLI.
 

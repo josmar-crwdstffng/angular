@@ -1,7 +1,7 @@
 # Service worker in production
 
 This page is a reference for deploying and supporting production applications that use the Angular service worker.
-It explains how the Angular service worker fits into the larger production environment, the service worker's behavior under various conditions, and available resources and fail-safes.
+It explains how the Angular service worker fits into the larger production environment, the behavior of the service worker under various conditions, and available resources and fail-safes.
 
 ## Prerequisites
 
@@ -11,8 +11,8 @@ A basic understanding of the following:
 
 ## Service worker and caching of app resources
 
-Conceptually, imagine the Angular service worker as a forward cache or a CDN edge that is installed in the end user's web browser.
-The service worker's job is to satisfy requests made by the Angular application for resources or data from a local cache, without needing to wait for the network.
+Conceptually, imagine the Angular service worker as a forward cache or a CDN edge that is installed in the web browser of the end user.
+The job of the service worker is to satisfy requests made by the Angular application for resources or data from a local cache, without needing to wait for the network.
 Like any cache, it has rules for how content is expired and updated.
 
 <a id="versions"></a>
@@ -22,7 +22,7 @@ Like any cache, it has rules for how content is expired and updated.
 In the context of an Angular service worker, a "version" is a collection of resources that represent a specific build of the Angular application.
 Whenever a new build of the application is deployed, the service worker treats that build as a new version of the application.
 This is true even if only a single file is updated.
-At any given time, the service worker might have multiple versions of the application in its cache and it might be serving them simultaneously.
+At any given time, the service worker might have multiple versions of the application in the associated cache and it might be serving them simultaneously.
 For more information, see the [App tabs](guide/service-worker-devops#tabs) section below.
 
 To preserve application integrity, the Angular service worker groups all files into a version together.
@@ -39,7 +39,7 @@ If a running application at version `X` attempts to load a lazy chunk, but the s
 
 The version identifier of the application is determined by the contents of all resources, and it changes if any of them change.
 In practice, the version is determined by the contents of the `ngsw.json` file, which includes hashes for all known content.
-If any of the cached files change, the file's hash will change in `ngsw.json`, causing the Angular service worker to treat the active set of files as a new version.
+If any of the cached files change, the hash of the file will change in `ngsw.json`, causing the Angular service worker to treat the active set of files as a new version.
 
 <div class="alert is-helpful">
 
@@ -62,11 +62,11 @@ A service worker ignores such constraints and effectively long caches the entire
 Consequently, it is essential that the service worker gets the correct content.
 
 To ensure resource integrity, the Angular service worker validates the hashes of all resources for which it has a hash.
-Typically for an application created with the [Angular CLI](cli), this is everything in the `dist` directory covered by the user's `src/ngsw-config.json` configuration.
+Typically for an application created with the [Angular CLI](cli), this is everything in the `dist` directory covered by the `src/ngsw-config.json` configuration of the user.
 
 If a particular file fails validation, the Angular service worker attempts to re-fetch the content using a "cache-busting" URL parameter to eliminate the effects of browser or intermediate caching.
 If that content also fails validation, the service worker considers the entire version of the application to be invalid and it stops serving the application.
-If necessary, the service worker enters a safe mode where requests fall back on the network, opting not to use its cache if the risk of serving invalid, broken, or outdated content is high.
+If necessary, the service worker enters a safe mode where requests fall back on the network, opting not to use the associated cache if the risk of serving invalid, broken, or outdated content is high.
 
 Hash mismatches can occur for a variety of reasons:
 
@@ -80,7 +80,7 @@ Hash mismatches can occur for a variety of reasons:
 The only resources that have hashes in the `ngsw.json` manifest are resources that were present in the `dist` directory at the time the manifest was built.
 Other resources, especially those loaded from CDNs, have content that is unknown at build time or are updated more frequently than the application is deployed.
 
-If the Angular service worker does not have a hash to validate a given resource, it still caches its contents but it honors the HTTP caching headers by using a policy of "stale while revalidate".
+If the Angular service worker does not have a hash to validate a given resource, it still caches the associated contents but it honors the HTTP caching headers by using a policy of "stale while revalidate".
 That is, when HTTP caching headers for a cached resource indicate that the resource has expired, the Angular service worker continues to serve the content and it attempts to refresh the resource in the background.
 This way, broken unhashed resources do not remain in the cache beyond their configured lifetimes.
 
@@ -88,7 +88,7 @@ This way, broken unhashed resources do not remain in the cache beyond their conf
 
 ### App tabs
 
-It can be problematic for an application if the version of resources it's receiving changes suddenly or without warning.
+It can be problematic for an application if the version of resources it is receiving changes suddenly or without warning.
 See the [App versions](guide/service-worker-devops#versions) section above for a description of such issues.
 
 The Angular service worker provides a guarantee: a running application will continue to run the same version of the application.
@@ -140,13 +140,13 @@ To bypass the service worker, set `ngsw-bypass` as a request header, or as a que
 ## Debugging the Angular service worker
 
 Occasionally, it might be necessary to examine the Angular service worker in a running state to investigate issues or to ensure that it is operating as designed.
-Browsers provide built-in tools for debugging service workers and the Angular service worker itself includes useful debugging features.
+Browsers provide built-in tools for debugging service workers and the Angular service worker includes useful debugging features.
 
 ### Locating and analyzing debugging information
 
 The Angular service worker exposes debugging information under the `ngsw/` virtual directory.
 Currently, the single exposed URL is `ngsw/state`.
-Here is an example of this debug page's contents:
+Here is an example of the contents of this debug page:
 
 <code-example format="output" hideCopy language="shell">
 
@@ -237,7 +237,7 @@ In this example, the service worker has one version of the application cached an
 **NOTE**: <br />
 This version hash is the "latest manifest hash" listed above.
 Both clients are on the latest version.
-Each client is listed by its ID from the `Clients` API in the browser.
+Each client is listed by the associated ID from the `Clients` API in the browser.
 
 </div>
 
@@ -287,16 +287,16 @@ Such tools can be powerful when used properly, but there are a few things to kee
 ## Service Worker Safety
 
 Like any complex system, bugs or broken configurations can cause the Angular service worker to act in unforeseen ways.
-While its design attempts to minimize the impact of such problems, the Angular service worker contains several failsafe mechanisms in case an administrator ever needs to deactivate the service worker quickly.
+While the associated design attempts to minimize the impact of such problems, the Angular service worker contains several failsafe mechanisms in case an administrator ever needs to deactivate the service worker quickly.
 
 ### Fail-safe
 
 To deactivate the service worker, remove or rename the `ngsw.json` file.
-When the service worker's request for `ngsw.json` returns a `404`, then the service worker removes all of its caches and de-registers itself, essentially self-destructing.
+When the request of the service worker for `ngsw.json` returns a `404`, then the service worker removes all of the associated caches and de-registers, essentially self-destructing.
 
 ### Safety Worker
 
-Also included in the `@angular/service-worker` NPM package is a small script `safety-worker.js`, which when loaded will unregister itself from the browser and remove the service worker caches.
+Also included in the `@angular/service-worker` NPM package is a small script `safety-worker.js`, which when loaded will unregister from the browser and remove the service worker caches.
 This script can be used as a last resort to get rid of unwanted service workers already installed on client pages.
 
 <div class="alert is-important">
@@ -310,19 +310,19 @@ Instead, you must serve the contents of `safety-worker.js` at the URL of the Ser
 For most sites, this means that you should serve the safety worker at the old Service Worker URL forever.
 This script can be used both to deactivate `@angular/service-worker` \(and remove the corresponding caches\) as well as any other Service Workers which might have been served in the past on your site.
 
-### Changing your app's location
+### Changing the location of your app
 
 <div class="alert is-important">
 
 **IMPORTANT**: <br />
-Service workers don't work behind redirect.
+Service workers do not work behind redirect.
 You might have already encountered the error `The script resource is behind a redirect, which is disallowed`.
 
 </div>
 
-This can be a problem if you have to change your application's location.
+This can be a problem if you have to change the location of your application.
 If you setup a redirect from the old location \(for example `example.com`\) to the new location \(for example `www.example.com`\) the worker will stop working.
-Also, the redirect won't even trigger for users who are loading the site entirely from Service Worker.
+Also, the redirect will not even trigger for users who are loading the site entirely from Service Worker.
 The old worker \(registered at `example.com`\) tries to update and sends requests to the old location `example.com` which get redirected to the new location `www.example.com` and create the error `The script resource is behind a redirect, which is disallowed`.
 
 To remedy this, you might need to deactivate the old worker using one of the above techniques \([Fail-safe](#fail-safe) or [Safety Worker](#safety-worker)\).

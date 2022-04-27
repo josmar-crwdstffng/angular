@@ -58,7 +58,7 @@ export class SitePage {
 
   getInnerHtml(elementFinder: ElementFinder) {
     // `getInnerHtml` was removed from webDriver and this is the workaround.
-    // See https://github.com/angular/protractor/blob/master/CHANGELOG.md#breaking-changes
+    // See https://github.com/angular/protractor/blob/main/CHANGELOG.md#breaking-changes
     return browser.executeScript('return arguments[0].innerHTML;', elementFinder);
   }
 

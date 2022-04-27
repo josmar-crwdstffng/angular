@@ -14,7 +14,7 @@ The default locale file resides within `@angular/core` and provides locale infor
 
 ### Base currency information within `@angular/common`
 
-The `@angular/core` package is not providing directives or syntax for dealing with currencies. This is part of the `@angular/common` package and its i18n features (such as the `currency` pipe). Due to this separation of concerns, the default locale in `core` does not contain any information about currencies, and the currency information is stored as a separate file within `@angular/common/src/i18n`.
+The `@angular/core` package is not providing directives or syntax for dealing with currencies. This is part of the `@angular/common` package and the associated i18n features (such as the `currency` pipe). Due to this separation of concerns, the default locale in `core` does not contain any information about currencies, and the currency information is stored as a separate file within `@angular/common/src/i18n`.
 
 The currency information is stored within an object that maps each currency code (like `USD`) to an array describing the symbol, narrow symbol and number of digits to display for fractions. e.g.
 
@@ -42,7 +42,7 @@ All the data is stored in an array where the Angular framework can read specific
 
 **Performance optimizations**
 
-Given we already have currency symbols for the default locale within `@angular/common/src/i18n`, we do not need to capture currencies that aren't different within a given locale. We just omit the data for such currencies and let the Angular framework fall back to the currency symbols from the default locale (this avoids unnecessary duplication).
+Given we already have currency symbols for the default locale within `@angular/common/src/i18n`, we do not need to capture currencies that are not different within a given locale. We just omit the data for such currencies and let the Angular framework fall back to the currency symbols from the default locale (this avoids unnecessary duplication).
 
 Additionally, if locale data is equal to locale data at a previous index, then the generation tool will not repeat the data but instead set `undefined`. The Angular framework will look for the previous value in that case. This reduces the payload size for locales even further. For example:
 

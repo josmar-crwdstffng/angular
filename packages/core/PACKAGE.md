@@ -1,4 +1,4 @@
-Implements Angular's core functionality, low-level services, and utilities.
+Implements core functionality, low-level services, and utilities in Angular.
 
 * Defines the class infrastructure for components, view hierarchies, change detection, rendering, and event handling.
 

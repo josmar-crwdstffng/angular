@@ -8,13 +8,13 @@ This step of the tutorial guides you through creating a shopping cart in the fol
 
 *   Update the product details view to include a **Buy** button, which adds the current product to a list of products that a cart service manages
 *   Add a cart component, which displays the items in the cart
-*   Add a shipping component, which retrieves shipping prices for the items in the cart by using Angular's `HttpClient` to retrieve shipping data from a `.json` file
+*   Add a shipping component, which retrieves shipping prices for the items in the cart by using the `HttpClient` in Angular to retrieve shipping data from a `.json` file
 
 <a id="create-cart-service"></a>
 
 ## Create the shopping cart service
 
-In Angular, a service is an instance of a class that you can make available to any part of your application using Angular's [dependency injection system](guide/glossary#dependency-injection-di "Dependency injection definition").
+In Angular, a service is an instance of a class that you can make available to any part of your application using the [dependency injection system](guide/glossary#dependency-injection-di "Dependency injection definition") in Angular.
 
 Currently, users can view product information, and the application can simulate sharing and  notifications about product changes.
 
@@ -44,7 +44,7 @@ This section walks you through creating the `CartService` that tracks products a
     <code-example header="src/app/cart.service.ts" path="getting-started/src/app/cart.service.ts" region="methods"></code-example>
 
     *   The `addToCart()` method appends a product to an array of `items`
-    *   The `getItems()` method collects the items users add to the cart and returns each item with its associated quantity
+    *   The `getItems()` method collects the items users add to the cart and returns each item with the associated quantity
     *   The `clearCart()` method returns an empty array of items, which empties the cart
 
 <a id="product-details-use-cart-service"></a>
@@ -69,14 +69,14 @@ This section walks you through using the `CartService` to add a product to the c
 
     *   Takes the current `product` as an argument
     *   Uses the `CartService` `addToCart()` method to add the product to the cart
-    *   Displays a message that you've added a product to the cart
+    *   Displays a message that you have added a product to the cart
 
 1.  In `product-details.component.html`, add a button with the label **Buy**, and bind the `click()` event to the `addToCart()` method.
     This code updates the product details template with a **Buy** button that adds the current product to the cart.
 
     <code-example header="src/app/product-details/product-details.component.html" path="getting-started/src/app/product-details/product-details.component.html"></code-example>
 
-1.  Verify that the new **Buy** button appears as expected by refreshing the application and clicking on a product's name to display its details.
+1.  Verify that the new **Buy** button appears as expected by refreshing the application and clicking on the name of a product to display the associated details.
 
     <div class="lightbox">
 
@@ -111,14 +111,14 @@ For customers to see their cart, you can create the cart view in two steps:
 
     </code-example>
 
-    This command will generate the `cart.component.ts` file and its associated template and styles files.
+    This command will generate the `cart.component.ts` file and the associated template and styles files.
 
     <code-example header="src/app/cart/cart.component.ts" path="getting-started/src/app/cart/cart.component.1.ts"></code-example>
 
     StackBlitz also generates an `ngOnInit()` by default in components.
     You can ignore the `CartComponent` `ngOnInit()` for this tutorial.
 
-1.  Notice that the newly created `CartComponent` is added to the module's `declarations` in `app.module.ts`.
+1.  Notice that the newly created `CartComponent` is added to the `declarations` of the module in `app.module.ts`.
 
     <code-example header="src/app/app.module.ts" path="getting-started/src/app/app.module.ts" region="declare-cart"></code-example>
 
@@ -159,17 +159,17 @@ This section shows you how to use the cart service to display the products in th
     This code sets the items using the `CartService` `getItems()` method.
     You defined this method [when you created `cart.service.ts`](#generate-cart-service).
 
-1.  Update the cart template with a header, and use a `<div>` with an `*ngFor` to display each of the cart items with its name and price.
+1.  Update the cart template with a header, and use a `<div>` with an `*ngFor` to display each of the cart items with the associated name and price.
     The resulting `CartComponent` template is as follows.
 
     <code-example header="src/app/cart/cart.component.html" path="getting-started/src/app/cart/cart.component.2.html" region="prices"></code-example>
 
 1.  Verify that your cart works as expected:
 
-    1.  Click **My Store**.
-    1.  Click on a product name to display its details.
-    1.  Click **Buy** to add the product to the cart.
-    1.  Click **Checkout** to see the cart.
+    1.  Select **My Store*.
+    1.  Choose a product name to display the associated details.
+    1.  Select **Buy** to add the product to the cart.
+    1.  Select **Checkout** to see the cart.
 
     <div class="lightbox">
 
@@ -194,9 +194,9 @@ Use this data to add shipping prices for items in the cart.
 
 ### Configure `AppModule` to use `HttpClient`
 
-To use Angular's `HttpClient`, you must configure your application to use `HttpClientModule`.
+To use the `HttpClient` in Angular, you must configure your application to use `HttpClientModule`.
 
-Angular's `HttpClientModule` registers the providers your application needs to use the `HttpClient` service throughout your application.
+The `HttpClientModule` in Angular registers the providers your application needs to use the `HttpClient` service throughout your application.
 
 1.  In `app.module.ts`, import `HttpClientModule` from the `@angular/common/http` package at the top of the file with the other imports.
     As there are a number of other imports, this code snippet omits them for brevity.
@@ -204,7 +204,7 @@ Angular's `HttpClientModule` registers the providers your application needs to u
 
     <code-example header="src/app/app.module.ts" path="getting-started/src/app/app.module.ts" region="http-client-module-import"></code-example>
 
-1.  To register Angular's `HttpClient` providers globally, add `HttpClientModule` to the `AppModule` `@NgModule()` `imports` array.
+1.  To register the `HttpClient` in Angular providers globally, add `HttpClientModule` to the `AppModule` `@NgModule()` `imports` array.
 
     <code-example header="src/app/app.module.ts" path="getting-started/src/app/app.module.ts" region="http-client-module"></code-example>
 
@@ -228,11 +228,11 @@ To get shipping data, from `shipping.json`, You can use the `HttpClient` `get()`
 
     <code-example header="src/app/cart.service.ts" path="getting-started/src/app/cart.service.ts" region="get-shipping"></code-example>
 
-For more information about Angular's `HttpClient`, see the [Client-Server Interaction](guide/http "Server interaction through HTTP") guide.
+For more information about the `HttpClient` in Angular, see the [Client-Server Interaction](guide/http "Server interaction through HTTP") guide.
 
 ## Create a shipping component
 
-Now that you've configured your application to retrieve shipping data, you can create a place to render that data.
+Now that you have configured your application to retrieve shipping data, you can create a place to render that data.
 
 1.  Generate a cart component named `shipping` in the terminal by running the following command:
 
@@ -251,7 +251,7 @@ Now that you've configured your application to retrieve shipping data, you can c
 
     <code-example header="src/app/app.module.ts" path="getting-started/src/app/app.module.ts" region="shipping-route"></code-example>
 
-    There's no link to the new shipping component yet, but you can see its template in the preview pane by entering the URL its route specifies.
+    There is no link to the new shipping component yet, but you can see the associated template in the preview pane by entering the URL the associated route specifies.
     The URL has the pattern: `https://angular-ynqttp--4200.local.webcontainer.io/shipping` where the `angular-ynqttp--4200.local.webcontainer.io` part may be different for your StackBlitz project.
 
 ### Configuring the `ShippingComponent` to use `CartService`

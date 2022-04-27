@@ -1,6 +1,6 @@
 # Overview
 
-All the content that is rendered by the AIO application, and some of its configuration files, are generated from source files by [Dgeni](https://github.com/angular/dgeni).
+All the content that is rendered by the AIO application, and some of the associated configuration files, are generated from source files by [Dgeni](https://github.com/angular/dgeni).
 Dgeni is a general purpose documentation generation tool.
 
 Markdown files in `/aio/content`, code comments in the core Angular source files and example files are processed and transformed into files that are consumed by the AIO application.

@@ -56,7 +56,7 @@ Template-driven forms rely on directives defined in the `FormsModule`.
 | Directives     | Details |
 |:---            |:---     |
 | `NgModel`      | Reconciles value changes in the attached form element with changes in the data model, allowing you to respond to user input with input validation and error handling.                                                                                                           |
-| `NgForm`       | Creates a top-level `FormGroup` instance and binds it to a `<form>` element to track aggregated form value and validation status. As soon as you import `FormsModule`, this directive becomes active by default on all `<form>` tags. You don't need to add a special selector. |
+| `NgForm`       | Creates a top-level `FormGroup` instance and binds it to a `<form>` element to track aggregated form value and validation status. As soon as you import `FormsModule`, this directive becomes active by default on all `<form>` tags. You do not need to add a special selector. |
 | `NgModelGroup` | Creates and binds a `FormGroup` instance to a DOM element.                                                                                                                                                                                                                      |
 
 ### The sample application
@@ -118,7 +118,7 @@ You can recreate the sample application from the code provided here, or you can 
 
     <code-example header="src/app/hero-form/hero-form.component.ts (v1)" path="forms/src/app/hero-form/hero-form.component.ts" region="v1"></code-example>
 
-    The component's `selector` value of "app-hero-form" means you can drop this form in a parent template using the `<app-hero-form>` tag.
+    The `selector` value of the component is "app-hero-form" means you can drop this form in a parent template using the `<app-hero-form>` tag.
 
 1.  The following code creates a new hero instance, so that the initial form can show an example hero.
 
@@ -131,7 +131,7 @@ You can recreate the sample application from the code provided here, or you can 
 
     <code-example header="src/app/app.module.ts" language="typescript" path="forms/src/app/app.module.ts"></code-example>
 
-1. The form is displayed in the application layout defined by the root component's template.
+1. The form is displayed in the application layout defined by the template of the root component.
 
     <code-example header="src/app/app.component.html" language="html" path="forms/src/app/app.component.html"></code-example>
 
@@ -146,7 +146,7 @@ You can recreate the sample application from the code provided here, or you can 
     At this point, the form  layout is all plain HTML5, with no bindings or directives.
 
 1.  The sample form uses some style classes from [Twitter Bootstrap](https://getbootstrap.com/css): `container`, `form-group`, `form-control`, and `btn`.
-    To use these styles, the application's style sheet imports the library.
+    To use these styles, the style sheet of the application imports the library.
 
     <code-example header="src/styles.css" path="forms/src/styles.1.css"></code-example>
 
@@ -196,7 +196,7 @@ When you imported the `FormsModule` in your component, Angular automatically cre
 To get access to the `NgForm` and the overall form status, declare a [template reference variable](guide/template-reference-variables).
 
 1.  Edit the template file `hero-form.component.html`.
-1.  Update the `<form>` tag with a template reference variable, `#heroForm`, and set its value as follows.
+1.  Update the `<form>` tag with a template reference variable, `#heroForm`, and set the associated value as follows.
 
     <code-example header="src/app/hero-form/hero-form.component.html (excerpt)" path="forms/src/app/hero-form/hero-form.component.html" region="template-variable"></code-example>
 
@@ -222,19 +222,19 @@ When you use `[(ngModel)]` on an element, you must define a `name` attribute for
 Angular uses the assigned name to register the element with the `NgForm` directive attached to the parent `<form>` element.
 
 The example added a `name` attribute to the `<input>` element and set it to "name",
-which makes sense for the hero's name.
+which makes sense for the name of the hero.
 Any unique value will do, but using a descriptive name is helpful.
 
 1.  Add similar `[(ngModel)]` bindings and `name` attributes to **Alter Ego** and **Hero Power**.
 1.  You can now remove the diagnostic messages that show interpolated values.
-1.  To confirm that two-way data binding works for the entire hero model, add a new text binding with the [`json`](api/common/JsonPipe) pipe \(which would serialize the data to a string\) at the top to the component's template.
+1.  To confirm that two-way data binding works for the entire hero model, add a new text binding with the [`json`](api/common/JsonPipe) pipe \(which would serialize the data to a string\) at the top to the template of the component.
 
     After these revisions, the form template should look like the following:
 
     <code-example header="src/app/hero-form/hero-form.component.html (excerpt)" path="forms/src/app/hero-form/hero-form.component.html" region="ngModel-2"></code-example>
 
     *   Notice that each `<input>` element has an `id` property.
-        This is used by the `<label>` element's `for` attribute to match the label to its input control.
+        This is used by the `for` attribute of the `<label>` element to match the label to the associated input control.
         This is a [standard HTML feature](https://developer.mozilla.org/docs/Web/HTML/Element/label).
 
     *   Each `<input>` element also has the required `name` property that Angular uses to register the control with the form.
@@ -257,22 +257,22 @@ The `NgModel` directive on a control tracks the state of that control.
 It tells you if the user touched the control, if the value changed, or if the value became invalid.
 Angular sets special CSS classes on the control element to reflect the state, as shown in the following table.
 
-| States                           | Class if true | Class if false |
-|:---                              |:---           |:---            |
-| The control has been visited.    | `ng-touched`  | `ng-untouched` |
-| The control's value has changed. | `ng-dirty`    | `ng-pristine`  |
-| The control's value is valid.    | `ng-valid`    | `ng-invalid`   |
+| States                                | Class if true | Class if false |
+|:---                                   |:---           |:---            |
+| The control has been visited.         | `ng-touched`  | `ng-untouched` |
+| The value of the control has changed. | `ng-dirty`    | `ng-pristine`  |
+| The value of the control is valid.    | `ng-valid`    | `ng-invalid`   |
 
 Additionally, Angular applies the `ng-submitted` class to `<form>` elements upon submission.
 This class does *not* apply to inner controls.
 
-You use these CSS classes to define the styles for your control based on its status.
+You use these CSS classes to define the styles for your control based on the associated status.
 
 ### Observe control states
 
-To see how the classes are added and removed by the framework, open the browser's developer tools and inspect the `<input>` element that represents the hero name.
+To see how the classes are added and removed by the framework, open the developer tools of the browser and inspect the `<input>` element that represents the hero name.
 
-1.  Using your browser's developer tools, find the  `<input>` element that corresponds to the **Name** input box.
+1.  Using the developer tools of your browser, find the  `<input>` element that corresponds to the **Name** input box.
     You can see that the element has multiple CSS classes in addition to "form-control".
 
 1.  When you first bring it up, the classes indicate that it has a valid value, that the value has not been changed since initialization or reset, and that the control has not been visited since initialization or reset.
@@ -284,7 +284,7 @@ To see how the classes are added and removed by the framework, open the browser'
     </code-example>
 
 1.  Take the following actions on the **Name** `<input>` box, and observe which classes appear.
-    *   Look but don't touch.
+    *   Look but do not touch.
         The classes indicate that it is untouched, pristine, and valid.
 
     *   Click inside the name box, then click outside it.
@@ -326,8 +326,8 @@ To change the appearance in this way, take the following steps.
 ### Show and hide validation error messages
 
 The **Name** input box is required and clearing it turns the bar red.
-That indicates that something is wrong, but the user doesn't know what is wrong or what to do about it.
-You can provide a helpful message by checking for and responding to the control's state.
+That indicates that something is wrong, but the user does not know what is wrong or what to do about it.
+You can provide a helpful message by checking for and responding to the state of the control.
 
 When the user deletes the name, the form should look like this:
 
@@ -337,11 +337,11 @@ When the user deletes the name, the form should look like this:
 
 </div>
 
-The **Hero Power** select box is also required, but it doesn't need this kind of error handling because the selection box already constrains the selection to valid values.
+The **Hero Power** select box is also required, but it does not need this kind of error handling because the selection box already constrains the selection to valid values.
 
 To define and show an error message when appropriate, take the following steps.
 
-1.  Extend the `<input>` tag with a template reference variable that you can use to access the input box's Angular control from within the template.
+1.  Extend the `<input>` tag with a template reference variable that you can use to access the Angular control of the input box from within the template.
     In the example, the variable is `#name="ngModel"`.
 
     <div class="alert is-helpful">
@@ -352,7 +352,7 @@ To define and show an error message when appropriate, take the following steps.
     </div>
 
 1.  Add a `<div>` that contains a suitable error message.
-1.  Show or hide the error message by binding properties of the `name` control to the message `<div>` element's `hidden` property.
+1.  Show or hide the error message by binding properties of the `name` control to the `hidden` property of the message `<div>` element.
 
     <code-example header="src/app/hero-form/hero-form.component.html (hidden-error-msg)" path="forms/src/app/hero-form/hero-form.component.html" region="hidden-error-msg"></code-example>
 
@@ -365,13 +365,13 @@ To define and show an error message when appropriate, take the following steps.
 <header>Illustrating the "pristine" state</header>
 
 In this example, you hide the message when the control is either valid or *pristine*.
-Pristine means the user hasn't changed the value since it was displayed in this form.
+Pristine means the user has not changed the value since it was displayed in this form.
 If you ignore the `pristine` state, you would hide the message only when the value is valid.
-If you arrive in this component with a new \(blank\) hero or an invalid hero, you'll see the error message immediately, before you've done anything.
+If you arrive in this component with a new \(blank\) hero or an invalid hero, you will see the error message immediately, before you have done anything.
 
 You might want the message to display only when the user makes an invalid change.
 Hiding the message while the control is in the `pristine` state achieves that goal.
-You'll see the significance of this choice when you add a new hero to the form in the next step.
+you will see the significance of this choice when you add a new hero to the form in the next step.
 
 </div>
 
@@ -385,7 +385,7 @@ To let form users add a new hero, you will add a **New Hero** button that respon
 
     <code-example header="src/app/hero-form/hero-form.component.ts (New Hero method)" path="forms/src/app/hero-form/hero-form.component.ts" region="new-hero"></code-example>
 
-1.  Bind the button's click event to a hero-creation method, `newHero()`.
+1.  Bind the click event of the button to a hero-creation method, `newHero()`.
 
     <code-example header="src/app/hero-form/hero-form.component.html (New Hero button)" path="forms/src/app/hero-form/hero-form.component.html" region="new-hero-button-no-reset"></code-example>
 
@@ -393,18 +393,18 @@ To let form users add a new hero, you will add a **New Hero** button that respon
 
     The form clears, and the *required* bars to the left of the input box are red, indicating invalid `name` and `power` properties.
     Notice that the error messages are hidden.
-    This is because the form is pristine; you haven't changed anything yet.
+    This is because the form is pristine; you have not changed anything yet.
 
 1.  Enter a name and click **New Hero** again.
 
     Now the application displays a `Name is required` error message, because the input box is no longer pristine.
     The form remembers that you entered a name before clicking **New Hero**.
 
-1.  To restore the pristine state of the form controls, clear all of the flags imperatively by calling the form's `reset()` method after calling the `newHero()` method.
+1.  To restore the pristine state of the form controls, clear all of the flags imperatively by calling the `reset()` method of the form after calling the `newHero()` method.
 
     <code-example header="src/app/hero-form/hero-form.component.html (Reset the form)" path="forms/src/app/hero-form/hero-form.component.html" region="new-hero-button-form-reset"></code-example>
 
-    Now clicking **New Hero** resets both the form and its control flags.
+    Now clicking **New Hero** resets both the form and the associated control flags.
 
 <div class="alert is-helpful">
 
@@ -415,32 +415,32 @@ See the [User Input](guide/user-input) guide for more information about listenin
 ## Submit the form with `ngSubmit`
 
 The user should be able to submit this form after filling it in.
-The **Submit** button at the bottom of the form does nothing on its own, but it does trigger a form-submit event because of its type \(`type="submit"`\).
+The **Submit** button at the bottom of the form does nothing, but it does trigger a form-submit event because of the associated type \(`type="submit"`\).
 To respond to this event, take the following steps.
 
-1.  Bind the form's [`ngSubmit`](api/forms/NgForm#properties) event property to the hero-form component's `onSubmit()` method.
+1.  Bind the [`ngSubmit`](api/forms/NgForm#properties) event property of the form to the `onSubmit()` method of the hero-form component.
 
     <code-example header="src/app/hero-form/hero-form.component.html (ngSubmit)" path="forms/src/app/hero-form/hero-form.component.html" region="ngSubmit"></code-example>
 
 1.  Use the template reference variable, `#heroForm` to access the form that contains the **Submit** button and create an event binding.
-    You will bind the form property that indicates its overall validity to the **Submit** button's `disabled` property.
+    You will bind the form property that indicates the associated overall validity to the `disabled` property of the **Submit** button.
 
     <code-example header="src/app/hero-form/hero-form.component.html (submit-button)" path="forms/src/app/hero-form/hero-form.component.html" region="submit-button"></code-example>
 
 1.  Run the application.
-    Notice that the button is enabled &mdash;although it doesn't do anything useful yet.
+    Notice that the button is enabled &mdash;although it does not do anything useful yet.
 
 1.  Delete the **Name** value.
     This violates the "required" rule, so it displays the error message &mdash;and notice that it also disables the **Submit** button.
 
-    You didn't have to explicitly wire the button's enabled state to the form's validity.
+    You did not have to explicitly wire the enabled state of the button to the validity of the form.
     The `FormsModule` did this automatically when you defined a template reference variable on the enhanced form element, then referred to that variable in the button control.
 
 ### Respond to form submission
 
-To show a response to form submission, you can hide the data entry area and display something else in its place.
+To show a response to form submission, you can hide the data entry area and display something else in place plce of it.
 
-1.  Wrap the entire form in a `<div>` and bind its `hidden` property to the `HeroFormComponent.submitted` property.
+1.  Wrap the entire form in a `<div>` and bind the associated `hidden` property to the `HeroFormComponent.submitted` property.
 
     <code-example header="src/app/hero-form/hero-form.component.html (excerpt)" path="forms/src/app/hero-form/hero-form.component.html" region="edit-div"></code-example>
 
@@ -471,11 +471,11 @@ framework features to provide support for data modification, validation, and mor
 *   Template-reference variables such as `#heroForm` and `#name`
 *   `[(ngModel)]` syntax for two-way data binding
 *   The use of `name` attributes for validation and form-element change tracking
-*   The reference variable's `valid` property on input controls to check if a control is valid and show or hide error messages
-*   Controlling the **Submit** button's enabled state by binding to `NgForm` validity
+*   The `valid` property of the reference variable on input controls to check if a control is valid and show or hide error messages
+*   Controlling the enabled state of the **Submit** button by binding to `NgForm` validity
 *   Custom CSS classes that provide visual feedback to users about invalid controls
 
-Here's the code for the final version of the application:
+Here is the code for the final version of the application:
 
 <code-tabs>
     <code-pane header="hero-form/hero-form.component.ts" path="forms/src/app/hero-form/hero-form.component.ts" region="final"></code-pane>

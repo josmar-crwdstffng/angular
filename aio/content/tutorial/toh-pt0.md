@@ -1,9 +1,9 @@
 # Create a new project
 
 You begin by creating an initial application using the Angular CLI.
-Throughout this tutorial, you'll modify and extend that starter application to create the Tour of Heroes application.
+Throughout this tutorial, you will modify and extend that starter application to create the Tour of Heroes application.
 
-In this part of the tutorial, you'll do the following:
+In this part of the tutorial, you will do the following:
 
 1.  Set up your environment.
 1.  Create a new workspace and initial application project.
@@ -88,13 +88,13 @@ They display data on the screen, listen for user input, and take action based on
 
 Open the project in your favorite editor or IDE and navigate to the `src/app` folder to make some changes to the starter application.
 
-You'll find the implementation of the shell `AppComponent` distributed over three files:
+you will find the implementation of the shell `AppComponent` distributed over three files:
 
 | Files                | Details |
 |:---                  |:---     |
 | `app.component.ts`   | The component class code, written in TypeScript. |
 | `app.component.html` | The component template, written in HTML.         |
-| `app.component.css`  | The component's private CSS styles.              |
+| `app.component.css`  | The private CSS styles of the component.         |
 
 ### Change the application title
 
@@ -107,8 +107,8 @@ Replace it with the following line of HTML.
 
 <code-example header="app.component.html (template)" path="toh-pt0/src/app/app.component.html"></code-example>
 
-The double curly braces are Angular's *interpolation binding* syntax.
-This interpolation binding presents the component's `title` property value inside the HTML header tag.
+The double curly braces are the *interpolation binding* syntax in Angular.
+This interpolation binding presents the value of the `title` property of the component inside the HTML header tag.
 
 The browser refreshes and displays the new application title.
 

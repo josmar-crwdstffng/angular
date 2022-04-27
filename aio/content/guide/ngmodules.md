@@ -3,8 +3,8 @@
 **NgModules** configure the injector and the compiler and help organize related things together.
 
 An NgModule is a class marked by the `@NgModule` decorator.
-`@NgModule` takes a metadata object that describes how to compile a component's template and how to create an injector at runtime.
-It identifies the module's own components, directives, and pipes, making some of them public, through the `exports` property, so that external components can use them.
+`@NgModule` takes a metadata object that describes how to compile the template of a component and how to create an injector at runtime.
+It identifies the components, directives, and pipes of the module, making some of them public, through the `exports` property, so that external components can use them.
 `@NgModule` can also add service providers to the application dependency injectors.
 
 For an example application showcasing all the techniques that NgModules related pages cover, see the <live-example></live-example>.
@@ -20,14 +20,14 @@ Many third-party libraries are available as NgModules such as [Material Design](
 NgModules consolidate components, directives, and pipes into cohesive blocks of functionality, each focused on a feature area, application business domain, workflow, or common collection of utilities.
 
 Modules can also add services to the application.
-Such services might be internally developed, like something you'd develop yourself or come from outside sources, such as the Angular router and HTTP client.
+Such services might be internally developed, like something you would develop yourself or come from outside sources, such as the Angular router and HTTP client.
 
 Modules can be loaded eagerly when the application starts or lazy loaded asynchronously by the router.
 
 NgModule metadata does the following:
 
 *   Declares which components, directives, and pipes belong to the module
-*   Makes some of those components, directives, and pipes public so that other module's component templates can use them
+*   Makes some of those components, directives, and pipes public so that the component templates of the other module can use them
 *   Imports other modules with the components, directives, and pipes that components in the current module need
 *   Provides services that other application components can use
 
@@ -44,7 +44,7 @@ The [Angular CLI](cli) generates the following basic `AppModule` when creating a
 
 <code-example path="ngmodules/src/app/app.module.1.ts" header="src/app/app.module.ts (default AppModule)">
 
-// &commat;NgModule decorator with its metadata
+// &commat;NgModule decorator with the associated metadata
 
 </code-example>
 

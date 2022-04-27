@@ -8,7 +8,7 @@ The Angular Team does not collect usage statistics unless you explicitly opt in 
 Usage analytics include the commands and selected flags for each execution.
 Usage analytics may include the following information:
 
-*   Your operating system \(macOS, Linux distribution, Windows\) and its version.
+*   Your operating system \(macOS, Linux distribution, Windows\) and the associated version.
 *   Number of CPUs, amount of RAM.
 *   Node and Angular CLI version \(local version only\).
 *   How long each command took to initialize and execute.

@@ -1,6 +1,6 @@
-# Content Contributor's Guide
+# Guide for Content Contributors
 
-Angular, as an open source project, depends on its community. This dependence is particularly important to the documentation. The more the community contributes to the documentation, the better the documentation becomes, which helps both new and experienced Angular developers.
+Angular, as an open source project, depends on the associated community. This dependence is particularly important to the documentation. The more the community contributes to the documentation, the better the documentation becomes, which helps both new and experienced Angular developers.
 
 The topics in this section cover ways in which you can contribute to the Angular documentation set.
 

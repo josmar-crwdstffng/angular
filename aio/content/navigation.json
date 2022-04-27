@@ -67,12 +67,12 @@
             {
               "url": "start",
               "title": "Getting started",
-              "tooltip": "Take a look at Angular's component model, template syntax, and component communication."
+              "tooltip": "Take a look at the component model, template syntax, and component communication in Angular."
             },
             {
               "url": "start/start-routing",
               "title": "Adding navigation",
-              "tooltip": "Navigate among different page views using the browser's URL."
+              "tooltip": "Navigate among different page views using the URL of the browser."
             },
             {
               "url": "start/start-data",
@@ -124,7 +124,7 @@
             {
               "url": "guide/view-encapsulation",
               "title": "View Encapsulation",
-              "tooltip": "Describes how component CSS styles are encapsulated into a component's view."
+              "tooltip": "Describes how component CSS styles are encapsulated into the view of a component."
             },
             {
               "url": "guide/component-interaction",
@@ -144,7 +144,7 @@
             {
               "url": "guide/content-projection",
               "title": "Content Projection",
-              "tooltip": "Learn how to create reusable components using Angular's content projection feature."
+              "tooltip": "Learn how to create reusable components using content projection feature in Angular."
             },
             {
               "url": "guide/dynamic-component-loader",
@@ -279,7 +279,7 @@
             {
               "url": "guide/dependency-injection",
               "title": "Angular Dependency Injection",
-              "tooltip": "Angular's dependency injection system creates and delivers dependent services to Angular-created classes."
+              "tooltip": "The dependency injection system in Angular creates and delivers dependent services to Angular-created classes."
             },
             {
               "url": "guide/dependency-injection-providers",
@@ -352,7 +352,7 @@
             {
               "url": "guide/router-tutorial-toh",
               "title": "Tutorial: Adding routing to Tour of Heroes",
-              "tooltip": "Explore how to use Angular's router. Based on the Tour of Heroes example."
+              "tooltip": "Explore how to use the router in Angular. Based on the Tour of Heroes example."
             },
             {
               "url": "guide/router-reference",
@@ -383,7 +383,7 @@
             {
               "url": "guide/form-validation",
               "title": "Validate form input",
-              "tooltip": "Validate user's form entries."
+              "tooltip": "Validate form entries for the user."
             },
             {
               "url": "guide/dynamic-form",
@@ -574,7 +574,7 @@
             {
               "url": "guide/service-worker-intro",
               "title": "Introduction",
-              "tooltip": "Angular's implementation of service workers improves user experience with slow or unreliable network connectivity."
+              "tooltip": "The implementation of service workers in Angular improves user experience with slow or unreliable network connectivity."
             },
             {
               "url": "guide/service-worker-getting-started",
@@ -966,7 +966,7 @@
                 {
                   "url": "guide/strict-mode",
                   "title": "Strict mode",
-                  "tooltip": "Reference documentation for Angular's strict mode.",
+                  "tooltip": "Reference documentation for the strict mode in Angular.",
                   "hidden": true
                 }
               ]
@@ -1162,7 +1162,7 @@
             {
               "url": "guide/contributors-guide-overview",
               "title": "Overview",
-              "tooltip": "Provides an overview of how to contribute to Angular's documentation."
+              "tooltip": "Provides an overview of how to contribute to the documentation for Angular."
             },
             {
               "url": "guide/reviewing-content",
@@ -1255,7 +1255,7 @@
           "tooltip": "Post issues and suggestions on github."
         },
         {
-          "url": "https://github.com/angular/code-of-conduct/blob/master/CODE_OF_CONDUCT.md",
+          "url": "https://github.com/angular/code-of-conduct/blob/main/CODE_OF_CONDUCT.md",
           "title": "Code of Conduct",
           "tooltip": "Treating each other with respect."
         }

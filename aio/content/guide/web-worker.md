@@ -1,11 +1,11 @@
 # Background processing using web workers
 
 [Web workers](https://developer.mozilla.org/docs/Web/API/Web_Workers_API) lets you run CPU-intensive computations in a background thread, freeing the main thread to update the user interface.
-If you find your application performs a lot of computations, such as generating CAD drawings or doing heavy geometrical calculations, using web workers can help increase your application's performance.
+If you find your application performs a lot of computations, such as generating CAD drawings or doing heavy geometrical calculations, using web workers can help increase the performance of your application.
 
 <div class="alert is-helpful">
 
-The CLI does not support running Angular itself in a web worker.
+The CLI does not support running Angular in a web worker.
 
 </div>
 
@@ -30,7 +30,7 @@ ng generate web-worker app
 
 The command performs the following actions.
 
-1.  Configures your project to use web workers, if it isn't already.
+1.  Configures your project to use web workers, if it is not already.
 1.  Adds the following scaffold code to `src/app/app.worker.ts` to  receive messages.
 
     <code-example language="typescript" header="src/app/app.worker.ts">
@@ -64,7 +64,7 @@ After you generate this initial scaffold, you must refactor your code to use the
 
 <div class="alert is-important">
 
-Some environments or platforms, such as `@angular/platform-server` used in [Server-side Rendering](guide/universal), don't support web workers.
+Some environments or platforms, such as `@angular/platform-server` used in [Server-side Rendering](guide/universal), do not support web workers.
 To ensure that your application will work in these environments, you must provide a fallback mechanism to perform the computations that the worker would otherwise perform.
 
 </div>

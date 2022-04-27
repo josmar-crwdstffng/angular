@@ -10,10 +10,10 @@ See the <live-example></live-example> for a working example containing the code 
 
 ## Prerequisites
 
-* [Basics of components](guide/architecture-components)
-* [Basics of templates](guide/glossary#template)
-* [Binding syntax](guide/binding-syntax)
-* [Template statements](guide/template-statements)
+*   [Basics of components](guide/architecture-components)
+*   [Basics of templates](guide/glossary#template)
+*   [Binding syntax](guide/binding-syntax)
+*   [Template statements](guide/template-statements)
 
 ## Binding to events
 
@@ -23,13 +23,17 @@ This syntax consists of a target event name within parentheses to the left of an
 Create the following example; the target event name is `click` and the template statement is `onSave()`.
 
 <code-example language="html" header="Event binding syntax">
+
 &lt;button (click)="onSave()"&gt;Save&lt;/button&gt;
+
 </code-example>
 
-The event binding listens for the button's click events and calls the component's `onSave()` method whenever a click occurs.
+The event binding listens for the click events of the button and calls the `onSave()` method of the component whenever a click occurs.
 
 <div class="lightbox">
-  <img src='generated/images/guide/template-syntax/syntax-diagram.svg' alt="Syntax diagram">
+
+<img src='generated/images/guide/template-syntax/syntax-diagram.svg' alt="Syntax diagram">
+
 </div>
 
 ### Determining an event target
@@ -48,9 +52,9 @@ This is an advanced technique that is not necessary for most applications. You m
 
 Angular also supports passive event listeners. For example, use the following steps to make a scroll event passive.
 
-1. Create a file `zone-flags.ts` under `src` directory.
-2. Add the following line into this file.
-3. In the `src/polyfills.ts` file, before importing zone.js, import the newly created `zone-flags`.
+1.  Create a file `zone-flags.ts` under `src` directory.
+1.  Add the following line into this file.
+1.  In the `src/polyfills.ts` file, before importing zone.js, import the newly created `zone-flags`.
 
 ```
 import './zone-flags';
@@ -61,9 +65,9 @@ After those steps, if you add event listeners for the `scroll` event, the listen
 
 ## What's next
 
-* For more information on how event binding works, see [How event binding works](guide/event-binding-concepts).
-* [Property binding](guide/property-binding)
-* [Text interpolation](guide/interpolation)
-* [Two-way binding](guide/two-way-binding)
+*   For more information on how event binding works, see [How event binding works](guide/event-binding-concepts).
+*   [Property binding](guide/property-binding)
+*   [Text interpolation](guide/interpolation)
+*   [Two-way binding](guide/two-way-binding)
 
 @reviewed 2022-05-10

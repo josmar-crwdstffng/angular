@@ -14,7 +14,7 @@ for latest updates and best practices.
 In the beginning of this project, we thought it would make Bazel easier for
 users to adopt if we abstracted the BUILD files management and tooling
 orchestration within Angular CLI. However, we have come to realize that such
-abstraction does not encourage users to use Bazel to its full potential.
+abstraction does not encourage users to use Bazel to the associated full potential.
 
 There are a few other reasons for this deprecation:
 
@@ -38,7 +38,7 @@ You could leave the Bazel files in your workspace, and manage them manually:
 ng build --leaveBazelFilesOnDisk
 ```
 
-If you're using Ivy, in your BUILD files replace `ng_module` with the
+If you are using Ivy, in your BUILD files replace `ng_module` with the
 [`ng_ts_library`](https://github.com/bazelbuild/rules_nodejs/blob/master/examples/angular/tools/angular_ts_library.bzl)
 rule.
 This new rule leverages ngtsc plugin supported by `ts_library`, and it is much faster.
@@ -49,7 +49,7 @@ For questions, please ask in the `#angular` channel in http://slack.bazel.build/
 
 ## Angular CLI
 
-If you'd like to revert to the default Angular CLI builder, you could restore
+If you would like to revert to the default Angular CLI builder, you could restore
 the original Angular config from backup by replacing `angular.json` with
 `angular.json.bak`.
 

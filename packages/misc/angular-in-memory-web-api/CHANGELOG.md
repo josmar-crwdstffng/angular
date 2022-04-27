@@ -4,7 +4,7 @@ It is not supposed to emulate every possible real world web API and is not inten
 >
 >Most importantly, it is ***always experimental***.
 
-We will make breaking changes and we won't feel bad about it
+We will make breaking changes and we will not feel bad about it
 because this is a development tool, not a production product.
 We do try to tell you about such changes in this `CHANGELOG.md`
 and we fix bugs as fast as we can.
@@ -92,7 +92,7 @@ the HTTP response results from the `data` property like this:
 ```
 **To migrate, simply remove that line everywhere.**
 
-If you would rather keep the web api's encapsulation, `{data: ...}`, set `dataEncapsulation` to `true` during configuration as in the following example:
+If you would rather keep the `{data: ...}` encapsulation of the web api, set `dataEncapsulation` to `true` during configuration as in the following example:
 ```
 HttpClientInMemoryWebApiModule.forRoot(HeroInMemDataService, { dataEncapsulation: true })
 ```
@@ -101,15 +101,15 @@ We made this change because
 
 1. Almost everyone seems to hate the encapsulation
 
-2. Encapsulation requires mapping to get the desired data out. With old `Http` that isn't _too_ bad because you needed to map to get data anyway (`res => res.json()`). But it is really ugly for `HttpClient` because you can't use the type HTTP method type parameter (e.g., `get<entity-type>`) and you have to map out of the data property (`.map(data => data.data as Hero[]`). That extra step requires explanations that distract from learning `HttpClient` itself.
-Now you just write `http.get<Hero[]>()` and you’ve got data (please add error handling).
+2. Encapsulation requires mapping to get the desired data out. With old `Http` that is not _too_ bad because you needed to map to get data anyway (`res => res.json()`). But it is really ugly for `HttpClient` because you cannot use the type HTTP method type parameter (e.g., `get<entity-type>`) and you have to map out of the data property (`.map(data => data.data as Hero[]`). That extra step requires explanations that distract from learning `HttpClient`.
+Now you just write `http.get<Hero[]>()` and you have got data (please add error handling).
 
-3. While you could have turned off encapsulation with configuration as of v.0.4, to do so took yet another step that you’d have to discover and explain.  A big reason for the in-mem web api is to make it easy to introduce and demonstrate HTTP operations in Angular. The _out-of-box_ experience is more important than avoiding a breaking change.
+3. While you could have turned off encapsulation with configuration as of v.0.4, to do so took yet another step that you would have to discover and explain.  A big reason for the in-mem web api is to make it easy to introduce and demonstrate HTTP operations in Angular. The _out-of-box_ experience is more important than avoiding a breaking change.
 
 4. The [security flaw](https://stackoverflow.com/questions/3503102/what-are-top-level-json-arrays-and-why-are-they-a-security-risk)
-that prompted encapsulation seems to have been mitigated by all (almost all?) the browsers that can run an Angular (v2+) app. We don’t think it’s needed anymore.
+that prompted encapsulation seems to have been mitigated by all (almost all?) the browsers that can run an Angular (v2+) app. We do not think it is needed anymore.
 
-5. A most real world APIs today will not encapsulate; they’ll return the data in the body without extra ceremony.
+5. A most real world APIs today will not encapsulate; they will return the data in the body without extra ceremony.
 
 <a id="0.4.6"></a>
 ## 0.4.6 (2017-09-13)
@@ -157,7 +157,7 @@ You may return the database object (synchronous), an observable of it, or a prom
 The passthru feature was broken by 0.4.0
 - add passthru to both `Http` and `HttpClient`
 - test passThru feature with jasmine-ajax mock-ajax plugin
-to intercept Angular's attempt to call browser's XHR
+to intercept the attempt in Angular to call the XHR of the browser
 - update devDependency packages
 - update karma.conf with jasmine-ajax plugin
 
@@ -168,15 +168,15 @@ See PR #130.
 
 The 0.4.0 release was a major overhaul of this library.
 
-You don't have to change your existing application _code_ if your app uses this library without customizations.
+You do not have to change your existing application _code_ if your app uses this library without customizations.
 
-But this release's **breaking changes** affect developers who used the customization features or loaded application files with SystemJS.
+But the **breaking changes** in this release affect developers who used the customization features or loaded application files with SystemJS.
 
 **BREAKING CHANGES**: Massive refactoring.
 Many low-level and customization options have changed.
 Apps that stuck with defaults should be (mostly) OK.
 
-If you're loading application files with **SystemJS** (as you would in a plunker), see the [instructions below](#v-0-4-systemjs).
+If you are loading application files with **SystemJS** (as you would in a plunker), see the [instructions below](#v-0-4-systemjs).
 
 * added support for `HttpClient` -> renaming of backend service classes
 * added tests
@@ -189,7 +189,7 @@ If you're loading application files with **SystemJS** (as you would in a plunker
 * `POST commands/resetDb` passes the request to your `resetDb` method
 so you can optionally reset the database dynamically
 to arbitrary initial states (issue #128)
-* when HTTP method interceptor returns null/undefined, continue with service's default processing (pr #120)
+* when HTTP method interceptor returns null/undefined, continue with the default processing of the service (pr #120)
 * can substitute your own id generator, `geniD`
 * parseUrl -> parseRequestUrl
 * utility methods exposed in `RequestInfo.utils`
@@ -201,7 +201,7 @@ to arbitrary initial states (issue #128)
 <a id="v-0-4-systemjs"></a>
 ### Plunkers and SystemJS
 
-If you’re loading application files with **SystemJS** (as you would in a plunker), you’ll have to configure it to load Angular’s `umd.js` for `HttpModule` and the `tslib` package.
+If you are loading application files with **SystemJS** (as you would in a plunker), you will have to configure it to load the `umd.js` in Angular for `HttpModule` and the `tslib` package.
 
 To see how, look in the `map` section of the
 [`src/systemjs.config.js` for this project](https://github.com/angular/in-memory-web-api/blob/master/src/systemjs.config.js) for the following two _additional_ lines :
@@ -213,11 +213,11 @@ To see how, look in the `map` section of the
 
 ```
 
-You've already made these changes if you are using `HttpClient` today.
+You have already made these changes if you are using `HttpClient` today.
 
-If you’re sticking with the original Angular `Http` module, you _must make this change anyway!_ Your app will break as soon as you run `npm install` and it installs >=v0.4.0.
+If you are sticking with the original Angular `Http` module, you _must make this change anyway!_ Your app will break as soon as you run `npm install` and it installs >=v0.4.0.
 
-If you're using webpack (as CLI devs do), you don't have to worry about this stuff because webpack bundles the dependencies for you.
+If you are using webpack (as CLI devs do), you do not have to worry about this stuff because webpack bundles the dependencies for you.
 
 ---
 
@@ -255,17 +255,17 @@ See PR #102.
 ## 0.2.0 (2016-12-11)
 
 * BREAKING CHANGE: The observables returned by the `handleCollections` methods that process requests against the supplied in-mem-db collections are now "cold".
-That means that requests aren't processed until something subscribes to the observable ... just like real-world `Http` calls.
+That means that requests are not processed until something subscribes to the observable ... just like real-world `Http` calls.
 
   Previously, these request were "hot" meaning that the operation was performed immediately
   (e.g., an in-memory collection was updated) and _then_ we returned an `Observable<Response>`.
   That was a mistake! Fixing that mistake _might_ break your app which is why bumped the _minor_ version number from 1 to 2.
 
   We hope _very few apps are broken by this change_. Most will have subscribed anyway.
-  But any app that called an `http` method with fire-and-forget ... and didn't subscribe ...
+  But any app that called an `http` method with fire-and-forget ... and did not subscribe ...
   expecting the database to be updated (for example) will discover that the operation did ***not*** happen.
 
-* BREAKING CHANGE: `createErrorResponse` now requires the `Request` object as its first parameter
+* BREAKING CHANGE: `createErrorResponse` now requires the `Request` object as the associated first parameter
 so it can prepare a proper error message.
 For example, a 404 `errorResponse.toString()` now shows the request URL.
 
@@ -285,7 +285,7 @@ See the ReadMe to learn more.
 * Added `config.post204` and `config.put204` to control whether PUT and POST return the saved entity.
 It is `true` by default which means they do not return the entity (`status=204`) &mdash; the same behavior as before. (issue #74)
 
-* `response.url` is set to `request.url` when this service itself creates the response.
+* `response.url` is set to `request.url` when this service creates the response.
 
 * A few new methods (e.g., `emitResponse`) to assist in HTTP method interceptors.
 
@@ -381,7 +381,7 @@ in-mem module. Documented in later release, v.0.1.13
 
 <a id="0.1.1"></a>
 ## 0.1.1 (2016-09-26)
-* Exclude src folder and its TS files from npm package
+* Exclude src folder and the associated TS files from npm package
 
 <a id="0.1.0"></a>
 ## 0.1.0 (2016-09-25)
@@ -408,7 +408,7 @@ The last npm package named "angular2-in-memory-web-api" was v.0.0.21
 
 <a id="0.0.18"></a>
 ## 0.0.18 (2016-08-31)
-* RC6 (doesn't work with older versions)
+* RC6 (does not work with older versions)
 
 <a id="0.0.17"></a>
 ## 0.0.17 (2016-08-19)

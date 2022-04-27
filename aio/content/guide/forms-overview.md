@@ -25,8 +25,8 @@ Each approach offers different advantages.
 
 | Forms                 | Details |
 |:---                   |:---     |
-| Reactive forms        | Provide direct, explicit access to the underlying forms object model. Compared to template-driven forms, they are more robust: they're more scalable, reusable, and testable. If forms are a key part of your application, or you're already using reactive patterns for building your application, use reactive forms.                                                                                             |
-| Template-driven forms | Rely on directives in the template to create and manipulate the underlying object model. They are useful for adding a simple form to an app, such as an email list signup form. They're straightforward to add to an app, but they don't scale as well as reactive forms. If you have very basic form requirements and logic that can be managed solely in the template, template-driven forms could be a good fit. |
+| Reactive forms        | Provide direct, explicit access to the underlying forms object model. Compared to template-driven forms, they are more robust: they are more scalable, reusable, and testable. If forms are a key part of your application, or you are already using reactive patterns for building your application, use reactive forms.                                                                                             |
+| Template-driven forms | Rely on directives in the template to create and manipulate the underlying object model. They are useful for adding a simple form to an app, such as an email list signup form. They are straightforward to add to an app, but they do not scale as well as reactive forms. If you have very basic form requirements and logic that can be managed solely in the template, template-driven forms could be a good fit. |
 
 ### Key differences
 
@@ -135,7 +135,7 @@ The following diagrams illustrate both kinds of data flow for each type of form,
 In reactive forms each form element in the view is directly linked to the form model \(a `FormControl` instance\).
 Updates from the view to the model and from the model to the view are synchronous and do not depend on how the UI is rendered.
 
-The view-to-model diagram shows how data flows when an input field's value is changed from the view through the following steps.
+The view-to-model diagram shows how data flows when the value of an input field is changed from the view through the following steps.
 
 1.  The user types a value into the input element, in this case the favorite color *Blue*.
 1.  The form input element emits an "input" event with the latest value.
@@ -168,7 +168,7 @@ The model-to-view diagram shows how a programmatic change to the model is propag
 
 In template-driven forms, each form element is linked to a directive that manages the form model internally.
 
-The view-to-model diagram shows how data flows when an input field's value is changed from the view through the following steps.
+The view-to-model diagram shows how data flows when the value of an input field is changed from the view through the following steps.
 
 1.  The user types *Blue* into the input element.
 1.  The input element emits an "input" event with the value *Blue*.
@@ -188,7 +188,7 @@ The model-to-view diagram shows how data flows from model to view when the `favo
 
 1.  The `favoriteColor` value is updated in the component.
 1.  Change detection begins.
-1.  During change detection, the `ngOnChanges` lifecycle hook is called on the `NgModel` directive instance because the value of one of its inputs has changed.
+1.  During change detection, the `ngOnChanges` lifecycle hook is called on the `NgModel` directive instance because the value of one of the associated inputs has changed.
 1.  The `ngOnChanges()` method queues an async task to set the value for the internal `FormControl` instance.
 1.  Change detection completes.
 1.  On the next tick, the task to set the `FormControl` instance value is executed.
@@ -210,20 +210,20 @@ The change-tracking method plays a role in the efficiency of your application.
 
 | Forms                 | Details |
 |:---                   |:---     |
-| Reactive forms        | Keep the data model pure by providing it as an immutable data structure. Each time a change is triggered on the data model, the `FormControl` instance returns a new data model rather than updating the existing data model. This gives you the ability to track unique changes to the data model through the control's observable. Change detection is more efficient because it only needs to update on unique changes. Because data updates follow reactive patterns, you can integrate with observable operators to transform data. |
+| Reactive forms        | Keep the data model pure by providing it as an immutable data structure. Each time a change is triggered on the data model, the `FormControl` instance returns a new data model rather than updating the existing data model. This gives you the ability to track unique changes to the data model through the observable of the control. Change detection is more efficient because it only needs to update on unique changes. Because data updates follow reactive patterns, you can integrate with observable operators to transform data. |
 | Template-driven forms | Rely on mutability with two-way data binding to update the data model in the component as changes are made in the template. Because there are no unique changes to track on the data model when using two-way data binding, change detection is less efficient at determining when updates are required.                                                                                                                                                                                                                                 |
 
 The difference is demonstrated in the previous examples that use the favorite-color input element.
 
-*   With reactive forms, the **`FormControl` instance** always returns a new value when the control's value is updated
-*   With template-driven forms, the **favorite color property** is always modified to its new value
+*   With reactive forms, the **`FormControl` instance** always returns a new value when the value of the control is updated
+*   With template-driven forms, the **favorite color property** is always modified to the associated new value
 
 <a id="validation"></a>
 
 ## Form validation
 
 Validation is an integral part of managing any set of forms.
-Whether you're checking for required fields or querying an external API for an existing username, Angular provides a set of built-in validators as well as the ability to create custom validators.
+Whether you are checking for required fields or querying an external API for an existing username, Angular provides a set of built-in validators as well as the ability to create custom validators.
 
 | Forms                 | Details |
 |:---                   |:---     |
@@ -254,7 +254,7 @@ The first example performs the following steps to verify the view-to-model data 
 
 1.  Query the view for the form input element, and create a custom "input" event for the test.
 1.  Set the new value for the input to *Red*, and dispatch the "input" event on the form input element.
-1.  Assert that the component's `favoriteColorControl` value matches the value from the input.
+1.  Assert that the value of the `favoriteColorControl` of the component matches the value from the input.
 
 <code-example header="Favorite color test - view to model" path="forms-overview/src/app/reactive/favorite-color/favorite-color.component.spec.ts" region="view-to-model"></code-example>
 

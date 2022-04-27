@@ -1,6 +1,6 @@
 # Service worker communication
 
-Importing `ServiceWorkerModule` into your `AppModule` doesn't just register the service worker, it also provides a few services you can use to interact with the service worker and control the caching of your application.
+Importing `ServiceWorkerModule` into your `AppModule` does not just register the service worker, it also provides a few services you can use to interact with the service worker and control the caching of your application.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ The `versionUpdates` is an `Observable` property of `SwUpdate` and emits four ev
 
 ### Checking for updates
 
-It's possible to ask the service worker to check if any updates have been deployed to the server.
+It is possible to ask the service worker to check if any updates have been deployed to the server.
 The service worker checks for updates during initialization and on each navigation request &mdash;that is, when the user navigates from a different address to your application.
 However, you might choose to manually check for updates if you have a site that changes frequently or want updates to happen on a schedule.
 
@@ -84,7 +84,7 @@ In some cases, the version of the application used by the service worker to serv
 For example, imagine the following scenario:
 
 *   A user opens the application for the first time and the service worker caches the latest version of the application.
-    Assume the application's cached assets include `index.html`, `main.<main-hash-1>.js` and `lazy-chunk.<lazy-hash-1>.js`.
+    Assume the cached assets of the application include `index.html`, `main.<main-hash-1>.js` and `lazy-chunk.<lazy-hash-1>.js`.
 
 *   The user closes the application and does not open it for a while.
 *   After some time, a new version of the application is deployed to the server.
@@ -99,7 +99,7 @@ For example, imagine the following scenario:
 
     The old version is no longer available on the server.
 
-*   In the meantime, the user's browser decides to evict `lazy-chunk.<lazy-hash-1>.js` from its cache.
+*   In the meantime, the browser of the user decides to evict `lazy-chunk.<lazy-hash-1>.js` from the associated cache.
     Browsers might decide to evict specific \(or all\) resources from a cache in order to reclaim disk space.
 
 *   The user opens the application again.

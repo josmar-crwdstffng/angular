@@ -1,11 +1,11 @@
 # Create a feature component
 
-At the moment, the `HeroesComponent` displays both the list of heroes and the selected hero's details.
+At the moment, the `HeroesComponent` displays both the list of heroes and the details of the selected hero.
 
 Keeping all features in one component as the application grows will not be maintainable.
-You'll want to split up large components into smaller sub-components, each focused on a specific task or workflow.
+you will want to split up large components into smaller sub-components, each focused on a specific task or workflow.
 
-In this page, you'll take the first step in that direction by moving the hero details into a separate, reusable `HeroDetailComponent`.
+In this page, you will take the first step in that direction by moving the hero details into a separate, reusable `HeroDetailComponent`.
 
 The `HeroesComponent` will only present the list of heroes.
 The `HeroDetailComponent` will present details of a selected hero.
@@ -47,13 +47,13 @@ The pasted HTML refers to a `selectedHero`.
 The new `HeroDetailComponent` can present *any* hero, not just a selected hero.
 So replace "selectedHero" with "hero" everywhere in the template.
 
-When you're done, the `HeroDetailComponent` template should look like this:
+When you are done, the `HeroDetailComponent` template should look like this:
 
 <code-example header="src/app/hero-detail/hero-detail.component.html" path="toh-pt3/src/app/hero-detail/hero-detail.component.html"></code-example>
 
 ### Add the `@Input()` hero property
 
-The `HeroDetailComponent` template binds to the component's `hero` property
+The `HeroDetailComponent` template binds to the `hero` property of the component
 which is of type `Hero`.
 
 Open the `HeroDetailComponent` class file and import the `Hero` symbol.
@@ -76,13 +76,13 @@ Add a `hero` property, preceded by the `@Input()` decorator.
 
 <code-example header="src/app/hero-detail/hero-detail.component.ts" path="toh-pt3/src/app/hero-detail/hero-detail.component.ts" region="input-hero"></code-example>
 
-That's the only change you should make to the `HeroDetailComponent` class.
-There are no more properties. There's no presentation logic.
-This component only receives a hero object through its `hero` property and displays it.
+That is the only change you should make to the `HeroDetailComponent` class.
+There are no more properties. There is no presentation logic.
+This component only receives a hero object through the associated `hero` property and displays it.
 
 ## Show the `HeroDetailComponent`
 
-The `HeroesComponent` used to display the hero details on its own, before you removed that portion of the template.
+The `HeroesComponent` used to display the hero details, before you removed that portion of the template.
 This section guides you through delegating logic to the `HeroDetailComponent`.
 
 The two components will have a parent/child relationship.
@@ -90,7 +90,7 @@ The parent `HeroesComponent` will control the child `HeroDetailComponent`
 by sending it a new hero to display whenever
 the user selects a hero from the list.
 
-You won't change the `HeroesComponent` *class* but you will change its *template*.
+You will not change the `HeroesComponent` *class* but you will change the associated *template*.
 
 <a id="heroes-component-template"></a>
 
@@ -99,13 +99,13 @@ You won't change the `HeroesComponent` *class* but you will change its *template
 The `HeroDetailComponent` selector is `'app-hero-detail'`.
 Add an `<app-hero-detail>` element near the bottom of the `HeroesComponent` template, where the hero detail view used to be.
 
-Bind the `HeroesComponent.selectedHero` to the element's `hero` property like this.
+Bind the `HeroesComponent.selectedHero` to the `hero` property of the element like this.
 
 <code-example header="heroes.component.html (HeroDetail binding)" path="toh-pt3/src/app/heroes/heroes.component.html" region="hero-detail-binding"></code-example>
 
 `[hero]="selectedHero"` is an Angular [property binding](guide/property-binding).
 
-It's a *one way* data binding from
+It is a *one way* data binding from
 the `selectedHero` property of the `HeroesComponent` to the `hero` property of the target element, which maps to the `hero` property of the `HeroDetailComponent`.
 
 Now when the user clicks a hero in the list, the `selectedHero` changes.

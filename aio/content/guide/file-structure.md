@@ -15,11 +15,11 @@ ng new &lt;my-project&gt;
 When you run this command, the CLI installs the necessary Angular npm packages and other dependencies in a new workspace, with a root-level application named *my-project*.
 The workspace root folder contains various support and configuration files, and a README file with generated descriptive text that you can customize.
 
-By default, `ng new` creates an initial skeleton application at the root level of the workspace, along with its end-to-end tests.
+By default, `ng new` creates an initial skeleton application at the root level of the workspace, along with the associated end-to-end tests.
 The skeleton is for a simple Welcome application that is ready to run and easy to modify.
 The root-level application has the same name as the workspace, and the source files reside in the `src/` subfolder of the workspace.
 
-This default behavior is suitable for a typical "multi-repo" development style where each application resides in its own workspace.
+This default behavior is suitable for a typical "multi-repo" development style where each application resides in an associated workspace.
 Beginners and intermediate users are encouraged to use `ng new` to create a separate workspace for each application.
 
 Angular also supports workspaces with [multiple projects](#multiple-projects).
@@ -56,7 +56,7 @@ This initial root-level application is the *default app* for CLI commands \(unle
 
 <div class="alert is-helpful">
 
-Besides using the CLI on the command line, you can also manipulate files directly in the application's source folder and configuration files.
+Besides using the CLI on the command line, you can also manipulate files directly in the source folder and configuration files of the application.
 
 </div>
 
@@ -74,11 +74,11 @@ Subfolders contain the application source and application-specific configuration
 | `assets/`                 | Contains image and other asset files to be copied as-is when you build your application.                                                                                                                                                                                                                                                                   |
 | `environments/`           | Contains build configuration options for particular target environments. By default there is an unnamed standard development environment and a production \("prod"\) environment. You can define additional target environment configurations.                                                                                                             |
 | `favicon.ico`             | An icon to use for this application in the bookmark bar.                                                                                                                                                                                                                                                                                                   |
-| `index.html`              | The main HTML page that is served when someone visits your site. The CLI automatically adds all JavaScript and CSS files when building your app, so you typically don't need to add any `<script>` or` <link>` tags here manually.                                                                                                                         |
-| `main.ts`                 | The main entry point for your application. Compiles the application with the [JIT compiler](guide/glossary#jit) and bootstraps the application's root module \(AppModule\) to run in the browser. You can also use the [AOT compiler](guide/aot-compiler) without changing any code by appending the `--aot` flag to the CLI `build` and `serve` commands. |
+| `index.html`              | The main HTML page that is served when someone visits your site. The CLI automatically adds all JavaScript and CSS files when building your app, so you typically do not need to add any `<script>` or` <link>` tags here manually.                                                                                                                         |
+| `main.ts`                 | The main entry point for your application. Compiles the application with the [JIT compiler](guide/glossary#jit) and bootstraps the `AppModule` root module of the application to run in the browser. You can also use the [AOT compiler](guide/aot-compiler) without changing any code by appending the `--aot` flag to the CLI `build` and `serve` commands. |
 | `polyfills.ts`            | Provides polyfill scripts for browser support.                                                                                                                                                                                                                                                                                                             |
 | `styles.sass`             | Lists CSS files that supply styles for a project. The extension reflects the style preprocessor you have configured for the project.                                                                                                                                                                                                                       |
-| `test.ts`                 | The main entry point for your unit tests, with some Angular-specific configuration. You don't typically need to edit this file.                                                                                                                                                                                                                            |
+| `test.ts`                 | The main entry point for your unit tests, with some Angular-specific configuration. You do not typically need to edit this file.                                                                                                                                                                                                                            |
 
 <div class="alert is-helpful">
 
@@ -90,12 +90,12 @@ For more information, see [Strict mode](guide/strict-mode).
 
 <a id="app-src"></a>
 
-Inside the `src` folder, the `app` folder contains your project's logic and data.
+Inside the `src` folder, the `app` folder contains the logic and data of your project.
 Angular components, templates, and styles go here.
 
 | `src/app/` files            | Purpose                                                                                                                                                                                                                                                    |
 |:---                         |:---                                                                                                                                                                                                                                                        |
-| `app/app.component.ts`      | Defines the logic for the application's root component, named `AppComponent`. The view associated with this root component becomes the root of the [view hierarchy](guide/glossary#view-hierarchy) as you add components and services to your application. |
+| `app/app.component.ts`      | Defines the logic for the `AppComponent` root component of the application. The view associated with this root component becomes the root of the [view hierarchy](guide/glossary#view-hierarchy) as you add components and services to your application. |
 | `app/app.component.html`    | Defines the HTML template associated with the root `AppComponent`.                                                                                                                                                                                         |
 | `app/app.component.css`     | Defines the base CSS stylesheet for the root `AppComponent`.                                                                                                                                                                                               |
 | `app/app.component.spec.ts` | Defines a unit test for the root `AppComponent`.                                                                                                                                                                                                           |
@@ -197,8 +197,8 @@ Under the `projects/` folder, the `my-lib` folder contains your library code.
 
 | Library source files     | Purpose                                                                                                                                                                                                   |
 |:---                      |:---                                                                                                                                                                                                       |
-| `src/lib`                |  Contains your library project's logic and data. Like an application project, a library project can contain components, services, modules, directives, and pipes.                                         |
-| `src/test.ts`            | The main entry point for your unit tests, with some library-specific configuration. You don't typically need to edit this file.                                                                           |
+| `src/lib`                |  Contains the logic and data of your library project. Like an application project, a library project can contain components, services, modules, directives, and pipes.                                         |
+| `src/test.ts`            | The main entry point for your unit tests, with some library-specific configuration. You do not typically need to edit this file.                                                                           |
 | `src/public-api.ts`      | Specifies all files that are exported from your library.                                                                                                                                                  |
 | `karma.conf.js`          | Library-specific [Karma](https://karma-runner.github.io/2.0/config/configuration-file.html) configuration.                                                                                                |
 | `ng-package.json`        | Configuration file used by [ng-packagr](https://github.com/ng-packagr/ng-packagr) for building your library.                                                                                              |

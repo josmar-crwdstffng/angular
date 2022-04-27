@@ -16,7 +16,7 @@ You can find the versions of the specification prior to v13 in this [google doc]
 
 ## Why specify a package format?
 
-In today's JavaScript landscape, developers will consume packages in many different ways, using many different toolchains \(Webpack, rollup, esbuild, etc.\).
+In the JavaScript landscape of today, developers will consume packages in many different ways, using many different toolchains \(Webpack, rollup, esbuild, etc.\).
 These tools may understand and require different inputs - some tools may be able to process the latest ES language version, while others may benefit from directly consuming an older ES version.
 
 The Angular distribution format supports all of the commonly used development tools and workflows, and adds emphasis on optimizations that result either in smaller application payload size or faster development iteration cycle \(build time\).
@@ -26,7 +26,7 @@ See the [Creating Libraries](guide/creating-libraries) guide for more details.
 
 ## File layout
 
-The following example shows a simplified version of the `@angular/core` package's file layout, with an explanation for each file in the package.
+The following example shows a simplified version of the file layout of the `@angular/core` package, with an explanation for each file in the package.
 
 <div class='filetree'>
     <div class='file'>
@@ -37,7 +37,7 @@ The following example shows a simplified version of the `@angular/core` package'
           README.md &nbsp; <!-- // &lt;-- Package README, used by npmjs web UI. -->
         </div>
         <div class='file'>
-          package.json &nbsp; <!-- // &lt;-- Primary package.json, describing the package itself as well as all available entrypoints and code formats. This file contains the "exports" mapping used by runtimes and tools to perform module resolution. -->
+          package.json &nbsp; <!-- // &lt;-- Primary package.json, describing the associated package as well as all available entrypoints and code formats. This file contains the "exports" mapping used by runtimes and tools to perform module resolution. -->
         </div>
         <div class='file'>
           index.d.ts &nbsp; <!-- // &lt;-- Bundled .d.ts for the primary entrypoint &commat;angular/core. -->
@@ -106,17 +106,17 @@ The following example shows a simplified version of the `@angular/core` package'
 
 This table describes the file layout under `node_modules/@angular/core` annotated to describe the purpose of files and directories:
 
-| Files                                                                                                                                                     | Purpose |
-|:---                                                                                                                                                       |:---     |
-| `README.md`                                                                                                                                               | Package README, used by npmjs web UI.                                                                                                                                                                          |
-| `package.json`                                                                                                                                            | Primary `package.json`, describing the package itself as well as all available entrypoints and code formats. This file contains the "exports" mapping used by runtimes and tools to perform module resolution. |
-| `index.d.ts`                                                                                                                                               | Bundled `.d.ts` for the primary entrypoint `@angular/core`.                                                                                                                                                    |
-| `esm2020/` <br /> &nbsp;&nbsp;─ `core.mjs` <br /> &nbsp;&nbsp;─ `index.mjs` <br /> &nbsp;&nbsp;─ `public_api.mjs`                                         | Tree of `@angular/core` sources in unflattened ES2020 format.                                                                                                                                                  |
-| `esm2020/testing/`                                                                                                                                        | Tree of the `@angular/core/testing` entrypoint in unflattened ES2020 format.                                                                                                                                   |
-| `fesm2015/` <br /> &nbsp;&nbsp;─ `core.mjs` <br /> &nbsp;&nbsp;─ `core.mjs.map` <br /> &nbsp;&nbsp;─ `testing.mjs` <br /> &nbsp;&nbsp;─ `testing.mjs.map` | Code for all entrypoints in a flattened \(FESM\) ES2015 format, along with sourcemaps.                                                                                                                         |
-| `fesm2020/` <br /> &nbsp;&nbsp;─ `core.mjs` <br /> &nbsp;&nbsp;─ `core.mjs.map` <br /> &nbsp;&nbsp;─ `testing.mjs` <br /> &nbsp;&nbsp;─ `testing.mjs.map` | Code for all entrypoints in flattened \(FESM\) ES2020 format, along with sourcemaps.                                                                                                                           |
-| `testing/`                                                                                                                                                | Directory representing the "testing" entrypoint.                                                                                                                                                               |
-| `testing/index.d.ts`                                                                                                                                    | Bundled `.d.ts` for the `@angular/core/testing` entrypoint.                                                                                                                                                     |
+| Files                                                                                                                                                    | Purpose |
+|:---                                                                                                                                                      |:---     |
+| `README.md`                                                                                                                                              | Package README, used by npmjs web UI.                                                                                                                                                                              |
+| `package.json`                                                                                                                                           | Primary `package.json`, describing the associated package as well as all available entrypoints and code formats. This file contains the "exports" mapping used by runtimes and tools to perform module resolution. |
+| `index.d.ts`                                                                                                                                             | Bundled `.d.ts` for the primary entrypoint `@angular/core`.                                                                                                                                                        |
+| `esm2020` <br /> &nbsp;&nbsp;─ `core.mjs` <br /> &nbsp;&nbsp;─ `index.mjs` <br /> &nbsp;&nbsp;─ `public_api.mjs`                                         | Tree of `@angular/core` sources in unflattened ES2020 format.                                                                                                                                                      |
+| `esm2020/testing`                                                                                                                                        | Tree of the `@angular/core/testing` entrypoint in unflattened ES2020 format.                                                                                                                                       |
+| `fesm2015` <br /> &nbsp;&nbsp;─ `core.mjs` <br /> &nbsp;&nbsp;─ `core.mjs.map` <br /> &nbsp;&nbsp;─ `testing.mjs` <br /> &nbsp;&nbsp;─ `testing.mjs.map` | Code for all entrypoints in a flattened \(FESM\) ES2015 format, along with sourcemaps.                                                                                                                             |
+| `fesm2020` <br /> &nbsp;&nbsp;─ `core.mjs` <br /> &nbsp;&nbsp;─ `core.mjs.map` <br /> &nbsp;&nbsp;─ `testing.mjs` <br /> &nbsp;&nbsp;─ `testing.mjs.map` | Code for all entrypoints in flattened \(FESM\) ES2020 format, along with sourcemaps.                                                                                                                               |
+| `testing`                                                                                                                                                | Directory representing the "testing" entrypoint.                                                                                                                                                                   |
+| `testing/index.d.ts`                                                                                                                                     | Bundled `.d.ts` for the `@angular/core/testing` entrypoint.                                                                                                                                                        |
 
 ## `package.json`
 
@@ -202,7 +202,7 @@ For more information, see [Managing assets in a library](guide/creating-librarie
 
 ### Legacy resolution keys
 
-In addition to `"exports"`, the top-level `package.json` also defines legacy module resolution keys for resolvers that don't support `"exports"`.
+In addition to `"exports"`, the top-level `package.json` also defines legacy module resolution keys for resolvers that do not support `"exports"`.
 For `@angular/core` these are:
 
 <code-example language="javascript">
@@ -269,7 +269,7 @@ Most libraries with a single logical purpose should be published as a single ent
 
 ### Resolution of Secondary Entrypoints
 
-Secondary entrypoints can be resolved via the `"exports"` field of the `package.json` for the package.
+Secondary entrypoints may be resolved using the `"exports"` field of the `package.json` for the package.
 
 ## README.md
 
@@ -319,7 +319,7 @@ Please check out the excellent post ["The cost of small modules"](https://nolanl
 The Angular compiler has support for generating index ES module files that can then be used to generate flattened modules using tools like Rollup, resulting in a file format we call Flattened ES Module or FESM.
 
 FESM is a file format created by flattening all ES Modules accessible from an entrypoint into a single ES Module.
-It's formed by following all imports from a package and copying that code into a single file while preserving all public ES exports and removing all private imports.
+It is formed by following all imports from a package and copying that code into a single file while preserving all public ES exports and removing all private imports.
 
 The shortened name "FESM" \(pronounced "phesom"\) can have a number after it such as "FESM5" or "FESM2015".
 The number refers to the language level of the JavaScript inside the module.
@@ -352,18 +352,18 @@ Once the index file \(for example, `my-ui-lib.js`\) is generated by ngc, bundler
 As of webpack v4 the flattening of ES modules optimization should not be necessary for webpack users, and in fact theoretically we should be able to get better code-splitting without flattening of modules in webpack.
 In practice we still see size regressions when using unflattened modules as input for webpack v4.
 This is why `"module"` and `"es2020"` package.json entries still point to fesm files.
-We are investigating this issue and expect that we'll switch the `"module"` and `"es2020"` package.json entry points to unflattened files when the size regression issue is resolved.
+We are investigating this issue and expect that we will switch the `"module"` and `"es2020"` package.json entry points to unflattened files when the size regression issue is resolved.
 The APF currently includes unflattened ESM2020 code for the purpose of validating such a future change.
 
 ### "sideEffects" flag
 
 By default, EcmaScript Modules are side-effectful: importing from a module ensures that any code at the top level of that module will execute.
 This is often undesirable, as most side-effectful code in typical modules is not truly side-effectful, but instead only affects specific symbols.
-If those symbols are not imported and used, it's often desirable to remove them in an optimization process known as tree-shaking, and the side-effectful code can prevent this.
+If those symbols are not imported and used, it is often desirable to remove them in an optimization process known as tree-shaking, and the side-effectful code can prevent this.
 
 Build tools such as Webpack support a flag which allows packages to declare that they do not depend on side-effectful code at the top level of their modules, giving the tools more freedom to tree-shake code from the package.
 The end result of these optimizations should be smaller bundle size and better code distribution in bundle chunks after code-splitting.
-This optimization can break your code if it contains non-local side-effects - this is however not common in Angular applications and it's usually a sign of bad design.
+This optimization can break your code if it contains non-local side-effects - this is however not common in Angular applications and it is usually a sign of bad design.
 Our recommendation is for all packages to claim the side-effect free status by setting the `sideEffects` property to `false`, and that developers follow the [Angular Style Guide](https://angular.io/guide/styleguide) which naturally results in code without non-local side-effects.
 
 More info: [webpack docs on side-effects](https://github.com/webpack/webpack/tree/master/examples/side-effects)
@@ -444,7 +444,7 @@ Because of this, the Angular team often uses the language level specifier as a s
 
 An artifact in the form of a single JS file, produced by a build tool \(for example, [Webpack](https://webpack.js.org) or [Rollup](https://rollupjs.org)\) that contains symbols originating in one or more modules.
 Bundles are a browser-specific workaround that reduce network strain that would be caused if browsers were to start downloading hundreds if not tens of thousands of files.
-Node.js typically doesn't use bundles.
+Node.js typically does not use bundles.
 Common bundle formats are UMD and System.register.
 
 #### Language Level

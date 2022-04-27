@@ -119,7 +119,7 @@ class Car {
 }
 ```
 
-DI will start resolving `Engine` in the same injector where the `Car` binding is defined. It will check whether that injector has the `Engine` binding. If it is the case, it will return that instance. If not, the injector will ask its parent whether it has an instance of `Engine`. The process continues until either an instance of `Engine` has been found, or we have reached the root of the injector tree.
+DI will start resolving `Engine` in the same injector where the `Car` binding is defined. It will check whether that injector has the `Engine` binding. If it is the case, it will return that instance. If not, the injector will ask the associated parent whether it has an instance of `Engine`. The process continues until either an instance of `Engine` has been found, or we have reached the root of the injector tree.
 
 ### Constraints
 
@@ -133,7 +133,7 @@ class Car {
 
 A more realistic example is having two bindings that have to be provided together (e.g., NgModel and NgRequiredValidator.)
 
-The `@Host` decorator tells DI to look for `Engine` in this injector, its parent, until it reaches a host (see the section on hosts.)
+The `@Host` decorator tells DI to look for `Engine` in this injector, the associated parent, until it reaches a host (see the section on hosts.)
 
 ```
 class Car {

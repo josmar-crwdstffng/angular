@@ -3,7 +3,7 @@
 Observables provide support for passing messages between parts of your application.
 They are used frequently in Angular and are a technique for event handling, asynchronous programming, and handling multiple values.
 
-The observer pattern is a software design pattern in which an object, called the *subject*, maintains a list of its dependents, called *observers*, and notifies them automatically of state changes.
+The observer pattern is a software design pattern in which an object, called the *subject*, maintains a list of the associated dependents, called *observers*, and notifies them automatically of state changes.
 This pattern is similar \(but not identical\) to the [publish/subscribe](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) design pattern.
 
 Observables are declarative &mdash;that is, you define a function for publishing values, but it is not executed until a consumer subscribes to it.
@@ -22,11 +22,11 @@ As a publisher, you create an `Observable` instance that defines a *subscriber* 
 This is the function that is executed when a consumer calls the `subscribe()` method.
 The subscriber function defines how to obtain or generate values or messages to be published.
 
-To execute the observable you have created and begin receiving notifications, you call its `subscribe()` method, passing an *observer*.
+To execute the observable you have created and begin receiving notifications, you call the associated `subscribe()` method, passing an *observer*.
 This is a JavaScript object that defines the handlers for the notifications you receive.
 The `subscribe()` call returns a `Subscription` object that has an `unsubscribe()` method, which you call to stop receiving notifications.
 
-Here's an example that demonstrates the basic usage model by showing how an observable could be used to provide geolocation updates.
+Here is an example that demonstrates the basic usage model by showing how an observable could be used to provide geolocation updates.
 
 <code-example header="Observe geolocation updates" class="no-auto-link" path="observables/src/geolocation.ts"></code-example>
 
@@ -42,7 +42,7 @@ It is an object that defines callback methods to handle the three types of notif
 | `complete`        | Optional. A handler for the execution-complete notification. Delayed values can continue to be delivered to the next handler after execution is complete. |
 
 An observer object can define any combination of these handlers.
-If you don't supply a handler for a notification type, the observer ignores notifications of that type.
+If you do not supply a handler for a notification type, the observer ignores notifications of that type.
 
 ## Subscribing
 
@@ -57,11 +57,11 @@ There is a constructor that you use to create new instances, but for illustratio
 | RxJS methods     | Details |
 |:---              |:---     |
 | `of(...items)`   | Returns an `Observable` instance that synchronously delivers the values provided as arguments.                        |
-| `from(iterable)` | Converts its argument to an `Observable` instance. This method is commonly used to convert an array to an observable. |
+| `from(iterable)` | Converts the associated argument to an `Observable` instance. This method is commonly used to convert an array to an observable. |
 
 </div>
 
-Here's an example of creating and subscribing to a simple observable, with an observer that logs the received message to the console:
+Here is an example of creating and subscribing to a simple observable, with an observer that logs the received message to the console:
 
 <code-example header="Subscribe using observer" path="observables/src/subscribing.ts" region="observer"></code-example>
 
@@ -85,8 +85,8 @@ Any type of value can be represented with an observable, and the values are publ
 ## Creating observables
 
 Use the `Observable` constructor to create an observable stream of any type.
-The constructor takes as its argument the subscriber function to run when the observable's `subscribe()` method executes.
-A subscriber function receives an `Observer` object, and can publish values to the observer's `next()` method.
+The constructor takes the subscriber function as an argument to run when the `subscribe()` method of the observable runs.
+A subscriber function receives an `Observer` object, and can publish values to the `next()` method of the observer.
 
 For example, to create an observable equivalent to the `of(1, 2, 3)` above, you could do something like this:
 
@@ -111,11 +111,11 @@ Sometimes, instead of starting an independent execution for each subscriber, you
 This might be the case with something like an observable of clicks on the document object.
 
 *Multicasting* is the practice of broadcasting to a list of multiple subscribers in a single execution.
-With a multicasting observable, you don't register multiple listeners on the document, but instead re-use the first listener and send values out to each subscriber.
+With a multicasting observable, you do not register multiple listeners on the document, but instead re-use the first listener and send values out to each subscriber.
 
-When creating an observable you should determine how you want that observable to be used and whether or not you want to multicast its values.
+When creating an observable you should determine how you want that observable to be used and whether or not you want to multicast the associated values.
 
-Let's look at an example that counts from 1 to 3, with a one-second delay after each number emitted.
+Let us look at an example that counts from 1 to 3, with a one-second delay after each number emitted.
 
 <code-example header="Create a delayed sequence" path="observables/src/multicasting.ts" region="delay_sequence"></code-example>
 

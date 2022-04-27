@@ -28,7 +28,7 @@ Stack Overflow is a much better place to ask questions since:
 
 - there are thousands of people willing to help on Stack Overflow
 - questions and answers stay available for public viewing so your question/answer might help someone else
-- Stack Overflow's voting system assures that the best answers are prominently visible.
+- The voting system on Stack Overflow assures that the best answers are prominently visible.
 
 To save your and our time, we will systematically close all issues that are requests for general support and redirect people to Stack Overflow.
 
@@ -70,7 +70,7 @@ We require a minimal reproduction to save maintainers' time and ultimately be ab
 Often, developers find coding problems themselves while preparing a minimal reproduction.
 We understand that sometimes it might be hard to extract essential bits of code from a larger codebase but we really need to isolate the problem before we can fix it.
 
-Unfortunately, we are not able to investigate / fix bugs without a minimal reproduction, so if we don't hear back from you, we are going to close an issue that doesn't have enough info to be reproduced.
+Unfortunately, we are not able to investigate / fix bugs without a minimal reproduction, so if we do not hear back from you, we are going to close an issue that does not have enough info to be reproduced.
 
 You can file new issues by selecting from our [new issue templates](https://github.com/angular/angular/issues/new/choose) and filling out the issue template.
 
@@ -80,10 +80,10 @@ You can file new issues by selecting from our [new issue templates](https://gith
 Before you submit your Pull Request (PR) consider the following guidelines:
 
 1. Search [GitHub](https://github.com/angular/angular/pulls) for an open or closed PR that relates to your submission.
-   You don't want to duplicate existing efforts.
+   You do not want to duplicate existing efforts.
 
-2. Be sure that an issue describes the problem you're fixing, or documents the design for the feature you'd like to add.
-   Discussing the design upfront helps to ensure that we're ready to accept your work.
+2. Be sure that an issue describes the problem you are fixing, or documents the design for the feature you would like to add.
+   Discussing the design upfront helps to ensure that we are ready to accept your work.
 
 3. Please sign our [Contributor License Agreement (CLA)](#cla) before sending PRs.
    We cannot accept code without a signed CLA.
@@ -121,7 +121,7 @@ Before you submit your Pull Request (PR) consider the following guidelines:
 
 ### Reviewing a Pull Request
 
-The Angular team reserves the right not to accept pull requests from community members who haven't been good citizens of the community. Such behavior includes not following the [Angular code of conduct](https://github.com/angular/code-of-conduct) and applies within or outside of Angular managed channels.
+The Angular team reserves the right not to accept pull requests from community members who have not been good citizens of the community. Such behavior includes not following the [Angular code of conduct](https://github.com/angular/code-of-conduct) and applies within or outside of Angular managed channels.
 
 #### Addressing review feedback
 
@@ -140,7 +140,7 @@ If we ask for changes via code reviews then:
 
     For more info on working with fixup commits see [here](docs/FIXUP_COMMITS.md).
 
-That's it! Thank you for your contribution!
+That is it! Thank you for your contribution!
 
 
 ##### Updating the commit message
@@ -205,7 +205,7 @@ To ensure consistency throughout the source code, keep these rules in mind as yo
 
 * All features or bug fixes **must be tested** by one or more specs (unit-tests).
 * All public API methods **must be documented**.
-* We follow [Google's JavaScript Style Guide][js-style-guide], but wrap all code at **100 characters**.
+* We follow [the JavaScript Style Guide for Google][js-style-guide], but wrap all code at **100 characters**.
 
    An automated formatter is available, see [DEVELOPER.md](docs/DEVELOPER.md#clang-format).
 
@@ -320,7 +320,7 @@ There are currently a few exceptions to the "use package name" rule:
 Use the summary field to provide a succinct description of the change:
 
 * use the imperative, present tense: "change" not "changed" nor "changes"
-* don't capitalize the first letter
+* do not capitalize the first letter
 * no dot (.) at the end
 
 
@@ -375,10 +375,10 @@ The content of the commit message body should contain:
 ## <a name="cla"></a> Signing the CLA
 
 Please sign our Contributor License Agreement (CLA) before sending pull requests. For any code
-changes to be accepted, the CLA must be signed. It's a quick process, we promise!
+changes to be accepted, the CLA must be signed. It is a quick process, we promise!
 
 * For individuals, we have a [simple click-through form][individual-cla].
-* For corporations, we'll need you to
+* For corporations, we will need you to
   [print, sign and one of scan+email, fax or mail the form][corporate-cla].
 
 If you have more than one GitHub accounts, or multiple email addresses associated with a single GitHub account, you must sign the CLA using the primary email address of the GitHub account used to author Git commits and send pull requests.
@@ -394,7 +394,7 @@ The following documents can help you sort out issues with GitHub accounts and mu
 
 
 [angular-group]: https://groups.google.com/forum/#!forum/angular
-[coc]: https://github.com/angular/code-of-conduct/blob/master/CODE_OF_CONDUCT.md
+[coc]: https://github.com/angular/code-of-conduct/blob/main/CODE_OF_CONDUCT.md
 [commit-message-format]: https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#
 [corporate-cla]: https://cla.developers.google.com/about/google-corporate
 [dev-doc]: https://github.com/angular/angular/blob/main/docs/DEVELOPER.md

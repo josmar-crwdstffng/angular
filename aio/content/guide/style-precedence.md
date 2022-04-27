@@ -38,7 +38,7 @@ Similarly, binding to a specific style, as in `[style.color]`, takes precedence 
 ## Precedence and bindings from different sources
 
 Specificity rules also apply to bindings even when they originate from different sources.
-An element can have bindings that originate from its own template, from host bindings on matched directives, and from host bindings on matched components.
+An element can have bindings that originate from the associated template, from host bindings on matched directives, and from host bindings on matched components.
 
 <code-example header="src/app/app.component.html" path="attribute-binding/src/app/app.component.html" region="source-specificity"></code-example>
 
@@ -62,7 +62,7 @@ Imagine that the `dirWithHostBinding` directive and the `comp-with-host-binding`
 
 <code-example header="src/app/comp-with-host-binding.component.ts and dirWithHostBinding.directive.ts" path="attribute-binding/src/app/comp-with-host-binding.component.ts" region="hostbinding"></code-example>
 
-If `dirWithHostBinding` sets its binding to `undefined`, the `width` property falls back to the value of the `comp-with-host-binding` host binding.
+If `dirWithHostBinding` sets the associated binding to `undefined`, the `width` property falls back to the value of the `comp-with-host-binding` host binding.
 
 <code-example format="typescript" header="dirWithHostBinding directive" language="typescript">
 
@@ -73,7 +73,7 @@ width = ''; // undefined
 
 <div class="alert is-helpful">
 
-If `dirWithHostBinding` sets its binding to `null`, Angular removes the `width` property entirely.
+If `dirWithHostBinding` sets the associated binding to `null`, Angular removes the `width` property entirely.
 
 <code-example format="typescript" header="dirWithHostBinding" language="typescript">
 

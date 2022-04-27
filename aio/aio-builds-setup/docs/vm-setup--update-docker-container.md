@@ -6,13 +6,13 @@ Assuming you have cloned the repository containing the preview server code (as d
 [here](vm-setup--create-docker-image.md)), you can use the `update-preview-server.sh` script on the
 VM host to update the preview server based on changes in the source code.
 
-The script will pull the latest changes from the origin's main branch and examine if there have
+The script pulls the latest changes from the primary branch of the origin and examines if there have
 been any changes in files inside the preview server source code directory (see below). If there are,
 it will create a new image and verify that it works as expected. Finally, it will stop and remove
 the old docker container and image, create a new container based on the new image and start it.
 
-The script assumes that the preview server source code is in the repository's
-`aio/aio-builds-setup/` directory and expects the following inputs:
+The script assumes that the preview server source code is in the `aio/aio-builds-setup/` directory of the repository
+and expects the following inputs:
 
 - **$1**: `HOST_REPO_DIR`
 - **$2**: `HOST_SECRETS_DIR`
@@ -48,7 +48,7 @@ update-preview-server.sh \
 ## Run the script automatically
 You may choose to automatically trigger the script, e.g. using a cronjob. For example, the following
 cronjob entry would run the script every 30 minutes, update the preview server (if necessary) and
-log its output to `update-preview-server.log` (assuming the user has the necessary permissions):
+log the associated output to `update-preview-server.log` (assuming the user has the necessary permissions):
 
 ```
 # Periodically check for changes and update the preview server (if necessary)

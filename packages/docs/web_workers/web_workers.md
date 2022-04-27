@@ -11,7 +11,7 @@ server, etc..
 
 ## Introduction
 WebWorker support in Angular is designed to make it easy to leverage parallelization in your web application.
-When you choose to run your application in a WebWorker angular runs both your application's logic and the
+When you choose to run your application in a WebWorker angular runs both the logic of your application and the
 majority of the core angular framework in a WebWorker.
 By offloading as much code as possible to the WebWorker we keep the UI thread
 free to handle events, manipulate the DOM, and run animations. This provides a
@@ -20,7 +20,7 @@ better framerate and UX for applications.
 ## Bootstrapping a WebWorker Application
 Bootstrapping a WebWorker application is not much different than bootstrapping a normal application.
 The main difference is that you need to do the bootstrap process on both the worker and render thread.
-Unlike in a standard Angular application you don't bootstrap your main component on the render thread.
+Unlike in a standard Angular application you do not bootstrap your main component on the render thread.
 Instead you initialize a new application injector with the WORKER_APP_PLATFORM providers and provide the name
 of your WebWorker script. See the example below for details:
 
@@ -71,13 +71,13 @@ platform([WORKER_APP_PLATFORM])
 .application([WORKER_APP_APPLICATION])
 .then((ref) => ref.bootstrap(RootComponent));
 ```
-There's a few important things to note here:
+There is a few important things to note here:
 * The UI loads angular from the file `angular2/web_worker/ui.js` and the Worker loads angular from
 `angular2/web_worker/worker.js`. These bundles are created specifically for using WebWorkers and should be used
 instead of the normal angular2.js file. Both files contain subsets of the angular2 codebase that is designed to
 run specifically on the UI or Worker. Additionally, they contain the core messaging infrastructure used to
 communicate between the Worker and the UI. This messaging code is not in the standard angular2.js file.
-* We pass `loader.js` to our application injector using the WORKER_SCRIPT symbol. This tells angular that our WebWorkers's init script is located at `loader.js`.
+* We pass `loader.js` to our application injector using the WORKER_SCRIPT symbol. This tells angular that the init script of the WebWorkers in Angular is located at `loader.js`.
 You can think of `loader.js` as the index.html file for the WebWorker.
 Since WebWorkers share no memory with the UI we need to reload the Angular dependencies before
 bootstrapping our application. We do this with `importScripts`. Additionally, we need to do this in a different
@@ -87,7 +87,7 @@ will be compiled with a `System.define` call at the top.
 support was to allow as much of Angular to live in the worker as possible.
 As such, *most* Angular components can be bootstrapped in a WebWorker with minimal to no changes required.
 
-For reference, here's the same HelloWorld example in Dart.
+For reference, here is the same HelloWorld example in Dart.
 ```HTML
 <html>
   <body>
@@ -132,24 +132,24 @@ main(List<String> args, SendPort replyTo) {
 
 ```
 This code is nearly the same as the TypeScript version with just a couple key differences:
-* We don't have a `loader.js` file. Dart applications don't need this file because you don't need a module loader.
+* We do not have a `loader.js` file. Dart applications do not need this file because you do not need a module loader.
 * We provide a `SendPort` through DI using the token `RENDER_SEND_PORT`.  Dart applications use the Isolate API, which communicates via
-Dart's Port abstraction. When you call `setupIsolate` from the UI thread, angular starts a new Isolate to run
+the Port abstraction in Dart. When you call `setupIsolate` from the UI thread, angular starts a new Isolate to run
 your application logic. When Dart starts a new Isolate it passes a `SendPort` to that Isolate so that it
 can communicate with the Isolate that spawned it. You need to provide this `SendPort` through DI
 so that Angular can communicate with the UI.
 * You need to set up `ReflectionCapabilities` on both the UI and Worker. Just like writing non-concurrent
 Angular2 Dart applications you need to set up the reflector. You should not use Reflection in production,
-but should use the Angular transformer to remove it in your final JS code. Note there's currently a bug
+but should use the Angular transformer to remove it in your final JS code. Note there is currently a bug
 with running the transformer on your UI code (#3971). You can (and should) pass the file where you call
 `bootstrap` as an entry point to the transformer, but you should not pass your UI index file
 to the transformer until that bug is fixed.
 
 ## Writing WebWorker Compatible Components
 You can do almost everything in a WebWorker component that you can do in a typical Angular Component.
-The main exception is that there is **no** DOM access from a WebWorker component. In Dart this means you can't
-import anything from `dart:html` and in JavaScript it means you can't use `document` or `window`. Instead you
-should use data bindings and if needed you can inject `Renderer2` along with your component's `ElementRef`
+The main exception is that there is **no** DOM access from a WebWorker component. In Dart this means you cannot
+import anything from `dart:html` and in JavaScript it means you cannot use `document` or `window`. Instead you
+should use data bindings and if needed you can inject `Renderer2` along with the `ElementRef` of your component
 directly into your component and use methods such as `setProperty`, `setAttribute`,
 `addClass`, `setStyle`, and `setValue`. Note that you **cannot** call
 `getNativeElementSync`. Doing so will always return `null` when running in a WebWorker.
@@ -170,7 +170,7 @@ or `Window <--> Window` communication.
 ## Running Code on the UI
 If your application needs to run code on the UI, there are a few options. The easiest way is to use a
 CustomElement in your view. You can then register this custom element from your html file and run code in response
-to the element's lifecycle hooks. Note, Custom Elements are still experimental. See
+to the lifecycle hooks of the element. Note, Custom Elements are still experimental. See
 [MDN](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Custom_Elements) for the latest details on how
 to use them.
 
@@ -190,10 +190,10 @@ application inside a WebWorker.
 Angular also includes three experimental MessageBus implementations:
 
 1. The `WebSocketMessageBus` is a Dart MessageBus that lives on the UI and communicates with an angular
-application running on a server. It's intended to be used with either the `SingleClientServerMessageBus` or the
+application running on a server. It is intended to be used with either the `SingleClientServerMessageBus` or the
 `MultiClientServerMessageBus`.
 2. The `SingleClientServerMessageBus` is a Dart MessageBus that lives on a Dart Server. It allows an angular
-application to run on a server and communicate with a single browser that's running the `WebSocketMessageBus`.
+application to run on a server and communicate with a single browser that is running the `WebSocketMessageBus`.
 3. The `MultiClientServerMessageBus` is like the `SingleClientServerMessageBus` except it allows an arbitrary
 number of clients to connect to the server. It keeps all connected browsers in sync and if an event fires in
 any connected browser it propagates the result to all connected clients. This can be especially useful as a
@@ -202,7 +202,7 @@ change the state of that application, and ensure that all the clients render the
 can make it easy to catch tricky browser compatibility issues.
 
 ### Using the MessageBus in Your Application
-**Note**: If you want to pass custom messages between the UI and WebWorker, it's recommended you use the
+**Note**: If you want to pass custom messages between the UI and WebWorker, it is recommended you use the
 [MessageBroker](#using-the-messagebroker-in-your-application). However, if you want to control the messaging
 protocol yourself you can use the MessageBus directly.
 
@@ -297,8 +297,7 @@ The only substantial difference between these APIs in Dart and TypeScript is the
 
 **Note:** Because the messages passed through the MessageBus cross a WebWorker boundary, they must be serializable.
 If you use the MessageBus directly, you are responsible for serializing your messages.
-In JavaScript / TypeScript this means they must be serializable via JavaScript's
-[structured cloning algorithim](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm).
+In JavaScript / TypeScript this means they must be serializable via the [structured cloning algorithim](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) in JavaScript.
 
 
 ### MessageBus and Zones
@@ -319,13 +318,13 @@ If you want to drive your application from something other than a WebWorker you 
 bus. Implementing a custom message bus just means creating a class that fulfills the API specified by the
 abstract MessageBus class.
 
-If you're implementing your MessageBus in Dart you can extend the `GenericMessageBus` class included in angular.
-if you do this, you don't need to implement zone or channel support yourself. You only need to implement a
+If you are implementing your MessageBus in Dart you can extend the `GenericMessageBus` class included in angular.
+if you do this, you do not need to implement zone or channel support yourself. You only need to implement a
 `MessageBusSink` that extends `GenericMessageBusSink` and a `MessageBusSource` that extends
 `GenericMessageBusSource`. The `MessageBusSink` must override the `sendMessages` method. This method is
 given a list of serialized messages that it is required to send through the sink.
 
-Once you've implemented your custom MessageBus in either TypeScript, you must provide it through DI
+Once you have implemented your custom MessageBus in either TypeScript, you must provide it through DI
 during bootstrap like so:
 
 In TypeScript:
@@ -466,12 +465,12 @@ class MyComponent {
 ```
 Both the client and the service create new MessageBrokers and attach them to the same channel.
 The service then calls `registerMethod` to register the method that it wants to listen to. Register method takes
-four arguments. The first is the name of the method, the second is the Types of that method's parameters, the
-third is the method itself, and the fourth (which is optional) is the return Type of that method.
-The MessageBroker handles serializing / deserializing your parameters and return types using angular's serializer.
+four arguments. The first is the name of the method, the second is the Types of the parameters of that method, the
+third is the method, and the fourth (which is optional) is the return Type of that method.
+The MessageBroker handles serializing / deserializing your parameters and return types using the serializer in Angular.
 However, at the moment the serializer only knows how to serialize angular classes like those used by `Renderer2`.
-If you're passing anything other than those types around in your application you can handle serialization yourself
+If you are passing anything other than those types around in your application you can handle serialization yourself
 and then use the `PRIMITIVE` type to tell the MessageBroker to avoid serializing your data.
 
 The last thing that happens is that the client calls `runOnService` with the name of the method it wants to run,
-a list of that method's arguments and their types, and (optionally) the expected return type.
+a list of the arguments of that method and their types, and (optionally) the expected return type.

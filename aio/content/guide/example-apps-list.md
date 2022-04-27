@@ -29,7 +29,7 @@ For more information, see [Introduction to Angular concepts](guide/architecture)
 
 ## Tour of Heroes tutorial application
 
-The Tour of Heroes is a comprehensive tutorial that guides you through the process of building an application with many of Angular's most popular features.
+The Tour of Heroes is a comprehensive tutorial that guides you through the process of building an application with many of the most popular features in Angular.
 
 ### Tour of Heroes: completed application
 
@@ -103,7 +103,7 @@ For more information, see [Accessibility](guide/accessibility).
 
 <live-example name="animations"></live-example>
 
-Demonstrates Angular's animation features.
+Demonstrates the animation features in Angular.
 For more information, see [Introduction to Angular animations](guide/animations).
 
 ### Attribute, class, and style bindings
@@ -124,7 +124,7 @@ For more information, see [Attribute directives](guide/attribute-directives).
 
 <live-example name="binding-syntax"></live-example>
 
-Demonstrates Angular's binding syntax.
+Demonstrates the binding syntax in Angular.
 For more information, see [Binding syntax: an overview](guide/binding-syntax).
 
 ### Built-in directives
@@ -145,7 +145,7 @@ For more information, see the [`$any()` type cast function section](guide/templa
 
 <live-example name="content-projection"></live-example>
 
-Demonstrates how to use Angular's content projection feature when creating reusable components.
+Demonstrates how to use the content projection feature in Angular when creating reusable components.
 
 ### Interpolation
 
@@ -165,7 +165,7 @@ For more information, see [Template expression operators](guide/template-express
 
 <live-example name="template-reference-variables"></live-example>
 
-Demonstrates Angular's template reference variables.
+Demonstrates the template reference variables in Angular.
 For more information, see [Template reference variables](guide/template-reference-variables).
 
 ### `<ngcontainer>`
@@ -207,7 +207,7 @@ For more information, see [Two-way binding](guide/two-way-binding).
 
 <live-example name="template-syntax"></live-example>
 
-Comprehensive demonstration of Angular's template syntax.
+Comprehensive demonstration of the template syntax in Angular.
 For more information, see [Template reference variables](guide/template-syntax).
 
 ### User input
@@ -312,7 +312,7 @@ For more information, see the [Providing services in `@Component()`](guide/hiera
 
 <live-example name="resolution-modifiers"></live-example>
 
-Demonstrates Angular's resolution modifiers, such as `@Self()`.
+Demonstrates the resolution modifiers in Angular, such as `@Self()`.
 For more information, see the [Modifying service visibility](guide/hierarchical-dependency-injection#modifying-service-visibility) section of [Hierarchical injectors](guide/hierarchical-dependency-injection).
 
 ## Forms
@@ -328,7 +328,7 @@ For more information, see [Introduction to forms in Angular](guide/forms-overvie
 
 <live-example name="reactive-forms"></live-example>
 
-Demonstrates Angular's reactive forms.
+Demonstrates the reactive forms in Angular.
 For more information, see [Reactive forms](guide/reactive-forms).
 
 ### Template-driven forms
@@ -382,14 +382,14 @@ For more information, see [Lazy-loading feature modules](guide/lazy-loading-ngmo
 
 <live-example name="router"></live-example>
 
-Demonstrates Angular's routing features.
+Demonstrates the routing features in Angular.
 For more information, see [Router](guide/router).
 
 ### Router tutorial
 
 <live-example name="router-tutorial"></live-example>
 
-Demonstrates Angular's fundamental routing techniques.
+Demonstrates the fundamental routing techniques in Angular.
 For more information, see [Using Angular routes in a single-page application](guide/router-tutorial).
 
 ## Documentation

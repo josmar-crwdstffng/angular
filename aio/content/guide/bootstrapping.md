@@ -42,7 +42,7 @@ The `@NgModule` decorator identifies `AppModule` as an `NgModule` class.
 
 | metadata object | Details |
 |:---             |:---     |
-| declarations    | This application's lone component.                                                                          |
+| declarations    | The lone component of this application.                                                                     |
 | imports         | Import `BrowserModule` to have browser-specific services such as DOM rendering, sanitization, and location. |
 | providers       | The service providers.                                                                                      |
 | bootstrap       | The *root* component that Angular creates and inserts into the `index.html` host web page.                  |
@@ -53,14 +53,14 @@ The default application created by the Angular CLI only has one component, `AppC
 
 ## The `declarations` array
 
-The module's `declarations` array tells Angular which components belong to that module.
+The `declarations` array of the module tells Angular which components belong to that module.
 As you create more components, add them to `declarations`.
 
 You must declare every component in exactly one `NgModule` class.
 If you use a component without declaring it, Angular returns an error message.
 
 The `declarations` array only takes declarables. Declarables are components, [directives](guide/attribute-directives) and [pipes](guide/pipes).
-All of a module's declarables must be in the `declarations` array.
+All of the declarables of a module must be in the `declarations` array.
 Declarables must belong to exactly one module. The compiler emits an error if you try to declare the same class in more than one module.
 
 These declared classes are visible within the module but invisible to components in a different module, unless they are exported from this module and the other module imports this one.
@@ -90,7 +90,7 @@ To use a directive, component, or pipe in a module, you must do a few things:
 1.  Declare it in the `@NgModule` `declarations` array.
 
 Those three steps look like the following. In the file where you create your directive, export it.
-The following example, named `ItemDirective` is the default directive structure that the CLI generates in its own file, `item.directive.ts`:
+The following example, named `ItemDirective` is the default directive structure that the CLI generates in the associated file, `item.directive.ts`:
 
 <code-example header="src/app/item.directive.ts" path="bootstrapping/src/app/item.directive.ts" region="directive"></code-example>
 
@@ -104,9 +104,9 @@ And in the same file, add it to the `@NgModule` `declarations` array:
 <code-example header="src/app/app.module.ts" path="bootstrapping/src/app/app.module.ts" region="declarations"></code-example>
 
 Now you could use your `ItemDirective` in a component.
-This example uses `AppModule`, but you'd do it the same way for a feature module.
+This example uses `AppModule`, but you should do it the same way for a feature module.
 For more about directives, see [Attribute Directives](guide/attribute-directives) and [Structural Directives](guide/structural-directives).
-You'd also use the same technique for [pipes](guide/pipes) and components.
+You should also use the same technique for [pipes](guide/pipes) and components.
 
 Remember, components, directives, and pipes belong to one module only.
 You only need to declare them once in your application because you share them by importing the necessary modules.
@@ -116,7 +116,7 @@ This saves you time and helps keep your application lean.
 
 ## The `imports` array
 
-The module's `imports` array appears exclusively in the `@NgModule` metadata object.
+The `imports` array of the module appears exclusively in the `@NgModule` metadata object.
 It tells Angular about other NgModules that this particular module needs to function properly.
 
 <code-example header="src/app/app.module.ts (excerpt)" path="bootstrapping/src/app/app.module.ts" region="imports"></code-example>
@@ -139,19 +139,19 @@ For more information, see [Providers](guide/providers).
 The application launches by bootstrapping the root `AppModule`, which is also referred to as an `entryComponent`.
 Among other things, the bootstrapping process creates the component\(s\) listed in the `bootstrap` array and inserts each one into the browser DOM.
 
-Each bootstrapped component is the base of its own tree of components.
+Each bootstrapped component is the base of the associated tree of components.
 Inserting a bootstrapped component usually triggers a cascade of component creations that fill out that tree.
 
 While you can put more than one component tree on a host web page, most applications have only one component tree and bootstrap a single root component.
 
-This one root component is usually called `AppComponent` and is in the root module's `bootstrap` array.
+This one root component is usually called `AppComponent` and is in the `bootstrap` array of the root module.
 
 In a situation where you want to bootstrap a component based on an API response,
-or you want to mount the `AppComponent` in a different DOM node that doesn't match the component selector, please refer to `ApplicationRef.bootstrap()` documentation.
+or you want to mount the `AppComponent` in a different DOM node that does not match the component selector, please refer to `ApplicationRef.bootstrap()` documentation.
 
 ## More about Angular Modules
 
-For more on NgModules you're likely to see frequently in applications, see [Frequently Used Modules](guide/frequent-ngmodules).
+For more on NgModules you are likely to see frequently in applications, see [Frequently Used Modules](guide/frequent-ngmodules).
 
 <!-- links -->
 

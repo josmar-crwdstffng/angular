@@ -70,7 +70,7 @@ application under test.
 
 ## A simple benchmark
 
-Let's assume we want to measure the script execution time, as well as the render time
+Let us assume we want to measure the script execution time, as well as the render time
 that it takes to fill a container element with a complex html string.
 
 The application under test could look like this:
@@ -114,14 +114,14 @@ runner.sample({
   execute: () {
     fillBtn.click();
     // Note: if fillBtn would use some asynchronous code,
-    // we would need to wait here for its end.
+    // we would need to wait here for it to end.
   }
 });
 ```
 
 ## Measuring in the browser
 
-If the application under test would like to, it can measure on its own.
+If the application under test would like to, it can standlone measure.
 E.g.
 
 ```
@@ -166,7 +166,7 @@ When looking into the DevTools Timeline, we see a marker as well:
 
 ### Custom Metrics Without Using `console.time`
 
-It's also possible to measure any "user metric" within the browser
+It is also possible to measure any "user metric" within the browser
 by setting a numeric value on the `window` object. For example:
 
 ```js

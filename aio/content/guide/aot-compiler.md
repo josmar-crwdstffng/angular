@@ -22,7 +22,7 @@ Here are some reasons you might want to use AOT.
 |:---                                     |:---     |
 | Faster rendering                        | With AOT, the browser downloads a pre-compiled version of the application. The browser loads executable code so it can render the application immediately, without waiting to compile the application first.                                       |
 | Fewer asynchronous requests             | The compiler *inlines* external HTML templates and CSS style sheets within the application JavaScript, eliminating separate ajax requests for those source files.                                                                                  |
-| Smaller Angular framework download size | There's no need to download the Angular compiler if the application is already compiled. The compiler is roughly half of Angular itself, so omitting it dramatically reduces the application payload.                                              |
+| Smaller Angular framework download size | There is no need to download the Angular compiler if the application is already compiled. The compiler is roughly half of Angular, so omitting it dramatically reduces the application payload.                                              |
 | Detect template errors earlier          | The AOT compiler detects and reports template binding errors during the build step before users can see them.                                                                                                                                      |
 | Better security                         | AOT compiles HTML templates and components into JavaScript files long before they are served to the client. With no templates to read and no risky client-side HTML or JavaScript evaluation, there are fewer opportunities for injection attacks. |
 
@@ -64,7 +64,7 @@ export class TypicalComponent {
 </code-example>
 
 The Angular compiler extracts the metadata *once* and generates a *factory* for `TypicalComponent`.
-When it needs to create a `TypicalComponent` instance, Angular calls the factory, which produces a new visual element, bound to a new instance of the component class with its injected dependency.
+When it needs to create a `TypicalComponent` instance, Angular calls the factory, which produces a new visual element, bound to a new instance of the component class with the associated injected dependency.
 
 ### Compilation phases
 
@@ -73,7 +73,7 @@ There are three phases of AOT compilation.
 |     | Phase                  | Details |
 |:--- |:---                    |:---     |
 | 1   | code analysis          | In this phase, the TypeScript compiler and *AOT collector* create a representation of the source. The collector does not attempt to interpret the metadata it collects. It represents the metadata as best it can and records errors when it detects a metadata syntax violation.                        |
-| 2   | code generation        | In this phase, the compiler's `StaticReflector` interprets the metadata collected in phase 1, performs additional validation of the metadata, and throws an error if it detects a metadata restriction violation.                                                                                        |
+| 2   | code generation        | In this phase, the `StaticReflector` of the compiler interprets the metadata collected in phase 1, performs additional validation of the metadata, and throws an error if it detects a metadata restriction violation.                                                                                        |
 | 3   | template type checking | In this optional phase, the Angular *template compiler* uses the TypeScript compiler to validate the binding expressions in templates. You can enable this phase explicitly by setting the `fullTemplateTypeCheck` configuration option; see [Angular compiler options](guide/angular-compiler-options). |
 
 ### Metadata restrictions
@@ -89,7 +89,7 @@ For additional guidelines and instructions on preparing an application for AOT c
 
 <div class="alert is-helpful">
 
-Errors in AOT compilation commonly occur because of metadata that does not conform to the compiler's requirements \(as described more fully below\).
+Errors in AOT compilation commonly occur because of metadata that does not conform to the requirements \(as described more fully below\) of the compiler.
 For help in understanding and resolving these problems, see [AOT Metadata Errors](guide/aot-metadata-errors).
 
 </div>
@@ -105,11 +105,11 @@ The TypeScript compiler does some of the analytic work of the first phase.
 It emits the `.d.ts` *type definition files* with type information that the AOT compiler needs to generate application code.
 At the same time, the AOT **collector** analyzes the metadata recorded in the Angular decorators and outputs metadata information in **`.metadata.json`** files, one per `.d.ts` file.
 
-You can think of `.metadata.json` as a diagram of the overall structure of a decorator's metadata, represented as an [abstract syntax tree (AST)](https://en.wikipedia.org/wiki/Abstract_syntax_tree).
+You can think of `.metadata.json` as a diagram of the overall structure of the metadata of a decorator, represented as an [abstract syntax tree (AST)](https://en.wikipedia.org/wiki/Abstract_syntax_tree).
 
 <div class="alert is-helpful">
 
-Angular's [schema.ts](https://github.com/angular/angular/blob/main/packages/compiler-cli/src/metadata/schema.ts) describes the JSON format as a collection of TypeScript interfaces.
+The [schema.ts](https://github.com/angular/angular/blob/main/packages/compiler-cli/src/metadata/schema.ts) in Angular describes the JSON format as a collection of TypeScript interfaces.
 
 </div>
 
@@ -233,8 +233,8 @@ export class HeroComponent {
 
 </code-example>
 
-The compiler could not refer to the `template` constant because it isn't exported.
-The collector, however, can fold the `template` constant into the metadata definition by in-lining its contents.
+The compiler could not refer to the `template` constant because it is not exported.
+The collector, however, can fold the `template` constant into the metadata definition by in-lining the associated contents.
 The effect is the same as if you had written:
 
 <code-example format="typescript" language="typescript">
@@ -249,7 +249,7 @@ export class HeroComponent {
 
 </code-example>
 
-There is no longer a reference to `template` and, therefore, nothing to trouble the compiler when it later interprets the *collector's* output in `.metadata.json`.
+There is no longer a reference to `template` and, therefore, nothing to trouble the compiler when it later interprets the output of the *collector* in `.metadata.json`.
 
 You can take this example a step further by including the `template` constant in another expression:
 
@@ -267,7 +267,7 @@ export class HeroComponent {
 
 </code-example>
 
-The collector reduces this expression to its equivalent *folded* string:
+The collector reduces this expression to the associated equivalent *folded* string:
 
 <code-example format="typescript" language="typescript">
 
@@ -306,7 +306,7 @@ If an expression is not foldable, the collector writes it to `.metadata.json` as
 
 The collector makes no attempt to understand the metadata that it collects and outputs to `.metadata.json`.
 It represents the metadata as best it can and records errors when it detects a metadata syntax violation.
-It's the compiler's job to interpret the `.metadata.json` in the code generation phase.
+It is the job of the compiler to interpret the `.metadata.json` in the code generation phase.
 
 The compiler understands all syntax forms that the collector supports, but it may reject *syntactically* correct metadata if the *semantics* violate compiler rules.
 
@@ -364,7 +364,7 @@ export function wrapInArray&lt;T&gt;(value: T): T[] {
 
 </code-example>
 
-You can call the `wrapInArray` in a metadata definition because it returns the value of an expression that conforms to the compiler's restrictive JavaScript subset.
+You can call the `wrapInArray` in a metadata definition because it returns the value of an expression that conforms to the restrictive JavaScript subset of the compiler.
 
 You might use  `wrapInArray()` like this:
 
@@ -398,7 +398,7 @@ for these methods to see how macros can simplify configuration of complex [NgMod
 
 The compiler treats object literals containing the fields `useClass`, `useValue`, `useFactory`, and `data` specially, converting the expression initializing one of these fields into an exported variable that replaces the expression.
 This process of rewriting these expressions removes all the restrictions on what can be in them because
-the compiler doesn't need to know the expression's value &mdash;it just needs to be able to generate a reference to the value.
+the compiler does not need to know the value of the expression &mdash;it just needs to be able to generate a reference to the value.
 
 You might write something like:
 
@@ -436,18 +436,17 @@ export class TypicalModule {}
 This allows the compiler to generate a reference to `θ0` in the factory without having to know what the value of `θ0` contains.
 
 The compiler does the rewriting during the emit of the `.js` file.
-It does not, however, rewrite the `.d.ts` file, so TypeScript doesn't recognize it as being an export.
-And it does not interfere with the ES module's exported API.
+It does not, however, rewrite the `.d.ts` file, so TypeScript does not recognize it as being an export.
+And it does not interfere with the exported APIof the ES module.
 
 <a id="binding-expression-validation"></a>
 
 ## Phase 3: Template type checking
 
-One of the Angular compiler's most helpful features is the ability to type-check expressions within templates, and catch any errors before they cause crashes at runtime.
+One of the most helpful features in Angular compiler is the ability to type-check expressions within templates, and catch any errors before they cause crashes at runtime.
 In the template type-checking phase, the Angular template compiler uses the TypeScript compiler to validate the binding expressions in templates.
 
-Enable this phase explicitly by adding the compiler option `"fullTemplateTypeCheck"` in the `"angularCompilerOptions"` of the project's TypeScript configuration file
-(see [Angular Compiler Options](guide/angular-compiler-options)).
+Enable this phase explicitly by adding the compiler option `"fullTemplateTypeCheck"` in the `"angularCompilerOptions"` of the TypeScript configuration file (see [Angular Compiler Options](guide/angular-compiler-options)) for the project.
 
 Template validation produces error messages when a type error is detected in a template binding
 expression, similar to how type errors are reported by the TypeScript compiler against code in a `.ts`

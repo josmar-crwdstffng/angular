@@ -4,7 +4,7 @@ Ivy is a new backwards-compatible Angular renderer focused on further speed impr
 
 Ivy is currently not feature complete, but can be tested via [`enableIvy: true`](https://next.angular.io/guide/ivy#updating-an-existing-project-to-use-ivy) [`angularCompilerOptions` flag](https://next.angular.io/guide/aot-compiler#angular-compiler-options).
 
-We currently expect Ivy to remain behind the flag until it's feature complete and battle tested at Google. In the meantime you can check out this [Hello World demo](https://ng-ivy-demo.firebaseapp.com/).
+We currently expect Ivy to remain behind the flag until it is feature complete and battle tested at Google. In the meantime you can check out this [Hello World demo](https://ng-ivy-demo.firebaseapp.com/).
 
 # Implementation Status
 
@@ -52,15 +52,15 @@ A tool which "upgrades" `node_module` compiled with non-ivy `ngc` into ivy compl
 
 ## `@angular/core` changes
 
-The goal is for the `@Component` (and friends) to be the compiler of template. Since decorators are functions which execute during parsing of the `.js` file, the decorator can compile the template into Ivy. The AOT compiler's job is to remove the `@Component` and replace it with call to `ɵɵdefineComponent`.
+The goal is for the `@Component` (and friends) to be the compiler of template. Since decorators are functions which execute during parsing of the `.js` file, the decorator can compile the template into Ivy. The job of the AOT compiler is to remove the `@Component` and replace it with call to `ɵɵdefineComponent`.
 
-- ✅ `@angular/compiler` can patch itself onto:
+- ✅ `@angular/compiler` can self-patch onto:
   - ✅ `@Injectable`
   - ✅ `@NgModule`
   - ✅ `@Pipe`
   - ✅ `@Directive`
   - ✅ `@Component`
-- ✅ `ResourceLoader.resolved: Promise<>` Returns true if all `templateUrl`s and `styleUrl` have been resolved and application is ready to be bootstrapped.
+- ✅ `ResourceLoader.resolved: Promise<>` Returns true if all instances of `templateUrl` and `styleUrl` have been resolved and application is ready to be bootstrapped.
 
 # Testing / Debugging
 - ✅ in debug mode publish components into DOM nodes for easier debugging.

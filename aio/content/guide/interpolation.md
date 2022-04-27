@@ -2,9 +2,9 @@
 
 ## Prerequisites
 
-* [Basics of components](guide/architecture-components)
-* [Basics of templates](guide/glossary#template)
-* [Binding syntax](guide/binding-syntax)
+*   [Basics of components](guide/architecture-components)
+*   [Basics of templates](guide/glossary#template)
+*   [Binding syntax](guide/binding-syntax)
 
 <!--todo: needs a level 2 heading for info below -->
 
@@ -26,7 +26,7 @@ In the following example, Angular evaluates the `title` and `itemImageUrl` prope
 
 ## What's Next
 
-* [Property binding](guide/property-binding)
-* [Event binding](guide/event-binding)
+*   [Property binding](guide/property-binding)
+*   [Event binding](guide/event-binding)
 
 @reviewed 2022-04-14

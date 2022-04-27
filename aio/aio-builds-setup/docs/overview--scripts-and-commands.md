@@ -23,7 +23,7 @@ available:
 
 ## Production Commands
 The following commands are available globally from inside the docker container. They are either used
-by the container to perform its various operations or can be used ad-hoc, mainly for testing
+by the container to perform the associated various operations or can be used ad-hoc, mainly for testing
 purposes. Each command is backed by a corresponding script inside
 `<aio-builds-setup-dir>/dockerbuild/scripts-sh/`.
 
@@ -34,7 +34,7 @@ purposes. Each command is backed by a corresponding script inside
 - `aio-health-check`:
   Runs a basic health-check, verifying that the necessary services are running, the servers are
   responding and there is a working internet connection.
-  _It is used periodically by docker for determining the container's health status._
+  _It is used periodically by docker for determining the health status of the container._
 
 - `aio-init`:
   Initializes the container (mainly by starting the necessary services).

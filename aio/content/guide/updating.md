@@ -25,7 +25,7 @@ To be notified when new releases are available, follow [@angular](https://twitte
 
 ## Learning about new features
 
-What's new? What's changed? We share the most important things you need to know on the Angular blog in [release announcements]( https://blog.angular.io/tagged/release%20notes "Angular blog - release announcements").
+What is new? What is changed? We share the most important things you need to know on the Angular blog in [release announcements]( https://blog.angular.io/tagged/release%20notes "Angular blog - release announcements").
 
 To review a complete list of changes, organized by version, see the [Angular change log](https://github.com/angular/angular/blob/main/CHANGELOG.md "Angular change log").
 
@@ -33,7 +33,7 @@ To review a complete list of changes, organized by version, see the [Angular cha
 
 ## Checking your version of Angular
 
-To check your application's version of Angular: From within your project directory, use the `ng version` command.
+To check the version of Angular for your application: From within your project directory, use the `ng version` command.
 
 <a id="checking-version-angular"></a>
 
@@ -58,7 +58,7 @@ It also includes troubleshooting information and any recommended manual changes 
 For simple updates, the CLI command [`ng update`](cli/update) is all you need.
 Without additional arguments, [`ng update`](cli/update) lists the updates that are available to you and provides recommended steps to update your application to the most current version.
 
-[Angular Versioning and Releases](guide/releases#versioning "Angular Release Practices, Versioning") describes the level of change that you can expect based a release's version number.
+[Angular Versioning and Releases](guide/releases#versioning "Angular Release Practices, Versioning") describes the level of change that you can expect based the version number of a release.
 It also describes supported update paths.
 
 <a id="resources"></a>

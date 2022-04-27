@@ -15,7 +15,7 @@ There are two ways to make a service a singleton in Angular:
 
 ### Using `providedIn`
 
-Beginning with Angular 6.0, the preferred way to create a singleton service is to set `providedIn` to `root` on the service's `@Injectable()` decorator.
+Beginning with Angular 6.0, the preferred way to create a singleton service is to set `providedIn` to `root` on the `@Injectable()` decorator of the service.
 This tells Angular to provide the service in the application root.
 
 <code-example path="providers/src/app/user.service.0.ts"  header="src/app/user.service.ts"></code-example>
@@ -37,13 +37,13 @@ In applications built with Angular versions prior to 6.0, services are registere
 </code-example>
 
 If this NgModule were the root `AppModule`, the `UserService` would be a singleton and available throughout the application.
-Though you may see it coded this way, using the `providedIn` property of the `@Injectable()` decorator on the service itself is preferable as of Angular 6.0 as it makes your services tree-shakable.
+Though you may see it coded this way, using the `providedIn` property of the `@Injectable()` decorator on the service is preferable as of Angular 6.0 as it makes your services tree-shakable.
 
 <a id="forRoot"></a>
 
 ## The `forRoot()` pattern
 
-Generally, you'll only need `providedIn` for providing services and `forRoot()`/`forChild()` for routing.
+Generally, you will only need `providedIn` for providing services and `forRoot()`/`forChild()` for routing.
 However, understanding how `forRoot()` works to make sure a service is a singleton will inform your development at a deeper level.
 
 If a module defines both providers and declarations \(components, directives, pipes\), then loading the module in multiple feature modules would duplicate the registration of the service.
@@ -78,7 +78,7 @@ Use `forRoot()` to separate providers from a module so you can import that modul
 The root application module imports `RouterModule` so that the application has a `Router` and the root application components can access the router directives.
 Any feature modules must also import `RouterModule` so that their components can place router directives into their templates.
 
-If the `RouterModule` didn't have `forRoot()` then each feature module would instantiate a new `Router` instance, which would break the application as there can only be one `Router`.
+If the `RouterModule` did not have `forRoot()` then each feature module would instantiate a new `Router` instance, which would break the application as there can only be one `Router`.
 By using the `forRoot()` method, the root application module imports `RouterModule.forRoot(...)` and gets a `Router`, and all feature modules import `RouterModule.forChild(...)` which does not instantiate another `Router`.
 
 <div class="alert is-helpful">
@@ -102,7 +102,7 @@ In the <live-example name="ngmodules">live example</live-example> the root `AppM
 Specifically, Angular accumulates all imported providers before appending the items listed in `@NgModule.providers`.
 This sequence ensures that whatever you add explicitly to the `AppModule` providers takes precedence over the providers of imported modules.
 
-The sample application imports `GreetingModule` and uses its `forRoot()` method one time, in `AppModule`.
+The sample application imports `GreetingModule` and uses the associated `forRoot()` method one time, in `AppModule`.
 Registering it once like this prevents multiple instances.
 
 You can also add a `forRoot()` method in the `GreetingModule` that configures the greeting `UserService`.
@@ -112,7 +112,7 @@ If a `UserServiceConfig` exists, the `UserService` sets the user name from that 
 
 <code-example header="src/app/greeting/user.service.ts (constructor)" path="ngmodules/src/app/greeting/user.service.ts" region="ctor"></code-example>
 
-Here's `forRoot()` that takes a `UserServiceConfig` object:
+Here is `forRoot()` that takes a `UserServiceConfig` object:
 
 <code-example header="src/app/greeting/greeting.module.ts (forRoot)" path="ngmodules/src/app/greeting/greeting.module.ts" region="for-root"></code-example>
 
@@ -124,7 +124,7 @@ For the complete file, see the <live-example name="ngmodules"></live-example>, o
 
 The application displays "Miss Marple" as the user instead of the default "Sherlock Holmes".
 
-Remember to import `GreetingModule` as a Javascript import at the top of the file and don't add it to more than one `@NgModule` `imports` list.
+Remember to import `GreetingModule` as a Javascript import at the top of the file and do not add it to more than one `@NgModule` `imports` list.
 
 ## Prevent reimport of the `GreetingModule`
 
@@ -135,16 +135,16 @@ To guard against a lazy loaded module re-importing `GreetingModule`, add the fol
 
 <code-example header="src/app/greeting/greeting.module.ts" path="ngmodules/src/app/greeting/greeting.module.ts" region="ctor"></code-example>
 
-The constructor tells Angular to inject the `GreetingModule` into itself.
+The constructor tells Angular to self-inject the `GreetingModule`.
 The injection would be circular if Angular looked for `GreetingModule` in the *current* injector, but the `@SkipSelf()` decorator means "look for `GreetingModule` in an ancestor injector, above me in the injector hierarchy."
 
-By default, the injector throws an error when it can't find a requested provider.
+By default, the injector throws an error when it cannot find a requested provider.
 The `@Optional()` decorator means not finding the service is OK.
 The injector returns `null`, the `parentModule` parameter is null, and the constructor concludes uneventfully.
 
-It's a different story if you improperly import `GreetingModule` into a lazy loaded module such as `CustomersModule`.
+It is a different story if you improperly import `GreetingModule` into a lazy loaded module such as `CustomersModule`.
 
-Angular creates a lazy loaded module with its own injector, a child of the root injector.
+Angular creates a lazy loaded module with an associated injector, a child of the root injector.
 `@SkipSelf()` causes Angular to look for a `GreetingModule` in the parent injector, which this time is the root injector.
 Of course it finds the instance imported by the root `AppModule`.
 Now `parentModule` exists and the constructor throws the error.

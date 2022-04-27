@@ -37,7 +37,7 @@ This guide demonstrates building an application with the following components.
 | `<app-root>`           | The first component to load and the container for the other components. |
 | `<app-top-bar>`        | The store name and checkout button.                                     |
 | `<app-product-list>`   | The product list.                                                       |
-| `<app-product-alerts>` | A component that contains the application's alerts.                     |
+| `<app-product-alerts>` | A component that contains the alerts of the application.                |
 
 <div class="lightbox">
 
@@ -87,8 +87,8 @@ For more information on how to use StackBlitz, see the [StackBlitz documentation
 
 ## Create the product list
 
-In this section, you'll update the application to display a list of products.
-You'll use predefined product data from the `products.ts` file and methods from the `product-list.component.ts` file.
+In this section, you will update the application to display a list of products.
+you will use predefined product data from the `products.ts` file and methods from the `product-list.component.ts` file.
 This section guides you through editing the HTML, also known as the template.
 
 1.  In the `product-list` folder, open the template file `product-list.component.html`.
@@ -99,11 +99,11 @@ This section guides you through editing the HTML, also known as the template.
 
     With `*ngFor`, the `<div>` repeats for each product in the list.
 
-    Structural directives shape or reshape the DOM's structure, by adding, removing, and manipulating elements.
+    Structural directives shape or reshape the structure of the DOM, by adding, removing, and manipulating elements.
     For more information about structural directives, see [Structural directives](guide/structural-directives).
 
 1.  Inside the `<div>`, add an `<h3>` and `{{ product.name }}`.
-    The `{{ product.name }}` statement is an example of Angular's interpolation syntax.
+    The `{{ product.name }}` statement is an example of the interpolation syntax in Angular.
     Interpolation `{{ }}` lets you render the property value as text.
 
     <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.2.html" region="interpolation"></code-example>
@@ -118,7 +118,7 @@ This section guides you through editing the HTML, also known as the template.
 
 1.  To make each product name a link to product details, add the `<a>` element around `{{ product.name }}`.
 
-1.  Set the title to be the product's name by using the property binding `[ ]` syntax, as follows:
+1.  Set the title to be the name of the product by using the property binding `[ ]` syntax, as follows:
 
     <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.2.html"></code-example>
 
@@ -138,7 +138,7 @@ This section guides you through editing the HTML, also known as the template.
 
     The application now displays the name and description of each product in the list.
     Notice that the final product does not have a description paragraph.
-    Angular doesn't create the `<p>` element because the product's description property is empty.
+    Angular does not create the `<p>` element because the description property of the product is empty.
 
     <div class="lightbox">
 
@@ -147,7 +147,7 @@ This section guides you through editing the HTML, also known as the template.
     </div>
 
 1.  Add a button so users can share a product.
-    Bind the button's `click` event to the `share()` method in `product-list.component.ts`.
+    Bind the `click` event of the button to the `share()` method in `product-list.component.ts`.
     Event binding uses a set of parentheses, `( )`, around the event, as in the `(click)` event on the  `<button>` element.
 
     <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.4.html"></code-example>
@@ -179,9 +179,9 @@ Currently, the product list displays the name and description of each product.
 The `ProductListComponent` also defines a `products` property that contains imported data for each product from the `products` array in `products.ts`.
 
 The next step is to create a new alert feature that uses product data from the `ProductListComponent`.
-The alert checks the product's price, and, if the price is greater than &dollar;700, displays a **Notify Me** button that lets users sign up for notifications when the product goes on sale.
+The alert checks the price of the product, and, if the price is greater than &dollar;700, displays a **Notify Me** button that lets users sign up for notifications when the product goes on sale.
 
-This section walks you through creating a child component, `ProductAlertsComponent` that can receive data from its parent component, `ProductListComponent`.
+This section walks you through creating a child component, `ProductAlertsComponent` that can receive data from the associated parent component, `ProductListComponent`.
 
 1.  Click on the plus sign above the current terminal to create a new terminal to run the command to generate the component.
 
@@ -207,7 +207,7 @@ This section walks you through creating a child component, `ProductAlertsCompone
 
 1.  Open `product-alerts.component.ts`.
     The `@Component()` decorator indicates that the following class is a component.
-    `@Component()` also provides metadata about the component, including its selector, templates, and styles.
+    `@Component()` also provides metadata about the component, including the associated selector, templates, and styles.
 
     <code-example header="src/app/product-alerts/product-alerts.component.ts" path="getting-started/src/app/product-alerts/product-alerts.component.1.ts" region="as-generated"></code-example>
 
@@ -216,7 +216,7 @@ This section walks you through creating a child component, `ProductAlertsCompone
     *   The `selector`, `app-product-alerts`, identifies the component.
         By convention, Angular component selectors begin with the prefix `app-`, followed by the component name.
 
-    *   The template and style filenames reference the component's HTML and CSS
+    *   The template and style filenames reference the HTML and CSS of the component
     *   The `@Component()` definition also exports the class, `ProductAlertsComponent`, which handles functionality for the component
 
 1.  To set up `ProductAlertsComponent` to receive product data, first import `Input` from `@angular/core`.
@@ -224,7 +224,7 @@ This section walks you through creating a child component, `ProductAlertsCompone
     <code-example header="src/app/product-alerts/product-alerts.component.ts" path="getting-started/src/app/product-alerts/product-alerts.component.1.ts" region="imports"></code-example>
 
 1.  In the `ProductAlertsComponent` class definition, define a property named `product` with an `@Input()` decorator.
-    The `@Input()` decorator indicates that the property value passes in from the component's parent, `ProductListComponent`.
+    The `@Input()` decorator indicates that the property value passes from the `ProductListComponent`parent of the component.
 
     <code-example header="src/app/product-alerts/product-alerts.component.ts" path="getting-started/src/app/product-alerts/product-alerts.component.1.ts" region="input-decorator"></code-example>
 
@@ -261,7 +261,7 @@ The `ProductAlertsComponent` needs to emit an event when the user clicks **Notif
 <div class="alert is-helpful">
 
 In new components, the Angular Generator includes an empty `constructor()`, the `OnInit` interface, and the `ngOnInit()` method.
-Since these steps don't use them, the following code examples omit them for brevity.
+Since these steps do not use them, the following code examples omit them for brevity.
 
 </div>
 
@@ -305,7 +305,7 @@ For more information on communication between components, see [Component Interac
 
 ## What's next
 
-In this section, you've created an application that iterates through data and features components that communicate with each other.
+In this section, you have created an application that iterates through data and features components that communicate with each other.
 
 To continue exploring Angular and developing this application:
 

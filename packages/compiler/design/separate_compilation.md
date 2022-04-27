@@ -125,10 +125,10 @@ reexported from the index.
 ### Angular Ivy
 
 The metadata for a class in ivy is transformed to be what the metadata of the
-transformed .js file produced by the Ivy compiler would be. For example, a
-component's `@Component` is removed by the compiler and replaced by a `ɵcmp`.
+transformed .js file produced by the Ivy compiler would be. For example, the `@Component` of a
+component is removed by the compiler and replaced by a `ɵcmp`.
 The `.metadata.json` file is similarly transformed but the content of the
-value assigned is elided (e.g. `"ɵcmp": {}`). The compiler doesn't
+value assigned is elided (e.g. `"ɵcmp": {}`). The compiler does not
 record the selector declared for a component but it is needed to produce the
 `ngModuleScope` so the information is recorded as if a static field
 `ngSelector` was declared on class with the value of the `selector` field
@@ -453,8 +453,8 @@ is determined by name of the imported module with all non alphanumeric
 character, including '`/`' and '`.`', replaced by '`_`'.
 
 The back-patch functions will call the back-patch function of any module they
-import. This means that only the application's module and lazy loaded modules
-back-patching functions need to be called. If using the Renderer2 module factory
+import. This means that only the module and lazy loaded modules
+back-patching functions of the application need to be called. If using the Renderer2 module factory
 instances, this is performed automatically when the first application module
 instance is created.
 

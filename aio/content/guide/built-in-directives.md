@@ -2,7 +2,7 @@
 
 Directives are classes that add additional behavior to elements
 in your Angular applications.
-Use Angular's built-in directives to manage forms, lists, styles, and what users see.
+Use the directives built into Angular to manage forms, lists, styles, and what users see.
 
 <div class="alert is-helpful">
 
@@ -38,7 +38,7 @@ The most common attribute directives are as follows:
 <div class="alert is-helpful">
 
 Built-in directives use only public APIs.
-They do not have special access to any private APIs that other directives can't access.
+They do not have special access to any private APIs that other directives cannot access.
 
 </div>
 
@@ -56,7 +56,7 @@ To add or remove a *single* class, use [class binding](guide/class-binding) rath
 
 ### Using `NgClass` with an expression
 
-On the element you'd like to style, add `[ngClass]` and set it equal to an expression.
+On the element you would like to style, add `[ngClass]` and set it equal to an expression.
 In this case, `isSpecial` is a boolean set to `true` in `app.component.ts`.
 Because `isSpecial` is true, `ngClass` applies the class of `special` to the `<div>`.
 
@@ -73,7 +73,7 @@ Because `isSpecial` is true, `ngClass` applies the class of `special` to the `<d
 
     <code-example header="src/app/app.component.ts" path="built-in-directives/src/app/app.component.ts" region="setClasses"></code-example>
 
-1.  In the template, add the `ngClass` property binding to `currentClasses` to set the element's classes:
+1.  In the template, add the `ngClass` property binding to `currentClasses` to set the classes of the element:
 
     <code-example header="src/app/app.component.html" path="built-in-directives/src/app/app.component.html" region="NgClass-1"></code-example>
 
@@ -94,13 +94,13 @@ Use `NgStyle` to set multiple inline styles simultaneously, based on the state o
 
     <code-example header="src/app/app.component.ts" path="built-in-directives/src/app/app.component.ts" region="setStyles"></code-example>
 
-1.  To set the element's styles, add an `ngStyle` property binding to `currentStyles`.
+1.  To set the styles of the element, add an `ngStyle` property binding to `currentStyles`.
 
     <code-example header="src/app/app.component.html" path="built-in-directives/src/app/app.component.html" region="NgStyle-2"></code-example>
 
 For this use case, Angular applies the styles upon initialization and in case of changes.
 To do this, the full example calls `setCurrentStyles()` initially with `ngOnInit()` and when the dependent properties change through a button click.
-However, these steps are not necessary to implement `ngStyle` on its own.
+However, these steps are not necessary to implement the associated `ngStyle`.
 See the <live-example></live-example> `app.component.ts` and `app.component.html` for this optional implementation.
 
 <a id="ngModel"></a>
@@ -109,7 +109,7 @@ See the <live-example></live-example> `app.component.ts` and `app.component.html
 
 Use the `NgModel` directive to display a data property and update that property when the user makes changes.
 
-1.  Import `FormsModule`  and add it to the NgModule's `imports` list.
+1.  Import `FormsModule`  and add it to the `imports` list of the NgModule.
 
     <code-example header="src/app/app.module.ts (FormsModule import)" path="built-in-directives/src/app/app.module.ts" region="import-forms-module"></code-example>
 
@@ -144,7 +144,7 @@ For more information, see the API documentation on [DefaultValueAccessor](api/fo
 
 <div class="alert is-helpful">
 
-When you write an Angular component, you don't need a value accessor or `NgModel` if you  name the value and event properties according to Angular's [two-way binding syntax](guide/two-way-binding#how-two-way-binding-works).
+When you write an Angular component, you do not need a value accessor or `NgModel` if you name the value and event properties according to the [two-way binding syntax](guide/two-way-binding#how-two-way-binding-works) in Angular.
 
 </div>
 
@@ -153,7 +153,7 @@ When you write an Angular component, you don't need a value accessor or `NgModel
 ## Built-in structural directives
 
 Structural directives are responsible for HTML layout.
-They shape or reshape the DOM's structure, typically by adding, removing, and manipulating the host elements to which they are attached.
+They shape or reshape the structure of the DOM, typically by adding, removing, and manipulating the host elements to which they are attached.
 
 This section introduces the most common built-in structural directives:
 
@@ -171,7 +171,7 @@ For more information, see [Structural Directives](guide/structural-directives).
 
 Add or remove an element by applying an `NgIf` directive to a host element.
 
-When `NgIf` is `false`, Angular removes an element and its descendants from the DOM.
+When `NgIf` is `false`, Angular removes an element and the associated descendants from the DOM.
 Angular then disposes of their components, which frees up memory and resources.
 
 To add or remove an element, bind `*ngIf` to a condition expression such as `isActive` in the following example.
@@ -179,7 +179,7 @@ To add or remove an element, bind `*ngIf` to a condition expression such as `isA
 <code-example header="src/app/app.component.html" path="built-in-directives/src/app/app.component.html" region="NgIf-1"></code-example>
 
 When the `isActive` expression returns a truthy value, `NgIf` adds the `ItemDetailComponent` to the DOM.
-When the expression is falsy, `NgIf` removes the `ItemDetailComponent` from the DOM and disposes of the component and all of its sub-components.
+When the expression is falsy, `NgIf` removes the `ItemDetailComponent` from the DOM and disposes of the component and all of the associated sub-components.
 
 For more information on `NgIf` and `NgIfElse`, see the [NgIf API documentation](api/common/NgIf).
 
@@ -227,7 +227,7 @@ In the following example, the selector is `<app-item-detail>`.
 Reference a template input variable, such as `item`, in the following locations:
 
 *   Within the `ngFor` host element
-*   Within the host element descendants to access the item's properties
+*   Within the host element descendants to access the properties of the item
 
 The following example references `item` first in an interpolation and then passes in a binding to the `item` property of the `<app-item-detail>` component.
 
@@ -256,7 +256,7 @@ For more information about shorthand, see the [Structural Directives](guide/stru
 ## Repeating elements when a condition is true
 
 To repeat a block of HTML when a particular condition is true, put the `*ngIf` on a container element that wraps an `*ngFor` element.
-One or both elements can be an `<ng-container>` so you don't have to introduce extra levels of HTML.
+One or both elements can be an `<ng-container>` so you do not have to introduce extra levels of HTML.
 
 Because structural directives add and remove nodes from the DOM, apply only one structural directive per element.
 
@@ -270,8 +270,8 @@ Reduce the number of calls your application makes to the server by tracking chan
 With the `*ngFor` `trackBy` property, Angular can change and re-render only those items that have changed, rather than reloading the entire list of items.
 
 1.  Add a method to the component that returns the value `NgFor` should track.
-    In this example, the value to track is the item's `id`.
-    If the browser has already rendered `id`, Angular keeps track of it and doesn't re-query the server for the same `id`.
+    In this example, the value to track is the `id` of the item.
+    If the browser has already rendered `id`, Angular keeps track of it and does not re-query the server for the same `id`.
 
     <code-example header="src/app/app.component.ts" path="built-in-directives/src/app/app.component.ts" region="trackByItems"></code-example>
 
@@ -295,11 +295,11 @@ In the following illustration of the `trackBy` effect, **Reset items** creates n
 
 ## Hosting a directive without a DOM element
 
-The Angular `<ng-container>` is a grouping element that doesn't interfere with styles or layout because Angular doesn't put it in the DOM.
+The Angular `<ng-container>` is a grouping element that does not interfere with styles or layout because Angular does not put it in the DOM.
 
-Use `<ng-container>` when there's no single element to host the directive.
+Use `<ng-container>` when there is no single element to host the directive.
 
-Here's a conditional paragraph using `<ng-container>`.
+Here is a conditional paragraph using `<ng-container>`.
 
 <code-example header="src/app/app.component.html (ngif-ngcontainer)" path="structural-directives/src/app/app.component.html" region="ngif-ngcontainer"></code-example>
 
@@ -336,9 +336,9 @@ Angular puts only the selected element into the DOM.
 
 | `NgSwitch` directives | Details |
 |:---                   |:---     |
-| `NgSwitch`            | An attribute directive that changes the behavior of its companion directives.                                                                                          |
-| `NgSwitchCase`        | Structural directive that adds its element to the DOM when its bound value equals the switch value and removes its bound value when it doesn't equal the switch value. |
-| `NgSwitchDefault`     | Structural directive that adds its element to the DOM when there is no selected `NgSwitchCase`.                                                                        |
+| `NgSwitch`            | An attribute directive that changes the behavior of the associated companion directives.                                                                                          |
+| `NgSwitchCase`        | Structural directive that adds the associated element to the DOM when the associated bound value equals the switch value and removes the associated bound value when it does not equal the switch value. |
+| `NgSwitchDefault`     | Structural directive that adds the associated element to the DOM when there is no selected `NgSwitchCase`.                                                                        |
 
 1.  On an element, such as a `<div>`, add `[ngSwitch]` bound to an expression that returns the switch value, such as `feature`.
     Though the `feature` value in this example is a string, the switch value can be of any type.

@@ -26,12 +26,12 @@ This section walks you through creating a highlight directive that sets the back
 
     <code-example header="src/app/highlight.directive.ts" path="attribute-directives/src/app/highlight.directive.0.ts"></code-example>
 
-    The `@Directive()` decorator's configuration property specifies the directive's CSS attribute selector, `[appHighlight]`.
+    The configuration property of the `@Directive()` decorator specifies the `[appHighlight]` CSS attribute selector of the directive.
 
 1.  Import `ElementRef` from `@angular/core`.
-    `ElementRef` grants direct access to the host DOM element through its `nativeElement` property.
+    `ElementRef` grants direct access to the host DOM element through the associated `nativeElement` property.
 
-1.  Add `ElementRef` in the directive's `constructor()` to [inject](guide/dependency-injection) a reference to the host DOM element, the element to which you apply `appHighlight`.
+1.  Add `ElementRef` in the `constructor()` of the directive to [inject](guide/dependency-injection) a reference to the host DOM element, the element to which you apply `appHighlight`.
 
 1.  Add logic to the `HighlightDirective` class that sets the background to yellow.
 
@@ -53,7 +53,7 @@ Directives *do not* support namespaces.
 
     <code-example header="src/app/app.component.html" path="attribute-directives/src/app/app.component.1.html" region="applied"></code-example>
 
-Angular creates an instance of the `HighlightDirective` class and injects a reference to the `<p>` element into the directive's constructor, which sets the `<p>` element's background style to yellow.
+Angular creates an instance of the `HighlightDirective` class and injects a reference to the `<p>` element into the constructor of the directive, which sets the background style of the `<p>` element to yellow.
 
 <a id="respond-to-user"></a>
 
@@ -103,7 +103,7 @@ This section walks you through setting the highlight color while applying the `H
 
     <code-example header="src/app/highlight.directive.ts" path="attribute-directives/src/app/highlight.directive.3.ts" region="input"></code-example>
 
-    The `@Input()` decorator adds metadata to the class that makes the directive's `appHighlight` property available for binding.
+    The `@Input()` decorator adds metadata to the class that makes the `appHighlight` property of the directive available for binding.
 
 1.  In `app.component.ts`, add a `color` property to the `AppComponent`.
 
@@ -116,7 +116,7 @@ This section walks you through setting the highlight color while applying the `H
     The `[appHighlight]` attribute binding performs two tasks:
 
     *   Applies the highlighting directive to the `<p>` element
-    *   Sets the directive's highlight color with a property binding
+    *   Sets the highlight color of the directive with a property binding
 
 ### Setting the value with user input
 
@@ -152,12 +152,12 @@ This section guides you through configuring your application so the developer ca
 
     <code-example header="src/app/highlight.directive.ts (defaultColor)" path="attribute-directives/src/app/highlight.directive.ts" region="defaultColor"></code-example>
 
-1.  Revise the directive's `onMouseEnter` so that it first tries to highlight with the `appHighlight`, then with the `defaultColor`, and falls back to `red` if both properties are `undefined`.
+1.  Revise the `onMouseEnter` of the directive so that it first tries to highlight with the `appHighlight`, then with the `defaultColor`, and falls back to `red` if both properties are `undefined`.
 
     <code-example header="src/app/highlight.directive.ts (mouse-enter)" path="attribute-directives/src/app/highlight.directive.ts" region="mouse-enter"></code-example>
 
 1.  To bind to the `AppComponent.color` and fall back to "violet" as the default color, add the following HTML.
-    In this case,  the `defaultColor` binding doesn't use square brackets, `[]`, because it is static.
+    In this case,  the `defaultColor` binding does not use square brackets, `[]`, because it is static.
 
     <code-example header="src/app/app.component.html (defaultColor)" path="attribute-directives/src/app/app.component.html" region="defaultColor"></code-example>
 
@@ -183,13 +183,13 @@ In the following example, the expression `{{ 1 + 1 }}` renders just as it does i
 
 <code-example header="src/app/app.component.html" linenums="false" path="attribute-directives/src/app/app.component.html" region="ngNonBindable"></code-example>
 
-Applying `ngNonBindable` to an element stops binding for that element's child elements.
+Applying `ngNonBindable` to an element stops binding for child elements of the that element.
 However, `ngNonBindable` still lets directives work on the element where you apply `ngNonBindable`.
 In the following example, the `appHighlight` directive is still active but Angular does not evaluate the expression `{{ 1 + 1 }}`.
 
 <code-example header="src/app/app.component.html" linenums="false" path="attribute-directives/src/app/app.component.html" region="ngNonBindable-with-directive"></code-example>
 
-If you apply `ngNonBindable` to a parent element, Angular disables interpolation and binding of any sort, such as property binding or event binding, for the element's children.
+If you apply `ngNonBindable` to a parent element, Angular disables interpolation and binding of any sort, such as property binding or event binding, for the children of the element.
 
 <!-- links -->
 

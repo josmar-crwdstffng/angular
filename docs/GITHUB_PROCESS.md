@@ -10,7 +10,7 @@ provide up-to-date reproduction instructions.
 ## Why lock conversations?
 Automatically locking closed, inactive issues guides people towards filing new issues with updated
 context rather than commenting on a "resolved" issue that contains out-of-date or unrelated
-information. As an example, someone may comment "I'm still having this issue", but without
+information. As an example, someone may comment "I am still having this issue", but without
 providing any of the additional information the team needs to investigate.
 
 <a name="feature-request"></a>
@@ -56,6 +56,6 @@ decision.
 Often implementing the feature as an separate package is a better option. Building an external
 package rather than including the functionality in Angular helps with:
 
-- Keeping the framework's runtime smaller and simpler
+- Keeping the runtime of the framework smaller and simpler
 - Makes the learning journey of developers getting started with Angular smoother
 - Reduces maintainers burden and the complexity of the source code

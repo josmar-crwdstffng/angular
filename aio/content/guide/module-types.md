@@ -51,7 +51,7 @@ Use a domain NgModule to deliver a user experience dedicated to a particular fea
 One example is `ContactModule` in the <live-example name="ngmodules"></live-example>.
 
 A domain NgModule organizes the code related to a certain function, containing all of the components, routing, and templates that make up the function.
-Your top component in the domain NgModule acts as the feature or domain's root, and is the only component you export.
+Your top component in the domain NgModule acts as the root of the feature or domain, and is the only component you export.
 Private supporting subcomponents descend from it.
 
 Import a domain NgModule exactly once into another NgModule, such as a domain NgModule, or into the root NgModule \(`AppModule`\) of an application that contains only a few NgModules.
@@ -72,14 +72,14 @@ For more information about lifecycles, see [Hooking into the component lifecycle
 
 Use a routed NgModule for all [lazy-loaded NgModules](guide/lazy-loading-ngmodules "Lazy-loading an NgModule").
 Use the top component of the NgModule as the destination of a router navigation route.
-Routed NgModules don't export anything because their components never appear in the template of an external component.
+Routed NgModules do not export anything because their components never appear in the template of an external component.
 
-Don't import a lazy-loaded routed NgModule into another NgModule, as this would trigger an eager load, defeating the purpose of lazy loading.
+Do not import a lazy-loaded routed NgModule into another NgModule, as this would trigger an eager load, defeating the purpose of lazy loading.
 
 Routed NgModules rarely have providers because you load a routed NgModule only when needed \(such as for routing\).
-Services listed in the NgModules' `provider` array would not be available because the root injector wouldn't know about the lazy-loaded NgModule.
+Services listed in the NgModules' `provider` array would not be available because the root injector would not know about the lazy-loaded NgModule.
 If you include providers, the lifetime of the provided services should be the same as the lifetime of the NgModule.
-Don't provide app-wide [singleton services](guide/singleton-services) in a routed NgModule or in an NgModule that the routed NgModule imports.
+Do not provide app-wide [singleton services](guide/singleton-services) in a routed NgModule or in an NgModule that the routed NgModule imports.
 
 <div class="alert is-helpful">
 
@@ -91,8 +91,8 @@ For more information about providers and lazy-loaded routed NgModules, see [Limi
 
 ## Routing NgModules
 
-Use a routing NgModule to provide the routing configuration for a domain NgModule, thereby separating routing concerns from its companion domain NgModule.
-One example is `ContactRoutingModule` in the <live-example name="ngmodules"></live-example>, which provides the routing for its companion domain NgModule `ContactModule`.
+Use a routing NgModule to provide the routing configuration for a domain NgModule, thereby separating routing concerns from the associated companion domain NgModule.
+One example is `ContactRoutingModule` in the <live-example name="ngmodules"></live-example>, which provides the routing for the associated companion domain NgModule `ContactModule`.
 
 <div class="alert is-helpful">
 
@@ -103,19 +103,19 @@ For an overview and details about routing, see [In-app navigation: routing to vi
 Use a routing NgModule to do the following tasks:
 
 *   Define routes
-*   Add router configuration to the NgModule's import
-*   Add guard and resolver service providers to the NgModule's providers
+*   Add router configuration to the import of the NgModule
+*   Add guard and resolver service providers to the providers of the NgModule
 
-The name of the routing NgModule should parallel the name of its companion NgModule, using the suffix `Routing`.
+The name of the routing NgModule should parallel the name of the associated companion NgModule, using the suffix `Routing`.
 For example, `ContactModule` in `contact.module.ts` has a routing NgModule named `ContactRoutingModule` in `contact-routing.module.ts`.
 
-Import a routing NgModule only into its companion NgModule.
-If the companion NgModule is the root `AppModule`, the `AppRoutingModule` adds router configuration to its imports with `RouterModule.forRoot(routes)`.
+Import a routing NgModule only into the associated companion NgModule.
+If the companion NgModule is the root `AppModule`, the `AppRoutingModule` adds router configuration to the associated imports with `RouterModule.forRoot(routes)`.
 All other routing NgModules are children that import `RouterModule.forChild(routes)`.
 
 In your routing NgModule, re-export the `RouterModule` as a convenience so that components of the companion NgModule have access to router directives such as `RouterLink` and `RouterOutlet`.
 
-Don't use declarations in a routing NgModule.
+Do not use declarations in a routing NgModule.
 Components, directives, and pipes are the responsibility of the companion domain NgModule, not the routing NgModule.
 
 <a id="service"></a>
@@ -124,7 +124,7 @@ Components, directives, and pipes are the responsibility of the companion domain
 
 Use a service NgModule to provide a utility service such as data access or messaging.
 Ideal service NgModules consist entirely of providers and have no declarations.
-Angular's `HttpClientModule` is a good example of a service NgModule.
+The `HttpClientModule` in Angular is a good example of a service NgModule.
 
 Use only the root `AppModule` to import service NgModules.
 
@@ -147,7 +147,7 @@ Put commonly used directives, pipes, and components into one NgModule, typically
 You can import the shared NgModule in your domain NgModules, including [lazy-loaded NgModules](guide/lazy-loading-ngmodules "Lazy-loading an NgModule").
 One example is `SharedModule` in the <live-example name="ngmodules"></live-example>, which provides the `AwesomePipe` custom pipe and `HighlightDirective` directive.
 
-Shared NgModules should not include providers, nor should any of its imported or re-exported NgModules include providers.
+Shared NgModules should not include providers, nor should any of the associated imported or re-exported NgModules include providers.
 
 To learn how to use shared modules to organize and streamline your code, see [Sharing NgModules in an app](guide/sharing-ngmodules "Sharing NgModules in an app").
 

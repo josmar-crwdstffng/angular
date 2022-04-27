@@ -296,7 +296,7 @@ function toKeyValue(obj: {[k: string]: unknown}) {
 
 
 /**
- * We need our custom method because encodeURIComponent is too aggressive and doesn't follow
+ * We need our custom method because encodeURIComponent is too aggressive and does not follow
  * https://tools.ietf.org/html/rfc3986 with regards to the character set (pchar) allowed in path
  * segments:
  *    segment       = *pchar
@@ -315,7 +315,7 @@ function encodeUriSegment(val: string) {
 
 /**
  * This method is intended for encoding *key* or *value* parts of query component. We need a custom
- * method because encodeURIComponent is too aggressive and encodes stuff that doesn't have to be
+ * method because encodeURIComponent is too aggressive and encodes stuff that does not have to be
  * encoded per https://tools.ietf.org/html/rfc3986:
  *    query         = *( pchar / "/" / "?" )
  *    pchar         = unreserved / pct-encoded / sub-delims / ":" / "@"

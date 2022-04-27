@@ -8,7 +8,7 @@ provided by forms in Angular by using the interfaces and tokens to create custom
 Angular forms allow you to:
 
 * Capture the current value and validation status of a form.
-* Track and listen for changes to the form's data model.
+* Track and listen for changes to the data model of the form.
 * Validate the correctness of user input.
 * Create custom validators and input elements.
 

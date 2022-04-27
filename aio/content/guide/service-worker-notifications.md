@@ -64,7 +64,7 @@ The Angular service worker supports the following operations:
 
 <div class="alert is-important">
 
-If an `onActionClick` item does not define a `url`, then the service worker's registration scope is used.
+If an `onActionClick` item does not define a `url`, then the registration scope of the service worker is used.
   
 </div>
 

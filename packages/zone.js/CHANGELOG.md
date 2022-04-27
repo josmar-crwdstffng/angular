@@ -90,7 +90,7 @@ you may need to update the logic to handle the errors that are no longer masked 
 
 Prior to `v0.11.1`, Zone.js provided two distribution bundle formats in the `dist` folder.
 They were (1) `ES5` bundle distributed as `zone.js` and (2) `ES2015` bundle distributed as `zone-evergreen.js`.
-These bundles are used for Angular's differential-loading mechanism.
+These bundles are used for the differential-loading mechanism in Angular.
 
 Prior to `v0.11.11` the following code
 
@@ -184,7 +184,7 @@ import 'zone.js/dist/zone';
 
 ### Bug Fixes
 
-- **zone.js:** don't rely on global node typings outside of node/ directory ([#31783](https://github.com/angular/angular/issues/31783)) ([5c9a896](https://github.com/angular/angular/commit/5c9a896))
+- **zone.js:** do not rely on global node typings outside of node/ directory ([#31783](https://github.com/angular/angular/issues/31783)) ([5c9a896](https://github.com/angular/angular/commit/5c9a896))
 - **zone.js:** should expose some other internal intefaces ([#31866](https://github.com/angular/angular/issues/31866)) ([f5c605b](https://github.com/angular/angular/commit/f5c605b))
 
 <a name="0.10.0"></a>
@@ -194,8 +194,8 @@ import 'zone.js/dist/zone';
 ### Bug Fixes
 
 - **zone.js:** **load_patch and **symbol\_\_ should be in zone_extern for closure compiler ([#31350](https://github.com/angular/angular/issues/31350)) ([6b51ed2](https://github.com/angular/angular/commit/6b51ed2))
-- **zone.js:** don't fire unhandledrejection if Zone handled error ([#31718](https://github.com/angular/angular/issues/31718)) ([c7542a1](https://github.com/angular/angular/commit/c7542a1)), closes [#31701](https://github.com/angular/angular/issues/31701)
-- **zone.js:** don't wrap uncaught promise error. ([#31443](https://github.com/angular/angular/issues/31443)) ([2bb9a65](https://github.com/angular/angular/commit/2bb9a65)), closes [#27840](https://github.com/angular/angular/issues/27840)
+- **zone.js:** do not fire unhandledrejection if Zone handled error ([#31718](https://github.com/angular/angular/issues/31718)) ([c7542a1](https://github.com/angular/angular/commit/c7542a1)), closes [#31701](https://github.com/angular/angular/issues/31701)
+- **zone.js:** do not wrap uncaught promise error. ([#31443](https://github.com/angular/angular/issues/31443)) ([2bb9a65](https://github.com/angular/angular/commit/2bb9a65)), closes [#27840](https://github.com/angular/angular/issues/27840)
 - **zone.js:** fix zone for Jasmine 3.3. ([#31497](https://github.com/angular/angular/issues/31497)) ([c4c340a](https://github.com/angular/angular/commit/c4c340a))
 - **zone.js:** handle MSPointer event correctly ([#31722](https://github.com/angular/angular/issues/31722)) ([2c402d5](https://github.com/angular/angular/commit/2c402d5)), closes [#31699](https://github.com/angular/angular/issues/31699)
 - **zone.js:** handle new api of electron 4 ([#31669](https://github.com/angular/angular/issues/31669)) ([a445826](https://github.com/angular/angular/commit/a445826)), closes [#31668](https://github.com/angular/angular/issues/31668)
@@ -289,8 +289,8 @@ import 'zone.js/dist/zone';
 - **event:** should pass boolean to addEventListener if not support passive ([#1053](https://github.com/angular/zone.js/issues/1053)) ([e9536ec](https://github.com/angular/zone.js/commit/e9536ec))
 - **format:** update clang-format to 1.2.3 ([f238908](https://github.com/angular/zone.js/commit/f238908))
 - **memory:** Add protection against excessive on prop patching ([#1106](https://github.com/angular/zone.js/issues/1106)) ([875086f](https://github.com/angular/zone.js/commit/875086f))
-- **node:** fix [#1164](https://github.com/angular/zone.js/issues/1164), don't patch uncaughtException to prevent endless loop ([#1170](https://github.com/angular/zone.js/issues/1170)) ([33a0ad6](https://github.com/angular/zone.js/commit/33a0ad6))
-- **node:** node patched method should copy original delegate's symbol properties ([#1095](https://github.com/angular/zone.js/issues/1095)) ([0a2f6ff](https://github.com/angular/zone.js/commit/0a2f6ff))
+- **node:** fix [#1164](https://github.com/angular/zone.js/issues/1164), do not patch uncaughtException to prevent endless loop ([#1170](https://github.com/angular/zone.js/issues/1170)) ([33a0ad6](https://github.com/angular/zone.js/commit/33a0ad6))
+- **node:** node patched method should copy the symbol properties of the original delegate ([#1095](https://github.com/angular/zone.js/issues/1095)) ([0a2f6ff](https://github.com/angular/zone.js/commit/0a2f6ff))
 - **onProperty:** user quoted access for \_\_Zone_ignore_on_properties ([#1134](https://github.com/angular/zone.js/issues/1134)) ([7201d44](https://github.com/angular/zone.js/commit/7201d44))
 - **test:** karma-dist should test bundle under dist ([#1049](https://github.com/angular/zone.js/issues/1049)) ([0720d79](https://github.com/angular/zone.js/commit/0720d79))
 - **tsc:** tsconfig.json strict:true ([915042d](https://github.com/angular/zone.js/commit/915042d))
@@ -363,7 +363,7 @@ import 'zone.js/dist/zone';
 
 - add OriginalDelegate prop to Function::toString ([#993](https://github.com/angular/zone.js/issues/993)) ([2dc7e5c](https://github.com/angular/zone.js/commit/2dc7e5c))
 - **core:** fix [#1000](https://github.com/angular/zone.js/issues/1000), check target is null or not when patchOnProperty ([#1004](https://github.com/angular/zone.js/issues/1004)) ([5c139e5](https://github.com/angular/zone.js/commit/5c139e5))
-- **core:** fix [#946](https://github.com/angular/zone.js/issues/946), don't patch promise if it is not writable ([#1041](https://github.com/angular/zone.js/issues/1041)) ([c8c5990](https://github.com/angular/zone.js/commit/c8c5990))
+- **core:** fix [#946](https://github.com/angular/zone.js/issues/946), do not patch promise if it is not writable ([#1041](https://github.com/angular/zone.js/issues/1041)) ([c8c5990](https://github.com/angular/zone.js/commit/c8c5990))
 - **event:** fix [#1021](https://github.com/angular/zone.js/issues/1021), removeListener/removeAllListeners should return eventEmitter ([#1022](https://github.com/angular/zone.js/issues/1022)) ([ab72df6](https://github.com/angular/zone.js/commit/ab72df6))
 - **fakeAsync:** fix [#1056](https://github.com/angular/zone.js/issues/1056), fakeAsync timerId should not be zero ([#1057](https://github.com/angular/zone.js/issues/1057)) ([68682cd](https://github.com/angular/zone.js/commit/68682cd))
 - **jasmine:** fix [#1015](https://github.com/angular/zone.js/issues/1015), make jasmine patch compatible to jasmine 3.x ([#1016](https://github.com/angular/zone.js/issues/1016)) ([e1df4bc](https://github.com/angular/zone.js/commit/e1df4bc))
@@ -581,9 +581,9 @@ import 'zone.js/dist/zone';
 - **error:** remove throw in Error constructor to improve performance in IE11 ([#704](https://github.com/angular/zone.js/issues/704)) ([88d1a49](https://github.com/angular/zone.js/commit/88d1a49)), closes [#698](https://github.com/angular/zone.js/issues/698)
 - **listener:** fix [#616](https://github.com/angular/zone.js/issues/616), webdriver removeEventListener throw permission denied error ([#699](https://github.com/angular/zone.js/issues/699)) ([e02960d](https://github.com/angular/zone.js/commit/e02960d))
 - **patch:** fix [#707](https://github.com/angular/zone.js/issues/707), should not try to patch non configurable property ([#717](https://github.com/angular/zone.js/issues/717)) ([e422fb1](https://github.com/angular/zone.js/commit/e422fb1))
-- **patch:** fix [#708](https://github.com/angular/zone.js/issues/708), modify the canPatchDescriptor logic when browser don't provide onreadystatechange ([#711](https://github.com/angular/zone.js/issues/711)) ([7d4d07f](https://github.com/angular/zone.js/commit/7d4d07f))
+- **patch:** fix [#708](https://github.com/angular/zone.js/issues/708), modify the canPatchDescriptor logic when browser do not provide onreadystatechange ([#711](https://github.com/angular/zone.js/issues/711)) ([7d4d07f](https://github.com/angular/zone.js/commit/7d4d07f))
 - **patch:** fix [#719](https://github.com/angular/zone.js/issues/719), window onproperty callback this is undefined ([#723](https://github.com/angular/zone.js/issues/723)) ([160531b](https://github.com/angular/zone.js/commit/160531b))
-- **task:** fix [#705](https://github.com/angular/zone.js/issues/705), don't json task.data to prevent cyclic error ([#712](https://github.com/angular/zone.js/issues/712)) ([92a39e2](https://github.com/angular/zone.js/commit/92a39e2))
+- **task:** fix [#705](https://github.com/angular/zone.js/issues/705), do not json task.data to prevent cyclic error ([#712](https://github.com/angular/zone.js/issues/712)) ([92a39e2](https://github.com/angular/zone.js/commit/92a39e2))
 - **test:** fix [#718](https://github.com/angular/zone.js/issues/718), use async test to do unhandle promise rejection test ([#726](https://github.com/angular/zone.js/issues/726)) ([0a06874](https://github.com/angular/zone.js/commit/0a06874))
 - **test:** fix websocket test server will crash when test in chrome ([#733](https://github.com/angular/zone.js/issues/733)) ([5090cf9](https://github.com/angular/zone.js/commit/5090cf9))
 - **toString:** fix [#666](https://github.com/angular/zone.js/issues/666), Zone patched method toString should like before patched ([#686](https://github.com/angular/zone.js/issues/686)) ([0d0ee53](https://github.com/angular/zone.js/commit/0d0ee53))
@@ -668,7 +668,7 @@ import 'zone.js/dist/zone';
 ### Bug Fixes
 
 - **core:** remove debugger ([#639](https://github.com/angular/zone.js/issues/639)) ([0534b19](https://github.com/angular/zone.js/commit/0534b19))
-- **error:** fix [#618](https://github.com/angular/zone.js/issues/618), ZoneAwareError should copy Error's static propeties ([#647](https://github.com/angular/zone.js/issues/647)) ([2d30914](https://github.com/angular/zone.js/commit/2d30914))
+- **error:** fix [#618](https://github.com/angular/zone.js/issues/618), ZoneAwareError should copy the static propeties of the Error ([#647](https://github.com/angular/zone.js/issues/647)) ([2d30914](https://github.com/angular/zone.js/commit/2d30914))
 - **jasmine:** support "pending" `it` clauses with no test body ([96cb3d0](https://github.com/angular/zone.js/commit/96cb3d0)), closes [#659](https://github.com/angular/zone.js/issues/659)
 - **minification:** fix [#607](https://github.com/angular/zone.js/issues/607) to change catch variable name to error/err ([#609](https://github.com/angular/zone.js/issues/609)) ([33d0d8d](https://github.com/angular/zone.js/commit/33d0d8d))
 - **node:** patch crypto as macroTask and add test cases for crypto, remove http patch ([#612](https://github.com/angular/zone.js/issues/612)) ([9e81037](https://github.com/angular/zone.js/commit/9e81037))
@@ -680,7 +680,7 @@ import 'zone.js/dist/zone';
 - **timers:** cleanup task reference when exception ([#637](https://github.com/angular/zone.js/issues/637)) ([2594940](https://github.com/angular/zone.js/commit/2594940))
 - **webapi:** refactor webapi to not import util.ts directly ([8b2543e](https://github.com/angular/zone.js/commit/8b2543e)), closes [#652](https://github.com/angular/zone.js/issues/652)
 - **xhr:** fix [#657](https://github.com/angular/zone.js/issues/657), sometimes xhr will fire onreadystatechange with done twice ([#658](https://github.com/angular/zone.js/issues/658)) ([36c0899](https://github.com/angular/zone.js/commit/36c0899))
-- **zonespec:** don't throw and exception when setInterval is called within a async test zone ([#641](https://github.com/angular/zone.js/issues/641)) ([c07560f](https://github.com/angular/zone.js/commit/c07560f))
+- **zonespec:** do not throw and exception when setInterval is called within a async test zone ([#641](https://github.com/angular/zone.js/issues/641)) ([c07560f](https://github.com/angular/zone.js/commit/c07560f))
 
 ### Features
 
@@ -775,7 +775,7 @@ import 'zone.js/dist/zone';
 - lint errors ([ed87c26](https://github.com/angular/zone.js/commit/ed87c26))
 - make fetch promise patching safe ([16be7f9](https://github.com/angular/zone.js/commit/16be7f9)), closes [#451](https://github.com/angular/zone.js/issues/451)
 - Make the check for ZoneAwarePromise more stringent ([#495](https://github.com/angular/zone.js/issues/495)) ([c69df25](https://github.com/angular/zone.js/commit/c69df25))
-- run all timers in passage of time in a single fakeAsync's tick call ([a85db4c](https://github.com/angular/zone.js/commit/a85db4c)), closes [#454](https://github.com/angular/zone.js/issues/454)
+- run all timers in passage of time in the tick call of a single fakeAsync ([a85db4c](https://github.com/angular/zone.js/commit/a85db4c)), closes [#454](https://github.com/angular/zone.js/issues/454)
 - stop using class extends as it breaks rollup ([b52cf02](https://github.com/angular/zone.js/commit/b52cf02))
 - use strict equality in scheduleQueueDrain ([#504](https://github.com/angular/zone.js/issues/504)) ([4b4249c](https://github.com/angular/zone.js/commit/4b4249c))
 
@@ -843,7 +843,7 @@ import 'zone.js/dist/zone';
 - **jasmine:** propagate all arguments of it/describe/etc... ([a85fd68](https://github.com/angular/zone.js/commit/a85fd68))
 - **long-stack:** Safer writing of stack traces. ([6767ff5](https://github.com/angular/zone.js/commit/6767ff5))
 - **promise:** support more aggressive optimization. ([#431](https://github.com/angular/zone.js/issues/431)) ([26fc3da](https://github.com/angular/zone.js/commit/26fc3da))
-- **XHR:** Don't send sync XHR through ZONE ([6e2f13c](https://github.com/angular/zone.js/commit/6e2f13c)), closes [#377](https://github.com/angular/zone.js/issues/377)
+- **XHR:** Do not send sync XHR through ZONE ([6e2f13c](https://github.com/angular/zone.js/commit/6e2f13c)), closes [#377](https://github.com/angular/zone.js/issues/377)
 
 ### Features
 
@@ -894,7 +894,7 @@ import 'zone.js/dist/zone';
 - throw if trying to load zone more then once. ([6df5f93](https://github.com/angular/zone.js/commit/6df5f93))
 - **fakeAsync:** throw error on rejected promisees. ([fd1dfcc](https://github.com/angular/zone.js/commit/fd1dfcc))
 - **promise:** allow Promise subclassing ([dafad98](https://github.com/angular/zone.js/commit/dafad98))
-- **XHR.responseBlob:** don't access XHR.responseBlob on old android webkit ([#329](https://github.com/angular/zone.js/issues/329)) ([ed69756](https://github.com/angular/zone.js/commit/ed69756))
+- **XHR.responseBlob:** do not access XHR.responseBlob on old android webkit ([#329](https://github.com/angular/zone.js/issues/329)) ([ed69756](https://github.com/angular/zone.js/commit/ed69756))
 
 ### Features
 
@@ -941,7 +941,7 @@ import 'zone.js/dist/zone';
 
 - Allow calling clearTimeout from within the setTimeout callback ([a8ea55d](https://github.com/angular/zone.js/commit/a8ea55d)), closes [#302](https://github.com/angular/zone.js/issues/302)
 - Canceling already run task should not double decrement task counter ([faa3485](https://github.com/angular/zone.js/commit/faa3485)), closes [#290](https://github.com/angular/zone.js/issues/290)
-- **xhr:** don't throw on an xhr which is aborted before sending ([8827e1e](https://github.com/angular/zone.js/commit/8827e1e))
+- **xhr:** do not throw on an xhr which is aborted before sending ([8827e1e](https://github.com/angular/zone.js/commit/8827e1e))
 - **zone:** remove debugger statement ([d7c116b](https://github.com/angular/zone.js/commit/d7c116b))
 
 ### Features
@@ -1008,7 +1008,7 @@ import 'zone.js/dist/zone';
 
 - correct incorrect example path in karma config ([b0a624d](https://github.com/angular/zone.js/commit/b0a624d))
 - correct test relaying on jasmine timeout ([4f7d6ae](https://github.com/angular/zone.js/commit/4f7d6ae))
-- **WebSocket:** don't patch EventTarget methods twice ([345e56c](https://github.com/angular/zone.js/commit/345e56c)), closes [#235](https://github.com/angular/zone.js/issues/235)
+- **WebSocket:** do not patch EventTarget methods twice ([345e56c](https://github.com/angular/zone.js/commit/345e56c)), closes [#235](https://github.com/angular/zone.js/issues/235)
 
 ### Features
 
@@ -1135,8 +1135,8 @@ import 'zone.js/dist/zone';
 
 ### Bug Fixes
 
-- always run jasmine's done callbacks for async tests in jasmine's zone ([b7f3d04](https://github.com/angular/zone.js/commit/b7f3d04)), closes [#91](https://github.com/angular/zone.js/issues/91)
-- don't fork new zones for callbacks from the root zone ([531d0ec](https://github.com/angular/zone.js/commit/531d0ec)), closes [#92](https://github.com/angular/zone.js/issues/92)
+- always run the done callbacks for async tests in jasmine in the zone in jasmine ([b7f3d04](https://github.com/angular/zone.js/commit/b7f3d04)), closes [#91](https://github.com/angular/zone.js/issues/91)
+- do not fork new zones for callbacks from the root zone ([531d0ec](https://github.com/angular/zone.js/commit/531d0ec)), closes [#92](https://github.com/angular/zone.js/issues/92)
 - **MutationObserver:** executes hooks in the creation zone ([3122a48](https://github.com/angular/zone.js/commit/3122a48))
 - **test:** fix an ineffective assertion ([d85d2cf](https://github.com/angular/zone.js/commit/d85d2cf))
 - minor fixes ([18f5511](https://github.com/angular/zone.js/commit/18f5511))
@@ -1167,7 +1167,7 @@ root zone since we care
 only about callbacks from installed custom zones. This reduces the
 overhead of zones.
 
-This primarily means that LongStackTraces zone won't be able to trace
+This primarily means that LongStackTraces zone will not be able to trace
 events back to Zone.init(),
 but instead the starting point will be the installation of the
 LongStacktracesZone. In all practical
@@ -1209,7 +1209,7 @@ situations this should be sufficient.
 
 ### Bug Fixes
 
-- **zone.js:** don't make function declaration in block scope ([229fd8f](https://github.com/angular/zone.js/commit/229fd8f)), closes [#53](https://github.com/angular/zone.js/issues/53) [#54](https://github.com/angular/zone.js/issues/54)
+- **zone.js:** do not make function declaration in block scope ([229fd8f](https://github.com/angular/zone.js/commit/229fd8f)), closes [#53](https://github.com/angular/zone.js/issues/53) [#54](https://github.com/angular/zone.js/issues/54)
 
 ### Features
 

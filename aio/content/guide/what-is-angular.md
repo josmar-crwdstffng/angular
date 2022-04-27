@@ -9,7 +9,7 @@ As a platform, Angular includes:
 *   A collection of well-integrated libraries that cover a wide variety of features, including routing, forms management, client-server communication, and more
 *   A suite of developer tools to help you develop, build, test, and update your code
 
-With Angular, you're taking advantage of a platform that can scale from single-developer projects to enterprise-level applications.
+With Angular, you are taking advantage of a platform that can scale from single-developer projects to enterprise-level applications.
 Angular is designed to make updating as straightforward as possible, so take advantage of the latest developments with a minimum of effort.
 Best of all, the Angular ecosystem consists of a diverse group of over 1.7 million developers, library authors, and content creators.
 
@@ -38,7 +38,7 @@ The `@Component()` decorator specifies the following Angular-specific informatio
     HTML elements in your template that match this selector become instances of the component.
 
 *   An HTML template that instructs Angular how to render the component
-*   An optional set of CSS styles that define the appearance of the template's HTML elements
+*   An optional set of CSS styles that define the appearance of the HTML elements of the template
 
 The following is a minimal Angular component.
 
@@ -52,7 +52,7 @@ When Angular renders this component, the resulting DOM looks like this:
 
 <code-example format="html" language="html" path="what-is-angular/src/app/hello-world-example.html"></code-example>
 
-Angular's component model offers strong encapsulation and an intuitive application structure.
+The component model in Angular offers strong encapsulation and an intuitive application structure.
 Components also make your application painless to unit test and can improve the overall readability of your code.
 
 For more information on what to do with components, see the [Components](guide/component-overview) section.
@@ -65,7 +65,7 @@ Every component has an HTML template that declares how that component renders.
 You define this template either inline or by file path.
 
 Angular extends HTML with additional syntax that lets you insert dynamic values from your component.
-Angular automatically updates the rendered DOM when your component's state changes.
+Angular automatically updates the rendered DOM when the state of your component changes.
 One application of this feature is inserting dynamic text, as shown in the following example.
 
 <code-example format="html" language="html" path="what-is-angular/src/app/hello-world-interpolation/hello-world-interpolation.component.html" region="say-hello"></code-example>
@@ -74,7 +74,7 @@ The value for message comes from the component class:
 
 <code-example format="typescript" language="typescript" path="what-is-angular/src/app/hello-world-interpolation/hello-world-interpolation.component.ts"></code-example>
 
-When the application loads the component and its template, the user sees the following:
+When the application loads the component and the associated template, the user sees the following:
 
 <code-example format="shell" language="html">
 
@@ -84,11 +84,11 @@ When the application loads the component and its template, the user sees the fol
 
 Notice the use of double curly braces--they instruct Angular to interpolate the contents within them.
 
-Angular also supports property bindings, to help you set values for properties and attributes of HTML elements and pass values to your application's presentation logic.
+Angular also supports property bindings, to help you set values for properties and attributes of HTML elements and pass values to the presentation logic of your application.
 
 <code-example format="html" language="html" path="what-is-angular/src/app/hello-world-bindings/hello-world-bindings.component.html" region="bindings"></code-example>
 
-Notice the use of the square brackets--that syntax indicates that you're binding the property or attribute to a value in the component class.
+Notice the use of the square brackets--that syntax indicates that you are binding the property or attribute to a value in the component class.
 
 Declare event listeners to listen for and respond to user actions such as keystrokes, mouse movements, clicks, and touches.
 You declare an event listener by specifying the event name in parentheses:
@@ -118,7 +118,7 @@ The following code is an example of the `*ngIf` directive.
   <code-pane header="hello-world-ngif.component.html" path="what-is-angular/src/app/hello-world-ngif/hello-world-ngif.component.html"></code-pane>
 </code-tabs>
 
-Angular's declarative templates let you cleanly separate your application's logic from its presentation.
+The declarative templates in Angular let you cleanly separate the logic of your application from the associated presentation.
 Templates are based on standard HTML, for ease in building, maintaining, and updating.
 
 For more information on templates, see the [Templates](guide/template-syntax) section.
@@ -162,7 +162,7 @@ Here are some examples:
 | [ng test](cli/test)         | Runs unit tests on a given project.                                   |
 | [ng e2e](cli/e2e)           | Builds and serves an Angular application, then runs end-to-end tests. |
 
-You'll find the Angular CLI a valuable tool for building out your applications.
+you will find the Angular CLI a valuable tool for building out your applications.
 
 For more information about the Angular CLI, see the [CLI Reference](cli) section.
 
@@ -170,7 +170,7 @@ For more information about the Angular CLI, see the [CLI Reference](cli) section
 
 ## First-party libraries
 
-The section, [Angular applications: The essentials](#essentials), provides a brief overview of a couple of the key architectural elements you'll use when building Angular applications.
+The section, [Angular applications: The essentials](#essentials), provides a brief overview of a couple of the key architectural elements you will use when building Angular applications.
 But the many benefits of Angular really become apparent when your application grows and you want to add additional functions such as site navigation or user input.
 Use the Angular platform to incorporate one of the many first-party libraries that Angular provides.
 
@@ -185,8 +185,8 @@ Some of the libraries available to you include:
 | [Angular PWA](guide/service-worker-intro) | Tools for building Progressive Web Applications \(PWAs\) including a service worker and Web app manifest.                                      |
 | [Angular Schematics](guide/schematics)    | Automated scaffolding, refactoring, and update tools that simplify development at large scale.                                                 |
 
-These libraries expand your application's functionality while also letting you focus more on the features that make your application unique.
-Add these libraries knowing that they're designed to integrate seamlessly into and update simultaneously with the Angular framework.
+These libraries expand the functionality of your application while also letting you focus more on the features that make your application unique.
+Add these libraries knowing that they are designed to integrate seamlessly into and update simultaneously with the Angular framework.
 
 These libraries are only required if and when they can help you add functionality to your applications or solve a particular problem.
 
@@ -197,7 +197,7 @@ This topic is intended to give you a brief overview of what Angular is, the adva
 To see Angular in action, see our [Getting Started](start) tutorial.
 This tutorial uses [stackblitz.com](https://stackblitz.com), for you to explore a working example of Angular without any installation requirements.
 
-To explore Angular's capabilities further, we recommend reading through the sections, Understanding Angular and Developer Guides.
+To further explore the capabilities in Angular, we recommend reading through the sections, Understanding Angular and Developer Guides.
 
 <!-- links -->
 

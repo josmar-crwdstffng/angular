@@ -8,7 +8,7 @@ environment variables and their default values can be found in the
 
 **Note:**
 Each variable has a `TEST_` prefixed counterpart, which is used for testing purposes. In most cases
-you don't need to specify values for those.
+you do not need to specify values for those.
 
 - `AIO_ARTIFACT_PATH`:
   The path used to identify the AIO build artifact on the CircleCI servers. This should be equal to
@@ -50,7 +50,7 @@ you don't need to specify values for those.
   some of the API docs might have changed, so we need to create a new preview.
 
 - `AIO_TRUSTED_PR_LABEL`:
-  The PR whose presence indicates the PR has been manually verified and is allowed to have its
+  The PR whose presence indicates the PR has been manually verified and is allowed to have the associated
   build artifacts publicly served. This is useful for enabling previews for any PR (not only those
   from trusted authors).
 

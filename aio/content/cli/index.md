@@ -111,7 +111,7 @@ Command syntax is shown as follows:
 ### Boolean options
 
 Boolean options have two forms: `--this-option` sets the flag to `true`, `--no-this-option` sets it to `false`.
-If neither option is supplied, the flag remains in its default state, as listed in the reference documentation.
+If neither option is supplied, the flag remains in the associated default state, as listed in the reference documentation.
 
 ### Relative paths
 
@@ -120,7 +120,7 @@ Options that specify files can be given as absolute paths, or as paths relative 
 ### Schematics
 
 The [ng generate](cli/generate) and [ng add](cli/add) commands take, as an argument, the artifact or library to be generated or added to the current project.
-In addition to any general options, each artifact or library defines its own options in a *schematic*.
+In addition to any general options, each artifact or library self-defines the associated options in a *schematic*.
 Schematic options are supplied to the command in the same format as immediate command options.
 
 <!-- links -->

@@ -1,6 +1,6 @@
 # Setup for upgrading from AngularJS
 
-<!--todo: Question: Can we remove this file and instead direct readers to https://github.com/angular/quickstart/blob/master/README.md -->
+<!--todo: Question: Can we remove this file and instead direct readers to https://github.com/angular/quickstart/blob/main/README.md -->
 
 <div class="alert is-critical">
 
@@ -152,7 +152,7 @@ Once built, the application will be automatically opened in a new browser tab an
 
 <a id="seed"></a>
 
-## What's in the QuickStart seed?
+## What is in the QuickStart seed?
 
 The **QuickStart seed** provides a basic QuickStart playground application and other files necessary for local development.
 Consequently, there are many files in the project folder on your machine, most of which you can [learn about later](guide/file-structure).
@@ -208,9 +208,9 @@ The following are all in `src/`
 
 | File                 | Purpose |
 |:---                  |:---     |
-| app/app.component.ts | Defines the same `AppComponent` as the one in the QuickStart playground. It is the **root** component of what will become a tree of nested components as the application evolves.                                                                                                                                                                                                                                                                                                                      |
-| app/app.module.ts    | Defines `AppModule`, the  [root module](guide/bootstrapping "AppModule: the root module") that tells Angular how to assemble the application. When initially created, it declares only the `AppComponent`. Over time, you add more components to declare.                                                                                                                                                                                                                                              |
-| main.ts              | Compiles the application with the [JIT compiler](guide/glossary#jit) and [bootstraps](guide/bootstrapping) the application's main module \(`AppModule`\) to run in the browser. The JIT compiler is a reasonable choice during the development of most projects and it's the only viable choice for a sample running in a *live-coding* environment such as Stackblitz. Alternative [compilation](guide/aot-compiler), [build](guide/build), and [deployment](guide/deployment) options are available. |
+| app/app.component.ts | Defines the same `AppComponent` as the one in the QuickStart playground. It is the **root** component of what will become a tree of nested components as the application evolves.                                                                                                                                                                                                                                                                                                                        |
+| app/app.module.ts    | Defines `AppModule`, the  [root module](guide/bootstrapping "AppModule: the root module") that tells Angular how to assemble the application. When initially created, it declares only the `AppComponent`. Over time, you add more components to declare.                                                                                                                                                                                                                                                |
+| main.ts              | Compiles the application with the [JIT compiler](guide/glossary#jit) and [bootstraps](guide/bootstrapping) the `AppModule` main module of the application to run in the browser. The JIT compiler is a reasonable choice during the development of most projects and it is the only viable choice for a sample running in a *live-coding* environment such as Stackblitz. Alternative [compilation](guide/aot-compiler), [build](guide/build), and [deployment](guide/deployment) options are available. |
 
 ## Appendix: Test using `fakeAsync()/waitForAsync()`
 

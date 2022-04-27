@@ -25,7 +25,7 @@ See the <live-example></live-example> for a working example containing the code 
 
 ## The non-null assertion operator (`!`)
 
-When you use TypeScript's `--strictNullChecks` flag, you can prevent the type checker from throwing an error with Angular's non-null assertion operator, `!`.
+When you use the `--strictNullChecks` flag in TypeScript, you can prevent the type checker from throwing an error with the `!` non-null assertion operator in Angular.
 
 The Angular non-null assertion operator causes the TypeScript type checker to suspend strict `null` and `undefined` checks for a specific property expression.
 
@@ -33,13 +33,13 @@ For example, you can assert that `item` properties are also defined.
 
 <code-example header="src/app/app.component.html" path="template-expression-operators/src/app/app.component.html" region="non-null"></code-example>
 
-Often, you want to make sure that any property bindings aren't `null` or `undefined`.
+Often, you want to make sure that any property bindings are not `null` or `undefined`.
 However, there are situations in which such states are acceptable.
-For those situations, you can use Angular's non-null assertion operator to prevent TypeScript from reporting that a property is `null` or `undefined`.
+For those situations, you can use the non-null assertion operator in Angular to prevent TypeScript from reporting that a property is `null` or `undefined`.
 
 The non-null assertion operator, `!`, is optional unless you turn on strict null checks.
 
-For more information, see TypeScript's [strict null checking](http://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html "Strict null checking in TypeScript").
+For more information, see [strict null checking](http://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html "Strict null checking in TypeScript") in TypeScript.
 
 <a id="any-type-cast-function"></a>
 

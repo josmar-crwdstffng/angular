@@ -5,7 +5,7 @@ This document gives an overview of the tools that we use to generate the content
 The application that actually renders this content can be found in the `/aio/src` folder.
 The handwritten content can be found in the `/aio/content` folder.
 
-Each subfolder in this `/aio/tools/` folder contains a self-contained tool and its configuration. There is
+Each subfolder in this `/aio/tools/` folder contains a self-contained tool and the associated configuration. There is
 a `README.md` file in each folder that describes the tool in more detail.
 
 ## cli-patches
@@ -25,8 +25,8 @@ of our CI build tasks, to verify that the examples continue to work as expected,
 to the core Angular libraries.
 
 In order to build, run and test these examples independently we need to install dependencies into their
-sub-folder. Also there are a number of common boilerplate files that are needed to configure each
-example's project. We maintain these common boilerplate files centrally to reduce the amount of effort
+sub-folder. Also there are a number of common boilerplate files that are needed to configure the project for each
+example. We maintain these common boilerplate files centrally to reduce the amount of effort
 if one of them needs to change.
 
 This `examples` tool folder contains three utilities:
@@ -54,7 +54,7 @@ See the [README.md](stackblitz-builder/README.md) for more details.
 
 ## transforms
 
-All the content that is rendered by the AIO application, and some of its configuration files, are generated from source files by [Dgeni](https://github.com/angular/dgeni).
+All the content that is rendered by the AIO application, and some of the associated configuration files, are generated from source files by [Dgeni](https://github.com/angular/dgeni).
 Dgeni is a general purpose documentation generation tool.
 
 Markdown files in `/aio/content`, code comments in the core Angular source files and example files are processed and transformed into files that are consumed by the AIO application.

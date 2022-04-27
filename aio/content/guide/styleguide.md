@@ -49,7 +49,7 @@ Some code examples display a file that has one or more similarly named companion
 For example, `hero.component.ts` and `hero.component.html`.
 
 The guideline uses the shortcut `hero.component.ts|html|css|spec` to represent those various files.
-Using this shortcut makes this guide's file structures easier to read and more terse.
+Using this shortcut makes the file structures of this guide easier to read and more terse.
 
 <a id="single-responsibility"></a>
 
@@ -93,7 +93,7 @@ One component per file avoids hidden bugs that often arise when combining compon
 <div class="s-why-last">
 
 **Why**? <br />
-A single component can be the default export for its file which facilitates lazy loading with the router.
+A single component can be the default export for the associated file which facilitates lazy loading with the router.
 
 </div>
 
@@ -101,11 +101,11 @@ The key is to make the code more reusable, easier to read, and less mistake pron
 
 The following *negative* example defines the `AppComponent`, bootstraps the app,
 defines the `Hero` model object, and loads heroes from the server all in the same file.
-*Don't do this*.
+*Do not do this*.
 
 <code-example format="typescript" path="styleguide/src/01-01/app/heroes/hero.component.avoid.ts" language="typescript" header="app/heroes/hero.component.ts"></code-example>
 
-It is a better practice to redistribute the component and its
+It is a better practice to redistribute the component and the associated
 supporting classes into their own, dedicated files.
 
 <code-tabs>
@@ -196,7 +196,7 @@ This guide recommends naming conventions for the file name and the symbol name.
 
 <div class="s-rule do">
 
-**Do** follow a pattern that describes the symbol's feature then its type.
+**Do** follow a pattern that describes the feature of the symbol then the associated type.
 The recommended pattern is `feature.type.ts`.
 
 </div>
@@ -248,7 +248,7 @@ For example, `app/heroes/hero-list.component.ts` may contain a component that ma
 
 <div class="s-rule do">
 
-**Do** use consistent type names for all components following a pattern that describes the component's feature then its type.
+**Do** use consistent type names for all components following a pattern that describes the feature of the component then the associated type.
 A recommended pattern is `feature.type.ts`.
 
 </div>
@@ -270,7 +270,7 @@ Type names provide a consistent way to quickly identify what is in the file.
 <div class="s-why">
 
 **Why**? <br />
-Type names make it easy to find a specific file type using an editor or IDE's fuzzy search techniques.
+Type names make it easy to find a specific file type using the fuzzy search techniques of an editor or IDE.
 
 </div>
 
@@ -493,7 +493,7 @@ For example, the prefix `toh` represents **T**our **o**f **H**eroes and the pref
 
 <div class="s-rule do">
 
-**Do** use a prefix that identifies the feature area or the application itself.
+**Do** use a prefix that identifies the feature area or the application.
 
 </div>
 
@@ -576,7 +576,7 @@ The Angular HTML parser is case sensitive and recognizes lower camel case.
 
 <div class="s-rule avoid">
 
-**Don't** prefix a directive name with `ng` because that prefix is reserved for Angular and using it could cause bugs that are difficult to diagnose.
+**Do not** prefix a directive name with `ng` because that prefix is reserved for Angular and using it could cause bugs that are difficult to diagnose.
 
 </div>
 
@@ -780,13 +780,13 @@ A consistent class and file name convention make these modules easy to spot and 
 Have a near-term view of implementation and a long-term vision.
 Start small but keep in mind where the application is heading.
 
-All of the application's code goes in a folder named `src`.
+All of the code of the application goes in a folder named `src`.
 All feature areas are in their own folder, with their own NgModule.
 
 All content is one asset per file.
-Each component, service, and pipe is in its own file.
+Each component, service, and pipe is in an associated file.
 All third party vendor scripts are stored in another folder and not in the `src` folder.
-You didn't write them and you don't want them cluttering `src`.
+You did not write them and you do not want them cluttering `src`.
 Use the naming conventions for files in this guide.
 
 [Back to top](#toc)
@@ -932,7 +932,7 @@ Use a flatter structure until there is an obvious value to creating a new folder
 
 <div class="s-rule do">
 
-**Do** be DRY \(Don't Repeat Yourself\).
+**Do** be DRY \(Do not Repeat Yourself\).
 
 </div>
 
@@ -946,8 +946,8 @@ Use a flatter structure until there is an obvious value to creating a new folder
 
 **Why**? <br />
 Being DRY is important, but not crucial if it sacrifices the other elements of LIFT.
-That's why it's called *T-DRY*.
-For example, it's redundant to name a template `hero-view.component.html` because with the `.html` extension, it is obviously a view.
+That is why it is called *T-DRY*.
+For example, it is redundant to name a template `hero-view.component.html` because with the `.html` extension, it is obviously a view.
 But if something is not obvious or departs from a convention, then spell it out.
 
 </div>
@@ -974,7 +974,7 @@ But if something is not obvious or departs from a convention, then spell it out.
 
 <div class="s-rule do">
 
-**Do** put all of the application's code in a folder named `src`.
+**Do** put all of the code of the application in a folder named `src`.
 
 </div>
 
@@ -1241,7 +1241,7 @@ For more information, refer to [this folder and file structure example](#file-tr
 
 <div class="s-rule do">
 
-**Do** create an NgModule in the application's root folder, for example, in `/src/app`.
+**Do** create an NgModule in the root folder of the application, for example, in `/src/app`.
 
 </div>
 
@@ -1302,7 +1302,7 @@ Makes it easier to locate and identify the root module.
 <div class="s-why">
 
 **Why**? <br />
-A feature module can expose or hide its implementation from other modules.
+A feature module can expose or hide the associated implementation from other modules.
 
 </div>
 
@@ -1374,7 +1374,7 @@ module are referenced across the entire application.
 Services are usually singletons that are provided once for the entire application or in a particular feature module.
 There are exceptions, however.
 For example, in the sample code that follows, notice that the `SharedModule` provides `FilterTextService`.
-This is acceptable here because the service is stateless;that is, the consumers of the service aren't impacted by new instances.
+This is acceptable here because the service is stateless;that is, the consumers of the service are not impacted by new instances.
 
 </div>
 
@@ -1421,14 +1421,14 @@ Take care.
 <div class="s-why">
 
 **Why**? <br />
-A lazy loaded feature module that imports that shared module will make its own copy of the service and likely have undesirable results.
+A lazy loaded feature module that imports that shared module will make an associated copy of the service and likely have undesirable results.
 
 </div>
 
 <div class="s-why-last">
 
 **Why**? <br />
-You don't want each module to have its own separate instance of singleton services.
+You do not want each module to have an associated separate instance of singleton services.
 Yet there is a real danger of that happening if the `SharedModule` provides a service.
 
 </div>
@@ -1503,7 +1503,7 @@ A distinct application feature or workflow may be *lazy loaded* or *loaded on de
 <div class="s-rule do">
 
 **Do** put the contents of lazy loaded features in a *lazy loaded folder*.
-A typical *lazy loaded folder* contains a *routing component*, its child components, and their related assets and modules.
+A typical *lazy loaded folder* contains a *routing component*, the associated child components, and their related assets and modules.
 
 </div>
 
@@ -1589,7 +1589,7 @@ Developers place components on the page as they would native HTML elements and w
 <div class="s-why-last">
 
 **Why**? <br />
-It is easier to recognize that a symbol is a component by looking at the template's html.
+It is easier to recognize that a symbol is a component by looking at the html of the template.
 
 </div>
 
@@ -1597,7 +1597,7 @@ It is easier to recognize that a symbol is a component by looking at the templat
 
 There are a few cases where you give a component an attribute, such as when you want to augment a built-in element.
 For example, [Material Design](https://material.angular.io/components/button/overview) uses this technique with `<button mat-button>`.
-However, you wouldn't use this technique on a custom element.
+However, you would not use this technique on a custom element.
 
 </div>
 
@@ -1645,15 +1645,15 @@ However, you wouldn't use this technique on a custom element.
 <div class="s-why">
 
 **Why**? <br />
-Large, inline templates and styles obscure the component's purpose and implementation, reducing readability and maintainability.
+Large, inline templates and styles obscure the purpose and implementation of the component, reducing readability and maintainability.
 
 </div>
 
 <div class="s-why">
 
 **Why**? <br />
-In most editors, syntax hints and code snippets aren't available when developing inline templates and styles.
-The Angular TypeScript Language Service \(forthcoming\) promises to overcome this deficiency for HTML templates in those editors that support it; it won't help with CSS styles.
+In most editors, syntax hints and code snippets are not available when developing inline templates and styles.
+The Angular TypeScript Language Service \(forthcoming\) promises to overcome this deficiency for HTML templates in those editors that support it; it will not help with CSS styles.
 
 </div>
 
@@ -1667,7 +1667,7 @@ A *component relative* URL requires no change when you move the component files,
 <div class="s-why-last">
 
 **Why**? <br />
-The `./` prefix is standard syntax for relative URLs; don't depend on Angular's current ability to do without that prefix.
+The `./` prefix is standard syntax for relative URLs; do not depend on the current ability in Angular to do without that prefix.
 
 </div>
 
@@ -1757,7 +1757,7 @@ Two names for the same property \(one private, one public\) is inherently confus
 
 **Why**? <br />
 You should use an alias when the directive name is also an `input` property,
-and the directive name doesn't describe the property.
+and the directive name does not describe the property.
 
 </div>
 
@@ -1860,7 +1860,7 @@ Keeps the component slim, trim, and focused.
 
 <a id="05-16"></a>
 
-### Don't prefix `output` properties
+### Do not prefix `output` properties
 
 #### Style 05-16
 
@@ -1887,7 +1887,7 @@ This is consistent with built-in events such as button clicks.
 
 **Why**? <br />
 Angular allows for an [alternative syntax](guide/binding-syntax) `on-*`.
-If the event itself was prefixed with `on` this would result in an `on-onEvent` binding expression.
+If the event was prefixed with `on` this would result in an `on-onEvent` binding expression.
 
 </div>
 
@@ -1924,7 +1924,7 @@ Logic will be contained in one place \(the component class\) instead of being sp
 <div class="s-why-last">
 
 **Why**? <br />
-Keeping the component's presentation logic in the class instead of the template improves testability, maintainability, and reusability.
+Keeping the presentation logic of the component in the class instead of the template improves testability, maintainability, and reusability.
 
 </div>
 
@@ -1938,7 +1938,7 @@ Keeping the component's presentation logic in the class instead of the template 
 
 #### Style 05-18
 
-TypeScript's `--strictPropertyInitialization` compiler option ensures that a class initializes its properties during construction.
+The `--strictPropertyInitialization` compiler option in TypeScript ensures that a class initializes the associated properties during construction.
 When enabled, this option causes the TypeScript compiler to report an error if the class does not set a value to any property that is not explicitly marked as optional.
 
 By design, Angular treats all `@Input` properties as optional.
@@ -1973,7 +1973,7 @@ Just suppressing the TypeScript error with `!` is insufficient and should be avo
 <div class="s-why">
 
 **Why**? <br />
-Attribute directives don't have an associated template.
+Attribute directives do not have an associated template.
 
 </div>
 
@@ -2011,8 +2011,8 @@ An element may have more than one attribute directive applied.
 <div class="s-why-last">
 
 **Why**? <br />
-The property associated with `@HostBinding` or the method associated with `@HostListener` can be modified only in a single place &mdash;in the directive's class.
-If you use the `host` metadata property, you must modify both the property/method declaration in the directive's class and the metadata in the decorator associated with the directive.
+The property associated with `@HostBinding` or the method associated with `@HostListener` can be modified only in a single place &mdash;in the class of the directive.
+If you use the `host` metadata property, you must modify both the property/method declaration in the class of the directive and the metadata in the decorator associated with the directive.
 
 </div>
 
@@ -2023,7 +2023,7 @@ Compare with the less preferred `host` metadata alternative.
 <div class="s-why-last">
 
 **Why**? <br />
-The `host` metadata is only one term to remember and doesn't require extra ES imports.
+The `host` metadata is only one term to remember and does not require extra ES imports.
 
 </div>
 
@@ -2072,7 +2072,7 @@ Services are ideal for sharing stateful in-memory data.
 
 <div class="s-rule do">
 
-**Do** create services with a single responsibility that is encapsulated by its context.
+**Do** create services with a single responsibility that is encapsulated by the associated context.
 
 </div>
 
@@ -2128,7 +2128,7 @@ This is ideal when a service is sharing methods or state.
 <div class="s-why">
 
 **Why**? <br />
-When you register a service in the `@Injectable` decorator of the service, optimization tools such as those used by the [Angular CLI's](cli) production builds can perform tree shaking and remove services that aren't used by your app.
+When you register a service in the `@Injectable` decorator of the service, optimization tools such as those used by the production builds of the [Angular CLI](cli) can perform tree shaking and remove services that are not used by your app.
 
 </div>
 
@@ -2159,8 +2159,7 @@ In this scenario it would be better to provide the service at the component leve
 <div class="s-why">
 
 **Why**? <br />
-The Angular Dependency Injection \(DI\) mechanism resolves a service's own
-dependencies based on the declared types of that service's constructor parameters.
+The Angular Dependency Injection \(DI\) mechanism resolves the dependencies of a service based on the declared types of the constructor parameters of that service.
 
 </div>
 
@@ -2200,7 +2199,7 @@ When a service accepts only dependencies associated with type tokens, the `@Inje
 <div class="s-why">
 
 **Why**? <br />
-The component's responsibility is for the presentation and gathering of information for the view.
+The responsibility of the component is for the presentation and gathering of information for the view.
 It should not care how it gets the data, just that it knows who to ask for it.
 Separating the data services moves the logic on how to get it to the data service, and lets the component be simpler and more focused on the view.
 
@@ -2219,8 +2218,8 @@ This makes it easier to test \(mock or real\) the data calls when testing a comp
 The details of data management, such as headers, HTTP methods, caching, error handling, and retry logic, are irrelevant to components and other data consumers.
 
 A data service encapsulates these details.
-It's easier to evolve these details inside the service without affecting its consumers.
-And it's easier to test the consumers with mock service implementations.
+It is easier to evolve these details inside the service without affecting the associated consumers.
+And it is easier to test the consumers with mock service implementations.
 
 </div>
 

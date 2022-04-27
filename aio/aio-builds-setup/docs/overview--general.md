@@ -11,9 +11,7 @@ locally.
 ## Source code
 In order to make it easier to administer the server and version-control the setup, we are using
 [docker](https://www.docker.com) to run a container on a VM. The Dockerfile and all other files
-necessary for creating the docker container are stored (and versioned) along with the angular.io
-project's source code (currently part of the angular/angular repo) in the `aio-builds-setup/`
-directory.
+necessary for creating the docker container are stored (and versioned) along with the source code (currently part of the angular/angular repo) of the angular.io project in the `aio-builds-setup/` directory.
 
 
 ## Setup
@@ -70,8 +68,8 @@ More info on the possible HTTP status codes and their meaning can be found
 
 ### Updating PR visibility
 - nginx receives a notification that a PR has been updated and passes it through to the
-  preview-server. This could, for example, be sent by a GitHub webhook every time a PR's labels
-  change.
+  preview-server. This could, for example, be sent by a GitHub webhook every time labels
+  change in a PR.
   E.g.: `ngbuilds.io/pr-updated` (payload: `{"number":<PR>,"action":"labeled"}`)
 - The request contains the PR number (as `number`) and optionally the action that triggered the
   request (as `action`) in the payload.
@@ -80,7 +78,7 @@ More info on the possible HTTP status codes and their meaning can be found
   specify an action that can affect visibility are further processed.
   (Currently, the only actions that are considered capable of affecting visibility are `labeled` and
   `unlabeled`.)
-- The preview-server re-checks and if necessary updates the PR's visibility.
+- The preview-server re-checks and if necessary updates the visibility of a PR.
 
 More info on the possible HTTP status codes and their meaning can be found
 [here](overview--http-status-codes.md).

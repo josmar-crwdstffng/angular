@@ -17,11 +17,11 @@ The form model determines the status of the form.
   <code-example header="src/app/cart/cart.component.ts" path="getting-started/src/app/cart/cart.component.ts" region="imports"></code-example>
 
 1. Inject the `FormBuilder` service in the `CartComponent` `constructor()`.
-  This service is part of the `ReactiveFormsModule` module, which you've already imported.
+  This service is part of the `ReactiveFormsModule` module, which you have already imported.
 
   <code-example header="src/app/cart/cart.component.ts" path="getting-started/src/app/cart/cart.component.ts" region="inject-form-builder"></code-example>
 
-1. To gather the user's name and address, use the `FormBuilder` `group()` method to set the `checkoutForm` property to a form model containing `name` and `address` fields.
+1. To gather the name and address of the user, use the `FormBuilder` `group()` method to set the `checkoutForm` property to a form model containing `name` and `address` fields.
 
   <code-example header="src/app/cart/cart.component.ts" path="getting-started/src/app/cart/cart.component.ts" region="checkout-form-group"></code-example>
 

@@ -42,7 +42,7 @@ These `ConfigService` imports are typical.
 You can run the <live-example></live-example> that accompanies this guide.
 
 The sample app does not require a data server.
-It relies on the [Angular *in-memory-web-api*](https://github.com/angular/angular/tree/main/packages/misc/angular-in-memory-web-api), which replaces the *HttpClient* module's `HttpBackend`.
+It relies on the [Angular *in-memory-web-api*](https://github.com/angular/angular/tree/main/packages/misc/angular-in-memory-web-api), which replaces the `HttpBackend` of the *HttpClient* module.
 The replacement service simulates the behavior of a REST-like backend.
 
 Look at the `AppModule` *imports* to see how it is configured.
@@ -104,9 +104,9 @@ The `ConfigService` fetches this file using the `HttpClient.get()` method.
 
 The `ConfigComponent` injects the `ConfigService` and calls the `getConfig` service method.
 
-Because the service method returns an `Observable` of configuration data, the component *subscribes* to the method's return value.
+Because the service method returns an `Observable` of configuration data, the component *subscribes* to the return value of the method.
 The subscription callback performs minimal post-processing.
-It copies the data fields into the component's `config` object, which is data-bound in the component template for display.
+It copies the data fields into the `config` object of the component, which is data-bound in the component template for display.
 
 <code-example header="app/config/config.component.ts (showConfig v.1)" path="http/src/app/config/config.component.ts" region="v1"></code-example>
 
@@ -120,7 +120,7 @@ Specifying the response type acts as a type assertion at compile time.
 <div class="alert is-important">
 
 Specifying the response type is a declaration to TypeScript that it should treat your response as being of the given type.
-This is a build-time check and doesn't guarantee that the server actually responds with an object of this type.
+This is a build-time check and does not guarantee that the server actually responds with an object of this type.
 It is up to the server to ensure that the type specified by the server API is returned.
 
 </div>
@@ -130,7 +130,7 @@ Use an interface rather than a class, because the response is a plain object tha
 
 <code-example path="http/src/app/config/config.service.ts" region="config-interface"></code-example>
 
-Next, specify that interface as the `HttpClient.get()` call's type parameter in the service.
+Next, specify that interface as the type parameter of the `HttpClient.get()` request in the service.
 
 <code-example header="app/config/config.service.ts (getConfig v.2)" path="http/src/app/config/config.service.ts" region="getConfig_2"></code-example>
 
@@ -224,7 +224,7 @@ Tell `HttpClient` that you want the full response with the `observe` option of t
 
 Now `HttpClient.get()` returns an `Observable` of type `HttpResponse` rather than just the JSON data contained in the body.
 
-The component's `showConfigResponse()` method displays the response headers as well as the configuration:
+The `showConfigResponse()` method of the component displays the response headers as well as the configuration:
 
 <code-example header="app/config/config.component.ts (showConfigResponse)" path="http/src/app/config/config.component.ts" region="showConfigResponse"></code-example>
 
@@ -232,7 +232,7 @@ As you can see, the response object has a `body` property of the correct type.
 
 ### Making a JSONP request
 
-Apps can use the `HttpClient` to make [JSONP](https://en.wikipedia.org/wiki/JSONP) requests across domains when a server doesn't support [CORS protocol](https://developer.mozilla.org/docs/Web/HTTP/CORS).
+Apps can use the `HttpClient` to make [JSONP](https://en.wikipedia.org/wiki/JSONP) requests across domains when a server does not support [CORS protocol](https://developer.mozilla.org/docs/Web/HTTP/CORS).
 
 Angular JSONP requests return an `Observable`.
 Follow the pattern for subscribing to observables and use the RxJS `map` operator to transform the response before using the [async pipe](api/common/AsyncPipe) to manage the results.
@@ -299,8 +299,8 @@ Two types of errors can occur.
 *   Something could go wrong on the client-side such as a network error that prevents the request from completing successfully or an exception thrown in an RxJS operator.
     These errors have `status` set to `0` and the `error` property contains a `ProgressEvent` object, whose `type` might provide further information.
 
-`HttpClient` captures both kinds of errors in its `HttpErrorResponse`.
-Inspect that response to identify the error's cause.
+`HttpClient` captures both kinds of errors in the associated `HttpErrorResponse`.
+Inspect that response to identify the cause of the error.
 
 The following example defines an error handler in the previously defined [ConfigService](#config-service "ConfigService defined").
 
@@ -331,7 +331,7 @@ The following example shows how to pipe a failed request to the `retry()` operat
 In addition to fetching data from a server, `HttpClient` supports other HTTP methods such as PUT, POST, and DELETE, which you can use to modify the remote data.
 
 The sample app for this guide includes an abridged version of the "Tour of Heroes" example that fetches heroes and enables users to add, delete, and update them.
-The following sections show examples of the data-update methods from the sample's `HeroesService`.
+The following sections show examples of the data-update methods from the `HeroesService` of the sample.
 
 ### Making a POST request
 
@@ -358,7 +358,7 @@ When the server responds successfully with the newly added hero, the component a
 
 ### Making a DELETE request
 
-This application deletes a hero with the `HttpClient.delete` method by passing the hero's ID in the request URL.
+This application deletes a hero with the `HttpClient.delete` method by passing the ID of the hero in the request URL.
 
 <code-example header="app/heroes/heroes.service.ts (deleteHero)" path="http/src/app/heroes/heroes.service.ts" region="deleteHero"></code-example>
 
@@ -366,7 +366,7 @@ The `HeroesComponent` initiates the actual DELETE operation by subscribing to th
 
 <code-example header="app/heroes/heroes.component.ts (deleteHero)" path="http/src/app/heroes/heroes.component.ts" region="delete-hero-subscribe"></code-example>
 
-The component isn't expecting a result from the delete operation, so it subscribes without a callback.
+The component is not expecting a result from the delete operation, so it subscribes without a callback.
 Even though you are not using the result, you still have to subscribe.
 Calling the `subscribe()` method *executes* the observable, which is what initiates the DELETE request.
 
@@ -383,7 +383,7 @@ Just calling `HeroesService.deleteHero()` does not initiate the DELETE request.
 
 **Always *subscribe*.**
 
-An `HttpClient` method does not begin its HTTP request until you call `subscribe()` on the observable returned by that method.
+An `HttpClient` method does not begin the associated HTTP request until you call `subscribe()` on the observable returned by that method.
 This is true for *all* `HttpClient` *methods*.
 
 <div class="alert is-helpful">
@@ -439,7 +439,7 @@ The `HeroesService` defines such headers in an `httpOptions` object that are pas
 
 ##### Updating headers
 
-You can't directly modify the existing headers within the previous options
+You cannot directly modify the existing headers within the previous options
 object because instances of the `HttpHeaders` class are immutable.
 Use the `set()` method instead, to return a clone of the current instance with the new changes applied.
 
@@ -484,7 +484,7 @@ const params = new HttpParams({fromString: 'name=foo'});
 ## Intercepting requests and responses
 
 With interception, you declare *interceptors* that inspect and transform HTTP requests from your application to a server.
-The same interceptors can also inspect and transform a server's responses on their way back to the application.
+The same interceptors can also inspect and transform the responses of a server on their way back to the application.
 Multiple interceptors form a *forward-and-backward* chain of request/response handlers.
 
 Interceptors can perform a variety of  *implicit* tasks, from authentication to logging, in a routine, standard way, for every HTTP request/response.
@@ -500,7 +500,7 @@ Here is a do-nothing `noop` interceptor that passes the request through without 
 <code-example header="app/http-interceptors/noop-interceptor.ts" path="http/src/app/http-interceptors/noop-interceptor.ts"></code-example>
 
 The `intercept` method transforms a request into an `Observable` that eventually returns the HTTP response.
-In this sense, each interceptor is fully capable of handling the request entirely by itself.
+In this sense, each interceptor is fully capable of handling the request unassisted.
 
 Most interceptors inspect the request on the way in and forward the \(perhaps altered\) request to the `handle()` method of the `next` object which implements the [`HttpHandler`](api/common/http/HttpHandler) interface.
 
@@ -512,7 +512,7 @@ export abstract class HttpHandler {
 
 </code-example>
 
-Like `intercept()`, the `handle()` method transforms an HTTP request into an `Observable` of [`HttpEvents`](#interceptor-events) which ultimately include the server's response.
+Like `intercept()`, the `handle()` method transforms an HTTP request into an `Observable` of [`HttpEvents`](#interceptor-events) which ultimately include the response from the server.
 The `intercept()` method could inspect that observable and alter it before returning it to the caller.
 
 This `no-op` interceptor calls `next.handle()` with the original request and returns the observable without doing a thing.
@@ -520,22 +520,22 @@ This `no-op` interceptor calls `next.handle()` with the original request and ret
 ### The `next` object
 
 The `next` object represents the next interceptor in the chain of interceptors.
-The final `next` in the chain is the `HttpClient` backend handler that sends the request to the server and receives the server's response.
+The final `next` in the chain is the `HttpClient` backend handler that sends the request to the server and receives the response from the server.
 
 Most interceptors call `next.handle()` so that the request flows through to the next interceptor and, eventually, the backend handler.
-An interceptor *could* skip calling `next.handle()`, short-circuit the chain, and [return its own `Observable`](#caching) with an artificial server response.
+An interceptor *could* skip calling `next.handle()`, short-circuit the chain, and [return the associated `Observable`](#caching) with an artificial server response.
 
 This is a common middleware pattern found in frameworks such as Express.js.
 
 ### Provide the interceptor
 
-The `NoopInterceptor` is a service managed by Angular's [dependency injection (DI)](guide/dependency-injection) system.
+The `NoopInterceptor` is a service managed by the [dependency injection (DI)](guide/dependency-injection) system in Angular.
 Like other services, you must provide the interceptor class before the app can use it.
 
 Because interceptors are \(optional\) dependencies of the `HttpClient` service, you must provide them in the same injector \(or a parent of the injector\) that provides `HttpClient`.
 Interceptors provided *after* DI creates the `HttpClient` are ignored.
 
-This app provides `HttpClient` in the app's root injector, as a side-effect of importing the `HttpClientModule` in `AppModule`.
+This app provides `HttpClient` in the root injector of the app, as a side-effect of importing the `HttpClientModule` in `AppModule`.
 You should provide interceptors in `AppModule` as well.
 
 After importing the `HTTP_INTERCEPTORS` injection token from `@angular/common/http`, write the `NoopInterceptor` provider like this:
@@ -546,7 +546,7 @@ Notice the `multi: true` option.
 This required setting tells Angular that `HTTP_INTERCEPTORS` is a token for a *multiprovider* that injects an array of values, rather than a single value.
 
 You *could* add this provider directly to the providers array of the `AppModule`.
-However, it's rather verbose and there's a good chance that you'll create more interceptors and provide them in the same way.
+However, it is rather verbose and there is a good chance that you will create more interceptors and provide them in the same way.
 You must also pay [close attention to the order](#interceptor-order) in which you provide these interceptors.
 
 Consider creating a "barrel" file that gathers all the interceptor providers into an `httpInterceptorProviders` array, starting with this first one, the `NoopInterceptor`.
@@ -557,7 +557,7 @@ Then import and add it to the `AppModule` `providers array` like this:
 
 <code-example header="app/app.module.ts (interceptor providers)" path="http/src/app/app.module.ts" region="interceptor-providers"></code-example>
 
-As you create new interceptors, add them to the `httpInterceptorProviders` array and you won't have to revisit the `AppModule`.
+As you create new interceptors, add them to the `httpInterceptorProviders` array and you will not have to revisit the `AppModule`.
 
 <div class="alert is-helpful">
 
@@ -587,14 +587,14 @@ The last interceptor in the process is always the `HttpBackend` that handles com
 </div>
 
 You cannot change the order or remove interceptors later.
-If you need to enable and disable an interceptor dynamically, you'll have to build that capability into the interceptor itself.
+If you need to enable and disable an interceptor dynamically, you will have to build that capability into the interceptor.
 
 <a id="interceptor-events"></a>
 
 ### Handling interceptor events
 
 Most `HttpClient` methods return observables of `HttpResponse<any>`.
-The `HttpResponse` class itself is actually an event, whose type is `HttpEventType.Response`.
+The `HttpResponse` class is actually an event that is `HttpEventType.Response` type.
 A single HTTP request can, however, generate multiple events of other types, including upload and download progress events.
 The methods `HttpInterceptor.intercept()` and `HttpHandler.handle()` return observables of `HttpEvent<any>`.
 
@@ -629,11 +629,11 @@ You can clone and modify the request in a single step, as shown in the following
 
 <code-example header="app/http-interceptors/ensure-https-interceptor.ts (excerpt)" path="http/src/app/http-interceptors/ensure-https-interceptor.ts" region="excerpt"></code-example>
 
-The `clone()` method's hash argument lets you mutate specific properties of the request while copying the others.
+The hash argument of the `clone()` method lets you mutate specific properties of the request while copying the others.
 
 #### Modifying a request body
 
-The `readonly` assignment guard can't prevent deep updates and, in particular, it can't prevent you from modifying a property of a request body object.
+The `readonly` assignment guard cannot prevent deep updates and, in particular, it cannot prevent you from modifying a property of a request body object.
 
 <code-example format="javascript" language="javascript">
 
@@ -644,8 +644,8 @@ req.body.name = req.body.name.trim(); // bad idea!
 If you must modify the request body, follow these steps.
 
 1.  Copy the body and make your change in the copy.
-1.  Clone the request object, using its `clone()` method.
-1.  Replace the clone's body with the modified copy.
+1.  Clone the request object, using the associated `clone()` method.
+1.  Replace the bodyof the clone with the modified copy.
 
 <code-example header="app/http-interceptors/trim-name-interceptor.ts (excerpt)" path="http/src/app/http-interceptors/trim-name-interceptor.ts" region="excerpt"></code-example>
 
@@ -678,11 +678,11 @@ Following are a number of common uses for interceptors.
 Apps often use an interceptor to set default headers on outgoing requests.
 
 The sample app has an `AuthService` that produces an authorization token.
-Here is its `AuthInterceptor` that injects that service to get the token and adds an authorization header with that token to every outgoing request:
+Here is an associated `AuthInterceptor` that injects that service to get the token and adds an authorization header with that token to every outgoing request:
 
 <code-example header="app/http-interceptors/auth-interceptor.ts" path="http/src/app/http-interceptors/auth-interceptor.ts"></code-example>
 
-The practice of cloning a request to set new headers is so common that there's a `setHeaders` shortcut for it:
+The practice of cloning a request to set new headers is so common that there is a `setHeaders` shortcut for it:
 
 <code-example path="http/src/app/http-interceptors/auth-interceptor.ts" region="set-header-shortcut"></code-example>
 
@@ -747,7 +747,7 @@ The `CachingInterceptor` in the following example demonstrates this approach.
 *   If the request is not cacheable, the interceptor forwards the request to the next handler in the chain
 *   If a cacheable request is found in the cache, the interceptor returns an `of()` *observable* with the cached response, by-passing the `next` handler \(and all other interceptors downstream\)
 *   If a cacheable request is not in cache, the code calls `sendRequest()`.
-    This function forwards the request to `next.handle()` which ultimately calls the server and returns the server's response.
+    This function forwards the request to `next.handle()` which ultimately calls the server and returns the response from the server.
 
 <a id="send-request"></a>
 
@@ -755,7 +755,7 @@ The `CachingInterceptor` in the following example demonstrates this approach.
 
 <div class="alert is-helpful">
 
-Notice how `sendRequest()` intercepts the response on its way back to the application.
+Notice how `sendRequest()` intercepts the response on the associated return to the application.
 This method pipes the response through the `tap()` operator, whose callback adds the response to the cache.
 
 The original response continues untouched back up through the chain of interceptors to the application caller.
@@ -782,10 +782,10 @@ That `search()` method creates the custom `x-refresh` header and adds it to the 
 
 </div>
 
-The revised `CachingInterceptor` sets up a server request whether there's a cached value or not, using the same `sendRequest()` method described [above](#send-request).
+The revised `CachingInterceptor` sets up a server request whether there is a cached value or not, using the same `sendRequest()` method described [above](#send-request).
 The `results$` observable makes the request when subscribed.
 
-*   If there's no cached value, the interceptor returns `results$`.
+*   If there is no cached value, the interceptor returns `results$`.
 *   If there is a cached value, the code *pipes* the cached response onto `results$`, producing a recomposed observable that emits twice, the cached response first \(and immediately\), followed later by the response from the server.
     Subscribers see a sequence of two responses.
 
@@ -820,15 +820,15 @@ The `getEventMessage` method interprets each type of `HttpEvent` in the event st
 
 <div class="alert is-helpful">
 
-The sample app for this guide doesn't have a server that accepts uploaded files.
+The sample app for this guide does not have a server that accepts uploaded files.
 The `UploadInterceptor` in `app/http-interceptors/upload-interceptor.ts` intercepts and short-circuits upload requests by returning an observable of simulated events.
 
 </div>
 
 ## Optimizing server interaction with debouncing
 
-If you need to make an HTTP request in response to user input, it's not efficient to send a request for every keystroke.
-It's better to wait until the user stops typing and then send a request.
+If you need to make an HTTP request in response to user input, it is not efficient to send a request for every keystroke.
+It is better to wait until the user stops typing and then send a request.
 This technique is known as debouncing.
 
 Consider the following template, which lets a user enter a search term to find a package by name.
@@ -836,12 +836,12 @@ When the user enters a name in a search-box, the `PackageSearchComponent` sends 
 
 <code-example header="app/package-search/package-search.component.html (search)" path="http/src/app/package-search/package-search.component.html" region="search"></code-example>
 
-Here, the `keyup` event binding sends every keystroke to the component's `search()` method.
+Here, the `keyup` event binding sends every keystroke to the `search()` method of the component.
 
 <div class="alert is-helpful">
 
 The type of `$event.target` is only `EventTarget` in the template.
-In the `getValue()` method, the target is cast to an `HTMLInputElement` to let type-safe have access to its `value` property.
+In the `getValue()` method, the target is cast to an `HTMLInputElement` to let type-safe have access to the associated `value` property.
 
 <code-example path="http/src/app/package-search/package-search.component.ts" region="getValue"></code-example>
 
@@ -852,9 +852,9 @@ The following snippet implements debouncing for this input using RxJS operators.
 <code-example header="app/package-search/package-search.component.ts (excerpt)" path="http/src/app/package-search/package-search.component.ts" region="debounce"></code-example>
 
 The `searchText$` is the sequence of search-box values coming from the user.
-It's defined as an RxJS `Subject`, which means it is a multicasting `Observable` that can also emit values for itself by calling `next(value)`, as happens in the `search()` method.
+It is defined as an RxJS `Subject`, which means it is a multicasting `Observable` that can also emit the associated values by running `next(value)`, as happens in the `search()` method.
 
-Rather than forward every `searchText` value directly to the injected `PackageSearchService`, the code in `ngOnInit()` pipes search values through three operators, so that a search value reaches the service only if it's a new value and the user stopped typing.
+Rather than forward every `searchText` value directly to the injected `PackageSearchService`, the code in `ngOnInit()` pipes search values through three operators, so that a search value reaches the service only if it is a new value and the user stopped typing.
 
 | RxJS operators           | Details |
 |:---                      |:---     |
@@ -886,7 +886,7 @@ If a previous search request is still in-flight \(as when the network connection
 
 <div class="alert is-helpful">
 
-If you think you'll reuse this debouncing logic, consider moving it to a utility function or into the `PackageSearchService` itself.
+If you think you will reuse this debouncing logic, consider moving it to a utility function or into the associated `PackageSearchService`.
 
 </div>
 
@@ -902,8 +902,8 @@ to relative URLs, but not on GET/HEAD requests or on requests with an absolute U
 
 To take advantage of this, your server needs to set a token in a JavaScript readable session cookie called `XSRF-TOKEN` on either the page load or the first GET request.
 On subsequent requests the server can verify that the cookie matches the `X-XSRF-TOKEN` HTTP header, and therefore be sure that only code running on your domain could have sent the request.
-The token must be unique for each user and must be verifiable by the server; this prevents the client from making up its own tokens.
-Set the token to a digest of your site's authentication cookie with a salt for added security.
+The token must be unique for each user and must be verifiable by the server; this prevents the client from creating associated tokens.
+Set the token to a digest of the authentication cookie of your site with a salt for added security.
 
 To prevent collisions in environments where multiple Angular apps share the same domain or subdomain, give each application a unique cookie name.
 
@@ -911,7 +911,7 @@ To prevent collisions in environments where multiple Angular apps share the same
 
 *`HttpClient` supports only the client half of the XSRF protection scheme.*
 Your backend service must be configured to set the cookie for your page, and to verify that the header is present on all eligible requests.
-Failing to do so renders Angular's default protection ineffective.
+Failing to do so renders the default protection in Angular ineffective.
 
 </div>
 
@@ -928,7 +928,7 @@ If your backend service uses different names for the XSRF token cookie or header
 As for any external dependency, you must mock the HTTP backend so your tests can simulate interaction with a remote server.
 The `@angular/common/http/testing` library makes it straightforward to set up such mocking.
 
-Angular's HTTP testing library is designed for a pattern of testing in which the app executes code and makes requests first.
+The HTTP testing library in Angular is designed for a pattern of testing in which the app executes code and makes requests first.
 The test then expects that certain requests have or have not been made, performs assertions against those requests, and finally provides responses by "flushing" each expected request.
 
 At the end, tests can verify that the app made no unexpected requests.
@@ -968,7 +968,7 @@ The last step, verifying that no requests remain outstanding, is common enough f
 
 #### Custom request expectations
 
-If matching by URL isn't sufficient, it's possible to implement your own matching function.
+If matching by URL is not sufficient, it is possible to implement your own matching function.
 For example, you could look for an outgoing request that has an authorization header:
 
 <code-example path="http/src/testing/http-client.spec.ts" region="predicate"></code-example>
@@ -985,7 +985,7 @@ Once returned, these requests are removed from future matching and you are respo
 
 ### Testing for errors
 
-You should test the app's defenses against HTTP requests that fail.
+You should test the defenses of the app against HTTP requests that fail.
 
 Call `request.flush()` with an error message, as seen in the following example.
 
@@ -1016,7 +1016,7 @@ The lambda function `() => 3` passed during the creation of the `HttpContextToke
 
 1.  It lets TypeScript infer the type of this token:
     `HttpContextToken<number>`
-    The request context is type-safe &mdash;reading a token from a request's context returns a value of the appropriate type.
+    The request context is type-safe &mdash;reading a token from the context of a request returns a value of the appropriate type.
 
 1.  It sets the default value for the token.
     This is the value that the request context returns if no other value was set for this token.
@@ -1030,7 +1030,7 @@ When making a request, you can provide an `HttpContext` instance, in which you h
 
 ### Reading context values in an interceptor
 
-Within an interceptor, you can read the value of a token in a given request's context with `HttpContext.get()`.
+Within an interceptor, you can read the value of a token in the context of a specific request with `HttpContext.get()`.
 If you have not explicitly set a value for the token, Angular returns the default value specified in the token.
 
 <code-example header="reading context values in an interceptor" path="http/src/app/http-interceptors/retry-interceptor.ts" region="reading-context"></code-example>

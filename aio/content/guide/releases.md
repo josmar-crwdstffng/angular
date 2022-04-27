@@ -1,7 +1,7 @@
 # Angular versioning and releases
 
 We recognize that you need stability from the Angular framework.
-Stability ensures that reusable components and libraries, tutorials, tools, and learned practices don't become obsolete unexpectedly.
+Stability ensures that reusable components and libraries, tutorials, tools, and learned practices do not become obsolete unexpectedly.
 Stability is essential for the ecosystem around Angular to thrive.
 
 We also share with you the need for Angular to keep evolving.
@@ -68,7 +68,7 @@ See [Keeping Up-to-Date](guide/updating "Updating your projects") for more infor
 
 ### Preview releases
 
-We let you preview what's coming by providing "Next" and Release Candidates \(`rc`\) pre-releases for each major and minor release:
+We let you preview what is coming by providing "Next" and Release Candidates \(`rc`\) pre-releases for each major and minor release:
 
 | Pre-release type  | Details |
 |:---               |:---     |
@@ -135,7 +135,7 @@ As a general rule, a fix is considered for an LTS version if it resolves one of:
 
 ## Deprecation practices
 
-Sometimes "breaking changes", such as the removal of support for select APIs and features, are necessary to innovate and stay current with new best practices, changing dependencies, or changes in the \(web\) platform itself.
+Sometimes "breaking changes", such as the removal of support for select APIs and features, are necessary to innovate and stay current with new best practices, changing dependencies, or changes in the \(web\) platform.
 
 To make these transitions as straightforward as possible, we make these commitments to you:
 

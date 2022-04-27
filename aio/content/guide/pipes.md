@@ -55,13 +55,13 @@ The tabs in the example show the following:
     <code-pane header="src/app/hero-birthday1.component.ts" path="pipes/src/app/hero-birthday1.component.ts"></code-pane>
 </code-tabs>
 
-The component's `birthday` value flows through the pipe operator, `|` to the [`date`](api/common/DatePipe) function.
+The value of the `birthday` of the component flows through the pipe operator \(`|`\) to the [`date`](api/common/DatePipe) function.
 
 <a id="parameterizing-a-pipe"></a>
 
 ## Transforming data with parameters and chained pipes
 
-Use optional parameters to fine-tune a pipe's output.
+Use optional parameters to fine-tune the output of a pipe.
 For example, use the [`CurrencyPipe`](api/common/CurrencyPipe "API reference") with a country code such as EUR as a parameter.
 The template expression `{{ amount | currency:'EUR' }}` transforms the `amount` to currency in euros.
 Follow the pipe name \(`currency`\) with a colon \(`:`\) character and the parameter value \(`'EUR'`\).
@@ -78,8 +78,8 @@ For example, `{{ slice:1:5 }}` creates a new array or string containing a subset
 The tabs in the following example demonstrates toggling between two different formats \(`'shortDate'` and `'fullDate'`\):
 
 *   The `app.component.html` template uses a format parameter for the [`DatePipe`](api/common/DatePipe) \(named `date`\) to show the date as **04/15/88**.
-*   The `hero-birthday2.component.ts` component binds the pipe's format parameter to the component's `format` property in the `template` section, and adds a button for a click event bound to the component's `toggleFormat()` method.
-*   The `hero-birthday2.component.ts` component's `toggleFormat()` method toggles the component's `format` property between a short form \(`'shortDate'`\) and a longer form \(`'fullDate'`\).
+*   The `hero-birthday2.component.ts` component binds the format parameter of the pipe to the `format` property of the component in the `template` section, and adds a button for a click event bound to the `toggleFormat()` method of the component.
+*   The `toggleFormat()` method of the `hero-birthday2.component.ts` component toggles the `format` property of the component between a short form \(`'shortDate'`\) and a longer form \(`'fullDate'`\).
 
 <code-tabs>
     <code-pane header="src/app/app.component.html" region="format-birthday" path="pipes/src/app/app.component.html"></code-pane>
@@ -143,8 +143,8 @@ Angular invokes the `transform` method with the value of a binding as the first 
 
 ### Example: Transforming a value exponentially
 
-In a game, you might want to implement a transformation that raises a value exponentially to increase a hero's power.
-For example, if the hero's score is 2, boosting the hero's power exponentially by 10 produces a score of 1024.
+In a game, you might want to implement a transformation that raises a value exponentially to increase the poer of a hero.
+For example, if the score for a hero is 2, exponentially boosting the power of the hero by 10 produces a score of 1024.
 Use a custom pipe for this transformation.
 
 The following code example shows two component definitions:
@@ -197,7 +197,7 @@ However, if you change something *inside* a composite object \(such as the month
 ### How change detection works
 
 Angular looks for changes to data-bound values in a [change detection](guide/glossary#change-detection "Definition of change detection") process that runs after every DOM event: every keystroke, mouse move, timer tick, and server response.
-The following example, which doesn't use a pipe, demonstrates how Angular uses its default change detection strategy to monitor and update its display of every hero in the `heroes` array.
+The following example, which does not use a pipe, demonstrates how Angular uses the associated default change detection strategy to monitor and update the associated display of every hero in the `heroes` array.
 The example tabs show the following:
 
 | Files                               | Details |
@@ -214,7 +214,7 @@ Angular updates the display every time the user adds a hero.
 If the user clicks the **Reset** button, Angular replaces `heroes` with a new array of the original heroes and updates the display.
 If you add the ability to remove or change a hero, Angular would detect those changes and update the display as well.
 
-However, executing a pipe to update the display with every change would slow down your application's performance.
+However, executing a pipe to update the display with every change would slow down the performance of your application.
 So Angular uses a faster change-detection algorithm for executing a pipe, as described in the next section.
 
 <a id="pure-and-impure-pipes"></a>
@@ -250,20 +250,20 @@ This happens because the code that adds a hero does so by pushing it onto the `h
 
 <code-example header="src/app/flying-heroes.component.ts" path="pipes/src/app/flying-heroes.component.ts" region="push"></code-example>
 
-The change detector ignores changes to elements of an array, so the pipe doesn't run.
+The change detector ignores changes to elements of an array, so the pipe does not run.
 
-The reason Angular ignores the changed array element is that the *reference* to the array hasn't changed.
+The reason Angular ignores the changed array element is that the *reference* to the array has not changed.
 Because the array is the same, Angular does not update the display.
 
-One way to get the behavior you want is to change the object reference itself.
+One way to get the behavior you want is to change the object reference.
 Replace the array with a new array containing the newly changed elements, and then input the new array to the pipe.
 In the preceding example, create an array with the new hero appended, and assign that to `heroes`.
 Angular detects the change in the array reference and executes the pipe.
 
-To summarize, if you mutate the input array, the pure pipe doesn't execute.
+To summarize, if you mutate the input array, the pure pipe does not execute.
 If you *replace* the input array, the pipe executes and the display is updated.
 
-The preceding example demonstrates changing a component's code to accommodate a pipe.
+The preceding example demonstrates changing the code of a component to accommodate a pipe.
 
 To keep your component independent of HTML templates that use pipes, you can, as an alternative, use an *impure* pipe to detect changes within composite objects such as arrays, as described in the next section.
 
@@ -281,12 +281,12 @@ A long-running impure pipe could dramatically slow down your application.
 
 </div>
 
-Make a pipe impure by setting its `pure` flag to `false`:
+Make a pipe impure by setting the associated `pure` flag to `false`:
 
 <code-example header="src/app/flying-heroes.pipe.ts" path="pipes/src/app/flying-heroes.pipe.ts" region="pipe-decorator"></code-example>
 
-The following code shows the complete implementation of `FlyingHeroesImpurePipe`, which extends `FlyingHeroesPipe` to inherit its characteristics.
-The example shows that you don't have to change anything else&mdash;the only difference is setting the `pure` flag as `false` in the pipe metadata.
+The following code shows the complete implementation of `FlyingHeroesImpurePipe`, which extends `FlyingHeroesPipe` to inherit the associated characteristics.
+The example shows that you do not have to change anything else&mdash;the only difference is setting the `pure` flag as `false` in the pipe metadata.
 
 <code-tabs>
     <code-pane header="src/app/flying-heroes.pipe.ts (FlyingHeroesImpurePipe)" path="pipes/src/app/flying-heroes.pipe.ts" region="impure"></code-pane>
@@ -314,7 +314,7 @@ To confirm that the display updates as the user adds heroes, see the <live-examp
 
 [Observables](guide/glossary#observable "Definition of observable") let you pass messages between parts of your application.
 Observables are recommended for event handling, asynchronous programming, and handling multiple values.
-Observables can deliver single or multiple values of any type, either synchronously \(as a function delivers a value to its caller\) or asynchronously on a schedule.
+Observables can deliver single or multiple values of any type, either synchronously \(as a function delivers a value to the associated caller\) or asynchronously on a schedule.
 
 <div class="alert is-helpful">
 
@@ -323,7 +323,7 @@ For details and examples of observables, see the [Observables Overview](guide/ob
 </div>
 
 Use the built-in [`AsyncPipe`](api/common/AsyncPipe "API description of AsyncPipe") to accept an observable as input and subscribe to the input automatically.
-Without this pipe, your component code would have to subscribe to the observable to consume its values, extract the resolved values, expose them for binding, and unsubscribe when the observable is destroyed in order to prevent memory leaks.
+Without this pipe, your component code would have to subscribe to the observable to consume the associated values, extract the resolved values, expose them for binding, and unsubscribe when the observable is destroyed in order to prevent memory leaks.
 `AsyncPipe` is an impure pipe that saves boilerplate code in your component to maintain the subscription and keep delivering values from that observable as they arrive.
 
 The following code example binds an observable of message strings
@@ -354,10 +354,10 @@ The tabs show the following:
     <code-pane header="src/app/hero-list.component.ts" path="pipes/src/app/hero-list.component.ts"></code-pane>
 </code-tabs>
 
-In the preceding example, a breakpoint on the pipe's request for data shows the following:
+In the preceding example, a breakpoint on the request of the pipe for data shows the following:
 
-*   Each binding gets its own pipe instance.
-*   Each pipe instance caches its own URL and data and calls the server only once.
+*   Each binding gets an associated pipe instance.
+*   Each pipe instance caches an associated URL and data and calls the server only once.
 
 The `fetch` and `fetch-json` pipes display the heroes in the browser as follows:
 

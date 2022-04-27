@@ -7,7 +7,7 @@ A basic understanding of the following concepts:
 *   [Introduction to Angular animations](guide/animations)
 *   [Transition and triggers](guide/transition-and-triggers)
 
-So far, we've learned simple animations of single HTML elements.
+So far, we have learned simple animations of single HTML elements.
 Angular also lets you animate coordinated sequences, such as an entire grid or list of elements as they enter and leave a page.
 You can choose to run multiple animations in parallel, or run discrete animations sequentially, one following another.
 
@@ -28,17 +28,17 @@ Most complex animations rely on the `query()` function to find child elements an
 
 | Examples                               | Details |
 |:---                                    |:---     |
-| `query()` followed by `animate()`      | Used to query simple HTML elements and directly apply animations to them.                                                                                                                            |
-| `query()` followed by `animateChild()` | Used to query child elements, which themselves have animations metadata applied to them and trigger such animation \(which would be otherwise be blocked by the current/parent element's animation\). |
+| `query()` followed by `animate()`      | Used to query simple HTML elements and directly apply animations to them.                                                                                                                                     |
+| `query()` followed by `animateChild()` | Used to query child elements, which themselves have animations metadata applied to them and trigger such animation \(which would be otherwise be blocked by the animation of the current or parent element\). |
 
 The first argument of `query()` is a [css selector](https://developer.mozilla.org/docs/Web/CSS/CSS_Selectors) string which can also contain the following Angular-specific tokens:
 
 | Tokens                     | Details |
 |:---                        |:---     |
-| `:enter` <br /> `:leave`   | For entering/leaving elements.               |
-| `:animating`               | For elements currently animating.            |
+| `:enter` <br /> `:leave`   | For entering/leaving elements.                |
+| `:animating`               | For elements currently animating.             |
 | `@*` <br /> `@triggerName` | For elements with any —or a specific—trigger. |
-| `:self`                    | The animating element itself.                |
+| `:self`                    | The associated animating element.             |
 
 <div class="callout is-helpful">
 
@@ -67,7 +67,7 @@ The following example demonstrates how to use the `query()` and `stagger()` func
 
 ## Parallel animation using group() function
 
-You've seen how to add a delay between each successive animation.
+You have seen how to add a delay between each successive animation.
 But you might also want to configure animations that happen in parallel.
 For example, you might want to animate two CSS properties of the same element but use a different `easing` function for each one.
 For this, you can use the animation [`group()`](api/animations/group) function.
@@ -107,20 +107,20 @@ The HTML template contains a trigger called `filterAnimation`.
 
 <code-example header="src/app/hero-list-page.component.html" path="animations/src/app/hero-list-page.component.html" region="filter-animations"></code-example>
 
-The `filterAnimation` in the component's decorator contains three transitions.
+The `filterAnimation` in the decorator of the component contains three transitions.
 
 <code-example header="src/app/hero-list-page.component.ts" path="animations/src/app/hero-list-page.component.ts" region="filter-animations"></code-example>
 
 The code in this example performs the following tasks:
 
 *   Skips animations when the user first opens or navigates to this page \(the filter animation narrows what is already there, so it only works on elements that already exist in the DOM\)
-*   Filters heroes based on the search input's value
+*   Filters heroes based on the value of the search input
 
 For each change:
 
-*   Hides an element leaving the DOM by setting its opacity and width to 0
+*   Hides an element leaving the DOM by setting the associated opacity and width to 0
 *   Animates an element entering the DOM over 300 milliseconds.
-    During the animation, the element assumes its default width and opacity.
+    During the animation, the element assumes the associated default width and opacity.
 
 *   If there are multiple elements entering or leaving the DOM, staggers each animation starting at the top of the page, with a 50-millisecond delay between each element
 

@@ -32,10 +32,10 @@ The following example shows an event binding that implements a click handler:
 
 <a id="click"></a>
 
-The `(click)` to the left of the equals sign identifies the button's click event as the **target of the binding**.
-The text in quotes to the right of the equals sign is the **template statement**, which responds to the click event by calling the component's `onClickMe` method.
+The `(click)` to the left of the equals sign identifies the click event of the button as the **target of the binding**.
+The text in quotes to the right of the equals sign is the **template statement**, which responds to the click event by requesting the `onClickMe` method of the component.
 
-When writing a binding, be aware of a template statement's **execution context**.
+When writing a binding, be aware of the **execution context** of a template statement.
 The identifiers in a template statement belong to a specific context object, usually the Angular component controlling the template.
 The example above shows a single line of HTML, but that HTML belongs to a larger component:
 
@@ -46,13 +46,13 @@ When the user clicks the button, Angular calls the `onClickMe` method from `Clic
 ## Get user input from the &dollar;event object
 
 DOM events carry a payload of information that may be useful to the component.
-This section shows how to bind to the `keyup` event of an input box to get the user's input after each keystroke.
+This section shows how to bind to the `keyup` event of an input box to get the input from the user after each keystroke.
 
 The following code listens to the `keyup` event and passes the entire event payload \(`$event`\) to the component event handler.
 
 <code-example header="src/app/keyup.components.ts (template v.1)" path="user-input/src/app/keyup.components.ts" region="key-up-component-1-template"></code-example>
 
-When a user presses and releases a key, the `keyup` event occurs, and Angular provides a corresponding DOM event object in the `$event` variable which this code passes as a parameter to the component's `onKey()` method.
+When a user presses and releases a key, the `keyup` event occurs, and Angular provides a corresponding DOM event object in the `$event` variable which this code passes as a parameter to the `onKey()` method of the component.
 
 <code-example header="src/app/keyup.components.ts (class v.1)" path="user-input/src/app/keyup.components.ts" region="key-up-component-1-class-no-type"></code-example>
 
@@ -62,11 +62,11 @@ For example, a mouse event includes different information than an input box edit
 All [standard DOM event objects](https://developer.mozilla.org/docs/Web/API/Event) have a `target` property, a reference to the element that raised the event.
 In this case, `target` refers to the [`<input>` element](https://developer.mozilla.org/docs/Web/API/HTMLInputElement) and `event.target.value` returns the current contents of that element.
 
-After each call, the `onKey()` method appends the contents of the input box value to the list in the component's `values` property, followed by a separator character \(`|`\).
+After each call, the `onKey()` method appends the contents of the input box value to the list in the `values` property of the component, followed by a separator character \(`|`\).
 The [interpolation](guide/interpolation) displays the accumulating input box changes from the `values` property.
 
 Suppose the user enters the letters "abc", and then backspaces to remove them one by one.
-Here's what the UI displays:
+Here is what the UI displays:
 
 <code-example>
 
@@ -112,14 +112,14 @@ The `OnKey` method more clearly expresses what it expects from the template and 
 
 Typing the event object reveals a significant objection to passing the entire DOM event into the method:
 The component has too much awareness of the template details.
-It can't extract information without knowing more than it should about the HTML implementation.
+It cannot extract information without knowing more than it should about the HTML implementation.
 That breaks the separation of concerns between the template \(*what the user sees*\) and the component \(*how the application processes user data*\).
 
 The next section shows how to use template reference variables to address this problem.
 
 ## Get user input from a template reference variable
 
-There's another way to get the user data:
+There is another way to get the user data:
 Use Angular [**template reference variables**](guide/template-reference-variables).
 These variables provide direct access to an element from within the template.
 To declare a template reference variable, precede an identifier with a hash \(or pound\) character \(`#`\).
@@ -128,11 +128,11 @@ The following example uses a template reference variable to implement a keystrok
 
 <code-example header="src/app/loop-back.component.ts" path="user-input/src/app/loop-back.component.ts" region="loop-back-component"></code-example>
 
-The template reference variable named `box`, declared on the `<input>` element, refers to the `<input>` element itself.
-The code uses the `box` variable to get the input element's `value` and display it with interpolation between `<p>` tags.
+The template reference variable named `box`, declared on the `<input>` element, refers to the `<input>` element.
+The code uses the `box` variable to get the `value` of the input element and display it with interpolation between `<p>` tags.
 
 The template is completely self contained.
-It doesn't bind to the component, and the component does nothing.
+It does not bind to the component, and the component does nothing.
 
 Type something in the input box, and watch the display update with each keystroke.
 
@@ -144,21 +144,21 @@ Type something in the input box, and watch the display update with each keystrok
 
 <div class="alert is-helpful">
 
-<header>This won't work at all unless you bind to an event.</header>
+<header>This will not work at all unless you bind to an event.</header>
 
 Angular updates the bindings \(and therefore the screen\) only if the app does something in response to asynchronous events, such as keystrokes.
 This example code binds the `keyup` event to the number 0, the shortest template statement possible.
-While the statement does nothing useful, it satisfies Angular's requirement so that Angular will update the screen.
+While the statement does nothing useful, it satisfies the requirement in Angular so that Angular will update the screen.
 
 </div>
 
-It's easier to get to the input box with the template reference variable than to go through the `$event` object.
-Here's a rewrite of the previous `keyup` example that uses a template reference variable to get the user's input.
+It is easier to get to the input box with the template reference variable than to go through the `$event` object.
+Here is a rewrite of the previous `keyup` example that uses a template reference variable to get the input from the user.
 
 <code-example header="src/app/keyup.components.ts (v2)" path="user-input/src/app/keyup.components.ts" region="key-up-component-2"></code-example>
 
 A nice aspect of this approach is that the component gets clean data values from the view.
-It no longer requires knowledge of the `$event` and its structure.
+It no longer requires knowledge of the `$event` and the associated structure.
 
 <a id="key-event"></a>
 
@@ -168,13 +168,13 @@ The `(keyup)` event handler hears *every keystroke*.
 Sometimes only the *Enter* key matters, because it signals that the user has finished typing.
 One way to reduce the noise would be to examine every `$event.keyCode` and take action only when the key is *Enter*.
 
-There's an easier way:
-Bind to Angular's `keyup.enter` pseudo-event.
+There is an easier way:
+Bind to the `keyup.enter` pseudo-event in Angular.
 Then Angular calls the event handler only when the user presses *Enter*.
 
 <code-example header="src/app/keyup.components.ts (v3)" path="user-input/src/app/keyup.components.ts" region="key-up-component-3"></code-example>
 
-Here's how it works.
+Here is how it works.
 
 <div class="lightbox">
 
@@ -185,7 +185,7 @@ Here's how it works.
 ## On blur
 
 In the previous example, the current state of the input box is lost if the user mouses away and clicks elsewhere on the page without first pressing *Enter*.
-The component's `value` property is updated only when the user presses *Enter*.
+The `value` property of the component is updated only when the user presses *Enter*.
 
 To fix this issue, listen to both the *Enter* key and the `blur` event.
 
@@ -196,7 +196,7 @@ To fix this issue, listen to both the *Enter* key and the `blur` event.
 This page demonstrated several event binding techniques.
 
 Now, put it all together in a micro-app that can display a list of heroes and add new heroes to the list.
-The user can add a hero by typing the hero's name in the input box and clicking **Add**.
+The user can add a hero by typing the name of the hero in the input box and clicking **Add**.
 
 <div class="lightbox">
 
@@ -213,7 +213,7 @@ Below is the "Little Tour of Heroes" component.
 | Observations                                | Details |
 |:---                                         |:---     |
 | Use template variables to refer to elements | The `newHero` template variable refers to the `<input>` element. You can reference `newHero` from any sibling or child of the `<input>` element.                                                     |
-| Pass values, not elements                   | Instead of passing the `newHero` into the component's `addHero` method, get the input box value and pass *that* to `addHero`.                                                                        |
+| Pass values, not elements                   | Instead of passing the `newHero` into the `addHero` method of the component, get the input box value and pass *that* to `addHero`.                                                                        |
 | Keep template statements simple             | The `(blur)` event is bound to two JavaScript statements. The first statement calls `addHero`. The second statement, `newHero.value=''`, clears the input box after a new hero is added to the list. |
 
 ## Source code

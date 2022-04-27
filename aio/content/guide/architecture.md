@@ -21,7 +21,7 @@ These decorators mark their type and provide metadata that tells Angular how to 
 
 *   The metadata for a service class provides the information Angular needs to make it available to components through *dependency injection \(DI\)*
 
-An application's components typically define many views, arranged hierarchically.
+The components of an application typically define many views, arranged hierarchically.
 Angular provides the `Router` service to help you define navigation paths among views.
 The router provides sophisticated in-browser navigational capabilities.
 
@@ -41,7 +41,7 @@ For the sample application that this page describes, see the <live-example></liv
 
 Angular *NgModules* differ from and complement JavaScript \(ES2015\) modules.
 An NgModule declares a compilation context for a set of components that is dedicated to an application domain, a workflow, or a closely related set of capabilities.
-An NgModule can associate its components with related code, such as services, to form functional units.
+An NgModule can associate components with related code, such as services, to form functional units.
 
 Every Angular application has a *root module*, conventionally named `AppModule`, which provides the bootstrap mechanism that launches the application.
 An application typically contains many functional modules.
@@ -89,7 +89,7 @@ Before a view is displayed, Angular evaluates the directives and resolves the bi
 Angular supports *two-way data binding*, meaning that changes in the DOM, such as user choices, are also reflected in your program data.
 
 Your templates can use *pipes* to improve the user experience by transforming values for display.
-For example, use pipes to display dates and currency values that are appropriate for a user's locale.
+For example, use pipes to display dates and currency values that are appropriate for the locale of a user.
 Angular provides predefined pipes for common transformations, and you can also define your own pipes.
 
 <div class="alert is-helpful">
@@ -102,12 +102,12 @@ For a more detailed discussion of these concepts, see [Introduction to component
 
 ## Services and dependency injection
 
-For data or logic that isn't associated with a specific view, and that you want to share across components, you create a *service* class.
+For data or logic that is not associated with a specific view, and that you want to share across components, you create a *service* class.
 A service class definition is immediately preceded by the `@Injectable()` decorator.
 The decorator provides the metadata that allows other providers to be **injected** as dependencies into your class.
 
 *Dependency injection* \(DI\) lets you keep your component classes lean and efficient.
-They don't fetch data from the server, validate user input, or log directly to the console; they delegate such tasks to services.
+They do not fetch data from the server, validate user input, or log directly to the console; they delegate such tasks to services.
 
 <div class="alert is-helpful">
 
@@ -122,16 +122,16 @@ It is modeled on the familiar browser navigation conventions:
 
 *   Enter a URL in the address bar and the browser navigates to a corresponding page
 *   Click links on the page and the browser navigates to a new page
-*   Click the browser's back and forward buttons and the browser navigates backward and forward through the history of pages you've seen
+*   Click the back and forward buttons in the browser and the browser navigates backward and forward through the history of pages you have seen
 
 The router maps URL-like paths to views instead of pages.
-When a user performs an action, such as clicking a link, that would load a new page in the browser, the router intercepts the browser's behavior, and shows or hides view hierarchies.
+When a user performs an action, such as clicking a link, that would load a new page in the browser, the router intercepts the behavior of the browser, and shows or hides view hierarchies.
 
-If the router determines that the current application state requires particular functionality, and the module that defines it hasn't been loaded, the router can *lazy-load* the module on demand.
+If the router determines that the current application state requires particular functionality, and the module that defines it has not been loaded, the router can *lazy-load* the module on demand.
 
-The router interprets a link URL according to your application's view navigation rules and data state.
+The router interprets a link URL according to the view navigation rules and data state of your application.
 You can navigate to new views when the user clicks a button or selects from a drop box, or in response to some other stimulus from any source.
-The router logs activity in the browser's history, so the back and forward buttons work as well.
+The router logs activity in the history of the browser, so the back and forward buttons work as well.
 
 To define navigation rules, you associate *navigation paths* with your components.
 A path uses a URL-like syntax that integrates your program data, in much the same way that template syntax integrates your views with your program data.
@@ -145,7 +145,7 @@ For a more detailed discussion, see [Routing and navigation](guide/router).
 
 ## What's next
 
-You've learned the basics about the main building blocks of an Angular application.
+You have learned the basics about the main building blocks of an Angular application.
 The following diagram shows how these basic pieces are related.
 
 <div class="lightbox">
@@ -156,7 +156,7 @@ The following diagram shows how these basic pieces are related.
 
 *   Together, a component and template define an Angular view
     *   A decorator on a component class adds the metadata, including a pointer to the associated template
-    *   Directives and binding markup in a component's template modify views based on program data and logic
+    *   Directives and binding markup in the template of a component modify views based on program data and logic
 *   The dependency injector provides services to a component, such as the router service that lets you define navigation among views
 
 Each of these subjects is introduced in more detail in the following pages.
@@ -170,7 +170,7 @@ Each of these subjects is introduced in more detail in the following pages.
     *   [Pipes](guide/architecture-components#pipes)
 *   [Introduction to services and dependency injection](guide/architecture-services)
 
-When you're familiar with these fundamental building blocks, you can explore them in more detail in the documentation.
+When you are familiar with these fundamental building blocks, you can explore them in more detail in the documentation.
 To learn about more tools and techniques that are available to help you build and deploy Angular applications, see [Next steps: tools and techniques](guide/architecture-next-steps).
 
 </div>

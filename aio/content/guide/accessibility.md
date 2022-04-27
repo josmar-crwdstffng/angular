@@ -4,7 +4,7 @@ The web is used by a wide variety of people, including those who have visual or 
 A variety of assistive technologies are available that make it much easier for these groups to interact with web-based software applications.
 In addition, designing an application to be more accessible generally improves the user experience for all users.
 
-For an in-depth introduction to issues and techniques for designing accessible applications, see the [Accessibility](https://developers.google.com/web/fundamentals/accessibility/#what_is_accessibility) section of the Google's [Web Fundamentals](https://developers.google.com/web/fundamentals).
+For an in-depth introduction to issues and techniques for designing accessible applications, see the [Accessibility](https://developers.google.com/web/fundamentals/accessibility/#what_is_accessibility) section of the [Web Fundamentals](https://developers.google.com/web/fundamentals) by Google.
 
 This page discusses best practices for designing Angular applications that work well for all users, including those who rely on assistive technologies.
 
@@ -80,8 +80,8 @@ You can see examples of this pattern in Angular Material:
 
 Sometimes using the appropriate native element requires a container element.
 For example, the native `<input>` element cannot have children, so any custom text entry components need to wrap an `<input>` with additional elements.
-While you might just include the `<input>` in your custom component's template, this makes it impossible for users of the component to set arbitrary properties and attributes to the input element.
-Instead, create a container component that uses content projection to include the native control in the component's API.
+While you might just include the `<input>` in the template of your custom component, this makes it impossible for users of the component to set arbitrary properties and attributes to the input element.
+Instead, create a container component that uses content projection to include the native control in the API of the component.
 
 You can see [`MatFormField`](https://material.angular.io/components/form-field/overview) as an example of this pattern.
 
@@ -90,7 +90,7 @@ You can see [`MatFormField`](https://material.angular.io/components/form-field/o
 The following example shows how to make a progress bar accessible by using host binding to control accessibility-related attributes.
 
 *   The component defines an accessibility-enabled element with both the standard HTML attribute `role`, and ARIA attributes.
-    The ARIA attribute `aria-valuenow` is bound to the user's input.
+    The ARIA attribute `aria-valuenow` is bound to the input from the user.
 
     <code-example header="src/app/progress-bar.component.ts" path="accessibility/src/app/progress-bar.component.ts" region="progressbar-component"></code-example>
 

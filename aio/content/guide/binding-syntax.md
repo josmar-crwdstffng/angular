@@ -1,7 +1,7 @@
 
 # Binding syntax
 
-Data binding automatically keeps your page up-to-date based on your application's state.
+Data binding automatically keeps your page up-to-date based on the state of your application.
 You use data binding to specify things such as the source of an image, the state of a button, or data for a particular user.
 
 <div class="alert is-helpful">
@@ -27,7 +27,7 @@ Use data binding to control things like the state of a button:
 
 <code-example header="src/app/app.component.html" path="binding-syntax/src/app/app.component.html" region="disabled-button"></code-example>
 
-Notice that the binding is to the `disabled` property of the button's DOM element, not the attribute.
+Notice that the binding is to the `disabled` property of the DOM element for the button, not the attribute.
 Data binding works with properties of DOM elements, components, and directives, not HTML attributes.
 
 <a id="html-attribute-vs-dom-property"></a>
@@ -36,7 +36,7 @@ Data binding works with properties of DOM elements, components, and directives, 
 
 Angular binding distinguishes between HTML attributes and DOM properties.
 
-Attributes initialize DOM properties and you can configure them to modify an element's behavior.
+Attributes initialize DOM properties and you can configure them to modify the behavior of an element.
 Properties are features of DOM nodes.
 
 *   A few HTML attributes have 1:1 mapping to properties; for example,
@@ -47,7 +47,7 @@ Properties are features of DOM nodes.
 
     </code-example>
 
-*   Some HTML attributes don't have corresponding properties; for example,
+*   Some HTML attributes do not have corresponding properties; for example,
 
     <code-example format="html" hideCopy language="html">
 
@@ -55,7 +55,7 @@ Properties are features of DOM nodes.
 
     </code-example>
 
-*   Some DOM properties don't have corresponding attributes; for example,
+*   Some DOM properties do not have corresponding attributes; for example,
 
     <code-example format="html" hideCopy language="html">
 
@@ -71,7 +71,7 @@ Remember that HTML attributes and DOM properties are different things, even when
 
 In Angular, the only role of HTML attributes is to initialize element and directive state.
 
-When you write a data binding, you're dealing exclusively with the DOM properties and events of the target object.
+When you write a data binding, you are dealing exclusively with the DOM properties and events of the target object.
 
 #### Example 1: an `<input>`
 
@@ -92,9 +92,9 @@ To see attributes versus DOM properties in a functioning app, see the <live-exam
 
 #### Example 2: a disabled button
 
-A button's `disabled` property is `false` by default so the button is enabled.
+The `disabled` property of a button is `false` by default so the button is enabled.
 
-When you add the `disabled` attribute, you are initializing the button's `disabled` property to `true` which disables the button.
+When you add the `disabled` attribute, you are initializing the `disabled` property of the button to `true` which disables the button.
 
 <code-example format="html" language="html">
 
@@ -109,7 +109,7 @@ To control the state of the button, set the `disabled` property instead.
 
 #### Property and attribute comparison
 
-Though you could technically set the `[attr.disabled]` attribute binding, the values are different in that the property binding must be a boolean value, while its corresponding attribute binding relies on whether the value is `null` or not.
+Though you could technically set the `[attr.disabled]` attribute binding, the values are different in that the property binding must be a boolean value, while the associated corresponding attribute binding relies on whether the value is `null` or not.
 Consider the following:
 
 <code-example format="html" language="html">

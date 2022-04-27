@@ -29,8 +29,8 @@ Angular invokes the `transform` method with the value of a binding as the first 
 
 ## Example: Transforming a value exponentially
 
-In a game, you might want to implement a transformation that raises a value exponentially to increase a hero's power.
-For example, if the hero's score is 2, boosting the hero's power exponentially by 10 produces a score of 1024.
+In a game, you might want to implement a transformation that raises a value exponentially to increase the power of a hero.
+For example, if the score for the hero is 2, exponentially boosting the power of the hero by 10 produces a score of 1024.
 Use a custom pipe for this transformation.
 
 The following code example shows two component definitions:

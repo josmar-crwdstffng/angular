@@ -22,7 +22,7 @@ Because the steps are the same regardless of how you upgrade, refer to the [Prep
 
 With the `ngUpgrade` library in Angular you can upgrade an existing AngularJS application incrementally by building a hybrid app where you can run both frameworks side-by-side.
 In these hybrid applications you can mix and match AngularJS and Angular components and services and have them interoperate seamlessly.
-That means you don't have to do the upgrade work all at once as there is a natural coexistence between the two frameworks during the transition period.
+That means you do not have to do the upgrade work all at once as there is a natural coexistence between the two frameworks during the transition period.
 
 ### How `ngUpgrade` Works
 
@@ -66,8 +66,8 @@ By giving you more fine-grained control over the change detection propagation, `
 Both AngularJS and Angular have their own concept of modules to help organize an application into cohesive blocks of functionality.
 
 Their details are quite different in architecture and implementation.
-In AngularJS, you create a module by specifying its name and dependencies with [angular.module()](https://docs.angularjs.org/api/ng/function/angular.module).
-Then you can add assets using its various methods.
+In AngularJS, you create a module by specifying the associated name and dependencies with [angular.module()](https://docs.angularjs.org/api/ng/function/angular.module).
+Then you can add assets using the associated various methods.
 In Angular, you create a class adorned with an [NgModule](api/core/NgModule) decorator that describes assets in metadata.
 
 In a hybrid application you run both frameworks at the same time.
@@ -96,7 +96,7 @@ In a sense, it "downgrades" an Angular module to an AngularJS module.
 
 There are a few things to remember, though:
 
-*   You don't pass the Angular module directly to `downgradeModule()`.
+*   You do not pass the Angular module directly to `downgradeModule()`.
     All `downgradeModule()` needs is a "recipe", for example, a factory function, to create an instance for your module.
 
 *   The Angular module is not instantiated until the application actually needs it.
@@ -128,12 +128,12 @@ You define that recipe by providing a factory function that can create an instan
 *   `NgModuleFactory`
 *   `(extraProviders: StaticProvider[]) => Promise<NgModuleRef>`
 
-When you pass an `NgModuleFactory`, `downgradeModule()` uses it to instantiate the module using [platformBrowser](api/platform-browser/platformBrowser]'s [bootstrapModuleFactory()](api/core/PlatformRef#bootstrapModuleFactory), which is compatible with ahead-of-time \(AOT\) compilation.
+When you pass an `NgModuleFactory`, `downgradeModule()` uses it to instantiate the module using the [bootstrapModuleFactory()](api/core/PlatformRef#bootstrapModuleFactory) of the [platformBrowser](api/platform-browser/platformBrowser], which is compatible with ahead-of-time \(AOT\) compilation.
 AOT compilation helps make your applications load faster
 For more about AOT and how to create an `NgModuleFactory`, see the [Ahead-of-Time Compilation](guide/aot-compiler) guide.
 
 Alternatively, you can pass a plain function, which is expected to return a promise resolving to an [NgModuleRef](api/core/NgModuleRef) \(that is, an instance of your Angular module\).
-The function is called with an array of extra [Providers](api/core/StaticProvider) that are expected to be available on the returned `NgModuleRef`'s [Injector](api/core/Injector).
+The function is called with an array of extra [Providers](api/core/StaticProvider) that are expected to be available on the returned the [Injector](api/core/Injector) of the `NgModuleRef`.
 For example, if you are using [platformBrowser](api/platform-browser/platformBrowser) or [platformBrowserDynamic](api/platform-browser-dynamic/platformBrowserDynamic), you can pass the `extraProviders` array to them:
 
 <code-example format="typescript" language="typescript">
@@ -156,24 +156,24 @@ Using a custom function requires slightly more code, but gives you greater flexi
 #### Instantiating the Angular module on-demand
 
 Another key difference between `downgradeModule()` and `UpgradeModule` is that the latter requires you to instantiate both the AngularJS and Angular modules up-front.
-This means that you have to pay the cost of instantiating the Angular part of the app, even if you don't use any Angular assets until later.
+This means that you have to pay the cost of instantiating the Angular part of the app, even if you do not use any Angular assets until later.
 `downgradeModule()` is again less aggressive.
 It will only instantiate the Angular part when it is required for the first time; that is, as soon as it needs to create a downgraded component.
 
-You could go a step further and not even download the code for the Angular part of the application to the user's browser until it is needed.
-This is especially useful when you use Angular on parts of the hybrid application that are not necessary for the initial rendering or that the user doesn't reach.
+You could go a step further and not even download the code for the Angular part of the application to the browser of the user until it is needed.
+This is especially useful when you use Angular on parts of the hybrid application that are not necessary for the initial rendering or that the user does not reach.
 
 A few examples are:
 
-*   You use Angular on specific routes only and you don't need it until/if a user visits such a route.
+*   You use Angular on specific routes only and you do not need it until/if a user visits such a route.
 *   You use Angular for features that are only visible to specific types of users; for example, logged-in users, administrators, or VIP members.
-    You don't need to load Angular until a user is authenticated.
+    You do not need to load Angular until a user is authenticated.
 
 *   You use Angular for a feature that is not critical for the initial rendering of the application and you can afford a small delay in favor of better initial load performance.
 
 ### Bootstrapping with `downgradeModule()`
 
-As you might have guessed, you don't need to change anything in the way you bootstrap your existing AngularJS application.
+As you might have guessed, you do not need to change anything in the way you bootstrap your existing AngularJS application.
 Unlike `UpgradeModule`&mdash;which requires some extra steps&mdash; `downgradeModule()` is able to take care of bootstrapping the Angular module, as long as you provide the recipe.
 
 In order to start using any `upgrade/static` APIs, you still need to load the Angular framework as you would in a normal Angular application.
@@ -204,7 +204,7 @@ export class MainAngularModule {
 
 This bare minimum `NgModule` imports `BrowserModule`, the module every Angular browser-based app must have.
 It also defines an empty `ngDoBootstrap()` method, to prevent the [Compiler](api/core/Compiler) from returning errors.
-This is necessary because the module will not have a `bootstrap` declaration on its `NgModule` decorator.
+This is necessary because the module will not have a `bootstrap` declaration on the associated `NgModule` decorator.
 
 <div class="alert is-important">
 

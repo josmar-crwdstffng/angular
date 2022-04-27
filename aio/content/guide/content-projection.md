@@ -113,9 +113,9 @@ The following steps demonstrate a typical implementation of conditional content 
 
     <code-example header="content-projection/src/app/app.component.html"  region="ng-template" path="content-projection/src/app/app.component.html"></code-example>
 
-    The `<ng-template>` element defines a block of content that a component can render based on its own logic.
+    The `<ng-template>` element defines a block of content that a component can render based on self-contained logic.
     A component can get a reference to this template content, or `TemplateRef`, by using either the `@ContentChild` or `@ContentChildren` decorators.
-    The preceding example creates a custom directive, `appExampleZippyContent`, as an API to mark the `<ng-template>` for the component's content.
+    The preceding example creates a custom directive, `appExampleZippyContent`, as an API to mark the `<ng-template>` for the content of the component.
     With the `TemplateRef`, the component can render the referenced content by using either the `ngTemplateOutlet` directive, or with the `ViewContainerRef` method `createEmbeddedView()`.
 
 1.  [Create an attribute directive](guide/attribute-directives#building-an-attribute-directive) with a selector that matches the custom attribute for your template.
@@ -132,7 +132,7 @@ The following steps demonstrate a typical implementation of conditional content 
     <code-example header="content-projection/src/app/app.component.ts" path="content-projection/src/app/app.component.ts" region="contentchild"></code-example>
 
     Prior to this step, your application has a component that instantiates a template when certain conditions are met.
-    You've also created a directive that provides a reference to that template.
+    You have also created a directive that provides a reference to that template.
     In this last step, the `@ContentChild` decorator instructs Angular to instantiate the template in the designated component.
 
     <div class="alert is-helpful">
@@ -164,7 +164,7 @@ This example uses an `<ng-container>` attribute to simulate projecting a compone
 
 <header>Reminder</header>
 
-The `ng-container` element is a logical construct that is used to group other DOM elements; however, the `ng-container` itself is not rendered in the DOM tree.
+The `ng-container` element is a logical construct that is used to group other DOM elements; however, the `ng-container` is not rendered in the DOM tree.
 
 </div>
 

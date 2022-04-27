@@ -9,7 +9,7 @@ Manipulating the code in an application has the potential to be both very powerf
 For example, creating a file that already exists would be an error, and if it was applied immediately, it would discard all the other changes applied so far.
 The Angular Schematics tooling guards against side effects and errors by creating a virtual file system.
 A schematic describes a pipeline of transformations that can be applied to the virtual file system.
-When a schematic runs, the transformations are recorded in memory, and only applied in the real file system once they're confirmed to be valid.
+When a schematic runs, the transformations are recorded in memory, and only applied in the real file system once they are confirmed to be valid.
 
 ## Schematics concepts
 
@@ -17,10 +17,10 @@ The public API for schematics defines classes that represent the basic concepts.
 
 *   The virtual file system is represented by a `Tree`.
     The `Tree` data structure contains a *base* \(a set of files that already exists\) and a *staging area* \(a list of changes to be applied to the base\).
-    When making modifications, you don't actually change the base, but add those modifications to the staging area.
+    When making modifications, you do not actually change the base, but add those modifications to the staging area.
 
 *   A `Rule` object defines a function that takes a `Tree`, applies transformations, and returns a new `Tree`.
-    The main file for a schematic, `index.ts`, defines a set of rules that implement the schematic's logic.
+    The main file for a schematic, `index.ts`, defines a set of rules that implement the logic of the schematic.
 
 *   A transformation is represented by an `Action`.
     There are four action types: `Create`, `Rename`, `Overwrite`, and `Delete`.
@@ -40,7 +40,7 @@ A `RuleFactory` object defines a higher-order function that creates a `Rule`.
 
 import { Rule, SchematicContext, Tree } from '&commat;angular-devkit/schematics';
 
-// You don't have to export the function as default.
+// You do not have to export the function as default.
 // You can also have more than one rule factory per file.
 export function helloWorld(_options: any): Rule {
  return (tree: Tree, _context: SchematicContext) =&gt; {
@@ -73,7 +73,7 @@ import {
 ### Defining input options with a schema and interfaces
 
 Rules can collect option values from the caller and inject them into templates.
-The options available to your rules, with their allowed values and defaults, are defined in the schematic's JSON schema file, `<schematic>/schema.json`.
+The options available to your rules, with their allowed values and defaults, are defined in the `<schematic>/schema.json` JSON schema file of the schematic.
 Define variable or enumerated data types for the schema using TypeScript interfaces.
 
 The schema defines the types and default values of variables used in the schematic.
@@ -107,7 +107,7 @@ This lets users direct the operation of the schematic without requiring in-depth
 The "Hello World" schematic might, for example, ask the user for their name, and display that name in place of the default name "world".
 To define such a prompt, add an `x-prompt` property to the schema for the `name` variable.
 
-Similarly, you can add a prompt to let the user decide whether the schematic uses color when executing its hello action.
+Similarly, you can add a prompt to let the user decide whether the schematic uses color when running the associated hello action.
 The schema with both prompts would be as follows.
 
 <code-example header="src/hello-world/schema.json" language="json">
@@ -133,7 +133,7 @@ The schema with both prompts would be as follows.
 These examples use a shorthand form of the prompt syntax, supplying only the text of the question.
 In most cases, this is all that is required.
 Notice however, that the two prompts expect different types of input.
-When using the shorthand form, the most appropriate type is automatically selected based on the property's schema.
+When using the shorthand form, the most appropriate type is automatically selected based on the schema of the property.
 In the example, the `name` prompt uses the `input` type because it it is a string property.
 The `useColor` prompt uses a `confirmation` type because it is a Boolean property.
 In this case, "yes" corresponds to `true` and "no" corresponds to `false`.
@@ -146,7 +146,7 @@ There are three supported input types.
 | input        | Textual input; ideal for string or number options. |
 | list         | A predefined set of allowed values.                |
 
-In the short form, the type is inferred from the property's type and constraints.
+In the short form, the type is inferred from the type and constraints of the property.
 
 | Property schema |	Prompt type |
 |:---             |:---         |
@@ -178,7 +178,7 @@ In the following example, the property takes an enumerated value, so the schemat
 
 The prompt runtime automatically validates the provided response against the constraints provided in the JSON schema.
 If the value is not acceptable, the user is prompted for a new value.
-This ensures that any values passed to the schematic meet the expectations of the schematic's implementation, so that you do not need to add additional checks within the schematic's code.
+This ensures that any values passed to the schematic meet the expectations of the implementation of the schematic, so that you do not need to add additional checks within the code of the schematic.
 
 #### Prompt long-form syntax
 
@@ -223,7 +223,7 @@ By using the long form, the schematic can provide more explicit formatting of th
 
 #### x-prompt schema
 
-The JSON schema that defines a schematic's options supports extensions to allow the declarative definition of prompts and their respective behavior.
+The JSON schema that defines the options of a schematic supports extensions to allow the declarative definition of prompts and their respective behavior.
 No additional logic or changes are required to the code of a schematic to support the prompts.
 The following JSON schema is a complete description of the long-form syntax for the `x-prompt` field.
 
@@ -274,7 +274,7 @@ npm install -g &commat;angular-devkit/schematics-cli
 
 </code-example>
 
-This installs the `schematics` executable, which you can use to create a new schematics collection in its own project folder, add a new schematic to an existing collection, or extend an existing schematic.
+This installs the `schematics` executable, which you can use to create a new schematics collection in the associated project folder, add a new schematic to an existing collection, or extend an existing schematic.
 
 In the following sections, you will create a new schematics collection using the CLI to introduce the files and file structure, and some of the basic concepts.
 
@@ -308,7 +308,7 @@ code .
 </code-example>
 
 The initial schematic gets the same name as the project folder, and is generated in `src/hello-world`.
-Add related schematics to this collection, and modify the generated skeleton code to define your schematic's functionality.
+Add related schematics to this collection, and modify the generated skeleton code to define the functionality of your schematic.
 Each schematic name must be unique within the collection.
 
 ### Running a schematic
@@ -342,8 +342,8 @@ schematics blank --name=goodbye-world
 
 </code-example>
 
-The command generates the new named schematic inside your collection, with a main `index.ts` file and its associated test spec.
-It also adds the name, description, and factory function for the new schematic to the collection's schema in the `collection.json` file.
+The command generates the new named schematic inside your collection, with a main `index.ts` file and the associated test spec.
+It also adds the name, description, and factory function for the new schematic to the schema of the collection in the `collection.json` file.
 
 ## Collection contents
 
@@ -382,8 +382,8 @@ Each schematic is created with a name, description, and factory function.
 When you use the Schematics CLI to create a blank schematics project, the new blank schematic is the first member of the collection, and has the same name as the collection.
 When you add a new named schematic to this collection, it is automatically added to the  `collection.json`  schema.
 
-In addition to the name and description, each schematic has a `factory` property that identifies the schematic's entry point.
-In the example, you invoke the schematic's defined functionality by calling the `helloWorld()` function in the main file,  `hello-world/index.ts`.
+In addition to the name and description, each schematic has a `factory` property that identifies the entry point of the schematic.
+In the example, you invoke the defined functionality of the schematic by calling the `helloWorld()` function in the main file,  `hello-world/index.ts`.
 
 <div class="lightbox">
 
@@ -400,7 +400,7 @@ Each named schematic in the collection has the following main parts.
 | `schema.d.ts`  | Schematic variables.                                               |
 | `files/`       | Optional component/template files to replicate.                    |
 
-It is possible for a schematic to provide all of its logic in the `index.ts` file, without additional templates.
+It is possible for a schematic to provide all of the associated logic in the `index.ts` file, without additional templates.
 You can create dynamic schematics for Angular, however, by providing components and templates in the `files` folder, like those in standalone Angular projects.
 The logic in the index file configures these templates by defining rules that inject data and modify variables.
 

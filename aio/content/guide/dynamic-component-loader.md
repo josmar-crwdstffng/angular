@@ -16,9 +16,9 @@ The hero agency is planning an ad campaign with several different ads cycling th
 New ad components are added frequently by several different teams.
 This makes it impractical to use a template with a static component structure.
 
-Instead, you need a way to load a new component without a fixed reference to the component in the ad banner's template.
+Instead, you need a way to load a new component without a fixed reference to the component in the template of the ad banner.
 
-Angular comes with its own API for loading components dynamically.
+Angular comes with an associated API for loading components dynamically.
 
 <a id="directive"></a>
 
@@ -32,7 +32,7 @@ The ad banner uses a helper directive called `AdDirective` to mark valid inserti
 
 `AdDirective` injects `ViewContainerRef` to gain access to the view container of the element that will host the dynamically added component.
 
-In the `@Directive` decorator, notice the selector name, `adHost`; that's what you use to apply the directive to the element.
+In the `@Directive` decorator, notice the selector name, `adHost`; that is what you use to apply the directive to the element.
 The next section shows you how.
 
 <a id="loading-components"></a>
@@ -40,7 +40,7 @@ The next section shows you how.
 ## Loading components
 
 Most of the ad banner implementation is in `ad-banner.component.ts`.
-To keep things simple in this example, the HTML is in the `@Component` decorator's `template` property as a template string.
+To keep things simple in this example, the HTML is in the `template` property of the `@Component` decorator as a template string.
 
 The `<ng-template>` element is where you apply the directive you just made.
 To apply the `AdDirective`, recall the selector from `ad.directive.ts`, `[adHost]`.
@@ -49,7 +49,7 @@ Now Angular knows where to dynamically load components.
 
 <code-example header="src/app/ad-banner.component.ts (template)" path="dynamic-component-loader/src/app/ad-banner.component.ts" region="ad-host"></code-example>
 
-The `<ng-template>` element is a good choice for dynamic components because it doesn't render any additional output.
+The `<ng-template>` element is a good choice for dynamic components because it does not render any additional output.
 
 <a id="resolving-components"></a>
 
@@ -62,7 +62,7 @@ Take a closer look at the methods in `ad-banner.component.ts`.
 
 Passing an array of components to `AdBannerComponent` allows for a dynamic list of ads without static elements in the template.
 
-With its `getAds()` method, `AdBannerComponent` cycles through the array of `AdItems` and loads a new component every 3 seconds by calling `loadComponent()`.
+With the associated `getAds()` method, `AdBannerComponent` cycles through the array of `AdItems` and loads a new component every 3 seconds by calling `loadComponent()`.
 
 <code-example header="src/app/ad-banner.component.ts (excerpt)" path="dynamic-component-loader/src/app/ad-banner.component.ts" region="class"></code-example>
 
@@ -81,17 +81,17 @@ Then, it uses that value to select an `adItem` from the array.
 
 </div>
 
-Next, you're targeting the `viewContainerRef` that exists on this specific instance of the component.
-How do you know it's this specific instance?
-Because it's referring to `adHost`, and `adHost` is the directive you set up earlier to tell Angular where to insert dynamic components.
+Next, you are targeting the `viewContainerRef` that exists on this specific instance of the component.
+How do you know it is this specific instance?
+Because it is referring to `adHost`, and `adHost` is the directive you set up earlier to tell Angular where to insert dynamic components.
 
-As you may recall, `AdDirective` injects `ViewContainerRef` into its constructor.
+As you may recall, `AdDirective` injects `ViewContainerRef` into the associated constructor.
 This is how the directive accesses the element that you want to use to host the dynamic component.
 
 To add the component to the template, you call `createComponent()` on `ViewContainerRef`.
 
 The `createComponent()` method returns a reference to the loaded component.
-Use that reference to interact with the component by assigning to its properties or calling its methods.
+Use that reference to interact with the component by assigning to the associated properties or calling the associated methods.
 
 <a id="common-interface"></a>
 

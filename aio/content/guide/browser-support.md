@@ -14,7 +14,7 @@ This includes the following specific versions:
 
 <div class="alert is-helpful">
 
-Angular's continuous integration process runs unit tests of the framework on all of these browsers for every pull request, using [Sauce Labs](https://saucelabs.com).
+The continuous integration process in Angular runs unit tests of the framework on all of these browsers for every pull request, using [Sauce Labs](https://saucelabs.com).
 
 </div>
 
@@ -48,7 +48,7 @@ When you create a project with the `ng new` command, a `src/polyfills.ts` config
 This file incorporates the mandatory and many of the optional polyfills as JavaScript `import` statements.
 
 *   The npm packages for the mandatory polyfills \(such as `zone.js`\) are installed automatically for you when you create your project with `ng new`, and their corresponding `import` statements are already enabled in the `src/polyfills.ts` configuration file
-*   If you need an *optional* polyfill, you must install its npm package, then uncomment or create the corresponding import statement in the `src/polyfills.ts` configuration file
+*   If you need an *optional* polyfill, you must install the associated npm package, then uncomment or create the corresponding import statement in the `src/polyfills.ts` configuration file
 
 <a id="non-cli"></a>
 

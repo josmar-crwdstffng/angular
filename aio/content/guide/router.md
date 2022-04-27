@@ -134,7 +134,7 @@ To get information from a route:
     *   [`ActivatedRoute`](api/router/ActivatedRoute)
     *   [`ParamMap`](api/router/ParamMap)
 
-1.  Inject an instance of `ActivatedRoute` by adding it to your application's constructor:
+1.  Inject an instance of `ActivatedRoute` by adding it to the constructor of your application:
 
     <code-example header="In the component class (excerpt)" path="router/src/app/heroes/hero-detail/hero-detail.component.ts" region="activated-route"></code-example>
 
@@ -163,7 +163,7 @@ To get information from a route:
 
 A well-functioning application should gracefully handle when users attempt to navigate to a part of your application that does not exist.
 To add this functionality to your application, you set up a wildcard route.
-The Angular router selects this route any time the requested URL doesn't match any router paths.
+The Angular router selects this route any time the requested URL does not match any router paths.
 
 To set up a wildcard route, add the following code to your `routes` definition.
 
@@ -175,7 +175,7 @@ To set up a wildcard route, add the following code to your `routes` definition.
 
 The two asterisks, `**`, indicate to Angular that this `routes` definition is a wildcard route.
 For the component property, you can define any component in your application.
-Common choices include an application-specific `PageNotFoundComponent`, which you can define to [display a 404 page](guide/router#404-page-how-to) to your users; or a redirect to your application's main component.
+Common choices include an application-specific `PageNotFoundComponent`, which you can define to [display a 404 page](guide/router#404-page-how-to) to your users; or a redirect to the main component of your application.
 A wildcard route is the last route because it matches any URL.
 For more detail on why order matters for routes, see [Route order](guide/router#route-order).
 
@@ -183,12 +183,12 @@ For more detail on why order matters for routes, see [Route order](guide/router#
 
 ## Displaying a 404 page
 
-To display a 404 page, set up a [wildcard route](guide/router#wildcard-route-how-to) with the `component` property set to the component you'd like to use for your 404 page as follows:
+To display a 404 page, set up a [wildcard route](guide/router#wildcard-route-how-to) with the `component` property set to the component you would like to use for your 404 page as follows:
 
 <code-example header="AppRoutingModule (excerpt)" path="router/src/app/app-routing.module.8.ts" region="routes-with-wildcard"></code-example>
 
 The last route with the `path` of `**` is a wildcard route.
-The router selects this route if the requested URL doesn't match any of the paths earlier in the list and sends the user to the `PageNotFoundComponent`.
+The router selects this route if the requested URL does not match any of the paths earlier in the list and sends the user to the `PageNotFoundComponent`.
 
 ## Setting up redirects
 
@@ -208,10 +208,10 @@ For more details on `pathMatch` see [Spotlight on `pathMatch`](guide/router-tuto
 
 As your application grows more complex, you might want to create routes that are relative to a component other than your root component.
 These types of nested routes are called child routes.
-This means you're adding a second `<router-outlet>` to your app, because it is in addition to the `<router-outlet>` in `AppComponent`.
+This means you are adding a second `<router-outlet>` to your app, because it is in addition to the `<router-outlet>` in `AppComponent`.
 
 In this example, there are two additional child components, `child-a`, and `child-b`.
-Here, `FirstComponent` has its own `<nav>` and a second `<router-outlet>` in addition to the one in `AppComponent`.
+Here, `FirstComponent` has an associated`<nav>` and a second `<router-outlet>` in addition to the one in `AppComponent`.
 
 <code-example header="In the template" path="router/src/app/app.component.8.html" region="child-routes"></code-example>
 
@@ -225,7 +225,7 @@ The one difference is that you place child routes in a `children` array within t
 ## Setting the page title
 
 Each page in your application should have a unique title so that they can be identified in the browser history.
-The `Router` sets the document's title using the `title` property from the `Route` config.
+The `Router` sets the title of the document using the `title` property from the `Route` config.
 
 <code-example header="AppRoutingModule (excerpt)" path="router/src/app/app-routing.module.10.ts" region="page-title"></code-example>
 
@@ -272,7 +272,7 @@ The `goToItems()` method interprets the destination URI as relative to the activ
 
 Sometimes, a feature of your application requires accessing a part of a route, such as a query parameter or a fragment.
 The Tour of Heroes application at this stage in the tutorial uses a list view in which you can click on a hero to see details.
-The router uses an `id` to show the correct hero's details.
+The router uses an `id` to show the details of the correct hero.
 
 First, import the following members in the component you want to navigate from.
 
@@ -436,7 +436,7 @@ Review the following:
 *   The first item in the array identifies the parent route \(`/crisis-center`\)
 *   There are no parameters for this parent route
 *   There is no default for the child route so you need to pick one
-*   You're navigating to the `CrisisListComponent`, whose route path is `/`, but you don't need to explicitly add the slash
+*   You are navigating to the `CrisisListComponent`, whose route path is `/`, but you do not need to explicitly add the slash
 
 Consider the following router link that navigates from the root of the application down to the Dragon Crisis:
 
@@ -461,12 +461,12 @@ The link parameters array affords the flexibility to represent any routing depth
 
 ## `LocationStrategy` and browser URL styles
 
-When the router navigates to a new component view, it updates the browser's location and history with a URL for that view.
+When the router navigates to a new component view, it updates the location and history of the browser with a URL for that view.
 
-Modern HTML5 browsers support [history.pushState](https://developer.mozilla.org/docs/Web/API/History_API/Working_with_the_History_API#adding_and_modifying_history_entries title="HTML5 browser history push-state"), a technique that changes a browser's location and history without triggering a server page request.
+Modern HTML5 browsers support [history.pushState](https://developer.mozilla.org/docs/Web/API/History_API/Working_with_the_History_API#adding_and_modifying_history_entries title="HTML5 browser history push-state"), a technique that changes the location and history of a browser without triggering a server page request.
 The router can compose a "natural" URL that is indistinguishable from one that would otherwise require a page load.
 
-Here's the Crisis Center URL in this "HTML5 pushState" style:
+Here is the Crisis Center URL in this "HTML5 pushState" style:
 
 <code-example format="none" language="http">
 
@@ -476,7 +476,7 @@ localhost:3002/crisis-center
 
 Older browsers send page requests to the server when the location URL changes unless the change occurs after a "#" \(called the "hash"\).
 Routers can take advantage of this exception by composing in-application route URLs with hashes.
-Here's a "hash URL" that routes to the Crisis Center.
+Here is a "hash URL" that routes to the Crisis Center.
 
 <code-example format="none" language="http">
 
@@ -508,13 +508,13 @@ Almost all Angular projects should use the default HTML5 style.
 It produces URLs that are easier for users to understand and it preserves the option to do server-side rendering.
 
 Rendering critical pages on the server is a technique that can greatly improve perceived responsiveness when the application first loads.
-An application that would otherwise take ten or more seconds to start could be rendered on the server and delivered to the user's device in less than a second.
+An application that would otherwise take ten or more seconds to start could be rendered on the server and delivered to the device of the user in less than a second.
 
 This option is only available if application URLs look like normal web URLs without hash \(`#`\) characters in the middle.
 
 ## `<base href>`
 
-The router uses the browser's [history.pushState](https://developer.mozilla.org/docs/Web/API/History_API/Working_with_the_History_API#adding_and_modifying_history_entries "HTML5 browser history push-state") for navigation.
+The router uses the [history.pushState](https://developer.mozilla.org/docs/Web/API/History_API/Working_with_the_History_API#adding_and_modifying_history_entries "HTML5 browser history push-state") in the browser for navigation.
 `pushState` lets you customize in-application URL paths; for example, `localhost:4200/crisis-center`.
 The in-application URLs can be indistinguishable from server URLs.
 
@@ -523,11 +523,11 @@ Modern HTML5 browsers were the first to support `pushState` which is why many pe
 <div class="alert is-helpful">
 
 HTML5 style navigation is the router default.
-In the [LocationStrategy and browser URL styles](#browser-url-styles) section, learn why HTML5 style is preferable, how to adjust its behavior, and how to switch to the older hash \(`#`\) style, if necessary.
+In the [LocationStrategy and browser URL styles](#browser-url-styles) section, learn why HTML5 style is preferable, how to adjust the associated behavior, and how to switch to the older hash \(`#`\) style, if necessary.
 
 </div>
 
-You must add a [`<base href>` element](https://developer.mozilla.org/docs/Web/HTML/Element/base "base href") to the application's `index.html` for `pushState` routing to work.
+You must add a [`<base href>` element](https://developer.mozilla.org/docs/Web/HTML/Element/base "base href") to the `index.html` of the application for `pushState` routing to work.
 The browser uses the `<base href>` value to prefix relative URLs when referencing CSS files, scripts, and images.
 
 Add the `<base>` element just after the `<head>` tag.
@@ -557,7 +557,7 @@ The preferred way to configure the strategy is to add a [`<base href>` element](
 
 Without that tag, the browser might not be able to load resources \(images, CSS, scripts\) when "deep linking" into the application.
 
-Some developers might not be able to add the `<base>` element, perhaps because they don't have access to `<head>` or the `index.html`.
+Some developers might not be able to add the `<base>` element, perhaps because they do not have access to `<head>` or the `index.html`.
 
 Those developers can still use HTML5 URLs by taking the following two steps:
 

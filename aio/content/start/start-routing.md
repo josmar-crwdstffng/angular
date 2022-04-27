@@ -4,11 +4,11 @@ This guide builds on the first step of the Getting Started tutorial, [Get starte
 
 At this stage of development, the online store application has a basic product catalog.
 
-In the following sections, you'll add the following features to the application:
+In the following sections, you will add the following features to the application:
 
 *   Type a URL in the address bar to navigate to a corresponding product page
 *   Click links on the page to navigate within your single-page application
-*   Click the browser's back and forward buttons to navigate the browser history intuitively
+*   Click the back and forward buttons in the browser to navigate the browser history intuitively
 
 <a id="define-routes"></a>
 
@@ -56,9 +56,9 @@ This section shows you how to define a route to show individual product details.
 ## View product details
 
 The `ProductDetailsComponent` handles the display of each product.
-The Angular Router displays components based on the browser's URL and [your defined routes](#define-routes).
+The Angular Router displays components based on the URL in the browser and [your defined routes](#define-routes).
 
-In this section, you'll use the Angular Router to combine the `products` data and route information to display the specific details for each product.
+In this section, you will use the Angular Router to combine the `products` data and route information to display the specific details for each product.
 
 1.  In `product-details.component.ts`, import `ActivatedRoute` from `@angular/router`, and the `products` array from `../products`.
 
@@ -68,12 +68,12 @@ In this section, you'll use the Angular Router to combine the `products` data an
 
     <code-example header="src/app/product-details/product-details.component.ts" path="getting-started/src/app/product-details/product-details.component.1.ts" region="product-prop"></code-example>
 
-1.  Inject `ActivatedRoute` into the `constructor()` by adding `private route: ActivatedRoute` as an argument within the constructor's parentheses.
+1.  Inject `ActivatedRoute` into the `constructor()` by adding `private route: ActivatedRoute` as an argument within the parentheses of the constructor.
 
     <code-example header="src/app/product-details/product-details.component.ts" path="getting-started/src/app/product-details/product-details.component.1.ts" region="props-methods"></code-example>
 
     `ActivatedRoute` is specific to each component that the Angular Router loads.
-    `ActivatedRoute` contains information about the route and the route's parameters.
+    `ActivatedRoute` contains information about the route and the parameters of the route.
 
     By injecting `ActivatedRoute`, you are configuring the component to use a service.
     The [Managing Data](start/start-data "Try it: Managing Data") step covers services in more detail.

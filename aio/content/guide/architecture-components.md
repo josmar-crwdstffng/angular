@@ -7,11 +7,11 @@ For example, individual components define and control each of the following view
 *   The list of heroes
 *   The hero editor
 
-You define a component's application logic &mdash;what it does to support the view&mdash; inside a class.
+You define the application logic of a component &mdash;what it does to support the view&mdash; inside a class.
 The class interacts with the view through an API of properties and methods.
 
 For example, `HeroListComponent` has a `heroes` property that holds an array of heroes.
-Its `selectHero()` method sets a `selectedHero` property when the user clicks to choose a hero from that list.
+The `selectHero()` method of the `HeroListComponent` sets a `selectedHero` property when the user clicks to choose a hero from that list.
 The component acquires the heroes from a service, which is a TypeScript [parameter property](https://www.typescriptlang.org/docs/handbook/classes.html#parameter-properties) on the constructor.
 The service is provided to the component through the dependency injection system.
 
@@ -28,17 +28,17 @@ Your application can take action at each moment in this lifecycle through option
 
 </div>
 
-The `@Component` decorator identifies the class immediately below it as a component class, and specifies its metadata.
+The `@Component` decorator identifies the class immediately below it as a component class, and specifies the associated metadata.
 In the example code below, you can see that `HeroListComponent` is just a class, with no special Angular notation or syntax at all.
-It's not a component until you mark it as one with the `@Component` decorator.
+It is not a component until you mark it as one with the `@Component` decorator.
 
-The metadata for a component tells Angular where to get the major building blocks that it needs to create and present the component and its view.
+The metadata for a component tells Angular where to get the major building blocks that it needs to create and present the component and the associated view.
 In particular, it associates a *template* with the component, either directly with inline code, or by reference.
-Together, the component and its template describe a *view*.
+Together, the component and the associated template describe a *view*.
 
 In addition to containing or pointing to the template, the `@Component` metadata configures, for example, how the component can be referenced in HTML and what services it requires.
 
-Here's an example of basic metadata for `HeroListComponent`.
+Here is an example of basic metadata for `HeroListComponent`.
 
 <code-example header="src/app/hero-list.component.ts (metadata)" path="architecture/src/app/hero-list.component.ts" region="metadata"></code-example>
 
@@ -46,9 +46,9 @@ This example shows some of the most useful `@Component` configuration options:
 
 | Configuration options | Details |
 |:---                   |:---     |
-| `selector`            | A CSS selector that tells Angular to create and insert an instance of this component wherever it finds the corresponding tag in template HTML. For example, if an application's HTML contains `<app-hero-list></app-hero-list>`, then Angular inserts an instance of the `HeroListComponent` view between those tags. |
-| `templateUrl`         | The module-relative address of this component's HTML template. Alternatively, you can provide the HTML template inline, as the value of the `template` property.  This template defines the component's *host view*.                                                                                                  |
-| `providers`           | An array of [providers](guide/glossary#provider) for services that the component requires. In the example, this tells Angular how to provide the `HeroService` instance that the component's constructor uses to get the list of heroes to display.                                                                   |
+| `selector`            | A CSS selector that tells Angular to create and insert an instance of this component wherever it finds the corresponding tag in template HTML. For example, if the HTMLan application contains `<app-hero-list></app-hero-list>`, then Angular inserts an instance of the `HeroListComponent` view between those tags. |
+| `templateUrl`         | The module-relative address of the HTML template of this component. Alternatively, you can provide the HTML template inline, as the value of the `template` property.  This template defines the *host view* of the component.                                                                                                  |
+| `providers`           | An array of [providers](guide/glossary#provider) for services that the component requires. In the example, this tells Angular how to provide the `HeroService` instance that the constructor of the component uses to get the list of heroes to display.                                                                   |
 
 ## Templates and views
 
@@ -58,11 +58,11 @@ This example shows some of the most useful `@Component` configuration options:
 
 </div>
 
-You define a component's view with its companion template.
+You define the view of a component with the associated companion template.
 A template is a form of HTML that tells Angular how to render the component.
 
 Views are typically arranged hierarchically, allowing you to modify or show and hide entire UI sections or pages as a unit.
-The template immediately associated with a component defines that component's *host view*.
+The template immediately associated with a component defines the *host view* of that component.
 The component can also define a *view hierarchy*, which contains *embedded views*, hosted by other components.
 
 <div class="lightbox">
@@ -75,10 +75,10 @@ A view hierarchy can include views from components in the same NgModule, but it 
 
 ## Template syntax
 
-A template looks like regular HTML, except that it also contains Angular [template syntax](guide/template-syntax), which alters the HTML based on your application's logic and the state of application and DOM data.
+A template looks like regular HTML, except that it also contains Angular [template syntax](guide/template-syntax), which alters the HTML based on the logic of your application and the state of application and DOM data.
 Your template can use *data binding* to coordinate the application and DOM data, *pipes* to transform data before it is displayed, and *directives* to apply application logic to what gets displayed.
 
-For example, here is a template for the Tutorial's `HeroListComponent`.
+For example, here is a template for the `HeroListComponent` in the Tutorial.
 
 <code-exampleheader="src/app/hero-list.component.html" path="architecture/src/app/hero-list.component.html" ></code-example>
 
@@ -117,16 +117,16 @@ This example from the `HeroListComponent` template uses three of these forms.
 | Data bindings                                                            | Details |
 |:---                                                                      |:---     |
 | `[hero]` [property binding](guide/property-binding)                      | Passes the value of `selectedHero` from the parent `HeroListComponent` to the `hero` property of the child `HeroDetailComponent`. |
-| `(click)` [event binding](guide/user-input#binding-to-user-input-events) | Calls the component's `selectHero` method when the user clicks a hero's name.                                                     |
-| `{{hero.name}}` [interpolation](guide/interpolation)                     | Displays the component's `hero.name` property value within the `<button>` element.                                                |
+| `(click)` [event binding](guide/user-input#binding-to-user-input-events) | Calls the `selectHero` method of the component when the user clicks the name of a hero.                                           |
+| `{{hero.name}}` [interpolation](guide/interpolation)                     | Displays the value of the `hero.name` property for the component within the `<button>` element.                                   |
 
 Two-way data binding \(used mainly in [template-driven forms](guide/forms)\) combines property and event binding in a single notation.
-Here's an example from the `HeroDetailComponent` template that uses two-way data binding with the `ngModel` directive.
+Here is an example from the `HeroDetailComponent` template that uses two-way data binding with the `ngModel` directive.
 
 <code-example header="src/app/hero-detail.component.html (ngModel)" path="architecture/src/app/hero-detail.component.html" region="ngModel"></code-example>
 
 In two-way binding, a data property value flows to the input box from the component as with property binding.
-The user's changes also flow back to the component, resetting the property to the latest value, as with event binding.
+The changes from the user also flow back to the component, resetting the property to the latest value, as with event binding.
 
 Angular processes *all* data bindings once for each JavaScript event cycle, from the root of the application component tree through all child components.
 
@@ -136,7 +136,7 @@ Angular processes *all* data bindings once for each JavaScript event cycle, from
 
 </div>
 
-Data binding plays an important role in communication between a template and its component, and is also important for communication between parent and child components.
+Data binding plays an important role in communication between a template and the associated component, and is also important for communication between parent and child components.
 
 <div class="lightbox">
 
@@ -161,7 +161,7 @@ To specify a value transformation in an HTML template, use the [pipe operator (`
 </code-example>
 
 You can chain pipes, sending the output of one pipe function to be transformed by another pipe function.
-A pipe can also take arguments that control how it performs its transformation.
+A pipe can also take arguments that control how it performs the associated transformation.
 For example, you can pass the desired format to the `date` pipe.
 
 <code-example format="html" language="html">
@@ -216,7 +216,7 @@ The example template uses two built-in structural directives to add application 
 In templates they look like regular HTML attributes, hence the name.
 
 The `ngModel` directive, which implements two-way data binding, is an example of an attribute directive.
-`ngModel` modifies the behavior of an existing element \(typically `<input>`\) by setting its display value property and responding to change events.
+`ngModel` modifies the behavior of an existing element \(typically `<input>`\) by setting the associated display value property and responding to change events.
 
 <code-example header="src/app/hero-detail.component.html (ngModel)" path="architecture/src/app/hero-detail.component.html" region="ngModel"></code-example>
 

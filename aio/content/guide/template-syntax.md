@@ -1,7 +1,7 @@
 # Template syntax
 
 In Angular, a *template* is a chunk of HTML.
-Use special syntax within a template to build on many of Angular's features.
+Use special syntax within a template to build on many of the features in Angular.
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ Extend the HTML vocabulary of your applications With special Angular syntax in y
 For example, Angular helps you get and set DOM \(Document Object Model\) values dynamically with features such as built-in template functions, variables, event listening, and data binding.
 
 Almost all HTML syntax is valid template syntax.
-However, because an Angular template is part of an overall webpage, and not the entire page, you don't need to include elements such as `<html>`, `<body>`, or `<base>`, and can focus exclusively on the part of the page you are developing.
+However, because an Angular template is part of an overall webpage, and not the entire page, you do not need to include elements such as `<html>`, `<body>`, or `<base>`, and can focus exclusively on the part of the page you are developing.
 
 <div class="alert is-important">
 
@@ -58,7 +58,7 @@ You might also be interested in the following:
 | [Property binding](guide/property-binding)                           | Set properties of target elements or directive `@Input()` decorators.                                                   |
 | [Attribute, class, and style bindings](guide/attribute-binding)      | Set the value of attributes, classes, and styles.                                                                       |
 | [Event binding](guide/event-binding)                                 | Listen for events and your HTML.                                                                                        |
-| [Two-way binding](guide/two-way-binding)                             | Share data between a class and its template.                                                                            |
+| [Two-way binding](guide/two-way-binding)                             | Share data between a class and the associated template.                                                                            |
 | [Built-in directives](guide/built-in-directives)                     | Listen to and modify the behavior and layout of HTML.                                                                   |
 | [Template reference variables](guide/template-reference-variables)   | Use special variables to reference a DOM element within a template.                                                     |
 | [Inputs and Outputs](guide/inputs-outputs)                           | Share data between the parent context and child directives or components                                                |

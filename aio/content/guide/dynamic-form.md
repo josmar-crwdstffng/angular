@@ -62,7 +62,7 @@ The example hero-application form is a set of questions &mdash;that is, each con
 The data model for this type of form must represent a question.
 The example includes the `DynamicFormQuestionComponent`, which defines a  question as the fundamental object in the model.
 
-The following `QuestionBase` is a base class for a set of controls that can represent the question and its answer in the form.
+The following `QuestionBase` is a base class for a set of controls that can represent the question and the associated answer in the form.
 
 <code-example header="src/app/question-base.ts" path="dynamic-form/src/app/question-base.ts"></code-example>
 
@@ -88,8 +88,8 @@ You can specify default values and validation rules.
 
 ## Compose dynamic form contents
 
-The dynamic form itself is represented by a container component, which you add in a later step.
-Each question is represented in the form component's template by an `<app-question>` tag, which matches an instance of `DynamicFormQuestionComponent`.
+The dynamic form is represented by a container component, which you add in a later step.
+Each question is represented in the template of the form component by an `<app-question>` tag, which matches an instance of `DynamicFormQuestionComponent`.
 
 The `DynamicFormQuestionComponent` is responsible for rendering the details of an individual question based on values in the data-bound question object.
 The form relies on a [`[formGroup]` directive](api/forms/FormGroupDirective "API reference") to connect the template HTML to the underlying control objects.
@@ -140,7 +140,7 @@ To display an instance of the dynamic form, the `AppComponent` shell template pa
 <code-example header="app.component.ts" path="dynamic-form/src/app/app.component.ts"></code-example>
 
 The example provides a model for a job application for heroes, but there are no references to any specific hero question other than the objects returned by `QuestionService`.
-This separation of model and data lets you repurpose the components for any type of survey, as long as it's compatible with the *question* object model.
+This separation of model and data lets you repurpose the components for any type of survey, as long as it is compatible with the *question* object model.
 
 ### Ensuring valid data
 

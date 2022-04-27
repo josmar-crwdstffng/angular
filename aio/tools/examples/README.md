@@ -6,7 +6,7 @@ Each example can be built and run independently.
 Each example also provides tests (mostly e2e and occasionally unit tests), which are run as part of our CircleCI `test_docs_examples*` jobs, to verify that the examples continue to work as expected, as changes are made to the core Angular libraries.
 
 In order to build, run and test these examples independently, you need to install dependencies into their sub-folder.
-Also there are a number of common boilerplate files that are needed to configure each example's project.
+Also there are a number of common boilerplate files that are needed to configure the project for each example.
 These common boilerplate files are maintained centrally to reduce the amount of effort if one of them needs to change.
 
 > **Note for Windows users**
@@ -20,7 +20,7 @@ These common boilerplate files are maintained centrally to reduce the amount of 
 As mentioned above, many of the documentation pages contain snippets extracted from real example applications.
 To achieve that, all those applications need to contain some basic boilerplate, such as a `node_modules/` folder, a `package.json` file with scripts and dependencies, etc.
 
-There are also different project types, each with its own boilerplate.
+There are also different project types, each with the associated boilerplate.
 For example, there are projects based on the Angular CLI, projects that use AngularJS, Custom Elements, i18n, server-side rendering, etc.
 (See the [example configuration section](#example-config) below for more info on how to specify the project type.)
 
@@ -52,7 +52,7 @@ There are also the following special folders:
 <a name="example-config"></a>
 ### The `example-config.json`
 
-Each example is identified by an `example-config.json` configuration file in its root folder.
+Each example is identified by an `example-config.json` configuration file in the associated root folder.
 This configuration file indicates what type of boilerplate this example needs and how to test it.
 For example:
 
@@ -135,7 +135,7 @@ The [example-boilerplate.js](./example-boilerplate.js) script manages the depend
 - `example-boilerplate.js add`: create the `node_modules/` symlinks and copy the necessary boilerplate files into example folders.
 - `example-boilerplate.js remove`: remove all the boilerplate files from examples.
   It uses `git clean -xdf` to do the job.
-  It will remove all files that are not tracked by git, **including any new files that you are working on that haven't been staged yet.**
+  It will remove all files that are not tracked by git, **including any new files that you are working on that have not been staged yet.**
   So, be sure to commit your work before removing the boilerplate.
 - `example-boilerplate.js list-overrides`: print out a list of all example files that override boilerplate files.
   This is useful when updating the boilerplate files to a new version of Angular.

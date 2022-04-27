@@ -1,6 +1,6 @@
 # Updating topics through the GitHub user interface
 
-This topic describes how to submit pull requests to the Angular repository using GitHub's user interface.
+This topic describes how to submit pull requests to the Angular repository using the user interface on GitHub.
 If you are unfamiliar with [Git](https://git-scm.com), you might find this process easier for making changes.
 
 <div class="alert is-important">

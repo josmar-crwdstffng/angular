@@ -107,7 +107,7 @@ For library projects generated with the CLI, the development configuration defau
 
 ### `enableLegacyTemplate`
 
-When `true`, enables use of the `<template>` element, which was deprecated in Angular 4.0, in favor of `<ng-template>` \(to avoid colliding with the DOM's element of the same name\).
+When `true`, enables use of the `<template>` element, which was deprecated in Angular 4.0, in favor of `<ng-template>` \(to avoid colliding with the element of the same name in the DOM\).
 Default is `false`.
 Might be required by some third-party Angular libraries.
 
@@ -134,14 +134,14 @@ A flat module index `.d.ts` and `.js` is created with the given `flatModuleOutFi
 
 For example, if a library uses the `public_api.ts` file as the library index of the module, the `tsconfig.json` `files` field would be `["public_api.ts"]`.
 The `flatModuleOutFile` option could then be set to \(for example\) `"index.js"`, which produces `index.d.ts` and `index.metadata.json` files.
-The `module` field of the library's `package.json` would be `"index.js"` and the `typings` field would be `"index.d.ts"`.
+The `module` field of the `package.json` in the library would be `"index.js"` and the `typings` field would be `"index.d.ts"`.
 
 ### `fullTemplateTypeCheck`
 
 When `true` \(recommended\), enables the [binding expression validation](guide/aot-compiler#binding-expression-validation) phase of the template compiler, which uses TypeScript to validate binding expressions.
 For more information, see [Template type checking](guide/template-typecheck).
 
-Default is `false`, but when you use the CLI command `ng new --strict`, it is set to `true` in the generated project's configuration.
+Default is `false`, but when you use the CLI command `ng new --strict`, it is set to `true` in the configuration of the generated project.
 
 <div class="alert is-important">
 
@@ -167,11 +167,11 @@ When `true`, does not produce `.metadata.json` files.
 Default is `false`.
 
 The `.metadata.json` files contain information needed by the template compiler from a `.ts` file that is not included in the `.d.ts` file produced by the TypeScript compiler.
-This information includes, for example, the content of annotations \(such as a component's template\), which TypeScript emits to the `.js` file but not to the `.d.ts` file.
+This information includes, for example, the content of annotations \(such as the template of a component\), which TypeScript emits to the `.js` file but not to the `.d.ts` file.
 
 You can set to `true` when using factory summaries, because the factory summaries include a copy of the information that is in the `.metadata.json` file.
 
-Set to `true` if you are using TypeScript's `--outFile` option, because the metadata files are not valid for this style of TypeScript output.
+Set to `true` if you are using the `--outFile` option of the TypeScript, because the metadata files are not valid for this style of TypeScript output.
 However, we do not recommend using `--outFile` with Angular.
 Use a bundler, such as [webpack](https://webpack.js.org), instead.
 
@@ -209,7 +209,7 @@ For library projects generated with the CLI, the development configuration defau
 When `true` \(recommended\), reports an error for a supplied parameter whose injection type cannot be determined.
 When `false` \(currently the default\), constructor parameters of classes marked with `@Injectable` whose type cannot be resolved produce a warning.
 
-When you use the CLI command `ng new --strict`, it is set to `true` in the generated project's configuration.
+When you use the CLI command `ng new --strict`, it is set to `true` in the configuration of the generated project.
 
 ### `strictTemplates`
 
@@ -218,7 +218,7 @@ When `true`, enables [strict template type checking](guide/template-typecheck#st
 Additional strictness flags allow you to enable and disable specific types of strict template type checking.
 See [troubleshooting template errors](guide/template-typecheck#troubleshooting-template-errors).
 
-When you use the CLI command `ng new --strict`, it is set to `true` in the generated project's configuration.
+When you use the CLI command `ng new --strict`, it is set to `true` in the configuration of the generated project.
 
 ### `trace`
 
@@ -232,7 +232,7 @@ Default is `false`.
 While most of the time you interact with the Angular Compiler indirectly using Angular CLI, when debugging certain issues, you might find it useful to invoke the Angular Compiler directly.
 You can use the `ngc` command provided by the `@angular/compiler-cli` npm package to call the compiler from the command line.
 
-The `ngc` command is just a wrapper around TypeScript's `tsc` compiler command and is primarily configured via the `tsconfig.json` configuration options documented in [the previous sections](#angular-compiler-options).
+The `ngc` command is just a wrapper around the `tsc` compiler command in TypeScript and is primarily configured via the `tsconfig.json` configuration options documented in [the previous sections](#angular-compiler-options).
 
 In addition to the configuration file, you can also use [`tsc` command line options](https://www.typescriptlang.org/docs/handbook/compiler-options.html) to configure `ngc`.
 
