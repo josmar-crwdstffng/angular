@@ -13,7 +13,7 @@
 # =========================================================
 #
 #  - We trust that people do the right thing and won't approve changes they don't feel confident reviewing
-#  - We enforce that only approved PRs are merged ensuring that unreviewed code isn't accidentally merged
+#  - We enforce that only approved PRs are merged ensuring that unreviewed code is not accidentally merged
 #  - We distribute approval rights as much as possible to help us scale better
 #  - Groups have one or two global approvers groups as fallbacks:
 #    - @angular/fw-global-approvers: for approving minor changes, large-scale refactorings, and emergency situations.

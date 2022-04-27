@@ -170,7 +170,7 @@ commands:
             setPublicVar SAUCE_LOCALHOST_ALIAS_DOMAIN "angular-ci.local"
             setSecretVar SAUCE_ACCESS_KEY $(echo $SAUCE_ACCESS_KEY | rev)
       - run:
-          # Sets up a local domain in the machine's host file that resolves to the local
+          # Sets up a local domain in the host file of the machine that resolves to the local
           # host. This domain is helpful in Sauce Labs tests where devices are not able to
           # properly resolve `localhost` or `127.0.0.1` through the sauce-connect tunnel.
           name: Setting up alias domain for local host.
@@ -191,7 +191,7 @@ commands:
       - run:
           name: Running Yarn install
           command: yarn install --frozen-lockfile --non-interactive --cache-folder ~/.cache/yarn
-          # Yarn's requests sometimes take more than 10mins to complete (especially on Windows).
+          # Requests from yarn sometimes take more than 10mins to complete (especially on Windows).
           no_output_timeout: 45m
 
   notify_webhook_on_fail:
@@ -270,7 +270,7 @@ jobs:
   test:
     executor:
       name: test-browser-executor
-      # Now that large integration tests are running locally in parallel (they can't run on RBE yet
+      # Now that large integration tests are running locally in parallel (they cannot run on RBE yet
       # as they require network access for yarn install), this test is running out of memory
       # consistently with the xlarge machine.
       # TODO: switch back to xlarge once integration tests are running on remote-exec
@@ -539,7 +539,7 @@ jobs:
           command: |
             git fetch origin $CI_STABLE_BRANCH
             git checkout --force origin/$CI_STABLE_BRANCH -- aio/ .yarn/ .yarnrc
-      # Ignore yarn's engines check, because we checked out `aio/package.json` from the stable
+      # Ignore check for engines in yarn, because we checked out `aio/package.json` from the stable
       # branch and there could be a node version skew, which is acceptable in this monitoring job.
       - run: yarn config set ignore-engines true
       - run:
@@ -634,7 +634,7 @@ jobs:
             # Whenever the `angular/components` SHA is updated, the cache key will no longer
             # match. The fallback cache will still match, and CircleCI will restore the most
             # recently cached repository folder. Without the fallback cache, we'd need to download
-            # the repository from scratch and it would slow down the job. This is because we can't
+            # the repository from scratch and it would slow down the job. This is because we cannot
             # clone the repository with reduced `--depth`, but rather need to clone the whole
             # repository to be able to support arbitrary SHAs.
             - *components_repo_unit_tests_cache_key_fallback
