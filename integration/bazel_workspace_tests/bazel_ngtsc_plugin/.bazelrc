@@ -6,7 +6,7 @@ build --strategy=AngularTemplateCompile=worker
 test --test_output=errors
 
 # Workaround https://github.com/bazelbuild/bazel/issues/3645
-# Bazel doesn't calculate the memory ceiling correctly when running under Docker.
+# Bazel does not calculate the memory ceiling correctly when running under Docker.
 # Limit Bazel to consuming resources that fit in CircleCI "xlarge" class
 # https://circleci.com/docs/2.0/configuration-reference/#resource_class
 build --local_ram_resources=14336

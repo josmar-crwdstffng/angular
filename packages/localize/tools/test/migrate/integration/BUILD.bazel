@@ -20,7 +20,7 @@ ts_library(
     ],
 )
 
-# Use copy_to_bin since filegroup doesn't seem to work on Windows.
+# Use copy_to_bin since filegroup does not seem to work on Windows.
 copy_to_bin(
     name = "test_files",
     srcs = glob(["test_files/**/*"]),

@@ -45,7 +45,7 @@ message WorkResponse {
   int32 exit_code = 1;
 
   // This is printed to the user after the WorkResponse has been received and is supposed to contain
-  // compiler warnings / errors etc. - thus we'll use a string type here, which gives us UTF-8
+  // compiler warnings / errors etc. - thus we will use a string type here, which gives us UTF-8
   // encoding.
   string output = 2;
 }

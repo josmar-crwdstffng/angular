@@ -18,7 +18,7 @@ npm_package_bin(
     tool = "//aio/scripts:build-ngsw-config",
 )
 
-# Write ngsw-config to the source directory and test that it's up to date
+# Write ngsw-config to the source directory and test that it is up to date
 generated_files_test(
     name = "write-ngsw-config",
     files = {
@@ -40,7 +40,7 @@ APPLICATION_FILES = [
         "src/**/*.spec.ts",
         # Temporarily exclude generated sources produced by the non-bazel
         # build until the whole project is built by bazel and this directory
-        # isn't needed.
+        # is not needed.
         "src/generated/**/*",
     ],
 )

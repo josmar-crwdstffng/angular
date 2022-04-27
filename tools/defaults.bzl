@@ -29,7 +29,7 @@ http_server = _http_server
 
 # Packages which are versioned together on npm
 ANGULAR_SCOPED_PACKAGES = ["@angular/%s" % p for p in [
-    # core should be the first package because it's the main package in the group
+    # core should be the first package because it is the main package in the group
     # this is significant for Angular CLI and "ng update" specifically, @angular/core
     # is considered the identifier of the group by these tools.
     "core",

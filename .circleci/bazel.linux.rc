@@ -11,7 +11,7 @@ try-import %workspace%/.circleci/bazel.common.rc
 build --repository_cache=/home/circleci/bazel_repository_cache
 
 # Workaround https://github.com/bazelbuild/bazel/issues/3645
-# Bazel doesn't calculate the memory ceiling correctly when running under Docker.
+# Bazel does not calculate the memory ceiling correctly when running under Docker.
 # Limit Bazel to consuming resources that fit in CircleCI "xlarge" class
 # https://circleci.com/docs/2.0/configuration-reference/#resource_class
 build --local_cpu_resources=20
