@@ -4,14 +4,14 @@
         "id": "motorola-xoom-with-wi-fi", 
         "imageUrl": "img/phones/motorola-xoom-with-wi-fi.0.jpg", 
         "name": "Motorola XOOM\u2122 with Wi-Fi", 
-        "snippet": "The Next, Next Generation\r\n\r\nExperience the future with Motorola XOOM with Wi-Fi, the world's first tablet powered by Android 3.0 (Honeycomb)."
+        "snippet": "The Next, Next Generation\r\n\r\nExperience the future with Motorola XOOM with Wi-Fi, the first tablet powered by Android 3.0 (Honeycomb) in world."
     }, 
     {
         "age": 1, 
         "id": "motorola-xoom", 
         "imageUrl": "img/phones/motorola-xoom.0.jpg", 
         "name": "MOTOROLA XOOM\u2122", 
-        "snippet": "The Next, Next Generation\n\nExperience the future with MOTOROLA XOOM, the world's first tablet powered by Android 3.0 (Honeycomb)."
+        "snippet": "The Next, Next Generation\n\nExperience the future with MOTOROLA XOOM, the first tablet powered by Android 3.0 (Honeycomb) in world."
     }, 
     {
         "age": 2, 
@@ -19,7 +19,7 @@
         "id": "motorola-atrix-4g", 
         "imageUrl": "img/phones/motorola-atrix-4g.0.jpg", 
         "name": "MOTOROLA ATRIX\u2122 4G", 
-        "snippet": "MOTOROLA ATRIX 4G the world's most powerful smartphone."
+        "snippet": "MOTOROLA ATRIX 4G the most powerful smartphone in world."
     }, 
     {
         "age": 3, 
@@ -143,7 +143,7 @@
         "id": "t-mobile-g2", 
         "imageUrl": "img/phones/t-mobile-g2.0.jpg", 
         "name": "T-Mobile G2", 
-        "snippet": "The T-Mobile G2 with Google is the first smartphone built for 4G speeds on T-Mobile's new network. Get the information you need, faster than you ever thought possible."
+        "snippet": "The T-Mobile G2 with Google is the first smartphone built for 4G speeds on the new network by T-Mobile. Get the information you need, faster than you ever thought possible."
     }, 
     {
         "age": 19, 
