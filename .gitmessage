@@ -47,14 +47,14 @@ Fixes #<issue number>
 # This commit modifies ng_package to no longer distribute these two formats in npm packages built by
 # ng_package (e.g. @angular/core).
 #
-# This commit intentionally doesn't fully clean up the ng_package rule to remove all traces of esm5
+# This commit intentionally does not fully clean up the ng_package rule to remove all traces of esm5
 # and fems5 build artifacts as that is a bigger cleanup and currently we are narrowing down the
 # scope of this change to the MVP needed for v10, which in this case is 'do not put esm5 and fesm5'
 # into the npm packages.
 #
 # More cleanup to follow: https://angular-team.atlassian.net/browse/FW-2143
 #
-# BREAKING CHANGE: esm5 and fesm5 format is no longer distributed in Angular's npm packages e.g.
+# BREAKING CHANGE: esm5 and fesm5 format is no longer distributed in the npm packages in Angular  e.g.
 # @angular/core
 #
 # Angular CLI will automatically downlevel the code to es5 if differential loading is enabled in the

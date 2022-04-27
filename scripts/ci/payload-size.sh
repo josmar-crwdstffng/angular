@@ -100,7 +100,7 @@ payloadToJson() {
   echo "{$(sedr 's|, *$||' <<< $payloadData)}"
 }
 
-# Upload data to firebase database if it's commit, print out data for pull requests.
+# Upload data to firebase database if it is commit, print out data for pull requests.
 #   $1: string - The name in database.
 uploadData() {
   name="$1"

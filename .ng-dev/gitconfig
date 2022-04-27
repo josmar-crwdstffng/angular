@@ -1,4 +1,4 @@
-# The file is inert unless it's explicitly included into the local git config via:
+# The file is inert unless it is explicitly included into the local git config via:
 #
 # ```
 # git config --add include.path '../.ng-dev/gitconfig'

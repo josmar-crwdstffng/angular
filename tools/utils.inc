@@ -87,7 +87,7 @@ function parseArgs {
       AD_RE="${BASH_REMATCH[3]}"
       if [[ $AD_OPTIONAL ]]; then
         # Remove last bracket for optional args.
-        # Can't put this into the ARG_DEF_REGEX somehow...
+        # Cannot put this into the ARG_DEF_REGEX somehow...
         AD_RE=${AD_RE%?}
       fi
     }
@@ -116,7 +116,7 @@ function parseArgs {
       local ARG_REGEX="--([^=]+)=?(.*)"
 
       if [[ ! $1 =~ $ARG_REGEX ]]; then
-        echo "Can't parse argument $i"
+        echo "Cannot parse argument $i"
         usage
       fi
 
