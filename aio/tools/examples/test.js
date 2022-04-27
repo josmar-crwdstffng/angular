@@ -1,9 +1,9 @@
 /*
  * Use this script to run the tests for the doc generation
- * We cannot use the Jasmine CLI directly because it doesn't seem to
+ * We cannot use the Jasmine CLI directly because it does not seem to
  * understand the glob and only runs one spec file.
  *
- * Equally we cannot use a jasmine.json config file because it doesn't
+ * Equally we cannot use a jasmine.json config file because it does not
  * allow us to set the projectBaseDir, which means that you have to run
  * jasmine CLI from this directory.
  *

@@ -35,7 +35,7 @@ function checkNodeModules(logOutput, purgeIfStale) {
 
 
 /**
- * Custom implementation of recursive `rm` because we can't rely on the state of node_modules to
+ * Custom implementation of recursive `rm` because we cannot rely on the state of node_modules to
  * pull in existing module.
  */
 function _deleteDir(path) {

@@ -12,7 +12,7 @@
  */
 
 // Skip over the "waiting" lifecycle state, to ensure that our
-// new service worker is activated immediately, even if there's
+// new service worker is activated immediately, even if there is
 // another tab open controlled by our older service worker code.
 self.addEventListener('install', function(event) {
   event.waitUntil(self.skipWaiting());

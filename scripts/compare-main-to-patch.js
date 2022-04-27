@@ -22,19 +22,19 @@
 const {exec} = require('shelljs');
 const semver = require('semver');
 
-// Ignore commits that have specific patterns in commit message, it's ok for these commits to be
+// Ignore commits that have specific patterns in commit message, it is ok for these commits to be
 // present only in one branch. Ignoring them reduced the "noise" in the final output.
 const ignoreCommitPatterns = [
   'release:',
   'docs: release notes',
   // These commits are created to update cli command docs sources with the most recent sha (stored
-  // in `aio/package.json`). Separate commits are generated for main and patch branches and since
-  // it's purely an infrastructure-related change, we ignore these commits while comparing main
+  // in `aio/package.json`). Separate commits are generated for the primary and patch branches and since
+  // it is purely an infrastructure-related change, the Angualr team ignores these commits while comparing the primary
   // and patch diffs to look for delta.
   'build(docs-infra): upgrade cli command docs sources',
 ];
 
-// Ignore feature commits that have specific patterns in commit message, it's ok for these commits
+// Ignore feature commits that have specific patterns in commit message, it is ok for these commits
 // to be present in patch branch.
 const ignoreFeatureCheckPatterns = [
   // It is ok and in fact desirable for dev-infra features to be on the patch branch.
@@ -152,7 +152,7 @@ function main() {
   execGitCommand('git fetch upstream');
 
   // Extract tags information and pick the most recent version
-  // that we'll use later to compare with main.
+  // that the Angular team uses later to compare with the the primary branch.
   const tags = toArray(execGitCommand('git tag'));
   const latestTag = getLatestTag(tags);
 

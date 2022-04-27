@@ -39,10 +39,11 @@
  * ```
  *
  * NOTE:
- * - When used from the cli, the command will exit with an error code if the response's status code
- *   is outside the [200, 400) range.
- * - When used from JS, the returned promise will be resolved, even if the response's status code is
- *   outside the [200, 400) range. It is up to the caller to decide how this should be handled.
+ * - When used from the cli, the command will exit with an error code if the status code of the
+ * response is outside the [200, 400) range.
+ * - When used from JS, the returned promise will be resolved, even if the status code of the
+ * response is outside the [200, 400) range. It is up to the caller to decide how this should be
+ * handled.
  */
 
 // Imports

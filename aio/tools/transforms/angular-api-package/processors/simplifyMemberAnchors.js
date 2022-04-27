@@ -1,7 +1,7 @@
 /**
  * Members that have overloads get long unwieldy anchors because they must be distinguished
  * by their parameter lists.
- * But the primary overload doesn't not need this distinction, so can just be the name of the member.
+ * But the primary overload does not not need this distinction, so can just be the name of the member.
  */
 module.exports = function simplifyMemberAnchors() {
   return {

@@ -132,7 +132,7 @@ describe('removeEslintComments', () => {
       let source = `
         /* this is not an eslint-disable comment */
         // and this is not an eslint-disable-line comment
-        // this isn't an eslint comment at all
+        // this is not an eslint comment at all
         `;
       expect(rmv(source)).toEqual(source);
     });

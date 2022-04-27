@@ -13,7 +13,7 @@ const Lint = require('tslint');
 // This is necessary, because `tslint` and IDEs won't execute any rules that aren't in a .js file.
 require('ts-node').register();
 
-// Add a noop rule so tslint doesn't complain.
+// Add a noop rule so tslint does not complain.
 exports.Rule = class Rule extends Lint.Rules.AbstractRule {
   apply() {}
 };

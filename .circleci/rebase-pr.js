@@ -148,7 +148,7 @@ function getCommonAncestorSha(sha1, sha2) {
 }
 
 /**
- * Adds the remote to git, if it doesn't already exist. Returns a boolean indicating
+ * Adds the remote to git, if it does not already exist. Returns a boolean indicating
  * whether the remote was added by the command.
  */
 function addAndFetchRemote(owner, name) {

@@ -46,7 +46,7 @@ sed('-i', '(\'response\' in xhr)', '(\'response\' in (xhr as any))',
 */
 
 // Workaround https://github.com/bazelbuild/rules_nodejs/issues/1033
-// TypeScript doesn't understand typings without "declare module" unless
+// TypeScript does not understand typings without "declare module" unless
 // they are actually resolved by the @types default mechanism
 log('\n# patch: @types/babel__* adding declare module wrappers');
 ls('node_modules/@types').filter(f => f.startsWith('babel__')).forEach(pkg => {

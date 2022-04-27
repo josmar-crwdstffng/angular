@@ -2,7 +2,7 @@
  * @dgProcessor updateGlobalApiPath
  *
  * If a global API has a namespace, its name will contain a dot which will cause its
- * URL to look like a file path. This processor updates it so it's less ambiguous.
+ * URL to look like a file path. This processor updates it so it is less ambiguous.
  */
 module.exports = function updateGlobalApiPathProcessor() {
   return {

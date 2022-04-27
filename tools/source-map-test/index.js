@@ -46,7 +46,7 @@ module.exports = function sourceMapTest(package) {
 };
 
 function shouldCheckMapping(text) {
-  // tsickle closure declaration does not exist in final bundle, so can't be checked
+  // tsickle closure declaration does not exist in final bundle, so cannot be checked
   if (CLOSURE_REGEX.test(text)) return false;
   return VAR_REGEX.test(text) || FUNCTION_REGEX.test(text) || CLASS_REGEX.test(text) ||
       PROPERTY_REGEX.test(text) || METHOD_REGEX.test(text) || GETTER_REGEX.test(text);

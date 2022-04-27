@@ -37,7 +37,7 @@ exports.config = {
   // Base URL for application server
   baseUrl: 'http://localhost:8080',
 
-  // doesn't seem to work.
+  // does not seem to work.
   // resultJsonOutputFile: "foo.json",
 
   onPrepare: function() {
