@@ -168,7 +168,7 @@ label[for='toggle-all'] {
 .todo-list li .toggle {
 	text-align: center;
 	width: 40px;
-	/* auto, since non-WebKit browsers doesn't support input styling */
+	/* auto, since non-WebKit browsers does not support input styling */
 	height: auto;
 	position: absolute;
 	top: 0;
@@ -332,7 +332,7 @@ html .clear-completed:active {
 
 /*
 	Hack to remove background from Mobile Safari.
-	Can't use it globally since it destroys checkboxes in Firefox
+	Cannot use it globally since it destroys checkboxes in Firefox
 */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
 	.toggle-all,

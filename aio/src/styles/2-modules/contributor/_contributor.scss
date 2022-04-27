@@ -50,7 +50,7 @@ aio-contributor {
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    /* There is no point in hiding this if we can't hover to show it. */
+    /* There is no point in hiding this if we cannot hover to show it. */
     @media (hover) { opacity: 0; }
     border-radius: 50%;
 
