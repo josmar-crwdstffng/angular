@@ -14,19 +14,19 @@ Before fully deploying your application, you can test the process, build configu
 During development, you typically use the `ng serve` command to build, watch, and serve the application from local memory, using [webpack-dev-server](https://webpack.js.org/guides/development/#webpack-dev-server).
 When you are ready to deploy, however, you must use the `ng build` command to build the application and deploy the build artifacts elsewhere.
 
-Both `ng build` and `ng serve` clear the output folder before they build the project, but only the `ng build` command writes the generated build artifacts to the output folder.
+Both `ng build` and `ng serve` clear the output directory before they build the project, but only the `ng build` command writes the generated build artifacts to the output directory.
 
 <div class="alert is-helpful">
 
-The output folder is `dist/project-name/` by default.
-To output to a different folder, change the `outputPath` in `angular.json`.
+The output directory is `dist/project-name` by default.
+To output to a different directory, change the `outputPath` in `angular.json`.
 
 </div>
 
-As you near the end of the development process, serving the contents of your output folder from a local web server can give you a better idea of how your application will behave when it is deployed to a remote server.
+As you near the end of the development process, serving the contents of your output directory from a local web server can give you a better idea of how your application will behave when it is deployed to a remote server.
 You will need two terminals to get the live-reload experience.
 
-*   On the first terminal, run the [`ng build` command](cli/build) in *watch* mode to compile the application to the `dist` folder.
+*   On the first terminal, run the [`ng build` command](cli/build) in *watch* mode to compile the application to the `dist` directory.
 
     <code-example format="shell" language="shell">
 
@@ -36,7 +36,7 @@ You will need two terminals to get the live-reload experience.
 
     Like the `ng serve` command, this regenerates output files when source files change.
 
-*   On the second terminal, install a web server \(such as [lite-server](https://github.com/johnpapa/lite-server)\), and run it against the output folder.
+*   On the second terminal, install a web server \(such as [lite-server](https://github.com/johnpapa/lite-server)\), and run it against the output directory.
     For example:
 
     <code-example format="shell" language="shell">
@@ -105,7 +105,7 @@ For the simplest deployment, create a production build and copy the output direc
 
     </code-example>
 
-1.  Copy *everything* within the output folder \(`dist/project-name/` by default\) to a folder on the server.
+1.  Copy *everything* within the output directory \(`dist/project-name` by default\) to a directory on the server.
 1.  Configure the server to redirect requests for missing files to `index.html`.
     Learn more about server-side redirects [below](#fallback).
 
@@ -152,7 +152,7 @@ To deploy your Angular application to [GitHub Pages](https://help.github.com/art
 
 1.  When the build is complete, make a copy of `docs/index.html` and name it `docs/404.html`.
 1.  Commit your changes and push.
-1.  On the GitHub project page, go to Settings and scroll down to the GitHub Pages section to configure the site to [publish from the docs folder](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source).
+1.  On the GitHub project page, go to Settings and scroll down to the GitHub Pages section to configure the site to [publish from the docs directory](https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/#publishing-your-github-pages-site-from-a-docs-folder-on-your-master-branch).
 1.  Click Save.
 1.  Click on the GitHub Pages link at the top of the GitHub Pages section to see your deployed application.
     The format of the link is `https://<user_name>.github.io/<project_name>`.
@@ -191,7 +191,7 @@ The Angular router interprets the URL and routes to that page and hero.
 But clicking a link in an email, entering it in the browser address bar, or merely refreshing the browser while on the hero detail page &mdash;all of these actions are handled by the browser itself, *outside* the running application.
 The browser makes a direct request to the server for that URL, bypassing the router.
 
-A static server routinely returns `index.html` when it receives a request for `http://www.mysite.com/`.
+A static server routinely returns `index.html` when it receives a request for `http://www.mysite.com`.
 But it rejects `http://www.mysite.com/heroes/42` and returns a `404 - Not Found` error *unless* it is configured to return `index.html` instead.
 
 #### Fallback configuration examples
@@ -204,7 +204,7 @@ The list is by no means exhaustive, but should provide you with a good starting 
 |:---                                                          |:---     |
 | [Apache](https://httpd.apache.org)                           | Add a [rewrite rule](https://httpd.apache.org/docs/current/mod/mod_rewrite.html) to the `.htaccess` file as shown \([ngmilk.rocks/2015/03/09/angularjs-html5-mode-or-pretty-urls-on-apache-using-htaccess](https://ngmilk.rocks/2015/03/09/angularjs-html5-mode-or-pretty-urls-on-apache-using-htaccess)\): <code-example format="apache" language="apache"> RewriteEngine On &NewLine;&nbsp; &num; If an existing asset or directory is requested go to it as it is &NewLine;&nbsp; RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR] &NewLine;&nbsp; RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d &NewLine;&nbsp; RewriteRule ^ - [L] &NewLine; &NewLine;&nbsp; &num; If the requested resource doesn't exist, use index.html &NewLine;&nbsp; RewriteRule ^ /index.html </code-example>                                                                                                                                                                                                                                                                                                                                                                                                          |
 | [Nginx](https://nginx.org)                                   | Use `try_files`, as described in [Front Controller Pattern Web Apps](https://www.nginx.com/resources/wiki/start/topics/tutorials/config_pitfalls/#front-controller-pattern-web-apps), modified to serve `index.html`: <code-example format="nginx" language="nginx"> try_files &dollar;uri &dollar;uri/ /index.html; </code-example>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| [Ruby](https://www.ruby-lang.org)                            | Create a Ruby server using \([sinatra](http://sinatrarb.com)\) with a basic Ruby file that configures the server `server.rb`: <code-example format="ruby" language="ruby"> require 'sinatra' &NewLine; &NewLine;&num; Folder structure &NewLine;&num; . &NewLine;&num; -- server.rb &NewLine;&num; -- public &NewLine;&num; &nbsp;&nbsp; &verbar;-- project-name &NewLine;&num; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &verbar;-- index.html &NewLine; &NewLine;get '/' do &NewLine;&nbsp; folderDir = settings.public_folder + '/project-name'  &num; ng build output folder &NewLine;&nbsp; send_file File.join(folderDir, 'index.html') &NewLine;end </code-example>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| [Ruby](https://www.ruby-lang.org)                            | Create a Ruby server using \([sinatra](http://sinatrarb.com)\) with a basic Ruby file that configures the server `server.rb`: <code-example format="ruby" language="ruby"> require 'sinatra' &NewLine; &NewLine;&num; Directory structure &NewLine;&num; . &NewLine;&num; -- server.rb &NewLine;&num; -- public &NewLine;&num; &nbsp;&nbsp; &verbar;-- project-name &NewLine;&num; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &verbar;-- index.html &NewLine; &NewLine;get '/' do &NewLine;&nbsp; directoryDir = settings.public_directory + '/project-name'  &num; ng build output directory &NewLine;&nbsp; send_file File.join(folderDir, 'index.html') &NewLine;end </code-example>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | [IIS](https://www.iis.net)                                   | Add a rewrite rule to `web.config`, similar to the one shown [here](https://stackoverflow.com/a/26152011): <code-example format="xml" language="xml"> &lt;system.webServer&gt; &NewLine;&nbsp; &lt;rewrite&gt; &NewLine;&nbsp;&nbsp;&nbsp; &lt;rules&gt; &NewLine;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;rule name="Angular Routes" stopProcessing="true"&gt; &NewLine;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;match url=".*" /&gt; &NewLine;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;conditions logicalGrouping="MatchAll"&gt; &NewLine;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" /&gt; &NewLine;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" /&gt; &NewLine;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/conditions&gt; &NewLine;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;action type="Rewrite" url="/index.html" /&gt; &NewLine;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/rule&gt; &NewLine;&nbsp;&nbsp;&nbsp; &lt;/rules&gt; &NewLine;&nbsp; &lt;/rewrite&gt; &NewLine;&lt;/system.webServer&gt; </code-example> |
 | [GitHub Pages](https://pages.github.com)                     | You can't [directly configure](https://github.com/isaacs/github/issues/408) the GitHub Pages server, but you can add a 404 page. Copy `index.html` into `404.html`. It will still be served as the 404 response, but the browser will process that page and load the application properly. It's also a good idea to [serve from `docs` on main](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source) and to [create a `.nojekyll` file](https://www.bennadel.com/blog/3181-including-node-modules-and-vendors-folders-in-your-github-pages-site.htm)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | [Firebase hosting](https://firebase.google.com/docs/hosting) | Add a [rewrite rule](https://firebase.google.com/docs/hosting/url-redirects-rewrites#section-rewrites). <code-example language="json"> "rewrites": [ { &NewLine;&nbsp; "source": "**", &NewLine;&nbsp; "destination": "/index.html" &NewLine;} ] </code-example>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -332,7 +332,7 @@ ng build --source-map
 
 </code-example>
 
-List the generated bundles in the `dist/project-name/` folder.
+List the generated bundles in the `dist/project-name` directory.
 
 <code-example format="shell" language="shell">
 
@@ -373,11 +373,11 @@ See also the [`APP_BASE_HREF`](api/common/APP_BASE_HREF "API: APP_BASE_HREF") al
 
 </div>
 
-In development, you typically start the server in the folder that holds `index.html`.
-That's the root folder and you'd add `<base href="/">` near the top of `index.html` because `/` is the root of the application.
+In development, you typically start the server in the directory that holds `index.html`.
+That's the root directory and you'd add `<base href="/">` near the top of `index.html` because `/` is the root of the application.
 
-But on the shared or production server, you might serve the application from a subfolder.
-For example, when the URL to load the application is something like `http://www.mysite.com/my/app`, the subfolder is `my/app/` and you should add `<base href="/my/app/">` to the server version of the `index.html`.
+But on the shared or production server, you might serve the application from a sub-directory.
+For example, when the URL to load the application is something like `http://www.mysite.com/my/app`, the sub-directory is `my/app` and you should add `<base href="/my/app/">` to the server version of the `index.html`.
 
 When the `base` tag is mis-configured, the application fails to load and the browser console displays `404 - Not Found` errors for the missing files.
 Look at where it *tried* to find those files and adjust the base tag appropriately.

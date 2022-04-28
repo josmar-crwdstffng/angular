@@ -128,7 +128,7 @@ The `ngsw-config.json` boilerplate configuration is set up to cache the specific
 *   `favicon.ico`
 *   Build artifacts \(JS and CSS bundles\)
 *   Anything under `assets`
-*   Images and fonts directly under the configured `outputPath` \(by default `./dist/<project-name>/`\) or `resourcesOutputPath`.
+*   Images and fonts directly under the configured `outputPath` \(by default `./dist/<project-name>`\) or `resourcesOutputPath`.
     See [`ng build`](cli/build) for more information about these options.
 
 <div class="alert is-important">

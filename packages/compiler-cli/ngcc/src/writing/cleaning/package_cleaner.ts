@@ -24,21 +24,21 @@ export class PackageCleaner {
    *
    * @param directory the current directory to clean
    */
-  clean(directory: AbsoluteFsPath) {
-    const basenames = this.fs.readdir(directory);
+  clean(folder: AbsoluteFsPath) {
+    const basenames = this.fs.readdir(folder);
     for (const basename of basenames) {
       if (basename === 'node_modules') {
         continue;
       }
 
-      const path = this.fs.resolve(directory, basename);
+      const path = this.fs.resolve(folder, basename);
       for (const cleaner of this.cleaners) {
         if (cleaner.canClean(path, basename)) {
           cleaner.clean(path, basename);
           break;
         }
       }
-      // Recurse into subdirectories (note that a cleaner may have removed this path)
+      // Recurse into sub-directories (note that a cleaner may have removed this path)
       if (isLocalDirectory(this.fs, path)) {
         this.clean(path);
       }

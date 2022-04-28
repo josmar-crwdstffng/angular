@@ -452,7 +452,7 @@ Import the `SharedModule` in your *feature* modules, both those loaded when the 
 
 Feature modules are modules you create around specific application business domains, user workflows, and utility collections.
 They support your application by containing a particular feature, such as routes, services, widgets, etc.
-To conceptualize what a feature module might be in your app, consider that if you would put the files related to a certain functionality, like a search, in one folder, that the contents of that folder would be a feature module that you might call your `SearchModule`.
+To conceptualize what a feature module might be in your app, consider that if you would put the files related to a certain functionality, like a search, in one directory, that the contents of that directory would be a feature module that you might call your `SearchModule`.
 It would contain all of the components, routing, and templates that would make up the search functionality.
 
 For more information, see [Feature Modules](guide/feature-modules) and [Module Types](guide/module-types)

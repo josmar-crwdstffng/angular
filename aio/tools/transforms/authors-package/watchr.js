@@ -42,7 +42,7 @@ p.then(() => {
   console.log('Started watching files in:');
   console.log(' - ', CONTENTS_PATH);
   console.log(' - ', API_SOURCE_PATH);
-  console.log('Doc gen will run when you change a file in either of these folders.');
+  console.log('Doc gen will run when you change a file in either of these directories.');
   console.log('===================================================================');
 
   watchr.open(CONTENTS_PATH, listener, next);

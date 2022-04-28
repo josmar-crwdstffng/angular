@@ -2,7 +2,7 @@ module.exports = function getExampleRegion(exampleMap, createDocMessage, collect
   return function getExampleRegionImpl(doc, relativePath, regionName) {
     const EXAMPLES_FOLDERS = collectExamples.exampleFolders;
 
-    // Find the example in the folders
+    // Find the example in the directories
     var exampleFile;
     // Try an "annotated" version first
     EXAMPLES_FOLDERS.some(EXAMPLES_FOLDER => { return exampleFile = exampleMap[EXAMPLES_FOLDER][relativePath + '.annotated']; });

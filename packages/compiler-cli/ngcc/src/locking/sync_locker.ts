@@ -11,7 +11,7 @@ import {LockFile} from './lock_file';
  * SyncLocker is used to prevent more than one instance of ngcc executing at the same time,
  * when being called in a synchronous context.
  *
- * * When ngcc starts executing, it creates a file in the `compiler-cli/ngcc` folder.
+ * * When ngcc starts executing, it creates a file in the `compiler-cli/ngcc` directory.
  * * If it finds one is already there then it fails with a suitable error message.
  * * When ngcc completes executing, it removes the file so that future ngcc executions can start.
  */

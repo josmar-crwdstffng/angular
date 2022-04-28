@@ -29,7 +29,7 @@ repository (google3).
 Bazel accepts a lot of options. We check in some options in the
 `.bazelrc` file. See the [bazelrc doc]. For example, if you don't
 want Bazel to create several symlinks in your project directory
-(`bazel-*`) you can add the line `build --symlink_prefix=/` to your
+(`bazel-*`) you can add the line `build --symlink_prefix=` to your
 `.bazelrc` file.
 
 [GitHub]: https://github.com/bazelbuild/rules_typescript
@@ -95,7 +95,7 @@ First time setup:
     }
 ```
 
-**Setting breakpoints directly in your code files may not work in VSCode**. This is because the files you're actually debugging are built files that exist in a `./private/...` folder.
+**Setting breakpoints directly in your code files may not work in VSCode**. This is because the files you're actually debugging are built files that exist in a `./private/...` directory.
 The easiest way to debug a test for now is to add a `debugger` statement in the code
 and launch the bazel corresponding test (`yarn bazel test <target> --config=debug`).
 

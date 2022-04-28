@@ -26,7 +26,7 @@ version: 2.1
 # See https://circleci.com/docs/2.0/caching/#restoring-cache for how prefixes work in CircleCI.
 var_3: &cache_key v6-angular-node-14-{{ checksum "month.txt" }}-{{ checksum ".bazelversion" }}-{{ checksum "yarn.lock" }}-{{ checksum "WORKSPACE" }}-{{ checksum "aio/yarn.lock" }}
 # We invalidate the cache if the Bazel version changes because otherwise the `bazelisk` cache
-# folder will contain all previously used versions and ultimately cause the cache restoring to
+# directory will contain all previously used versions and ultimately cause the cache restoring to
 # be slower due to its growing size.
 var_4: &cache_key_fallback v6-angular-node-14-{{ checksum "month.txt" }}-{{ checksum ".bazelversion" }}
 
@@ -633,7 +633,7 @@ jobs:
             - *components_repo_unit_tests_cache_key
             # Whenever the `angular/components` SHA is updated, the cache key will no longer
             # match. The fallback cache will still match, and CircleCI will restore the most
-            # recently cached repository folder. Without the fallback cache, we'd need to download
+            # recently cached repository directory. Without the fallback cache, we'd need to download
             # the repository from scratch and it would slow down the job. This is because we can't
             # clone the repository with reduced `--depth`, but rather need to clone the whole
             # repository to be able to support arbitrary SHAs.

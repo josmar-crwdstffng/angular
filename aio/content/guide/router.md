@@ -45,7 +45,7 @@ The CLI automatically appends `Component`, so if you were to write `first-compon
 
 This guide works with a CLI-generated Angular application.
 If you are working manually, make sure that you have `<base href="/">` in the `<head>` of your index.html file.
-This assumes that the `app` folder is the application root, and uses `"/"`.
+This assumes that the `app` directory is the application root, and uses `"/"`.
 
 </div>
 
@@ -531,7 +531,7 @@ You must add a [`<base href>` element](https://developer.mozilla.org/docs/Web/HT
 The browser uses the `<base href>` value to prefix relative URLs when referencing CSS files, scripts, and images.
 
 Add the `<base>` element just after the `<head>` tag.
-If the `app` folder is the application root, as it is for this application, set the `href` value in `index.html` as shown here.
+If the `app` directory is the application root, as it is for this application, set the `href` value in `index.html` as shown here.
 
 <code-example header="src/index.html (base-href)" path="router/src/index.html" region="base-href"></code-example>
 

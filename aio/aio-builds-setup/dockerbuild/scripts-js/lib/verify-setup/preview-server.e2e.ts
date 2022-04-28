@@ -346,7 +346,7 @@ describe('preview-server', () => {
 
             expect({ prNum, isPublic }).not.toExistAsABuild();
 
-            // The bad folders should have been deleted
+            // The bad directories should have been deleted
             expect({ prNum, sha: ALT_SHA, isPublic }).toExistAsABuild();
             expect({ prNum, sha: ALT_SHA, isPublic: !isPublic }).toExistAsABuild();
 

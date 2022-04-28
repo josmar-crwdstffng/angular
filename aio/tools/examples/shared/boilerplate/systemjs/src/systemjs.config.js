@@ -10,7 +10,7 @@
     },
     // map tells the System loader where to look for things
     map: {
-      // our app is within the app folder
+      // our app is within the app directory
       'app': 'app',
 
       // angular bundles

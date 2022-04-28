@@ -70,8 +70,8 @@ This section describes how each of the aforementioned sub-tasks is accomplished:
    - Was the webhook triggered by the designated CircleCI job (currently `aio_preview`)?
    - Was the build successful?
    - Are the associated GitHub organization and repository what we expect (e.g. `angular/angular`)?
-   - Has the PR touched any files that might affect the angular.io app (currently the `aio/` or
-     `packages/` directories, ignoring spec files)?
+   - Has the PR touched any files that might affect the angular.io app (currently the `aio` or
+     `packages` directories, ignoring spec files)?
 
    If any of the preliminary checks fails, the process is aborted and not preview is generated.
 
@@ -79,7 +79,7 @@ This section describes how each of the aforementioned sub-tasks is accomplished:
 
    Next we make another call to the CircleCI API to get a list of the URLs for artifacts of that
    build. If there is one that matches the configured artifact path, we download the contents of the
-   build artifact and store it in a local folder. This download has a maximum size limit to prevent
+   build artifact and store it in a local directory. This download has a maximum size limit to prevent
    PRs from producing artifacts that are so large they would cause the preview server to crash.
 
 4. **Fetch the PR's metadata, including author and labels**.

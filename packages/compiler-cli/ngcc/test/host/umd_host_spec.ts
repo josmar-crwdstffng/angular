@@ -564,9 +564,9 @@ var d = c;
                 contents: createUmdModule(
                     'index',
                     [
-                      './a_module', './b_module', './wildcard_reexports',
-                      './wildcard_reexports_imported_helpers', './wildcard_reexports_with_require',
-                      './define_property_reexports'
+                      './a_module', './b_module', './wildcard_re-exports',
+                      './wildcard_re-exports_imported_helpers',
+                      './wildcard_re-exports_with_require', './define_property_re-exports'
                     ],
                     ''),
               },
@@ -608,9 +608,9 @@ var d = c;
                         `  exports.xtra2 = xtra2;`),
               },
               {
-                name: _('/wildcard_reexports.js'),
+                name: _('/wildcard_re-exports.js'),
                 contents: createUmdModule(
-                    'wildcard_reexports', ['./b_module', './xtra_module'],
+                    'wildcard_re-exports', ['./b_module', './xtra_module'],
                     `  function __export(m) {\n` +
                         `    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];\n` +
                         `  }\n` +
@@ -618,18 +618,18 @@ var d = c;
                         `  __export(xtra_module);`),
               },
               {
-                name: _('/wildcard_reexports_imported_helpers.js'),
+                name: _('/wildcard_re-exports_imported_helpers.js'),
                 contents: createUmdModule(
-                    'wildcard_reexports', ['tslib', './b_module', './xtra_module'],
+                    'wildcard_re-exports', ['tslib', './b_module', './xtra_module'],
                     `  tslib.__exportStar(b_module, exports);\n` +
                         `  tslib.__exportStar(xtra_module, exports);`),
               },
               {
-                name: _('/wildcard_reexports_with_require.js'),
+                name: _('/wildcard_re-exports_with_require.js'),
                 contents: `(function (global, factory) {\n` +
                     `  typeof exports === 'object' && typeof module !== 'undefined' ? factory(require, exports) :\n` +
-                    `  typeof define === 'function' && define.amd ? define('wildcard_reexports_with_require', ['require', 'exports'], factory) :\n` +
-                    `  (factory(global.require, global.wildcard_reexports_with_require));\n` +
+                    `  typeof define === 'function' && define.amd ? define('wildcard_re-exports_with_require', ['require', 'exports'], factory) :\n` +
+                    `  (factory(global.require, global.wildcard_re-exports_with_require));\n` +
                     `}(this, (function (require, exports) { 'use strict';\n` +
                     `  function __export(m) {\n` +
                     `    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];\n` +
@@ -640,11 +640,11 @@ var d = c;
                     `})));\n`,
               },
               {
-                name: _('/define_property_reexports.js'),
+                name: _('/define_property_re-exports.js'),
                 contents: `(function (global, factory) {\n` +
                     `  typeof exports === 'object' && typeof module !== 'undefined' ? factory(require, exports) :\n` +
-                    `  typeof define === 'function' && define.amd ? define('define_property_reexports', ['require', 'exports'], factory) :\n` +
-                    `  (factory(global.require, global.define_property_reexports));\n` +
+                    `  typeof define === 'function' && define.amd ? define('define_property_re-exports', ['require', 'exports'], factory) :\n` +
+                    `  (factory(global.require, global.define_property_re-exports));\n` +
                     `}(this, (function (require, exports) { 'use strict';\n` +
                     `var moduleA = require("./a_module");\n` +
                     `Object.defineProperty(exports, "newA", { enumerable: true, get: function () { return moduleA.a; } });\n` +
@@ -2795,7 +2795,7 @@ function juu() {
               const bundle = makeTestBundleProgram(_('/index.js'));
               const host =
                   createHost(bundle, new UmdReflectionHost(new MockLogger(), false, bundle));
-              const file = getSourceFileOrError(bundle.program, _('/wildcard_reexports.js'));
+              const file = getSourceFileOrError(bundle.program, _('/wildcard_re-exports.js'));
               const exportDeclarations = host.getExportsOfModule(file);
               expect(exportDeclarations).not.toBe(null);
               expect(Array.from(exportDeclarations!.entries())
@@ -2825,7 +2825,7 @@ function juu() {
               const host =
                   createHost(bundle, new UmdReflectionHost(new MockLogger(), false, bundle));
               const file = getSourceFileOrError(
-                  bundle.program, _('/wildcard_reexports_imported_helpers.js'));
+                  bundle.program, _('/wildcard_re-exports_imported_helpers.js'));
               const exportDeclarations = host.getExportsOfModule(file);
               expect(exportDeclarations).not.toBe(null);
               expect(Array.from(exportDeclarations!.entries())
@@ -2905,7 +2905,8 @@ function juu() {
               const bundle = makeTestBundleProgram(_('/index.js'));
               const host =
                   createHost(bundle, new UmdReflectionHost(new MockLogger(), false, bundle));
-              const file = getSourceFileOrError(bundle.program, _('/define_property_reexports.js'));
+              const file =
+                  getSourceFileOrError(bundle.program, _('/define_property_re-exports.js'));
               const exportDeclarations = host.getExportsOfModule(file);
               expect(exportDeclarations).not.toBe(null);
               expect(Array.from(exportDeclarations!.entries())
@@ -2938,7 +2939,7 @@ function juu() {
               const bundle = makeTestBundleProgram(_('/index.js'));
               const host =
                   createHost(bundle, new UmdReflectionHost(new MockLogger(), false, bundle));
-              const file = getSourceFileOrError(bundle.program, _('/wildcard_reexports.js'));
+              const file = getSourceFileOrError(bundle.program, _('/wildcard_re-exports.js'));
               const exportDeclarations = host.getExportsOfModule(file);
               expect(exportDeclarations).not.toBe(null);
               expect(Array.from(exportDeclarations!.entries())
@@ -2968,7 +2969,7 @@ function juu() {
               const host =
                   createHost(bundle, new UmdReflectionHost(new MockLogger(), false, bundle));
               const file = getSourceFileOrError(
-                  bundle.program, _('/wildcard_reexports_imported_helpers.js'));
+                  bundle.program, _('/wildcard_re-exports_imported_helpers.js'));
               const exportDeclarations = host.getExportsOfModule(file);
               expect(exportDeclarations).not.toBe(null);
               expect(Array.from(exportDeclarations!.entries())
@@ -2998,7 +2999,7 @@ function juu() {
               const host =
                   createHost(bundle, new UmdReflectionHost(new MockLogger(), false, bundle));
               const file =
-                  getSourceFileOrError(bundle.program, _('/wildcard_reexports_with_require.js'));
+                  getSourceFileOrError(bundle.program, _('/wildcard_re-exports_with_require.js'));
               const exportDeclarations = host.getExportsOfModule(file);
               expect(exportDeclarations).not.toBe(null);
               expect(Array.from(exportDeclarations!.entries())

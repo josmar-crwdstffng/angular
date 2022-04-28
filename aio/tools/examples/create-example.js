@@ -91,7 +91,7 @@ function copyExampleFiles(sourcePath, examplePath, exampleName) {
   const gitIgnoreSource = getGitIgnore(sourcePath);
   const gitIgnoreExamples = getGitIgnore(EXAMPLES_BASE_PATH);
 
-  // Grab the files in the source folder and filter them based on the gitignore rules.
+  // Grab the files in the source directory and filter them based on the gitignore rules.
   const sourceFiles =
       glob.sync('**/*', {
             cwd: sourcePath,

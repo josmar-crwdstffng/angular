@@ -1,7 +1,7 @@
 # Angular workspace configuration
 
 A file named `angular.json` at the root level of an Angular [workspace](guide/glossary#workspace) provides workspace-wide and project-specific configuration defaults for build and development tools provided by the Angular CLI.
-Path values given in the configuration are relative to the root workspace folder.
+Path values given in the configuration are relative to the root workspace directory.
 
 ## Overall JSON structure
 
@@ -14,7 +14,7 @@ The following properties, at the top-level of the file, configure the workspace.
 | Properties       | Details |
 |:---              |:---     |
 | `version`        | The configuration-file version.                                                                                                                                                                                                       |
-| `newProjectRoot` | Path where new projects are created. Absolute or relative to the workspace folder.                                                                                                                                                    |
+| `newProjectRoot` | Path where new projects are created. Absolute or relative to the workspace directory.                                                                                                                                                    |
 | `cli`            | A set of options that customize the [Angular CLI](cli). See the [CLI configuration options](#cli-configuration-options) section.                                                                                                      |
 | `schematics`     | A set of [schematics](guide/glossary#schematic) that customize the `ng generate` sub-command option defaults for this workspace. See the [Generation schematics](#schematics) section.                                                |
 | `projects`       | Contains a subsection for each project \(library or application\) in the workspace, with the per-project configuration options.                                                                                                       |
@@ -41,7 +41,7 @@ When you create a library project with `ng generate library`, the library projec
 The `projects` section of the configuration file does not correspond exactly to the workspace file structure.
 
 *   The initial application created by `ng new` is at the top level of the workspace file structure
-*   Additional applications and libraries go into a `projects` folder in the workspace
+*   Additional applications and libraries go into a `projects` directory in the workspace
 
 For more information, see [Workspace and project file structure](guide/file-structure).
 
@@ -102,8 +102,8 @@ The following top-level configuration properties are available for each project,
 
 | Property      | Details |
 |:---           |:---     |
-| `root`        | The root folder for this project's files, relative to the workspace folder. Empty for the initial app, which resides at the top level of the workspace. |
-| `sourceRoot`  | The root folder for this project's source files.                                                                                                        |
+| `root`        | The root directory for this project's files, relative to the workspace directory. Empty for the initial app, which resides at the top level of the workspace. |
+| `sourceRoot`  | The root directory for this project's source files.                                                                                                        |
 | `projectType` | One of "application" or "library". An application can run independently in a browser, while a library cannot.                                           |
 | `prefix`      | A string that Angular prepends to generated selectors. Can be customized to identify an application or feature area.                                    |
 | `schematics`  | A set of schematics that customize the `ng generate` sub-command option defaults for this project. See the [Generation schematics](#schematics) section.|
@@ -241,7 +241,7 @@ Some additional options can only be set through the configuration file, either b
 
 | Options properties         | Details |
 |:---                        |:---     |
-| `assets`                   | An object containing paths to static assets to add to the global context of the project. The default paths point to the project's icon file and its `assets` folder. See more in the [Assets configuration](#asset-config) section.                                                                     |
+| `assets`                   | An object containing paths to static assets to add to the global context of the project. The default paths point to the project's icon file and its `assets` directory. See more in the [Assets configuration](#asset-config) section.                                                                     |
 | `styles`                   | An array of style files to add to the global context of the project. Angular CLI supports CSS imports and all major CSS preprocessors: [sass/scss](https://sass-lang.com) and [less](http://lesscss.org). See more in the [Styles and scripts configuration](#style-script-config) section.             |
 | `stylePreprocessorOptions` | An object containing option-value pairs to pass to style preprocessors. See more in the [Styles and scripts configuration](#style-script-config) section.                                                                                                                                               |
 | `scripts`                  | An object containing JavaScript script files to add to the global context of the project. The scripts are loaded exactly as if you had added them in a `<script>` tag inside `index.html`. See more in the [Styles and scripts configuration](#style-script-config) section.                            |
@@ -260,8 +260,8 @@ The following sections provide more details of how these complex values are used
 
 ### Assets configuration
 
-Each `build` target configuration can include an `assets` array that lists files or folders you want to copy as-is when building your project.
-By default, the `src/assets/` folder and `src/favicon.ico` are copied over.
+Each `build` target configuration can include an `assets` array that lists files or directories you want to copy as-is when building your project.
+By default, the `src/assets` directory and `src/favicon.ico` are copied over.
 
 <code-example language="json">
 
@@ -283,7 +283,7 @@ A asset specification object can have the following fields.
 | `input`          | A path relative to the workspace root.                                                                                                                                 |
 | `output`         | A path relative to `outDir` \(default is `dist/`*project-name*\). Because of the security implications, the CLI never writes files outside of the project output path. |
 | `ignore`         | A list of globs to exclude.                                                                                                                                            |
-| `followSymlinks` | Allow glob patterns to follow symlink directories. This allows subdirectories of the symlink to be searched. Defaults to `false`.                                      |
+| `followSymlinks` | Allow glob patterns to follow symlink directories. This allows sub-directories of the symlink to be searched. Defaults to `false`.                                      |
 
 For example, the default asset paths can be represented in more detail using the following objects.
 
@@ -319,9 +319,9 @@ For example, the following configuration copies assets from a node package:
 
 </code-example>
 
-The contents of `node_modules/some-package/images/` will be available in `dist/some-package/`.
+The contents of `node_modules/some-package/images` will be available in `dist/some-package`.
 
-The following example uses the `ignore` field to exclude certain files in the assets folder from being copied into the build:
+The following example uses the `ignore` field to exclude certain files in the assets directory from being copied into the build:
 
 <code-example language="json">
 
@@ -397,7 +397,7 @@ To add paths, use the `stylePreprocessorOptions` option:
 
 </code-example>
 
-Files in that folder, such as `src/style-paths/_variables.scss`, can be imported from anywhere in your project without the need for a relative path:
+Files in that directory, such as `src/style-paths/_variables.scss`, can be imported from anywhere in your project without the need for a relative path:
 
 <code-example language="typescript">
 

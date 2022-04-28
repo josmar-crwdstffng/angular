@@ -10,7 +10,7 @@ The owner of the component is then responsible for the detailed / component-leve
 ### Components
 
 The caretaker should be able to determine which component the issue belongs to.
-The components have a clear piece of source code associated with it within the `/packages/` folder
+The components have a clear piece of source code associated with it within the `packages` directory
 of this repo.
 
 * `comp: animations`

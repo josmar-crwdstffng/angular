@@ -1,11 +1,11 @@
 # Overview
 
 Many of the documentation pages contain snippets of code examples.
-These snippets are extracted from real working example applications, which are stored in sub-folders of the [aio/content/examples/](.) folder.
+These snippets are extracted from real working example applications, which are stored in sub-directories of the [aio/content/examples/](.) directory.
 Each example can be built and run independently.
 Each example also provides tests (mostly e2e and occasionally unit tests), which are run as part of our CircleCI `test_docs_examples*` jobs, to verify that the examples continue to work as expected, as changes are made to the core Angular libraries.
 
-In order to build, run and test these examples independently, you need to install dependencies into their sub-folder.
+In order to build, run and test these examples independently, you need to install dependencies into their sub-directory.
 Also there are a number of common boilerplate files that are needed to configure each example's project.
 These common boilerplate files are maintained centrally to reduce the amount of effort if one of them needs to change.
 
@@ -18,7 +18,7 @@ These common boilerplate files are maintained centrally to reduce the amount of 
 ## Boilerplate overview
 
 As mentioned above, many of the documentation pages contain snippets extracted from real example applications.
-To achieve that, all those applications need to contain some basic boilerplate, such as a `node_modules/` folder, a `package.json` file with scripts and dependencies, etc.
+To achieve that, all those applications need to contain some basic boilerplate, such as a `node_modules` directory, a `package.json` file with scripts and dependencies, etc.
 
 There are also different project types, each with its own boilerplate.
 For example, there are projects based on the Angular CLI, projects that use AngularJS, Custom Elements, i18n, server-side rendering, etc.
@@ -29,7 +29,7 @@ To avoid having to maintain the boilerplate in each example, we use the [example
 
 ### Boilerplate files
 
-Inside [shared/boilerplate/](./shared/boilerplate) there is a sub-folder with boilerplate files for each of the different project types.
+Inside [shared/boilerplate/](./shared/boilerplate) there is a sub-directory with boilerplate files for each of the different project types.
 
 Currently, the following project types are supported:
 
@@ -44,7 +44,7 @@ Currently, the following project types are supported:
 - `testing`: For CLI-based examples that are related to unit testing.
 - `universal`: For CLI-based examples that also use `@nguniversal/express-engine` for SSR.
 
-There are also the following special folders:
+There are also the following special directories:
 - `common`: Contains files used in many examples.
   (See the [next section](#example-config) for info on how to exclude common files in certain examples.)
 
@@ -52,7 +52,7 @@ There are also the following special folders:
 <a name="example-config"></a>
 ### The `example-config.json`
 
-Each example is identified by an `example-config.json` configuration file in its root folder.
+Each example is identified by an `example-config.json` configuration file in its root directory.
 This configuration file indicates what type of boilerplate this example needs and how to test it.
 For example:
 
@@ -66,7 +66,7 @@ The file is expected to contain a JSON object with zero or more of the following
 
 - `projectType: string`: One of the supported project types (see above).
   Default: `"cli"`
-- `useCommonBoilerplate: boolean`: Whether to include common boilerplate from the [common/](./shared/boilerplate/common) folder.
+- `useCommonBoilerplate: boolean`: Whether to include common boilerplate from the [common/](./shared/boilerplate/common) directory.
   Default: `true`
 - `"overrideBoilerplate": string[]`: A list of paths to boilerplate files that are overridden by custom files in this example.
   Commonly this is used when a boilerplate file is referenced in a guide and so needs to have doc-regions added.
@@ -102,13 +102,13 @@ An empty `example-config.json` file is equivalent with `{"projectType": "cli"}`.
 
 
 <a name="symlinked-node_modules"></a>
-### A `node_modules/` to share
+### A `node_modules` to share
 
 With all the boilerplate files in place, the only missing piece is the installed packages.
 For that we have [shared/package.json](./shared/package.json), which contains **all** the packages needed to run any example type.
 
-Upon installing these dependencies, a [shared/node_modules/](./shared/node_modules) folder is created.
-This folder will be **symlinked** into each example.
+Upon installing these dependencies, a [shared/node_modules/](./shared/node_modules) directory is created.
+This directory will be **symlinked** into each example.
 So it is not a copy like the other boilerplate files.
 
 
@@ -116,11 +116,11 @@ So it is not a copy like the other boilerplate files.
 
 End-to-end infrastructure is slightly different between CLI- and SystemJS-based examples.
 
-For CLI-based examples, create an `app.e2e-spec.ts` file inside the `e2e/` folder.
+For CLI-based examples, create an `app.e2e-spec.ts` file inside the `e2e` directory.
 This will be picked up by the default testing command (see the [example configuration section](#example-config) above).
 If you are using a custom test command, make sure e2e specs are picked up (if applicable).
 
-For SystemJS-based examples, create an `e2e-spec.ts` file inside the example root folder.
+For SystemJS-based examples, create an `e2e-spec.ts` file inside the example root directory.
 These apps will be tested with the following command (and an optional `outputFile` to receive log messages):
 
 ```sh
@@ -132,7 +132,7 @@ yarn protractor [--params.outputFile=path/to/logfile.txt]
 
 The [example-boilerplate.js](./example-boilerplate.js) script manages the dependencies for all examples.
 
-- `example-boilerplate.js add`: create the `node_modules/` symlinks and copy the necessary boilerplate files into example folders.
+- `example-boilerplate.js add`: create the `node_modules` symlinks and copy the necessary boilerplate files into example directories.
 - `example-boilerplate.js remove`: remove all the boilerplate files from examples.
   It uses `git clean -xdf` to do the job.
   It will remove all files that are not tracked by git, **including any new files that you are working on that haven't been staged yet.**

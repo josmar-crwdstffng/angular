@@ -43,7 +43,7 @@ npm install
 
 ## Download
 
-[Download the QuickStart seed](https://github.com/angular/quickstart/archive/master.zip "Download the QuickStart seed repository") and unzip it into your project folder.
+[Download the QuickStart seed](https://github.com/angular/quickstart/archive/master.zip "Download the QuickStart seed repository") and unzip it into your project directory.
 Then perform the remaining steps with these terminal commands.
 
 <code-example format="shell" language="shell">
@@ -57,7 +57,7 @@ npm install
 
 ## Delete *non-essential* files (optional)
 
-You can quickly delete the *non-essential* files that concern testing and QuickStart repository maintenance \(***including all git-related artifacts*** such as the `.git` folder and `.gitignore`\).
+You can quickly delete the *non-essential* files that concern testing and QuickStart repository maintenance \(***including all git-related artifacts*** such as the `.git` directory and `.gitignore`\).
 
 <div class="alert is-important">
 
@@ -65,7 +65,7 @@ Do this only in the beginning to avoid accidentally deleting your own tests and 
 
 </div>
 
-Open a terminal window in the project folder and enter the following commands for your environment:
+Open a terminal window in the project directory and enter the following commands for your environment:
 
 ### macOS / Mac OS X (bash)
 
@@ -155,7 +155,7 @@ Once built, the application will be automatically opened in a new browser tab an
 ## What's in the QuickStart seed?
 
 The **QuickStart seed** provides a basic QuickStart playground application and other files necessary for local development.
-Consequently, there are many files in the project folder on your machine, most of which you can [learn about later](guide/file-structure).
+Consequently, there are many files in the project directory on your machine, most of which you can [learn about later](guide/file-structure).
 
 <div class="alert is-helpful">
 
@@ -165,7 +165,7 @@ Consequently, there are many files in the project folder on your machine, most o
 
 <a id="app-files"></a>
 
-Focus on the following three TypeScript \(`.ts`\) files in the `/src` folder.
+Focus on the following three TypeScript \(`.ts`\) files in the `src` directory.
 
 <div class="filetree">
   <div class="file">
@@ -198,13 +198,13 @@ Focus on the following three TypeScript \(`.ts`\) files in the `/src` folder.
 All guides and cookbooks have *at least these core files*.
 Each file has a distinct purpose and evolves independently as the application grows.
 
-Files outside `src/` concern building, deploying, and testing your application.
+Files outside `src` concern building, deploying, and testing your application.
 They include configuration files and external dependencies.
 
-Files inside `src/` "belong" to your application.
-Add new Typescript, HTML and CSS files inside the `src/` directory, most of them inside `src/app`, unless told to do otherwise.
+Files inside `src` "belong" to your application.
+Add new Typescript, HTML and CSS files inside the `src` directory, most of them inside `src/app`, unless told to do otherwise.
 
-The following are all in `src/`
+The following are all in `src`
 
 | File                 | Purpose |
 |:---                  |:---     |

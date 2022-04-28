@@ -85,9 +85,9 @@ export class Renderer {
         this.srcFormatter.addAdjacentStatements(outputText, clazz, renderedStatements);
       });
 
-      if (!isEntryPoint && compiledFile.reexports.length > 0) {
+      if (!isEntryPoint && compiledFile.re - exports.length > 0) {
         this.srcFormatter.addDirectExports(
-            outputText, compiledFile.reexports, importManager, compiledFile.sourceFile);
+            outputText, compiledFile.re - exports, importManager, compiledFile.sourceFile);
       }
 
       this.srcFormatter.addConstants(

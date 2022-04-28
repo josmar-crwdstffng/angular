@@ -124,7 +124,7 @@ test:saucelabs --flaky_test_attempts=1
 build --flag_alias=ng_perf=//packages/compiler-cli:ng_perf
 
 #####################################################################
-# Folders to ignore for integration tests (nested Bazel workspaces) #
+# Directories to ignore for integration tests (nested Bazel workspaces) #
 #####################################################################
 
 # The nested Bazel integration test workspace should not be analysed as part of

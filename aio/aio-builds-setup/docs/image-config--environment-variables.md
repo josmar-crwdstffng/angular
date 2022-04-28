@@ -46,7 +46,7 @@ you don't need to specify values for those.
 
 - `AIO_SIGNIFICANT_FILES_PATTERN`:
   The RegExp that determines whether a changed file indicates that a new preview needs to
-  be deployed. For example, if there is a changed file in the `/packages` directory then
+  be deployed. For example, if there is a changed file in the `packages` directory then
   some of the API docs might have changed, so we need to create a new preview.
 
 - `AIO_TRUSTED_PR_LABEL`:

@@ -92,7 +92,7 @@ export class SearchResultsComponent implements OnChanges {
     });
   }
 
-  // Split the search result path and use the top level folder, if there is one, as the area name.
+  // Split the search result path and use the top level directory, if there is one, as the area name.
   private computeAreaName(result: SearchResult): string {
     const [folder] = result.path.split('/', 1);
     return this.folderToAreaMap[folder] ?? this.defaultArea;

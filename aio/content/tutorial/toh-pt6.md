@@ -472,7 +472,7 @@ If you enter characters that match any existing hero names, you'll see something
 
 ## Final code review
 
-Here are the code files discussed on this page \(all in the `src/app/` folder\).
+Here are the code files discussed on this page \(all in the `src/app` directory\).
 
 <a id="heroservice"></a>
 <a id="inmemorydataservice"></a>

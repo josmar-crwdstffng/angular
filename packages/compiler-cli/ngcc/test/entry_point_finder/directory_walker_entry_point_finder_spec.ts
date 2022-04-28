@@ -227,29 +227,31 @@ runInEachFileSystem(() => {
         ]);
       });
 
-      it('should ignore folders starting with .', () => {
+      it('should ignore directories starting with .', () => {
         loadTestFiles([
-          ...createPackage(_Abs('/dotted_folders/node_modules/'), '.common'),
+          ...createPackage(_Abs('/dotted_directories/node_modules/'), '.common'),
         ]);
         const finder = new DirectoryWalkerEntryPointFinder(
-            logger, resolver, collector, manifest, _Abs('/dotted_folders/node_modules'), undefined);
-        const {entryPoints} = finder.findEntryPoints();
-        expect(entryPoints).toEqual([]);
-      });
-
-      it('should ignore folders that are symlinked', () => {
-        fs.ensureDir(_Abs('/symlinked_folders/node_modules'));
-        fs.symlink(
-            _Abs('/external/node_modules/common'), _Abs('/symlinked_folders/node_modules/common'));
-        loadTestFiles(createPackage(_Abs('/external/node_modules'), 'common'));
-        const finder = new DirectoryWalkerEntryPointFinder(
-            logger, resolver, collector, manifest, _Abs('/symlinked_folders/node_modules'),
+            logger, resolver, collector, manifest, _Abs('/dotted_directories/node_modules'),
             undefined);
         const {entryPoints} = finder.findEntryPoints();
         expect(entryPoints).toEqual([]);
       });
 
-      it('should handle nested node_modules folders', () => {
+      it('should ignore directories that are symlinked', () => {
+        fs.ensureDir(_Abs('/symlinked_directories/node_modules'));
+        fs.symlink(
+            _Abs('/external/node_modules/common'),
+            _Abs('/symlinked_directories/node_modules/common'));
+        loadTestFiles(createPackage(_Abs('/external/node_modules'), 'common'));
+        const finder = new DirectoryWalkerEntryPointFinder(
+            logger, resolver, collector, manifest, _Abs('/symlinked_directories/node_modules'),
+            undefined);
+        const {entryPoints} = finder.findEntryPoints();
+        expect(entryPoints).toEqual([]);
+      });
+
+      it('should handle nested node_modules directories', () => {
         loadTestFiles([
           ...createPackage(_Abs('/nested_node_modules/node_modules'), 'outer', ['inner']),
           ...createPackage(_Abs('/nested_node_modules/node_modules/outer/node_modules'), 'inner'),
@@ -286,7 +288,7 @@ runInEachFileSystem(() => {
         expect(entryPoints).toEqual([]);
       });
 
-      it('should not try to process deeply nested folders of non TypeScript packages', () => {
+      it('should not try to process deeply nested directories of non TypeScript packages', () => {
         const basePath = _Abs('/namespaced/node_modules');
         loadTestFiles([
           ...createNonTsPackage(_Abs(`${basePath}/@schematics`), 'angular'),
@@ -333,9 +335,9 @@ runInEachFileSystem(() => {
         expect(entryPoints).toEqual([]);
       });
 
-      it('should process sub-entry-points within a non-entry-point containing folder in a package',
+      it('should process sub-entry-points within a non-entry-point containing directory in a package',
          () => {
-           const basePath = _Abs('/containing_folders/node_modules');
+           const basePath = _Abs('/containing_directories/node_modules');
            loadTestFiles([
              ...createPackage(basePath, 'package'),
              ...createPackage(fs.resolve(basePath, 'package/container'), 'entry-point-1'),

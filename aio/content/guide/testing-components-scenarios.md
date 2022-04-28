@@ -881,7 +881,7 @@ The following `ActivatedRouteStub` class serves as a test double for `ActivatedR
 
 <code-example header="testing/activated-route-stub.ts (ActivatedRouteStub)" path="testing/src/testing/activated-route-stub.ts" region="activated-route-stub"></code-example>
 
-Consider placing such helpers in a `testing` folder sibling to the `app` folder.
+Consider placing such helpers in a `testing` directory sibling to the `app` directory.
 This sample puts `ActivatedRouteStub` in `testing/activated-route-stub.ts`.
 
 <div class="alert is-helpful">
@@ -1262,7 +1262,7 @@ The `HeroDetailComponent` requires a lot of help despite its small size and simp
 In addition to the support it receives from the default testing module `CommonModule`, it needs:
 
 *   `NgModel` and friends in the `FormsModule` to enable two-way data binding
-*   The `TitleCasePipe` from the `shared` folder
+*   The `TitleCasePipe` from the `shared` directory
 *   Router services \(which these tests are stubbing\)
 *   Hero data access services \(also stubbed\)
 

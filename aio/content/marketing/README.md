@@ -35,4 +35,4 @@ done
 
 </code-example>
 
-Relevant scripts are stored in `aio/scripts/contributors/`.
+Relevant scripts are stored in the `aio/scripts/contributors` directory.

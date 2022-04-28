@@ -31,7 +31,7 @@ It is also an excellent indication to consumers of the registry to differentiate
 
 </div>
 
-The `ng generate` command creates the `projects/my-lib` folder in your workspace, which contains a component and a service inside an NgModule.
+The `ng generate` command creates the `projects/my-lib` directory in your workspace, which contains a component and a service inside an NgModule.
 
 <div class="alert is-helpful">
 
@@ -77,7 +77,7 @@ To make library code reusable you must define a public API for it.
 This "user layer" defines what is available to consumers of your library.
 A user of your library should be able to access public functionality \(such as NgModules, service providers and general utility functions\) through a single import path.
 
-The public API for your library is maintained in the `public-api.ts` file in your library folder.
+The public API for your library is maintained in the `public-api.ts` file in your library directory.
 Anything exported from this file is made public when your library is imported into an application.
 Use an NgModule to expose services and components.
 
@@ -226,7 +226,7 @@ For instance, if you clone your git repository and run `npm install`, your edito
 <div class="alert is-helpful">
 
 When you import something from a library in an Angular application, Angular looks for a mapping between the library name and a location on disk.
-When you install a library package, the mapping is in the `node_modules` folder.
+When you install a library package, the mapping is in the `node_modules` directory.
 When you build your own library, it has to find the mapping in your `tsconfig` paths.
 
 Generating a library with the Angular CLI automatically adds its path to the `tsconfig` file.

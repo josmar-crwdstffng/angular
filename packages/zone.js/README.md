@@ -19,7 +19,7 @@ Read up on [Zone Primer](https://docs.google.com/document/d/1F5Ug0jcrm031vhSMJEO
 
 # BREAKING CHANGES since Zone.js v0.11.1
 
-Prior to `v0.11.1`, Zone.js provided two distribution bundle formats in the `dist` folder.
+Prior to `v0.11.1`, Zone.js provided two distribution bundle formats in the `dist` directory.
 They were (1) `ES5` bundle distributed as `zone.js` and (2) `ES2015` bundle distributed as `zone-evergreen.js`.
 Both of these bundles were in `UMD` format, and are used for Angular's differential-loading mechanism.
 
@@ -94,7 +94,7 @@ see [MODULE.md](MODULE.md).
 ## Bundles
 
 Starting with `v0.11.0`, `zone.js`  uses `Angular Package Format` for bundle distribution.
-(For backwards compatibility, all bundles can still be accessed from `dist` folder.)
+(For backwards compatibility, all bundles can still be accessed from `dist` directory.)
 
 |Bundle|Summary|
 |---|---|
@@ -105,7 +105,7 @@ Starting with `v0.11.0`, `zone.js`  uses `Angular Package Format` for bundle dis
 |`zone-externs.js`|the API definitions for `closure compiler`.|
 
 Additional optional patches not included in the `zone.js` bundles which extend functionality.
-The additional bundles can  be found under `zone.js/plugins` folder.
+The additional bundles can  be found under `zone.js/plugins` directory.
 To use these bundles, add the following code after importing zone.js bundle.
 
 ```

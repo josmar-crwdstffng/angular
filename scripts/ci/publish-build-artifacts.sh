@@ -43,7 +43,7 @@ function publishRepo {
 
   echo "Pushing build artifacts to ${ORG}/${BUILD_REPO}"
 
-  # create local repo folder and clone build repo into it
+  # create local repo directory and clone build repo into it
   rm -rf $REPO_DIR
   mkdir -p ${REPO_DIR}
 

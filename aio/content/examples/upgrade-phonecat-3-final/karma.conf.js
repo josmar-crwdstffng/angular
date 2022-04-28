@@ -4,7 +4,7 @@ module.exports = function(config) {
   var appBase    = 'src/';       // transpiled app JS and map files
   var appAssets  = '/base/app/'; // component assets fetched by Angular's compiler
 
-  // Testing helpers (optional) are conventionally in a folder called `testing`
+  // Testing helpers (optional) are conventionally in a directory called `testing`
   var testingBase    = 'src/testing/'; // transpiled test JS and map files
   var testingSrcBase = 'src/testing/'; // test source TS files
 

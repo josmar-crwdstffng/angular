@@ -88,7 +88,7 @@ you may need to update the logic to handle the errors that are no longer masked 
 
 # BREAKING CHANGES since Zone.js v0.11.1
 
-Prior to `v0.11.1`, Zone.js provided two distribution bundle formats in the `dist` folder.
+Prior to `v0.11.1`, Zone.js provided two distribution bundle formats in the `dist` directory.
 They were (1) `ES5` bundle distributed as `zone.js` and (2) `ES2015` bundle distributed as `zone-evergreen.js`.
 These bundles are used for Angular's differential-loading mechanism.
 
@@ -100,7 +100,7 @@ import 'zone.js';
 
 would load the `ES5` bundle from `dist/zone.js`.
 
-Starting with `v0.11.1`, Zone.js follows the [Angular Package Format](https://docs.google.com/document/d/1CZC2rcpxffTDfRDs6p1cfbmKNLA6x5O-NtkJglDaBVs), so the folder structure of the Zone.js bundles is updated to match `Angular Package Format`.
+Starting with `v0.11.1`, Zone.js follows the [Angular Package Format](https://docs.google.com/document/d/1CZC2rcpxffTDfRDs6p1cfbmKNLA6x5O-NtkJglDaBVs), so the directory structure of the Zone.js bundles is updated to match `Angular Package Format`.
 So the same code
 
 ```
@@ -136,7 +136,7 @@ import 'zone.js/dist/zone';
 
 ### Features
 
-- **zone.js:** move all zone optional bundles to plugins folders ([#36540](https://github.com/angular/angular/issues/36540)) ([b199ef6](https://github.com/angular/angular/commit/b199ef6))
+- **zone.js:** move all zone optional bundles to plugins directories ([#36540](https://github.com/angular/angular/issues/36540)) ([b199ef6](https://github.com/angular/angular/commit/b199ef6))
 - **zone.js:** move MutationObserver/FileReader to different module ([#31657](https://github.com/angular/angular/issues/31657)) ([253337d](https://github.com/angular/angular/commit/253337d))
 - **zone.js:** patch jasmine.createSpyObj to make properties enumerable to be true ([#34624](https://github.com/angular/angular/issues/34624)) ([c2b4d92](https://github.com/angular/angular/commit/c2b4d92)), closes [#33657](https://github.com/angular/angular/issues/33657)
 - **zone.js:** upgrade zone.js to angular package format(APF) ([#36540](https://github.com/angular/angular/issues/36540)) ([583a9d3](https://github.com/angular/angular/commit/583a9d3)), closes [#35157](https://github.com/angular/angular/issues/35157) [/github.com/angular/angular-cli/blob/5376a8b1392ac7bd252782d8474161ce03a4d1cb/packages/schematics/angular/application/files/src/polyfills.ts.template#L55-L58](https://github.com//github.com/angular/angular-cli/blob/5376a8b1392ac7bd252782d8474161ce03a4d1cb/packages/schematics/angular/application/files/src/polyfills.ts.template/issues/L55-L58)
@@ -744,7 +744,7 @@ import 'zone.js/dist/zone';
 - Prevent adding listener for xhrhttprequest multiple times ([9509747](https://github.com/angular/zone.js/commit/9509747)), closes [#529](https://github.com/angular/zone.js/issues/529) [#527](https://github.com/angular/zone.js/issues/527) [#287](https://github.com/angular/zone.js/issues/287) [#530](https://github.com/angular/zone.js/issues/530)
 - Promise.toString() to look like native function ([f854ce0](https://github.com/angular/zone.js/commit/f854ce0))
 - **closure:** Fix closure error suppression comment. ([#552](https://github.com/angular/zone.js/issues/552)) ([2643783](https://github.com/angular/zone.js/commit/2643783))
-- Run tests on both the build as well as the dist folder ([#514](https://github.com/angular/zone.js/issues/514)) ([c0604f5](https://github.com/angular/zone.js/commit/c0604f5))
+- Run tests on both the build as well as the 'dist` directory ([#514](https://github.com/angular/zone.js/issues/514)) ([c0604f5](https://github.com/angular/zone.js/commit/c0604f5))
 - support nw.js environment ([486010b](https://github.com/angular/zone.js/commit/486010b)), closes [#524](https://github.com/angular/zone.js/issues/524)
 
 ### Features

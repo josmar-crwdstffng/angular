@@ -31,7 +31,7 @@ runInNativeFileSystem(() => {
       loadTestDirectory(fs, realResolve(__dirname, 'locales'), translationFilesDir);
     });
 
-    it('should copy non-code files to the destination folders', () => {
+    it('should copy non-code files to the destination directories', () => {
       const diagnostics = new Diagnostics();
       const outputPathFn = getOutputPathFn(fs, fs.resolve(testDir, '{{LOCALE}}'));
       translateFiles({
@@ -67,7 +67,7 @@ runInNativeFileSystem(() => {
           .toEqual('Contents of test-2.txt');
     });
 
-    it('should translate and copy source-code files to the destination folders', () => {
+    it('should translate and copy source-code files to the destination directories', () => {
       const diagnostics = new Diagnostics();
       const outputPathFn = getOutputPathFn(fs, fs.resolve(testDir, '{{LOCALE}}'));
       translateFiles({
@@ -163,7 +163,7 @@ runInNativeFileSystem(() => {
               `var name="World";var message="Hola, "+name+"!";var message="Goodbye, "+name+"!";`);
     });
 
-    it('should transform and/or copy files to the destination folders', () => {
+    it('should transform and/or copy files to the destination directories', () => {
       const diagnostics = new Diagnostics();
       const outputPathFn = getOutputPathFn(fs, fs.resolve(testDir, '{{LOCALE}}'));
       translateFiles({

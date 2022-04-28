@@ -215,7 +215,7 @@ describe('DocumentService', () => {
       expect().nothing();  // Prevent jasmine from complaining about no expectations.
     });
 
-    it('should map the "folder" locations to the correct document request', () => {
+    it('should map the "directory" locations to the correct document request', () => {
       const { docService } = getServices('guide');
       docService.currentDocument.subscribe();
 

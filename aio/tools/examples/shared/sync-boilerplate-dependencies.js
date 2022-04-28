@@ -6,7 +6,7 @@
  * node sync-boilerplate-dependencies
  * ```
  *
- * Updates the dependency versions of the top-level `package.json` files in each sub-folder of
+ * Updates the dependency versions of the top-level `package.json` files in each sub-directory of
  * `./boilerplate/` to match the ones in `./package.json`.
  */
 const fs = require('fs');

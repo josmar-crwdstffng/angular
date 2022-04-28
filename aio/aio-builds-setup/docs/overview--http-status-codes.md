@@ -15,7 +15,7 @@ along with a brief explanation of what they mean:
 ## `https://pr<pr>-<sha>.ngbuilds.io/*`
 
 - **200 (OK)**:
-  File was found or URL was rewritten to `/index.html` (i.e. all paths that have no `.` in final
+  File was found or URL was rewritten to `index.html` (i.e. all paths that have no `.` in final
   segment).
 
 - **403 (Forbidden)**:

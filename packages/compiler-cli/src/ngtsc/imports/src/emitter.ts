@@ -346,7 +346,7 @@ export class AbsoluteModuleStrategy implements ReferenceEmitStrategy {
         // has the same name as the declared name, i.e. is not an aliased export. This is relevant
         // for partial compilations where emitted references should import symbols using a stable
         // name. This is particularly relevant for declarations inside VE-generated libraries, as
-        // such libraries contain private, unstable reexports of symbols.
+        // such libraries contain private, unstable re-exports of symbols.
         const existingExport = exportMap.get(declaration.node)!;
         if (isNamedDeclaration(declaration.node) && declaration.node.name.text === existingExport) {
           continue;

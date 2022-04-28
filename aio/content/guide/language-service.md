@@ -131,7 +131,7 @@ Starting with TypeScript 2.3, TypeScript has a plug-in model that the language s
 
     <code-example header="Sublime Text user preferences" language="json">
 
-    "typescript-tsdk": "&lt;path to your folder&gt;/node_modules/typescript/lib"
+    "typescript-tsdk": "&lt;path to your directory&gt;/node_modules/typescript/lib"
 
     </code-example>
 

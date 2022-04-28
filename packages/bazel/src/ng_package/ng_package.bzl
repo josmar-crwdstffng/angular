@@ -275,7 +275,7 @@ def _filter_esm_files_to_include(files, owning_package):
 
 # ng_package produces package that is npm-ready.
 def _ng_package_impl(ctx):
-    npm_package_directory = ctx.actions.declare_directory("%s.ng_pkg" % ctx.label.name)
+    npm_package_folder = ctx.actions.declare_directory("%s.ng_pkg" % ctx.label.name)
     owning_package = ctx.label.package
 
     # The name of the primary entry-point FESM bundles. If not explicitly provided through

@@ -46,7 +46,7 @@ describe('Zone.js npm_package', () => {
     });
   });
 
-  describe('check npm_package root folder', () => {
+  describe('check npm_package root directory', () => {
     describe('typescript support', () => {
       it('should have an zone.d.ts file', () => {
         expect(shx.cat('zone.d.ts')).toContain('declare const');
@@ -113,8 +113,8 @@ describe('Zone.js npm_package', () => {
     });
 
 
-    describe('plugins folder check', () => {
-      it('should contain all plugin folders in ./plugins', () => {
+    describe('plugins directory check', () => {
+      it('should contain all plugin directories in ./plugins', () => {
         const expected = [
           'async-test',
           'async-test.min',
@@ -287,7 +287,7 @@ describe('Zone.js npm_package', () => {
     });
 
     describe('backward compatible check', () => {
-      it('should contain all original folders in /dist', () => {
+      it('should contain all original directories in /dist', () => {
         const list = shx.ls('./dist').stdout.split('\n').sort().slice(1);
         const expected = [
           'async-test.js',

@@ -29,8 +29,8 @@ For this tutorial, you will create a new workspace.
 
 To create a new workspace and an initial application project:
 
-1.  Ensure that you are not already in an Angular workspace folder.
-    For example, if you have previously created the Getting Started workspace, change to the parent of that folder.
+1.  Ensure that you are not already in an Angular workspace directory.
+    For example, if you have previously created the Getting Started workspace, change to the parent of that directory.
 
 1.  Run the CLI command `ng new` and provide the name `angular-tour-of-heroes`, as shown here:
 
@@ -48,8 +48,8 @@ This can take a few minutes.
 
 It also creates the following workspace and starter project files:
 
-*   A new workspace, with a root folder named `angular-tour-of-heroes`
-*   An initial skeleton app project in the `src/app` subfolder
+*   A new workspace, with a root directory named `angular-tour-of-heroes`
+*   An initial skeleton app project in the `src/app` sub-directory
 *   Related configuration files
 
 The initial app project contains a simple Welcome application, ready to run.
@@ -86,7 +86,7 @@ They display data on the screen, listen for user input, and take action based on
 
 ## Make changes to the application
 
-Open the project in your favorite editor or IDE and navigate to the `src/app` folder to make some changes to the starter application.
+Open the project in your favorite editor or IDE and navigate to the `src/app` directory to make some changes to the starter application.
 
 You'll find the implementation of the shell `AppComponent` distributed over three files:
 

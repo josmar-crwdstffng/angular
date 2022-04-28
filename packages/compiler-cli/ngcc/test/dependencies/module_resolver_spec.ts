@@ -20,9 +20,12 @@ runInEachFileSystem(() => {
         {name: _('/libs/local-package/package.json'), contents: 'PACKAGE.JSON for local-package'},
         {name: _('/libs/local-package/index.js'), contents: `import {X} from './x';`},
         {name: _('/libs/local-package/x.js'), contents: `export class X {}`},
-        {name: _('/libs/local-package/sub-folder/index.js'), contents: `import {X} from '../x';`},
         {
-          name: _('/libs/local-package/node_modules/package-1/sub-folder/index.js'),
+          name: _('/libs/local-package/sub-directory/index.js'),
+          contents: `import {X} from '../x';`
+        },
+        {
+          name: _('/libs/local-package/node_modules/package-1/sub-directory/index.js'),
           contents: `export class Z {}`
         },
         {
@@ -40,7 +43,7 @@ runInEachFileSystem(() => {
         {name: _('/dist/package-4/x.js'), contents: `export class X {}`},
         {name: _('/dist/package-4/package.json'), contents: 'PACKAGE.JSON for package-4'},
         {
-          name: _('/dist/package-4/sub-folder/index.js'),
+          name: _('/dist/package-4/sub-directory/index.js'),
           contents: `import {X} from '@shared/package-4/x';`
         },
         {name: _('/dist/package-4/secondary-entry-point/x.js'), contents: `export class X {}`},
@@ -49,15 +52,15 @@ runInEachFileSystem(() => {
           contents: 'PACKAGE.JSON for secondary-entry-point'
         },
         {
-          name: _('/dist/sub-folder/package-4/package.json'),
+          name: _('/dist/sub-directory/package-4/package.json'),
           contents: 'PACKAGE.JSON for package-4'
         },
         {
-          name: _('/dist/sub-folder/package-5/package.json'),
+          name: _('/dist/sub-directory/package-5/package.json'),
           contents: 'PACKAGE.JSON for package-5'
         },
         {
-          name: _('/dist/sub-folder/package-5/post-fix/package.json'),
+          name: _('/dist/sub-directory/package-5/post-fix/package.json'),
           contents: 'PACKAGE.JSON for package-5/post-fix'
         },
         {
@@ -94,9 +97,10 @@ runInEachFileSystem(() => {
           // With relative file paths.
           expect(resolver.resolveModuleImport('./x', _('/libs/local-package/index.js')))
               .toEqual(new ResolvedRelativeModule(_('/libs/local-package/x.js')));
-          expect(resolver.resolveModuleImport('./sub-folder', _('/libs/local-package/index.js')))
-              .toEqual(new ResolvedRelativeModule(_('/libs/local-package/sub-folder/index.js')));
-          expect(resolver.resolveModuleImport('../x', _('/libs/local-package/sub-folder/index.js')))
+          expect(resolver.resolveModuleImport('./sub-directory', _('/libs/local-package/index.js')))
+              .toEqual(new ResolvedRelativeModule(_('/libs/local-package/sub-directory/index.js')));
+          expect(
+              resolver.resolveModuleImport('../x', _('/libs/local-package/sub-directory/index.js')))
               .toEqual(new ResolvedRelativeModule(_('/libs/local-package/x.js')));
 
           // With absolute file paths.
@@ -104,10 +108,10 @@ runInEachFileSystem(() => {
                      _('/libs/local-package/x'), _('/libs/local-package/index.js')))
               .toEqual(new ResolvedRelativeModule(_('/libs/local-package/x.js')));
           expect(resolver.resolveModuleImport(
-                     _('/libs/local-package/sub-folder'), _('/libs/local-package/index.js')))
-              .toEqual(new ResolvedRelativeModule(_('/libs/local-package/sub-folder/index.js')));
+                     _('/libs/local-package/sub-directory'), _('/libs/local-package/index.js')))
+              .toEqual(new ResolvedRelativeModule(_('/libs/local-package/sub-directory/index.js')));
           expect(resolver.resolveModuleImport(
-                     _('/libs/local-package/x'), _('/libs/local-package/sub-folder/index.js')))
+                     _('/libs/local-package/x'), _('/libs/local-package/sub-directory/index.js')))
               .toEqual(new ResolvedRelativeModule(_('/libs/local-package/x.js')));
         });
 
@@ -129,7 +133,7 @@ runInEachFileSystem(() => {
           expect(resolver.resolveModuleImport('package-1', _('/libs/local-package/index.js')))
               .toEqual(new ResolvedExternalModule(_('/libs/local-package/node_modules/package-1')));
           expect(resolver.resolveModuleImport(
-                     'package-1', _('/libs/local-package/sub-folder/index.js')))
+                     'package-1', _('/libs/local-package/sub-directory/index.js')))
               .toEqual(new ResolvedExternalModule(_('/libs/local-package/node_modules/package-1')));
           expect(resolver.resolveModuleImport('package-1', _('/libs/local-package/x.js')))
               .toEqual(new ResolvedExternalModule(_('/libs/local-package/node_modules/package-1')));
@@ -159,9 +163,9 @@ runInEachFileSystem(() => {
         it('should identify deep imports into an external module', () => {
           const resolver = new ModuleResolver(getFileSystem());
           expect(resolver.resolveModuleImport(
-                     'package-1/sub-folder', _('/libs/local-package/index.js')))
+                     'package-1/sub-directory', _('/libs/local-package/index.js')))
               .toEqual(new ResolvedDeepImport(
-                  _('/libs/local-package/node_modules/package-1/sub-folder')));
+                  _('/libs/local-package/node_modules/package-1/sub-directory')));
         });
 
         it('should resolve to APF v14+ secondary entry-points', () => {
@@ -179,13 +183,13 @@ runInEachFileSystem(() => {
       describe('with mapped path external modules', () => {
         it('should resolve to the package.json of simple mapped packages', () => {
           const resolver = new ModuleResolver(
-              getFileSystem(), {baseUrl: '/dist', paths: {'*': ['*', 'sub-folder/*']}});
+              getFileSystem(), {baseUrl: '/dist', paths: {'*': ['*', 'sub-directory/*']}});
 
           expect(resolver.resolveModuleImport('package-4', _('/libs/local-package/index.js')))
               .toEqual(new ResolvedExternalModule(_('/dist/package-4')));
 
           expect(resolver.resolveModuleImport('package-5', _('/libs/local-package/index.js')))
-              .toEqual(new ResolvedExternalModule(_('/dist/sub-folder/package-5')));
+              .toEqual(new ResolvedExternalModule(_('/dist/sub-directory/package-5')));
         });
 
         it('should select the best match by the length of prefix before the *', () => {
@@ -193,14 +197,14 @@ runInEachFileSystem(() => {
             baseUrl: '/dist',
             paths: {
               '@lib/*': ['*'],
-              '@lib/sub-folder/*': ['*'],
+              '@lib/sub-directory/*': ['*'],
             }
           });
 
-          // We should match the second path (e.g. `'@lib/sub-folder/*'`), which will actually map
-          // to `*` and so the final resolved path will not include the `sub-folder` segment.
+          // We should match the second path (e.g. `'@lib/sub-directory/*'`), which will actually
+          // map to `*` and so the final resolved path will not include the `sub-directory` segment.
           expect(resolver.resolveModuleImport(
-                     '@lib/sub-folder/package-4', _('/libs/local-package/index.js')))
+                     '@lib/sub-directory/package-4', _('/libs/local-package/index.js')))
               .toEqual(new ResolvedExternalModule(_('/dist/package-4')));
         });
 
@@ -209,29 +213,29 @@ runInEachFileSystem(() => {
 
           const fs = getFileSystem();
           resolver =
-              new ModuleResolver(fs, {baseUrl: '/dist', paths: {'*': ['*', 'sub-folder/*']}});
+              new ModuleResolver(fs, {baseUrl: '/dist', paths: {'*': ['*', 'sub-directory/*']}});
           expect(resolver.resolveModuleImport('package-4', _('/libs/local-package/index.js')))
               .toEqual(new ResolvedExternalModule(_('/dist/package-4')));
 
           resolver =
-              new ModuleResolver(fs, {baseUrl: '/dist', paths: {'*': ['sub-folder/*', '*']}});
+              new ModuleResolver(fs, {baseUrl: '/dist', paths: {'*': ['sub-directory/*', '*']}});
           expect(resolver.resolveModuleImport('package-4', _('/libs/local-package/index.js')))
-              .toEqual(new ResolvedExternalModule(_('/dist/sub-folder/package-4')));
+              .toEqual(new ResolvedExternalModule(_('/dist/sub-directory/package-4')));
         });
 
         it('should resolve packages when the path mappings have post-fixes', () => {
           const resolver = new ModuleResolver(
-              getFileSystem(), {baseUrl: '/dist', paths: {'*': ['sub-folder/*/post-fix']}});
+              getFileSystem(), {baseUrl: '/dist', paths: {'*': ['sub-directory/*/post-fix']}});
           expect(resolver.resolveModuleImport('package-5', _('/libs/local-package/index.js')))
-              .toEqual(new ResolvedExternalModule(_('/dist/sub-folder/package-5/post-fix')));
+              .toEqual(new ResolvedExternalModule(_('/dist/sub-directory/package-5/post-fix')));
         });
 
         it('should match paths against complex path matchers', () => {
           const resolver = new ModuleResolver(
-              getFileSystem(), {baseUrl: '/dist', paths: {'@shared/*': ['sub-folder/*']}});
+              getFileSystem(), {baseUrl: '/dist', paths: {'@shared/*': ['sub-directory/*']}});
           expect(
               resolver.resolveModuleImport('@shared/package-4', _('/libs/local-package/index.js')))
-              .toEqual(new ResolvedExternalModule(_('/dist/sub-folder/package-4')));
+              .toEqual(new ResolvedExternalModule(_('/dist/sub-directory/package-4')));
           expect(resolver.resolveModuleImport('package-5', _('/libs/local-package/index.js')))
               .toBe(null);
         });
@@ -241,7 +245,7 @@ runInEachFileSystem(() => {
              const resolver = new ModuleResolver(
                  getFileSystem(), {baseUrl: '/dist', paths: {'@shared/*': ['*']}});
              expect(resolver.resolveModuleImport(
-                        '@shared/package-4/x', _('/dist/package-4/sub-folder/index.js')))
+                        '@shared/package-4/x', _('/dist/package-4/sub-directory/index.js')))
                  .toEqual(new ResolvedRelativeModule(_('/dist/package-4/x.js')));
            });
 
@@ -249,9 +253,9 @@ runInEachFileSystem(() => {
           const resolver = new ModuleResolver(
               getFileSystem(), {baseUrl: '/dist', paths: {'@shared/*/post-fix': ['*/post-fix']}});
           expect(resolver.resolveModuleImport(
-                     '@shared/sub-folder/package-5/post-fix',
-                     _('/dist/package-4/sub-folder/index.js')))
-              .toEqual(new ResolvedExternalModule(_('/dist/sub-folder/package-5/post-fix')));
+                     '@shared/sub-directory/package-5/post-fix',
+                     _('/dist/package-4/sub-directory/index.js')))
+              .toEqual(new ResolvedExternalModule(_('/dist/sub-directory/package-5/post-fix')));
         });
 
         it('should resolve primary entry-points if they match non-wildcards exactly', () => {

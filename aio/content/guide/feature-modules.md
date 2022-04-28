@@ -28,7 +28,7 @@ ng generate module CustomerDashboard
 
 </code-example>
 
-This causes the CLI to create a folder called `customer-dashboard` with a file inside called `customer-dashboard.module.ts` with the following contents:
+This causes the CLI to create a directory called `customer-dashboard` with a file inside called `customer-dashboard.module.ts` with the following contents:
 
 <code-example format="typescript" language="typescript">
 
@@ -59,7 +59,7 @@ ng generate component customer-dashboard/CustomerDashboard
 
 </code-example>
 
-This generates a folder for the new component within the customer-dashboard folder and updates the feature module with the `CustomerDashboardComponent` info:
+This generates a directory for the new component within the `customer-dashboard` directory and updates the feature module with the `CustomerDashboardComponent` info:
 
 <code-example header="src/app/customer-dashboard/customer-dashboard.module.ts" path="feature-modules/src/app/customer-dashboard/customer-dashboard.module.ts" region="customer-dashboard-component"></code-example>
 

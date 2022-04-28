@@ -31,7 +31,7 @@ describe('updateGlobalApiPath processor', () => {
       global: true
     }];
     processor.$process(docs);
-    expect(docs[0].path).toBe('folder/ngWithNamespace');
-    expect(docs[0].outputPath).toBe('folder/ngWithNamespace.json');
+    expect(docs[0].path).toBe('directory/ngWithNamespace');
+    expect(docs[0].outputPath).toBe('directory/ngWithNamespace.json');
   });
 });

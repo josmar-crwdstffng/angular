@@ -933,8 +933,8 @@ The code uses the AngularJS 1.5 component API and the organization follows the [
 
 *   Each component, service, and filter is in its own source file, as per the [Rule of 1][GithubJohnpapaAngularStyleguideBlobPrimaryA1ReadmeMdSingleResponsibility].
 
-*   The `core`, `phone-detail`, and `phone-list` modules are each in their own subdirectory.
-    Those subdirectories contain the JavaScript code as well as the HTML templates that go with each particular feature.
+*   The `core`, `phone-detail`, and `phone-list` modules are each in their own sub-directory.
+    Those sub-directories contain the JavaScript code as well as the HTML templates that go with each particular feature.
     This is in line with the [Folders-by-Feature Structure][GithubJohnpapaAngularStyleguideBlobPrimaryA1ReadmeMdFoldersByFeatureStructure] and [Modularity][GithubJohnpapaAngularStyleguideBlobPrimaryA1ReadmeMdModularity] rules.
 
 *   Unit tests are located side-by-side with application code where they are easily found, as described in the rules for [Organizing Tests][GithubJohnpapaAngularStyleguideBlobPrimaryA1ReadmeMdOrganizingTests].
@@ -1100,7 +1100,7 @@ npm install
 </code-example>
 
 Soon you can load Angular dependencies into the application inside `index.html`, but first you need to do some directory path adjustments.
-You'll need to load files from `node_modules` and the project root instead of from the `/app` directory as you've been doing to this point.
+You'll need to load files from `node_modules` and the project root instead of from the `app` directory as you've been doing to this point.
 
 Move the `app/index.html` file to the project root directory.
 Then change the development server root path in `package.json` to also point to the project root instead of `app`:
@@ -1113,7 +1113,7 @@ Then change the development server root path in `package.json` to also point to 
 
 Now you're able to serve everything from the project root to the web browser.
 But you do *not* want to have to change all the image and data paths used in the application code to match the development setup.
-For that reason, you'll add a `<base>` tag to `index.html`, which will cause relative URLs to be resolved back to the `/app` directory:
+For that reason, you'll add a `<base>` tag to `index.html`, which will cause relative URLs to be resolved back to the `app` directory:
 
 <code-example header="index.html" path="upgrade-phonecat-2-hybrid/index.html" region="base"></code-example>
 

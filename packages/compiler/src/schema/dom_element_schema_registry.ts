@@ -7,7 +7,6 @@
  */
 
 import {CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA, SchemaMetadata, SecurityContext} from '../core';
-
 import {isNgContainer, isNgContent} from '../ml_parser/tags';
 import {dashCaseToCamelCase} from '../util';
 
@@ -59,7 +58,7 @@ const OBJECT = 'object';
  * if a given property exist on a given element.
  *
  * NOTE: We don't yet support querying for types or events.
- * NOTE: This schema is auto extracted from `schema_extractor.ts` located in the test folder,
+ * NOTE: This schema is auto extracted from `schema_extractor.ts` located in the test directory,
  *       see dom_element_schema_registry_spec.ts
  */
 

@@ -17,14 +17,14 @@ class ExampleBoilerPlate {
    * Add boilerplate files to all the examples
    */
   add() {
-    // Get all the examples folders, indicated by those that contain a `example-config.json` file
+    // Get all the examples directories, indicated by those that contain a `example-config.json` file
     const exampleFolders =
         this.getFoldersContaining(EXAMPLES_BASE_PATH, EXAMPLE_CONFIG_FILENAME, 'node_modules');
     const gitignore = ignore().add(fs.readFileSync(path.resolve(BOILERPLATE_BASE_PATH, '.gitignore'), 'utf8'));
 
     if (!fs.existsSync(SHARED_NODE_MODULES_PATH)) {
       throw new Error(
-          `The shared node_modules folder for the examples (${SHARED_NODE_MODULES_PATH}) is missing.\n` +
+          `The shared node_modules directory for the examples (${SHARED_NODE_MODULES_PATH}) is missing.\n` +
           'Perhaps you need to run "yarn example-use-npm" or "yarn example-use-local" to install the dependencies?');
     }
 
@@ -37,7 +37,7 @@ class ExampleBoilerPlate {
       // This allows the example to override boilerplate files locally, perhaps to include doc-regions specific to the example.
       const overrideBoilerplate = exampleConfig['overrideBoilerplate'] || [];
       const boilerplateIgnore = ignore().add(gitignore).add(
-        // Note that the `*` here is to skip over the boilerplate folder itself.
+        // Note that the `*` here is to skip over the boilerplate directory itself.
         // E.g. if the override is `a/b` then we what to match `cli/a/b` and `i18n/a/b` etc.
         overrideBoilerplate.map(p => path.join('*', p))
       );

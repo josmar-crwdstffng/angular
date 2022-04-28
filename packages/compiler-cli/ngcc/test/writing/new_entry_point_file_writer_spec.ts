@@ -80,7 +80,7 @@ runInEachFileSystem(() => {
         {name: _('/node_modules/test/a/es2015/foo.js'), contents: 'export class FooA {}'},
         {
           name: _('/node_modules/test/b/package.json'),
-          // This entry-point points to files outside its folder
+          // This entry-point points to files outside its directory
           contents:
               `{"module": "../lib/esm5.js", "es2015": "../lib/es2015/index.js", "typings": "../typings/index.d.ts"}`
         },
@@ -124,7 +124,7 @@ runInEachFileSystem(() => {
         esm2015bundle = makeTestBundle(fs, entryPoint, 'es2015', 'esm2015');
       });
 
-      it('should write the modified files to a new folder', () => {
+      it('should write the modified files to a new directory', () => {
         fileWriter.writeBundle(
             esm5bundle,
             [
@@ -347,7 +347,7 @@ runInEachFileSystem(() => {
         esm2015bundle = makeTestBundle(fs, entryPoint, 'es2015', 'esm2015');
       });
 
-      it('should write the modified file to a new folder', () => {
+      it('should write the modified file to a new directory', () => {
         fileWriter.writeBundle(
             esm5bundle,
             [
@@ -461,131 +461,132 @@ runInEachFileSystem(() => {
       });
     });
 
-    describe('writeBundle() [entry-point (with files placed outside entry-point folder)]', () => {
-      beforeEach(() => {
-        fileWriter = new NewEntryPointFileWriter(
-            fs, logger, /* errorOnFailedEntryPoint */ true, new DirectPackageJsonUpdater(fs));
-        const config = new NgccConfiguration(fs, _('/'));
-        const result = getEntryPointInfo(
-            fs, config, new MockLogger(), _('/node_modules/test'), _('/node_modules/test/b'))!;
-        if (!isEntryPoint(result)) {
-          return fail(`Expected an entry point but got ${result}`);
-        }
-        entryPoint = result;
-        esm5bundle = makeTestBundle(fs, entryPoint, 'module', 'esm5');
-        esm2015bundle = makeTestBundle(fs, entryPoint, 'es2015', 'esm2015');
-      });
+    describe(
+        'writeBundle() [entry-point (with files placed outside entry-point directory)]', () => {
+          beforeEach(() => {
+            fileWriter = new NewEntryPointFileWriter(
+                fs, logger, /* errorOnFailedEntryPoint */ true, new DirectPackageJsonUpdater(fs));
+            const config = new NgccConfiguration(fs, _('/'));
+            const result = getEntryPointInfo(
+                fs, config, new MockLogger(), _('/node_modules/test'), _('/node_modules/test/b'))!;
+            if (!isEntryPoint(result)) {
+              return fail(`Expected an entry point but got ${result}`);
+            }
+            entryPoint = result;
+            esm5bundle = makeTestBundle(fs, entryPoint, 'module', 'esm5');
+            esm2015bundle = makeTestBundle(fs, entryPoint, 'es2015', 'esm2015');
+          });
 
-      it('should write the modified file to a new folder', () => {
-        fileWriter.writeBundle(
-            esm5bundle,
-            [
-              {
-                path: _('/node_modules/test/lib/esm5.js'),
-                contents: 'export function FooB() {} // MODIFIED'
-              },
-            ],
-            ['module']);
-        expect(fs.readFile(_('/node_modules/test/__ivy_ngcc__/lib/esm5.js')))
-            .toEqual('export function FooB() {} // MODIFIED');
-        expect(fs.readFile(_('/node_modules/test/lib/esm5.js')))
-            .toEqual('export function FooB() {}');
-      });
+          it('should write the modified file to a new directory', () => {
+            fileWriter.writeBundle(
+                esm5bundle,
+                [
+                  {
+                    path: _('/node_modules/test/lib/esm5.js'),
+                    contents: 'export function FooB() {} // MODIFIED'
+                  },
+                ],
+                ['module']);
+            expect(fs.readFile(_('/node_modules/test/__ivy_ngcc__/lib/esm5.js')))
+                .toEqual('export function FooB() {} // MODIFIED');
+            expect(fs.readFile(_('/node_modules/test/lib/esm5.js')))
+                .toEqual('export function FooB() {}');
+          });
 
-      it('should also copy unmodified files in the program', () => {
-        fileWriter.writeBundle(
-            esm2015bundle,
-            [
-              {
-                path: _('/node_modules/test/lib/es2015/foo.js'),
-                contents: 'export class FooB {} // MODIFIED'
-              },
-            ],
-            ['es2015']);
-        expect(fs.readFile(_('/node_modules/test/__ivy_ngcc__/lib/es2015/foo.js')))
-            .toEqual('export class FooB {} // MODIFIED');
-        expect(fs.readFile(_('/node_modules/test/lib/es2015/foo.js')))
-            .toEqual('import {FooA} from "test/a"; import "events"; export class FooB {}');
-        expect(fs.readFile(_('/node_modules/test/__ivy_ngcc__/lib/es2015/index.js')))
-            .toEqual('export {FooB} from "./foo"; import * from "other";');
-        expect(fs.readFile(_('/node_modules/test/lib/es2015/index.js')))
-            .toEqual('export {FooB} from "./foo"; import * from "other";');
-      });
+          it('should also copy unmodified files in the program', () => {
+            fileWriter.writeBundle(
+                esm2015bundle,
+                [
+                  {
+                    path: _('/node_modules/test/lib/es2015/foo.js'),
+                    contents: 'export class FooB {} // MODIFIED'
+                  },
+                ],
+                ['es2015']);
+            expect(fs.readFile(_('/node_modules/test/__ivy_ngcc__/lib/es2015/foo.js')))
+                .toEqual('export class FooB {} // MODIFIED');
+            expect(fs.readFile(_('/node_modules/test/lib/es2015/foo.js')))
+                .toEqual('import {FooA} from "test/a"; import "events"; export class FooB {}');
+            expect(fs.readFile(_('/node_modules/test/__ivy_ngcc__/lib/es2015/index.js')))
+                .toEqual('export {FooB} from "./foo"; import * from "other";');
+            expect(fs.readFile(_('/node_modules/test/lib/es2015/index.js')))
+                .toEqual('export {FooB} from "./foo"; import * from "other";');
+          });
 
-      it('should not copy typings files within the package (i.e. from a different entry-point)',
-         () => {
-           fileWriter.writeBundle(
-               esm2015bundle,
-               [
-                 {
-                   path: _('/node_modules/test/lib/es2015/foo.js'),
-                   contents: 'export class FooB {} // MODIFIED'
-                 },
-               ],
-               ['es2015']);
-           expect(fs.exists(_('/node_modules/test/__ivy_ngcc__/a/index.d.ts'))).toEqual(false);
-         });
+          it('should not copy typings files within the package (i.e. from a different entry-point)',
+             () => {
+               fileWriter.writeBundle(
+                   esm2015bundle,
+                   [
+                     {
+                       path: _('/node_modules/test/lib/es2015/foo.js'),
+                       contents: 'export class FooB {} // MODIFIED'
+                     },
+                   ],
+                   ['es2015']);
+               expect(fs.exists(_('/node_modules/test/__ivy_ngcc__/a/index.d.ts'))).toEqual(false);
+             });
 
-      it('should not copy files outside of the package', () => {
-        fileWriter.writeBundle(
-            esm2015bundle,
-            [
-              {
-                path: _('/node_modules/test/lib/es2015/foo.js'),
-                contents: 'export class FooB {} // MODIFIED'
-              },
-            ],
-            ['es2015']);
-        expect(fs.exists(_('/node_modules/test/other/index.d.ts'))).toEqual(false);
-        expect(fs.exists(_('/node_modules/test/events/events.js'))).toEqual(false);
-      });
+          it('should not copy files outside of the package', () => {
+            fileWriter.writeBundle(
+                esm2015bundle,
+                [
+                  {
+                    path: _('/node_modules/test/lib/es2015/foo.js'),
+                    contents: 'export class FooB {} // MODIFIED'
+                  },
+                ],
+                ['es2015']);
+            expect(fs.exists(_('/node_modules/test/other/index.d.ts'))).toEqual(false);
+            expect(fs.exists(_('/node_modules/test/events/events.js'))).toEqual(false);
+          });
 
-      it('should update the package.json properties', () => {
-        fileWriter.writeBundle(
-            esm5bundle,
-            [
-              {
-                path: _('/node_modules/test/lib/esm5.js'),
-                contents: 'export function FooB() {} // MODIFIED'
-              },
-            ],
-            ['module']);
-        expect(loadPackageJson(fs, '/node_modules/test/b')).toEqual(jasmine.objectContaining({
-          module_ivy_ngcc: '../__ivy_ngcc__/lib/esm5.js',
-        }));
+          it('should update the package.json properties', () => {
+            fileWriter.writeBundle(
+                esm5bundle,
+                [
+                  {
+                    path: _('/node_modules/test/lib/esm5.js'),
+                    contents: 'export function FooB() {} // MODIFIED'
+                  },
+                ],
+                ['module']);
+            expect(loadPackageJson(fs, '/node_modules/test/b')).toEqual(jasmine.objectContaining({
+              module_ivy_ngcc: '../__ivy_ngcc__/lib/esm5.js',
+            }));
 
-        fileWriter.writeBundle(
-            esm2015bundle,
-            [
-              {
-                path: _('/node_modules/test/lib/es2015/foo.js'),
-                contents: 'export class FooB {} // MODIFIED'
-              },
-            ],
-            ['es2015']);
-        expect(loadPackageJson(fs, '/node_modules/test/b')).toEqual(jasmine.objectContaining({
-          module_ivy_ngcc: '../__ivy_ngcc__/lib/esm5.js',
-          es2015_ivy_ngcc: '../__ivy_ngcc__/lib/es2015/index.js',
-        }));
-      });
+            fileWriter.writeBundle(
+                esm2015bundle,
+                [
+                  {
+                    path: _('/node_modules/test/lib/es2015/foo.js'),
+                    contents: 'export class FooB {} // MODIFIED'
+                  },
+                ],
+                ['es2015']);
+            expect(loadPackageJson(fs, '/node_modules/test/b')).toEqual(jasmine.objectContaining({
+              module_ivy_ngcc: '../__ivy_ngcc__/lib/esm5.js',
+              es2015_ivy_ngcc: '../__ivy_ngcc__/lib/es2015/index.js',
+            }));
+          });
 
-      it('should overwrite and backup typings files', () => {
-        fileWriter.writeBundle(
-            esm2015bundle,
-            [
-              {
-                path: _('/node_modules/test/typings/index.d.ts'),
-                contents: 'export declare class FooB {} // MODIFIED'
-              },
-            ],
-            ['es2015']);
-        expect(fs.readFile(_('/node_modules/test/typings/index.d.ts')))
-            .toEqual('export declare class FooB {} // MODIFIED');
-        expect(fs.readFile(_('/node_modules/test/typings/index.d.ts.__ivy_ngcc_bak')))
-            .toEqual('export declare class FooB {}');
-        expect(fs.exists(_('/node_modules/test/__ivy_ngcc__/typings/index.d.ts'))).toBe(false);
-      });
-    });
+          it('should overwrite and backup typings files', () => {
+            fileWriter.writeBundle(
+                esm2015bundle,
+                [
+                  {
+                    path: _('/node_modules/test/typings/index.d.ts'),
+                    contents: 'export declare class FooB {} // MODIFIED'
+                  },
+                ],
+                ['es2015']);
+            expect(fs.readFile(_('/node_modules/test/typings/index.d.ts')))
+                .toEqual('export declare class FooB {} // MODIFIED');
+            expect(fs.readFile(_('/node_modules/test/typings/index.d.ts.__ivy_ngcc_bak')))
+                .toEqual('export declare class FooB {}');
+            expect(fs.exists(_('/node_modules/test/__ivy_ngcc__/typings/index.d.ts'))).toBe(false);
+          });
+        });
 
     describe('revertFile()', () => {
       beforeEach(() => {

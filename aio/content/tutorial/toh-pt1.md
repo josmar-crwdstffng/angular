@@ -19,7 +19,7 @@ ng generate component heroes
 
 </code-example>
 
-The CLI creates a new folder, `src/app/heroes/`, and generates the three files of the  `HeroesComponent` along with a test file.
+The CLI creates a new directory, `src/app/heroes`, and generates the three files of the  `HeroesComponent` along with a test file.
 
 The `HeroesComponent` class file is as follows:
 
@@ -76,7 +76,7 @@ the browser should refresh and display both the application title and the hero n
 
 A real hero is more than a name.
 
-Create a `Hero` interface in its own file in the `src/app` folder.
+Create a `Hero` interface in its own file in the `src/app` directory.
 Give it `id` and `name` properties.
 
 <code-example path="toh-pt1/src/app/hero.ts"  header="src/app/hero.ts"></code-example>

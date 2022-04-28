@@ -87,7 +87,7 @@ describe('site App', () => {
     // Show the menu
     await page.click(page.docsMenuLink);
 
-    // Tutorial folder should still be expanded because this test runs in wide mode
+    // Tutorial directory should still be expanded because this test runs in wide mode
     // Navigate to the tutorial introduction via a link in the sidenav
     await page.click(page.getNavItem(/The Hero Editor/i));
     expect(await page.getDocViewerText()).toMatch(/The Hero Editor/i);

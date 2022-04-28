@@ -4,7 +4,7 @@ All of our npm dependencies are locked via the `yarn.lock` file for the followin
   we update them explicitly once in a while rather than implicitly when any of us runs `yarn install`
 - locked dependencies allow us to reuse yarn cache on CircleCI, significantly speeding up our builds
   (by 5 minutes or more)
-- locked dependencies allow us to detect when node_modules folder is out of date after a branch switch
+- locked dependencies allow us to detect when node_modules directory is out of date after a branch switch
   which allows us to build the project with the correct dependencies every time
 
 Before changing a dependency, do the following:

@@ -521,12 +521,13 @@ export class NgModuleDecoratorHandler implements
     }
 
     if (scope === null || scope.compilation.isPoisoned || scope.exported.isPoisoned ||
-        scope.reexports === null) {
+        scope.re - exports === null) {
       return {data};
     } else {
       return {
         data,
-        reexports: scope.reexports,
+        re -
+        exports: scope.re - exports,
       };
     }
   }

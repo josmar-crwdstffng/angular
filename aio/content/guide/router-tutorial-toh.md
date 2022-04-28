@@ -491,7 +491,7 @@ The file includes an empty `Routes` object that you can fill with routes to diff
 
 ### Refactor the routing configuration into a routing module
 
-Create an `AppRouting` module in the `/app` folder to contain the routing configuration.
+Create an `AppRouting` module in the `app` directory to contain the routing configuration.
 
 <code-example format="shell" language="shell">
 
@@ -549,7 +549,7 @@ This milestone covers the following:
 
 This sample application recreates the heroes feature in the "Services" section of the [Tour of Heroes tutorial](tutorial/toh-pt4 "Tour of Heroes: Services"), and reuses much of the code from the <live-example name="toh-pt4" title="Tour of Heroes: Services example code"></live-example>.
 
-A typical application has multiple feature areas, each dedicated to a particular business purpose with its own folder.
+A typical application has multiple feature areas, each dedicated to a particular business purpose with its own directory.
 
 This section shows you how refactor the application into different feature modules, import them into the main module and navigate among them.
 
@@ -559,7 +559,7 @@ This section shows you how refactor the application into different feature modul
 
 Follow these steps:
 
-*   To manage the heroes, create a `HeroesModule` with routing in the heroes folder and register it with the root `AppModule`.
+*   To manage the heroes, create a `HeroesModule` with routing in the heroes directory and register it with the root `AppModule`.
 
     <code-example format="shell" language="shell">
 
@@ -567,7 +567,7 @@ Follow these steps:
 
     </code-example>
 
-*   Move the placeholder `hero-list` folder that's in the `app` folder into the `heroes` folder.
+*   Move the placeholder `hero-list` directory that's in the `app` directory into the `heroes` directory.
 *   Copy the contents of the `heroes/heroes.component.html` from the <live-example name="toh-pt4" title="Tour of Heroes: Services example code">"Services" tutorial</live-example> into the `hero-list.component.html` template.
 
     *   Re-label the `<h2>` to `<h2>HEROES</h2>`.
@@ -586,8 +586,8 @@ Follow these steps:
 
         </div>
 
-*   Copy the `hero-detail` folder, the `hero.ts`, `hero.service.ts`,  and `mock-heroes.ts` files into the `heroes` sub-folder
-*   Copy the `message.service.ts` into the `src/app` folder
+*   Copy the `hero-detail` directory, the `hero.ts`, `hero.service.ts`,  and `mock-heroes.ts` files into the `heroes` sub-directory
+*   Copy the `message.service.ts` into the `src/app` directory
 *   Update the relative path import to the `message.service` in the `hero.service.ts` file
 
 Next, update the `HeroesModule` metadata.
@@ -660,7 +660,7 @@ When you click on a hero, the detail view has to display that particular hero.
 
 You tell the detail view which hero to display by including the selected hero's ID in the route URL.
 
-Import the hero components from their new locations in the `src/app/heroes/` folder and define the two hero routes.
+Import the hero components from their new locations in the `src/app/heroes` directory and define the two hero routes.
 
 Now that you have routes for the `Heroes` module, register them with the `Router` using the `RouterModule` as you did in the `AppRoutingModule`, with an important difference.
 
@@ -1053,7 +1053,7 @@ Transitions are based on `states` and you use the `animation` data from the rout
 
 <code-example header="src/app/heroes/heroes-routing.module.ts (animation data)" path="router/src/app/heroes/heroes-routing.module.2.ts"></code-example>
 
-Create an `animations.ts` file in the root `src/app/` folder. The contents look like this:
+Create an `animations.ts` file in the root `src/app` directory. The contents look like this:
 
 <code-example header="src/app/animations.ts (excerpt)" path="router/src/app/animations.ts"></code-example>
 
@@ -1096,7 +1096,7 @@ This section covered the following:
 *   Importing the feature area NgModule into the `AppModule`
 *   Applying routable animations based on the page
 
-After these changes, the folder structure is as follows:
+After these changes, the directory structure is as follows:
 
 <div class="filetree">
   <div class="file">
@@ -1258,8 +1258,8 @@ This section shows you how to add child routes and use relative routing in your 
 
 To add more features to the application's current crisis center, take similar steps as for the heroes feature:
 
-*   Create a `crisis-center` subfolder in the `src/app` folder
-*   Copy the files and folders from `app/heroes` into the new `crisis-center` folder
+*   Create a `crisis-center` sub-directory in the `src/app` directory
+*   Copy the files and directories from `app/heroes` into the new `crisis-center` directory
 *   In the new files, change every mention of "hero" to "crisis", and "heroes" to "crises"
 *   Rename the NgModule files to `crisis-center.module.ts` and `crisis-center-routing.module.ts`
 
@@ -1282,7 +1282,7 @@ In keeping with the [Separation of Concerns principle](https://blog.8thlight.com
 
 This section shows you how to organize the crisis center to conform to the following recommended pattern for Angular applications:
 
-*   Each feature area resides in its own folder
+*   Each feature area resides in its own directory
 *   Each feature has its own Angular feature module
 *   Each area has its own area root component
 *   Each area root component has its own router outlet and child routes
@@ -1294,7 +1294,7 @@ If your application had many feature areas, the component trees might consist of
 
 ### Child routing component
 
-Generate a `CrisisCenter` component in the `crisis-center` folder:
+Generate a `CrisisCenter` component in the `crisis-center` directory:
 
 <code-example format="shell" language="shell">
 
@@ -1317,7 +1317,7 @@ Like most shells, the `CrisisCenterComponent` class is minimal because it has no
 
 ### Child route configuration
 
-As a host page for the "Crisis Center" feature, generate a `CrisisCenterHome` component in the `crisis-center` folder.
+As a host page for the "Crisis Center" feature, generate a `CrisisCenterHome` component in the `crisis-center` directory.
 
 <code-example format="shell" language="shell">
 
@@ -1699,7 +1699,7 @@ The `CanActivate` guard is the tool to manage these navigation business rules.
 This section guides you through extending the crisis center with some new administrative features.
 Start by adding a new feature module named `AdminModule`.
 
-Generate an `admin` folder with a feature module file and a routing configuration file.
+Generate an `admin` directory with a feature module file and a routing configuration file.
 
 <code-example format="shell" language="shell">
 
@@ -1854,7 +1854,7 @@ The new admin feature should be accessible only to authenticated users.
 
 Write a `canActivate()` guard method to redirect anonymous users to the login page when they try to enter the admin area.
 
-Generate an `AuthGuard` in the `auth` folder.
+Generate an `AuthGuard` in the `auth` directory.
 
 <code-example format="shell" language="shell">
 
@@ -1880,7 +1880,7 @@ The admin feature is now protected by the guard, but the guard requires more cus
 Make the `AuthGuard` mimic authentication.
 
 The `AuthGuard` should call an application service that can login a user and retain information about the current user.
-Generate a new `AuthService` in the `auth` folder:
+Generate a new `AuthService` in the `auth` directory:
 
 <code-example format="shell" language="shell">
 

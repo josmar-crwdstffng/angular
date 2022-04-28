@@ -115,7 +115,7 @@ def _ng_integration_test(name, setup_chromium = False, **kwargs):
     )
 
 def ng_integration_test(name, **kwargs):
-    "Sets up the integration test target based on the test folder name"
+    "Sets up the integration test target based on the test directory name"
 
     native.filegroup(
         name = "_%s_sources" % name,

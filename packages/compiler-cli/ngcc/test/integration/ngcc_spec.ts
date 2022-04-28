@@ -3937,7 +3937,7 @@ runInEachFileSystem(() => {
           EntryPointPackageJson;
     }
 
-    function initMockFileSystem(fs: FileSystem, testFiles: Folder) {
+    function initMockFileSystem(fs: FileSystem, testFiles: Directory) {
       if (fs instanceof MockFileSystem) {
         fs.init(testFiles);
         fs.ensureDir(fs.dirname(getLockFilePath(fs)));

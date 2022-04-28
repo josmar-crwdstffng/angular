@@ -30,7 +30,7 @@ There are also some top-level files in `[src/styles/](.):
 
 ### Styles for a specific area/component
 
-For each area/component, there is a sub-directory in either `1-layouts/` or `2-modules/`.
+For each area/component, there is a sub-directory in either `1-layouts` or `2-modules`.
 
 Each such sub-directory contains a `<name>.scss` file with styles for the corresponding area/component and may also contain a `<name>-theme.scss` file with styles related to theming.
 See the next section for more details.

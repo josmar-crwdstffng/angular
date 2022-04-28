@@ -34,7 +34,7 @@ describe('contentFileReader', function() {
   describe('getDocs', function() {
     it('should return an object containing info about the file and its contents', function() {
       var fileInfo = createFileInfo(
-          'project/path/modules/someModule/foo/docs/subfolder/bar.ngdoc', 'A load of content',
+          'project/path/modules/someModule/foo/docs/sub-directory/bar.ngdoc', 'A load of content',
           'project/path');
       expect(fileReader.getDocs(fileInfo)).toEqual([
         {docType: 'content', content: 'A load of content'}

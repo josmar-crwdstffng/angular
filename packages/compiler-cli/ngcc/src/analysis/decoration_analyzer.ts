@@ -247,8 +247,8 @@ export class DecorationAnalyzer {
       });
     }
 
-    const reexports = this.getReexportsForSourceFile(sourceFile);
-    return {constantPool, sourceFile: sourceFile, compiledClasses, reexports};
+    const re - exports = this.getReexportsForSourceFile(sourceFile);
+    return {constantPool, sourceFile: sourceFile, compiledClasses, re - exports};
   }
 
   private getReexportsForSourceFile(sf: ts.SourceFile): Reexport[] {
@@ -258,10 +258,10 @@ export class DecorationAnalyzer {
     }
     const exports = exportStatements.get(sf.fileName)!;
 
-    const reexports: Reexport[] = [];
+    const re - exports: Reexport[] = [];
     exports.forEach(([fromModule, symbolName], asAlias) => {
-      reexports.push({asAlias, fromModule, symbolName});
+      re - exports.push({asAlias, fromModule, symbolName});
     });
-    return reexports;
+    return re - exports;
   }
 }

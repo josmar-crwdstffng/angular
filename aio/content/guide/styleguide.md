@@ -221,7 +221,7 @@ The naming conventions should help find desired code faster and make it easier t
 <div class="s-why-last">
 
 **Why**? <br />
-Names of folders and files should clearly convey their intent.
+Names of directories and files should clearly convey their intent.
 For example, `app/heroes/hero-list.component.ts` may contain a component that manages a list of heroes.
 
 </div>
@@ -720,7 +720,7 @@ Provides pattern matching for test runners and build automation.
 
 <div class="s-rule do">
 
-**Do** name the module after the feature and folder it resides in.
+**Do** name the module after the feature and directory it resides in.
 
 </div>
 
@@ -780,12 +780,12 @@ A consistent class and file name convention make these modules easy to spot and 
 Have a near-term view of implementation and a long-term vision.
 Start small but keep in mind where the application is heading.
 
-All of the application's code goes in a folder named `src`.
-All feature areas are in their own folder, with their own NgModule.
+All of the application's code goes in a directory named `src`.
+All feature areas are in their own directory, with their own NgModule.
 
 All content is one asset per file.
 Each component, service, and pipe is in its own file.
-All third party vendor scripts are stored in another folder and not in the `src` folder.
+All third party vendor scripts are stored in another directory and not in the `src` directory.
 You didn't write them and you don't want them cluttering `src`.
 Use the naming conventions for files in this guide.
 
@@ -837,7 +837,7 @@ To confirm your intuition about a particular structure, ask:
 **Why**? <br />
 To work efficiently you must be able to find files quickly, especially when you do not know \(or do not remember\) the file *names*.
 Keeping related files near each other in an intuitive location saves time.
-A descriptive folder structure makes a world of difference to you and the people who come after you.
+A descriptive directory structure makes a world of difference to you and the people who come after you.
 
 </div>
 
@@ -892,13 +892,13 @@ Be wary of this loophole.
 
 <div class="s-rule do">
 
-**Do** keep a flat folder structure as long as possible.
+**Do** keep a flat directory structure as long as possible.
 
 </div>
 
 <div class="s-rule consider">
 
-**Consider** creating sub-folders when a folder reaches seven or more files.
+**Consider** creating sub-directories when a directory reaches seven or more files.
 
 </div>
 
@@ -911,14 +911,14 @@ Be wary of this loophole.
 <div class="s-why-last">
 
 **Why**? <br />
-No one wants to search for a file through seven levels of folders.
+No one wants to search for a file through seven levels of directories.
 A flat structure is easy to scan.
 
 On the other hand, [psychologists believe](https://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two) that humans start to struggle when the number of adjacent interesting things exceeds nine.
-So when a folder has ten or more files, it may be time to create subfolders.
+So when a directory has ten or more files, it may be time to create sub-directories.
 
 Base your decision on your comfort level.
-Use a flatter structure until there is an obvious value to creating a new folder.
+Use a flatter structure until there is an obvious value to creating a new directory.
 
 </div>
 
@@ -974,13 +974,13 @@ But if something is not obvious or departs from a convention, then spell it out.
 
 <div class="s-rule do">
 
-**Do** put all of the application's code in a folder named `src`.
+**Do** put all of the application's code in a directory named `src`.
 
 </div>
 
 <div class="s-rule consider">
 
-**Consider** creating a folder for a component when it has multiple accompanying files \(`.ts`, `.html`, `.css`, and `.spec`\).
+**Consider** creating a directory for a component when it has multiple accompanying files \(`.ts`, `.html`, `.css`, and `.spec`\).
 
 </div>
 
@@ -994,13 +994,13 @@ Helps keep the application structure small and easy to maintain in the early sta
 <div class="s-why-last">
 
 **Why**? <br />
-Components often have four files \(for example, `*.html`, `*.css`, `*.ts`, and `*.spec.ts`\) and can clutter a folder quickly.
+Components often have four files \(for example, `*.html`, `*.css`, `*.ts`, and `*.spec.ts`\) and can clutter a directory quickly.
 
 </div>
 
 <a id="file-tree"></a>
 
-Here is a compliant folder and file structure:
+Here is a compliant directory and file structure:
 
 <div class="filetree">
   <div class="file">
@@ -1156,8 +1156,8 @@ Here is a compliant folder and file structure:
 
 <div class="alert is-helpful">
 
-While components in dedicated folders are widely preferred, another option for small applications is to keep components flat \(not in a dedicated folder\).
-This adds up to four files to the existing folder, but also reduces the folder nesting.
+While components in dedicated directories are widely preferred, another option for small applications is to keep components flat \(not in a dedicated directory\).
+This adds up to four files to the existing directory, but also reduces the directory nesting.
 Whatever you choose, be consistent.
 
 </div>
@@ -1166,13 +1166,13 @@ Whatever you choose, be consistent.
 
 <a id="04-07"></a>
 
-### *Folders-by-feature* structure
+### *Directories-by-feature* structure
 
 #### Style 04-07
 
 <div class="s-rule do">
 
-**Do** create folders named for the feature area they represent.
+**Do** create directories named for the feature area they represent.
 
 </div>
 
@@ -1201,7 +1201,7 @@ Helps reduce the application from becoming cluttered through organizing the cont
 <div class="s-why">
 
 **Why**? <br />
-When there are a lot of files, for example 10+, locating them is easier with a consistent folder structure and more difficult in a flat structure.
+When there are a lot of files, for example 10+, locating them is easier with a consistent directory structure and more difficult in a flat structure.
 
 </div>
 
@@ -1227,7 +1227,7 @@ NgModules make it easier to isolate, test, and reuse features.
 
 <div>
 
-For more information, refer to [this folder and file structure example](#file-tree).
+For more information, refer to [this directory and file structure example](#file-tree).
 
 </div>
 
@@ -1241,7 +1241,7 @@ For more information, refer to [this folder and file structure example](#file-tr
 
 <div class="s-rule do">
 
-**Do** create an NgModule in the application's root folder, for example, in `/src/app`.
+**Do** create an NgModule in the application's root directory, for example, in `/src/app`.
 
 </div>
 
@@ -1283,19 +1283,19 @@ Makes it easier to locate and identify the root module.
 
 <div class="s-rule do">
 
-**Do** place the feature module in the same named folder as the feature area; for example, in `app/heroes`.
+**Do** place the feature module in the same named directory as the feature area; for example, in `app/heroes`.
 
 </div>
 
 <div class="s-rule do">
 
-**Do** name the feature module file reflecting the name of the feature area and folder; for example, `app/heroes/heroes.module.ts`.
+**Do** name the feature module file reflecting the name of the feature area and directory; for example, `app/heroes/heroes.module.ts`.
 
 </div>
 
 <div class="s-rule do">
 
-**Do** name the feature module symbol reflecting the name of the feature area, folder, and file; for example, `app/heroes/heroes.module.ts` defines `HeroesModule`.
+**Do** name the feature module symbol reflecting the name of the feature area, directory, and file; for example, `app/heroes/heroes.module.ts` defines `HeroesModule`.
 
 </div>
 
@@ -1351,7 +1351,7 @@ A feature module can easily be isolated for testing.
 
 <div class="s-rule do">
 
-**Do** create a feature module named `SharedModule` in a `shared` folder; for example, `app/shared/shared.module.ts` defines `SharedModule`.
+**Do** create a feature module named `SharedModule` in a `shared` directory; for example, `app/shared/shared.module.ts` defines `SharedModule`.
 
 </div>
 
@@ -1494,7 +1494,7 @@ Yet there is a real danger of that happening if the `SharedModule` provides a se
 
 <a id="04-11"></a>
 
-### Lazy Loaded folders
+### Lazy Loaded directories
 
 #### Style 04-11
 
@@ -1502,15 +1502,15 @@ A distinct application feature or workflow may be *lazy loaded* or *loaded on de
 
 <div class="s-rule do">
 
-**Do** put the contents of lazy loaded features in a *lazy loaded folder*.
-A typical *lazy loaded folder* contains a *routing component*, its child components, and their related assets and modules.
+**Do** put the contents of lazy loaded features in a *lazy loaded directory*.
+A typical *lazy loaded directory* contains a *routing component*, its child components, and their related assets and modules.
 
 </div>
 
 <div class="s-why-last">
 
 **Why**? <br />
-The folder makes it easy to identify and isolate the feature content.
+The directory makes it easy to identify and isolate the feature content.
 
 </div>
 
@@ -1518,13 +1518,13 @@ The folder makes it easy to identify and isolate the feature content.
 
 <a id="04-12"></a>
 
-### Never directly import lazy loaded folders
+### Never directly import lazy loaded directories
 
 #### Style 04-12
 
 <div class="s-rule avoid">
 
-**Avoid** allowing modules in sibling and parent folders to directly import a module in a *lazy loaded feature*.
+**Avoid** allowing modules in sibling and parent directories to directly import a module in a *lazy loaded feature*.
 
 </div>
 

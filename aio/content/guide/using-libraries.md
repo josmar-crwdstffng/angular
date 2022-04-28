@@ -31,13 +31,13 @@ npm install &commat;types/d3 --save-dev
 
 </code-example>
 
-Types defined in a `@types/` package for a library installed into the workspace are automatically added to the TypeScript configuration for the project that uses that library.
+Types defined in a `@types` package for a library installed into the workspace are automatically added to the TypeScript configuration for the project that uses that library.
 TypeScript looks for types in the `node_modules/@types` directory by default, so you do not have to add each type package individually.
 
-If a library does not have typings available at `@types/`, you may use it by manually adding typings for it.
+If a library does not have typings available at `@types`, you may use it by manually adding typings for it.
 To do this:
 
-1.  Create a `typings.d.ts` file in your `src/` directory.
+1.  Create a `typings.d.ts` file in your `src` directory.
     This file is automatically included as global type definition.
 
 1.  Add the following code in `src/typings.d.ts`:

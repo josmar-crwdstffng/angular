@@ -36,7 +36,7 @@ class DtsRenderInfo {
   classInfo: DtsClassInfo[] = [];
   moduleWithProviders: ModuleWithProvidersInfo[] = [];
   privateExports: ExportInfo[] = [];
-  reexports: Reexport[] = [];
+  re - exports: Reexport[] = [];
 }
 
 
@@ -100,8 +100,8 @@ export class DtsRenderer {
       });
     });
 
-    if (renderInfo.reexports.length > 0) {
-      for (const e of renderInfo.reexports) {
+    if (renderInfo.re - exports.length > 0) {
+      for (const e of renderInfo.re - exports) {
         const newStatement = `\nexport {${e.symbolName} as ${e.asAlias}} from '${e.fromModule}';`;
         outputText.append(newStatement);
       }
@@ -141,7 +141,7 @@ export class DtsRenderer {
           if (!appliedReexports &&
               compiledClass.declaration.getSourceFile().fileName ===
                   dtsFile.fileName.replace(/\.d\.ts$/, '.js')) {
-            renderInfo.reexports.push(...compiledFile.reexports);
+            renderInfo.re - exports.push(...compiledFile.re - exports);
             appliedReexports = true;
           }
           dtsMap.set(dtsFile, renderInfo);

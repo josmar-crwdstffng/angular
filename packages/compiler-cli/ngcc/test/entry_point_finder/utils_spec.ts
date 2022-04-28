@@ -21,30 +21,30 @@ runInEachFileSystem(() => {
   });
 
   describe('getBasePaths', () => {
-    it('should just return the `sourceDirectory if there are no `pathMappings', () => {
-      const sourceDirectory = _('/path/to/project/node_modules');
-      const basePaths = getBasePaths(logger, sourceDirectory, undefined);
-      expect(basePaths).toEqual([sourceDirectory]);
+    it('should just return the `sourceFolder if there are no `pathMappings', () => {
+      const sourceFolder = _('/path/to/project/node_modules');
+      const basePaths = getBasePaths(logger, sourceFolder, undefined);
+      expect(basePaths).toEqual([sourceFolder]);
     });
 
     it('should use each path mapping prefix', () => {
       const projectDirectory = _('/path/to/project');
       const fs = getFileSystem();
       fs.ensureDir(fs.resolve(projectDirectory, 'dist-1'));
-      fs.ensureDir(fs.resolve(projectDirectory, 'sub-folder/dist-2'));
+      fs.ensureDir(fs.resolve(projectDirectory, 'sub-directory/dist-2'));
       fs.ensureDir(fs.resolve(projectDirectory, 'libs'));
 
-      const sourceDirectory = _('/path/to/project/node_modules');
+      const sourceFolder = _('/path/to/project/node_modules');
       const pathMappings = {
         baseUrl: projectDirectory,
-        paths: {'@dist': ['dist-1', 'sub-folder/dist-2'], '@lib/*': ['libs/*']}
+        paths: {'@dist': ['dist-1', 'sub-directory/dist-2'], '@lib/*': ['libs/*']}
       };
-      const basePaths = getBasePaths(logger, sourceDirectory, pathMappings);
+      const basePaths = getBasePaths(logger, sourceFolder, pathMappings);
       expect(basePaths).toEqual([
-        sourceDirectory,
+        sourceFolder,
         fs.resolve(projectDirectory, 'dist-1'),
         fs.resolve(projectDirectory, 'libs'),
-        fs.resolve(projectDirectory, 'sub-folder/dist-2'),
+        fs.resolve(projectDirectory, 'sub-directory/dist-2'),
       ]);
     });
 
@@ -55,29 +55,29 @@ runInEachFileSystem(() => {
       fs.ensureDir(fs.resolve(projectDirectory, 'dist-a'));
       fs.ensureDir(fs.resolve(projectDirectory, 'dist-b'));
 
-      const sourceDirectory = _('/path/to/project/node_modules');
+      const sourceFolder = _('/path/to/project/node_modules');
       const pathMappings = {baseUrl: projectDirectory, paths: {'@dist*': ['dist*']}};
-      const basePaths = getBasePaths(logger, sourceDirectory, pathMappings);
+      const basePaths = getBasePaths(logger, sourceFolder, pathMappings);
       expect(basePaths).toEqual([
-        sourceDirectory,
+        sourceFolder,
         fs.resolve(projectDirectory, 'dist'),
         fs.resolve(projectDirectory, 'dist-a'),
         fs.resolve(projectDirectory, 'dist-b'),
       ]);
     });
 
-    it('should not be confused by folders that have the same starting string', () => {
+    it('should not be confused by directories that have the same starting string', () => {
       const projectDirectory = _('/path/to/project');
       const fs = getFileSystem();
       fs.ensureDir(fs.resolve(projectDirectory, 'a/b'));
       fs.ensureDir(fs.resolve(projectDirectory, 'a/b-2'));
       fs.ensureDir(fs.resolve(projectDirectory, 'a/b/c'));
 
-      const sourceDirectory = _('/path/to/project/node_modules');
+      const sourceFolder = _('/path/to/project/node_modules');
       const pathMappings = {baseUrl: projectDirectory, paths: {'@dist': ['a/b', 'a/b-2', 'a/b/c']}};
-      const basePaths = getBasePaths(logger, sourceDirectory, pathMappings);
+      const basePaths = getBasePaths(logger, sourceFolder, pathMappings);
       expect(basePaths).toEqual([
-        sourceDirectory,
+        sourceFolder,
         fs.resolve(projectDirectory, 'a/b'),
         fs.resolve(projectDirectory, 'a/b-2'),
       ]);
@@ -87,17 +87,17 @@ runInEachFileSystem(() => {
       const projectDirectory = _('/path/to/project');
       const fs = getFileSystem();
       fs.ensureDir(fs.resolve(projectDirectory, 'dist-1'));
-      fs.ensureDir(fs.resolve(projectDirectory, 'dist-1/sub-folder'));
+      fs.ensureDir(fs.resolve(projectDirectory, 'dist-1/sub-directory'));
       fs.ensureDir(fs.resolve(projectDirectory, 'node_modules/libs'));
 
-      const sourceDirectory = _('/path/to/project/node_modules');
+      const sourceFolder = _('/path/to/project/node_modules');
       const pathMappings = {
         baseUrl: projectDirectory,
-        paths: {'@dist': ['dist-1', 'dist-1/sub-folder'], '@lib/*': ['node_modules/libs/*']}
+        paths: {'@dist': ['dist-1', 'dist-1/sub-directory'], '@lib/*': ['node_modules/libs/*']}
       };
-      const basePaths = getBasePaths(logger, sourceDirectory, pathMappings);
+      const basePaths = getBasePaths(logger, sourceFolder, pathMappings);
       expect(basePaths).toEqual([
-        sourceDirectory,
+        sourceFolder,
         fs.resolve(projectDirectory, 'dist-1'),
       ]);
     });
@@ -108,26 +108,26 @@ runInEachFileSystem(() => {
       fs.ensureDir(fs.resolve(projectDirectory, 'dist-1'));
       fs.writeFile(fs.resolve(projectDirectory, 'dist-1/file.js'), 'dummy content');
 
-      const sourceDirectory = _('/path/to/project/node_modules');
+      const sourceFolder = _('/path/to/project/node_modules');
       const pathMappings = {baseUrl: projectDirectory, paths: {'@dist': ['dist-1/file.js']}};
-      const basePaths = getBasePaths(logger, sourceDirectory, pathMappings);
+      const basePaths = getBasePaths(logger, sourceFolder, pathMappings);
       expect(basePaths).toEqual([
-        sourceDirectory,
+        sourceFolder,
         fs.resolve(projectDirectory, 'dist-1'),
       ]);
     });
 
-    it('should always include the `sourceDirectory` if it is a node_modules directory in the returned basePaths, even if it is contained by another basePath',
+    it('should always include the `sourceFolder` if it is a node_modules directory in the returned basePaths, even if it is contained by another basePath',
        () => {
          const projectDirectory = _('/path/to/project');
-         const sourceDirectory = _('/path/to/project/node_modules');
+         const sourceFolder = _('/path/to/project/node_modules');
          const fs = getFileSystem();
-         fs.ensureDir(fs.resolve(sourceDirectory));
+         fs.ensureDir(fs.resolve(sourceFolder));
 
          const pathMappings = {baseUrl: projectDirectory, paths: {'*': ['./*']}};
-         const basePaths = getBasePaths(logger, sourceDirectory, pathMappings);
+         const basePaths = getBasePaths(logger, sourceFolder, pathMappings);
          expect(basePaths).toEqual([
-           sourceDirectory,
+           sourceFolder,
            projectDirectory,
          ]);
        });
@@ -136,12 +136,12 @@ runInEachFileSystem(() => {
       const fs = getFileSystem();
       fs.ensureDir(fs.resolve('/dist'));
 
-      const sourceDirectory = _('/path/to/project/node_modules');
+      const sourceFolder = _('/path/to/project/node_modules');
       const pathMappings = {baseUrl: _('/'), paths: {'@dist': ['dist']}};
-      const basePaths = getBasePaths(logger, sourceDirectory, pathMappings);
+      const basePaths = getBasePaths(logger, sourceFolder, pathMappings);
       expect(basePaths).toEqual([
         fs.resolve('/dist'),
-        sourceDirectory,
+        sourceFolder,
       ]);
       expect(logger.logs.warn).toEqual([
         [`The provided pathMappings baseUrl is the root path ${_('/')}.\n` +
@@ -154,22 +154,22 @@ runInEachFileSystem(() => {
       const projectDirectory = _('/path/to/project');
       const fs = getFileSystem();
       fs.ensureDir(fs.resolve(projectDirectory, 'dist-1'));
-      fs.ensureDir(fs.resolve(projectDirectory, 'sub-folder'));
+      fs.ensureDir(fs.resolve(projectDirectory, 'sub-directory'));
 
-      const sourceDirectory = _('/path/to/project/node_modules');
+      const sourceFolder = _('/path/to/project/node_modules');
       const pathMappings = {
         baseUrl: projectDirectory,
-        paths: {'@dist': ['dist-1', 'sub-folder/dist-2'], '@lib/*': ['libs/*']}
+        paths: {'@dist': ['dist-1', 'sub-directory/dist-2'], '@lib/*': ['libs/*']}
       };
-      const basePaths = getBasePaths(logger, sourceDirectory, pathMappings);
+      const basePaths = getBasePaths(logger, sourceFolder, pathMappings);
       expect(basePaths).toEqual([
-        sourceDirectory,
+        sourceFolder,
         fs.resolve(projectDirectory, 'dist-1'),
       ]);
       expect(logger.logs.debug).toEqual([
         [`The basePath "${
-             fs.resolve(projectDirectory, 'sub-folder/dist-2')}" computed from baseUrl "${
-             projectDirectory}" and path mapping "sub-folder/dist-2" does not exist in the file-system.\n` +
+             fs.resolve(projectDirectory, 'sub-directory/dist-2')}" computed from baseUrl "${
+             projectDirectory}" and path mapping "sub-directory/dist-2" does not exist in the file-system.\n` +
          `It will not be scanned for entry-points.`],
         [`The basePath "${fs.resolve(projectDirectory, 'libs')}" computed from baseUrl "${
              projectDirectory}" and path mapping "libs/*" does not exist in the file-system.\n` +

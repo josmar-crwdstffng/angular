@@ -94,7 +94,7 @@ class NgPackagesInstaller {
             Object.keys(deps).forEach(key2 => {
               const pkg2 = packages[key2];
               if (pkg2) {
-                // point the local packages at the distributable folder
+                // point the local packages at the distributable directory
                 deps[key2] = `file:${pkg2.packageDir}`;
                 this._log(`Overriding dependency of local ${key} with local package: ${key2}: ${deps[key2]}`);
               }
@@ -203,7 +203,7 @@ class NgPackagesInstaller {
     Object.keys(dependencies).forEach(key => {
       const sourcePackage = packages[key];
       if (sourcePackage) {
-        // point the core Angular packages at the distributable folder
+        // point the core Angular packages at the distributable directory
         mergedDependencies[key] = `file:${sourcePackage.packageDir}`;
         this._log(`Overriding dependency with local package: ${key}: ${mergedDependencies[key]}`);
         // grab peer dependencies

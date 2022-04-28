@@ -87,7 +87,7 @@ export {publishFacade} from './jit_compiler_facade';
 export {emitDistinctChangesOnlyDefaultValue, ChangeDetectionStrategy, ViewEncapsulation} from './core';
 import * as outputAst from './output/output_ast';
 export {outputAst};
-// This file only reexports content of the `src` folder. Keep it that way.
+// This file only re-exports content of the `src` directory. Keep it that way.
 
 // This function call has a global side effects and publishes the compiler into global namespace for
 // the late binding of the Compiler to the @angular/core for jit compilation.

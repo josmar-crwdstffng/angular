@@ -90,7 +90,7 @@ module.exports =
           readTypeScriptModules.ignoreExportsMatching = [/^_|^ɵɵ|^VERSION$/];
           readTypeScriptModules.hidePrivateMembers = true;
 
-          // NOTE: This list should be in sync with the folders/files in `goldens/public-api`.
+          // NOTE: This list should be in sync with the directories/files in `goldens/public-api`.
           readTypeScriptModules.sourceFiles = [
             'animations/index.ts',
             'animations/browser/index.ts',
@@ -169,7 +169,7 @@ module.exports =
 
         // Configure jsdoc-style tag parsing
         .config(function(parseTagsProcessor, getInjectables, tsHost) {
-          // Load up all the tag definitions in the tag-defs folder
+          // Load up all the tag definitions in the tag-defs directory
           parseTagsProcessor.tagDefinitions = parseTagsProcessor.tagDefinitions.concat(
               getInjectables(requireFolder(__dirname, './tag-defs')));
           // We don't want license headers to be joined to the first API item's comment

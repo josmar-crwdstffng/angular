@@ -26,7 +26,7 @@ When you're done, users will be able to navigate the application like this:
 In Angular, the best practice is to load and configure the router in a separate, top-level module
 that is dedicated to routing and imported by the root `AppModule`.
 
-By convention, the module class name is `AppRoutingModule` and it belongs in the `app-routing.module.ts` in the `src/app` folder.
+By convention, the module class name is `AppRoutingModule` and it belongs in the `app-routing.module.ts` in the `src/app` directory.
 
 Use the CLI to generate it.
 
@@ -40,7 +40,7 @@ ng generate module app-routing --flat --module=app
 
 | Parameter      | Details |
 |:---            |:---     |
-| `--flat`       | Puts the file in `src/app` instead of its own folder.                   |
+| `--flat`       | Puts the file in `src/app` instead of its own directory.                   |
 | `--module=app` | Tells the CLI to register it in the `imports` array of the `AppModule`. |
 
 </div>

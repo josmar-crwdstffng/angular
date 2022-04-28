@@ -45,7 +45,7 @@ Import `BrowserAnimationsModule`, which introduces the animation capabilities in
 <div class="alert is-helpful">
 
 **NOTE**: <br />
-When you use the CLI to create your app, the root application module `app.module.ts` is placed in the `src/app` folder.
+When you use the CLI to create your app, the root application module `app.module.ts` is placed in the `src/app` directory.
 
 </div>
 

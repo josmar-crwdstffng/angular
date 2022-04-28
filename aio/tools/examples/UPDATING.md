@@ -9,7 +9,7 @@ Follow these steps to update the examples to the latest versions of Angular (and
 
 - In the [shared/](./shared) directory, run `yarn` to update the dependencies in the [shared/node_modules/](./shared/node_modules) directory and the [shared/yarn.lock](./shared/yarn.lock) file.
 
-- In the [shared/](./shared) directory, run `yarn sync-deps` to update the dependency versions of the `package.json` files in each sub-folder of [shared/boilerplate/](./shared/boilerplate) to match the ones in [shared/package.json](./shared/package.json).
+- In the [shared/](./shared) directory, run `yarn sync-deps` to update the dependency versions of the `package.json` files in each sub-directory of [shared/boilerplate/](./shared/boilerplate) to match the ones in [shared/package.json](./shared/package.json).
 
 - Follow the steps in the following section to update the rest of the boilerplate files.
 
@@ -20,7 +20,7 @@ The Angular CLI default setup is updated using `ng update`.
 Any necessary changes to boilerplate files will be done automatically through migration schematics.
 
 > NOTE:
-> Migrations affecting source code files will not happen automatically, because `ng update` does not know about all the examples in `aio/content/examples/`.
+> Migrations affecting source code files will not happen automatically, because `ng update` does not know about all the examples in the `aio/content/examples` directory.
 > You have to make these changes (if any) manually.
 > Again, the [angular-cli-diff](https://github.com/cexbrayat/angular-cli-diff) repo can be a useful resource for discovering changes between versions.
 
@@ -35,14 +35,14 @@ Any necessary changes to boilerplate files will be done automatically through mi
   ```
 
   > NOTE:
-  > In order for `ng update` to work, there must be a `node_modules/` directory with installed dependencies inside the [shared/boilerplate/cli/](./shared/boilerplate/cli) directory.
-  > This `node_modules/` directory is only needed during the update operation and is otherwise ignored (both by git and by the [example-boilerplate.js](./example-boilerplate.js) script) by means of the [shared/boilerplate/.gitignore](./shared/boilerplate/.gitignore) file.
+  > In order for `ng update` to work, there must be a `node_modules` directory with installed dependencies inside the [shared/boilerplate/cli/](./shared/boilerplate/cli) directory.
+  > This `node_modules` directory is only needed during the update operation and is otherwise ignored (both by git and by the [example-boilerplate.js](./example-boilerplate.js) script) by means of the [shared/boilerplate/.gitignore](./shared/boilerplate/.gitignore) file.
 
-- The previous command made any necessary changes to boilerplate files inside the `cli/` directory, but the same changes need to be applied to the other CLI-based boilerplate directories.
-  Inspect the changes in `cli/` and manually apply the necessary ones to other CLI-based boilerplate directories.
+- The previous command made any necessary changes to boilerplate files inside the `cli` directory, but the same changes need to be applied to the other CLI-based boilerplate directories.
+  Inspect the changes in `cli` and manually apply the necessary ones to other CLI-based boilerplate directories.
 
 - Also ensure that any relevant changes in the [shared/boilerplate/cli/](./shared/boilerplate/cli) directory are copied to the [shared/example-scaffold/](./shared/example-scaffold) directory, which is used when creating new examples (via `yarn create-example ...`).
-  Only files that would not be considered boilerplate should be added to the `example-scaffold/` directory.
+  Only files that would not be considered boilerplate should be added to the `example-scaffold` directory.
 
 - Run the following command to list all the boilerplate files that are overridden in specific examples.
   ```sh

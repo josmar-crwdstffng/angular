@@ -12,7 +12,7 @@ it will create a new image and verify that it works as expected. Finally, it wil
 the old docker container and image, create a new container based on the new image and start it.
 
 The script assumes that the preview server source code is in the repository's
-`aio/aio-builds-setup/` directory and expects the following inputs:
+`aio/aio-builds-setup` directory and expects the following inputs:
 
 - **$1**: `HOST_REPO_DIR`
 - **$2**: `HOST_SECRETS_DIR`

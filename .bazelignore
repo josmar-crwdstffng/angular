@@ -10,7 +10,7 @@ aio/node_modules
 aio/tools/examples/shared/node_modules
 packages/bazel/node_modules
 
-# All integration test node_modules folders
+# All integration test node_modules directories
 integration/bazel_workspace_tests/bazel_ngtsc_plugin/node_modules
 integration/cli-elements-universal/node_modules
 integration/cli-hello-world/node_modules
@@ -39,7 +39,7 @@ integration/terser/node_modules
 integration/typings_test_ts36/node_modules
 integration/typings_test_ts37/node_modules
 
-# All integration test .yarn_local_cache folders
+# All integration test .yarn_local_cache directories
 integration/bazel_workspace_tests/bazel_ngtsc_plugin/.yarn_local_cache
 integration/cli-elements-universal/.yarn_local_cache
 integration/cli-hello-world/.yarn_local_cache

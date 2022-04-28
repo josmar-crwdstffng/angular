@@ -34,7 +34,7 @@ during development, but is not suitable for production.
 
 **Note:**
 Since nginx needs to be able to serve requests for both the main domain as well as any subdomain
-(e.g. `ngbuilds.io/` and `foo-bar.ngbuilds.io/`), the provided certificate needs to be a wildcard
+(e.g. `ngbuilds.io` and `foo-bar.ngbuilds.io`), the provided certificate needs to be a wildcard
 certificate covering both the domain and subdomains.
 
 

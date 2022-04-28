@@ -1,6 +1,6 @@
 # Sanitization
 
-This folder contains sanitization related code.
+This directory contains sanitization related code.
 
 
 ## History

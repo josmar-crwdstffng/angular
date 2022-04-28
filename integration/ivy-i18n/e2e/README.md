@@ -1,6 +1,6 @@
 ## E2E tests
 
-There are four different sets of e2e tests in this folder. They are all testing different
+There are four different sets of e2e tests in this directory. They are all testing different
 translation scenarios, but they are all built with IVY enabled.
 
 ### runtime
@@ -12,7 +12,7 @@ replacement in the `angular.json` configuration. In this new file:
 
 ### de and fr
 
-The application is built (into the `dist` folder) and then two sets of translations
+The application is built (into the `dist` directory) and then two sets of translations
 (`src/locales/messages.(de|fr).json`) are used to generate two copies of the app, which have
 been translated (compile-time inlined).
 

@@ -34,12 +34,12 @@ const IGNORED_EXAMPLES = [];
  * Flags
  *  --filter to filter/select example app subdir names
  *    Can be used multiple times to include multiple patterns.
- *    e.g. --filter=foo  // all example apps with 'foo' in their folder names.
+ *    e.g. --filter=foo  // all example apps with 'foo' in their directory names.
  *
  *  --exclude to exclude example app subdir names
  *    Can be used multiple times to exclude multiple patterns.
  *    NOTE: `--exclude` is always considered after `--filter`.
- *    e.g. --exclude=bar  // Exclude all example apps with 'bar' in their folder names.
+ *    e.g. --exclude=bar  // Exclude all example apps with 'bar' in their directory names.
  *
  *  --setup to run yarn install, copy boilerplate and update webdriver
  *    e.g. --setup
@@ -87,7 +87,7 @@ function runE2e() {
       });
 }
 
-// Finds all of the *e2e-spec.tests under the examples folder along with the corresponding apps
+// Finds all of the *e2e-spec.tests under the examples directory along with the corresponding apps
 // that they should run under. Then run each app/spec collection sequentially.
 function findAndRunE2eTests(
     includeFilter, excludeFilter, outputFile, shard, cliSpecsConcurrency, maxAttempts) {
@@ -407,7 +407,7 @@ function getE2eSpecs(basePath, filter) {
       .then(() => specs);
 }
 
-// Find all e2e specs in a given example folder.
+// Find all e2e specs in a given example directory.
 function getE2eSpecsFor(basePath, specFile, filter) {
   // Only get spec file at the example root.
   const e2eSpecGlob = [

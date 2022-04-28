@@ -53,7 +53,7 @@ function updateDeps(dependencies) {
   }
 }
 
-// Update dependencies from @angular scope to those in the packages-dist folder
+// Update dependencies from @angular scope to those in the packages-dist directory
 updateDeps(packageJson.dependencies);
 updateDeps(packageJson.devDependencies);
 

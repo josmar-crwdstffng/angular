@@ -42,7 +42,7 @@ ng add &commat;nguniversal/express-engine
 
 </code-example>
 
-The command creates the following folder structure.
+The command creates the following directory structure.
 
 <div class='filetree'>
     <div class='file'>
@@ -294,7 +294,7 @@ The following code filters for request URLs with no extensions and treats them a
 
 A single `server.use()` treats all other URLs as requests for static assets such as JavaScript, image, and style files.
 
-To ensure that clients can only download the files that they are permitted to see, put all client-facing asset files in the `/dist` folder and only honor requests for files from the `/dist` folder.
+To ensure that clients can only download the files that they are permitted to see, put all client-facing asset files in the `dist` directory and only honor requests for files from the `dist` directory.
 
 The following Node.js Express code routes all remaining requests to `/dist`, and returns a `404 - NOT FOUND` error if the
 file isn't found.

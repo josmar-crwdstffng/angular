@@ -32,7 +32,7 @@ module.exports = function collectExamples(exampleMap, regionParser, log, createD
       docs = docs.filter((doc) => {
         if (doc.docType === 'example-file') {
           try {
-            // find the first matching folder
+            // find the first matching directory
             exampleFolders.some((folder) => {
               if (doc.fileInfo.relativePath.indexOf(folder) === 0) {
                 const relativePath =

@@ -65,7 +65,7 @@ errorPackage.factory(require('./readers/error'))
 
     // Configure jsdoc-style tag parsing
     .config(function(parseTagsProcessor, getInjectables) {
-      // Load up all the tag definitions in the tag-defs folder
+      // Load up all the tag definitions in the tag-defs directory
       parseTagsProcessor.tagDefinitions = parseTagsProcessor.tagDefinitions.concat(
           getInjectables(requireFolder(__dirname, './tag-defs')));
     })

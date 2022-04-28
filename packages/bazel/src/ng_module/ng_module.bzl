@@ -547,7 +547,7 @@ NG_MODULE_ATTRIBUTES = {
     "package_name": attr.string(
         doc = """The package name that the linker will link this `ng_module` output as.
     If `package_path` is set, the linker will link this package under `<package_path>/node_modules/<package_name>`.
-    If `package_path` is not set, the package will be linked in the top-level workspace node_modules folder.""",
+    If `package_path` is not set, the package will be linked in the top-level workspace node_modules directory.""",
     ),
 
     # Matches the API of the `ts_library` rule from `@bazel/concatjs`.
@@ -555,7 +555,7 @@ NG_MODULE_ATTRIBUTES = {
     "package_path": attr.string(
         doc = """The package path in the workspace that the linker will link this `ng_module` output to.
     If `package_path` is set, the linker will link this package under `<package_path>/node_modules/<package_name>`.
-    If `package_path` is not set, the package will be linked in the top-level workspace node_modules folder.""",
+    If `package_path` is not set, the package will be linked in the top-level workspace node_modules directory.""",
     ),
 }
 

@@ -1,4 +1,4 @@
-This folder emulates consuming precompiled modules and components.
+This directory emulates consuming precompiled modules and components.
 It is compiled separately from the other sources under `src`
 to only generate `*.js` / `*.d.ts` / `*.metadata.json` files,
 but no `*.ngfactory.ts` files.

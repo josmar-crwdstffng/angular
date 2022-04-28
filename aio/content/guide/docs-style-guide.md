@@ -286,8 +286,8 @@ One of the Angular documentation design goals is that guide page code snippets b
 
 Authors meet this goal by displaying code snippets directly from working sample applications, written specifically for these guide pages.
 
-Find sample applications in sub-folders of the `content/examples` directory of the `angular/angular` repository.
-An example folder name is often the same as the guide page it supports.
+Find sample applications in sub-directories of the `content/examples` directory of the `angular/angular` repository.
+An example directory name is often the same as the guide page it supports.
 
 <div class="alert is-helpful">
 
@@ -306,7 +306,7 @@ You tell the Angular documentation engine which code file &mdash;or fragment of 
 
 ### Displaying an entire code file
 
-This Angular documentation style guide that you are currently reading has its own example application, located in the `content/examples/docs-style-guide` folder.
+This Angular documentation style guide that you are currently reading has its own example application, located in the `content/examples/docs-style-guide` directory.
 
 The following `<code-example>` displays the sample's `app.module.ts`:
 
@@ -320,11 +320,11 @@ The following markup produces that snippet:
 
 </code-example>
 
-The `path` attribute identifies the snippet's source file at the example application folder's location within `content/examples`.
+The `path` attribute identifies the snippet's source file at the location of the example application directory within `content/examples`.
 In this example, that path is  `docs-style-guide/src/app/app.module.ts`.
 
 The header tells the reader where to find the file.
-Following convention, set the `header` attribute to the file's location within the example application's root folder.
+Following convention, set the `header` attribute to the file's location within the example application's root directory.
 
 Unless otherwise commented, all code snippets in this page are from sample source code located in the `content/examples/docs-style-guide` directory.
 
@@ -405,7 +405,7 @@ Specify the `<code-example>` output with the following attributes:
 
 | Attributes | Details |
 |:---        |:---     |
-| `path`     | The path to the file in the `content/examples` folder.                                                                                                                                                                                                  |
+| `path`     | The path to the file in the `content/examples` directory.                                                                                                                                                                                                  |
 | `header`   | The header of the code listing. This is the title of the code snippet and can include the path and extra information such as whether the snippet is an excerpt.                                                                                         |
 | `region`   | Displays the source file fragment with that region name; regions are identified by `#docregion` markup in the source file. See [Displaying a code snippet](#region "Displaying a code snippet").                                                        |
 | `linenums` | Value may be `true`, `false`, or a `number`. The default is `false`, which means that the browser displays no line numbers. The `number` option starts line numbering at the given value. For example, `linenums=4` sets the starting line number to 4. |
@@ -470,7 +470,7 @@ The default is `false`.
 
 | Attributes | Details |
 |:---        |:---     |
-| `path`     | A file in the `content/examples` folder                                                                                                                                                         |
+| `path`     | A file in the `content/examples` directory                                                                                                                                                         |
 | `header`   | What displays in the header of a tab                                                                                                                                                            |
 | `linenums` | Overrides the `linenums` property at the `code-tabs` level for this particular pane. The value can be `true`, `false`, or a number indicating the starting line number. The default is `false`. |
 
@@ -748,7 +748,7 @@ Adding `<live-example></live-example>` to a page generates two default links:
 <live-example></live-example>.
 
 The first is a link to the StackBlitz example, which the default `stackblitz.json` file defines.
-You can find the `stackblitz.json` file in the `content/examples/example-app` directory, where `example-app` is the sample application folder you're using for the guide.
+You can find the `stackblitz.json` file in the `content/examples/example-app` directory, where `example-app` is the sample application directory you're using for the guide.
 
 By default, the documentation generator uses the name of the guide as the name of the example.
 So, if you're working on `router.md`, and use `<live-example></live-example>` in the document, the documentation generator looks for `content/examples/router`.
@@ -756,8 +756,8 @@ Clicking this link opens the code sample on StackBlitz in a new browser tab.
 
 The second link downloads the sample app.
 
-Define live examples by one or more `stackblitz.json` files in the root of a code sample folder.
-Each sample folder usually has a single unnamed definition file, the default `stackblitz.json`.
+Define live examples by one or more `stackblitz.json` files in the root of a code sample directory.
+Each sample directory usually has a single unnamed definition file, the default `stackblitz.json`.
 
 ### Live Example for named StackBlitz
 
@@ -802,9 +802,9 @@ The browser renders the following:
 
 ### Live example from another guide
 
-To link to an example in a folder where the name is not the same as the current guide page, set the `name` attribute to the name of that folder.
+To link to an example in a directory where the name is not the same as the current guide page, set the `name` attribute to the name of that directory.
 
-For example, to include the [Router](guide/router) guide example in this style guide, set the `name` attribute to `router`, that is, the name of the folder where that example resides.
+For example, to include the [Router](guide/router) guide example in this style guide, set the `name` attribute to `router`, that is, the name of the directory where that example resides.
 
 <code-example format="html" language="html">
 
@@ -1195,10 +1195,10 @@ Here is the markup for this file tree.
 
 ## Images
 
-Store images in the `content/images/guide` directory in a folder with the **same name** as the guide page.
+Store images in the `content/images/guide` directory in a directory with the **same name** as the guide page.
 Because Angular documentation generation copies these images to `generated/images/guide/your-guide-directory`, set the image `src` attribute to the runtime location of `generated/images/guide/your-guide-directory`.
 
-For example, images for this "Angular documentation style guide" are in the `content/images/guide/docs-style-guide` folder, but the `src` attribute specifies the `generated` location.
+For example, images for this "Angular documentation style guide" are in the `content/images/guide/docs-style-guide` directory, but the `src` attribute specifies the `generated` location.
 
 The following is the `src` attribute for the "flying hero" image belonging to this guide:
 

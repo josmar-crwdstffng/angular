@@ -34,7 +34,7 @@ export abstract class MockFileSystem implements FileSystem {
     if (isFile(entity)) {
       return entity.toString();
     } else {
-      throw new MockFileSystemError('ENOENT', path, `File "${path}" does not exist.`);
+      throw new MockFileSystemError('ENOENT', path, `The "${path}" file does not exist.`);
     }
   }
 
@@ -43,7 +43,7 @@ export abstract class MockFileSystem implements FileSystem {
     if (isFile(entity)) {
       return entity instanceof Uint8Array ? entity : new Buffer(entity);
     } else {
-      throw new MockFileSystemError('ENOENT', path, `File "${path}" does not exist.`);
+      throw new MockFileSystemError('ENOENT', path, `The "${path}" file does not exist.`);
     }
   }
 
@@ -52,11 +52,13 @@ export abstract class MockFileSystem implements FileSystem {
     const {entity} = this.findFromPath(folderPath);
     if (entity === null || !isFolder(entity)) {
       throw new MockFileSystemError(
-          'ENOENT', path, `Unable to write file "${path}". The containing folder does not exist.`);
+          'ENOENT', path,
+          `Unable to write the "${path}" file. The containing directory does not exist.`);
     }
     if (exclusive && entity[basename] !== undefined) {
       throw new MockFileSystemError(
-          'EEXIST', path, `Unable to exclusively write file "${path}". The file already exists.`);
+          'EEXIST', path,
+          `Unable to exclusively write the "${path}" file. The file already exists.`);
     }
     entity[basename] = data;
   }
@@ -66,11 +68,13 @@ export abstract class MockFileSystem implements FileSystem {
     const {entity} = this.findFromPath(folderPath);
     if (entity === null || !isFolder(entity)) {
       throw new MockFileSystemError(
-          'ENOENT', path, `Unable to remove file "${path}". The containing folder does not exist.`);
+          'ENOENT', path,
+          `Unable to remove the "${path}" file. The containing directory does not exist.`);
     }
     if (isFolder(entity[basename])) {
       throw new MockFileSystemError(
-          'EISDIR', path, `Unable to remove file "${path}". The path to remove is a folder.`);
+          'EISDIR', path,
+          `Unable to remove the "${path}" file. The path to remove is a directory.`);
     }
     delete entity[basename];
   }
@@ -81,7 +85,7 @@ export abstract class MockFileSystem implements FileSystem {
     if (entity === null || !isFolder(entity)) {
       throw new MockFileSystemError(
           'ENOENT', path,
-          `Unable to create symlink at "${path}". The containing folder does not exist.`);
+          `Unable to create symlink at "${path}". The containing directory does not exist.`);
     }
     entity[basename] = new SymLink(target);
   }
@@ -90,11 +94,11 @@ export abstract class MockFileSystem implements FileSystem {
     const {entity} = this.findFromPath(path);
     if (entity === null) {
       throw new MockFileSystemError(
-          'ENOENT', path, `Unable to read directory "${path}". It does not exist.`);
+          'ENOENT', path, `Unable to read the "${path}" directory. It does not exist.`);
     }
     if (isFile(entity)) {
       throw new MockFileSystemError(
-          'ENOTDIR', path, `Unable to read directory "${path}". It is a file.`);
+          'ENOTDIR', path, `Unable to read the "${path}" directory. It is a file.`);
     }
     return Object.keys(entity) as PathSegment[];
   }
@@ -102,7 +106,7 @@ export abstract class MockFileSystem implements FileSystem {
   lstat(path: AbsoluteFsPath): FileStats {
     const {entity} = this.findFromPath(path);
     if (entity === null) {
-      throw new MockFileSystemError('ENOENT', path, `File "${path}" does not exist.`);
+      throw new MockFileSystemError('ENOENT', path, `The "${path}" file does not exist.`);
     }
     return new MockFileStats(entity);
   }
@@ -110,7 +114,7 @@ export abstract class MockFileSystem implements FileSystem {
   stat(path: AbsoluteFsPath): FileStats {
     const {entity} = this.findFromPath(path, {followSymLinks: true});
     if (entity === null) {
-      throw new MockFileSystemError('ENOENT', path, `File "${path}" does not exist.`);
+      throw new MockFileSystemError('ENOENT', path, `The "${path}" file does not exist.`);
     }
     return new MockFileStats(entity);
   }
@@ -130,7 +134,7 @@ export abstract class MockFileSystem implements FileSystem {
   ensureDir(path: AbsoluteFsPath): Folder {
     const segments = this.splitPath(path).map(segment => this.getCanonicalPath(segment));
 
-    // Convert the root folder to a canonical empty string `''` (on Windows it would be `'C:'`).
+    // Convert the root directory to a canonical empty string `''` (on Windows it would be `'C:'`).
     segments[0] = '';
     if (segments.length > 1 && segments[segments.length - 1] === '') {
       // Remove a trailing slash (unless the path was only `/`)
@@ -140,7 +144,7 @@ export abstract class MockFileSystem implements FileSystem {
     let current: Folder = this._fileTree;
     for (const segment of segments) {
       if (isFile(current[segment])) {
-        throw new Error(`Folder already exists as a file.`);
+        throw new Error(`Directory already exists as a file.`);
       }
       if (!current[segment]) {
         current[segment] = {};
@@ -156,7 +160,7 @@ export abstract class MockFileSystem implements FileSystem {
     if (entity === null || !isFolder(entity)) {
       throw new MockFileSystemError(
           'ENOENT', path,
-          `Unable to remove folder "${path}". The containing folder does not exist.`);
+          `Unable to remove the "${path}" directory. The containing directory does not exist.`);
     }
     delete entity[basename];
   }
@@ -276,7 +280,7 @@ export abstract class MockFileSystem implements FileSystem {
       // Remove a trailing slash (unless the path was only `/`)
       segments.pop();
     }
-    // Convert the root folder to a canonical empty string `""` (on Windows it would be `C:`).
+    // Convert the root directory to a canonical empty string `""` (on Windows it would be `C:`).
     segments[0] = '';
     let current: Entity|null = this._fileTree;
     while (segments.length) {

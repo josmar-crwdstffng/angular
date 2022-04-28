@@ -15,4 +15,4 @@
 export {VERSION} from './src/common/src/version';
 export {UpgradeAdapter, UpgradeAdapterRef} from './src/dynamic/src/upgrade_adapter';
 
-// This file only re-exports content of the `src` folder. Keep it that way.
+// This file only re-exports content of the `src` directory. Keep it that way.

@@ -122,7 +122,7 @@ describe('NgPackagesInstaller', () => {
       };
       spyOn(installer, '_getDistPackages').and.callFake(() => copyJsonObj(dummyLocalPackages));
 
-      // This is the package.json in the "test" folder
+      // This is the package.json in the "test" directory
       dummyPackage = {
         dependencies: {
           '@angular/core': '4.4.1',
@@ -139,7 +139,7 @@ describe('NgPackagesInstaller', () => {
       dummyPackageJson = JSON.stringify(dummyPackage);
       fs.readFileSync.and.returnValue(dummyPackageJson);
 
-      // This is the package.json that is temporarily written to the "test" folder
+      // This is the package.json that is temporarily written to the "test" directory
       // Note that the Angular/Zone.js (dev)dependencies have been modified to use a "file:" path
       // and that the peerDependencies from `dummyLocalPackages` have been updated or added as
       // (dev)dependencies (unless the current version in lockfile satisfies semver).

@@ -35,8 +35,8 @@ Also, extend and customize Angular by creating your own builders, which you can 
 
 ### Builder project structure
 
-A builder resides in a "project" folder that is similar in structure to an Angular workspace, with global configuration files at the top level, and more specific configuration in a source folder with the code files that define the behavior.
-For example, your `myBuilder` folder could contain the following files.
+A builder resides in a `project` directory that is similar in structure to an Angular workspace, with global configuration files at the top level, and more specific configuration in a source directory with the code files that define the behavior.
+For example, your `myBuilder` directory could contain the following files.
 
 | Files                    | Purpose                                                                                                   |
 |:---                      | :---                                                                                                      |

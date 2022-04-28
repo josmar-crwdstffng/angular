@@ -144,7 +144,7 @@ Browsers provide built-in tools for debugging service workers and the Angular se
 
 ### Locating and analyzing debugging information
 
-The Angular service worker exposes debugging information under the `ngsw/` virtual directory.
+The Angular service worker exposes debugging information under the `ngsw` virtual directory.
 Currently, the single exposed URL is `ngsw/state`.
 Here is an example of this debug page's contents:
 

@@ -516,9 +516,9 @@ var c = file_a.a;
           contents: `var a_module = require('./a_module');\n` +
               `var b_module = require('./b_module');\n` +
               `var xtra_module = require('./xtra_module');\n` +
-              `var wildcard_reexports_emitted_helpers = require('./wildcard_reexports_emitted_helpers');\n` +
-              `var wildcard_reexports_imported_helpers = require('./wildcard_reexports_imported_helpers');\n` +
-              `var define_property_reexports = require('./define_property_reexports');\n`
+              `var wildcard_re-exports_emitted_helpers = require('./wildcard_re-exports_emitted_helpers');\n` +
+              `var wildcard_re-exports_imported_helpers = require('./wildcard_re-exports_imported_helpers');\n` +
+              `var define_property_re-exports = require('./define_property_re-exports');\n`
         },
         {
           name: _('/a_module.js'),
@@ -555,7 +555,7 @@ var c = file_a.a;
               `exports.xtra2 = xtra2;\n`,
         },
         {
-          name: _('/wildcard_reexports_emitted_helpers.js'),
+          name: _('/wildcard_re-exports_emitted_helpers.js'),
           contents: `function __export(m) {\n` +
               `  for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];\n` +
               `}\n` +
@@ -564,14 +564,14 @@ var c = file_a.a;
               `__export(require("./xtra_module"));\n`,
         },
         {
-          name: _('/wildcard_reexports_imported_helpers.js'),
+          name: _('/wildcard_re-exports_imported_helpers.js'),
           contents: `var tslib_1 = require("tslib");\n` +
               `var b_module = require("./b_module");\n` +
               `tslib_1.__exportStar(b_module, exports);\n` +
               `tslib_1.__exportStar(require("./xtra_module"), exports);\n`,
         },
         {
-          name: _('/define_property_reexports.js'),
+          name: _('/define_property_re-exports.js'),
           contents: `var moduleA = require("./a_module");\n` +
               `Object.defineProperty(exports, "newA", { enumerable: true, get: function () { return moduleA.a; } });`,
         }
@@ -2475,7 +2475,7 @@ exports.MissingClass2 = MissingClass2;
           const host =
               createHost(bundle, new CommonJsReflectionHost(new MockLogger(), false, bundle));
           const file =
-              getSourceFileOrError(bundle.program, _('/wildcard_reexports_emitted_helpers.js'));
+              getSourceFileOrError(bundle.program, _('/wildcard_re-exports_emitted_helpers.js'));
           const exportDeclarations = host.getExportsOfModule(file);
           expect(exportDeclarations).not.toBe(null);
           expect(Array.from(exportDeclarations!.entries())
@@ -2505,7 +2505,7 @@ exports.MissingClass2 = MissingClass2;
           const host =
               createHost(bundle, new CommonJsReflectionHost(new MockLogger(), false, bundle));
           const file =
-              getSourceFileOrError(bundle.program, _('/wildcard_reexports_imported_helpers.js'));
+              getSourceFileOrError(bundle.program, _('/wildcard_re-exports_imported_helpers.js'));
           const exportDeclarations = host.getExportsOfModule(file);
           expect(exportDeclarations).not.toBe(null);
           expect(Array.from(exportDeclarations!.entries())
@@ -2584,7 +2584,7 @@ exports.MissingClass2 = MissingClass2;
           const bundle = makeTestBundleProgram(_('/index.js'));
           const host =
               createHost(bundle, new CommonJsReflectionHost(new MockLogger(), false, bundle));
-          const file = getSourceFileOrError(bundle.program, _('/define_property_reexports.js'));
+          const file = getSourceFileOrError(bundle.program, _('/define_property_re-exports.js'));
           const exportDeclarations = host.getExportsOfModule(file);
           expect(exportDeclarations).not.toBe(null);
           expect(Array.from(exportDeclarations!.entries())

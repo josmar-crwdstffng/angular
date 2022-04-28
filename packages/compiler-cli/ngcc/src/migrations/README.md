@@ -13,6 +13,6 @@ There are two ways this can happen:
 To create one of these migrations for ngcc, you should implement the `Migration` interface and add
 an instance of the class to the `DecorationAnalyzer.migrations` collection.
 
-This folder is where we keep the `Migration` interface and the implemented migrations.
+This directory is where we keep the `Migration` interface and the implemented migrations.
 
 Each migration should have a unit test stored in the `../../test/migrations` directory.

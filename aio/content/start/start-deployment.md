@@ -82,7 +82,7 @@ A best practice is to run your project locally before you deploy it. To run your
 
     </code-example>
 
-    This command creates a `dist` folder in the application root directory with all the files that a hosting service needs for serving your application.
+    This command creates a `dist` directory in the application root directory with all the files that a hosting service needs for serving your application.
 
     <div class="alert is-helpful">
 
@@ -90,7 +90,7 @@ A best practice is to run your project locally before you deploy it. To run your
 
     </div>
 
-1.  Copy the contents of the `dist/my-project-name` folder to your web server.
+1.  Copy the contents of the `dist/my-project-name` directory to your web server.
     Because these files are static, you can host them on any web server capable of serving files; such as `Node.js`, Java, .NET, or any backend such as [Firebase](https://firebase.google.com/docs/hosting), [Google Cloud](https://cloud.google.com/solutions/web-hosting), or [App Engine](https://cloud.google.com/appengine/docs/standard/python/getting-started/hosting-a-static-website).
     For more information, see [Building & Serving](guide/build "Building and Serving Angular Apps") and [Deployment](guide/deployment "Deployment guide").
 

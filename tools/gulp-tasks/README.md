@@ -1,6 +1,6 @@
-# Gulp Tasks folder
+# Gulp Tasks directory
 
-This folder contains one file for each task (or group of related tasks) for the project's gulpfile.
+This directory contains one file for each task (or group of related tasks) for the project's gulpfile.
 The dependencies between the tasks is kept in the gulpfile.
 
 ## Task File Structure

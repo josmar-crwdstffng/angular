@@ -33,7 +33,7 @@ describe('checkForUnusedExampleRegions', () => {
           .toThrowError('There is 1 unused example region:\n - some/file#not-used');
     });
 
-    it('should not error if there are no example folders', () => {
+    it('should not error if there are no example directories', () => {
       expect(() => processor.$process()).not.toThrowError();
     });
 

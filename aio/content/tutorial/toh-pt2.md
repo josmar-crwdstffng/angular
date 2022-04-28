@@ -15,7 +15,7 @@ You'll need some heroes to display.
 Eventually you'll get them from a remote data server.
 For now, you'll create some *mock heroes* and pretend they came from the server.
 
-Create a file called `mock-heroes.ts` in the `src/app/` folder.
+Create a file called `mock-heroes.ts` in the `src/app` directory.
 Define a `HEROES` constant as an array of ten heroes and export it.
 The file should look like this.
 

@@ -79,7 +79,7 @@ The preview features two areas:
 The project section on the left shows the source files that make up the application, including the infrastructure and configuration files.
 
 When you generate the StackBlitz example applications that accompany the tutorials, StackBlitz creates the starter files and mock data for you.
-The files you use throughout the tutorial are in the `src` folder.
+The files you use throughout the tutorial are in the `src` directory.
 
 For more information on how to use StackBlitz, see the [StackBlitz documentation](https://developer.stackblitz.com/docs/platform).
 
@@ -91,7 +91,7 @@ In this section, you'll update the application to display a list of products.
 You'll use predefined product data from the `products.ts` file and methods from the `product-list.component.ts` file.
 This section guides you through editing the HTML, also known as the template.
 
-1.  In the `product-list` folder, open the template file `product-list.component.html`.
+1.  In the `product-list` directory, open the template file `product-list.component.html`.
 
 1.  Add an `*ngFor` structural directive on a `<div>`, as follows.
 

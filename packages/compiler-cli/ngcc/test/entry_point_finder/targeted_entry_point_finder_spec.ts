@@ -168,7 +168,7 @@ runInEachFileSystem(() => {
            expect(entryPoints).toEqual([]);
          });
 
-      it('should handle nested node_modules folders', () => {
+      it('should handle nested node_modules directories', () => {
         const targetPath = _Abs('/nested_node_modules/node_modules/outer');
         loadTestFiles([
           ...createPackage(_Abs('/nested_node_modules/node_modules'), 'outer', ['inner']),
@@ -185,7 +185,7 @@ runInEachFileSystem(() => {
             ]);
       });
 
-      it('should handle external node_modules folders (e.g. in a yarn workspace)', () => {
+      it('should handle external node_modules directories (e.g. in a yarn workspace)', () => {
         // Note that neither the basePath and targetPath contain each other
         const basePath = _Abs('/nested_node_modules/packages/app/node_modules');
         const targetPath = _Abs('/nested_node_modules/node_modules/package/entry-point');
@@ -201,13 +201,13 @@ runInEachFileSystem(() => {
         ]);
       });
 
-      it('should handle external node_modules folders (e.g. in a yarn workspace) for dependencies',
+      it('should handle external node_modules directories (e.g. in a yarn workspace) for dependencies',
          () => {
            // The application being compiled is at `/project/packages/app` so the basePath sent to
            // ngcc is the `node_modules` below it
            const basePath = _Abs('/project/packages/app/node_modules');
            // `packages/app` depends upon lib1, which has a private dependency on lib2 in its
-           // own `node_modules` folder
+           // own `node_modules` directory
            const lib2 = createPackage(
                _Abs('/project/node_modules/lib1/node_modules'), 'lib2', ['lib3/entry-point']);
            // `lib2` depends upon `lib3/entry-point` which has been hoisted all the way up to the
@@ -227,13 +227,13 @@ runInEachFileSystem(() => {
            ]);
          });
 
-      it('should handle external node_modules folders (e.g. in a yarn workspace) for scoped dependencies',
+      it('should handle external node_modules directories (e.g. in a yarn workspace) for scoped dependencies',
          () => {
            // The application being compiled is at `/project/packages/app` so the basePath sent to
            // ngcc is the `node_modules` below it
            const basePath = _Abs('/project/packages/app/node_modules');
            // `packages/app` depends upon lib1, which has a private dependency on lib2 in its
-           // own `node_modules` folder
+           // own `node_modules` directory
            const lib2 = createPackage(
                _Abs('/project/node_modules/lib1/node_modules'), 'lib2',
                ['@scope/lib3/entry-point']);

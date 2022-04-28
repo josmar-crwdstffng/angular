@@ -72,7 +72,7 @@ If you are not using the Angular CLI, you can migrate legacy localization IDs us
 
     </code-example>
 
-    In this command, `./path/to/bundles/` represents the path to your distributable files.
+    In this command, `./path/to/bundles` represents the path to your distributable files.
     You can set the `outputPath` parameter to any directory in your system.
 
     <div class="alert is-helpful">

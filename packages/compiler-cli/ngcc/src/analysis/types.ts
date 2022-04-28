@@ -7,6 +7,7 @@
  */
 import {ConstantPool} from '@angular/compiler';
 import ts from 'typescript';
+
 import {Reexport} from '../../../src/ngtsc/imports';
 import {ClassDeclaration, Decorator} from '../../../src/ngtsc/reflection';
 import {CompileResult} from '../../../src/ngtsc/transform';
@@ -26,7 +27,7 @@ export interface CompiledFile {
   /**
    * Any re-exports which should be added next to this class, both in .js and (if possible) .d.ts.
    */
-  reexports: Reexport[];
+  re - exports: Reexport[];
 }
 
 export type DecorationAnalyses = Map<ts.SourceFile, CompiledFile>;

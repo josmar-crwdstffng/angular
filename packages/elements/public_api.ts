@@ -15,4 +15,4 @@ export {createCustomElement, NgElement, NgElementConfig, NgElementConstructor, W
 export {NgElementStrategy, NgElementStrategyEvent, NgElementStrategyFactory} from './src/element-strategy';
 export {VERSION} from './src/version';
 
-// This file only reexports content of the `src` folder. Keep it that way.
+// This file only re-exports content of the `src` directory. Keep it that way.

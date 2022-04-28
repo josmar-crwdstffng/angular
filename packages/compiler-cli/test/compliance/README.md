@@ -90,7 +90,7 @@ compiled with different options to what are expected for that test-case.
 An expectation consists of a `failureMessage`, which is displayed if the expectation check fails,
 a collection of expected `files` pairs and/or a collection of `expectedErrors`.
 
-Each expected file-pair consists of a path to a `generated` file (relative to the build output folder),
+Each expected file-pair consists of a path to a `generated` file (relative to the build output directory),
 and a path to an `expected` file (relative to the test case).
 
 The `generated` file is checked to see if it "matches" the `expected` file. The matching is

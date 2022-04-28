@@ -381,7 +381,7 @@ in-mem module. Documented in later release, v.0.1.13
 
 <a id="0.1.1"></a>
 ## 0.1.1 (2016-09-26)
-* Exclude src folder and its TS files from npm package
+* Exclude src directory and its TS files from npm package
 
 <a id="0.1.0"></a>
 ## 0.1.0 (2016-09-25)

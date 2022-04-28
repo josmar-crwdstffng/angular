@@ -22,7 +22,7 @@ import {PackageJsonUpdater} from './writing/package_json_updater';
  * The options to configure the ngcc compiler for synchronous execution.
  */
 export interface SyncNgccOptions {
-  /** The absolute path to the `node_modules` folder that contains the packages to process. */
+  /** The absolute path to the `node_modules` directory that contains the packages to process. */
   basePath: string;
 
   /**

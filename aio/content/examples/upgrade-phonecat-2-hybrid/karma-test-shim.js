@@ -22,7 +22,7 @@ function isSpecFile(path) {
   return /\.spec\.(.*\.)?js$/.test(path);
 }
 
-// Is a "built" file if is JavaScript file in one of the "built" folders
+// Is a "built" file if is JavaScript file in one of the "built" directories
 function isBuiltFile(path) {
   return isJsFile(path) &&
          builtPaths.reduce(function(keep, bp) {
@@ -36,7 +36,7 @@ var allSpecFiles = Object.keys(window.__karma__.files)
 
 System.config({
   baseURL: 'base/src',
-  // Extend usual application package list with testing folder
+  // Extend usual application package list with testing directory
   packages: { 'testing': { main: 'index.js', defaultExtension: 'js' } },
 
   // Assume npm: is set in `paths` in systemjs.config

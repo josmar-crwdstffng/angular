@@ -12,7 +12,7 @@ import {PathMappings} from '../path_mappings';
 /**
  * Extract all the base-paths that we need to search for entry-points.
  *
- * This always contains the standard base-path (`sourceDirectory`).
+ * This always contains the standard base-path (`sourceFolder`).
  * But it also parses the `paths` mappings object to guess additional base-paths.
  *
  * For example:
@@ -25,14 +25,14 @@ import {PathMappings} from '../path_mappings';
  * Notice that `'/dist'` is not included as there is no `'*'` path,
  * and `'/dist/lib/generated'` is not included as it is covered by `'/dist/lib'`.
  *
- * @param sourceDirectory The standard base-path (e.g. node_modules).
+ * @param sourceFolder The standard base-path (e.g. node_modules).
  * @param pathMappings Path mapping configuration, from which to extract additional base-paths.
  */
 export function getBasePaths(
-    logger: Logger, sourceDirectory: AbsoluteFsPath,
+    logger: Logger, sourceFolder: AbsoluteFsPath,
     pathMappings: PathMappings|undefined): AbsoluteFsPath[] {
   const fs = getFileSystem();
-  const basePaths = [sourceDirectory];
+  const basePaths = [sourceFolder];
   if (pathMappings) {
     const baseUrl = fs.resolve(pathMappings.baseUrl);
     if (fs.isRoot(baseUrl)) {
@@ -91,11 +91,10 @@ export function getBasePaths(
 
   const dedupedBasePaths = dedupePaths(fs, basePaths);
 
-  // We want to ensure that the `sourceDirectory` is included when it is a node_modules folder.
-  // Otherwise our entry-point finding algorithm would fail to walk that folder.
-  if (fs.basename(sourceDirectory) === 'node_modules' &&
-      !dedupedBasePaths.includes(sourceDirectory)) {
-    dedupedBasePaths.unshift(sourceDirectory);
+  // We want to ensure that the `sourceFolder` is included when it is a node_modules directory.
+  // Otherwise our entry-point finding algorithm would fail to walk that directory.
+  if (fs.basename(sourceFolder) === 'node_modules' && !dedupedBasePaths.includes(sourceFolder)) {
+    dedupedBasePaths.unshift(sourceFolder);
   }
 
   return dedupedBasePaths;

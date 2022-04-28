@@ -24,7 +24,7 @@ export function loadTestFiles(files: TestFile[]) {
 }
 
 /**
- * A folder that is lazily loaded upon first access and then cached.
+ * A directory that is lazily loaded upon first access and then cached.
  */
 class CachedFolder {
   private folder: Folder|null = null;

@@ -18,7 +18,7 @@ class TimeoutError extends Error {
  * AsyncLocker is used to prevent more than one instance of ngcc executing at the same time,
  * when being called in an asynchronous context.
  *
- * * When ngcc starts executing, it creates a file in the `compiler-cli/ngcc` folder.
+ * * When ngcc starts executing, it creates a file in the `compiler-cli/ngcc` directory.
  * * If it finds one is already there then it pauses and waits for the file to be removed by the
  *   other process. If the file is not removed within a set timeout period given by
  *   `retryDelay*retryAttempts` an error is thrown with a suitable error message.

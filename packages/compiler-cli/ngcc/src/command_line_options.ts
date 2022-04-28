@@ -18,7 +18,7 @@ export function parseCommandLineOptions(args: string[]): NgccOptions {
           .option('s', {
             alias: 'source',
             describe:
-                'A path (relative to the working directory) of the `node_modules` folder to process.',
+                'A path (relative to the working directory) of the `node_modules` directory to process.',
             default: './node_modules',
             type: 'string',
           })
@@ -108,7 +108,7 @@ export function parseCommandLineOptions(args: string[]): NgccOptions {
           .option('tsconfig', {
             describe:
                 'A path to a tsconfig.json file that will be used to configure the Angular compiler and module resolution used by ngcc.\n' +
-                'If not provided, ngcc will attempt to read a `tsconfig.json` file from the folder above that given by the `-s` option.\n' +
+                'If not provided, ngcc will attempt to read a `tsconfig.json` file from the directory above that given by the `-s` option.\n' +
                 'Set to false (via `--no-tsconfig`) if you do not want ngcc to use any `tsconfig.json` file.',
             type: 'string',
           })

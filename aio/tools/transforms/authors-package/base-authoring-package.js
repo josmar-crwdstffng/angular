@@ -9,7 +9,7 @@ const Package = require('dgeni').Package;
 const basePackage = require('../angular-base-package');
 
 /**
- * A base package used by all the authoring packages in this folder.
+ * A base package used by all the authoring packages in this directory.
  *
  * This package turns off lots of the potentially fatal checks to allow
  * doc-gen to complete when authors are using the `docs-watch` or `serve-and-sync`

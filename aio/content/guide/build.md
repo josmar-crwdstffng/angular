@@ -13,7 +13,7 @@ The [Angular CLI](cli) `build`, `serve`, and `test` commands can then replace fi
 
 ### Configure environment-specific defaults
 
-A project's `src/environments/` folder contains the base configuration file, `environment.ts`, which provides a default environment.
+A project's `src/environments` directory contains the base configuration file, `environment.ts`, which provides a default environment.
 You can add override defaults for additional environments, such as production and staging, in target-specific configuration files.
 
 For example:
@@ -340,7 +340,7 @@ See the [browserslist repo](https://github.com/browserslist/browserslist) for mo
 Use the [proxying support](https://webpack.js.org/configuration/dev-server/#devserverproxy) in the `webpack` development server to divert certain URLs to a backend server, by passing a file to the `--proxy-config` build option.
 For example, to divert all calls for `http://localhost:4200/api` to a server running on `http://localhost:3000/api`, take the following steps.
 
-1.  Create a file `proxy.conf.json` in your project's `src/` folder.
+1.  Create a file `proxy.conf.json` in your project's `src` directory.
 1.  Add the following content to the new proxy file:
 
     <code-example format="json" language="json">

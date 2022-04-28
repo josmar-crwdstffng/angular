@@ -12,7 +12,7 @@ locally.
 In order to make it easier to administer the server and version-control the setup, we are using
 [docker](https://www.docker.com) to run a container on a VM. The Dockerfile and all other files
 necessary for creating the docker container are stored (and versioned) along with the angular.io
-project's source code (currently part of the angular/angular repo) in the `aio-builds-setup/`
+project's source code (currently part of the angular/angular repo) in the `aio-builds-setup`
 directory.
 
 
@@ -58,7 +58,7 @@ More info on how to set things up on CI can be found [here](misc--integrate-with
   corresponding PR on GitHub mentioning the SHAs and the links where the previews can be found.
 - The preview-server verifies that it is not trying to overwrite an existing build.
 - The preview-server deploys the artifacts to a sub-directory named after the PR number and the
-  first few characters of the SHA: `<PR>/<SHA>/`
+  first few characters of the SHA: `<PR>/<SHA>`
   (Non-publicly accessible PRs will be stored in a different location, but again derived from the PR
   number and SHA.)
 - If the PR is publicly accessible, the preview-server posts a comment on the corresponding PR on
@@ -90,7 +90,7 @@ More info on the possible HTTP status codes and their meaning can be found
 - nginx receives a request for a hosted preview resource on a subdomain corresponding to the PR and SHA.
   E.g.: `pr<PR>-<SHA>.ngbuilds.io/path/to/resource`
 - nginx maps the subdomain to the correct sub-directory and serves the resource.
-  E.g.: `/<PR>/<SHA>/path/to/resource`
+  E.g.: `<PR>/<SHA>/path/to/resource`
 
 More info on the possible HTTP status codes and their meaning can be found
 [here](overview--http-status-codes.md).

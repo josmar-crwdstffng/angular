@@ -24,7 +24,7 @@ yarn build-watch
 ```
 
 Now build, start and attach to the Docker container. See "Setting up the VM"
-section in [TOC](_TOC.md). Then link the JavaScript folders (in the container):
+section in [TOC](_TOC.md). Then link the JavaScript directories (in the container):
 
 ```bash
 aio-dev-mode

@@ -2,8 +2,7 @@
  * @license
  * Copyright Google LLC All Rights Reserved.
  *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
+ * Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://angular.io/license
  */
 import {AbsoluteFsPath, ReadonlyFileSystem} from '../../../src/ngtsc/file_system';
 import {PathMappings} from '../path_mappings';
@@ -12,15 +11,12 @@ import {isRelativePath, loadJson, loadSecondaryEntryPointInfoForApfV14, resolveF
 /**
  * This is a very cut-down implementation of the TypeScript module resolution strategy.
  *
- * It is specific to the needs of ngcc and is not intended to be a drop-in replacement
- * for the TS module resolver. It is used to compute the dependencies between entry-points
- * that may be compiled by ngcc.
+ * It is specific to the needs of ngcc and is not intended to be a drop-in replacement for the TS module resolver.
+ * It is used to compute the dependencies between entry-points that may be compiled by ngcc.
  *
- * The algorithm only finds `.js` files for internal/relative imports and paths to
- * the folder containing the `package.json` of the entry-point for external imports.
+ * The algorithm only finds `.js` files for internal/relative imports and paths to the directory containing the `package.json` of the entry-point for external imports.
  *
- * It can cope with nested `node_modules` folders and also supports `paths`/`baseUrl`
- * configuration properties, as provided in a `ts.CompilerOptions` object.
+ * It can cope with nested `node_modules` directories and also supports `paths`/`baseUrl` configuration properties, as provided in a `ts.CompilerOptions` object.
  */
 export class ModuleResolver {
   private pathMappings: ProcessedPathMapping[];
@@ -37,9 +33,9 @@ export class ModuleResolver {
    * @param fromPath The path to the file containing the import.
    * @returns A path to the resolved module or null if missing.
    * Specifically:
-   *  * the absolute path to the package.json of an external module
-   *  * a JavaScript file of an internal module
-   *  * null if none exists.
+   *  *   The absolute path to the package.json of an external module
+   *  *   A JavaScript file of an internal module
+   *  *   Null if none exists.
    */
   resolveModuleImport(moduleName: string, fromPath: AbsoluteFsPath): ResolvedModule|null {
     if (isRelativePath(moduleName)) {
@@ -76,15 +72,11 @@ export class ModuleResolver {
   }
 
   /**
-   * Try to resolve the `moduleName`, by applying the computed `pathMappings` and
-   * then trying to resolve the mapped path as a relative or external import.
+   * Try to resolve the `moduleName`, by applying the computed `pathMappings` and then trying to resolve the mapped path as a relative or external import.
    *
-   * Whether the mapped path is relative is defined as it being "below the `fromPath`" and not
-   * containing `node_modules`.
+   * Whether the mapped path is relative is defined as it being "below the `fromPath`" and not containing `node_modules`.
    *
-   * If the mapped path is not relative but does not resolve to an external entry-point, then we
-   * check whether it would have resolved to a relative path, in which case it is marked as a
-   * "deep-import".
+   * If the mapped path is not relative but does not resolve to an external entry-point, then we check whether it would have resolved to a relative path, in which case it is marked as a "deep-import".
    */
   private resolveByPathMappings(moduleName: string, fromPath: AbsoluteFsPath): ResolvedModule|null {
     const mappedPaths = this.findMappedPaths(moduleName);
@@ -107,18 +99,17 @@ export class ModuleResolver {
   }
 
   /**
-   * Try to resolve the `moduleName` as an external entry-point by searching the `node_modules`
-   * folders up the tree for a matching `.../node_modules/${moduleName}`.
+   * Try to resolve the `moduleName` as an external entry-point by searching the `node_modules` directories up the tree for a matching `.../node_modules/${moduleName}`.
    *
-   * If a folder is found but the path is not considered an entry-point (see `isEntryPoint()`) then
-   * it is marked as a "deep-import".
+   * If a directory is found but the path does not considered an entry-point, then it is marked as a "deep-import".
+   * An example of an entry-point is `isEntryPoint()`.
    */
   private resolveAsEntryPoint(moduleName: string, fromPath: AbsoluteFsPath): ResolvedModule|null {
     let folder = fromPath;
     while (!this.fs.isRoot(folder)) {
       folder = this.fs.dirname(folder);
       if (folder.endsWith('node_modules')) {
-        // Skip up if the folder already ends in node_modules
+        // Skip up if the directory already ends in node_modules
         folder = this.fs.dirname(folder);
       }
       const modulePath = this.fs.resolve(folder, 'node_modules', moduleName);
@@ -136,9 +127,7 @@ export class ModuleResolver {
    * Can we consider the given path as an entry-point to a package?
    *
    * This is achieved by checking for the existence of `${modulePath}/package.json`.
-   * If there is no `package.json`, we check whether this is an APF v14+ secondary entry-point,
-   * which does not have its own `package.json` but has an `exports` entry in the package's primary
-   * `package.json`.
+   * If there is no `package.json`, we check whether this is an APF v14+ secondary entry-point, which does not have its own `package.json` but has an `exports` entry in the package's primary `package.json`.
    */
   private isEntryPoint(modulePath: AbsoluteFsPath): boolean {
     if (this.fs.exists(this.fs.join(modulePath, 'package.json'))) {
@@ -158,12 +147,9 @@ export class ModuleResolver {
   }
 
   /**
-   * Apply the `pathMappers` to the `moduleName` and return all the possible
-   * paths that match.
+   * Apply the `pathMappers` to the `moduleName` and return all the possible paths that match.
    *
-   * The mapped path is computed for each template in `mapping.templates` by
-   * replacing the `matcher.prefix` and `matcher.postfix` strings in `path with the
-   * `template.prefix` and `template.postfix` strings.
+   * The mapped path is computed for each template in `mapping.templates` by replacing the `matcher.prefix` and `matcher.postfix` strings in `path with the `template.prefix` and `template.postfix` strings.
    */
   private findMappedPaths(moduleName: string): AbsoluteFsPath[] {
     const matches = this.pathMappings.map(mapping => this.matchMapping(moduleName, mapping));
@@ -197,8 +183,7 @@ export class ModuleResolver {
   /**
    * Attempt to find a mapped path for the given `path` and a `mapping`.
    *
-   * The `path` matches the `mapping` if if it starts with `matcher.prefix` and ends with
-   * `matcher.postfix`.
+   * The `path` matches the `mapping` if if it starts with `matcher.prefix` and ends with `matcher.postfix`.
    *
    * @returns the wildcard segment of a matched `path`, or `null` if no match.
    */
@@ -214,8 +199,7 @@ export class ModuleResolver {
   }
 
   /**
-   * Compute the candidate paths from the given mapping's templates using the matched
-   * string.
+   * Compute the candidate paths from the given mapping's templates using the matched string.
    */
   private computeMappedTemplates(mapping: ProcessedPathMapping, match: string) {
     return mapping.templates.map(
@@ -223,8 +207,7 @@ export class ModuleResolver {
   }
 
   /**
-   * Search up the folder tree for the first folder that contains `package.json`
-   * or `null` if none is found.
+   * Search up the directory tree for the first directory that contains `package.json` or `null` if none is found.
    */
   private findPackagePath(path: AbsoluteFsPath): AbsoluteFsPath|null {
     let folder = path;
@@ -238,28 +221,28 @@ export class ModuleResolver {
   }
 }
 
-/** The result of resolving an import to a module. */
+/** 
+ * The result of resolving an import to a module.
+ */
 export type ResolvedModule = ResolvedExternalModule|ResolvedRelativeModule|ResolvedDeepImport;
 
 /**
  * A module that is external to the package doing the importing.
- * In this case we capture the folder containing the entry-point.
+ * In this case we capture the directory containing the entry-point.
  */
 export class ResolvedExternalModule {
   constructor(public entryPointPath: AbsoluteFsPath) {}
 }
 
 /**
- * A module that is relative to the module doing the importing, and so internal to the
- * source module's package.
+ * A module that is relative to the module doing the importing, and so internal to the source module's package.
  */
 export class ResolvedRelativeModule {
   constructor(public modulePath: AbsoluteFsPath) {}
 }
 
 /**
- * A module that is external to the package doing the importing but pointing to a
- * module that is deep inside a package, rather than to an entry-point of the package.
+ * A module that is external to the package doing the importing but pointing to a module that is deep inside a package, rather than to an entry-point of the package.
  */
 export class ResolvedDeepImport {
   constructor(public importPath: AbsoluteFsPath) {}

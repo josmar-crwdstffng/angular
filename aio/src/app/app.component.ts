@@ -54,7 +54,7 @@ export class AppComponent implements OnInit {
    */
   pageId: string;
   /**
-   * An HTML friendly identifer for the "folder" of the currently displayed page.
+   * An HTML friendly identifer for the "directory" of the currently displayed page.
    * This is computed by taking everything up to the first `/` in the `currentDocument.id`
    */
   folderId: string;
@@ -65,7 +65,7 @@ export class AppComponent implements OnInit {
    * You will get three classes:
    *
    * * `page-...`: computed from the current document id (e.g. events, guide-security, tutorial-toh-pt2)
-   * * `folder-...`: computed from the top level folder for an id (e.g. guide, tutorial, etc)
+   * * `directory-...`: computed from the top level directory for an id (e.g. guide, tutorial, etc)
    * * `view-...`: computed from the navigation view (e.g. SideNav, TopBar, etc)
    */
   @HostBinding('class')
@@ -356,7 +356,7 @@ export class AppComponent implements OnInit {
     const mode = `mode-${this.deployment.mode}`;
     const sideNavOpen = `sidenav-${this.sidenav.opened ? 'open' : 'closed'}`;
     const pageClass = `page-${this.pageId}`;
-    const folderClass = `folder-${this.folderId}`;
+    const folderClass = `directory-${this.folderId}`;
     const viewClasses = Object.keys(this.currentNodes).map(view => `view-${view}`).join(' ');
     const notificationClass = `aio-notification-${this.notification.showNotification}`;
     const notificationAnimatingClass = this.notificationAnimating ? 'aio-notification-animating' : '';

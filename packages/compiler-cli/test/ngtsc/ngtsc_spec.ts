@@ -2773,7 +2773,7 @@ function allTests(os: string) {
       const testsForResource = (resource: string) => [
           // [component location, resource location, resource reference]
 
-          // component and resource are in the same folder
+          // component and resource are in the same directory
           [`a/app.ts`, `a/${resource}`, `./${resource}`],  //
           [`a/app.ts`, `a/${resource}`, resource],         //
           [`a/app.ts`, `a/${resource}`, `/a/${resource}`],
@@ -2782,11 +2782,11 @@ function allTests(os: string) {
           [`a/app.ts`, resource, `../${resource}`],  //
           [`a/app.ts`, resource, `/${resource}`],
 
-          // component and resource are in different folders
+          // component and resource are in different directories
           [`a/app.ts`, `b/${resource}`, `../b/${resource}`],  //
           [`a/app.ts`, `b/${resource}`, `/b/${resource}`],
 
-          // resource is in subfolder of component directory
+          // resource is in sub-directory of component directory
           [`a/app.ts`, `a/b/c/${resource}`, `./b/c/${resource}`],  //
           [`a/app.ts`, `a/b/c/${resource}`, `b/c/${resource}`],    //
           [`a/app.ts`, `a/b/c/${resource}`, `/a/b/c/${resource}`],

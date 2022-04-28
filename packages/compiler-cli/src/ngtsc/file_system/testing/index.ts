@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
-export {Folder, MockFileSystem} from './src/mock_file_system';
+export {Directory, MockFileSystem} from './src/mock_file_system';
 export {MockFileSystemNative} from './src/mock_file_system_native';
 export {MockFileSystemPosix} from './src/mock_file_system_posix';
 export {MockFileSystemWindows} from './src/mock_file_system_windows';

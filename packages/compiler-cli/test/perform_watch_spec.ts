@@ -125,7 +125,7 @@ describe('perform watch', () => {
     expect(getSourceFileSpy!).not.toHaveBeenCalledWith(mainTsPath, jasmine.anything());
     expect(getSourceFileSpy!).toHaveBeenCalledWith(utilTsPath, jasmine.anything());
 
-    // trigger a folder change
+    // trigger a directory change
     // -> nothing should be cached
     host.triggerFileChange(
         FileChangeEvent.CreateDeleteDir, path.resolve(testSupport.basePath, 'src'));

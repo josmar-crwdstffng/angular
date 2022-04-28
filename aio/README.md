@@ -1,6 +1,6 @@
 # Angular documentation project (https://angular.io)
 
-Everything in this folder is part of the documentation project. This includes:
+Everything in this directory is part of the documentation project. This includes:
 
 * the web site for displaying the documentation.
 * the dgeni configuration for converting source files to rendered files that can be viewed in the web site.
@@ -10,7 +10,7 @@ Everything in this folder is part of the documentation project. This includes:
 ## Developer tasks
 
 We use [Yarn](https://yarnpkg.com) to manage the dependencies and to run build tasks.
-You should run all these tasks from the `angular/aio` folder.
+You should run all these tasks from the `angular/aio` directory.
 Here are the most important tasks you might need to use:
 
 * `yarn` - install all the dependencies.
@@ -40,7 +40,7 @@ Here are the most important tasks you might need to use:
 
 * `yarn example-e2e` - run all e2e tests for examples. Available options:
   - `--setup`: generate boilerplate, force webdriver update & other setup, then run tests.
-  - `--local`: run e2e tests with the local version of Angular contained in the "dist" folder.
+  - `--local`: run e2e tests with the local version of Angular contained in the `dist` directory.
                _Requires `--setup` in order to take effect._
   - `--filter=foo`: limit e2e tests to those containing the word "foo".
 
@@ -58,7 +58,7 @@ Here are the most important tasks you might need to use:
 
 Running `yarn start` (even when explicitly targeting production mode) does not set up the
 ServiceWorker. If you want to test the ServiceWorker locally, you can use `yarn build` and then
-serve the files in `dist/` with `yarn http-server dist -p 4200`.
+serve the files in `dist` with `yarn http-server dist -p 4200`.
 
 
 ## Guide to authoring
@@ -67,13 +67,13 @@ There are two types of content in the documentation:
 
 * **API docs**: descriptions of the modules, classes, interfaces, decorators, etc that make up the Angular platform.
 API docs are generated directly from the source code.
-The source code is contained in TypeScript files, located in the `angular/packages` folder.
+The source code is contained in TypeScript files, located in the `angular/packages` directory.
 Each API item may have a preceding comment, which contains JSDoc style tags and content.
 The content is written in markdown.
 
 * **Other content**: guides, tutorials, and other marketing material.
-All other content is written using markdown in text files, located in the `angular/aio/content` folder.
-More specifically, there are sub-folders that contain particular types of content: guides, tutorial and marketing.
+All other content is written using markdown in text files, located in the `angular/aio/content` directory.
+More specifically, there are sub-directories that contain particular types of content: guides, tutorial and marketing.
 
 * **Code examples**: code examples need to be testable to ensure their accuracy.
 Also, our examples have a specific look and feel and allow the user to copy the source code. For larger

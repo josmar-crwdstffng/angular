@@ -37,12 +37,12 @@ export class NewEntryPointFileWriter extends InPlaceFileWriter {
   override writeBundle(
       bundle: EntryPointBundle, transformedFiles: FileToWrite[],
       formatProperties: EntryPointJsonProperty[]) {
-    // The new folder is at the root of the overall package
+    // The new directory is at the root of the overall package
     const entryPoint = bundle.entryPoint;
-    const ngccFolder = this.fs.join(entryPoint.packagePath, NGCC_DIRECTORY);
-    this.copyBundle(bundle, entryPoint.packagePath, ngccFolder, transformedFiles);
-    transformedFiles.forEach(file => this.writeFile(file, entryPoint.packagePath, ngccFolder));
-    this.updatePackageJson(entryPoint, formatProperties, ngccFolder);
+    const ngccDirectory = this.fs.join(entryPoint.packagePath, NGCC_DIRECTORY);
+    this.copyBundle(bundle, entryPoint.packagePath, ngccDirectory, transformedFiles);
+    transformedFiles.forEach(file => this.writeFile(file, entryPoint.packagePath, ngccDirectory));
+    this.updatePackageJson(entryPoint, formatProperties, ngccDirectory);
   }
 
   override revertBundle(
@@ -67,7 +67,7 @@ export class NewEntryPointFileWriter extends InPlaceFileWriter {
   }
 
   protected copyBundle(
-      bundle: EntryPointBundle, packagePath: AbsoluteFsPath, ngccFolder: AbsoluteFsPath,
+      bundle: EntryPointBundle, packagePath: AbsoluteFsPath, ngccDirectory: AbsoluteFsPath,
       transformedFiles: FileToWrite[]) {
     const doNotCopy = new Set(transformedFiles.map(f => f.path));
     bundle.src.program.getSourceFiles().forEach(sourceFile => {
@@ -78,7 +78,7 @@ export class NewEntryPointFileWriter extends InPlaceFileWriter {
       const relativePath = this.fs.relative(packagePath, originalPath);
       const isInsidePackage = isLocalRelativePath(relativePath);
       if (!sourceFile.isDeclarationFile && isInsidePackage) {
-        const newPath = this.fs.resolve(ngccFolder, relativePath);
+        const newPath = this.fs.resolve(ngccDirectory, relativePath);
         this.fs.ensureDir(this.fs.dirname(newPath));
         this.fs.copyFile(originalPath, newPath);
         this.copyAndUpdateSourceMap(originalPath, newPath);
@@ -118,14 +118,14 @@ export class NewEntryPointFileWriter extends InPlaceFileWriter {
     }
   }
 
-  protected writeFile(file: FileToWrite, packagePath: AbsoluteFsPath, ngccFolder: AbsoluteFsPath):
-      void {
+  protected writeFile(
+      file: FileToWrite, packagePath: AbsoluteFsPath, ngccDirectory: AbsoluteFsPath): void {
     if (isDtsPath(file.path.replace(/\.map$/, ''))) {
       // This is either `.d.ts` or `.d.ts.map` file
       super.writeFileAndBackup(file);
     } else {
       const relativePath = this.fs.relative(packagePath, file.path);
-      const newFilePath = this.fs.resolve(ngccFolder, relativePath);
+      const newFilePath = this.fs.resolve(ngccDirectory, relativePath);
       this.fs.ensureDir(this.fs.dirname(newFilePath));
       this.fs.writeFile(newFilePath, file.contents);
     }
@@ -144,7 +144,7 @@ export class NewEntryPointFileWriter extends InPlaceFileWriter {
 
   protected updatePackageJson(
       entryPoint: EntryPoint, formatProperties: EntryPointJsonProperty[],
-      ngccFolder: AbsoluteFsPath) {
+      ngccDirectory: AbsoluteFsPath) {
     if (formatProperties.length === 0) {
       // No format properties need updating.
       return;
@@ -158,7 +158,7 @@ export class NewEntryPointFileWriter extends InPlaceFileWriter {
     const oldFormatPath = packageJson[oldFormatProp]!;
     const oldAbsFormatPath = this.fs.resolve(entryPoint.path, oldFormatPath);
     const newAbsFormatPath =
-        this.fs.resolve(ngccFolder, this.fs.relative(entryPoint.packagePath, oldAbsFormatPath));
+        this.fs.resolve(ngccDirectory, this.fs.relative(entryPoint.packagePath, oldAbsFormatPath));
     const newFormatPath = this.fs.relative(entryPoint.path, newAbsFormatPath);
 
     // Update all properties in `package.json` (both in memory and on disk).

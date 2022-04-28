@@ -86,7 +86,7 @@ describe('SearchResultsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should map the search results into groups based on their containing folder', () => {
+  it('should map the search results into groups based on their containing directory', () => {
     const startA = {
       path: 'start/a',
       title: 'Start A',
@@ -114,7 +114,7 @@ describe('SearchResultsComponent', () => {
     ]);
   });
 
-  it('should special case results that are top level folders', () => {
+  it('should special case results that are top level directories', () => {
     setSearchResults('', [
       {
         path: 'docs',
@@ -228,7 +228,7 @@ describe('SearchResultsComponent', () => {
     expect(headers[1].nativeElement.textContent).toContain('(13)');
   });
 
-  it('should put search results with no containing folder into the default area (other)', () => {
+  it('should put search results with no containing directory into the default area (other)', () => {
     const results = [
       { path: 'news', title: 'News', type: 'marketing', keywords: '', titleWords: '', deprecated: false, topics: '' }
     ];

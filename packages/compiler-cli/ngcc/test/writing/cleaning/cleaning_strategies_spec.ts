@@ -228,8 +228,8 @@ runInEachFileSystem(() => {
         it('should remove the __ivy_ngcc__ directory', () => {
           const strategy = new NgccDirectoryCleaner(fs);
           fs.ensureDir(ivyDirectory);
-          fs.ensureDir(fs.resolve(ivyDirectory, 'subfolder'));
-          fs.writeFile(fs.resolve(ivyDirectory, 'subfolder', 'file.txt'), 'file contents');
+          fs.ensureDir(fs.resolve(ivyDirectory, 'sub-directory'));
+          fs.writeFile(fs.resolve(ivyDirectory, 'sub-directory', 'file.txt'), 'file contents');
           strategy.clean(ivyDirectory, fs.basename(ivyDirectory));
           expect(fs.exists(ivyDirectory)).toBe(false);
         });

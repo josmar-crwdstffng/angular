@@ -26,7 +26,7 @@ describe('example-boilerplate tool', () => {
           `yarn --cwd ${sharedDir} ngcc --properties es2015 main`);
     });
 
-    it('should process all the example folders', () => {
+    it('should process all the example directories', () => {
       const examplesDir = path.resolve(__dirname, '../../content/examples');
       exampleBoilerPlate.add();
       expect(exampleBoilerPlate.getFoldersContaining)
@@ -40,10 +40,10 @@ describe('example-boilerplate tool', () => {
       expect(fs.ensureSymlinkSync).toHaveBeenCalledWith(sharedNodeModulesDir, path.resolve('c/d/node_modules'));
     });
 
-    it('should error if the node_modules folder is missing', () => {
+    it('should error if the node_modules directory is missing', () => {
       fs.existsSync.and.returnValue(false);
       expect(() => exampleBoilerPlate.add()).toThrowError(
-        `The shared node_modules folder for the examples (${sharedNodeModulesDir}) is missing.\n` +
+        `The shared node_modules directory for the examples (${sharedNodeModulesDir}) is missing.\n` +
         `Perhaps you need to run "yarn example-use-npm" or "yarn example-use-local" to install the dependencies?`);
       expect(fs.ensureSymlinkSync).not.toHaveBeenCalled();
     });

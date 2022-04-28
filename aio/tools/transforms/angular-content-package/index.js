@@ -26,7 +26,7 @@ module.exports = new Package('angular-content', [basePackage, contentPackage])
 
     const examplePaths = glob.sync('**/*', { cwd: GUIDE_EXAMPLES_PATH, dot: true, ignore: '**/node_modules/**', mark: true })
                             .filter(filePath => filePath !== '.gitignore') // we are not interested in the .gitignore file itself
-                            .filter(filePath => !/\/$/.test(filePath)); // this filter removes the folders, leaving only files
+                            .filter(filePath => !/\/$/.test(filePath)); // this filter removes the directories, leaving only files
     const ignoredExamplePaths = [];
     const resolvedExamplePaths = [];
 

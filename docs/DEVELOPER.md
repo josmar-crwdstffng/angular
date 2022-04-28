@@ -70,7 +70,7 @@ To build Angular run:
 node ./scripts/build/build-packages-dist.js
 ```
 
-* Results are put in the `dist/packages-dist` folder.
+* Results are put in the `dist/packages-dist` directory.
 
 ## Running Tests Locally
 
@@ -128,7 +128,7 @@ If you haven't already, create a `settings.json` file by following the instructi
 1. Install the [ClangFormatIJ](https://plugins.jetbrains.com/plugin/8396-clangformatij) plugin
 1. Open `Preferences->Tools->clang-format`
 1. Find the field named "PATH"
-1. Add `<PATH_TO_YOUR_WORKSPACE>/angular/node_modules/clang-format/bin/<OS>/`
+1. Add `<PATH_TO_YOUR_WORKSPACE>/angular/node_modules/clang-format/bin/<OS>`
   where the OS options are: `darwin_x64`, `linux_x64`, and `win32`.
 
 ### Vim
@@ -195,7 +195,7 @@ packages locally and test them by either of the following ways:
 
 1. Update the dependencies in `package.json` to point to the local uncompressed package directories.
 
-2. Directly copy the local uncompressed package directories into the `node_modules/` directory of a
+2. Directly copy the local uncompressed package directories into the `node_modules` directory of a
    project.
 
 Note that (while faster) the second approach has limitations. For example:

@@ -13,9 +13,9 @@ Download the <live-example downloadOnly>library schematics project</live-example
 To start a collection, you need to create the schematic files.
 The following steps show you how to add initial support without modifying any project files.
 
-1.  In your library's root folder, create a `schematics` folder.
-1.  In the `schematics/` folder, create an `ng-add` folder for your first schematic.
-1.  At the root level of the `schematics` folder, create a `collection.json` file.
+1.  In your library's root directory, create a `schematics` directory.
+1.  In the `schematics` directory, create an `ng-add` directory for your first schematic.
+1.  At the root level of the `schematics` directory, create a `collection.json` file.
 1.  Edit the `collection.json` file to define the initial schema for your collection.
 
     <code-example header="projects/my-lib/schematics/collection.json (Schematics Collection)" path="schematics-for-libraries/projects/my-lib/schematics/collection.1.json"></code-example>
@@ -38,7 +38,7 @@ Now you are ready to create that schematic.
 A schematic for the `ng add` command can enhance the initial installation process for your users.
 The following steps define this type of schematic.
 
-1.  Go to the `<lib-root>/schematics/ng-add` folder.
+1.  Go to the `<lib-root>/schematics/ng-add` directory.
 1.  Create the main file, `index.ts`.
 1.  Open `index.ts` and add the source code for your schematic factory function.
 
@@ -82,10 +82,10 @@ To tell the library how to build the schematics, add a `tsconfig.schematics.json
 
     | Options | Details |
     |:---     |:---     |
-    | `rootDir` | Specifies that your `schematics` folder contains the input files to be compiled.                                 |
-    | `outDir`  | Maps to the library's output folder. By default, this is the `dist/my-lib` folder at the root of your workspace. |
+    | `rootDir` | Specifies that your `schematics` directory contains the input files to be compiled.                                 |
+    | `outDir`  | Maps to the library's output directory. By default, this is the `dist/my-lib` directory at the root of your workspace. |
 
-1.  To make sure your schematics source files get compiled into the library bundle, add the following scripts to the `package.json` file in your library project's root folder \(`projects/my-lib`\).
+1.  To make sure your schematics source files get compiled into the library bundle, add the following scripts to the `package.json` file in your library project's root directory \(`projects/my-lib`\).
 
     <code-example header="projects/my-lib/package.json (Build Scripts)" path="schematics-for-libraries/projects/my-lib/package.json"></code-example>
 
@@ -107,17 +107,17 @@ ng generate my-lib:my-service
 
 </code-example>
 
-To begin, create a new subfolder, `my-service`, in the `schematics` folder.
+To begin, create a new sub-directory, `my-service`, in the `schematics` directory.
 
 ### Configure the new schematic
 
 When you add a schematic to the collection, you have to point to it in the collection's schema, and provide configuration files to define options that a user can pass to the command.
 
-1.  Edit the `schematics/collection.json` file to point to the new schematic subfolder, and include a pointer to a schema file that specifies inputs for the new schematic.
+1.  Edit the `schematics/collection.json` file to point to the new schematic sub-directory, and include a pointer to a schema file that specifies inputs for the new schematic.
 
     <code-example header="projects/my-lib/schematics/collection.json (Schematics Collection)" path="schematics-for-libraries/projects/my-lib/schematics/collection.json"></code-example>
 
-1.  Go to the `<lib-root>/schematics/my-service` folder.
+1.  Go to the `<lib-root>/schematics/my-service` directory.
 1.  Create a `schema.json` file and define the available options for the schematic.
 
     <code-example header="projects/my-lib/schematics/my-service/schema.json (Schematic JSON Schema)" path="schematics-for-libraries/projects/my-lib/schematics/my-service/schema.json"></code-example>
@@ -147,7 +147,7 @@ When you add a schematic to the collection, you have to point to it in the colle
 To add artifacts to a project, your schematic needs its own template files.
 Schematic templates support special syntax to execute code and variable substitution.
 
-1.  Create a `files/` folder inside the `schematics/my-service/` folder.
+1.  Create a `files` directory inside the `schematics/my-service` directory.
 1.  Create a file named `__name@dasherize__.service.ts.template` that defines a template to use for generating files.
     This template will generate a service that already has Angular's `HttpClient` injected into its constructor.
 
@@ -288,8 +288,8 @@ npm run build
 
 ### Link the library
 
-Your library and schematics are packaged and placed in the `dist/my-lib` folder at the root of your workspace.
-For running the schematic, you need to link the library into your `node_modules` folder.
+Your library and schematics are packaged and placed in the `dist/my-lib` directory at the root of your workspace.
+For running the schematic, you need to link the library into your `node_modules` directory.
 From the root of your workspace, run the `npm link` command with the path to your distributable library.
 
 <code-example format="shell" language="shell">
@@ -308,7 +308,7 @@ ng generate my-lib:my-service --name my-data
 
 </code-example>
 
-In the console, you see that the schematic was run and the `my-data.service.ts` file was created in your application folder.
+In the console, you see that the schematic was run and the `my-data.service.ts` file was created in your application directory.
 
 <code-example language="shell" hideCopy>
 

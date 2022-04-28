@@ -26,13 +26,13 @@ export class EntryPointCollector {
    * Look for Angular packages that need to be compiled, starting at the source directory.
    * The function will recurse into directories that start with `@...`, e.g. `@angular/...`.
    *
-   * @param sourceDirectory An absolute path to the root directory where searching begins.
-   * @returns an array of `EntryPoint`s that were found within `sourceDirectory`.
+   * @param sourceFolder An absolute path to the root directory where searching begins.
+   * @returns an array of `EntryPoint`s that were found within `sourceFolder`.
    */
-  walkDirectoryForPackages(sourceDirectory: AbsoluteFsPath): EntryPointWithDependencies[] {
+  walkDirectoryForPackages(sourceFolder: AbsoluteFsPath): EntryPointWithDependencies[] {
     // Try to get a primary entry point from this directory
     const primaryEntryPoint =
-        getEntryPointInfo(this.fs, this.config, this.logger, sourceDirectory, sourceDirectory);
+        getEntryPointInfo(this.fs, this.config, this.logger, sourceFolder, sourceFolder);
 
     // If there is an entry-point but it is not compatible with ngcc (it has a bad package.json or
     // invalid typings) then exit. It is unlikely that such an entry point has a dependency on an
@@ -47,12 +47,12 @@ export class EntryPointCollector {
         entryPoints.push(this.resolver.getEntryPointWithDependencies(primaryEntryPoint));
       }
       this.collectSecondaryEntryPoints(
-          entryPoints, sourceDirectory, sourceDirectory, this.fs.readdir(sourceDirectory));
+          entryPoints, sourceFolder, sourceFolder, this.fs.readdir(sourceFolder));
 
       // Also check for any nested node_modules in this package but only if at least one of the
       // entry-points was compiled by Angular.
       if (entryPoints.some(e => e.entryPoint.compiledByAngular)) {
-        const nestedNodeModulesPath = this.fs.join(sourceDirectory, 'node_modules');
+        const nestedNodeModulesPath = this.fs.join(sourceFolder, 'node_modules');
         if (this.fs.exists(nestedNodeModulesPath)) {
           entryPoints.push(...this.walkDirectoryForPackages(nestedNodeModulesPath));
         }
@@ -61,22 +61,22 @@ export class EntryPointCollector {
       return entryPoints;
     }
 
-    // The `sourceDirectory` was not a package (i.e. there was no package.json)
+    // The `sourceFolder` was not a package (i.e. there was no package.json)
     // So search its sub-directories for Angular packages and entry-points
-    for (const path of this.fs.readdir(sourceDirectory)) {
+    for (const path of this.fs.readdir(sourceFolder)) {
       if (isIgnorablePath(path)) {
         // Ignore hidden files, node_modules and ngcc directory
         continue;
       }
 
-      const absolutePath = this.fs.resolve(sourceDirectory, path);
+      const absolutePath = this.fs.resolve(sourceFolder, path);
       const stat = this.fs.lstat(absolutePath);
       if (stat.isSymbolicLink() || !stat.isDirectory()) {
         // Ignore symbolic links and non-directories
         continue;
       }
 
-      entryPoints.push(...this.walkDirectoryForPackages(this.fs.join(sourceDirectory, path)));
+      entryPoints.push(...this.walkDirectoryForPackages(this.fs.join(sourceFolder, path)));
     }
 
     return entryPoints;
@@ -100,7 +100,7 @@ export class EntryPointCollector {
         continue;
       }
 
-      const absolutePath = this.fs.resolve(directory, path);
+      const absolutePath = this.fs.resolve(folder, path);
       const stat = this.fs.lstat(absolutePath);
       if (stat.isSymbolicLink()) {
         // Ignore symbolic links

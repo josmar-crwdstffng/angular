@@ -53,7 +53,7 @@ directly from `file:../../node_modules`.
 > Always ensure that `yarn.lock` files are up-to-date with the corresponding `package.json` files
 > (wrt the non-local dependencies - i.e. dependencies whose versions do not start with `file:`).
 >
-> You can update a `yarn.lock` file by running `yarn install` in the project subdirectory.
+> You can update a `yarn.lock` file by running `yarn install` in the project sub-directory.
 
 
 ## Running integration tests
@@ -62,7 +62,7 @@ directly from `file:../../node_modules`.
 $ ./integration/run_tests.sh
 ```
 
-The test runner will first re-build any stale npm packages, then `cd` into each subdirectory to
+The test runner will first re-build any stale npm packages, then `cd` into each sub-directory to
 execute the test.
 
 ## Running integration tests under Bazel
@@ -103,8 +103,8 @@ When adding a new integration test, follow the steps below to add a bazel test t
 3. Add at least the following two entries `.bazelignore` (as they may contain BUILD files)
    1. `integration/new_test/node_modules`
    2. `integration/new_test/.yarn_local_cache`
-4. Add any other untracked folders to `.bazelignore` that may contain `BUILD` files
-5. If there are BUILD files in the integration test folder (except for the top-level one defining the test), add those folders to the `--deleted_packages` in the `.bazelrc`. An example is the `bazel_ngtsc_plugin` test within `//integration/bazel_workspace_tests`.
+4. Add any other untracked directories to `.bazelignore` that may contain `BUILD` files
+5. If there are BUILD files in the integration test directory (except for the top-level one defining the test), add those directories to the `--deleted_packages` in the `.bazelrc`. An example is the `bazel_ngtsc_plugin` test within `//integration/bazel_workspace_tests`.
 
 ## Manually configured ports
 

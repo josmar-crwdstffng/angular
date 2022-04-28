@@ -155,9 +155,9 @@ export class EntryPointManifest {
   }
 
   private computeLockFileHash(basePath: AbsoluteFsPath): string|null {
-    const directory = this.fs.dirname(basePath);
+    const folder = this.fs.dirname(basePath);
     for (const lockFileName of ['yarn.lock', 'package-lock.json']) {
-      const lockFilePath = this.fs.resolve(directory, lockFileName);
+      const lockFilePath = this.fs.resolve(folder, lockFileName);
       if (this.fs.exists(lockFilePath)) {
         const lockFileContents = this.fs.readFile(lockFilePath);
         return createHash(this.config.hashAlgorithm).update(lockFileContents).digest('hex');

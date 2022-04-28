@@ -15,11 +15,11 @@ Also, to declare the base `href` at compile time, use the CLI `--baseHref` optio
 
 ## Configure a server
 
-Typical deployment of multiple languages serve each language from a different subdirectory.
+Typical deployment of multiple languages serve each language from a different sub-directory.
 Users are redirected to the preferred language defined in the browser using the `Accept-Language` HTTP header.
 If the user has not defined a preferred language, or if the preferred language is not available, then the server falls back to the default language.
-To change the language, change your current location to another subdirectory.
-The change of subdirectory often occurs using a menu implemented in the application.
+To change the language, change your current location to another sub-directory.
+The change of sub-directory often occurs using a menu implemented in the application.
 
 <div class="alert is-helpful">
 

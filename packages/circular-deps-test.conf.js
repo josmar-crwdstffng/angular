@@ -19,7 +19,7 @@ module.exports = {
 
 /**
  * Custom module resolver that maps specifiers starting with `@angular/` to the
- * local packages folder. This ensures that cross package/entry-point dependencies
+ * local packages directory. This ensures that cross package/entry-point dependencies
  * can be detected.
  */
 function resolveModule(specifier) {

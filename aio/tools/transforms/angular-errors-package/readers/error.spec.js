@@ -34,7 +34,7 @@ describe('errorFileReader', () => {
   describe('getDocs', () => {
     it('should return an object containing info about the file and its contents', () => {
       const fileInfo = createFileInfo(
-          'project/path/modules/someModule/foo/docs/subfolder/bar.md', 'A load of content',
+          'project/path/modules/someModule/foo/docs/sub-directory/bar.md', 'A load of content',
           'project/path');
       expect(fileReader.getDocs(fileInfo)).toEqual([
         {docType: 'error', content: 'A load of content'}

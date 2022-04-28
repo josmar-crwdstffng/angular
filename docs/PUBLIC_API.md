@@ -27,7 +27,7 @@ Within the supported packages, we provide guarantees for:
 
 - symbols exported via the main entry point (e.g. `@angular/core`) and testing entry point (e.g. `@angular/core/testing`). This applies to both runtime/JavaScript values and TypeScript types.
 - symbols exported via global namespace `ng` (e.g. `ng.core`)
-- bundles located in the `bundles/` directory of our npm packages (e.g. `@angular/core/bundles/core.umd.js`)
+- bundles located in the `bundles` directory of our npm packages (e.g. `@angular/core/bundles/core.umd.js`)
 
 
 We explicitly don't consider the following to be our public API surface:

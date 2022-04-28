@@ -19,7 +19,7 @@ ng test --no-watch --code-coverage
 
 </code-example>
 
-When the tests are complete, the command creates a new `/coverage` folder in the project.
+When the tests are complete, the command creates a new `coverage` directory in the project.
 Open the `index.html` file to see a report with your source code and code coverage values.
 
 If you want to create code-coverage reports every time you test, set the following option in the CLI configuration file, `angular.json`:

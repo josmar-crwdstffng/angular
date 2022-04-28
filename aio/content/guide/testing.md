@@ -77,8 +77,8 @@ The tests run again, the browser refreshes, and the new test results appear.
 
 The CLI takes care of Jasmine and Karma configuration for you.
 
-Fine-tune many options by editing the `karma.conf.js` in the root folder of the project and
-the `test.ts` files in the `src/` folder.
+Fine-tune many options by editing the `karma.conf.js` in the root directory of the project and
+the `test.ts` files in the `src` directory.
 
 The `karma.conf.js` file is a partial Karma configuration file.
 The CLI constructs the full runtime configuration in memory, based on application structure specified in the `angular.json` file, supplemented by `karma.conf.js`.
@@ -94,7 +94,7 @@ Search the web to learn more.
 
 ### Test file name and location
 
-Look inside the `src/app` folder.
+Look inside the `src/app` directory.
 
 The CLI generated a test file for the `AppComponent` named `app.component.spec.ts`.
 
@@ -104,7 +104,7 @@ The test file extension **must be `.spec.ts`** so that tooling can identify it a
 
 </div>
 
-The `app.component.ts` and `app.component.spec.ts` files are siblings in the same folder.
+The `app.component.ts` and `app.component.spec.ts` files are siblings in the same directory.
 The root file names \(`app.component`\) are the same for both files.
 
 Adopt these two conventions in your own projects for *every kind* of test file.
@@ -113,7 +113,7 @@ Adopt these two conventions in your own projects for *every kind* of test file.
 
 #### Place your spec file next to the file it tests
 
-It's a good idea to put unit test spec files in the same folder
+It's a good idea to put unit test spec files in the same directory
 as the application source code files that they test:
 
 *   Such tests are painless to find
@@ -122,18 +122,18 @@ as the application source code files that they test:
 *   When you move the source \(inevitable\), you remember to move the test
 *   When you rename the source file \(inevitable\), you remember to rename the test file
 
-<a id="q-specs-in-test-folder"></a>
+<a id="q-specs-in-test-directory"></a>
 
-#### Place your spec files in a test folder
+#### Place your spec files in a test directory
 
 Application integration specs can test the interactions of multiple parts
-spread across folders and modules.
+spread across directories and modules.
 They don't really belong to any part in particular, so they don't have a
 natural home next to any one file.
 
-It's often better to create an appropriate folder for them in the `tests` directory.
+It's often better to create an appropriate directory for them in the `tests` directory.
 
-Of course specs that test the test helpers belong in the `test` folder,
+Of course specs that test the test helpers belong in the `test` directory,
 next to their corresponding helper files.
 
 <a id="ci"></a>
@@ -152,8 +152,8 @@ This article explains how to configure your project to run Circle CI and Travis 
 
 ### Configure project for Circle CI
 
-1.  Create a folder called `.circleci` at the project root.
-1.  In the new folder, create a file called `config.yml` with the following content:
+1.  Create a directory called `.circleci` at the project root.
+1.  In the new directory, create a file called `config.yml` with the following content:
 
     <code-example format="yaml" language="yaml">
 
@@ -176,7 +176,7 @@ This article explains how to configure your project to run Circle CI and Travis 
 
     </code-example>
 
-    This configuration caches `node_modules/` and uses [`npm run`](https://docs.npmjs.com/cli/run-script) to run CLI commands, because `@angular/cli` is not installed globally.
+    This configuration caches `node_modules` and uses [`npm run`](https://docs.npmjs.com/cli/run-script) to run CLI commands, because `@angular/cli` is not installed globally.
     The double hyphen \(`--`\) characters is needed to pass arguments into the `npm` script.
 
 1.  Commit your changes and push them to your repository.
@@ -263,7 +263,7 @@ This article explains how to configure your project to run Circle CI and Travis 
 
     </code-example>
 
-    This configuration caches `node_modules/` in the `install` job and re-uses the cached `node_modules/` in the `test` job.
+    This configuration caches `node_modules` in the `install` job and re-uses the cached `node_modules` in the `test` job.
 
 1.  [Sign up for GitLab CI](https://gitlab.com/users/sign_in) and [add your project](https://gitlab.com/projects/new).
     You'll need to push a new commit to trigger a build.
@@ -273,8 +273,8 @@ This article explains how to configure your project to run Circle CI and Travis 
 
 ### Configure project for GitHub Actions
 
-1.  Create a folder called `.github/workflows` at root of your project.
-1.  In the new folder, create a file called `main.yml` with the following content:
+1.  Create a directory called `.github/workflows` at root of your project.
+1.  In the new directory, create a file called `main.yml` with the following content:
 
     <code-example format="yaml" language="yaml">
 

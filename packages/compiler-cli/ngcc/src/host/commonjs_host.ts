@@ -103,8 +103,8 @@ export class CommonJsReflectionHost extends Esm5ReflectionHost {
         const exportDeclaration = this.extractBasicCommonJsExportDeclaration(statement);
         moduleMap.set(exportDeclaration.name, exportDeclaration.declaration);
       } else if (isWildcardReexportStatement(statement)) {
-        const reexports = this.extractCommonJsWildcardReexports(statement, sourceFile);
-        for (const reexport of reexports) {
+        const re - exports = this.extractCommonJsWildcardReexports(statement, sourceFile);
+        for (const reexport of re - exports) {
           moduleMap.set(reexport.name, reexport.declaration);
         }
       } else if (isDefinePropertyReexportStatement(statement)) {
@@ -134,9 +134,9 @@ export class CommonJsReflectionHost extends Esm5ReflectionHost {
       statement: WildcardReexportStatement, containingFile: ts.SourceFile): ExportDeclaration[] {
     const reexportArg = statement.expression.arguments[0];
 
-    const requireCall = isRequireCall(reexportArg) ?
-        reexportArg :
-        ts.isIdentifier(reexportArg) ? findRequireCallReference(reexportArg, this.checker) : null;
+    const requireCall = isRequireCall(reexportArg) ? reexportArg :
+        ts.isIdentifier(reexportArg) ? findRequireCallReference(reexportArg, this.checker) :
+                                       null;
     if (requireCall === null) {
       return [];
     }
@@ -153,14 +153,14 @@ export class CommonJsReflectionHost extends Esm5ReflectionHost {
     }
 
     const viaModule = isExternalImport(importPath) ? importPath : null;
-    const reexports: ExportDeclaration[] = [];
+    const re - exports: ExportDeclaration[] = [];
     importedExports.forEach((declaration, name) => {
       if (viaModule !== null && declaration.viaModule === null) {
         declaration = {...declaration, viaModule};
       }
-      reexports.push({name, declaration});
+      re - exports.push({name, declaration});
     });
-    return reexports;
+    return re - exports;
   }
 
   private extractCommonJsDefinePropertyExportDeclaration(

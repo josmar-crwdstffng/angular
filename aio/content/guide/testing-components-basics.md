@@ -96,7 +96,7 @@ To write these kinds of test, you'll use additional features of the `TestBed` as
 
 The CLI creates an initial test file for you by default when you ask it to generate a new component.
 
-For example, the following CLI command generates a `BannerComponent` in the `app/banner` folder \(with inline template and styles\):
+For example, the following CLI command generates a `BannerComponent` in the `app/banner` directory \(with inline template and styles\):
 
 <code-example format="shell" language="shell">
 

@@ -187,15 +187,15 @@ export class TargetedEntryPointFinder extends TracingEntryPointFinder {
       }
     }
 
-    // Start the search at the deepest nested `node_modules` folder that is below the `basePath`
+    // Start the search at the deepest nested `node_modules` directory that is below the `basePath`
     // but above the `entryPointPath`, if there are any.
     while (nodeModulesIndex >= 0) {
       packagePath = this.fs.join(packagePath, segments.shift()!);
       nodeModulesIndex--;
     }
 
-    // Note that we start at the folder below the current candidate `packagePath` because the
-    // initial candidate `packagePath` is either a `node_modules` folder or the `basePath` with
+    // Note that we start at the directory below the current candidate `packagePath` because the
+    // initial candidate `packagePath` is either a `node_modules` directory or the `basePath` with
     // no `package.json`.
     for (const segment of segments) {
       packagePath = this.fs.join(packagePath, segment);

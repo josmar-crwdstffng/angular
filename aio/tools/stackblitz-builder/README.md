@@ -22,8 +22,8 @@ So the `builder.mjs` job is to get all the needed files from an example and buil
 ## Customizing the generation per example basis
 
 How does this tool know what is an example and what is not?
-It will look for all folders containing a `stackblitz.json` file.
-If found, all files within the folder and subfolders will be used in the stackblitz, with a few generic exceptions that you can find at `builder.mjs`.
+It will look for all directories containing a `stackblitz.json` file.
+If found, all files within the directory and sub-directories will be used in the stackblitz, with a few generic exceptions that you can find at `builder.mjs`.
 
 You can use the `stackblitz.json` to customize the stackblitz generation.
 For example:
@@ -47,9 +47,9 @@ Here you can specify a description for the stackblitz, some tags and also a file
 `generateStackblitz.mjs` will create a stackblitz for each `stackblitz.json` it finds.
 
 Where?
-At `src/generated/live-examples/`.
+At `src/generated/live-examples`.
 
-Then the `<live-example>` embedded component will look at this folder to get the stackblitz it needs for the
+Then the `<live-example>` embedded component will look at this directory to get the stackblitz it needs for the
 example.
 
 ## Appendix: Why not generating stackblitz at runtime?

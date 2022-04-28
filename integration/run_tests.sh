@@ -52,7 +52,7 @@ for testDir in ${RUN_TESTS}; do
     yarn install --cache-folder ../$cache
     yarn test || exit 1
 
-    # remove the temporary node modules directory to keep the source folder clean.
+    # remove the temporary node modules directory to keep the source directory clean.
     rm -rf node_modules
   )
 done

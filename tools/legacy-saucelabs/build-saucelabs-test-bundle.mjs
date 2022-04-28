@@ -134,7 +134,7 @@ async function createEntryPointSpecFile() {
     // We generate a side-effect invocation that references the test import. This
     // is necessary to trick `ESBuild` in preserving the imports. Unfortunately the
     // test files would be dead-code eliminated otherwise because the specs are part
-    // of folders with `package.json` files setting the `"sideEffects: false"` field.
+    // of directories with `package.json` files setting the `"sideEffects: false"` field.
     specEntryPointFile += `new Function('x', 'return x')(${namespaceId});\n`;
   }
 

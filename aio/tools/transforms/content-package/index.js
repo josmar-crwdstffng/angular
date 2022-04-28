@@ -27,7 +27,7 @@ module.exports = new Package('content', [jsdocPackage, linksPackage])
       getId: function(doc) {
         return doc.fileInfo
             .relativePath
-            // path should be relative to `modules` folder
+            // path should be relative to `modules` directory
             .replace(/.*\/?modules\//, '')
             // path should not include `/docs/`
             .replace(/\/docs\//, '/')

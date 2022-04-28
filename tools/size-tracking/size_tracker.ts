@@ -70,7 +70,7 @@ export class SizeTracker {
             currentEntry[segmentName] = (<number>currentEntry[segmentName] || 0) + 1;
           } else {
             // Append a trailing slash to the segment so that it
-            // is clear that this size entry represents a folder.
+            // is clear that this size entry represents a directory.
             segmentName = `${segmentName}/`;
             const newEntry = <DirectorySizeEntry>currentEntry[segmentName] || {size: 0};
             newEntry.size += 1;

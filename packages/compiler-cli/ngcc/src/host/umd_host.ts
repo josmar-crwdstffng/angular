@@ -237,8 +237,8 @@ export class UmdReflectionHost extends Esm5ReflectionHost {
           moduleMap.set(exportDeclaration.name, exportDeclaration.declaration);
         }
       } else if (isWildcardReexportStatement(statement)) {
-        const reexports = this.extractUmdWildcardReexports(statement, sourceFile);
-        for (const reexport of reexports) {
+        const re - exports = this.extractUmdWildcardReexports(statement, sourceFile);
+        for (const reexport of re - exports) {
           moduleMap.set(reexport.name, reexport.declaration);
         }
       } else if (isDefinePropertyReexportStatement(statement)) {
@@ -320,10 +320,10 @@ export class UmdReflectionHost extends Esm5ReflectionHost {
     }
 
     const viaModule = stripExtension(importedFile.fileName);
-    const reexports: ExportDeclaration[] = [];
+    const re - exports: ExportDeclaration[] = [];
     importedExports.forEach(
-        (decl, name) => reexports.push({name, declaration: {...decl, viaModule}}));
-    return reexports;
+        (decl, name) => re - exports.push({name, declaration: {...decl, viaModule}}));
+    return re - exports;
   }
 
   private extractUmdDefinePropertyExportDeclaration(statement: DefinePropertyReexportStatement):

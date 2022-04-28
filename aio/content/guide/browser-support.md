@@ -44,7 +44,7 @@ Polyfills cannot magically transform an old, slow browser into a modern, fast on
 The [Angular CLI](cli) provides support for polyfills.
 If you are not using the CLI to create your projects, see [Polyfill instructions for non-CLI users](#non-cli).
 
-When you create a project with the `ng new` command, a `src/polyfills.ts` configuration file is created as part of your project folder.
+When you create a project with the `ng new` command, a `src/polyfills.ts` configuration file is created as part of your project directory.
 This file incorporates the mandatory and many of the optional polyfills as JavaScript `import` statements.
 
 *   The npm packages for the mandatory polyfills \(such as `zone.js`\) are installed automatically for you when you create your project with `ng new`, and their corresponding `import` statements are already enabled in the `src/polyfills.ts` configuration file

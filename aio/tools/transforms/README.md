@@ -8,14 +8,14 @@ Markdown files in `/aio/content`, code comments in the core Angular source files
 Dgeni is configured by "packages", which contain services and processors.
 Some of these packages are installed as `node_modules` from the [dgeni-packages](https://github.com/angular/dgeni-packages) and some are specific to the AIO project.
 
-The project specific packages are stored in this folder (`aio/tools/transforms`).
+The project specific packages are stored in this directory (`aio/tools/transforms`).
 
 If you are an author and want to know how to generate the documentation, the steps are outlined in the top level [README.md](../../README.md#guide-to-authoring).
 
 ## Root packages
 
 To run Dgeni, you must specify a root package, which acts as the entry point to the documentation generation.
-This root package, in turn requires a number of other packages, some are defined locally in the `tools/transforms` folder, such as `tools/transforms/cheatsheet-package` and `tools/transforms/content-package`, etc.
+This root package, in turn requires a number of other packages, some are defined locally in the `tools/transforms` directory, such as `tools/transforms/cheatsheet-package` and `tools/transforms/content-package`, etc.
 And some are brought in from the `dgeni-packages` node modules, such as `jsdoc` and `nunjucks`.
 
 * The primary root package is defined in `tools/transforms/angular.io-package/index.js`.
@@ -37,5 +37,5 @@ And some are brought in from the `dgeni-packages` node modules, such as `jsdoc` 
 
 ## Templates
 
-All the templates for the angular.io dgeni transformations are stoted in the `tools/transforms/templates` folder.
+All the templates for the angular.io dgeni transformations are stoted in the `tools/transforms/templates` directory.
 See the [README](./templates/README.md).

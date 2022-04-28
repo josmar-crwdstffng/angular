@@ -14,7 +14,7 @@ export default {
           options: {
             plugins: [linkerPlugin],
             compact: false,
-            cacheDirectory: true,
+            cacheFolder: true,
           }
         }
       }

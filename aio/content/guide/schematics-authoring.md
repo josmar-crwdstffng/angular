@@ -274,7 +274,7 @@ npm install -g &commat;angular-devkit/schematics-cli
 
 </code-example>
 
-This installs the `schematics` executable, which you can use to create a new schematics collection in its own project folder, add a new schematic to an existing collection, or extend an existing schematic.
+This installs the `schematics` executable, which you can use to create a new schematics collection in its own project directory, add a new schematic to an existing collection, or extend an existing schematic.
 
 In the following sections, you will create a new schematics collection using the CLI to introduce the files and file structure, and some of the basic concepts.
 
@@ -284,7 +284,7 @@ See [Schematics for Libraries](guide/schematics-for-libraries).
 
 ### Creating a schematics collection
 
-The following command creates a new schematic named `hello-world` in a new project folder of the same name.
+The following command creates a new schematic named `hello-world` in a new project directory of the same name.
 
 <code-example format="shell" language="shell">
 
@@ -293,9 +293,9 @@ schematics blank --name=hello-world
 </code-example>
 
 The `blank` schematic is provided by the Schematics CLI.
-The command creates a new project folder \(the root folder for the collection\) and an initial named schematic in the collection.
+The command creates a new project directory \(the root directory for the collection\) and an initial named schematic in the collection.
 
-Go to the collection folder, install your npm dependencies, and open your new collection in your favorite editor to see the generated files.
+Go to the collection directory, install your npm dependencies, and open your new collection in your favorite editor to see the generated files.
 For example, if you are using VS Code:
 
 <code-example format="shell" language="shell">
@@ -307,14 +307,14 @@ code .
 
 </code-example>
 
-The initial schematic gets the same name as the project folder, and is generated in `src/hello-world`.
+The initial schematic gets the same name as the project directory, and is generated in `src/hello-world`.
 Add related schematics to this collection, and modify the generated skeleton code to define your schematic's functionality.
 Each schematic name must be unique within the collection.
 
 ### Running a schematic
 
 Use the `schematics` command to run a named schematic.
-Provide the path to the project folder, the schematic name, and any mandatory options, in the following format.
+Provide the path to the project directory, the schematic name, and any mandatory options, in the following format.
 
 <code-example format="shell" language="shell">
 
@@ -333,7 +333,7 @@ schematics .:hello-world
 
 ### Adding a schematic to a collection
 
-To add a schematic to an existing collection, use the same command you use to start a new schematics project, but run the command inside the project folder.
+To add a schematic to an existing collection, use the same command you use to start a new schematics project, but run the command inside the project directory.
 
 <code-example format="shell" language="shell">
 
@@ -347,8 +347,8 @@ It also adds the name, description, and factory function for the new schematic t
 
 ## Collection contents
 
-The top level of the root project folder for a collection contains configuration files, a `node_modules` folder, and a `src/` folder.
-The `src/` folder contains subfolders for named schematics in the collection, and a schema, `collection.json`, which describes the collected schematics.
+The top level of the root project directory for a collection contains configuration files, a `node_modules` directory, and a `src` directory.
+The `src` directory contains sub-directories for named schematics in the collection, and a schema, `collection.json`, which describes the collected schematics.
 Each schematic is created with a name, description, and factory function.
 
 <code-example language="json">
@@ -398,10 +398,10 @@ Each named schematic in the collection has the following main parts.
 | `index.ts`     | Code that defines the transformation logic for a named schematic.  |
 | `schema.json`  | Schematic variable definition.                                     |
 | `schema.d.ts`  | Schematic variables.                                               |
-| `files/`       | Optional component/template files to replicate.                    |
+| `files`       | Optional component/template files to replicate.                    |
 
 It is possible for a schematic to provide all of its logic in the `index.ts` file, without additional templates.
-You can create dynamic schematics for Angular, however, by providing components and templates in the `files` folder, like those in standalone Angular projects.
+You can create dynamic schematics for Angular, however, by providing components and templates in the `files` directory, like those in standalone Angular projects.
 The logic in the index file configures these templates by defining rules that inject data and modify variables.
 
 <!-- links -->

@@ -20,7 +20,7 @@ export interface OutputPathFn {
  * written.
  *
  * The special `{{LOCALE}}` marker will be replaced with the locale code of the current translation.
- * @param outputFolder An absolute path to the folder containing this set of translations.
+ * @param outputFolder An absolute path to the directory containing this set of translations.
  */
 export function getOutputPathFn(fs: PathManipulation, outputFolder: AbsoluteFsPath): OutputPathFn {
   const [pre, post] = outputFolder.split('{{LOCALE}}');
