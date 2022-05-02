@@ -13,7 +13,7 @@
 
 
 ## Build docker image
-- `<aio-builds-setup-dir>/scripts/create-image.sh [<name>[:<tag>] [--build-arg <NAME>=<value> ...]]`
+- `{aio-builds-setup-directory}/scripts/create-image.sh [{name}[:{tag}] [--build-arg {NAME}={value} ...]]`
 - You can overwrite the default environment variables inside the image, by passing new values using
   `--build-arg`.
 

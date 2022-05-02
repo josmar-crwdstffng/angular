@@ -196,7 +196,7 @@ While users can navigate your application using the links you added in the previ
 Add this functionality using Angular's `routerLinkActive` directive.
 
 1.  From your code editor, open the `app.component.html` file.
-1.  Update the anchor tags to include the `routerLinkActive` directive.
+1.  Update the anchor elements to include the `routerLinkActive` directive.
 
     <code-example header="src/app/app.component.html" path="router-tutorial/src/app/app.component.html" region="routeractivelink"></code-example>
 

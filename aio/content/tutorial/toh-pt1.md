@@ -65,7 +65,7 @@ Delete the default text that `ng generate` created and replace it with a data bi
 To display the `HeroesComponent`, you must add it to the template of the shell `AppComponent`.
 
 Remember that `app-heroes` is the [element selector](#selector) for the `HeroesComponent`.
-Add an `<app-heroes>` element to the `AppComponent` template file, just below the title.
+Add an `app-heroes` element to the `AppComponent` template file, just below the title.
 
 <code-example header="src/app/app.component.html" path="toh-pt1/src/app/app.component.html"></code-example>
 
@@ -115,12 +115,12 @@ Angular ships with several built-in pipes and you can create your own.
 
 ## Edit the hero
 
-Users should be able to edit the hero's name in an `<input>` text box.
+Users should be able to edit the hero name in the textbox for an `input` element.
 
 The text box should both *display* the hero's `name` property and *update* that property as the user types.
 That means data flows from the component class *out to the screen* and from the screen *back to the class*.
 
-To automate that data flow, setup a two-way data binding between the `<input>` form element and the `hero.name` property.
+To automate that data flow, setup a two-way data binding between the form `input` element and the `hero.name` property.
 
 ### Two-way binding
 
@@ -171,13 +171,13 @@ Open `app.module.ts` and import the `FormsModule` symbol from the `@angular/form
 <code-example path="toh-pt1/src/app/app.module.ts" header="app.module.ts (FormsModule symbol import)"
  region="formsmodule-js-import"></code-example>
 
-Add `FormsModule` to the  `imports` array in `@NgModule`. 
+Add `FormsModule` to the  `imports` array in `@NgModule`.
 The `imports` array contains the list of external modules that the application needs.
 
 <code-example header="app.module.ts (@NgModule imports)" path="toh-pt1/src/app/app.module.ts" region="ng-imports"></code-example>
 
 When the browser refreshes, the application should work again.
-You can edit the hero's name and see the changes reflected immediately in the `<h2>` above the text box.
+You can edit the hero's name and see the changes reflected immediately in the `h2` element above the text box.
 
 ### Declare `HeroesComponent`
 

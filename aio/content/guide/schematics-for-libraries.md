@@ -38,7 +38,7 @@ Now you are ready to create that schematic.
 A schematic for the `ng add` command can enhance the initial installation process for your users.
 The following steps define this type of schematic.
 
-1.  Go to the `<lib-root>/schematics/ng-add` folder.
+1.  Go to the `{library-root}/schematics/ng-add` folder.
 1.  Create the main file, `index.ts`.
 1.  Open `index.ts` and add the source code for your schematic factory function.
 
@@ -117,7 +117,7 @@ When you add a schematic to the collection, you have to point to it in the colle
 
     <code-example header="projects/my-lib/schematics/collection.json (Schematics Collection)" path="schematics-for-libraries/projects/my-lib/schematics/collection.json"></code-example>
 
-1.  Go to the `<lib-root>/schematics/my-service` folder.
+1.  Go to the `{library-root}/schematics/my-service` folder.
 1.  Create a `schema.json` file and define the available options for the schematic.
 
     <code-example header="projects/my-lib/schematics/my-service/schema.json (Schematic JSON Schema)" path="schematics-for-libraries/projects/my-lib/schematics/my-service/schema.json"></code-example>

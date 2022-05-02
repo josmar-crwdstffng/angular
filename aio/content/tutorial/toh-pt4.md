@@ -324,7 +324,7 @@ This template binds directly to the component's `messageService`.
 |                                              | Details |
 |:---                                          |:---     |
 | `*ngIf`                                      | Only displays the messages area if there are messages to show. |
-| `*ngFor`                                     | Presents the list of messages in repeated `<div>` elements.    |
+| `*ngFor`                                     | Presents the list of messages in the repeated `div` elements.    |
 | Angular [event binding](guide/event-binding) | Binds the button's click event to `MessageService.clear()`.    |
 
 The messages look better after you add the private CSS styles to `messages.component.css` as listed in one of the ["final code review"](#final-code-review) tabs below.

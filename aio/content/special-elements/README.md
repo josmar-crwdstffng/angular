@@ -17,7 +17,7 @@ All the paragraphs after the short description are collected as an additional lo
 ## Element attributes
 
 If the special element accepts one or more attributes that have special meaning to Angular, then these should be documented using the `@elementAttribute` tag.
-These tags should come after the description.
+These elements should come after the description.
 
 The format of this tag is:
 

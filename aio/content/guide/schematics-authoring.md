@@ -73,7 +73,7 @@ import {
 ### Defining input options with a schema and interfaces
 
 Rules can collect option values from the caller and inject them into templates.
-The options available to your rules, with their allowed values and defaults, are defined in the schematic's JSON schema file, `<schematic>/schema.json`.
+The options available to your rules, with their allowed values and defaults, are defined in the schematic's JSON schema file, `{schematic}/schema.json`.
 Define variable or enumerated data types for the schema using TypeScript interfaces.
 
 The schema defines the types and default values of variables used in the schematic.

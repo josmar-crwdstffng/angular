@@ -168,11 +168,11 @@ For more information, see [Template expression operators](guide/template-express
 Demonstrates Angular's template reference variables.
 For more information, see [Template reference variables](guide/template-reference-variables).
 
-### `<ngcontainer>`
+### `ngcontainer`
 
 <live-example name="ngcontainer"></live-example>
 
-Demonstrates `<ngcontainer>`.
+Demonstrates `ngcontainer` element.
 For more information, see the [ng-container section](guide/built-in-directives#ngcontainer) of [Built-in directives](guide/structural-directives) .
 
 ### Pipes

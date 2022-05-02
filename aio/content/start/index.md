@@ -93,16 +93,16 @@ This section guides you through editing the HTML, also known as the template.
 
 1.  In the `product-list` folder, open the template file `product-list.component.html`.
 
-1.  Add an `*ngFor` structural directive on a `<div>`, as follows.
+1.  Add an `*ngFor` structural directive on a `div` element, as follows.
 
     <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.2.html" region="ngfor"></code-example>
 
-    With `*ngFor`, the `<div>` repeats for each product in the list.
+    With `*ngFor`, the `div` element repeats for each product in the list.
 
     Structural directives shape or reshape the DOM's structure, by adding, removing, and manipulating elements.
     For more information about structural directives, see [Structural directives](guide/structural-directives).
 
-1.  Inside the `<div>`, add an `<h3>` and `{{ product.name }}`.
+1.  Inside the `div` element, add an `h3` element and `{{ product.name }}`.
     The `{{ product.name }}` statement is an example of Angular's interpolation syntax.
     Interpolation `{{ }}` lets you render the property value as text.
 
@@ -116,7 +116,7 @@ This section guides you through editing the HTML, also known as the template.
 
     </div>
 
-1.  To make each product name a link to product details, add the `<a>` element around `{{ product.name }}`.
+1.  To make each product name a link to product details, add the `a` element around `{{ product.name }}`.
 
 1.  Set the title to be the product's name by using the property binding `[ ]` syntax, as follows:
 
@@ -132,13 +132,13 @@ This section guides you through editing the HTML, also known as the template.
     </div>
 
 1.  Add the product descriptions.
-    On a `<p>` element, use an `*ngIf` directive so that Angular only creates the `<p>` element if the current product has a description.
+    On a `p` element, use an `*ngIf` directive so that Angular only creates the `p` element if the current product has a description.
 
     <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.3.html"></code-example>
 
     The application now displays the name and description of each product in the list.
     Notice that the final product does not have a description paragraph.
-    Angular doesn't create the `<p>` element because the product's description property is empty.
+    Angular doesn't create the `p` element because the product's description property is empty.
 
     <div class="lightbox">
 
@@ -148,7 +148,7 @@ This section guides you through editing the HTML, also known as the template.
 
 1.  Add a button so users can share a product.
     Bind the button's `click` event to the `share()` method in `product-list.component.ts`.
-    Event binding uses a set of parentheses, `( )`, around the event, as in the `(click)` event on the  `<button>` element.
+    Event binding uses a set of parentheses, `( )`, around the event, as in the `(click)` event on the `button` element.
 
     <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.4.html"></code-example>
 
@@ -236,7 +236,7 @@ This section walks you through creating a child component, `ProductAlertsCompone
 
     <code-example header="src/app/app.module.ts" path="getting-started/src/app/app.module.ts" region="declare-product-alerts"></code-example>
 
-1.  Finally, to display `ProductAlertsComponent` as a child of `ProductListComponent`, add the `<app-product-alerts>` element to `product-list.component.html`.
+1.  Finally, to display `ProductAlertsComponent` as a child of `ProductListComponent`, add the `app-product-alerts` element to `product-list.component.html`.
     Pass the current product as input to the component using property binding.
 
     <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.5.html" region="app-product-alerts"></code-example>
@@ -286,8 +286,8 @@ Since these steps don't use them, the following code examples omit them for brev
 
 1.  Update the `ProductListComponent` to receive data from the `ProductAlertsComponent`.
 
-    In `product-list.component.html`, bind `<app-product-alerts>`  to the `onNotify()` method of the product list component.
-    `<app-product-alerts>` is what displays the **Notify Me** button.
+    In `product-list.component.html`, bind the `app-product-alerts` element to the `onNotify()` method of the product list component.
+    The `app-product-alerts` element is what displays the **Notify Me** button.
 
     <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.6.html" region="on-notify"></code-example>
 

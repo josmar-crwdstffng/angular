@@ -37,8 +37,7 @@ To assign a value to a target property for the image element's `src` property, t
 <code-example path="property-binding/src/app/app.component.html" region="property-binding" header="src/app/app.component.html"></code-example>
 
 In most cases, the target name is the name of a property, even when it appears to be the name of an attribute.
-
-In this example, `src` is the name of the `<img>` element property.
+In this example, `src` is the name of a property of the `img` element.
 
 The brackets, `[]`, cause Angular to evaluate the right-hand side of the assignment as a dynamic expression.
 
@@ -52,7 +51,8 @@ Omitting the brackets renders the string `parentItem`, not the value of `parentI
 
 ## Setting an element property to a component property value
 
-To bind the `src` property of an `<img>` element to a component's property, place the target, `src`, in square brackets followed by an equal sign and then the property.
+To bind the `src` property of an `img` element to a property of the component, place the  `src` target in square brackets followed by an equal sign and then the property.
+The property here is `itemImageUrl`.
 
 Using the property `itemImageUrl`, type the following code:
 
@@ -91,7 +91,7 @@ To disable a button's functionality depending on a Boolean value, bind the DOM `
 
 <code-example path="property-binding/src/app/app.component.html" region="disabled-button" header="src/app/app.component.html"></code-example>
 
-Because the value of the property `isUnchanged` is `true` in the `AppComponent`, Angular disables the button.
+Because the value of the `isUnchanged` property is `true` in the `AppComponent`, Angular disables the button.
 
 <code-example path="property-binding/src/app/app.component.ts" region="boolean" header="src/app/app.component.ts"></code-example>
 

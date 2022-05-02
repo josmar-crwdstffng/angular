@@ -18,9 +18,9 @@ After a few changes, the `BannerComponent` presents a dynamic title by binding t
 
 As minimal as this is, you decide to add a test to confirm that component actually displays the right content where you think it should.
 
-#### Query for the `<h1>`
+#### Query for the `h1` element
 
-You'll write a sequence of tests that inspect the value of the `<h1>` element that wraps the *title* property interpolation binding.
+You'll write a sequence of tests that inspect the value of the `h1` element that wraps the *title* property interpolation binding.
 
 You update the `beforeEach` to find that element with a standard HTML `querySelector` and assign it to the `h1` variable.
 
@@ -31,7 +31,7 @@ You update the `beforeEach` to find that element with a standard HTML `querySele
 #### `createComponent()` does not bind data
 
 For your first test you'd like to see that the screen displays the default `title`.
-Your instinct is to write a test that immediately inspects the `<h1>` like this:
+Your instinct is to write a test that immediately inspects the `h1` element like this:
 
 <code-example path="testing/src/app/banner/banner.component.spec.ts" region="expect-h1-default-v1"></code-example>
 
@@ -54,7 +54,7 @@ The `TestBed.createComponent` does *not* trigger change detection; a fact confir
 #### `detectChanges()`
 
 You must tell the `TestBed` to perform data binding by calling `fixture.detectChanges()`.
-Only then does the `<h1>` have the expected title.
+Only then does the `h1` element have the expected title.
 
 <code-example path="testing/src/app/banner/banner.component.spec.ts" region="expect-h1-default"></code-example>
 
@@ -424,7 +424,7 @@ For example:
 <div class="alert is-helpful">
 
 **NOTE**: <br />
-In order to make the `<canvas>` element Zone.js-aware in your app, you need to import the `zone-patch-canvas` patch \(either in `polyfills.ts` or in the specific file that uses `<canvas>`\):
+In order to make the `canvas` element Zone.js-aware in your app, you need to import the `zone-patch-canvas` patch \(either in `polyfills.ts` or in the specific file that uses the `canvas` element\):
 
 </div>
 
@@ -701,7 +701,7 @@ The test detects that event through its subscription to `selected`.
 
 #### `triggerEventHandler`
 
-The `heroDe` in the previous test is a `DebugElement` that represents the hero `<div>`.
+The `heroDe` in the previous test is a `DebugElement` that represents the hero `div` element.
 
 It has Angular properties and methods that abstract interaction with the native element.
 This test calls the `DebugElement.triggerEventHandler` with the "click" event name.
@@ -934,13 +934,13 @@ The `AppComponent`, for example, displays a navigation bar with anchors and thei
 
 While the `AppComponent` *class* is empty, you might want to write unit tests to confirm that the links are wired properly to the `RouterLink` directives, perhaps for the reasons as explained in the [following section](#why-stubbed-routerlink-tests).
 
-To validate the links, you don't need the `Router` to navigate and you don't need the `<router-outlet>` to mark where the `Router` inserts *routed components*.
+To validate the links, you don't need the `Router` to navigate and you don't need the `router-outlet` element to mark where the `Router` inserts *routed components*.
 
-The `BannerComponent` and `WelcomeComponent` \(indicated by `<app-banner>` and `<app-welcome>`\) are also irrelevant.
+The `BannerComponent` and `WelcomeComponent` \(indicated by `app-banner` and `app-welcome` element\) are also irrelevant.
 
 Yet any test that creates the `AppComponent` in the DOM also creates instances of these three components and, if you let that happen, you'll have to configure the `TestBed` to create them.
 
-If you neglect to declare them, the Angular compiler won't recognize the `<app-banner>`, `<app-welcome>`, and `<router-outlet>` tags in the `AppComponent` template and will throw an error.
+If you neglect to declare them, the Angular compiler won't recognize the `app-banner`, `app-welcome`, and `router-outlet` elements in the `AppComponent` template and will throw an error.
 
 If you declare the real components, you'll also have to declare *their* nested components and provide for *all* services injected in *any* component in the tree.
 
@@ -980,10 +980,10 @@ In the second approach, add `NO_ERRORS_SCHEMA` to the `TestBed.schemas` metadata
 
 The `NO_ERRORS_SCHEMA` tells the Angular compiler to ignore unrecognized elements and attributes.
 
-The compiler recognizes the `<app-root>` element and the `routerLink` attribute because you declared a corresponding `AppComponent` and `RouterLinkDirectiveStub` in the `TestBed` configuration.
+The compiler recognizes the `app-root` element and the `routerLink` attribute because you declared a corresponding `AppComponent` and `RouterLinkDirectiveStub` in the `TestBed` configuration.
 
-But the compiler won't throw an error when it encounters `<app-banner>`, `<app-welcome>`, or `<router-outlet>`.
-It simply renders them as empty tags and the browser ignores them.
+But the compiler won't throw an error when it encounters the `app-banner`, `app-welcome`, or `router-outlet` element.
+It simply renders them as empty elements and the browser ignores them.
 
 You no longer need the stub components.
 
@@ -1003,7 +1003,7 @@ In practice you will combine the two techniques in the same setup, as seen in th
 
 <code-example header="app/app.component.spec.ts (mixed setup)" path="testing/src/app/app.component.spec.ts" region="mixed-setup"></code-example>
 
-The Angular compiler creates the `BannerComponentStub` for the `<app-banner>` element and applies the `RouterLinkStubDirective` to the anchors with the `routerLink` attribute, but it ignores the `<app-welcome>` and `<router-outlet>` tags.
+The Angular compiler creates the `BannerComponentStub` for the `app-banner` element and applies the `RouterLinkStubDirective` to the anchors with the `routerLink` attribute, but it ignores the `app-welcome` and `router-outlet` elements.
 
 <a id="routerlink"></a>
 
@@ -1018,7 +1018,7 @@ The `RouterLinkDirectiveStub` in this sample code replaces the real directive wi
 
 The URL bound to the `[routerLink]` attribute flows in to the directive's `linkParams` property.
 
-The `HostListener` wires the click event of the host element \(the `<a>` anchor elements in `AppComponent`\) to the stub directive's `onClick` method.
+The `HostListener` wires the click event of the host element \(the `a` elements in `AppComponent`\) to the stub directive's `onClick` method.
 
 Clicking the anchor should trigger the `onClick()` method, which sets the stub's telltale `navigatedTo` property.
 Tests inspect `navigatedTo` to confirm that clicking the anchor sets the expected route definition.

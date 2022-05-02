@@ -48,8 +48,8 @@ And this is not just for the sake of the upgrade - it is just solid advice in ge
 ### Using a Module Loader
 
 When you break application code down into one component per file, you often end up with a project structure with a large number of relatively small files.
-This is a much neater way to organize things than a small number of large files, but it doesn't work that well if you have to load all those files to the HTML page with `<script>` tags.
-Especially when you also have to maintain those tags in the correct order.
+This is a much neater way to organize things than a small number of large files, but it doesn't work that well if you have to load all those files to the HTML page with `script` elements.
+Especially when you also have to maintain those elements in the correct order.
 That is why it is a good idea to start using a *module loader*.
 
 Using a module loader such as [SystemJS][GithubSystemjsSystemjs], [Webpack][GithubWebpackMain], or [Browserify][BrowserifyMain] allows us to use the built-in module systems of TypeScript or ES2015.
@@ -221,9 +221,9 @@ Consider a situation where you use an Angular component from AngularJS like this
 
 </code-example>
 
-The DOM element `<a-component>` will remain to be an AngularJS managed element, because it is defined in an AngularJS template.
+The `a-component` element in the DOM will remain to be an AngularJS managed element, because it is defined in an AngularJS template.
 That also means you can apply additional AngularJS directives to it, but *not* Angular directives.
-It is only in the template of the `<a-component>` where Angular steps in.
+It is only in the template of the `a-component` element where Angular steps in.
 This same rule also applies when you use AngularJS component directives from Angular.
 
 #### Change Detection
@@ -510,13 +510,13 @@ This is also possible.
 While there is no such thing as transclusion in Angular, there is a very similar concept called *content projection*.
 `upgrade/static` is able to make these two features interoperate.
 
-Angular components that support content projection make use of an `<ng-content>` tag within them.
+Angular components that support content projection make use of an `ng-content` element within them.
 Here is an example of such a component:
 
 <code-example header="hero-detail.component.ts" path="upgrade-module/src/app/ajs-to-a-projection/hero-detail.component.ts"></code-example>
 
 When using the component from AngularJS, you can supply contents for it.
-Just like they would be transcluded in AngularJS, they get projected to the location of the `<ng-content>` tag in Angular:
+Just like they would be transcluded in AngularJS, they get projected to the location of the `ng-content` element in Angular:
 
 <code-example path="upgrade-module/src/index-ajs-to-a-projection.html" region="usecomponent"></code-example>
 
@@ -773,7 +773,7 @@ See [https://github.com/angular/angular/issues/35989][GithubAngularAngularIssues
 You can take advantage of Ahead-of-time \(AOT\) compilation on hybrid apps just like on any other Angular application.
 The setup for a hybrid app is mostly the same as described in the [Ahead-of-time Compilation chapter][AioGuideAotCompiler] save for differences in `index.html` and `main-aot.ts`
 
-The `index.html` will likely have script tags loading AngularJS files, so the `index.html` for AOT must also load those files.
+The `index.html` will likely have `script` elements loading AngularJS files, so the `index.html` for AOT must also load those files.
 An easy way to copy them is by adding each to the `copy-dist-files.js` file.
 
 You'll need to use the generated `AppModuleFactory`, instead of the original `AppModule` to bootstrap the hybrid app:
@@ -1113,18 +1113,18 @@ Then change the development server root path in `package.json` to also point to 
 
 Now you're able to serve everything from the project root to the web browser.
 But you do *not* want to have to change all the image and data paths used in the application code to match the development setup.
-For that reason, you'll add a `<base>` tag to `index.html`, which will cause relative URLs to be resolved back to the `/app` directory:
+For that reason, you'll add a `base` element to `index.html`, which will cause relative URLs to be resolved back to the `/app` directory:
 
 <code-example header="index.html" path="upgrade-phonecat-2-hybrid/index.html" region="base"></code-example>
 
 Now you can load Angular using SystemJS.
-You'll add the Angular polyfills and the SystemJS configuration to the end of the `<head>` section, and then you'll use `System.import` to load the actual application:
+You'll add the Angular polyfills and the SystemJS configuration to the end of the `head` element, and then you'll use `System.import` to load the actual application:
 
 <code-example header="index.html" path="upgrade-phonecat-2-hybrid/index.html" region="angular"></code-example>
 
 You also need to make a couple of adjustments to the `systemjs.config.js` file installed during [upgrade setup][AioGuideUpgradeSetup].
 
-Point the browser to the project root when loading things through SystemJS, instead of using the `<base>` URL.
+Point the browser to the project root when loading things through SystemJS, instead of using the URL in the `base` element.
 
 Install the `upgrade` package using `npm install @angular/upgrade --save` and add a mapping for the `@angular/upgrade/static` package.
 
@@ -1148,7 +1148,7 @@ Now create a new `app.module.ts` with the minimum `NgModule` class:
 Next, you'll bootstrap the application as a *hybrid application* that supports both AngularJS and Angular components.
 After that, you can start converting the individual pieces to Angular.
 
-The application is currently bootstrapped using the AngularJS `ng-app` directive attached to the `<html>` element of the host page.
+The application is currently bootstrapped using the AngularJS `ng-app` directive attached to the `html` element of the host page.
 This will no longer work in the hybrid application.
 Switch to the [ngUpgrade bootstrap][AioGuideUpgradeBootstrappingHybridApplications] method instead.
 
@@ -1454,19 +1454,19 @@ At this point, you've replaced all AngularJS application components with their A
 Angular has an [all-new router][AioGuideRouter].
 
 Like all routers, it needs a place in the UI to display routed views.
-For Angular that is the `<router-outlet>` and it belongs in a *root component* at the top of the applications component tree.
+For Angular that is the `router-outlet` element and it belongs in a *root component* at the top of the applications component tree.
 
 You don't yet have such a root component, because the application is still managed as an AngularJS app.
 Create a new `app.component.ts` file with the following `AppComponent` class:
 
 <code-example header="app/app.component.ts" path="upgrade-phonecat-3-final/app/app.component.ts"></code-example>
 
-It has a template that only includes the `<router-outlet>`.
+It has a template that only includes the `router-outlet` element.
 This component just renders the contents of the active route and nothing else.
 
-The selector tells Angular to plug this root component into the `<phonecat-app>` element on the host web page when the application launches.
+The selector tells Angular to plug this root component into the `phonecat-app` element on the host web page when the application launches.
 
-Add this `<phonecat-app>` element to the `index.html`.
+Add this `phonecat-app` element to the `index.html`.
 It replaces the old AngularJS `ng-view` directive:
 
 <code-example header="index.html (body)" path="upgrade-phonecat-3-final/index.html" region="appcomponent"></code-example>
@@ -1491,7 +1491,7 @@ You must also remove the bootstrap of the AngularJS module from `ngDoBootstrap()
 
 <code-example header="app/app.module.ts" path="upgrade-phonecat-3-final/app/app.module.ts"></code-example>
 
-And since you are routing to `PhoneListComponent` and `PhoneDetailComponent` directly rather than using a route template with a `<phone-list>` or `<phone-detail>` tag, you can do away with their Angular selectors as well.
+And since you are routing to `PhoneListComponent` and `PhoneDetailComponent` directly rather than using a route template with a `phone-list` or `phone-detail` element, you can do away with their Angular selectors as well.
 
 #### Generate links for each phone
 

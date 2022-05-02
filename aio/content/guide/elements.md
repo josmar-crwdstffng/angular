@@ -9,8 +9,8 @@ For the sample application that this page describes, see the <live-example></liv
 </div>
 
 [Custom elements](https://developer.mozilla.org/docs/Web/Web_Components/Using_custom_elements) are a Web Platform feature currently supported by Chrome, Edge \(Chromium-based\), Firefox, Opera, and Safari, and available in other browsers through polyfills \(see [Browser Support](#browser-support)\).
-A custom element extends HTML by allowing you to define a tag whose content is created and controlled by JavaScript code.
-The browser maintains a `CustomElementRegistry` of defined custom elements, which maps an instantiable JavaScript class to an HTML tag.
+A custom element extends HTML by allowing you to define a element whose content is created and controlled by JavaScript code.
+The browser maintains a `CustomElementRegistry` of defined custom elements, which maps an instantiable JavaScript class to an HTML element.
 
 The `@angular/elements` package exports a `createCustomElement()` API that provides a bridge from Angular's component interface and change detection functionality to the built-in DOM API.
 
@@ -32,8 +32,8 @@ Once a custom element is added to the DOM for any page, it looks and behaves lik
 
 |                                                | Details |
 |:---                                            |:---     |
-| Easy dynamic content in an Angular application | Transforming a component to a custom element provides a straightforward path to creating dynamic HTML content in your Angular application. HTML content that you add directly to the DOM in an Angular application is normally displayed without Angular processing, unless you define a *dynamic component*, adding your own code to connect the HTML tag to your application data, and participate in change detection. With a custom element, all of that wiring is taken care of automatically.                                                                                                                                        |
-| Content-rich applications                      | If you have a content-rich application, such as the Angular app that presents this documentation, custom elements let you give your content providers sophisticated Angular functionality without requiring knowledge of Angular. For example, an Angular guide like this one is added directly to the DOM by the Angular navigation tools, but can include special elements like `<code-snippet>` that perform complex operations. All you need to tell your content provider is the syntax of your custom element. They don't need to know anything about Angular, or anything about your component's data structures or implementation. |
+| Easy dynamic content in an Angular application | Transforming a component to a custom element provides a straightforward path to creating dynamic HTML content in your Angular application. HTML content that you add directly to the DOM in an Angular application is normally displayed without Angular processing, unless you define a *dynamic component*, adding your own code to connect the HTML element to your application data, and participate in change detection. With a custom element, all of that wiring is taken care of automatically.                                                                                                                                        |
+| Content-rich applications                      | If you have a content-rich application, such as the Angular app that presents this documentation, custom elements let you give your content providers sophisticated Angular functionality without requiring knowledge of Angular. For example, an Angular guide like this one is added directly to the DOM by the Angular navigation tools, but can include special elements like the `code-snippet` element that perform complex operations. All you need to tell your content provider is the syntax of your custom element. They don't need to know anything about Angular, or anything about your component's data structures or implementation. |
 
 ### How it works
 
@@ -64,8 +64,8 @@ The function collects the component's observable properties, along with the Angu
 The conversion process implements the `NgElementConstructor` interface, and creates a
 constructor class that is configured to produce a self-bootstrapping instance of your component.
 
-Use the built-in [`customElements.define()`](https://developer.mozilla.org/docs/Web/API/CustomElementRegistry/define) function to register the configured constructor and its associated custom-element tag with the browser's [`CustomElementRegistry`](https://developer.mozilla.org/docs/Web/API/CustomElementRegistry).
-When the browser encounters the tag for the registered element, it uses the constructor to create a custom-element instance.
+Use the built-in [`customElements.define()`](https://developer.mozilla.org/docs/Web/API/CustomElementRegistry/define) function to register the configured constructor and its associated custom-element with the browser's [`CustomElementRegistry`](https://developer.mozilla.org/docs/Web/API/CustomElementRegistry).
+When the browser encounters the element for the registered element, it uses the constructor to create a custom-element instance.
 
 <div class="lightbox">
 
@@ -75,7 +75,7 @@ When the browser encounters the tag for the registered element, it uses the cons
 
 <div class="alert is-important">
 
-Avoid using the [`@Component`](api/core/Component) [selector](api/core/Directive#selector) as the custom-element tag name.
+Avoid using the [`@Component`](api/core/Component) [selector](api/core/Directive#selector) as the custom-element name.
 This can lead to unexpected behavior, due to Angular creating two component instances for a single DOM element:
 One regular Angular component and a second one using the custom element.
 
@@ -185,7 +185,7 @@ aDialog.body = 'News';  // &lt;-- ERROR: TypeScript knows there is no `body` pro
 This is a good way to quickly get TypeScript features, such as type checking and autocomplete support, for your custom element.
 But it can get cumbersome if you need it in several places, because you have to cast the return type on every occurrence.
 
-An alternative way, that only requires defining each custom element's type once, is augmenting the `HTMLElementTagNameMap`, which TypeScript uses to infer the type of a returned element based on its tag name \(for DOM methods such as `document.createElement()`, `document.querySelector()`, etc.\):
+An alternative way, that only requires defining each custom element's type once, is augmenting the `HTMLElementTagNameMap`, which TypeScript uses to infer the type of a returned element based on its element name \(for DOM methods such as `document.createElement()`, `document.querySelector()`, etc.\):
 
 <code-example format="typescript" language="typescript">
 

@@ -121,7 +121,7 @@ If you haven't already, create a `settings.json` file by following the instructi
 1. Install the [ClangFormatIJ](https://plugins.jetbrains.com/plugin/8396-clangformatij) plugin
 1. Open `Preferences->Tools->clang-format`
 1. Find the field named "PATH"
-1. Add `<PATH_TO_YOUR_WORKSPACE>/angular/node_modules/clang-format/bin/<OS>/`
+1. Add {PATH_TO_YOUR_WORKSPACE}/angular/node_modules/clang-format/bin/{OS}/`
   where the OS options are: `darwin_x64`, `linux_x64`, and `win32`.
 
 ### Vim
@@ -164,7 +164,7 @@ You can access the artifacts for a specific CI run by going to the workflow page
 
 #### Archives for each Package
 On the "Artifacts" tab, there is a list of links to compressed archives for Angular packages. The
-archive names are of the format `<package-name>-pr<pr-number>-<sha>.tgz` (for example
+archive names are of the format `{package-name}-pr{pr-number}-{sha}.tgz` (for example
 `core-pr12345-a1b2c3d.tgz`).
 
 One can use the URL to the `.tgz` file for each package to install them as dependencies in a
@@ -183,7 +183,7 @@ in `package.json` to point to the artifact URLs and then running `npm/yarn insta
 
 #### Download all Packages
 In addition to the individual package archives, a `.tgz` file including all packages is also
-available (named `all-pr<pr-number>-<sha>.tgz`). This can be used if one prefers to download all
+available (named `all-pr{pr-number}-{sha}.tgz`). This can be used if one prefers to download all
 packages locally and test them by either of the following ways:
 
 1. Update the dependencies in `package.json` to point to the local uncompressed package directories.

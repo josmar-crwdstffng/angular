@@ -17,7 +17,7 @@ ng new my-app --routing
 
 </code-example>
 
-For an existing application, you have to manually add the `RouterModule` and defining a `<router-outlet>` within your application.
+For an existing application, you have to manually add the `RouterModule` and defining a `router-outlet` within your application.
 
 ## Step 2: Create the app shell
 

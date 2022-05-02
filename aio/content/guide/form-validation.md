@@ -35,7 +35,7 @@ The following example exports `NgModel` into a variable called `name`:
 
 Notice the following features illustrated by the example.
 
-*   The `<input>` element carries the HTML validation attributes: `required` and `minlength`.
+*   The `input` element carries the HTML validation attributes: `required` and `minlength`.
     It also carries a custom validator directive, `forbiddenName`.
     For more information, see the [Custom validators](#custom-validators) section.
 
@@ -43,9 +43,9 @@ Notice the following features illustrated by the example.
     `NgModel` mirrors many of the properties of its underlying `FormControl` instance, so you can use this in the template to check for control states such as `valid` and `dirty`.
     For a full list of control properties, see the [AbstractControl](api/forms/AbstractControl) API reference.
 
-    *   The `*ngIf` on the `<div>` element reveals a set of nested message `divs` but only if the `name` is invalid and the control is either `dirty` or `touched`.
+    *   The `*ngIf` on the `div` element reveals a set of nested message instances of `div` elements but only if the `name` is invalid and the control is either `dirty` or `touched`.
 
-    *   Each nested `<div>` can present a custom message for one of the possible validation errors.
+    *   Each nested `div` element can present a custom message for one of the possible validation errors.
         There are messages for `required`, `minlength`, and `forbiddenName`.
 
 <a id="dirty-or-touched"></a>
@@ -264,7 +264,7 @@ You provide that directive as the validator using the [`NG_VALIDATORS` token](#a
 <code-example header="shared/identity-revealed.directive.ts" path="form-validation/src/app/shared/identity-revealed.directive.ts" region="cross-validation-directive"></code-example>
 
 You must add the new directive to the HTML template.
-Because the validator must be registered at the highest level in the form, the following template puts the directive on the `form` tag.
+Because the validator must be registered at the highest level in the form, the following template puts the directive on the `form` element.
 
 <code-example header="template/hero-form-template.component.html" path="form-validation/src/app/template/hero-form-template.component.html" region="cross-validation-register-validator"></code-example>
 
@@ -389,7 +389,7 @@ new FormControl('', {updateOn: 'blur'});
 
 ## Interaction with native HTML form validation
 
-By default, Angular disables [native HTML form validation](https://developer.mozilla.org/docs/Web/Guide/HTML/Constraint_validation) by adding the `novalidate` attribute on the enclosing `<form>` and uses directives to match these attributes with validator functions in the framework.
+By default, Angular disables [native HTML form validation](https://developer.mozilla.org/docs/Web/Guide/HTML/Constraint_validation) by adding the `novalidate` attribute on the enclosing `form` element and uses directives to match these attributes with validator functions in the framework.
 If you want to use native validation **in combination** with Angular-based validation, you can re-enable it with the `ngNativeValidate` directive.
 See the [API docs](api/forms/NgForm#native-dom-validation-ui) for details.
 

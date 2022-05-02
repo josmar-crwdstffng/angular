@@ -343,7 +343,7 @@ Your sample application can switch between two views when the user clicks a link
 Milestone 1 covered how to do the following:
 
 *   Load the router library
-*   Add a nav bar to the shell template with anchor tags, `routerLink`  and `routerLinkActive` directives
+*   Add a nav bar to the shell template with anchor elements, `routerLink`  and `routerLinkActive` directives
 *   Add a `router-outlet` to the shell template where views are displayed
 *   Configure the router module with `RouterModule.forRoot()`
 *   Set the router to compose HTML5 browser URLs
@@ -570,8 +570,8 @@ Follow these steps:
 *   Move the placeholder `hero-list` folder that's in the `app` folder into the `heroes` folder.
 *   Copy the contents of the `heroes/heroes.component.html` from the <live-example name="toh-pt4" title="Tour of Heroes: Services example code">"Services" tutorial</live-example> into the `hero-list.component.html` template.
 
-    *   Re-label the `<h2>` to `<h2>HEROES</h2>`.
-    *   Delete the `<app-hero-detail>` component at the bottom of the template.
+    *   Re-label the content of the `h2` element to `HEROES`.
+    *   Delete the `app-hero-detail` component at the bottom of the template.
 
 *   Copy the contents of the `heroes/heroes.component.css` from the live example into the `hero-list.component.css` file.
 *   Copy the contents of the `heroes/heroes.component.ts` from the live example into the `hero-list.component.ts` file.
@@ -1020,7 +1020,7 @@ In `ngOnInit()` you subscribe to those values, set the `selectedId`, and get the
 
 Update the template with a [class binding](guide/class-binding).
 The binding adds the `selected` CSS class when the comparison returns `true` and removes it when `false`.
-Look for it within the repeated `<li>` tag as shown here:
+Look for it within the repeated `li` element as shown here:
 
 <code-example header="src/app/heroes/hero-list/hero-list.component.html" path="router/src/app/heroes/hero-list/hero-list.component.html"></code-example>
 
@@ -1311,7 +1311,7 @@ The `CrisisCenterComponent` has the following in common with the `AppComponent`:
 *   It is the root of the crisis center area, just as `AppComponent` is the root of the entire application
 *   It is a shell for the crisis management feature area, just as the `AppComponent` is a shell to manage the high-level workflow
 
-Like most shells, the `CrisisCenterComponent` class is minimal because it has no business logic, and its template has no links, just a title and `<router-outlet>` for the crisis center child component.
+Like most shells, the `CrisisCenterComponent` class is minimal because it has no business logic, and its template has no links, just a title and the `router-outlet` element for the crisis center child component.
 
 <a id="child-route-config"></a>
 

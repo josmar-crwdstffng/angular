@@ -24,7 +24,7 @@ Using the GitHub user interface for updates is recommended only for small change
 
 1.  Update the topic.
 1.  At the bottom of the screen, update the **Commit changes** box with a description of the change.
-    Use the format `docs: <short-description-of-change>`, where `<short-description-of-change>` briefly describes your change.
+    Use the format `docs: {short-description-of-change}`, where `{short-description-of-change}` briefly describes your change.
     Keep the description under 100 characters.
     For example:
 

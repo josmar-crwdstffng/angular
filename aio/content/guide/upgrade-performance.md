@@ -275,7 +275,7 @@ For example, it is *OK* to use a downgraded service in an upgraded component tha
 You can take advantage of ahead-of-time \(AOT\) compilation in hybrid applications just like in any other Angular application.
 The setup for a hybrid application is mostly the same as described in the [Ahead-of-Time Compilation](guide/aot-compiler) guide save for differences in `index.html` and `main-aot.ts`.
 
-AOT needs to load any AngularJS files that are in the `<script>` tags in the AngularJS `index.html`.
+AOT needs to load any AngularJS files that are in the `script` elements in the AngularJS `index.html`.
 An easy way to copy them is to add each to the `copy-dist-files.js` file.
 
 You also need to pass the generated `MainAngularModuleFactory` to `downgradeModule()` instead of the custom bootstrap function:

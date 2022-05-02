@@ -40,8 +40,8 @@ Such code can then, for example, steal user data \(in particular, login data\) o
 This is one of the most common attacks on the web.
 
 To block XSS attacks, you must prevent malicious code from entering the DOM \(Document Object Model\).
-For example, if attackers can trick you into inserting a `<script>` tag in the DOM, they can run arbitrary code on your website.
-The attack isn't limited to `<script>` tags &mdash;many elements and properties in the DOM allow code execution, for example, `<img onerror="...">` and `<a href="javascript:...">`.
+For example, if attackers can trick you into inserting a `script` element in the DOM, they can run arbitrary code on your website.
+The attack isn't limited to `script` elements &mdash;many elements and properties in the DOM allow code execution, for example, the `onerror` atribute of the `img` element set to anything and `href` attribute of the `a` element set to `javascript:...`.
 If attacker-controlled data enters the DOM, expect security vulnerabilities.
 
 ### Angular's cross-site scripting security model
@@ -70,10 +70,10 @@ Angular defines the following security contexts:
 
 | Security contexts | Details |
 |:---               |:---     |
-| HTML              | Used when interpreting a value as HTML, for example, when binding to `innerHtml`. |
-| Style             | Used when binding CSS into the `style` property.                                  |
-| URL               | Used for URL properties, such as `<a href>`.                                      |
-| Resource URL      | A URL that is loaded and executed as code, for example, in `<script src>`.        |
+| HTML              | Used when interpreting a value as HTML, for example, when binding to the `innerHtml` property.                       |
+| Style             | Used when binding CSS into the `style` property.                                                        |
+| URL               | Used for URL properties, such as the `href` attribute of the `a` element.                               |
+| Resource URL      | A URL that is loaded and executed as code, for example, in the `src` attribute of the `script` element. |
 
 Angular sanitizes untrusted values for HTML, styles, and URLs; sanitizing resource URLs isn't possible because they contain arbitrary code.
 In development mode, Angular prints a console warning when it has to change a value during sanitization.
@@ -92,7 +92,7 @@ For example, one could execute JavaScript in a following way:
 
 <code-example header="src/app/inner-html-binding.component.ts (class)" path="security/src/app/inner-html-binding.component.ts" region="class"></code-example>
 
-Angular recognizes the value as unsafe and automatically sanitizes it, which removes the `script` element but keeps safe content such as the `<b>` element.
+Angular recognizes the value as unsafe and automatically sanitizes it, which removes the `script` element but keeps safe content such as the `b` element.
 
 <div class="lightbox">
 
@@ -115,7 +115,7 @@ That function also accepts values that were marked as trusted using the `bypassS
 
 ### Trusting safe values
 
-Sometimes applications genuinely need to include executable code, display an `<iframe>` from some URL, or construct potentially dangerous URLs.
+Sometimes applications genuinely need to include executable code, display an `iframe` element from some URL, or construct potentially dangerous URLs.
 To prevent automatic sanitization in any of these situations, tell Angular that you inspected a value, checked how it was generated, and made sure it will always be secure.
 But *be careful*.
 If you trust a value that might be malicious, you are introducing a security vulnerability into your application.
@@ -146,9 +146,9 @@ To prevent this, mark the URL value as a trusted URL using the `bypassSecurityTr
 </div>
 
 If you need to convert user input into a trusted value, use a component method.
-The following template lets users enter a YouTube video ID and load the corresponding video in an `<iframe>`.
-The `<iframe src>` attribute is a resource URL security context, because an untrusted source can, for example, smuggle in file downloads that unsuspecting users could execute.
-So call a method on the component to construct a trusted video URL, which causes Angular to let binding into `<iframe src>`:
+The following template lets users enter a YouTube video ID and load the corresponding video in an `iframe` element.
+The `src` attribute of the `iframe` element is a resource URL security context, because an untrusted source can, for example, smuggle in file downloads that unsuspecting users could execute.
+So call a method on the component to construct a trusted video URL, which causes Angular to let binding into the `src` atrribute of the `iframe` element:
 
 <code-example header="src/app/bypass-security.component.html (iframe)" path="security/src/app/bypass-security.component.html" region="iframe"></code-example>
 
@@ -317,7 +317,7 @@ See also Dave Smith's [talk on XSRF at AngularConnect 2016](https://www.youtube.
 ### Cross-site script inclusion (XSSI)
 
 Cross-site script inclusion, also known as JSON vulnerability, can allow an attacker's website to read data from a JSON API.
-The attack works on older browsers by overriding built-in JavaScript object constructors, and then including an API URL using a `<script>` tag.
+The attack works on older browsers by overriding built-in JavaScript object constructors, and then including an API URL using a `script` element.
 
 This attack is only successful if the returned JSON is executable as JavaScript.
 Servers can prevent an attack by prefixing all JSON responses to make them non-executable, by convention, using the well-known string `")]}',\n"`.

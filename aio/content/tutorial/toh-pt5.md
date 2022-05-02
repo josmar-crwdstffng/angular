@@ -98,13 +98,13 @@ Next, `AppRoutingModule` exports `RouterModule` to be available throughout the a
 
 ## Add `RouterOutlet`
 
-Open the `AppComponent` template and replace the `<app-heroes>` element with a `<router-outlet>` element.
+Open the `AppComponent` template and replace the `app-heroes` element with a `router-outlet` element.
 
 <code-example header="src/app/app.component.html (router-outlet)" path="toh-pt5/src/app/app.component.html" region="outlet"></code-example>
 
-The `AppComponent` template no longer needs `<app-heroes>` because the application only displays the `HeroesComponent` when the user navigates to it.
+The `AppComponent` template no longer needs the `app-heroes` element, because the Angular framework only displays the `HeroesComponent` component when the user navigates to it.
 
-The `<router-outlet>` tells the router where to display routed views.
+The `router-outlet` element tells the router where to display routed views.
 
 <div class="alert is-helpful">
 
@@ -136,7 +136,7 @@ The browser should refresh and display the application title but not the list of
 
 Ideally, users should be able to click a link to navigate rather than pasting a route URL into the address bar.
 
-Add a `<nav>` element and, within that, an anchor element that, when clicked, triggers navigation to the `HeroesComponent`.
+Add a `nav` element and, within that, an anchor element that, when clicked, triggers navigation to the `HeroesComponent`.
 The revised `AppComponent` template looks like this:
 
 <code-example header="src/app/app.component.html (heroes RouterLink)" path="toh-pt5/src/app/app.component.html" region="heroes"></code-example>
@@ -211,7 +211,7 @@ Add a route to the `routes` array that matches a path to the `DashboardComponent
 
 When the application starts, the browser's address bar points to the web site's root.
 That doesn't match any existing route so the router doesn't navigate anywhere.
-The space below the `<router-outlet>` is blank.
+The space below the `router-outlet` element is blank.
 
 To make the application navigate to the dashboard automatically, add the following route to the `routes` array.
 
@@ -251,7 +251,7 @@ This section enables navigation to the `HeroDetailComponent` and liberate it fro
 When the user clicks a hero in `HeroesComponent`, the application should navigate to the `HeroDetailComponent`, replacing the heroes list view with the hero detail view.
 The heroes list view should no longer show hero details as it does now.
 
-Open the `heroes/heroes.component.html` and delete the `<app-hero-detail>` element from the bottom.
+Open the `HeroesComponent` template file located at `heroes/heroes.component.html` and delete the `app-hero-detail` element from the bottom.
 
 Clicking a hero item now does nothing.
 You can fix that after you enable routing to the `HeroDetailComponent`.
@@ -288,13 +288,13 @@ You're using Angular [interpolation binding](guide/interpolation) within the `*n
 
 ### `HeroesComponent` hero links
 
-The hero items in the `HeroesComponent` are `<li>` elements whose click events are bound to the component's `onSelect()` method.
+The hero items in the `HeroesComponent` are `li` elements whose click events are bound to the component's `onSelect()` method.
 
 <code-example header="src/app/heroes/heroes.component.html (list with onSelect)" path="toh-pt4/src/app/heroes/heroes.component.html" region="list"></code-example>
 
-Remove the `<li>` back to just its `*ngFor`. 
-Wrap the badge and name in an anchor `<a>` element. 
-Add a `routerLink` attribute to the anchor that's the same as in the dashboard template.
+Strip the `li` element back to just its `*ngFor`.
+Wrap the badge and name in an `a` anchor element.
+Add a `routerLink` attribute to the anchor elment that is the same as in the dashboard template.
 
 <code-example header="src/app/heroes/heroes.component.html (list with links)" path="toh-pt5/src/app/heroes/heroes.component.html" region="list"></code-example>
 
@@ -467,7 +467,7 @@ Here are the code files discussed on this page.
 ## Summary
 
 *   You added the Angular router to navigate among different components
-*   You turned the `AppComponent` into a navigation shell with `<a>` links and a `<router-outlet>`
+*   You turned the `AppComponent` into a navigation shell with the `a` element links and a `router-outlet` element
 *   You configured the router in an `AppRoutingModule`
 *   You defined routes, a redirect route, and a parameterized route
 *   You used the `routerLink` directive in anchor elements

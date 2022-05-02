@@ -97,7 +97,7 @@ Within `sequence()`, the animation steps consist of either `style()` or `animate
 ## Filter animation example
 
 Take a look at another animation on the live example page.
-Under the Filter/Stagger tab, enter some text into the **Search Heroes** text box, such as `Magnet` or `tornado`.
+Under the **Filter/Stagger** tab, enter some text into the **Search Heroes** text box, such as `Magnet` or `tornado`.
 
 The filter works in real time as you type.
 Elements leave the page as you type each new letter and the filter gets progressively stricter.
@@ -148,7 +148,7 @@ On the other hand the `ViewEncapsulation.ShadowDom` changes the component's DOM 
 
 ## Animation sequence summary
 
-Angular functions for animating multiple elements start with `query()` to find inner elements; for example, gathering all images within a `<div>`.
+Angular functions for animating multiple elements start with `query()` to find inner elements; for example, gathering all images within a `div` element.
 The remaining functions, `stagger()`, [`group()`](api/animations/group), and `sequence()`, apply cascades or let you control how multiple animation steps are applied.
 
 ## More on Angular animations

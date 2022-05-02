@@ -13,7 +13,7 @@ See the <live-example></live-example> for a working example containing the code 
 ## Data binding and HTML
 
 Developers can customize HTML by specifying attributes with string values.
-In the following example, `class`, `src`, and `disabled` modify the `<div>`, `<img>`, and `<button>` elements respectively.
+In the following example, `class`, `src`, and `disabled` modify the `div`, `img`, and `button` elements respectively.
 
 <code-example format="html" language="html">
 
@@ -73,9 +73,9 @@ In Angular, the only role of HTML attributes is to initialize element and direct
 
 When you write a data binding, you're dealing exclusively with the DOM properties and events of the target object.
 
-#### Example 1: an `<input>`
+#### Example 1: an `input` element
 
-When the browser renders `<input type="text" value="Sarah">`, it creates a corresponding DOM node with a `value` property and initializes that `value` to "Sarah".
+When the browser renders the `<input type="text" value="Sarah">` tag, it creates a corresponding DOM node with a `value` property and initializes that `value` to "Sarah".
 
 <code-example format="html" language="html">
 
@@ -83,10 +83,10 @@ When the browser renders `<input type="text" value="Sarah">`, it creates a corre
 
 </code-example>
 
-When the user enters `Sally` into the `<input>`, the DOM element `value` property becomes `Sally`.
-However, if you look at the HTML attribute `value` using `input.getAttribute('value')`, you can see that the attribute remains unchanged &mdash;it returns "Sarah".
+When the user enters `Sally` into the `input` element, the DOM element `value` property becomes `Sally`.
+However, if you look at the `value` HTML attribute using `input.getAttribute('value')`, you can see that the attribute remains unchanged &mdash;it returns "Sarah".
 
-The HTML attribute `value` specifies the initial value; the DOM `value` property is the current value.
+The `value` HTML attribute specifies the initial value; the DOM `value` property is the current value.
 
 To see attributes versus DOM properties in a functioning app, see the <live-example name="binding-syntax"></live-example> especially for binding syntax.
 

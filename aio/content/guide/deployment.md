@@ -358,12 +358,12 @@ Here's the output for the *main* bundle of an example application called `cli-qu
 
 </div>
 
-<a id="base-tag"></a>
+<a id="base-element"></a>
 
-## The `base` tag
+## The `base` element
 
-The HTML [`<base href="..." />`](guide/router) specifies a base path for resolving relative URLs to assets such as images, scripts, and style sheets.
-For example, given the `<base href="/my/app/">`, the browser resolves a URL such as `some/place/foo.jpg` into a server request for `my/app/some/place/foo.jpg`.
+The [`href` attribute of the `base` element](guide/router) specifies a base path for resolving relative URLs to assets such as images, scripts, and style sheets.
+For example, given that the `href` attribute of the `base` element is set to `/my/app`, the browser resolves a URL such as `some/place/foo.jpg` into a server request for `my/app/some/place/foo.jpg`.
 During navigation, the Angular router uses the *base href* as the base path to component, template, and module files.
 
 <div class="alert is-helpful">
@@ -373,13 +373,13 @@ See also the [`APP_BASE_HREF`](api/common/APP_BASE_HREF "API: APP_BASE_HREF") al
 </div>
 
 In development, you typically start the server in the folder that holds `index.html`.
-That's the root folder and you'd add `<base href="/">` near the top of `index.html` because `/` is the root of the application.
+That's the root folder and you'd add the `base` element with the `href` attribute set to `/` near the top of `index.html` because `/` is the root of the application.
 
 But on the shared or production server, you might serve the application from a subfolder.
-For example, when the URL to load the application is something like `http://www.mysite.com/my/app`, the subfolder is `my/app/` and you should add `<base href="/my/app/">` to the server version of the `index.html`.
+For example, when the URL to load the application is something like `http://www.mysite.com/my/app`, the subfolder is `my/app` and you should add the `base` element with the `href` attribute set to `my/app` to the server version of the `index.html` file.
 
-When the `base` tag is mis-configured, the application fails to load and the browser console displays `404 - Not Found` errors for the missing files.
-Look at where it *tried* to find those files and adjust the base tag appropriately.
+When the `base` element is mis-configured, the application fails to load and the browser console displays `404 - Not Found` errors for the missing files.
+Look at where it *tried* to find those files and adjust the base element appropriately.
 
 <a id="deploy-url"></a>
 
@@ -388,20 +388,20 @@ Look at where it *tried* to find those files and adjust the base tag appropriate
 A command line option used to specify the base path for resolving relative URLs for assets such as images, scripts, and style sheets at *compile* time.
 For example: `ng build --deploy-url /my/assets`.
 
-The effects of defining a `deploy url` and `base href` can overlap.
+The effects of defining a `deploy url` and the `href` attribute of a `base` element can overlap.
 
 *   Both can be used for initial scripts, stylesheets, lazy scripts, and css resources.
 
-However, defining a `base href` has a few unique effects.
+However, defining the `href` attribute of a `base` element has a few unique effects.
 
-*   Defining a `base href` can be used for locating relative template \(HTML\) assets, and relative fetch/XMLHttpRequests.
+*   Defining the `href` attribute of a `base` element can be used for locating relative template \(HTML\) assets, and relative fetch/XMLHttpRequests.
 
-The `base href` can also be used to define the Angular router's default base \(see [`APP_BASE_HREF`](api/common/APP_BASE_HREF)\).
+The `href` attribute of the `base` element can also be used to define the Angular router's default base \(see [`APP_BASE_HREF`](api/common/APP_BASE_HREF)\).
 Users with more complicated setups may need to manually configure the `APP_BASE_HREF` token within the application \(for example, application routing base is `/` but` assets/scripts/etc.` are at `/assets/`\).
 
-Unlike the `base href` which can be defined in a single place, the `deploy url` needs to be hard-coded into an application at build time.
+Unlike the `href` attribute of the `base` element which can be defined in a single place, the `deploy url` needs to be hard-coded into an application at build time.
 This means specifying a `deploy url` will decrease build speed, but this is the unfortunate cost of using an option that embeds itself throughout an application.
-That is why a `base href` is generally the better option.
+That is why the `href` attribute of a `base` element is generally the better option.
 
 <!-- links -->
 

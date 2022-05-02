@@ -1,6 +1,6 @@
 # Display a selection list
 
-This tutorial shows you how to: 
+This tutorial shows you how to:
 
 * Expand the Tour of Heroes application to display a list of heroes.
 * Allow users to select a hero and display the hero's details.
@@ -35,18 +35,18 @@ In `HeroesComponent` class, define a component property called `heroes` to expos
 
 Open the `HeroesComponent` template file and make the following changes:
 
-1.  Add an `<h2>` at the top.
-2.  Below the `<h2>`, add a `<ul>` element.
-3.  In the `<ul>` element, insert an `<li>`.
-4.  Place a `<button>` inside the `<li>` that displays properties of a `hero` inside `<span>` elements.
-5.  Add CSS classes to style the component.
+1.  Add an `h2` element at the top.
+1.  Below the `h2` element, add an `ul` unordered list element.
+1.  Add an `li` element within the `ul` element.
+1.  Add a `button` element inside an `li` element that displays properties of a `hero` inside `span` elements.
+1.  Add CSS classes to stye the component.
 
 to look like this:
 
 <code-example header="heroes.component.html (heroes template)" path="toh-pt2/src/app/heroes/heroes.component.1.html" region="list"></code-example>
 
-That displays an error since the `hero` property doesn't exist.
-To have access to each individual hero and list them all, add an `*ngFor` to the `<li>` to iterate through the list of heroes:
+That displays an error since the property 'hero' does not exist.
+To have access to each individual hero and list them all, add an `*ngFor` to the `li` element to iterate through the list of heroes:
 
 <code-example path="toh-pt2/src/app/heroes/heroes.component.1.html" region="li"></code-example>
 
@@ -57,7 +57,7 @@ The syntax in this example is as follows:
 
 | Syntax   | Details |
 |:---      |:---     |
-| `<li>`   | The host element.                                                                  |
+| `li`     | The host element.                                                                  |
 | `heroes` | Holds the mock heroes list from the `HeroesComponent` class, the mock heroes list. |
 | `hero`   | Holds the current hero object for each iteration through the list.                 |
 
@@ -119,14 +119,14 @@ The code in this section listens for the hero item click event and display/updat
 
 ### Add a click event binding
 
-Add a click event binding to the `<button>` in the `<li>` like this:
+Add a click event binding to the `button` element in the `li` element like this:
 
 <code-example header="heroes.component.html (template excerpt)" path="toh-pt2/src/app/heroes/heroes.component.1.html" region="selectedHero-click"></code-example>
 
 This is an example of Angular's [event binding](guide/event-binding) syntax.
 
-The parentheses around `click` tell Angular to listen for the `<button>` element's `click` event.
-When the user clicks in the `<button>`, Angular executes the `onSelect(hero)` expression.
+The parentheses around `click` tell Angular to listen for the `button` element's `click` event.
+When the user clicks in the `button` element, Angular executes the `onSelect(hero)` expression.
 
 In the next section, define an `onSelect()` method in `HeroesComponent` to display the hero that was defined in the `*ngFor` expression.
 
@@ -141,13 +141,16 @@ Add the following `onSelect()` method, which assigns the clicked hero from the t
 ### Add a details section
 
 Currently, you have a list in the component template.
-To show details about a hero when you click their name in the list, add a section 
+To show details about a hero when you click their name in the list, add a section
 in the template that displays their details.
 Add the following to `heroes.component.html` beneath the list section:
 
 <code-example header="heroes.component.html (selected hero details)" path="toh-pt2/src/app/heroes/heroes.component.html" region="selectedHero-details"></code-example>
 
-The hero details should only be displayed when a hero is selected. When a component is created initially, there is no selected hero. Add the `*ngIf` directive to the `<div>` that wraps the hero details. This directive tells Angular to render the section only when the `selectedHero` is defined after it has been selected by clicking on a hero.
+The hero details should only be displayed when a hero is selected.
+When a component is created initially, there is no selected hero.
+Add the `*ngIf` directive to the `div` element that wraps the hero details.
+The `*ngIf` directive tells the Angular framework to render the section only when the `selectedHero` is defined after the user selects a hero.
 
 <div class="alert is-important">
 
@@ -159,7 +162,7 @@ It's a critical part of the syntax.
 ### Style the selected hero
 
 To help identify the selected hero, you can use the `.selected` CSS class in the [styles you added earlier](#styles).
-To apply the `.selected` class to the `<li>` when the user clicks it, use class binding.
+To apply the `.selected` class to the `li` element when the user clicks it, use class binding.
 
 <div class="lightbox">
 
@@ -170,14 +173,14 @@ To apply the `.selected` class to the `<li>` when the user clicks it, use class 
 Angular's [class binding](guide/class-binding) can add and remove a CSS class conditionally.
 Add `[class.some-css-class]="some-condition"` to the element you want to style.
 
-Add the following `[class.selected]` binding to the `<button>` in the `HeroesComponent` template:
+Add the following `[class.selected]` binding to the `button` element in the `HeroesComponent` template:
 
 <code-example header="heroes.component.html (toggle the 'selected' CSS class)" path="toh-pt2/src/app/heroes/heroes.component.1.html" region="class-selected"></code-example>
 
 When the current row hero is the same as the `selectedHero`, Angular adds the `selected` CSS class.
 When the two heroes are different, Angular removes the class.
 
-The finished `<li>` looks like this:
+The finished `li` element looks like this:
 
 <code-example header="heroes.component.html (list item hero)" path="toh-pt2/src/app/heroes/heroes.component.html" region="li"></code-example>
 

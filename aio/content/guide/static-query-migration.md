@@ -126,7 +126,7 @@ and this template:
 
 </code-example>
 
-This `Foo` query would be categorized as static because at compile-time it's known that the `Foo` instance on the `<div>` is the correct result for the query.
+This `Foo` query would be categorized as static because at compile-time it's known that the `Foo` instance on the `div` element is the correct result for the query.
 Because the query result is not dependent on runtime values, we don't have to wait for change detection to run on the template before resolving the query.
 Consequently, results can be made available in `ngOnInit`.
 

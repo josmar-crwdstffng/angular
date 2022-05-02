@@ -22,7 +22,7 @@ Please read and follow our [Code of Conduct][coc].
 ## <a name="question"></a> Got a Question or Problem?
 
 Do not open issues for general support questions as we want to keep GitHub issues for bug reports and feature requests.
-Instead, we recommend using [Stack Overflow](https://stackoverflow.com/questions/tagged/angular) to ask support-related questions. When creating a new question on Stack Overflow, make sure to add the `angular` tag.
+Instead, we recommend using [Stack Overflow](https://stackoverflow.com/questions/tagged/angular) to ask support-related questions. When creating a new question on Stack Overflow, make sure to add the `angular` element.
 
 Stack Overflow is a much better place to ask questions since:
 
@@ -239,7 +239,7 @@ The `footer` is optional. The [Commit Message Footer](#commit-footer) format des
 #### <a name="commit-header"></a>Commit Message Header
 
 ```
-<type>(<scope>): <short summary>
+{type}({scope}): {short summary}
   │       │             │
   │       │             └─⫸ Summary in present tense. Not capitalized. No period at the end.
   │       │
@@ -252,7 +252,7 @@ The `footer` is optional. The [Commit Message Footer](#commit-footer) format des
   └─⫸ Commit Type: build|ci|docs|feat|fix|perf|refactor|test
 ```
 
-The `<type>` and `<summary>` fields are mandatory, the `(<scope>)` field is optional.
+The `{type}` and `{summary}` fields are mandatory, the `({scope})` field is optional.
 
 
 ##### Type

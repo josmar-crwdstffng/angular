@@ -159,7 +159,7 @@ This section shows you how to use the cart service to display the products in th
     This code sets the items using the `CartService` `getItems()` method.
     You defined this method [when you created `cart.service.ts`](#generate-cart-service).
 
-1.  Update the cart template with a header, and use a `<div>` with an `*ngFor` to display each of the cart items with its name and price.
+1.  Update the cart template with a header, and use a `div` element with an `*ngFor` to display each of the cart items with its name and price.
     The resulting `CartComponent` template is as follows.
 
     <code-example header="src/app/cart/cart.component.html" path="getting-started/src/app/cart/cart.component.2.html" region="prices"></code-example>

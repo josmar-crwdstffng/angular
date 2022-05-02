@@ -25,7 +25,7 @@ server for serving the hosted previews. More info on how to attach the directory
 starting the container can be found [here](vm-setup--start-docker-container.md).
 
 In order for the container to be able to find the certificate and key, they should be named
-`<DOMAIN_NAME>.crt` and `<DOMAIN_NAME>.key` respectively. For example, for a domain name
+`{DOMAIN_NAME}.crt` and `{DOMAIN_NAME}.key` respectively. For example, for a domain name
 `ngbuild.io`, nginx will look for files `ngbuilds.io.crt` and `ngbuilds.io.key`. More info on how to
 specify the domain name see [here](vm-setup--create-docker-image.md).
 

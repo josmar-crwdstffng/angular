@@ -102,7 +102,7 @@ npm run dev:ssr
 Open a browser and navigate to `http://localhost:4200`.
 You should see the familiar Tour of Heroes dashboard page.
 
-Navigation using `routerLinks` works correctly because they use the built-in anchor \(`<a>`\) elements.
+Navigation using `routerLinks` works correctly because they use the built-in `a` elements.
 You can go from the Dashboard to the Heroes page and back.
 Click a hero on the Dashboard page to display its Details page.
 
@@ -198,7 +198,7 @@ The `renderModule()` function takes as inputs a *template* HTML page \(usually `
 The route comes from the client's request to the server.
 
 Each request results in the appropriate view for the requested route.
-The `renderModule()` function renders the view within the `<app>` tag of the template, creating a finished HTML page for the client.
+The `renderModule()` function renders the view within the `app` element of the template, creating a finished HTML page for the client.
 
 Finally, the server returns the rendered page to the client.
 

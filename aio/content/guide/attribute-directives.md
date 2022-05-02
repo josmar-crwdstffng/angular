@@ -49,11 +49,11 @@ Directives *do not* support namespaces.
 
 ## Applying an attribute directive
 
-1.  To use the `HighlightDirective`, add a `<p>` element to the HTML template with the directive as an attribute.
+1.  To use the `HighlightDirective`, add a `p` element to the HTML template with the directive as an attribute.
 
     <code-example header="src/app/app.component.html" path="attribute-directives/src/app/app.component.1.html" region="applied"></code-example>
 
-Angular creates an instance of the `HighlightDirective` class and injects a reference to the `<p>` element into the directive's constructor, which sets the `<p>` element's background style to yellow.
+Angular creates an instance of the `HighlightDirective` class and injects a reference to the `p` element into the directive's constructor, which sets the `p` element's background style to yellow.
 
 <a id="respond-to-user"></a>
 
@@ -69,7 +69,7 @@ This section shows you how to detect when a user mouses into or out of the eleme
 
     <code-example header="src/app/highlight.directive.ts (mouse-methods)" path="attribute-directives/src/app/highlight.directive.2.ts" region="mouse-methods"></code-example>
 
-Subscribe to events of the DOM element that hosts an attribute directive, the `<p>` in this case, with the `@HostListener()` decorator.
+Subscribe to events of the DOM element that hosts an attribute directive, the `p` element in this case, with the `@HostListener()` decorator.
 
 <div class="alert is-helpful">
 
@@ -115,7 +115,7 @@ This section walks you through setting the highlight color while applying the `H
 
     The `[appHighlight]` attribute binding performs two tasks:
 
-    *   Applies the highlighting directive to the `<p>` element
+    *   Applies the highlighting directive to the `p` element
     *   Sets the directive's highlight color with a property binding
 
 ### Setting the value with user input

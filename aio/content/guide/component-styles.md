@@ -91,7 +91,7 @@ In this example the host's content also becomes bold when the `active` CSS class
 <code-example header="src/app/hero-details.component.css" path="component-styles/src/app/hero-details.component.css" region="hostfunction"></code-example>
 
 The `:host` selector can also be combined with other selectors.
-Add selectors behind the `:host` to select child elements, for example using `:host h2` to target all `<h2>` elements inside a component's view.
+Add selectors behind the `:host` to select child elements, for example using `:host h2` to target all `h2` elements inside a component's view.
 
 <div class="alert is-helpful">
 
@@ -104,7 +104,7 @@ Use `:host-context` selector for that purpose instead.
 ### :host-context
 
 Sometimes it's useful to apply styles to elements within a component's template based on some condition in an element that is an ancestor of the host element.
-For example, a CSS theme class could be applied to the document `<body>` element, and you want to change how your component looks based on that.
+For example, a CSS theme class could be applied to the `body` element of the document, and you want to change how your component looks based on that.
 
 Use the `:host-context()` pseudo-class selector, which works just like the function form of `:host()`.
 The `:host-context()` selector looks for a CSS class in any ancestor of the component host element, up to the document root.
@@ -131,7 +131,7 @@ Any style with `::ng-deep` applied becomes a global style.
 In order to scope the specified style to the current component and all its descendants, be sure to include the `:host` selector before `::ng-deep`.
 If the `::ng-deep` combinator is used without the `:host` pseudo-class selector, the style can bleed into other components.
 
-The following example targets all `<h3>` elements, from the host element down through this component to all of its child elements in the DOM.
+The following example targets all `h3` elements, from the host element down through this component to all of its child elements in the DOM.
 
 <code-example header="src/app/hero-details.component.css" path="component-styles/src/app/hero-details.component.css" region="deep"></code-example>
 
@@ -221,13 +221,13 @@ ng generate component hero-app
 
 ### Template inline styles
 
-Embed CSS styles directly into the HTML template by putting them inside `<style>` tags.
+Embed CSS styles directly into the HTML template by putting them inside `style` elements.
 
 <code-example header="src/app/hero-controls.component.ts" path="component-styles/src/app/hero-controls.component.ts" region="inlinestyles"></code-example>
 
-### Template link tags
+### Template link elements
 
-You can also write `<link>` tags into the component's HTML template.
+You can also write `link` elements into the component's HTML template.
 
 <code-example header="src/app/hero-team.component.ts" path="component-styles/src/app/hero-team.component.ts" region="stylelink"></code-example>
 
@@ -235,7 +235,7 @@ You can also write `<link>` tags into the component's HTML template.
 
 When building with the CLI, be sure to include the linked style file among the assets to be copied to the server as described in the [Assets configuration guide](guide/workspace-config#assets-configuration).
 
-Once included, the CLI includes the stylesheet, whether the link tag's href URL is relative to the application root or the component file.
+Once included, the CLI includes the stylesheet, whether the href URL of the `link` element is relative to the application root or the component file.
 
 </div>
 

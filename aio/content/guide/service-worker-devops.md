@@ -28,7 +28,7 @@ For more information, see the [Application tabs](guide/service-worker-devops#tab
 To preserve application integrity, the Angular service worker groups all files into a version together.
 The files grouped into a version usually include HTML, JS, and CSS files.
 Grouping of these files is essential for integrity because HTML, JS, and CSS files frequently refer to each other and depend on specific content.
-For example, an `index.html` file might have a `<script>` tag that references `bundle.js` and it might attempt to call a function `startApp()` from within that script.
+For example, an `index.html` file might have a `script` element that references `bundle.js` and it might attempt to call a function `startApp()` from within that script.
 Any time this version of `index.html` is served, the corresponding `bundle.js` must be served with it.
 For example, assume that the `startApp()` function is renamed to `runApp()` in both files.
 In this scenario, it is not valid to serve the old `index.html`, which calls `startApp()`, along with the new bundle, which defines `runApp()`.

@@ -18,7 +18,7 @@ This API is used both by the shim generators in this package as well as for othe
 
 The shim package exposes two specific pieces of functionality related to the integration of shims into the creation of a `ts.Program`:
 
-* A `ShimReferenceTagger` which "tags" `ts.SourceFile`s prior to program creation, and creates links from each original file to all of the per-file shims which need to be created for those file.
+* A `ShimReferenceTagger` which applies a tag to instances of `ts.SourceFile` prior to program creation, and creates links from each original file to all of the per-file shims which need to be created for those file.
 * A `ShimAdapter` which is used by an implementation of `ts.CompilerHost` to include shims in any program created via the host.
 
 ### `ShimAdapter`

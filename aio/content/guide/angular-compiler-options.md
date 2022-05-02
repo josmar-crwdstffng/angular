@@ -107,7 +107,7 @@ For library projects generated with the CLI, the development configuration defau
 
 ### `enableLegacyTemplate`
 
-When `true`, enables use of the `<template>` element, which was deprecated in Angular 4.0, in favor of `<ng-template>` \(to avoid colliding with the DOM's element of the same name\).
+When `true`, enables use of the `template` element, which was deprecated in Angular 4.0, in favor of the `ng-template` element \(to avoid colliding with the DOM's element of the same name\).
 Default is `false`.
 Might be required by some third-party Angular libraries.
 

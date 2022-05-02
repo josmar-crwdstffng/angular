@@ -1,4 +1,4 @@
-The `<ng-content>` element specifies where to project content inside a component template.
+The `ng-content` element specifies where to project content inside a component template.
 
 &commat;elementAttribute select="selector"
 

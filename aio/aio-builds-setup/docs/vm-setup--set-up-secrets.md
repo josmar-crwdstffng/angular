@@ -33,7 +33,7 @@ Necessary secrets:
 
 - `sudo mkdir /aio-secrets`
 - `sudo touch /aio-secrets/GITHUB_TOKEN`
-- Insert `<github-token>` into `/aio-secrets/GITHUB_TOKEN`.
+- Insert `{github-token}` into `/aio-secrets/GITHUB_TOKEN`.
 - `sudo touch /aio-secrets/CIRCLE_CI_TOKEN`
-- Insert `<access-token>` into `/aio-secrets/CIRCLE_CI_TOKEN`.
+- Insert `{access-token}` into `/aio-secrets/CIRCLE_CI_TOKEN`.
 - `sudo chmod 400 /aio-secrets/*`

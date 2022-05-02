@@ -31,29 +31,29 @@ While the Angular guides are [Markdown](https://daringfireball.net/projects/mark
 
 <div class="alert is-helpful">
 
-To enable HTML in an Angular guide, **always** follow every opening and closing HTML tag with a blank line.
+To enable HTML in an Angular guide, **always** follow every opening and closing HTML element with a blank line.
 
 </div>
 
-Notice the required blank line after the opening `<div>` in the following example:
+Notice the required blank line after the opening `div` element in the following example:
 
 <code-example format="html" language="html">
 
 &lt;div class="alert is-helpful"&gt;
 
-&ast;&ast;Always&ast;&ast; follow every opening and closing HTML tag with &ast;a blank line&ast;.
+&ast;&ast;Always&ast;&ast; follow every opening and closing HTML element with &ast;a blank line&ast;.
 
 &lt;/div&gt;
 
 </code-example>
 
-It is customary but not required to precede the closing HTML tag with a blank line as well.
+It is customary but not required to precede the closing HTML element with a blank line as well.
 
 ## Title
 
 Every guide document must have a title, and it should appear at the top of the page.
 
-Begin the title with the Markdown hash \(`#`\) character, which renders as an `<h1>` in the browser.
+Begin the title with the Markdown hash \(`#`\) character, which renders as an `h1` element in the browser.
 
 <code-example format="html" language="html">
 
@@ -63,7 +63,7 @@ Begin the title with the Markdown hash \(`#`\) character, which renders as an `<
 
 | Title guidance                                       | Details |
 |:---                                                  |:---     |
-| A document can have only one `<h1>`                  | Title text should be in *Sentence case*, which means the first word is capitalized and all other words are lower case. Technical terms that are always capitalized, like "Angular", are the exception. <code-example format="html" language="html"> &num; Deprecation policy in Angular </code-example> |
+| A document can have only one `h1` element                  | Title text should be in *Sentence case*, which means the first word is capitalized and all other words are lower case. Technical terms that are always capitalized, like "Angular", are the exception. <code-example format="html" language="html"> &num; Deprecation policy in Angular </code-example> |
 | Always follow the title with at least one blank line | The corresponding text in the left nav is in *Title Case*, which means that you use capital letters to start the first words and all principal words. Use lower case letters for secondary words such as "in", "of", and "the". You can also shorten the nav title to fit in the column.                |
 
 ## Sections
@@ -78,7 +78,7 @@ All section headings are in *Sentence case*, which means the first word is capit
 
 There are usually one or more main sections that may be further divided into secondary sections.
 
-Begin a main section heading with the Markdown `##` characters, which renders as an `<h2>` in the browser.
+Begin a main section heading with the Markdown `##` characters, which renders as an `h2` element in the browser.
 
 Follow main section headings with a blank line and then the content for that heading as in the following example:
 
@@ -94,7 +94,7 @@ Content after a blank line.
 
 A secondary section heading is related to a main heading and falls textually within the bounds of that main heading.
 
-Begin a secondary heading with the Markdown `###` characters, which renders as an `<h3>` in the browser.
+Begin a secondary heading with the Markdown `###` characters, which renders as an `h3` element in the browser.
 
 Follow a secondary heading by a blank line and then the content for that heading as in the following example:
 
@@ -108,7 +108,7 @@ Content after a blank line.
 
 ### Additional section headings
 
-While you can use additional section headings, the [Table-of-contents (TOC)](#table-of-contents) generator only shows `<h2>` and `<h3>` headings in the TOC on the right of the page.
+While you can use additional section headings, the [Table-of-contents (TOC)](#table-of-contents) generator only shows `h2` and `h3` element headings in the TOC on the right of the page.
 
 <code-example format="html" language="html">
 
@@ -124,9 +124,9 @@ Most pages display a table of contents or TOC.
 The TOC appears in the right panel when the viewport is wide.
 When narrow, the TOC appears in a collapsible region near the top of the page.
 
-You don't need to create your own TOC by hand because the TOC generator creates one automatically from the page's  `<h2>` and `<h3>` headers.
+You don't need to create your own TOC by hand because the TOC generator creates one automatically from the page's  `h2` and `h3` element headers.
 
-To exclude a heading from the TOC, create the heading as an `<h2>` or `<h3>` element with a class called 'no-toc'.
+To exclude a heading from the TOC, create the heading as an `h2` or `h3` element with a class called 'no-toc'.
 
 <code-example format="html" language="html">
 
@@ -138,7 +138,7 @@ This heading is not displayed in the TOC
 
 </code-example>
 
-You can turn off TOC generation for the entire page by writing the title with an `<h1>` tag and the `no-toc` class.
+You can turn off TOC generation for the entire page by writing the title with an `h1` element and the `no-toc` class.
 
 <code-example format="html" language="html">
 
@@ -253,7 +253,7 @@ The &lt;code class="no-auto-link"&gt;item&lt;/code&gt; property is &grave;true&g
 
 Ideally, you should source code snippets [from working sample code](#from-code-samples), though there are times when an inline snippet is necessary.
 
-For terminal input and output, place the content between `<code-example>` tags and set the language attribute to `sh` as in this example:
+For terminal input and output, place the content between `code-example` elements and set the language attribute to `sh` as in this example:
 
 <code-example format="shell" language="shell">
 
@@ -276,7 +276,7 @@ This example belongs to the small set of pre-approved, inline snippets that incl
 
 In all other cases, code snippets should be generated automatically from tested code samples.
 
-For hypothetical examples such as illustrations of configuration options in a JSON file, use the `<code-example>` tag with the `header` attribute to identify the context.
+For hypothetical examples such as illustrations of configuration options in a JSON file, use the `code-example` element with the `header` attribute to identify the context.
 
 <a id="from-code-samples"></a>
 
@@ -300,7 +300,7 @@ The Angular CI process runs all end-to-end tests for every Angular PR.
 Angular re-tests the samples after every new version of a sample and every new version of Angular.
 
 When possible, every snippet of code on a guide page should be derived from a code sample file.
-You tell the Angular documentation engine which code file &mdash;or fragment of a code file&mdash; to display by configuring `<code-example>` attributes.
+You tell the Angular documentation engine which code file &mdash;or fragment of a code file&mdash; to display by configuring attributes of the `code-example` element.
 
 <a id="display-whole-file"></a>
 
@@ -308,7 +308,7 @@ You tell the Angular documentation engine which code file &mdash;or fragment of 
 
 This Angular documentation style guide that you are currently reading has its own example application, located in the `content/examples/docs-style-guide` folder.
 
-The following `<code-example>` displays the sample's `app.module.ts`:
+The following `code-example` element displays the sample's `app.module.ts`:
 
 <code-example header="src/app/app.module.ts" path="docs-style-guide/src/app/app.module.ts"></code-example>
 
@@ -350,7 +350,7 @@ Update the `content/examples/.gitignore` as follows:
 
 ### Displaying part of a code file
 
-To include a snippet of code within a sample code file, rather than the entire file, use the `<code-example>` `region` attribute.
+To include a snippet of code within a sample code file, rather than the entire file, use the `region` attribute of the `code-example` element.
 The following example focuses on the `AppModule` class and its `@NgModule()` metadata:
 
 <code-example header="src/app/app.module.ts"
@@ -401,7 +401,7 @@ For more information on how to prepare example application files for use in guid
 
 ### Code snippet options
 
-Specify the `<code-example>` output with the following attributes:
+Specify the output of the `code-example` element with the following attributes:
 
 | Attributes | Details |
 |:---        |:---     |
@@ -419,7 +419,7 @@ Occasionally, you want to display an example of less than ideal code or design, 
 Because it is possible for readers to copy and paste examples of inferior code in their own applications, try to minimize use of such code.
 
 In cases where you need unacceptable examples, you can set the `class` to `avoid` or have the word `avoid` in the filename of the source file.
-By putting the word `avoid` in the filename or path, the documentation generator automatically adds the `avoid` class to the `<code-example>`.
+By putting the word `avoid` in the filename or path, the documentation generator automatically adds the `avoid` class to the `code-example` element.
 Either of these options frames the code snippet in bright red to grab the reader's attention.
 
 Here's the markup for an "avoid" example in the
@@ -475,7 +475,7 @@ The default is `false`.
 | `linenums` | Overrides the `linenums` property at the `code-tabs` level for this particular pane. The value can be `true`, `false`, or a number indicating the starting line number. The default is `false`. |
 
 The following example displays multiple code tabs, each with its own header.
-It demonstrates showing line numbers in `<code-tabs>` and `<code-pane>`.
+It demonstrates showing line numbers in `code-tabs` and `code-pane` elements.
 
 <code-tabs linenums="true">
 
@@ -494,8 +494,8 @@ It demonstrates showing line numbers in `<code-tabs>` and `<code-pane>`.
 
 </code-tabs>
 
-The `linenums` attribute set to `true` on `<code-tabs>` explicitly enables numbering for all panes.
-However, the `linenums` attribute set to `false` in the second `<code-pane>` disables line numbering only for itself.
+The `linenums` attribute set to `true` on `code-tabs` element explicitly enables numbering for all panes.
+However, the `linenums` attribute set to `false` in the second `code-pane` element disables line numbering only for itself.
 
 <code-example format="html" language="html">
 
@@ -526,7 +526,7 @@ However, the `linenums` attribute set to `false` in the second `<code-pane>` dis
 
 ## Preparing source code for code snippets
 
-To display  `<code-example>` and `<code-tabs>` snippets, add code snippet markup to sample source code files.
+To display the snippets from the `code-example` and `code-tabs` elements, add code snippet markup to sample source code files.
 
 <div class="alert is-helpful">
 
@@ -572,7 +572,7 @@ See the section on [JSON files](#json-files) for more information.
 
 ### `#docregion`
 
-Use `#docregion` in source files to mark code for use in `<code-example>` or `<code-tabs>` components.
+Use `#docregion` in source files to mark code for use in `code-example` or `code-tabs` components.
 
 The `#docregion` comment begins a code snippet region.
 Every line of code after that comment belongs in the region until the code fragment processor encounters the end of the file or a closing `#enddocregion`.
@@ -581,7 +581,7 @@ The following `src/main.ts` is a an example of a file with a single `#docregion`
 
 <code-example header="src/main.ts" path="docs-style-guide/src/main.ts"></code-example>
 
-As a result, the entire file is in the `<code-example>`.
+As a result, the entire file is in the `code-example`.
 
 ### Naming a `#docregion`
 
@@ -595,7 +595,7 @@ To display multiple snippets from different fragments within the same file, give
 
 </code-example>
 
-Reference this region by name in the `region` attribute of the `<code-example>` or `<code-pane>` as follows:
+Reference this region by name in the `region` attribute of the `code-example` or `code-pane` element as follows:
 
 <code-example format="html" language="html">
 
@@ -691,8 +691,8 @@ export class AppComponent {
 
 ### JSON files
 
-The `<code-example>` component cannot display portions of a JSON file because JSON forbids comments.
-However, you can display an entire JSON file by referencing it in the `<code-example>` `src` attribute.
+The `code-example` component cannot display portions of a JSON file because JSON forbids comments.
+However, you can display an entire JSON file by referencing it in the `src` attribute of the `code-example` element.
 
 For large JSON files, you could copy the nodes-of-interest into Markdown backticks, but as it's easy to mistakenly create invalid JSON that way, consider creating a JSON partial file with the fragment you want to display.
 
@@ -744,14 +744,14 @@ Hexadecimal should use the shorthand where possible, and use only lowercase lett
 
 ## Live examples
 
-Adding `<live-example></live-example>` to a page generates two default links:
+Adding the `live-example` element to a page generates two default links:
 <live-example></live-example>.
 
 The first is a link to the StackBlitz example, which the default `stackblitz.json` file defines.
 You can find the `stackblitz.json` file in the `content/examples/example-app` directory, where `example-app` is the sample application folder you're using for the guide.
 
 By default, the documentation generator uses the name of the guide as the name of the example.
-So, if you're working on `router.md`, and use `<live-example></live-example>` in the document, the documentation generator looks for `content/examples/router`.
+So, if you're working on `router.md`, and use the `live-example` element in the document, the documentation generator looks for `content/examples/router`.
 Clicking this link opens the code sample on StackBlitz in a new browser tab.
 
 The second link downloads the sample app.
@@ -788,7 +788,7 @@ The browser renders the following:
 
 <live-example title="Live Example with title"></live-example>
 
-You can achieve the same effect by putting the label between the `<live-example>` tags:
+You can achieve the same effect by putting the label between the `live-example` elements:
 
 <code-example format="html" language="html">
 
@@ -848,10 +848,10 @@ By default, a live example link opens a StackBlitz example in a separate browser
 You can embed the StackBlitz example within the guide page by adding the `embedded` attribute.
 
 For performance reasons, StackBlitz does not start right away.
-Instead, the `<live-example>` component renders an image.
-Clicking the image starts the process of launching the embedded StackBlitz within an `<iframe>`.
+Instead, the `live-example` component renders an image.
+Clicking the image starts the process of launching the embedded StackBlitz within an `iframe` element.
 
-The following is an embedded `<live-example>` for this guide:
+The following is an embedded `live-example` element for this guide:
 
 <code-example format="html" language="html">
 
@@ -859,7 +859,7 @@ The following is an embedded `<live-example>` for this guide:
 
 </code-example>
 
-The browser renders the following `<iframe>` and a `<p>` with a link to download the example:
+The browser renders the following `iframe` element and a `p` element with a link to download the example:
 
 <live-example embedded></live-example>
 
@@ -935,8 +935,8 @@ You can also add more anchors with more appropriate text.
 
 <div class="alert is-helpful">
 
-As an alternative, you can use the HTML `<a>` tag.
-When using the `<a>` element, set the `id` attribute &mdash;rather than the `name` attribute because the documentation generator does not convert the `name` to the proper link URL.
+As an alternative, you can use the HTML `a` element.
+When using the `a` element, set the `id` attribute &mdash;rather than the `name` attribute because the documentation generator does not convert the `name` to the proper link URL.
 For example:
 
 <code-example format="html" language="html">
@@ -970,8 +970,8 @@ See the [live examples](guide/docs-style-guide#live-examples "Live examples") se
 <div class="alert is-helpful">
 
 **NOTE**: <br />
-At least one blank line must follow both the opening and closing `<div>` tags.
-A blank line before the closing `</div>` is conventional but not required.
+At least one blank line must follow both the opening and closing `div` elements.
+A blank line before the closing `/div` is conventional but not required.
 
 </div>
 
@@ -1106,8 +1106,8 @@ When using callouts, consider the following points:
 *   The callout header text style is uppercase
 *   The header does not render in the table of contents
 *   You can write the callout body in Markdown
-*   A blank line separates the `<header>` tag from the Markdown content
-*   Avoid using an `<h2>`, `<h3>`, `<h4>`, `<h5>`, or `<h6>`, as the CSS for callouts styles the `<header>` element
+*   A blank line separates the `header` element from the Markdown content
+*   Avoid using an `h2`, `h3`, `h4`, `h5`, or `h6` element, as the CSS for callouts styles the `header` element
 
 Use callouts sparingly to grab the user's attention.
 
@@ -1210,14 +1210,14 @@ src="generated/images/guide/docs-style-guide/flying-hero.png"
 
 <div class="callout is-important">
 
-<header>Use the HTML <code>&lt;img&gt;</code> tag</header>
+<header>Use the HTML <code>img</code> element</header>
 
-Specify images using the `<img>` tag.
+Specify images using the `img` element.
 **Do not use the Markdown image syntax, `![... ](... )`.**
 
 For accessibility, always set the `alt` attribute with a meaningful description of the image.
 
-Nest the `<img>` tag within a `<div class="lightbox">` tag, which styles the image according to the documentation standard.
+Nest the `img` element within a `div` element with the `class` attribute set to `lightbox`, which styles the image according to the documentation standard.
 
 <code-example format="html" language="html">
 
@@ -1232,7 +1232,7 @@ Nest the `<img>` tag within a `<div class="lightbox">` tag, which styles the ima
 <div class="alert is-helpful">
 
 **NOTE**: <br />
-The HTML `<img>` element does not have a closing tag.
+The HTML `img` element does not have a closing element.
 
 </div>
 
@@ -1253,7 +1253,7 @@ If you are using numbered figures in a page, follow the guidelines in [Figure ca
 
 ### Image dimensions
 
-The doc generator reads the image dimensions from an image file and adds `width` and `height` attributes to the `<img>` tag automatically.
+The doc generator reads the image dimensions from an image file and adds `width` and `height` attributes to the `img` element automatically.
 
 To control the size of the image, supply your own `width` and `height` attributes.
 
@@ -1347,16 +1347,16 @@ The browser renders the following:
 
 This text wraps around to the right of the floating "flying hero" image.
 
-Headings and `<code-example>` components automatically clear a floated image.
-To explicitly clear a floated image, add `<br class="clear">` where the text should break.
+Headings and `code-example` components automatically clear a floated image.
+To explicitly clear a floated image, add a `br` element with the `class` attribute set to `clear` where the text should break.
 
 <br class="clear">
 
-Generally, you don't wrap a floated image in a `<figure>` element.
+Generally, you don't wrap a floated image in a `figure` element.
 
 ### Floats within a subsection
 
-If you have a floated image inside an alert, callout, or a subsection, apply the `clear-fix` class to the `<div>` to ensure that the image doesn't overflow its container.
+If you have a floated image inside an alert, callout, or a subsection, apply the `clear-fix` class to the `div` element to ensure that the image doesn't overflow its container.
 For example:
 
 <code-example format="html" language="html">

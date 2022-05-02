@@ -277,7 +277,7 @@ Child components make proper HTTP requests no matter what other modules do to `H
 Be sure to create module components as children of this module's top component.
 
 You can embed the child components in the top component's template.
-Alternatively, make the top component a routing host by giving it a `<router-outlet>`.
+Alternatively, make the top component a routing host by giving it a `router-outlet` element.
 Define child routes and let the router load module components into that outlet.
 
 Though you can limit access to a service by providing it in a lazy loaded module or providing it in a component, providing services in a component can lead to multiple instances of those services.
@@ -421,7 +421,7 @@ Angular then creates the HTML representation of the component and inserts it int
 These aren't entry components.
 
 The bootstrapped root `AppComponent` is an *entry component*.
-True, its selector matches an element tag in `index.html`.
+True, its selector matches an element in `index.html`.
 But `index.html` isn't a component template and the `AppComponent` selector doesn't match an element in any component template.
 
 Components in route definitions are also *entry components*.

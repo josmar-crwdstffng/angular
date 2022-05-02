@@ -17,7 +17,7 @@ In a component template, the i18n metadata is the value of the `i18n` attribute.
 </code-example>
 
 Use the `i18n` attribute to mark a static text message in your component templates for translation.
-Place it on every element tag that contains fixed text you want to translate.
+Place it on every element that contains fixed text you want to translate.
 
 <div class="alert is-helpful">
 
@@ -27,23 +27,23 @@ The `i18n` attribute is a custom attribute that the Angular tools and compilers 
 
 ### `i18n` example
 
-The following `<h1>` tag displays a simple English language greeting, "Hello i18n!".
+The following `h1` element displays a simple English language greeting, "Hello i18n!".
 
 <code-example header="src/app/app.component.html" path="i18n/doc-files/app.component.html" region="greeting"></code-example>
 
-To mark the greeting for translation, add the `i18n` attribute to the `<h1>` tag.
+To mark the greeting for translation, add the `i18n` attribute to the `h1` element.
 
 <code-example header="src/app/app.component.html" path="i18n/doc-files/app.component.html" region="i18n-attribute"></code-example>
 
 ### Translate inline text without HTML element
 
-Use the `<ng-container>` element to associate a translation behavior for specific text without changing the way text is displayed.
+Use the `ng-container` element to associate a translation behavior for specific text without changing the way text is displayed.
 
 <div class="alert is-helpful">
 
 Each HTML element creates a new DOM element.
-To avoid creating a new DOM element, wrap the text in an `<ng-container>` element.
-The following example shows the `<ng-container>` element transformed into a non-displayed HTML comment.
+To avoid creating a new DOM element, wrap the text in an `ng-container` element.
+The following example shows the `ng-container` element transformed into a non-displayed HTML comment.
 
 <code-example path="i18n/src/app/app.component.html" region="i18n-ng-container"></code-example>
 
@@ -83,7 +83,7 @@ To mark the title attribute for translation, complete the following action.
 
 1.  Add the `i18n-title` attribute
 
-    The following example displays how to mark the `title` attribute on the `img` tag by adding `i18n-title`.
+    The following example displays how to mark the `title` attribute on the `img` element by adding `i18n-title`.
 
     <code-example header="src/app/app.component.html" path="i18n/src/app/app.component.html" region="i18n-title-translate"></code-example>
 
@@ -176,9 +176,9 @@ Start the `i18n` attribute value with the *meaning* and separate it from the *de
 
 #### `h1` example
 
-For example, you may want to specify that the `<h1>` tag is a site header that you need translated the same way, whether it is used as a header or referenced in another section of text.
+For example, you may want to specify that the `h1` element is a site header that you need translated the same way, whether it is used as a header or referenced in another section of text.
 
-The following example shows how to specify that the `<h1>` tag must be translated as a header or referenced elsewhere.
+The following example shows how to specify that the `h1` element must be translated as a header or referenced elsewhere.
 
 <code-example header="src/app/app.component.html" path="i18n/doc-files/app.component.html" region="i18n-attribute-meaning"></code-example>
 
@@ -353,7 +353,7 @@ updated one minute ago
 </code-example>
 
 Use HTML markup and [interpolations][AioGuideGlossaryInterpolation].
-The following code example shows how to use the `plural` clause to express the previous three situations in a `<span>` element.
+The following code example shows how to use the `plural` clause to express the previous three situations in a `span` element.
 
 <code-example header="src/app/app.component.html" path="i18n/src/app/app.component.html" region="i18n-plural"></code-example>
 
@@ -435,7 +435,7 @@ The author is male
 
 </code-example>
 
-The following code example shows how to bind the `gender` property of the component and use the `select` clause to express the previous three situations in a `<span>` element.
+The following code example shows how to bind the `gender` property of the component and use the `select` clause to express the previous three situations in a `span` element.
 
 The `gender` property binds the outputs to each of following string values.
 

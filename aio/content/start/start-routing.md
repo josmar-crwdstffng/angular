@@ -88,7 +88,7 @@ In this section, you'll use the Angular Router to combine the `products` data an
     Angular uses the `productId` to display the details for each unique product.
 
 1.  Update the `ProductDetailsComponent` template to display product details with an `*ngIf`.
-    If a product exists, the `<div>` renders with a name, price, and description.
+    If a product exists, the `div` element renders with a name, price, and description.
 
     <code-example header="src/app/product-details/product-details.component.html" path="getting-started/src/app/product-details/product-details.component.html" region="details"></code-example>
 

@@ -11,7 +11,7 @@ A basic understanding of the following:
 
 The `ngsw-config.json` configuration file specifies which files and data URLs the Angular service worker should cache and how it should update the cached files and data.
 The [Angular CLI](cli) processes the configuration file during `ng build`.
-Manually, process it with the `ngsw-config` tool \(where `<project-name>` is the name of the project being built\):
+Manually, process it with the `ngsw-config` tool \(where `{project-name}` is the name of the project being built\):
 
 <code-example format="shell" language="shell">
 

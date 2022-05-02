@@ -36,12 +36,12 @@ Extend the HTML vocabulary of your applications With special Angular syntax in y
 For example, Angular helps you get and set DOM \(Document Object Model\) values dynamically with features such as built-in template functions, variables, event listening, and data binding.
 
 Almost all HTML syntax is valid template syntax.
-However, because an Angular template is part of an overall webpage, and not the entire page, you don't need to include elements such as `<html>`, `<body>`, or `<base>`, and can focus exclusively on the part of the page you are developing.
+However, because an Angular template is part of an overall webpage, and not the entire page, you don't need to include elements such as `html`, `body`, or `base`, and can focus exclusively on the part of the page you are developing.
 
 <div class="alert is-important">
 
-To eliminate the risk of script injection attacks, Angular does not support the `<script>` element in templates.
-Angular ignores the `<script>` tag and outputs a warning to the browser console.
+To eliminate the risk of script injection attacks, Angular does not support the `script` element in templates.
+Angular ignores the `script` element and outputs a warning to the browser console.
 For more information, see the [Security](guide/security) page.
 
 </div>

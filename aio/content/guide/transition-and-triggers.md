@@ -149,7 +149,7 @@ If a trigger contains a boolean value as a binding value, then this value can be
 
 <code-example header="src/app/open-close.component.html" path="animations/src/app/open-close.component.2.html" region="trigger-boolean"></code-example>
 
-In the code snippet above, the HTML template binds a `<div>` element to a trigger named `openClose` with a status expression of `isOpen`, and with possible values of `true` and `false`.
+In the code snippet above, the HTML template binds a `div` element to a trigger named `openClose` with a status expression of `isOpen`, and with possible values of `true` and `false`.
 This pattern is an alternative to the practice of creating two named states like `open` and `close`.
 
 In the component code, inside the `@Component` metadata under the `animations:` property, when the state evaluates to `true` \(meaning "open" here\), the associated HTML element's height is a wildcard style or default.

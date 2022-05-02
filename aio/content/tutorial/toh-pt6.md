@@ -208,7 +208,7 @@ Update the `HeroService` `getHero()` method with the following to make that requ
 ## Update heroes
 
 Edit a hero's name in the hero detail view.
-As you type, the hero name updates the heading at the top of the page, yet 
+As you type, the hero name updates the heading at the top of the page, yet
 when you click **Go back**, your changes are lost.
 
 If you want changes to persist, you must write them back to the server.
@@ -250,7 +250,7 @@ The hero now appears in the list with the changed name.
 ## Add a new hero
 
 To add a hero, this application only needs the hero's name.
-You can use an `<input>` element paired with an add button.
+You can use an `input` element paired with an add button.
 
 Insert the following into the `HeroesComponent` template, after the heading:
 
@@ -281,7 +281,7 @@ Refresh the browser and add some heroes.
 
 Each hero in the heroes list should have a delete button.
 
-Add the following button element to the `HeroesComponent` template, after the hero name in the repeated `<li>` element.
+Add the following button element to the `HeroesComponent` template, after the hero name in the repeated `li` element.
 
 <code-example header="src/app/heroes/heroes.component.html" path="toh-pt6/src/app/heroes/heroes.component.html" region="delete"></code-example>
 
@@ -344,13 +344,13 @@ The rest of it closely resembles `getHeroes()`, the only significant difference 
 ### Add search to the dashboard
 
 Open the `DashboardComponent` template and
-add the hero search element, `<app-hero-search>`, to the bottom of the markup.
+add the `app-hero-search` hero search element to the bottom of the markup.
 
 <code-example header="src/app/dashboard/dashboard.component.html" path="toh-pt6/src/app/dashboard/dashboard.component.html"></code-example>
 
 This template looks a lot like the `*ngFor` repeater in the `HeroesComponent` template.
 
-For this to work, the next step is to add a component with a selector that matches `<app-hero-search>`.
+For this to work, the next step is to add a component with a selector that matches the `app-hero-search` element.
 
 ### Create `HeroSearchComponent`
 
@@ -364,7 +364,7 @@ ng generate component hero-search
 
 `ng generate` creates the three `HeroSearchComponent` files and adds the component to the `AppModule` declarations.
 
-Replace the `HeroSearchComponent` template with an `<input>` and a list of matching search results, as follows.
+Replace the newly created `HeroSearchComponent` template with an `input` element and a list of matching search results, as follows.
 
 <code-example header="src/app/hero-search/hero-search.component.html" path="toh-pt6/src/app/hero-search/hero-search.component.html"></code-example>
 

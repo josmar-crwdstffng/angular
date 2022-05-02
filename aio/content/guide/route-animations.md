@@ -70,7 +70,7 @@ For example, the name *animation* used in the preceding example is an arbitrary 
 
 ## Router outlet
 
-After configuring the routes, add a `<router-outlet>` inside the root `AppComponent` template.
+After configuring the routes, add a `router-outlet` element inside the root `AppComponent` template.
 The `<router-outlet>` directive tells the Angular router where to render the views when matched with a route.
 
 The `ChildrenOutletContexts` holds information about outlets and activated routes.

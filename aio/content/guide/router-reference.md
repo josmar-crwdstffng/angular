@@ -84,8 +84,9 @@ Consider the following template:
 
 <code-example header="src/app/app.component.html" path="router/src/app/app.component.1.html"></code-example>
 
-The `RouterLink` directives on the anchor tags give the router control over those elements.
-The navigation paths are fixed, so you can assign a string as a one-time binding to the `routerLink`.
+The `RouterLink` directives on the anchor elements give the router control over those elements.
+The navigation paths are fixed, so you can assign a string to the `routerLink`
+The `routerLink` is a "one-time" binding.
 
 Had the navigation path been more dynamic, you could have bound to a template expression that returned an array of route link parameters; that is, the [link parameters array](guide/router#link-parameters-array).
 The router resolves that array into a complete URL.

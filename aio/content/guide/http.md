@@ -1009,7 +1009,7 @@ By default, the interceptor might retry a request three times, but you might wan
 
 `HttpClient` requests contain a *context* that can carry metadata about the request.
 This context is available for interceptors to read or modify, though it is not transmitted to the backend server when the request is sent.
-This lets applications or other interceptors tag requests with configuration parameters, such as how many times to retry a request.
+This lets applications or other interceptors element requests with configuration parameters, such as how many times to retry a request.
 
 ### Creating a context token
 

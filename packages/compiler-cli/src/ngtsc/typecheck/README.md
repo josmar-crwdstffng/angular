@@ -57,9 +57,9 @@ Not only can a template consume properties declared from its component, but vari
 {{name.value}}
 ```
 
-declares a single `<input>` element with a local ref `#name`, meaning that within this template `name` refers to the `<input>` element. The `{{name.value}}` interpolation is reading the `value` property of this element.
+declares a single `input` element with a local ref `#name`, meaning that within this template `name` refers to the `input` element. The `{{name.value}}` interpolation is reading the `value` property of this element.
 
-Within the TCB, the `<input>` element is treated as a declaration, and the compiler leverages the powerful type inference of `document.createElement`:
+Within the TCB, the `input` element is treated as a declaration, and the compiler leverages the powerful type inference of `document.createElement`:
 
 ```typescript
 function tcb(this: SomeCmp): void {
@@ -68,7 +68,7 @@ function tcb(this: SomeCmp): void {
 }
 ```
 
-The `_t1` variable represents the instance of the `<input>` element within the template. This statement will never be executed, but its initialization expression is used to infer a correct type of `_t1` (`HTMLInputElement`), using the `document.createElement` typings that TypeScript provides.
+The `_t1` variable represents the instance of the `input` element within the template. This statement will never be executed, but its initialization expression is used to infer a correct type of `_t1` (`HTMLInputElement`), using the `document.createElement` typings that TypeScript provides.
 
 By knowing the type of this element, the expression involving the `name` local ref can be translated into the TCB as `_t1.value`. TypeScript will then validate that `_t1` has a `value` property (really, that the `HTMLInputElement` type has a `value` property).
 
@@ -157,7 +157,7 @@ A single type constructor for a directive can be used in multiple places, whenev
 
 #### Nested templates & structural directives
 
-`NgFor` is a structural directive, meaning that it applies to a nested `<ng-template>`. That is, the template:
+`NgFor` is a structural directive, meaning that it applies to a nested `ng-template` element. That is, the template:
 
 ```html
 <div *ngFor="let user of users">
@@ -255,7 +255,7 @@ Because the `NgFor` directive _declared_ to the template type checking engine wh
 </div>
 ```
 
-Obviously, if `user` is potentially `null`, then this `NgIf` is intended to only show the `<div>` when `user` actually has a value. However, from a type-checking perspective, the expression `user.name` is not legal if `user` is potentially `null`. So if this template was rendered into a TCB as:
+Obviously, if `user` is potentially `null`, then this `NgIf` is intended to only show the `div` element when `user` actually has a value. However, from a type-checking perspective, the expression `user.name` is not legal if `user` is potentially `null`. So if this template was rendered into a TCB as:
 
 ```typescript
 function tcb(this: SomeCmp): void {
@@ -313,7 +313,7 @@ The value is: {{in.value}}
 <input #in>
 ```
 
-contains an expression which makes use of the `#in` local reference before the targeted `<input #in>` element is declared. Since such forward references are not legal in TypeScript code, the TCB may need to declare and check template structures in a different order than the template itself.
+contains an expression which makes use of the `#in` local reference before the `#in` attribute of the targeted `input` element is declared. Since such forward references are not legal in TypeScript code, the TCB may need to declare and check template structures in a different order than the template itself.
 
 #### Two phase generation
 
@@ -339,7 +339,7 @@ This potential out-of-order execution of `TcbOp`s allows for the TCB ordering to
 ]
 ```
 
-Execution of the first `TcbTextInterpolationOp` will attempt to generate code representing the expression. Doing this requires knowing the type of the `in` reference, which maps to the element node for the `<input>`. Therefore, as part of executing the `TcbTextInterpolationOp`, the execution of the `TcbElementOp` will be requested. This operation produces TCB code for the element:
+Execution of the first `TcbTextInterpolationOp` will attempt to generate code representing the expression. Doing this requires knowing the type of the `in` reference, which maps to the element node for the `input` element. Therefore, as part of executing the `TcbTextInterpolationOp`, the execution of the `TcbElementOp` will be requested. This operation produces TCB code for the element:
 
 ```typescript
 var t1 = document.createElement('input');
@@ -371,7 +371,7 @@ Angular templates are nested structures, as the main template can contain embedd
 
 This is reflected in the TCB generation system via the `Scope` class, which actually performs the TCB generation itself. Each embedded view is its own `Scope`, with its own `TcbOp` queue.
 
-When a parent `Scope` processing a template encounters an `<ng-template>` node:
+When a parent `Scope` processing a template encounters an `ng-template` element node:
 
 1. a new child `Scope` is created from the nodes of the embedded view.
 2. a `TcbTemplateBodyOp` is added to the parent scope's queue, which upon execution triggers generation of the child `Scope`'s TCB code and inserts it into the parent's code at the right position.

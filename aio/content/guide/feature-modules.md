@@ -89,7 +89,7 @@ In `customer-dashboard.module.ts`, just beneath the `declarations` array, add an
 
 <code-example header="src/app/customer-dashboard/customer-dashboard.module.ts" path="feature-modules/src/app/customer-dashboard/customer-dashboard.module.ts" region="component-exports"></code-example>
 
-Next, in the `AppComponent`, `app.component.html`, add the tag `<app-customer-dashboard>`:
+Next, in the `AppComponent`, `app.component.html`, add the `app-customer-dashboard` element:
 
 <code-example header="src/app/app.component.html" path="feature-modules/src/app/app.component.html" region="app-component-template"></code-example>
 

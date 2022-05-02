@@ -19,7 +19,7 @@ The compiler does not verify that the value of `user.address.city` is assignable
 
 The compiler also has some major limitations in this mode:
 
-*   Importantly, it doesn't check embedded views, such as `*ngIf`, `*ngFor`, other `<ng-template>` embedded view.
+*   Importantly, it doesn't check embedded views, such as `*ngIf`, `*ngFor`, other embedded view of the `ng-template` elment.
 *   It doesn't figure out the types of `#refs`, the results of pipes, or the type of `$event` in event bindings.
 
 In many cases, these things end up as type `any`, which can cause subsequent parts of the expression to go unchecked.
@@ -97,10 +97,10 @@ interface User {
 
 </code-example>
 
-The `<h2>` and the `<span>` are in the `*ngFor` embedded view.
+The `h2` element and the `span` element are in the `*ngFor` embedded view.
 In basic mode, Angular doesn't check either of them.
 However, in full mode, Angular checks that `config` and `user` exist and assumes a type of `any`.
-In strict mode, Angular knows that the `user` in the `<span>` has a type of `User`, and that `address` is an object with a `city` property of type `string`.
+In strict mode, Angular knows that the `user` in the `span` element has a type of `User`, and that `address` is an object with a `city` property of type `string`.
 
 <a id="troubleshooting-template-errors"></a>
 
@@ -114,7 +114,7 @@ There can also be false positives when the typings of an Angular library are eit
 
 *   When a library's typings are wrong or incomplete \(for example, missing `null | undefined` if the library was not written with `strictNullChecks` in mind\)
 *   When a library's input types are too narrow and the library hasn't added appropriate metadata for Angular to figure this out.
-    This usually occurs with disabled or other common Boolean inputs used as attributes, for example, `<input disabled>`.
+    This usually occurs with disabled or other common Boolean inputs used as attributes, for example, the `disabled` attribute of the `input` element.
 
 *   When using `$event.target` for DOM events \(because of the possibility of event bubbling, `$event.target` in the DOM typings doesn't have the type you might expect\)
 
@@ -134,7 +134,7 @@ Unless otherwise commented, each following option is set to the value for `stric
 | `strictNullInputTypes`       | Whether `strictNullChecks` is honored when checking `@Input()` bindings \(per `strictInputTypes`\). Turning this off can be useful when using a library that was not built with `strictNullChecks` in mind.                                                                                                                                                                                                                                 |
 | `strictAttributeTypes`       | Whether to check `@Input()` bindings that are made using text attributes. For example, <code-example format="html" hideCopy language="html"> &lt;input matInput disabled="true"&gt; </code-example> \(setting the `disabled` property to the string `'true'`\) vs <code-example format="html" hideCopy language="html"> &lt;input matInput [disabled]="true"&gt; </code-example> \(setting the `disabled` property to the boolean `true`\). |
 | `strictSafeNavigationTypes`  | Whether the return type of safe navigation operations \(for example, `user?.name` will be correctly inferred based on the type of `user`\). If disabled, `user?.name` will be of type `any`.                                                                                                                                                                                                                                                |
-| `strictDomLocalRefTypes`     | Whether local references to DOM elements will have the correct type. If disabled `ref` will be of type `any` for `<input #ref>`.                                                                                                                                                                                                                                                                                                            |
+| `strictDomLocalRefTypes`     | Whether local references to DOM elements will have the correct type. If disabled `ref` will be of type `any` for the `#ref` attribute of the `input` element.                                                                                                                                                                                                                                                                                                            |
 | `strictOutputEventTypes`     | Whether `$event` will have the correct type for event bindings to component/directive an `@Output()`, or to animation events. If disabled, it will be `any`.                                                                                                                                                                                                                                                                                |
 | `strictDomEventTypes`        | Whether `$event` will have the correct type for event bindings to DOM events. If disabled, it will be `any`.                                                                                                                                                                                                                                                                                                                                |
 | `strictContextGenerics`      | Whether the type parameters of generic components will be inferred correctly \(including any generic bounds\). If disabled, any type parameters will be `any`.                                                                                                                                                                                                                                                                              |
@@ -274,7 +274,7 @@ class SubmitButton {
 
 </code-example>
 
-Here, the `disabled` input of the component is being passed on to the `<button>` in the template.
+Here, the `disabled` input of the component is being passed on to the `button` element in the template.
 All of this works as expected, as long as a `boolean` value is bound to the input.
 But, suppose a consumer uses this input in the template as an attribute:
 

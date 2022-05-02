@@ -41,7 +41,7 @@ There are two kinds of such attributes:
 The exact values of these attributes are a private implementation detail of Angular.
 They are automatically generated and you should never refer to them in application code.
 
-They are targeted by the generated component styles, which are injected in the `<head>` section of the DOM:
+They are targeted by the generated component styles, which are injected in the `head` element in the DOM:
 
 <code-example format="css" language="css">
 
@@ -68,8 +68,8 @@ If it is really needed you should be aware of how the styles of components using
 
 | Modes                         | Details |
 |:---                           |:---     |
-| `ViewEncapsulation.Emulated`  | The styles of components are added to the `<head>` of the document, making them available throughout the application, but their selectors only affect elements within their respective components' templates. |
-| `ViewEncapsulation.None`      | The styles of components are added to the `<head>` of the document, making them available throughout the application, so are completely global and affect any matching elements within the document.          |
+| `ViewEncapsulation.Emulated`  | The styles of components are added to the `head` element of the document, making them available throughout the application, but their selectors only affect elements within their respective components' templates. |
+| `ViewEncapsulation.None`      | The styles of components are added to the `head` element of the document, making them available throughout the application, so are completely global and affect any matching elements within the document.          |
 | `ViewEncapsulation.ShadowDom` | The styles of components are only added to the shadow DOM host, ensuring that they only affect elements within their respective components' views.                                                            |
 
 <div class="alert is-helpful">
@@ -95,7 +95,7 @@ This component colors its template elements red.
 
 <code-example header="src/app/no-encapsulation.component.ts" path="view-encapsulation/src/app/no-encapsulation.component.ts"></code-example>
 
-Angular adds the styles for this component as global styles to the `<head>` of the document.
+Angular adds the styles for this component as global styles to the `head` element of the document.
 
 As already mentioned Angular also adds the styles to all shadow DOM hosts.
 Therefore, the styles are available throughout the whole application.
@@ -113,7 +113,7 @@ This component colors its template elements green.
 
 <code-example header="src/app/emulated-encapsulation.component.ts" path="view-encapsulation/src/app/emulated-encapsulation.component.ts"></code-example>
 
-Similar to `ViewEncapsulation.None`, Angular adds the styles for this component to the `<head>` of the document, but with "scoped" styles.
+Similar to `ViewEncapsulation.None`, Angular adds the styles for this component to the `head` element of the document, but with "scoped" styles.
 
 Therefore, only the elements directly within this component's template will match its styles.
 Since the "scoped" styles from the `EmulatedEncapsulationComponent` are very specific, they override the global styles from the `NoEncapsulationComponent`.
@@ -149,7 +149,7 @@ The styles added by the `ShadowDomEncapsulationComponent` component are availabl
 The `EmulatedEncapsulationComponent` has specific "scoped" styles, so the styling of this component's template is unaffected.
 
 But since styles from `ShadowDomEncapsulationComponent` are added to the shadow host after the global styles, the `h2` style overrides the style from the `NoEncapsulationComponent`.
-The result is that the `<h2>` element in the `NoEncapsulationComponent` is colored blue rather than red, which may not be what the component's author intended.
+The result is that the `h2` element in the `NoEncapsulationComponent` is colored blue rather than red, which may not be what the component's author intended.
 
 <div class="lightbox">
 

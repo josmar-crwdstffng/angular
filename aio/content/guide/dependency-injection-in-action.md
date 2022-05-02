@@ -88,8 +88,8 @@ Focus on the template:
 
 <code-example header="dependency-injection-in-action/src/app/hero-bios.component.ts" path="dependency-injection-in-action/src/app/hero-bios.component.ts" region="template"></code-example>
 
-Now there's a new `<hero-contact>` element between the `<hero-bio>` tags.
-Angular *projects*, or *transcludes*, the corresponding `HeroContactComponent` into the `HeroBioComponent` view, placing it in the `<ng-content>` slot of the `HeroBioComponent` template.
+Now there's a new `hero-contact` element between the `hero-bio` elements.
+Angular *projects*, or *transcludes*, the corresponding `HeroContactComponent` into the `HeroBioComponent` view, placing it in the `ng-content` element slot of the `HeroBioComponent` template.
 
 <code-example header="src/app/hero-bio.component.ts (template)" path="dependency-injection-in-action/src/app/hero-bio.component.ts" region="template"></code-example>
 
@@ -185,11 +185,11 @@ The directive sets the background to a highlight color when the user mouses over
 Angular sets the constructor's `el` parameter to the injected `ElementRef`.
 \(An `ElementRef` is a wrapper around a DOM element, whose `nativeElement` property exposes the DOM element for the directive to manipulate.\)
 
-The sample code applies the directive's `appHighlight` attribute to two `<div>` tags, first without a value \(yielding the default color\) and then with an assigned color value.
+The sample code applies the directive's `appHighlight` attribute to two `div` elements, first without a value \(yielding the default color\) and then with an assigned color value.
 
 <code-example header="src/app/app.component.html (highlight)" path="dependency-injection-in-action/src/app/app.component.html" region="highlight"></code-example>
 
-The following image shows the effect of mousing over the `<hero-bios-and-contacts>` tag.
+The following image shows the effect of mousing over the `hero-bios-and-contacts` element.
 
 <div class="lightbox">
 

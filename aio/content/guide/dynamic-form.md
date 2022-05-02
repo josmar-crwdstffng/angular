@@ -73,7 +73,7 @@ When you create the form template in the next step, you instantiate these specif
 
 | Control type                    | Details |
 |:---                             |:---     |
-| `TextboxQuestion` control type  | Presents a question and lets users enter input. <code-example header="src/app/question-textbox.ts" path="dynamic-form/src/app/question-textbox.ts"></code-example> The `TextboxQuestion` control type is represented in a form template using an `<input>` element. The `type` attribute of the element is defined based on the `type` field specified in the `options` argument \(for example `text`, `email`, `url`\). |
+| `TextboxQuestion` control type  | Presents a question and lets users enter input. <code-example header="src/app/question-textbox.ts" path="dynamic-form/src/app/question-textbox.ts"></code-example> The `TextboxQuestion` control type is represented in a form template using an `input` element. The `type` attribute of the element is defined based on the `type` field specified in the `options` argument \(for example `text`, `email`, `url`\). |
 | `DropdownQuestion` control type | Presents a list of choices in a select box. <code-example header="src/app/question-dropdown.ts" path="dynamic-form/src/app/question-dropdown.ts"></code-example>                                                                                                                                                                                                                                                         |
 
 ### Compose form groups
@@ -89,7 +89,7 @@ You can specify default values and validation rules.
 ## Compose dynamic form contents
 
 The dynamic form itself is represented by a container component, which you add in a later step.
-Each question is represented in the form component's template by an `<app-question>` tag, which matches an instance of `DynamicFormQuestionComponent`.
+Each question is represented in the form component's template by an `app-question` element, which matches an instance of `DynamicFormQuestionComponent`.
 
 The `DynamicFormQuestionComponent` is responsible for rendering the details of an individual question based on values in the data-bound question object.
 The form relies on a [`[formGroup]` directive](api/forms/FormGroupDirective "API reference") to connect the template HTML to the underlying control objects.
@@ -124,9 +124,9 @@ The `QuestionService` supplies a set of questions in the form of an array bound 
 
 ## Create a dynamic form template
 
-The `DynamicFormComponent` component is the entry point and the main container for the form, which is represented using the `<app-dynamic-form>` in a template.
+The `DynamicFormComponent` component is the entry point and the main container for the form, which is represented using the `app-dynamic-form` element in a template.
 
-The `DynamicFormComponent` component presents a list of questions by binding each one to an `<app-question>` element that matches the `DynamicFormQuestionComponent`.
+The `DynamicFormComponent` component presents a list of questions by binding each one to an `app-question` element that matches the `DynamicFormQuestionComponent`.
 
 <code-tabs>
     <code-pane header="dynamic-form.component.html" path="dynamic-form/src/app/dynamic-form.component.html"></code-pane>
@@ -135,7 +135,7 @@ The `DynamicFormComponent` component presents a list of questions by binding eac
 
 ### Display the form
 
-To display an instance of the dynamic form, the `AppComponent` shell template passes the `questions` array returned by the `QuestionService` to the form container component, `<app-dynamic-form>`.
+To display an instance of the dynamic form, the `AppComponent` shell template passes the `questions` array returned by the `QuestionService` to the `app-dynamic-form` form container component.
 
 <code-example header="app.component.ts" path="dynamic-form/src/app/app.component.ts"></code-example>
 

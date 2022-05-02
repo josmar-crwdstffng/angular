@@ -136,7 +136,7 @@ To check a mapping, add a `// SOURCE:` comment to the end of a line in an expect
 
 The generated code, stripped of the `// SOURCE: ` comment, will still be checked as normal by the
 `expectEmit()` helper. But, prior to that, the source-map segments are checked to ensure that there
-is a mapping from `<generated code>` to `<source code>` found in the file at `<source-url>`.
+is a mapping from `{generated code}` to `{source code}` found in the file at `{source-url}`.
 
 Note:
 
@@ -180,10 +180,10 @@ the generated partial output, we must update the `GOLDEN_PARTIAL.js` file.
 This is done by running a specific bazel rule of the form:
 
 ```sh
-bazel run //packages/compiler-cli/test/compliance/test_cases:<path/to/test_case>.golden.update
+bazel run //packages/compiler-cli/test/compliance/test_cases:{path/to/test_case}.golden.update
 ```
 
-where to replace `<path/to/test_case>` with the path (relative to `test_cases`) of the directory
+where to replace `{path/to/test_case}` with the path (relative to `test_cases`) of the directory
 that contains the `GOLDEN_PARTIAL.js` to update.
 
 To update all golden partial files, the following command can be run:

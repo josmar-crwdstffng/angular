@@ -276,8 +276,8 @@ Be careful about how much logic or computation you put into one of these methods
 *Content projection* is a way to import HTML content from outside the component and insert that content  into the component's template in a designated spot.
 Identify content projection in a template by looking for the following constructs.
 
-*   HTML between component element tags
-*   The presence of `<ng-content>` tags in the component's template
+*   HTML between component elements
+*   The presence of `ng-content` elements in the component's template
 
 <div class="alert is-helpful">
 
@@ -293,14 +293,14 @@ The following is the parent's template.
 
 <code-example header="AfterContentParentComponent (template excerpt)" path="lifecycle-hooks/src/app/after-content-parent.component.ts" region="parent-template"></code-example>
 
-Notice that the `<app-child>` tag is tucked between the `<after-content>` tags.
-Never put content between a component's element tags *unless you intend to project that content into the component*.
+Notice that the `app-child` element is tucked between the `after-content` elements.
+Never put content between a component's element elements *unless you intend to project that content into the component*.
 
 Now look at the component's template.
 
 <code-example header="AfterContentComponent (template)" path="lifecycle-hooks/src/app/after-content.component.ts" region="template"></code-example>
 
-The `<ng-content>` tag is a *placeholder* for the external content.
+The `ng-content` element is a *placeholder* for the external content.
 It tells Angular where to insert that content.
 In this case, the projected content is the `<app-child>` from the parent.
 
@@ -315,7 +315,7 @@ In this case, the projected content is the `<app-child>` from the parent.
 *AfterContent* hooks are similar to the *AfterView* hooks.
 The key difference is in the child component.
 
-*   The *AfterView* hooks concern `ViewChildren`, the child components whose element tags appear *within* the component's template
+*   The *AfterView* hooks concern `ViewChildren`, the child components whose elements appear *within* the component's template
 *   The *AfterContent* hooks concern `ContentChildren`, the child components that Angular projected into the component
 
 The following *AfterContent* hooks take action based on changing values in a *content child*, which can only be reached by querying for them using the property decorated with [@ContentChild](api/core/ContentChild).

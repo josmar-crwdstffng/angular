@@ -32,7 +32,7 @@ There are also some top-level files in `[src/styles/](.):
 
 For each area/component, there is a sub-directory in either `1-layouts/` or `2-modules/`.
 
-Each such sub-directory contains a `<name>.scss` file with styles for the corresponding area/component and may also contain a `<name>-theme.scss` file with styles related to theming.
+Each such sub-directory contains a `{name}.scss` file with styles for the corresponding area/component and may also contain a `{name}-theme.scss` file with styles related to theming.
 See the next section for more details.
 
 When appropriate, the styles in these files should be scoped to the targeted component (for example, by using the component's selector).
@@ -46,9 +46,9 @@ See also [#41129](https://github.com/angular/angular/pull/41129) for more detail
 
 ## Styles for theming
 
-Styles for each area/component are split between two files: `<name>.scss` and `<name>-theme.scss`.
+Styles for each area/component are split between two files: `{name}.scss` and `{name}-theme.scss`.
 
-The general styles go into `<name>.scss`.
+The general styles go into `{name}.scss`.
 If an area/component has styles that could change based on the active theme (such as color or background), these go into the `*-theme.scss` file.
 Color-related styles in particular should always go into that file, even if the styles do not currently change between themes.
 This will make it easier to adjust/add more themes in the future.

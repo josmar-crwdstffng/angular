@@ -218,12 +218,12 @@ To learn more, see [Responding to changes in content][AioGuideLifecycleHooksResp
 A web platform feature, currently supported by most browsers and available in other browsers through polyfills.
 See [Browser support][AioGuideBrowserSupport].
 
-The custom element feature extends HTML by allowing you to define a tag whose content is created and controlled by JavaScript code.
+The custom element feature extends HTML by allowing you to define a element whose content is created and controlled by JavaScript code.
 A custom element is recognized by a browser when it is added to the [CustomElementRegistry][MdnDocsWebApiCustomelementregistry].
 A custom element is also referenced as a *web component*.
 
 You can use the API to transform an Angular component so that it can be registered with the browser and used in any HTML that you add directly to the DOM within an Angular application.
-The custom element tag inserts the view of the component, with change-detection and data-binding functionality, into content that would otherwise be displayed without Angular processing.
+The custom element inserts the view of the component, with change-detection and data-binding functionality, into content that would otherwise be displayed without Angular processing.
 See [Angular element][AioGuideGlossaryAngularElement].
 See also [dynamic component loading][AioGuideGlossaryDynamicComponentLoading].
 
@@ -303,7 +303,7 @@ Angular has three categories of directive:
 Angular supplies a number of built-in directives that begin with the `ng` prefix.
 You can also create new directives to implement your own functionality.
 You associate a *selector* with a custom directive; this extends the [template syntax][AioGuideTemplateSyntax] that you can use in your applications.
-A *selector* is an HTML tag, such as `<my-directive>`.
+A *selector* is an HTML element, such as the `my-directive` element.
 
 **UpperCamelCase**, such as `NgIf`, refers to a directive class.
 You can use **UpperCamelCase** when describing properties and directive behavior.
@@ -411,7 +411,7 @@ To learn more, see [`@Input()` and `@Output()` decorator functions][AioGuideInpu
 ## interpolation
 
 A form of property [data binding][AioGuideGlossaryDataBinding] in which a [template expression][AioGuideGlossaryTemplateExpression] between double-curly braces renders as text.
-That text can be concatenated with neighboring text before it is assigned to an element property or displayed between element tags, as in this example.
+That text can be concatenated with neighboring text before it is assigned to an element property or displayed between elements, as in this example.
 
 <code-example format="html" language="html">
 

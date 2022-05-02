@@ -22,7 +22,7 @@ To create a component, verify that you have met the following prerequisites:
 
 1.  [Install the Angular CLI.](guide/setup-local#install-the-angular-cli)
 1.  [Create an Angular workspace](guide/setup-local#create-a-workspace-and-initial-application) with initial application.
-    If you don't have a project, create one using `ng new <project-name>`, where `<project-name>` is the name of your Angular application.
+    If you don't have a project, create one using `ng new {project-name}`, where `{project-name}` is the name of your Angular application.
 
 ## Creating a component
 
@@ -34,17 +34,17 @@ You can also create a component manually.
 To create a component using the Angular CLI:
 
 1.  From a terminal window, navigate to the directory containing your application.
-1.  Run the `ng generate component <component-name>` command, where `<component-name>` is the name of your new component.
+1.  Run the `ng generate component {component-name}` command, where `{component-name}` is the name of your new component.
 
 By default, this command creates the following:
 
 *   A folder named after the component
-*   A component file, `<component-name>.component.ts`
-*   A template file, `<component-name>.component.html`
-*   A CSS file, `<component-name>.component.css`
-*   A testing specification file, `<component-name>.component.spec.ts`
+*   A component file, `{component-name}.component.ts`
+*   A template file, `{component-name}.component.html`
+*   A CSS file, `{component-name}.component.css`
+*   A testing specification file, `{component-name}.component.spec.ts`
 
-Where `<component-name>` is the name of your component.
+Where `{component-name}` is the name of your component.
 
 <div class="alert is-helpful">
 
@@ -61,7 +61,7 @@ This section describes how to create the core component file within an existing 
 To create a new component manually:
 
 1.  Navigate to your Angular project directory.
-1.  Create a new file, `<component-name>.component.ts`.
+1.  Create a new file, `{component-name}.component.ts`.
 1.  At the top of the file, add the following import statement.
 
     <code-example path="component-overview/src/app/component-overview/component-overview.component.ts" region="import"></code-example>
@@ -94,9 +94,9 @@ To create a new component manually:
 
 ## Specifying a component's CSS selector
 
-Every component requires a CSS *selector*. A selector instructs Angular to instantiate this component wherever it finds the corresponding tag in template HTML.
+Every component requires a CSS *selector*. A selector instructs Angular to instantiate this component wherever it finds the corresponding element in template HTML.
 For example, consider a component `hello-world.component.ts` that defines its selector as `app-hello-world`.
-This selector instructs Angular to instantiate this component any time the tag `<app-hello-world>` appears in a template.
+This selector instructs Angular to instantiate this component any time the `app-hello-world` element appears in a template.
 
 Specify a component's selector by adding a `selector` statement to the `@Component` decorator.
 

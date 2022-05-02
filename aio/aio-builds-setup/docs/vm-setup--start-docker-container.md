@@ -9,16 +9,16 @@ command:
 sudo docker run \
   --detach \
   --dns 127.0.0.1 \
-  --name <instance-name> \
+  --name {instance-name} \
   --publish 80:80 \
   --publish 443:443 \
   --restart unless-stopped \
-  --volume <host-secrets-dir>:/aio-secrets:ro \
-  --volume <host-builds-dir>:/var/www/aio-builds \
- [--volume <host-cert-dir>:/etc/ssl/localcerts:ro] \
- [--volume <host-logs-dir>:/var/log/aio] \
- [--volume <host-dockerbuild-dir>:/dockerbuild] \
-  <name>[:<tag>]
+  --volume {host-secrets-directory}:/aio-secrets:ro \
+  --volume {host-builds-directory}:/var/www/aio-builds \
+ [--volume {host-cert-directory}:/etc/ssl/localcerts:ro] \
+ [--volume {host-logs-directory}:/var/log/aio] \
+ [--volume {host-dockerbuild-directory}:/dockerbuild] \
+  {name}[:{tag}]
 ```
 
 Below is the same command with inline comments explaining each option. The API docs for `docker run`
@@ -34,9 +34,9 @@ sudo docker run \
   # (This is necessary for mapping internal URLs, e.g. for the Node.js preview-server.)
   --dns 127.0.0.1 \
 
-  # USe `<instance-name>` as an alias for the container.
-  # Useful for running `docker` commands, e.g.: `docker stop <instance-name>`
-  --name <instance-name> \
+  # Use `{instance-name}` as an alias for the container.
+  # Useful for running `docker` commands, e.g.: `docker stop {instance-name}`
+  --name {instance-name} \
 
   # Map ports of the host VM (left) to ports of the docker container (right)
   --publish 80:80 \
@@ -48,31 +48,31 @@ sudo docker run \
 
   # The directory the contains the secrets (e.g. GitHub token, JWT secret, etc).
   # (See [here](vm-setup--set-up-secrets.md) for more info.)
-  --volume <host-secrets-dir>:/aio-secrets:ro \
+  --volume {host-secrets-directory}:/aio-secrets:ro \
 
   # The build artifacts and hosted previews will stored to and served from this directory.
   # (If you are using a persistent disk - as described [here](vm-setup--attach-persistent-disk.md) -
   #  this will be a directory inside the disk.)
-  --volume <host-builds-dir>:/var/www/aio-builds \
+  --volume {host-builds-directory}:/var/www/aio-builds \
 
   # The directory the contains the SSL certificates.
   # (See [here](vm-setup--create-host-dirs-and-files.md) for more info.)
   # If not provided, the container will use self-signed certificates.
- [--volume <host-cert-dir>:/etc/ssl/localcerts:ro] \
+ [--volume {host-cert-directory}:/etc/ssl/localcerts:ro] \
 
   # The directory where the logs are being kept.
   # (See [here](vm-setup--create-host-dirs-and-files.md) for more info.)
   # If not provided, the logs will be kept inside the container, which means they will be lost
   # whenever a new container is created.
- [--volume <host-logs-dir>:/var/log/aio] \
+ [--volume {host-logs-directory}:/var/log/aio] \
 
   # This directory allows you to share the source scripts between the host and the container when
   # debugging. (See [here](misc--debug-docker-container.md) for how to set this up.)
- [--volume <host-dockerbuild-dir>:/dockerbuild] \
+ [--volume {host-dockerbuild-directory}:/dockerbuild] \
 
   # The name of the docker image to use (and an optional tag; defaults to `latest`).
   # (See [here](vm-setup--create-docker-image.md) for instructions on how to create the image.)
-  <name>[:<tag>]
+  {name}[:{tag}]
 ```
 
 

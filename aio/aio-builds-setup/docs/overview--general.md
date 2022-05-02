@@ -58,7 +58,7 @@ More info on how to set things up on CI can be found [here](misc--integrate-with
   corresponding PR on GitHub mentioning the SHAs and the links where the previews can be found.
 - The preview-server verifies that it is not trying to overwrite an existing build.
 - The preview-server deploys the artifacts to a sub-directory named after the PR number and the
-  first few characters of the SHA: `<PR>/<SHA>/`
+  first few characters of the SHA: `{PR-number}/{SHA-number}/`
   (Non-publicly accessible PRs will be stored in a different location, but again derived from the PR
   number and SHA.)
 - If the PR is publicly accessible, the preview-server posts a comment on the corresponding PR on
@@ -72,7 +72,7 @@ More info on the possible HTTP status codes and their meaning can be found
 - nginx receives a notification that a PR has been updated and passes it through to the
   preview-server. This could, for example, be sent by a GitHub webhook every time a PR's labels
   change.
-  E.g.: `ngbuilds.io/pr-updated` (payload: `{"number":<PR>,"action":"labeled"}`)
+  E.g.: `ngbuilds.io/pr-updated` (payload: `{"number":{PR-number},"action":"labeled"}`)
 - The request contains the PR number (as `number`) and optionally the action that triggered the
   request (as `action`) in the payload.
 - The preview-server verifies the payload and determines whether the `action` (if specified) could
@@ -88,9 +88,9 @@ More info on the possible HTTP status codes and their meaning can be found
 
 ### Serving build artifacts
 - nginx receives a request for a hosted preview resource on a subdomain corresponding to the PR and SHA.
-  E.g.: `pr<PR>-<SHA>.ngbuilds.io/path/to/resource`
+  E.g.: `pr{PR-number}-{SHA-number}.ngbuilds.io/path/to/resource`
 - nginx maps the subdomain to the correct sub-directory and serves the resource.
-  E.g.: `/<PR>/<SHA>/path/to/resource`
+  E.g.: `/{PR-number}/{SHA-number}/path/to/resource`
 
 More info on the possible HTTP status codes and their meaning can be found
 [here](overview--http-status-codes.md).

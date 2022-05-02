@@ -5,7 +5,7 @@ This is an overview of the available scripts and commands.
 
 
 ## Scripts
-The scripts are located inside `<aio-builds-setup-dir>/scripts/`. The following scripts are
+The scripts are located inside `{aio-builds-setup-directory}/scripts/`. The following scripts are
 available:
 
 - `create-image.sh`:
@@ -13,7 +13,7 @@ available:
   See [here](vm-setup--create-docker-image.md) for more info.
 
 - `test.sh`:
-  Can be used for running the tests for `<aio-builds-setup-dir>/dockerbuild/scripts-js/`. This is
+  Can be used for running the tests for `{aio-builds-setup-directory}/dockerbuild/scripts-js/`. This is
   useful for CI integration. See [here](misc--integrate-with-ci.md) for more info.
 
 - `update-preview-server.sh`:
@@ -25,7 +25,7 @@ available:
 The following commands are available globally from inside the docker container. They are either used
 by the container to perform its various operations or can be used ad-hoc, mainly for testing
 purposes. Each command is backed by a corresponding script inside
-`<aio-builds-setup-dir>/dockerbuild/scripts-sh/`.
+`{aio-builds-setup-directory}/dockerbuild/scripts-sh/`.
 
 - `aio-clean-up`:
   Cleans up the builds directory by removing the artifacts that do not correspond to an open PR.

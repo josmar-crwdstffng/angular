@@ -44,7 +44,8 @@ The CLI automatically appends `Component`, so if you were to write `first-compon
 <header><code>&lt;base href&gt;</code></header>
 
 This guide works with a CLI-generated Angular application.
-If you are working manually, make sure that you have `<base href="/">` in the `<head>` of your index.html file.
+If you are working manually, make sure that you set the value of the `href` attribute of the `base` element to `/`.
+Place the `base` element in the `head` element of your `index.html` file.
 This assumes that the `app` folder is the application root, and uses `"/"`.
 
 </div>
@@ -95,7 +96,7 @@ The following is the default `AppModule` using the CLI with the `--routing` flag
     First, add links to the two components.
     Assign the anchor tag that you want to add the route to the `routerLink` attribute.
     Set the value of the attribute to the component to show when a user clicks on each link.
-    Next, update your component template to include `<router-outlet>`.
+    Next, update your component template to include the `router-outlet` element.
     This element informs Angular to update the application view with the component for the selected route.
 
     <code-example header="Template with routerLink and router-outlet" path="router/src/app/app.component.7.html"></code-example>
@@ -208,10 +209,10 @@ For more details on `pathMatch` see [Spotlight on `pathMatch`](guide/router-tuto
 
 As your application grows more complex, you might want to create routes that are relative to a component other than your root component.
 These types of nested routes are called child routes.
-This means you're adding a second `<router-outlet>` to your app, because it is in addition to the `<router-outlet>` in `AppComponent`.
+This means you're adding a second `router-outlet` element to your app, because it is in addition to the `router-outlet` element in `AppComponent`.
 
 In this example, there are two additional child components, `child-a`, and `child-b`.
-Here, `FirstComponent` has its own `<nav>` and a second `<router-outlet>` in addition to the one in `AppComponent`.
+Here, `FirstComponent` has its own `nav` element and a second `router-outlet` element in addition to the one in `AppComponent`.
 
 <code-example header="In the template" path="router/src/app/app.component.8.html" region="child-routes"></code-example>
 
@@ -512,7 +513,7 @@ An application that would otherwise take ten or more seconds to start could be r
 
 This option is only available if application URLs look like normal web URLs without hash \(`#`\) characters in the middle.
 
-## `<base href>`
+## `base href`
 
 The router uses the browser's [history.pushState](https://developer.mozilla.org/docs/Web/API/History_API/Working_with_the_History_API#adding_and_modifying_history_entries "HTML5 browser history push-state") for navigation.
 `pushState` lets you customize in-application URL paths; for example, `localhost:4200/crisis-center`.
@@ -527,15 +528,15 @@ In the [LocationStrategy and browser URL styles](#browser-url-styles) section, l
 
 </div>
 
-You must add a [`<base href>` element](https://developer.mozilla.org/docs/Web/HTML/Element/base "base href") to the application's `index.html` for `pushState` routing to work.
-The browser uses the `<base href>` value to prefix relative URLs when referencing CSS files, scripts, and images.
+You must add a [`base href` element](https://developer.mozilla.org/docs/Web/HTML/Element/base "base href") to the application's `index.html` for `pushState` routing to work.
+The browser uses the value of the `base href` element to prefix relative URLs when referencing CSS files, scripts, and images.
 
-Add the `<base>` element just after the `<head>` tag.
+Add the `base` element just after the `head` element.
 If the `app` folder is the application root, as it is for this application, set the `href` value in `index.html` as shown here.
 
 <code-example header="src/index.html (base-href)" path="router/src/index.html" region="base-href"></code-example>
 
-### HTML5 URLs and the `<base href>`
+### HTML5 URLs and the `base href` element
 
 The guidelines that follow will refer to different parts of a URL.
 This diagram outlines what those parts refer to:
@@ -549,31 +550,31 @@ scheme    authority      path        query   fragment
 
 </code-example>
 
-While the router uses the [HTML5 pushState](https://developer.mozilla.org/docs/Web/API/History_API#Adding_and_modifying_history_entries "Browser history push-state") style by default, you must configure that strategy with a `<base href>`.
+While the router uses the [HTML5 pushState](https://developer.mozilla.org/docs/Web/API/History_API#Adding_and_modifying_history_entries "Browser history push-state") style by default, you must configure that strategy with a `base href` element.
 
-The preferred way to configure the strategy is to add a [`<base href>` element](https://developer.mozilla.org/docs/Web/HTML/Element/base "base href") tag in the `<head>` of the `index.html`.
+The preferred way to configure the strategy is to add a [`base href` element](https://developer.mozilla.org/docs/Web/HTML/Element/base "base href") tag in the `head` element of the `index.html`.
 
 <code-example header="src/index.html (base-href)" path="router/src/index.html" region="base-href"></code-example>
 
 Without that tag, the browser might not be able to load resources \(images, CSS, scripts\) when "deep linking" into the application.
 
-Some developers might not be able to add the `<base>` element, perhaps because they don't have access to `<head>` or the `index.html`.
+Some developers might not be able to add the `base` element, perhaps because they don't have access to `head` element of the `index.html`.
 
 Those developers can still use HTML5 URLs by taking the following two steps:
 
 1.  Provide the router with an appropriate `APP_BASE_HREF` value.
 1.  Use root URLs \(URLs with an `authority`\) for all web resources: CSS, images, scripts, and template HTML files.
 
-    *   The `<base href>` `path` should end with a "/", as browsers ignore characters in the `path` that follow the right-most "`/`"
-    *   If the `<base href>` includes a `query` part, the `query` is only used if the `path` of a link in the page is empty and has no `query`.
-        This means that a `query` in the `<base href>` is only included when using `HashLocationStrategy`.
+    *   The `path` of the `base href` element should end with a "/", as browsers ignore characters in the `path` that follow the right-most "`/`"
+    *   If the `base href` element includes a `query` part, the `query` is only used if the `path` of a link in the page is empty and has no `query`.
+        This means that a `query` in the `base href` element is only included when using `HashLocationStrategy`.
 
-    *   If a link in the page is a root URL \(has an `authority`\), the `<base href>` is not used.
-        In this way, an `APP_BASE_HREF` with an authority will cause all links created by Angular to ignore the `<base href>` value.
+    *   If a link in the page is a root URL \(has an `authority`\), the `base href` element is not used.
+        In this way, an `APP_BASE_HREF` with an authority will cause all links created by Angular to ignore the value of the `base href` element.
 
-    *   A fragment in the `<base href>` is *never* persisted
+    *   A fragment in the `base href` element is *never* persisted
 
-For more complete information on how `<base href>` is used to construct target URIs, see the [RFC](https://tools.ietf.org/html/rfc3986#section-5.2.2) section on transforming references.
+For more complete information on how the `base href` element is used to construct target URIs, see the [RFC](https://tools.ietf.org/html/rfc3986#section-5.2.2) section on transforming references.
 
 <a id="hashlocationstrategy"></a>
 

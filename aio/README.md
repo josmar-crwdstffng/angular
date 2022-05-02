@@ -35,8 +35,8 @@ Here are the most important tasks you might need to use:
 * `yarn boilerplate:remove` - remove all the boilerplate code that was added via `yarn boilerplate:add`.
 * `yarn create-example` - create a new example directory containing initial source files.
 
-* `yarn generate-stackblitz` - generate the stackblitz files that are used by the `live-example` tags in the docs.
-* `yarn generate-zips` - generate the zip files from the examples. Zip available via the `live-example` tags in the docs.
+* `yarn generate-stackblitz` - generate the stackblitz files that are used by the `live-example` elements in the docs.
+* `yarn generate-zips` - generate the zip files from the examples. Zip available via the `live-example` elements in the docs.
 
 * `yarn example-e2e` - run all e2e tests for examples. Available options:
   - `--setup`: generate boilerplate, force webdriver update & other setup, then run tests.
@@ -68,7 +68,7 @@ There are two types of content in the documentation:
 * **API docs**: descriptions of the modules, classes, interfaces, decorators, etc that make up the Angular platform.
 API docs are generated directly from the source code.
 The source code is contained in TypeScript files, located in the `angular/packages` folder.
-Each API item may have a preceding comment, which contains JSDoc style tags and content.
+Each API item may have a preceding comment, which contains JSDoc style elements and content.
 The content is written in markdown.
 
 * **Other content**: guides, tutorials, and other marketing material.

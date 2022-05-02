@@ -45,6 +45,7 @@ To bind to an ARIA attribute, type the following:
 Another common use case for attribute binding is with the `colspan` attribute in tables.  Binding to the `colspan` attribute helps you to keep your tables programmatically dynamic.  Depending on the amount of data that your application populates a table with, the number of columns that a row spans could change.
 
 To use attribute binding with the `<td>` attribute `colspan`
+
 1. Specify the `colspan` attribute by using the following syntax: `[attr.colspan]`.
 1. Set `[attr.colspan]` equal to an expression.
 
@@ -52,20 +53,20 @@ In the following example, you bind the `colspan` attribute to the expression `1 
 
 <code-example header="src/app/app.component.html" path="attribute-binding/src/app/app.component.html" region="colspan"></code-example>
 
-This binding causes the `<tr>` to span two columns.
+This binding causes the `td` element to span two columns.
 
 <div class="alert is-helpful">
 
 Sometimes there are differences between the name of property and an attribute.
 
-`colspan` is an attribute of `<td>`, while `colSpan`  with a capital "S" is a property.
+`colspan` is an attribute of `td` element, while `colSpan` with a capital "S" is a property.
 When using attribute binding, use `colspan` with a lowercase "s".
 
 For more information on how to bind to the `colSpan` property, see the [`colspan` and `colSpan`](guide/property-binding#colspan) section of [Property Binding](guide/property-binding).
 
 </div>
 
-## What’s next
+## What's next
 
 * [Class & Style Binding](guide/class-binding)
 

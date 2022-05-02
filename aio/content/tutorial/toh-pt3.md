@@ -96,7 +96,7 @@ You don't need to change the `HeroesComponent` *class*, instead change its *temp
 ### Update the `HeroesComponent` template
 
 The `HeroDetailComponent` selector is `'app-hero-detail'`.
-Add an `<app-hero-detail>` element near the bottom of the `HeroesComponent` template, where the hero detail view used to be.
+Add an `app-hero-detail` element near the bottom of the `HeroesComponent` template, where the hero detail view used to be.
 
 Bind the `HeroesComponent.selectedHero` to the element's `hero` property like this.
 

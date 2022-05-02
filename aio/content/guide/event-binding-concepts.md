@@ -15,13 +15,13 @@ The `$event` object often contains information the method needs, such as a user'
 The target event determines the shape of the `$event` object.
 If the target event is a native DOM element event, then `$event` is a [DOM event object](https://developer.mozilla.org/docs/Web/Events), with properties such as `target` and `target.value`.
 
-In the following example the code sets the `<input>` `value` property by binding to the `name` property.
+In the following example the code sets the `value` property of the `input` element by binding to the `name` property.
 
 <code-example header="src/app/app.component.html" path="event-binding/src/app/app.component.html" region="event-binding-3"></code-example>
 
 With this example, the following actions occur:
 
-1.  The code binds to the `input` event of the `<input>` element, which allows the code to listen for changes.
+1.  The code binds to the `input` event of the `input` element, which allows the code to listen for changes.
 1.  When the user makes changes, the component raises the `input` event.
 1.  The binding executes the statement within a context that includes the DOM event object, `$event`.
 1.  Angular retrieves the changed text by calling `getValue($event.target)` and updates the `name` property.

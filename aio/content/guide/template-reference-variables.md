@@ -5,10 +5,10 @@ Use template variables to perform tasks such as respond to user input or finely 
 
 A template variable can refer to the following:
 
-* a DOM element within a template
-* a directive or component
-* a [TemplateRef](api/core/TemplateRef) from an [ng-template](api/core/ng-template)
-* a <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components" title="MDN: Web Components">web component</a>
+*   A DOM element within a template
+*   A directive or component
+*   A [TemplateRef](api/core/TemplateRef) from an [ng-template](api/core/ng-template)
+*   A <a href="https://developer.mozilla.org/docs/Web/Web_Components" title="MDN: Web Components">web component</a>
 
 <div class="alert is-helpful">
 
@@ -18,17 +18,17 @@ See the <live-example></live-example> for a working example containing the code 
 
 ## Prerequisites
 
-* [Understanding templates](guide/template-overview)
+*   [Understanding templates](guide/template-overview)
 
 ## Syntax
 
-In the template, you use the hash symbol, `#`, to declare a template variable.
-The following template variable, `#phone`, declares a `phone` variable with the `<input>` element as its value.
+In the template, you use the hash \(`#`\) character to declare a template variable.
+The following `#phone` template variable declares a `phone` variable on an `input` element.
 
 <code-example path="template-reference-variables/src/app/app.component.html" region="ref-var" header="src/app/app.component.html"></code-example>
 
 Refer to a template variable anywhere in the component's template.
-Here, a `<button>` further down the template refers to the `phone` variable.
+Here, a `button` element further down the template refers to the `phone` variable.
 
 <code-example path="template-reference-variables/src/app/app.component.html" region="ref-phone" header="src/app/app.component.html"></code-example>
 
@@ -36,31 +36,31 @@ Here, a `<button>` further down the template refers to the `phone` variable.
 
 Angular assigns a template variable a value based on where you declare the variable:
 
-* If you declare the variable on a component, the variable refers to the component instance.
-* If you declare the variable on a standard HTML tag, the variable refers to the element.
-* If you declare the variable on an `<ng-template>` element, the variable refers to a `TemplateRef` instance which represents the template.
-  For more information on `<ng-template>`, see [How Angular uses the asterisk, `*`, syntax](guide/structural-directives#asterisk) in [Structural directives](guide/structural-directives).
+*   If you declare the variable on a component, the variable refers to the component instance
+*   If you declare the variable on a standard HTML tag, the variable refers to the element
+*   If you declare the variable on an `ng-template` element, the variable refers to a `TemplateRef` instance, which represents the template.
+    For more information on the `ng-template` element, see [How Angular uses the asterisk, `*`, syntax](guide/structural-directives#asterisk) in [Structural directives](guide/structural-directives).
 
-## Variable specifying a name
+*   If the variable specifies a name on the right-hand side, such as `#var="ngModel"`, the variable refers to the directive or component on the element with a matching `exportAs` name
 
-* If the variable specifies a name on the right-hand side, such as `#var="ngModel"`, the variable refers to the directive or component on the element with a matching `exportAs` name.
-<!-- What does the second half of this mean?^^ Can we explain this more fully? Could I see a working example? -kw -->
+<!--TODO: What does the second half of this mean?^^ Can we explain this more fully? Could I see a working example? -kw -->
 
 ### Using `NgForm` with template variables
 
 In most cases, Angular sets the template variable's value to the element on which it occurs.
-In the previous example, `phone` refers to the phone number `<input>`.
-The button's click handler passes the `<input>` value to the component's `callPhone()` method.
+In the previous example, `phone` refers to the phone number `input` element.
+The button's click handler passes the value of the `input` element to the component's `callPhone()` method.
 
-The `NgForm` directive demonstrates getting a reference to a different value by referencing a directive's `exportAs` name.
-In the following example, the template variable, `itemForm`, appears three times separated by HTML.
+The `NgForm` directive demonstrates getting a reference to a different value by referencing the `exportAs` name of a directive.
+In the following example, the `itemForm` template variable appears three times separated by HTML.
 
 <code-example path="template-reference-variables/src/app/app.component.html" region="ngForm" header="src/app/hero-form.component.html"></code-example>
 
-Without the `ngForm` attribute value, the reference value of `itemForm` would be
-the [HTMLFormElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement), `<form>`.
-If an element is an Angular Component, a reference with no attribute value will automatically reference the component instance. Otherwise, a reference with no value will reference the DOM element, even if the element has one or more directives applied to it.
-<!-- What is the train of thought from talking about a form element to the difference between a component and a directive? Why is the component directive conversation relevant here?  -kw I agree -alex -->
+Without the `ngForm` attribute value, the reference value of `itemForm` would be the [HTMLFormElement](https://developer.mozilla.org/docs/Web/API/HTMLFormElement), `<form>`.
+If an element is an Angular Component, a reference with no attribute value will automatically reference the component instance.
+Otherwise, a reference with no value will reference the DOM element, even if the element has one or more directives applied to it.
+
+<!--TODO:  What is the train of thought from talking about a form element to the difference between a component and a directive? Why is the component directive conversation relevant here?  -kw I agree -alex -->
 
 ## Template variable scope
 
@@ -78,7 +78,7 @@ Define a variable only once in the template so the runtime value remains predict
 
 An inner template can access template variables that the outer template defines.
 
-In the following example, changing the text in the `<input>` changes the value in the `<span>` because Angular immediately updates changes through the template variable, `ref1`.
+In the following example, changing the text in the `input` element changes the value in the `span` element because Angular immediately updates changes through the template variable, `ref1`.
 
 <code-example path="template-reference-variables/src/app/app.component.html" region="template-ref-vars-scope1" header="src/app/app.component.html"></code-example>
 
@@ -87,14 +87,15 @@ In this case, the `*ngIf` on `<span>` creates a new template scope, which includ
 However, accessing a template variable from a child scope in the parent template doesn't work:
 
 ```html
-  <input *ngIf="true" #ref2 type="text" [(ngModel)]="secondExample" />
-  <span>Value: {{ ref2?.value }}</span> <!-- doesn't work -->
+<input *ngIf="true" #ref2 type="text" [(ngModel)]="secondExample" />
+<span>Value: {{ ref2?.value }}</span> <!-- doesn't work -->
 ```
 
 Here, `ref2` is declared in the child scope created by `*ngIf`, and is not accessible from the parent template.
 
 {@a template-input-variable}
 {@a template-input-variables}
+
 ## Template input variable
 
 A _template input variable_ is a variable with a value that is set when an instance of that template is created. See: [Writing structural directives](https://angular.io/guide/structural-directives)
@@ -123,8 +124,8 @@ When an `<ng-template>` is instantiated, multiple named values can be passed whi
 </ul>
 ```
 
-## What’s next
+## What's next
 
-[Writing structural directives](https://angular.io/guide/structural-directives)
+*   [Writing structural directives](https://angular.io/guide/structural-directives)
 
 @reviewed 2022-05-12

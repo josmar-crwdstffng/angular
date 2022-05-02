@@ -301,12 +301,13 @@ Components are used in your templates, as in the following example:
 **NOTE**: <br />
 Usually, you declare the components and their templates in separate files.
 For the purposes of understanding how the injection system works, it is useful to look at them from the point of view of a combined logical tree.
-The term _logical_ distinguishes it from the render tree, which is your application's DOM tree.
-To mark the locations of where the component templates are located, this guide uses the `<#VIEW>` pseudo element, which doesn't actually exist in the render tree and is present for mental model purposes only.
+The term logical distinguishes it from the render tree.
+the render tree is your application DOM tree.
+To mark the locations of where the component templates are located, this guide uses the `#VIEW` pseudo element, which doesn't actually exist in the render tree and is only present for mental model purposes.
 
 </div>
 
-The following is an example of how the `<app-root>` and `<app-child>` view trees are combined into a single logical tree:
+The following is an example of how the view trees of the `app-root` and `app-child` elements are combined into a single logical tree:
 
 <code-example format="html" language="html">
 
@@ -322,7 +323,7 @@ The following is an example of how the `<app-root>` and `<app-child>` view trees
 
 </code-example>
 
-Understanding the idea of the `<#VIEW>` demarcation is especially significant when you configure services in the component class.
+Understanding the idea of the `#VIEW` demarcation is especially significant when you configure services in the component class.
 
 ## Providing services in `@Component()`
 
@@ -384,16 +385,16 @@ However, behind the scenes, Angular uses a logical view representation as follow
 
 </code-example>
 
-The `<#VIEW>` here represents an instance of a template.
-Notice that each component has its own `<#VIEW>`.
+The `#VIEW` element here represents an instance of a template.
+Notice that each component has its own `#VIEW` element.
 
 Knowledge of this structure can inform how you provide and inject your services, and give you complete control of service visibility.
 
-Now, consider that `<app-root>` injects the `FlowerService`:
+Now, consider that `app-root` element injects the `FlowerService`:
 
 <code-example header="providers-viewproviders/src/app/app.component.ts" path="providers-viewproviders/src/app/app.component.1.ts" region="injection"></code-example>
 
-Add a binding to the `<app-root>` template to visualize the result:
+Add a binding to the `app-root` template to visualize the result:
 
 <code-example header="providers-viewproviders/src/app/app.component.html" path="providers-viewproviders/src/app/app.component.html" region="binding-flower"></code-example>
 
@@ -981,7 +982,7 @@ The root injector, marked as \(A\), uses *generic* providers for details about `
 
 Behind the scenes, each component sets up its own injector with zero, one, or more providers defined for that component itself.
 
-When you resolve an instance of `Car` at the deepest component \(C\), its injector produces: 
+When you resolve an instance of `Car` at the deepest component \(C\), its injector produces:
 
 * An instance of `Car` resolved by injector \(C\)
 * An `Engine` resolved by injector \(B\)

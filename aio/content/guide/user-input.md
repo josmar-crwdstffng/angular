@@ -60,7 +60,7 @@ The properties of an `$event` object vary depending on the type of DOM event.
 For example, a mouse event includes different information than an input box editing event.
 
 All [standard DOM event objects](https://developer.mozilla.org/docs/Web/API/Event) have a `target` property, a reference to the element that raised the event.
-In this case, `target` refers to the [`<input>` element](https://developer.mozilla.org/docs/Web/API/HTMLInputElement) and `event.target.value` returns the current contents of that element.
+In this case, `target` refers to the [`input` element](https://developer.mozilla.org/docs/Web/API/HTMLInputElement) and `event.target.value` returns the current contents of that element.
 
 After each call, the `onKey()` method appends the contents of the input box value to the list in the component's `values` property, followed by a separator character \(`|`\).
 The [interpolation](guide/interpolation) displays the accumulating input box changes from the `values` property.
@@ -128,8 +128,8 @@ The following example uses a template reference variable to implement a keystrok
 
 <code-example header="src/app/loop-back.component.ts" path="user-input/src/app/loop-back.component.ts" region="loop-back-component"></code-example>
 
-The template reference variable named `box`, declared on the `<input>` element, refers to the `<input>` element itself.
-The code uses the `box` variable to get the input element's `value` and display it with interpolation between `<p>` tags.
+The template reference variable named `box`, declared on the `input` element, refers to the `input` element itself.
+The code uses the `box` variable to get the input element's `value` and display it with interpolation between `p` elements.
 
 The template is completely self contained.
 It doesn't bind to the component, and the component does nothing.
@@ -212,7 +212,7 @@ Below is the "Little Tour of Heroes" component.
 
 | Observations                                | Details |
 |:---                                         |:---     |
-| Use template variables to refer to elements | The `newHero` template variable refers to the `<input>` element. You can reference `newHero` from any sibling or child of the `<input>` element.                                                     |
+| Use template variables to refer to elements | The `newHero` template variable refers to the `input` element. You can reference `newHero` from any sibling or child of the `input` element.                                                     |
 | Pass values, not elements                   | Instead of passing the `newHero` into the component's `addHero` method, get the input box value and pass *that* to `addHero`.                                                                        |
 | Keep template statements simple             | The `(blur)` event is bound to two JavaScript statements. The first statement calls `addHero`. The second statement, `newHero.value=''`, clears the input box after a new hero is added to the list. |
 

@@ -37,9 +37,9 @@ The form model determines the status of the form.
 
 Use the following steps to add a checkout form at the bottom of the Cart view.
 
-1. At the bottom of `cart.component.html`, add an HTML `<form>` element and a **Purchase** button.
+1. At the bottom of `cart.component.html`, add a `form` element and a **Purchase** button.
 
-1. Use a `formGroup` property binding to bind `checkoutForm` to the HTML `<form>`.
+1. Use a `formGroup` property binding to bind `checkoutForm` to the `form` element.
 
   <code-example header="src/app/cart/cart.component.html" path="getting-started/src/app/cart/cart.component.3.html" region="checkout-form"></code-example>
 
@@ -47,7 +47,7 @@ Use the following steps to add a checkout form at the bottom of the Cart view.
 
   <code-example header="src/app/cart/cart.component.html (cart component template detail)" path="getting-started/src/app/cart/cart.component.html" region="checkout-form-1"></code-example>
 
-1. Add `<input>` fields for `name` and `address`, each with a `formControlName` attribute that binds to the `checkoutForm` form controls for `name` and `address` to their `<input>` fields.
+1. Add the fields of the `input` element for `name` and `address`, each with a `formControlName` attribute that binds to the `checkoutForm` form controls for `name` and `address` to the associated fields of the `input` element.
   The complete component is as follows:
 
   <code-example header="src/app/cart/cart.component.html" path="getting-started/src/app/cart/cart.component.html" region="checkout-form-2"></code-example>

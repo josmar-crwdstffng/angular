@@ -29,7 +29,7 @@ To better explain the condition under which token retention occurs, consider a l
 
 </code-example>
 
-In a likely implementation, the `<lib-card>` component uses `@ContentChild()` or `@ContentChildren()` to obtain `<lib-header>` and `<lib-body>`, as in the following.
+In a likely implementation, the `lib-card` component uses `@ContentChild()` or `@ContentChildren()` to obtain `lib-header` and `lib-body` elements, as in the following.
 
 <code-example format="typescript" language="typescript">
 
@@ -50,8 +50,8 @@ class LibCardComponent {
 
 </code-example>
 
-Because `<lib-header>` is optional, the element can appear in the template in its minimal form, `<lib-card></lib-card>`.
-In this case, `<lib-header>` is not used and you would expect it to be tree-shaken, but that is not what happens.
+Because the `lib-header` element is optional, the element can appear in the template in its minimal form, `<lib-card></lib-card>`.
+In this case, the `lib-header` element is not used and you would expect it to be tree-shaken, but that is not what happens.
 This is because `LibCardComponent` actually contains two references to the `LibHeaderComponent`.
 
 <code-example format="typescript" language="typescript">
@@ -70,7 +70,7 @@ The compiler handles token references in these positions differently.
 
 *   The compiler must retain *value position* references at runtime, which prevents the component from being tree-shaken.
 
-In the example, the compiler retains the `LibHeaderComponent` token that occurs in the value position, which prevents the referenced component from being tree-shaken, even if the application developer does not actually use `<lib-header>` anywhere.
+In the example, the compiler retains the `LibHeaderComponent` token that occurs in the value position, which prevents the referenced component from being tree-shaken, even if the application developer does not actually use the `lib-header` element anywhere.
 If `LibHeaderComponent` is large \(code, template, and styles\), including it unnecessarily can significantly increase the size of the client application.
 
 ## When to use the lightweight injection token pattern

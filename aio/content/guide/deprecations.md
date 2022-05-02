@@ -64,7 +64,7 @@ v14 - v17
 | `@angular/upgrade`                  | [`getAngularLib`](#upgrade-static)                                                                         | <!--  v8 --> v11         |
 | `@angular/upgrade`                  | [`setAngularLib`](#upgrade-static)                                                                         | <!--  v8 --> v11         |
 | `@angular/upgrade`                  | [Factory-based signature of `downgradeModule`](#upgrade-static)                                            | <!-- v13 --> v15         |
-| template syntax                     | [`<template>`](#template-tag)                                                                              | <!--  v7 --> v11         |
+| template syntax                     | [The `template` element](#template-element)                                                                              | <!--  v7 --> v11         |
 | polyfills                           | [reflect-metadata](#reflect-metadata)                                                                      | <!--  v8 --> v11         |
 | `@angular/compiler-cli`             | [Input setter coercion](#input-setter-coercion)                                                            | <!-- v13 --> v15         |
 | `@angular/compiler-cli`             | [`fullTemplateTypeCheck`](#full-template-type-check)                                                       | <!-- v13 --> v15         |
@@ -271,12 +271,12 @@ Templates should use the more widely documented syntaxes for binding and referen
 *   `[(ngModel)]="value"` instead of `bindon-ngModel="value"`
 *   `#templateRef` instead of `ref-templateRef`
 
-<a id="template-tag"></a>
+<a id="template-element"></a>
 
-### `<template>` tag
+### `template` element
 
-The `<template>` tag was deprecated in v4 to avoid colliding with the DOM's element of the same name \(such as when using web components\).
-Use `<ng-template>` instead.
+The `template` element was deprecated in v4 to avoid colliding with the DOM's element of the same name \(such as when using web components\).
+Use the `ng-template` element instead.
 For more information, see the [Ahead-of-Time Compilation](guide/aot-compiler) guide.
 
 <a id="ngmodel-reactive"></a>
