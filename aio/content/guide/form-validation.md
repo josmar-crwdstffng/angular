@@ -15,7 +15,7 @@ Before reading about form validation, you should have a basic understanding of t
 <div class="alert is-helpful">
 
 Get the complete example code for the reactive and template-driven forms used here to illustrate form validation.
-Run the <live-example></live-example>.
+Run the <live-example name="form-validation"></live-example>.
 
 </div>
 

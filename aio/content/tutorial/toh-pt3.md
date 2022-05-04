@@ -12,7 +12,7 @@ The `HeroDetailComponent` will present details of a selected hero.
 
 <div class="alert is-helpful">
 
-  For the sample application that this page describes, see the <live-example></live-example>.
+  For the sample application that this page describes, see the <live-example name="toh-pt3"></live-example>.
 
 </div>
 

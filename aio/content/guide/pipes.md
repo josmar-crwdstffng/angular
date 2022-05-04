@@ -7,7 +7,7 @@ For example, you would use a pipe to show a date as **April 15, 1988** rather th
 
 <div class="alert is-helpful">
 
-For the sample application used in this topic, see the <live-example></live-example>.
+For the sample application used in this topic, see the <live-example name="pipes"></live-example>.
 
 </div>
 
@@ -127,7 +127,7 @@ Use `name` in template expressions as you would for a built-in pipe.
 <div class="alert is-important">
 
 *   Include your pipe in the `declarations` field of the `NgModule` metadata in order for it to be available to a template.
-    See the `app.module.ts` file in the example application \(<live-example></live-example>\).
+    See the `app.module.ts` file in the example application \(<live-example name="pipes"></live-example>\).
     For details, see [NgModules](guide/ngmodules "NgModules introduction").
 
 *   Register your custom pipes.
@@ -173,7 +173,7 @@ Superpower boost: 1024
 
 <div class="alert is-helpful">
 
-To examine the behavior the `exponentialStrength` pipe in the <live-example></live-example>, change the value and optional exponent in the template.
+To examine the behavior the `exponentialStrength` pipe in the <live-example name="pipes"></live-example>, change the value and optional exponent in the template.
 
 </div>
 
@@ -304,7 +304,7 @@ As shown in the following code, only the pipe in the template changes.
 
 <div class="alert is-helpful">
 
-To confirm that the display updates as the user adds heroes, see the <live-example></live-example>.
+To confirm that the display updates as the user adds heroes, see the <live-example name="pipes"></live-example>.
 
 </div>
 

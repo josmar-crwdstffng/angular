@@ -4,7 +4,7 @@ This topic describes how to use content projection to create flexible, reusable 
 
 <div class="alert is-helpful">
 
-To view or download the example code used in this topic, see the <live-example></live-example>.
+To view or download the example code used in this topic, see the <live-example name="content-projection"></live-example>.
 
 </div>
 

@@ -8,6 +8,8 @@
 
 <!--todo: needs a level 2 heading for info below -->
 
+See the <live-example name="interpolation"></live-example> for all of the syntax and code snippets in this guide.
+
 Interpolation refers to embedding expressions into marked up text. By default, interpolation uses the double curly braces `{{` and `}}` as delimiters.
 
 To illustrate how interpolation works, consider an Angular component that contains a currentCustomer variable:

@@ -7,7 +7,7 @@ Also, build your own custom pattern matching for situations in which the URLs ar
 In this tutorial, you'll build a custom route matcher using Angular's `UrlMatcher`.
 This matcher looks for a Twitter handle in the URL.
 
-For a working example of the final version of this tutorial, see the <live-example></live-example>.
+For a working example of the final version of this tutorial, see the <live-example name="routing-with-urlmatcher"></live-example>.
 
 ## Objectives
 

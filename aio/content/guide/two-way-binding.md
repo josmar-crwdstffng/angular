@@ -5,7 +5,7 @@ Use two-way binding to listen for events and update values simultaneously betwee
 
 <div class="alert is-helpful">
 
-See the <live-example></live-example> for a working example containing the code snippets in this guide.
+See the <live-example name="two-way-binding"></live-example> for a working example containing the code snippets in this guide.
 
 </div>
 

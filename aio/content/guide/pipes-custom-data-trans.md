@@ -16,7 +16,7 @@ Use `name` in template expressions as you would for a built-in pipe.
 
 <div class="alert is-important">
 
-*   Include your pipe in the `declarations` field of the `NgModule` metadata in order for it to be available to a template. See the `app.module.ts` file in the example application (<live-example></live-example>). For details, see [NgModules](guide/ngmodules "NgModules introduction").
+*   Include your pipe in the `declarations` field of the `NgModule` metadata in order for it to be available to a template. See the `app.module.ts` file in the example application (<live-example name="pipes-custom-data-trans"></live-example>). For details, see [NgModules](guide/ngmodules "NgModules introduction").
 *   Register your custom pipes. The [Angular CLI](cli "CLI Overview and Command Reference") [`ng generate pipe`](cli/generate#pipe "ng generate pipe in the CLI Command Reference") command registers the pipe automatically.
 
 </div>
@@ -56,7 +56,7 @@ Superpower boost: 1024
 
 <div class="alert is-helpful">
 
-To examine the behavior of the `exponentialStrength` pipe in the <live-example></live-example>, change the value and optional exponent in the template.
+To examine the behavior of the `exponentialStrength` pipe in the <live-example name="pipes-custom-data-trans"></live-example>, change the value and optional exponent in the template.
 
 </div>
 

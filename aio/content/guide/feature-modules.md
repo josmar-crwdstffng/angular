@@ -2,7 +2,7 @@
 
 Feature modules are NgModules for the purpose of organizing code.
 
-For the final sample application with a feature module that this page describes, see the <live-example></live-example>.
+For the final sample application with a feature module that this page describes, see the <live-example name="feature-modules"></live-example>.
 
 As your application grows, you can organize code relevant for a specific feature.
 This helps apply clear boundaries for features.

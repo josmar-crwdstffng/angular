@@ -7,7 +7,7 @@ An NgModule is a class marked by the `@NgModule` decorator.
 It identifies the module's own components, directives, and pipes, making some of them public, through the `exports` property, so that external components can use them.
 `@NgModule` can also add service providers to the application dependency injectors.
 
-For an example application showcasing all the techniques that NgModules related pages cover, see the <live-example></live-example>.
+For an example application showcasing all the techniques that NgModules related pages cover, see the <live-example name="ngmodules"></live-example>.
 For explanations on the individual techniques, visit the relevant NgModule pages under the NgModules section.
 
 ## Angular modularity

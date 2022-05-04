@@ -945,7 +945,7 @@ Providing the service at the component level ensures that *every* instance of th
 <div class="alert is-helpful">
 
 The rest of the scenario code relies on other Angular features and techniques that you can learn about elsewhere in the documentation.
-You can review it and download it from the <live-example></live-example>.
+You can review it and download it from the <live-example name="hierarchical-dependency-injection"></live-example>.
 
 </div>
 

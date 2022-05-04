@@ -53,7 +53,7 @@ Use them to perform the following kinds of operations.
 
 ### Lifecycle example set
 
-The <live-example></live-example> demonstrates the use of lifecycle hooks through a series of exercises presented as components under the control of the root `AppComponent`.
+The <live-example name="lifecycle-hooks"></live-example> demonstrates the use of lifecycle hooks through a series of exercises presented as components under the control of the root `AppComponent`.
 In each case a *parent* component serves as a test rig for a *child* component that illustrates one or more of the lifecycle hook methods.
 
 The following table lists the exercises with brief descriptions.

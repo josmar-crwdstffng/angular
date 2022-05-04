@@ -5,7 +5,7 @@ With attribute binding, you can improve accessibility, style your application dy
 
 <div class="alert is-helpful">
 
-See the <live-example></live-example> for a working example containing the code snippets in this guide.
+See the <live-example name="attribute-binding"></live-example> for a working example containing the code snippets in this guide.
 
 </div>
 

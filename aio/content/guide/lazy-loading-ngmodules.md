@@ -6,7 +6,7 @@ Lazy loading helps keep initial bundle sizes smaller, which in turn helps decrea
 
 <div class="alert is-helpful">
 
-For the final sample application with two lazy-loaded modules that this page describes, see the <live-example></live-example>.
+For the final sample application with two lazy-loaded modules that this page describes, see the <live-example name="lazy-loading-ngmodules"></live-example>.
 
 </div>
 

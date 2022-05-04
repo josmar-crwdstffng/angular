@@ -6,7 +6,7 @@ You use data binding to specify things such as the source of an image, the state
 
 <div class="alert is-helpful">
 
-See the <live-example></live-example> for a working example containing the code snippets in this guide.
+See the <live-example name="binding-syntax"></live-example> for a working example containing the code snippets in this guide.
 
 </div>
 
@@ -124,7 +124,7 @@ The second line, which uses the disabled attribute checks for `null`.
 
 Generally, use property binding over attribute binding as a boolean value is easy to read, the syntax is shorter, and a property is more performant.
 
-To see the `disabled` button example in a functioning application, see the <live-example></live-example>.
+To see the `disabled` button example in a functioning application, see the <live-example name="binding-syntax"></live-example>.
 This example shows you how to toggle the disabled property from the component.
 
 ## Types of data binding

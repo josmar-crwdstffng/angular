@@ -8,7 +8,7 @@ In this tutorial, you'll add the following data persistence features with help f
 
 <div class="alert is-helpful">
 
-For the sample application that this page describes, see the <live-example></live-example>.
+For the sample application that this page describes, see the <live-example name="toh-pt6"></live-example>.
 
 </div>
 

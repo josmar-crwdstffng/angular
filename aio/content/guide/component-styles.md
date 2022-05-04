@@ -7,7 +7,7 @@ Additionally, Angular can bundle *component styles* with components, enabling a 
 
 This page describes how to load and apply these component styles.
 
-Run the <live-example></live-example> in Stackblitz and download the code from there.
+Run the <live-example name="component-styles"></live-example> in Stackblitz and download the code from there.
 
 ## Using component styles
 

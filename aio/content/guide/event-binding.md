@@ -4,7 +4,7 @@ Event binding lets you listen for and respond to user actions such as keystrokes
 
 <div class="alert is-helpful">
 
-See the <live-example></live-example> for a working example containing the code snippets in this guide.
+See the <live-example name="event-binding"></live-example> for a working example containing the code snippets in this guide.
 
 </div>
 

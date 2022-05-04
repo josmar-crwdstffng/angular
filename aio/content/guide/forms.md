@@ -24,7 +24,7 @@ This tutorial shows you how to build a form from scratch, using a simplified sam
 
 <div class="alert is-helpful">
 
-Run or download the example app: <live-example></live-example>.
+Run or download the example app: <live-example name="forms"></live-example>.
 
 </div>
 
@@ -108,7 +108,7 @@ In the course of this tutorial, you bind a sample form to data and handle user i
 
 ## Build the form
 
-You can recreate the sample application from the code provided here, or you can examine or download the <live-example></live-example>.
+You can recreate the sample application from the code provided here, or you can examine or download the <live-example name="forms"></live-example>.
 
 1.  The provided sample application creates the `Hero` class which defines the data model reflected in the form.
 

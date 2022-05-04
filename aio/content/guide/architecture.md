@@ -33,7 +33,7 @@ See the [Angular Glossary](guide/glossary) for basic definitions of important An
 
 <div class="alert is-helpful">
 
-For the sample application that this page describes, see the <live-example></live-example>.
+For the sample application that this page describes, see the <live-example name="architecture"></live-example>.
 
 </div>
 

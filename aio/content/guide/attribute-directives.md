@@ -4,7 +4,7 @@ Change the appearance or behavior of DOM elements and Angular components with at
 
 <div class="alert is-helpful">
 
-See the <live-example></live-example> for a working example containing the code snippets in this guide.
+See the <live-example name="attribute-directives"></live-example> for a working example containing the code snippets in this guide.
 
 </div>
 

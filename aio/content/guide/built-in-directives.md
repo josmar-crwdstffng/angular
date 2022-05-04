@@ -6,7 +6,7 @@ Use Angular's built-in directives to manage forms, lists, styles, and what users
 
 <div class="alert is-helpful">
 
-See the <live-example></live-example> for a working example containing the code snippets in this guide.
+See the <live-example name="built-in-directives"></live-example> for a working example containing the code snippets in this guide.
 
 </div>
 
@@ -80,7 +80,7 @@ Because `isSpecial` is true, `ngClass` applies the class of `special` to the `<d
 For this use case, Angular applies the classes on initialization and in case of changes.
 The full example calls `setCurrentClasses()` initially with `ngOnInit()` and when the dependent properties change through a button click.
 These steps are not necessary to implement `ngClass`.
-For more information, see the <live-example></live-example> `app.component.ts` and `app.component.html`.
+For more information, see the <live-example name="built-in-directives"></live-example> `app.component.ts` and `app.component.html`.
 
 <a id="ngstyle"></a>
 
@@ -101,7 +101,7 @@ Use `NgStyle` to set multiple inline styles simultaneously, based on the state o
 For this use case, Angular applies the styles upon initialization and in case of changes.
 To do this, the full example calls `setCurrentStyles()` initially with `ngOnInit()` and when the dependent properties change through a button click.
 However, these steps are not necessary to implement `ngStyle` on its own.
-See the <live-example></live-example> `app.component.ts` and `app.component.html` for this optional implementation.
+See the <live-example name="built-in-directives"></live-example> `app.component.ts` and `app.component.html` for this optional implementation.
 
 <a id="ngModel"></a>
 

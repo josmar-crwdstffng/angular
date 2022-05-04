@@ -39,7 +39,7 @@ These `ConfigService` imports are typical.
 
 <div class="alert is-helpful">
 
-You can run the <live-example></live-example> that accompanies this guide.
+You can run the <live-example name="http"></live-example> that accompanies this guide.
 
 The sample app does not require a data server.
 It relies on the [Angular *in-memory-web-api*](https://github.com/angular/angular/tree/main/packages/misc/angular-in-memory-web-api), which replaces the *HttpClient* module's `HttpBackend`.

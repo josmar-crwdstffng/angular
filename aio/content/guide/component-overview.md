@@ -12,7 +12,7 @@ This topic describes how to create and configure an Angular component.
 
 <div class="alert is-helpful">
 
-To view or download the example code used in this topic, see the <live-example></live-example>.
+To view or download the example code used in this topic, see the <live-example name="component-overview"></live-example>.
 
 </div>
 
