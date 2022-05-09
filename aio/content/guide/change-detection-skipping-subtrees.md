@@ -49,9 +49,9 @@ As an example, if Angular handles an event within `MainComponent`, the framework
 
 ## An event is handled by a descendant of a component with OnPush
 
-If Angular handles an event in a component with OnPush, the framework will execute change detection in the entire component tree, including the component’s ancestors.
+If Angular handles an event in a component with OnPush, the framework will execute change detection in the entire component tree, including the component's ancestors.
 
-As an example, in the diagram below, Angular handles an event in `LoginComponent` which uses OnPush. Angular will invoke change detection in the entire component subtree including `MainComponent` (`LoginComponent`’s parent), even though `MainComponent` has `OnPush` as well. Angular checks `MainComponent` as well because `LoginComponent` is part of its view.
+As an example, in the diagram below, Angular handles an event in `LoginComponent` which uses OnPush. Angular will invoke change detection in the entire component subtree including `MainComponent` (`LoginComponent`'s parent), even though `MainComponent` has `OnPush` as well. Angular checks `MainComponent` as well because `LoginComponent` is part of its view.
 
 <div class="lightbox">
   <img alt="Change detection propagation from nested OnPush component" src="generated/images/guide/change-detection/leaf-trigger.svg">
@@ -70,6 +70,6 @@ For example, in the diagram below, `AppComponent` passes a new input to `MainCom
 ## Edge cases
 
 * **Modifying input properties in TypeScript code**. When you use an API like `@ViewChild` or `@ContentChild` to get a reference to a component in TypeScript and manually modify an `@Input` property, Angular will not automatically run change detection for OnPush components. If you need Angular to run change detection, you can inject `ChangeDetectorRef` in your component and call `changeDetectorRef.markForCheck()` to tell Angular to schedule a change detection.
-* **Modifying object references**. In case an input receives a mutable object as value and you modify the object but preserve the reference, Angular will not invoke change detection. That’s the expected behavior because the previous and the current value of the input point to the same reference.
+* **Modifying object references**. In case an input receives a mutable object as value and you modify the object but preserve the reference, Angular will not invoke change detection. That's the expected behavior because the previous and the current value of the input point to the same reference.
 
 @reviewed 2022-05-04

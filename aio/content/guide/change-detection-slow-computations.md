@@ -8,7 +8,7 @@ A single slow computation within a template or a lifecycle hook can slow down th
 
 ## Identifying slow computations
 
-You can identify heavy computations with Angular DevTools’ profiler. In the performance timeline, click on a bar to preview a particular change detection cycle. This displays a bar chart, which shows how long the framework spent in change detection for each component. When you click on a component, you can preview how long Angular spent  evaluating its template and lifecycle hooks.
+You can identify heavy computations with Angular DevTools' profiler. In the performance timeline, click on a bar to preview a particular change detection cycle. This displays a bar chart, which shows how long the framework spent in change detection for each component. When you click on a component, you can preview how long Angular spent  evaluating its template and lifecycle hooks.
 
 <div class="lightbox">
   <img alt="Angular DevTools profiler preview showing slow computation" src="generated/images/guide/change-detection/slow-computations.png">

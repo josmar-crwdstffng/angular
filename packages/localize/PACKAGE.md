@@ -4,7 +4,7 @@ You should install this package using `ng add @angular/localize` if you need to 
 application that you want to be translatable.
 
 The approach is based around the concept of tagging strings in code with a [template literal tag handler][tagged-templates]
-called `$localize`. The idea is that strings that need to be translated are “marked” using this tag:
+called `$localize`. The idea is that strings that need to be translated are "marked" using this tag:
 
 ```ts
 const message = $localize`Hello, World!`;

@@ -1,7 +1,7 @@
 # Creating pipes for custom data transformations
 
 Create custom pipes to encapsulate transformations that are not provided with the built-in pipes.
-Then, use your custom pipe in template expressions, the same way you use built-in pipes—to transform input values to output values for display.
+Then, use your custom pipe in template expressions, the same way you use built-in pipes&mdash;to transform input values to output values for display.
 
 ## Marking a class as a pipe
 

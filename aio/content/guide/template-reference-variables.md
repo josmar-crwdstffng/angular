@@ -123,7 +123,7 @@ When an `<ng-template>` is instantiated, multiple named values can be passed whi
 </ul>
 ```
 
-## What’s next
+## What's next
 
 [Writing structural directives](https://angular.io/guide/structural-directives)
 

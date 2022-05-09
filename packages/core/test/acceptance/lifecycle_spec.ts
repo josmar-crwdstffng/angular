@@ -3913,7 +3913,7 @@ describe('onDestroy', () => {
 
       ngOnDestroy() {
         // Important: calling detectChanges in destroy hook like that
-        // doesn’t have practical purpose, but in real-world cases it might
+        // doesn't have practical purpose, but in real-world cases it might
         // happen, for example as a result of "focus()" call on a DOM element,
         // in case ZoneJS is active.
         this.cdr.detectChanges();

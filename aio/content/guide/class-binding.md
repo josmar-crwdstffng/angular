@@ -50,7 +50,7 @@ The following table summarizes class binding syntax.
 
 To create a single style binding, use the prefix `style` followed by a dot and the name of the CSS style.
 
-For example, to set the `width` style, type the following:  `[style.width]="width"`
+For example, to set the `width` style, type the following: `[style.width]="width"`
 
 Angular sets the property to the value of the bound expression, which is usually a string. Optionally, you can add a unit extension like `em` or `%`, which requires a number type.
 
@@ -98,7 +98,7 @@ The following table summarizes style binding syntax.
 
 A single HTML element can have its CSS class list and style values bound to multiple sources (for example, host bindings from multiple directives).
 
-## What’s next
+## What's next
 
 * [Component styles](https://angular.io/guide/component-styles)
 * [Introduction to Angular animations](https://angular.io/guide/animations)

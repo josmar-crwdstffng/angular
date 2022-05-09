@@ -102,14 +102,14 @@ We made this change because
 1. Almost everyone seems to hate the encapsulation
 
 2. Encapsulation requires mapping to get the desired data out. With old `Http` that isn't _too_ bad because you needed to map to get data anyway (`res => res.json()`). But it is really ugly for `HttpClient` because you can't use the type HTTP method type parameter (e.g., `get<entity-type>`) and you have to map out of the data property (`.map(data => data.data as Hero[]`). That extra step requires explanations that distract from learning `HttpClient` itself.
-Now you just write `http.get<Hero[]>()` and you’ve got data (please add error handling).
+Now you just write `http.get<Hero[]>()` and you've got data (please add error handling).
 
-3. While you could have turned off encapsulation with configuration as of v.0.4, to do so took yet another step that you’d have to discover and explain.  A big reason for the in-mem web api is to make it easy to introduce and demonstrate HTTP operations in Angular. The _out-of-box_ experience is more important than avoiding a breaking change.
+3. While you could have turned off encapsulation with configuration as of v.0.4, to do so took yet another step that you'd have to discover and explain.  A big reason for the in-mem web api is to make it easy to introduce and demonstrate HTTP operations in Angular. The _out-of-box_ experience is more important than avoiding a breaking change.
 
 4. The [security flaw](https://stackoverflow.com/questions/3503102/what-are-top-level-json-arrays-and-why-are-they-a-security-risk)
-that prompted encapsulation seems to have been mitigated by all (almost all?) the browsers that can run an Angular (v2+) app. We don’t think it’s needed anymore.
+that prompted encapsulation seems to have been mitigated by all (almost all?) the browsers that can run an Angular (v2+) app. We don't think it's needed anymore.
 
-5. A most real world APIs today will not encapsulate; they’ll return the data in the body without extra ceremony.
+5. A most real world APIs today will not encapsulate; they'll return the data in the body without extra ceremony.
 
 <a id="0.4.6"></a>
 ## 0.4.6 (2017-09-13)
@@ -201,7 +201,7 @@ to arbitrary initial states (issue #128)
 <a id="v-0-4-systemjs"></a>
 ### Plunkers and SystemJS
 
-If you’re loading application files with **SystemJS** (as you would in a plunker), you’ll have to configure it to load Angular’s `umd.js` for `HttpModule` and the `tslib` package.
+If you're loading application files with **SystemJS** (as you would in a plunker), you'll have to configure it to load Angular's `umd.js` for `HttpModule` and the `tslib` package.
 
 To see how, look in the `map` section of the
 [`src/systemjs.config.js` for this project](https://github.com/angular/in-memory-web-api/blob/master/src/systemjs.config.js) for the following two _additional_ lines :
@@ -215,7 +215,7 @@ To see how, look in the `map` section of the
 
 You've already made these changes if you are using `HttpClient` today.
 
-If you’re sticking with the original Angular `Http` module, you _must make this change anyway!_ Your app will break as soon as you run `npm install` and it installs >=v0.4.0.
+If you're sticking with the original Angular `Http` module, you _must make this change anyway!_ Your app will break as soon as you run `npm install` and it installs >=v0.4.0.
 
 If you're using webpack (as CLI devs do), you don't have to worry about this stuff because webpack bundles the dependencies for you.
 

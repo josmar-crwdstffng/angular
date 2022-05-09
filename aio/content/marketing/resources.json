@@ -387,7 +387,7 @@
             "url": "https://www.telerik.com/kendo-angular-ui"
           },
           "a5b": {
-            "desc": "High-performance UI controls with the most complete Angular support available. Wijmo’s controls are all written in TypeScript and have zero dependencies. FlexGrid control includes full declarative markup, including cell templates.",
+            "desc": "High-performance UI controls with the most complete Angular support available. Wijmo's controls are all written in TypeScript and have zero dependencies. FlexGrid control includes full declarative markup, including cell templates.",
             "logo": "",
             "title": "Wijmo",
             "url": "https://www.grapecity.com/wijmo"
@@ -666,7 +666,7 @@
             "url": "https://www.packtpub.com/product/angular-projects-second-edition/9781800205260"
           },
           "rangle-angular-training-book": {
-            "title": "Rangle’s Angular Training Book",
+            "title": "Rangle's Angular Training Book",
             "desc": "It's a free book, drawn from years of collective experience and aligned with the best practices of modern software development. The book covers the most important Angular topics, from getting started with the Angular toolchain to writing Angular applications in a scalable and maintainable manner.",
             "url": "https://angular-training-guide.rangle.io/"
           },

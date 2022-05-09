@@ -65,7 +65,7 @@ For more information on how to bind to the `colSpan` property, see the [`colspan
 
 </div>
 
-## What’s next
+## What's next
 
 * [Class & Style Binding](guide/class-binding)
 

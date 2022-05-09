@@ -113,7 +113,7 @@ export class SourceMapGenerator {
                         lastCol0 = segment.col0;
 
                         if (segment.sourceUrl != null) {
-                          // zero-based index into the “sources” list
+                          // zero-based index into the "sources" list
                           segAsStr +=
                               toBase64VLQ(sourcesIndex.get(segment.sourceUrl)! - lastSourceIndex);
                           lastSourceIndex = sourcesIndex.get(segment.sourceUrl)!;

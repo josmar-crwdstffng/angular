@@ -612,7 +612,7 @@ export interface Component extends Directive {
   standalone?: boolean;
 
   /**
-   * The imports property specifies the standalone component's template dependencies — those
+   * The imports property specifies the standalone component's template dependencies &mdash; those
    * directives, components, and pipes that can be used within its template. Standalone components
    * can import other standalone components, directives and pipes as well as existing NgModules.
    *

@@ -14,7 +14,7 @@ Before learning template syntax, you should be familiar with the following:
 ## Enhancing HTML
 
 Angular extends the HTML syntax in your templates with additional functionality.  
-For example, Angular’s data binding syntax helps to set Document Object Model (DOM) properties dynamically.
+For example, Angular's data binding syntax helps to set Document Object Model (DOM) properties dynamically.
 
 Almost all HTML syntax is valid template syntax.  However, because an Angular template is only a fragment of the UI, it does not include elements such as `<html>`, `<body>`, or `<base>`.
 
