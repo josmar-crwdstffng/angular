@@ -24,9 +24,9 @@ That service in turn might depend on the `HttpClient` service to fetch heroes as
 
 ## Creating an injectable service
 
-Angular CLI provides a command to create a new service. In the following example, you add a new service to your application, which was created earlier with the `ng new` command. 
+Angular CLI provides a command to create a new service. In the following example, you add a new service to your application, which was created earlier with the `ng new` command.
 
-To generate a new `HeroService` class in the `src/app/heroes` folder, follow these steps: 
+To generate a new `HeroService` class in the `src/app/heroes` folder, follow these steps:
 
 1. Run this [Angular CLI](cli) command:
 
