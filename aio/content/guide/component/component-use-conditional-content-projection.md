@@ -1,12 +1,19 @@
 # Conditional content projection
 
-If your component needs to conditionally render content, or render content several times, you should configure that component to accept an `ng-template` element that contains the content you want to conditionally render.
+Configure a component to accept an `ng-template` element that contains the specified content you want perform the following actions.
 
-Use of an `ng-content` element in these cases is not recommended, because when the consumer of a component supplies the content.
-That content supplied by the consumer is always initialized, even if the component does not define an `ng-content` element or if that `ng-content` element is inside of an `ngIf` statement.
+*   Conditionally render content
+*   Render content several times
 
-With an `ng-template` element, you are able to specify that your component explicitly renders content based on a desired condition, as many times as you want.
-Angular does not initialize the content of an `ng-template` element until that element is explicitly rendered.
+Use an `ng-template` element in place of an `ng-content` element in these cases to avoid issues when content is provided by the consumer of a component.
+The content provided by the consumer is always initialized, regardless of whether the following conditions are met by the component.
+
+*   The `ng-content` element is not defined
+*   The `ng-content` element is inside an `ngIf` statement
+
+Use an `ng-template` element to specify that your component explicitly renders content based on a specified condition.
+The condition able to be trigger rendering several times.
+The Angular framework does not initialize the content of an `ng-template` element until that element is explicitly rendered.
 
 ## Prerequisites
 
@@ -65,7 +72,7 @@ The following actions show a typical implementation of conditional content proje
     | Parts             | Details |
     |:---               |:---     |
     | `ngTemplateOutlet`| A directive. Render the specified `ng-template` element.                                                                                                                                                                                                                |
-    | `TemplateRef`     | A reference to the template content. Created using either the `@ContentChild` or `@ContentChildren` decorator. The component renders the referenced content using either the `ngTemplateOutlet` directive or with the `createEmbeddedView()` `ViewContainerRef` method. |
+    | `TemplateRef`     | A reference to the template content. Created using either the `@ContentChild` or `@ContentChildren` decorator. The component renders the referenced content using either the `ngTemplateOutlet` directive or with the `createEmbeddedView` `ViewContainerRef` method. |
 
     <div class="alert is-helpful">
 
@@ -100,7 +107,7 @@ The following actions show a typical implementation of conditional content proje
     | `*ngIF`     |         |
     | `contentId` |         |
 
-1.  Create a direcive with the `{name-of-css-selector}` selector.
+1.  Create a directive with the `{name-of-css-selector}` selector.
     To learn more about how to create an attribute directive, see [Create an attribute directive][AioGuideAttributeDirectivesBuildingAnAttributeDirective].
 
 1.  In the directive with the `{name-of-css-selector}` selector, instantiate the `TemplateRef` reference.
@@ -137,28 +144,17 @@ The following actions show a typical implementation of conditional content proje
 
 <!-- links -->
 
-[AioGuideAttributeDirectivesBuildingAnAttributeDirective]: guide/attribute-directives#building-an-attribute-directive
+[AioGuideAttributeDirectivesBuildingAnAttributeDirective]: guide/attribute-directives#building-an-attribute-directive "Building an attribute directive - Attribute directives | Angular"
 
-<!-- "Building an attribute directive - Attribute directives | Angular" -->
+[AioGuideComponentCreate]: guide/component/component-create "Create an Angular component | Angular"
 
-[AioGuideComponentCreate]: guide/component/component-create
+[AioGuideGlossaryComponent]: guide/glossary#component "component - Glossary | Angular"
 
-<!-- "Create an Angular component | Angular" -->
-
-[AioGuideGlossaryComponent]: guide/glossary#component
-
-<!-- "component - Glossary | Angular" -->
-
-[AioGuideSetupLocalCreateAWorkspaceAndInitialApplication]: guide/setup-local#create-a-workspace-and-initial-application
-
-<!-- "Create a workspace and initial application - Setting up the local environment and workspace | Angular" -->
-
-[AioGuideSetupLocalInstallTheAngularCli]: guide/setup-local#install-the-angular-cli
-
-<!-- "Install the Angular CLI - Setting up the local environment and workspace | Angular" -->
+[AioGuideSetupLocalCreateAWorkspaceAndInitialApplication]: guide/setup-local#create-a-workspace-and-initial-application "Create a workspace and initial application - Setting up the local environment and workspace | Angular"
+[AioGuideSetupLocalInstallTheAngularCli]: guide/setup-local#install-the-angular-cli "Install the Angular CLI - Setting up the local environment and workspace | Angular"
 
 <!-- external links -->
 
 <!-- end links -->
 
-@reviewed 2022-04-13
+@reviewed 2022-08-22

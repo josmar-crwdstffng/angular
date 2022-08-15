@@ -61,18 +61,18 @@ You might also be interested in the following:
 | [Two-way binding](guide/two-way-binding)                                                           | Share data between a class and its template.                                                                            |
 | [Built-in directives](guide/built-in-directives)                                                   | Listen to and modify the behavior and layout of HTML.                                                                   |
 | [Template reference variables](guide/template-reference-variables)                                 | Use special variables to reference a DOM element within a template.                                                     |
-| [Component data sharing and inheritance][AioGuideComponentUsageComponentDataSharingAndInheritance] | Share data between the parent context and child directives or components                                                |
+| [Component data sharing and inheritance][AioGuideComponentUseShareDataOverview] | Share data between the parent context and child directives or components                                                |
 | [Template expression operators](guide/template-expression-operators)                               | Learn about the pipe operator \(<code>&verbar;</code>\), and protect against `null` or `undefined` values in your HTML. |
 | [SVG in templates](guide/svg-in-templates)                                                         | Dynamically generate interactive graphics.                                                                              |
 
 <!-- links -->
 
-[AioGuideComponentUsageComponentDataSharingAndInheritance]: guide/component/component-usage#component-data-sharing-and-inheritance
+[AioGuideComponentUseShareDataOverview]: guide/component/component-use-share-data-overview
 
-<!-- "Component data sharing and inheritance - Use an Angular component | Angular" -->
+<!-- "Component data sharing and inheritance | Angular" -->
 
 <!--external links -->
 
 <!-- end links -->
 
-@reviewed 2022-05-13
+@reviewed 2022-08-22

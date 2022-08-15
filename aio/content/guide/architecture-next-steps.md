@@ -103,9 +103,9 @@ For some platforms and applications, you might also want to use the Progressive 
 
 <!-- "Angular CLI builders | Angular" -->
 
-[AioGuideComponentLifecycle]: guide/component/component-lifecycle
+[AioGuideComponentLifecycle]: guide/component/component-lifecycle-overview
 
-<!-- "Comonent lifecycle | Angular" -->
+<!-- "Understand the lifecycle of a component | Angular" -->
 
 [AioGuideElementCustomElement]: guide/element/custom-element
 
@@ -215,4 +215,4 @@ For some platforms and applications, you might also want to use the Progressive 
 
 <!-- end links -->
 
-@reviewed 2022-04-13
+@reviewed 2022-08-22

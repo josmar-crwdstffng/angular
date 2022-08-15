@@ -83,12 +83,16 @@ A view hierarchy can include views from components in the same NgModule and from
 A template looks like regular HTML, except that it also contains Angular [template syntax][AioGuideTemplateSyntax], which alters the HTML based on the logic of your application and the state of application and DOM data.
 Your template can use *data binding* to coordinate the application and DOM data, *pipes* to transform data before it is displayed, and *directives* to apply application logic to what gets displayed.
 
-The folloowing code example is a template for the `HeroListComponent` of the tutorial.
+The following code example is a template for the `HeroListComponent` of the tutorial.
 
 <code-example header="src/app/hero-list.component.html" path="architecture/src/app/hero-list.component.html"></code-example>
 
-This template uses typical HTML elements like `<h2>` and `<p>`, and also includes Angular template-syntax elements, `*ngFor`, `{{hero.name}}`, `(click)`, `[hero]`, and `<app-hero-detail>`.
-The template-syntax elements tell Angular how to render the HTML to the screen, using program logic and data.
+This template uses typical HTML elements and includes Angular template-syntax elements.
+
+*   Typical HTML elements include `h2` and `p`.
+*   Angular template-syntax elements include `*ngFor`, `{{hero.name}}`, `(click)`, `[hero]`, and `app-hero-detail`.
+
+The Angular framework uses template-syntax elements to render the DOM structure and display the HTML on the screen, using program logic and data.
 
 *   The `*ngFor` directive tells Angular to iterate over a list
 *   `{{hero.name}}`, `(click)`, and `[hero]` bind program data to and from the DOM, responding to user input.
@@ -153,10 +157,10 @@ Data binding plays an important role in communication between a template and the
 
 ### Pipes
 
-Angular pipes let you declare display-value transformations in your template HTML.
+Use an Angular pipe to declare display-value transformations in your template HTML.
 A class with the `@Pipe` decorator defines a function that transforms input values to output values for display in a view.
 
-Angular defines various pipes, such as the [date][AioApiCommonDatepipe] pipe and [currency][AioApiCommonCurrencypipe] pipe; for a complete list, see the [Pipes API list][AioApiTypePipe].
+The Angular framework defines various pipes, such as the [date][AioApiCommonDatepipe] pipe and [currency][AioApiCommonCurrencypipe] pipe; for a complete list, see the [Pipes API list][AioApiTypePipe].
 You can also define new pipes.
 
 To specify a value transformation in an HTML template, use the [pipe operator (`|`)][AioGuidePipes].
@@ -283,9 +287,9 @@ For more information, see [Attribute Directives][AioGuideAttributeDirectives] an
 
 <!-- "Switching cases with NgSwitch - Built-in directives | Angular" -->
 
-[AioGuideComponentLifecycle]: guide/component/component-lifecycle
+[AioGuideComponentLifecycle]: guide/component/component-lifecycle-overview
 
-<!-- "Lifecycle hooks | Angular" -->
+<!-- "Understand the lifecycle of a component | Angular" -->
 
 [AioGuideForms]: guide/forms
 
@@ -335,4 +339,4 @@ For more information, see [Attribute Directives][AioGuideAttributeDirectives] an
 
 <!-- end links -->
 
-@reviewed 2022-04-13
+@reviewed 2022-08-22

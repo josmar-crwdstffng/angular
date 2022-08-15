@@ -3,6 +3,6 @@ Implements Angular's custom-element API, which enables you to package components
 
 A custom element extends HTML by allowing you to define a tag whose content is created and controlled by JavaScript code. The browser maintains a `CustomElementRegistry` of defined custom elements (also called Web Components), which maps an instantiable JavaScript class to an HTML tag.
 
-The `createCustomElement()` function provides a bridge from Angular's component interface and change detection functionality to the built-in DOM API.
+The `createCustomElement()` function provides a bridge from Angular's component interface and change detection functionality to the built-in [HTML DOM API](https://developer.mozilla.org/docs/Web/API/HTML_DOM_API "The HTML DOM API | MDN").
 
 For more information, see [Understand custom element](guide/element/custom-element "Understand custom element | Angular").

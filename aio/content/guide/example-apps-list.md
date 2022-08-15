@@ -4,7 +4,7 @@ The following is a list of the example applications in the [Angular documentatio
 
 ## Fundamentals
 
-These examples demonstrate minimal, fundamental concepts.
+These examples show minimal, fundamental concepts.
 
 ### Getting started application
 
@@ -13,7 +13,7 @@ These examples demonstrate minimal, fundamental concepts.
 Introductory application demonstrating Angular features.
 For more information, see [Getting started](start).
 
-### Launching your app
+### Launching your application
 
 <live-example name="bootstrapping"></live-example>
 
@@ -90,7 +90,7 @@ For more information, see [Get data from a server](tutorial/toh-pt6).
 
 ## Working with templates
 
-These examples demonstrate features of Angular templates.
+These examples show features of Angular templates.
 
 ### Accessibility
 
@@ -220,28 +220,28 @@ For more information, see [User input](guide/user-input).
 
 ## Working with components
 
-These examples demonstrate features of Angular components.
+These examples show features of Angular components.
 
 ### Component interaction
 
 <live-example name="component-interaction"></live-example>
 
 Demonstrates how Angular shares data between components.
-For more information, see [Component interaction][AioGuideComponentInteraction].
+For more information, see [Component interaction example][AioGuideComponentExampleInteraction].
 
 ### Component styles
 
 <live-example name="component-styles"></live-example>
 
 Demonstrates styling in Angular applications.
-For more information, see [Component style][AioGuideComponentStyle].
+For more information, see [Use of component style][AioGuideComponentUseStyle].
 
 ### Dynamic component loader
 
 <live-example name="dynamic-component-loader"></live-example>
 
 Demonstrates how to dynamically load components.
-For more information, see [Example: Dynamically load a component][AioGuideComponentDynamicLoad].
+For more information, see [Dynamically load a component][AioGuideComponentDynamicLoad].
 
 ### Elements
 
@@ -262,14 +262,14 @@ For more information, see [Event binding](guide/event-binding).
 <live-example name="inputs-outputs"></live-example>
 
 Demonstrates `@Input()` and `@Output()` in components and directives.
-For more information, see [`@Input()` and `@Output()` properties][AioGuideComponentUsageComponentDataSharingAndInheritance].
+For more information, see [`@Input()` and `@Output()` properties][AioGuideComponentUseShareDataOverview].
 
 ### Lifecycle hooks
 
 <live-example name="lifecycle-hooks"></live-example>
 
 Demonstrates Angular lifecycle hooks such as `ngOnInit()` and `ngOnChanges()`.
-For more information, see [Use an Angular lifecycle hook method][AioGuideComponentUsageLifecycleHooks].
+For more information, see [Use an Angular lifecycle hook method][AioGuideComponentUseLifecycleHooks].
 
 ## Dependency injection
 
@@ -394,7 +394,7 @@ For more information, see [Using Angular routes in a single-page application](gu
 
 ## Documentation
 
-### Style guide for Documentation contributions
+### Style guide for documentation contributions
 
 <live-example name="docs-style-guide"></live-example>
 
@@ -421,7 +421,7 @@ For more information, see [Security](guide/security).
 
 ### Testing
 
-For the sample application that the testing guides describe, see the <live-example noDownload name="testing">sample app</live-example>.
+For the sample application that the testing guides describe, see the <live-example noDownload name="testing">sample application</live-example>.
 
 Demonstrates techniques for testing Angular.
 For more information, see [Testing](guide/testing).
@@ -441,21 +441,21 @@ For more information, see [AngularJS to Angular concepts: Quick reference](guide
 
 <!-- "Example: Dynamically load a component | Angular" -->
 
-[AioGuideComponentInteraction]: guide/component/component-interaction
+[AioGuideComponentExampleInteraction]: guide/component/component-example-interaction
 
-<!-- "Component interaction | Angular" -->
+<!-- "Component interaction example | Angular" -->
 
-[AioGuideComponentUsageLifecycleHooks]: guide/component/component-usage-lifecycle-hooks
+[AioGuideComponentUseLifecycleHooks]: guide/component/component-use-lifecycle-hooks
 
 <!-- "Use an Angular lifecycle hook method | Angular" -->
 
-[AioGuideComponentStyle]: guide/component/component-style
+[AioGuideComponentUseStyle]: guide/component/component-use-style
 
-<!-- "Component style | Angular" -->
+<!-- "Use of component style | Angular" -->
 
-[AioGuideComponentUsageComponentDataSharingAndInheritance]: guide/component/component-usage#component-data-sharing-and-inheritance
+[AioGuideComponentUseShareDataOverview]: guide/component/component-use-share-data-overview
 
-<!-- "Component data sharing and inheritance - Use an Angular component | Angular" -->
+<!-- "Component data sharing and inheritance | Angular" -->
 
 [AioGuideElementCustomElement]: guide/element/custom-element
 
@@ -465,4 +465,4 @@ For more information, see [AngularJS to Angular concepts: Quick reference](guide
 
 <!-- end links -->
 
-@reviewed 2022-05-17
+@reviewed 2022-08-22

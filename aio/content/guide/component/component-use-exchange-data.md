@@ -1,6 +1,6 @@
 # Exchange data between to a child component and a parent component
 
-Use the `@Input()` and `@Output()` decorator functions on the same child component as shown in the following code snippet.
+Use the `@Input` and `@Output` decorator functions on the same child component as shown in the following code snippet.
 
 ## Prerequisites
 
@@ -12,7 +12,8 @@ Before you exchange data between a child component and a parent component in an 
 
 ## Configure the child component to receive and send data
 
-In the following code example, the `@Input()` and `@Output()` decorator functions share data between the template of the parent component to the template of the child component using the `{name-of-child-css-selector}` CSS selector.
+In the following code example, the `@Input` and `@Output` decorator functions share data using the `{name-of-child-css-selector}` CSS selector.
+The data is shared between the template of the parent component to the template of the child component.
 
 <code-example format="html" header="Add template to child component" language="html">
 
@@ -25,8 +26,8 @@ In the following code example, the `@Input()` and `@Output()` decorator function
 | Parts                                         | Details |
 |:---                                           |:---     |
 | `{name-of-child-css-selector}`                | The CSS selector of the child component |
-| `{nameOfChildProperty}`                       | The property of the `@Input()` decorator function in the child component. Receives a value from the `{nameOfParentProperty}` property of the parent component. |
-| `{nameOfAction}Request`                       | The event property of the `@Output()` decorator function in the child component. The argument for the `{slangNameOfAction}{nameOfParentProperty}()` method of the parent component |
+| `{nameOfChildProperty}`                       | The property of the `@Input` decorator function in the child component. Receives a value from the `{nameOfParentProperty}` property of the parent component. |
+| `{nameOfAction}Request`                       | The event property of the `@Output` decorator function in the child component. The argument for the `{slangNameOfAction}{nameOfParentProperty}` method of the parent component |
 | `{nameOfParentProperty}`                      | The property of the parent component |
 | `{slangNameOfAction}{nameOfParentProperty}()` | The method of the parent component |
 
@@ -41,28 +42,18 @@ To learn more about how to combine property and event bindings using the banana-
 
 <!-- links -->
 
-[AioGuideComponentCreate]: guide/component/component-create
+[AioGuideComponentCreate]: guide/component/component-create "Create an Angular component | Angular"
 
-<!-- "Create an Angular component | Angular" -->
+[AioGuideGlossaryComponent]: guide/glossary#component "component - Glossary | Angular"
 
-[AioGuideGlossaryComponent]: guide/glossary#component
+[AioGuideSetupLocalCreateAWorkspaceAndInitialApplication]: guide/setup-local#create-a-workspace-and-initial-application "Create a workspace and initial application - Setting up the local environment and workspace | Angular"
 
-<!-- "component - Glossary | Angular" -->
+[AioGuideSetupLocalInstallTheAngularCli]: guide/setup-local#install-the-angular-cli "Install the Angular CLI - Setting up the local environment and workspace | Angular"
 
-[AioGuideSetupLocalCreateAWorkspaceAndInitialApplication]: guide/setup-local#create-a-workspace-and-initial-application
-
-<!-- "Create a workspace and initial application - Setting up the local environment and workspace | Angular" -->
-
-[AioGuideSetupLocalInstallTheAngularCli]: guide/setup-local#install-the-angular-cli
-
-<!-- "Install the Angular CLI - Setting up the local environment and workspace | Angular" -->
-
-[AioGuideTwoWayBinding]: guide/two-way-binding
-
-<!-- "Two-way binding | Angular" -->
+[AioGuideTwoWayBinding]: guide/two-way-binding "Two-way binding | Angular"
 
 <!-- external links -->
 
 <!-- end links -->
 
-@reviewed 2022-04-13
+@reviewed 2022-08-22

@@ -162,12 +162,12 @@ You might also be interested in the following:
 
 <!-- links -->
 
-[AioGuideComponentEncapsulateStyle]: guide/component/component-encapsulate-style
+[AioGuideComponentEncapsulateStyle]: guide/component/component-encapsulate-style-overview
 
-<!-- "Encapsulate style in a view | Angular" -->
+<!-- "Understand encapsulated style in a view | Angular" -->
 
 <!-- external links -->
 
 <!-- end links -->
 
-@reviewed 2022-06-12
+@reviewed 2022-08-22

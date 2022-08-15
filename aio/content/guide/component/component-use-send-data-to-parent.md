@@ -1,6 +1,6 @@
 # Send data to a parent component
 
-The `@Output()` decorator function in a child component or directive signifies that the property is able to send a value to the parent component.
+The `@Output` decorator function in a child component or directive signifies that the property is able to send a value to the parent component.
 
 <div class="lightbox">
 
@@ -8,10 +8,10 @@ The `@Output()` decorator function in a child component or directive signifies t
 
 </div>
 
-The `@Output()` decorator function marks a property in a child component as a connection for data to travel from the child component to the parent component.
+The `@Output` decorator function marks a property in a child component as a connection for data to travel from the child component to the parent component.
 
-The child component uses the property in the `@Output()` decorator function to raise an event in order to notify the parent of the change.
-To raise an event, use the `EventEmitter` class with the `@Output()` decorator function.
+The child component uses the property in the `@Output` decorator function to raise an event to notify the parent of the change.
+To raise an event, use the `EventEmitter` class with the `@Output` decorator function.
 The `EventEmitter` class in `@angular/core` emits custom events.
 
 ## Prerequisites
@@ -24,7 +24,7 @@ Before you send data to a parent component in an Angular [component][AioGuideGlo
 
 ## Configure the child component to send data
 
-To use the `@Input()` decorator function in a child component class, complete the following actions.
+To use the `@Input` decorator function in a child component class, complete the following actions.
 
 1.  To import the `Output` decorator and the `EventEmitter` class in the child component, add the following code.
 
@@ -34,8 +34,8 @@ To use the `@Input()` decorator function in a child component class, complete th
 
     </code-example>
 
-1.  In the component class, decorate a property with the `@Output()` decorator.
-    In the following code example, the `new{nameOfChildProperty}Event` property is a `@Output()` decorator function.
+1.  In the component class, decorate a property with the `@Output` decorator.
+    In the following code example, the `new{nameOfChildProperty}Event` property is a `@Output` decorator function.
     It has the `EventEmitter` type, which means it is an event.
 
     <code-example format="typescript" header="Add @Output decorator function to child component" language="typescript">
@@ -51,7 +51,7 @@ To use the `@Input()` decorator function in a child component class, complete th
     | Parts                           | Details |
     |:---                             |:---     |
     | `@Output()`                     | A decorator function. Marks the property as a way for data to go from the child to the parent.                                                                     |
-    | `new{nameOfChildProperty}Event` | The name of the property. The `new` and `Event` terms were used to indicate that the property emits a new event.                                                   |
+    | `new{nameOfChildProperty}Event` | The name of the property. The `new` and `Event` terms were used to show that the property emits a new event.                                                   |
     | `new EventEmitter<string>()`    | Angular creates an new instance that is specified by the class. <br /> `EventEmitter<string>` specifies the type for the property is an event that emits a string. |
 
     To learn more about `EventEmitter`, see [`EventEmitter`][AioApiCoreEventemitter].
@@ -70,7 +70,7 @@ To use the `@Input()` decorator function in a child component class, complete th
 
     </code-example>
 
-    The `addNew{nameOfChildProperty}()` method uses the `new{nameOfChildProperty}Event` `@Output()` decorator function to raise an event.
+    The `addNew{nameOfChildProperty}()` method uses the `new{nameOfChildProperty}Event` `@Output` decorator function to raise an event.
     It uses the value that the user types into the `input` element.
 
 ## Configure the template of the child component to send data
@@ -139,7 +139,7 @@ Use the `add{nameOfParentProperty}()` method to take a string argument and add t
 
     </code-example>
 
-    The user enters text in view created from the `input` element in the template the child component.
+    The user enters text in the view created from the `input` element in the template the child component.
     The event binding connects the `new{nameOfChildProperty}Event` event property in the CSS selector of the child component to the `add{nameOfChildProperty}()` method in the parent component.
     The `$event` contains the data that the user enters in the UI.
 
@@ -155,7 +155,7 @@ Use the `add{nameOfParentProperty}()` method to take a string argument and add t
 
     <div class="alert is-helpful">
 
-    Use `*ngFor` to dynamically display the list and see the `@Output()` decorator function work.
+    Use `*ngFor` to dynamically display the list and see the `@Output` decorator function work.
 
     1.  Add the following code snippet to the template of the parent component.
 
@@ -182,36 +182,21 @@ Use the `add{nameOfParentProperty}()` method to take a string argument and add t
 
 <!-- links -->
 
-[AioApiCoreEventemitter]: api/core/EventEmitter
+[AioApiCoreEventemitter]: api/core/EventEmitter "EventEmitter | Core - API | Angular"
 
-<!-- "EventEmitter | Core - API | Angular" -->
+[AioGuideComponentCreate]: guide/component/component-create "Create an Angular component | Angular"
 
-[AioGuideComponentCreate]: guide/component/component-create
+[AioGuideEventBinding]: guide/event-binding "Event binding | Angular"
 
-<!-- "Create an Angular component | Angular" -->
+[AioGuideGlossaryComponent]: guide/glossary#component "component - Glossary | Angular"
 
-[AioGuideGlossaryComponent]: guide/glossary#component
+[AioGuideSetupLocalCreateAWorkspaceAndInitialApplication]: guide/setup-local#create-a-workspace-and-initial-application "Create a workspace and initial application - Setting up the local environment and workspace | Angular"
+[AioGuideSetupLocalInstallTheAngularCli]: guide/setup-local#install-the-angular-cli "Install the Angular CLI - Setting up the local environment and workspace | Angular"
 
-<!-- "component - Glossary | Angular" -->
-
-[AioGuideEventBinding]: guide/event-binding
-
-<!-- "Event binding | Angular" -->
-
-[AioGuideSetupLocalCreateAWorkspaceAndInitialApplication]: guide/setup-local#create-a-workspace-and-initial-application
-
-<!-- "Create a workspace and initial application - Setting up the local environment and workspace | Angular" -->
-
-[AioGuideSetupLocalInstallTheAngularCli]: guide/setup-local#install-the-angular-cli
-
-<!-- "Install the Angular CLI - Setting up the local environment and workspace | Angular" -->
-
-[AioGuideTemplateReferenceVariables]: guide/template-reference-variables
-
-<!-- "Template variables | Angular" -->
+[AioGuideTemplateReferenceVariables]: guide/template-reference-variables "Template variables | Angular"
 
 <!-- external links -->
 
 <!-- end links -->
 
-@reviewed 2022-04-13
+@reviewed 2022-08-22

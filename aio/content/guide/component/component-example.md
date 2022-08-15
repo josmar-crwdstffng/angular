@@ -24,11 +24,11 @@ The following tabs display the example application files.
     <code-pane header="component-overview/src/app/component-overview/component-overview.component.3.ts" path="component-overview/src/app/component-overview/component-overview.component.3.ts" region="styles"></code-pane>
 </code-tabs>
 
-### Component interaction example
+### Component interaction example example
 
 <div class="alert is-helpful">
 
-To explore the sample input and output application used in the [Component interaction][AioGuideComponentInteraction] topic, see <live-example name="component-interaction" title="live example"></live-example>.
+To explore the sample input and output application used in the [Component interaction example][AioGuideComponentExampleInteraction] topic, see <live-example name="component-interaction" title="live example"></live-example>.
 
 </div>
 
@@ -61,7 +61,7 @@ The following tabs display the example application files.
 
 <div class="alert is-helpful">
 
-To explore the sample content projection application used in the [Use an Angular component][AioGuideComponentUsage] topic, see <live-example name="content-projection" title="live example"></live-example>.
+To explore the sample content projection application used in the [Use an Angular component][AioGuideComponentUse] topic, see <live-example name="content-projection" title="live example"></live-example>.
 
 </div>
 
@@ -85,7 +85,7 @@ The following tabs display the example application files.
 
 <div class="alert is-helpful">
 
-To explore the sample inputs and outputs application used in the [Use an Angular component][AioGuideComponentUsage] topic, see <live-example name="inputs-outputs" title="live example"></live-example>.
+To explore the sample inputs and outputs application used in the [Use an Angular component][AioGuideComponentUse] topic, see <live-example name="inputs-outputs" title="live example"></live-example>.
 
 </div>
 
@@ -187,7 +187,7 @@ The following tabs display the example application files.
 
 <div class="alert is-helpful">
 
-To explore the sample component styles application used in the [Component style][AioGuideComponentStyle] topic, see <live-example name="component-styles" title="live example"></live-example>.
+To explore the sample component styles application used in the [Use of component style][AioGuideComponentUseStyle] topic, see <live-example name="component-styles" title="live example"></live-example>.
 
 </div>
 
@@ -218,36 +218,22 @@ The following tabs display the example application files.
 
 <!-- links -->
 
-[AioGuideComponentCreate]: guide/component/component-create
+[AioGuideComponentCreate]: guide/component/component-create "Create an Angular component | Angular"
 
-<!-- "Create an Angular component | Angular" -->
+[AioGuideComponentDynamicLoad]: guide/component/component-dynamic-load "Dynamically load a component | Angular"
 
-[AioGuideComponentDynamicLoad]: guide/component/component-dynamic-load
+[AioGuideComponentExampleInteraction]: guide/component/component-example-interaction "Component interaction example | Angular"
 
-<!-- "Dynamically load a component | Angular" -->
+[AioGuideComponentLifecycleTutorial]: guide/component/component-example-lifecycle "Example: lifecycle hook methods | Angular"
 
-[AioGuideComponentInteraction]: guide/component/component-interaction
+[AioGuideComponentUseStyle]: guide/component/component-use-style "Use of component style | Angular"
 
-<!-- "Component interaction | Angular" -->
+[AioGuideComponentUse]: guide/component/component-use "Use an Angular component | Angular"
 
-[AioGuideComponentLifecycleTutorial]: guide/component/component-example-lifecycle
-
-<!-- "Example: lifecycle hook methods | Angular" -->
-
-[AioGuideComponentStyle]: guide/component/component-style
-
-<!-- "Component style | Angular" -->
-
-[AioGuideComponentUsage]: guide/component/component-usage
-
-<!-- "Use an Angular component | Angular" -->
-
-[AioGuideElementCustomElement]: guide/element/custom-element
-
-<!-- "Understand custom element | Angular" -->
+[AioGuideElementCustomElement]: guide/element/custom-element "Understand custom element | Angular"
 
 <!-- external links -->
 
 <!-- end links -->
 
-@reviewed 2022-04-13
+@reviewed 2022-08-22

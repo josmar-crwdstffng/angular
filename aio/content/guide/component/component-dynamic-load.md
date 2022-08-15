@@ -1,4 +1,4 @@
-# Example: Dynamically load a component
+# Dynamically load a component
 
 A template in a component is not always fixed.
 Angular provides an API to dynamically load a component at runtime.
@@ -86,7 +86,7 @@ export class &lcub;NameOfComponent&rcub;Component implements OnInit, OnDestroy &
 <div class="alert is-helpful">
 
 **NOTE**: <br />
-The `ng-template` element is a good choice for a dynamic component, because it does not render any additional output.
+The `ng-template` element is a good choice for a dynamic component, because it does not render any unspecified output.
 
 </div>
 
@@ -136,7 +136,7 @@ Use the `loadComponent()` method to complete the majority of the work for you.
         1.  Get the value of the current `current&lcub;NameOfComponent&rcub;Index` variable.
         1.  Add 1 to the value.
         1.  Divide the value by the length of the `&lcub;NameOfComponent&rcub;Item` array.
-        1.  Set the remainder as the new value of the `current&lcub;NameOfComponent&rcub;Index` variable.
+        1.  Set the modulus value as the new value of the `current&lcub;NameOfComponent&rcub;Index` variable.
     1.  To select an `&lcub;NameOfComponent&rcub;Item` object from the `&lcub;NameOfComponent&rcub;Item` array, the `loadComponent()` method uses the new value of the `current&lcub;NameOfComponent&rcub;Index` variable.
 
     </div>
@@ -161,24 +161,16 @@ All components implement a common interface for the `&lcub;NameOfComponent&rcub;
 
 <!-- links -->
 
-[AioGuideComponentCreate]: guide/component/component-create
+[AioGuideComponentCreate]: guide/component/component-create "Create an Angular component | Angular"
 
-<!-- "Create an Angular component | Angular" -->
+[AioGuideGlossaryComponent]: guide/glossary#component "component - Glossary | Angular"
 
-[AioGuideGlossaryComponent]: guide/glossary#component
+[AioGuideSetupLocalCreateAWorkspaceAndInitialApplication]: guide/setup-local#create-a-workspace-and-initial-application "Create a workspace and initial application - Setting up the local environment and workspace | Angular"
 
-<!-- "component - Glossary | Angular" -->
-
-[AioGuideSetupLocalCreateAWorkspaceAndInitialApplication]: guide/setup-local#create-a-workspace-and-initial-application
-
-<!-- "Create a workspace and initial application - Setting up the local environment and workspace | Angular" -->
-
-[AioGuideSetupLocalInstallTheAngularCli]: guide/setup-local#install-the-angular-cli
-
-<!-- "Install the Angular CLI - Setting up the local environment and workspace | Angular" -->
+[AioGuideSetupLocalInstallTheAngularCli]: guide/setup-local#install-the-angular-cli "Install the Angular CLI - Setting up the local environment and workspace | Angular"
 
 <!-- external links -->
 
 <!-- end links -->
 
-@reviewed 2022-04-13
+@reviewed 2022-08-22

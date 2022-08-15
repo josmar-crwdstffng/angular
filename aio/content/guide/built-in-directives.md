@@ -331,7 +331,7 @@ Angular puts only the selected element into the DOM.
 
     <code-example header="src/app/app.component.ts" path="built-in-directives/src/app/app.component.ts" region="item"></code-example>
 
-1.  In each child component, add an `item` [input property][AioGuideComponentUsageSendDataToChild] which is bound to the `currentItem` of the parent component.
+1.  In each child component, add an `item` [input property][AioGuideComponentUseSendDataToChild] which is bound to the `currentItem` of the parent component.
     The following two snippets show the parent component and one of the child components.
     The other child components are identical to `StoutItemComponent`.
 
@@ -414,7 +414,7 @@ For information on how to build your own custom directives, see [Attribute Direc
 
 <!-- "Understand Angular components | Angular" -->
 
-[AioGuideComponentUsageSendDataToChild]: guide/component/component-usage-send-data-to-child
+[AioGuideComponentUseSendDataToChild]: guide/component/component-use-send-data-to-child
 
 <!-- "Send data to child component | Angular" -->
 
@@ -454,4 +454,4 @@ For information on how to build your own custom directives, see [Attribute Direc
 
 <!-- end links -->
 
-@reviewed 2022-04-13
+@reviewed 2022-08-22

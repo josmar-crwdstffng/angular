@@ -29,7 +29,7 @@ Do not use the [`@Component`][AioApiCoreComponent] [selector][AioApiCoreDirectiv
 ## Map
 
 An Angular custom element hosts an Angular component.
-The component provides a bridge between the data and logic defined in the component and the standard DOM APIs.
+The component provides a bridge between the data and logic defined in the component and the [HTML DOM API][MdnDocsWebApiHtmlDomApi].
 Component properties and logic directly map to attributes of the HTML elements and the event system of the browser.
 
 *   The Angular framework uses the creation API to complete the following actions.
@@ -49,21 +49,15 @@ Component properties and logic directly map to attributes of the HTML elements a
 
     In the following code example, the corresponding custom element defines a `my-input-prop` attribute.
 
-    <!-- vale off -->
-
     <code-example>
 
     &commat;Input('myInputProp') inputProp
 
     </code-example>
 
-    <!-- vale on -->
-
 *   A component output is dispatched as a [CustomEvent][MdnDocsWebApiCustomevent] interface.
     The name of the custom event matches the output name.
     In the following example, the Angular custom element outputs `valueChanged` events and stores the emitted data for each event as the value of the `detail` property.
-
-    <!-- vale off -->
 
     <code-example>
 
@@ -71,12 +65,8 @@ Component properties and logic directly map to attributes of the HTML elements a
 
     </code-example>
 
-    <!-- vale on -->
-
     If you provide an alias, that value is used.
     In the following example, the Angular custom element outputs `myClick` events.
-
-    <!-- vale off -->
 
     <code-example>
 
@@ -84,7 +74,14 @@ Component properties and logic directly map to attributes of the HTML elements a
 
     </code-example>
 
-    <!-- vale on -->
-
-
 To learn more, see [Creating custom events][MdnDocsWebGuideEventsCreatingAndTriggeringEventsCreatingCustomEvents].
+
+<!-- links -->
+
+<!-- external links -->
+
+[MdnDocsWebApiHtmlDomApi]: https://developer.mozilla.org/docs/Web/API/HTML_DOM_API "The HTML DOM API | MDN"
+
+<!-- end links -->
+
+@reviewed 2022-08-22

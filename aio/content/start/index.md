@@ -196,7 +196,7 @@ This section walks you through creating a child component, `ProductAlertsCompone
     <code-example format="shell" language="shell">
 
     ng generate component product-alerts
-  
+
     </code-example>
 
     The generator creates starter files for the three parts of the component:
@@ -299,7 +299,7 @@ Since these steps don't use them, the following code examples omit them for brev
 
     </div>
 
-For more information on communication between components, see [Component Interaction][AioGuideComponentComponentInteraction].
+For more information on communication between components, see [Component Interaction][AioGuideComponentExampleInteraction].
 
 <a id="whats-next"></a>
 
@@ -314,12 +314,12 @@ To continue exploring Angular and developing this application:
 
 <!-- links -->
 
-[AioGuideComponentComponentInteraction]: guide/component/component-interaction
+[AioGuideComponentExampleInteraction]: guide/component/component-example-interaction
 
-<!-- "Component interaction | Angular" -->
+<!-- "Component interaction example | Angular" -->
 
 <!-- external links -->
 
 <!-- end links -->
 
-@reviewed 2022-05-17
+@reviewed 2022-08-22

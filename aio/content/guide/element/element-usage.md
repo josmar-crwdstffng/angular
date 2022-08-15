@@ -27,3 +27,11 @@ Use the new custom element like a built-in HTML element in content that you add 
 When your custom element is placed on a page, the browser creates an instance of the registered class and adds it to the DOM.
 The content is provided by the template of the component, which uses Angular template syntax, and is rendered using the component and DOM data.
 Input properties in the component correspond to input attributes for the element.
+
+<!-- links -->
+
+<!-- external links -->
+
+<!-- end links -->
+
+@reviewed 2022-08-22

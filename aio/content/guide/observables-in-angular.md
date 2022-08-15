@@ -10,7 +10,7 @@ For example:
 
 ## Transmitting data between components
 
-Angular provides an `EventEmitter` class that is used when publishing values from a component through the [`@Output()` decorator][AioGuideComponentUsageSendDataToParent].
+Angular provides an `EventEmitter` class that is used when publishing values from a component through the [`@Output()` decorator][AioGuideComponentUseSendDataToParent].
 `EventEmitter` extends [RxJS `Subject`](https://rxjs.dev/api/index/class/Subject), adding an `emit()` method so it can send arbitrary values.
 When you call `emit()`, it passes the emitted value to the `next()` method of any subscribed observer.
 
@@ -75,7 +75,7 @@ For example:
 
 <!-- links -->
 
-[AioGuideComponentUsageSendDataToParent]: guide/component/component-usage-send-data-to-parent
+[AioGuideComponentUseSendDataToParent]: guide/component/component-use-send-data-to-parent
 
 <!-- "Send data to a parent component | Angular" -->
 
@@ -83,4 +83,4 @@ For example:
 
 <!-- end links -->
 
-@reviewed 2022-05-17
+@reviewed 2022-08-22

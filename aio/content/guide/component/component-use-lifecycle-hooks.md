@@ -68,7 +68,7 @@ The Angular framework completes the following actions.
 1.  Run the lifecycle hook method that you implemented.
 1.  Implement the lifecycle hook method at the appropriate point in the lifecycle.
 
-To learn more, see [Understand the lifecycle of a component][AioGuideComponentLifecycle].
+To learn more, see [Understand the lifecycle of a component][AioGuideComponentLifecycleOverview].
 
 The Angular framework runs each lifecycle hook method in the following sequence.
 
@@ -97,21 +97,20 @@ ngOnDestroy()
 
 ##### Lifecycle hook method list
 
-The following table
+The following table provides context to lifecycle hook methods.
 
 | Hook method             | Purpose |
 |:---                     |:---     |
-| `ngOnChanges`           | Respond when the Angular framework sets or resets data-bound input properties. The method receives a `SimpleChanges` object of the current and previous property values. <br /> **NOTE**: <br /> The action happens frequently, so any operation you perform here impacts performance significantly. <br /> To learn more, see [Using change detection hooks][AioGuideComponentLifecycleTutorialUseChangeDetectionHooks]. |
+| `ngOnChanges`           | Respond when the Angular framework sets or resets data-bound input properties. The method receives a `SimpleChanges` object of the current and previous property values. <br /> **NOTE**: <br /> The action happens frequently, so any operation you perform here impacts performance significantly. <br /> To learn more, see [Use change detection hook method][AioGuideComponentExampleLifecycleUseChangeDetectionHooks]. |
 | `ngOnInit`              | Initialize the component after the Angular framework first displays the data-bound properties and sets the input properties of the component. To learn more, see [Initialize a component][AioGuideComponentLifecycleInitializeAComponent].                                                                                                                         |
 | `ngDoCheck`             | Detect and act upon changes that the Angular framework does not detect. To learn more, see [Define custom change detection][AioGuideComponentLifecycleTutorialDefineCustomChangeDetection].                                                                                                                                                                                                                          |
 | `ngAfterContentInit`    | Respond after the Angular framework projects external content into the rendered DOM structure associated the following requesting code. <ul> <li>the component</li> <li>the descendants of the component</li> </ul>                                                                        <br /> To learn more, see [Responding to changes in content][AioGuideLifecycleHooksRespondingToProjectedContentChanges].                                                                                                                                                             |
 | `ngAfterContentChecked` | Respond after the Angular framework checks the content projected into the component. <br /> To learn more, see [Respond to projected content changes][AioGuideLifecycleHooksRespondingToProjectedContentChanges].                                                                                                                                                                                       |
-| `ngAfterViewInit`       | Respond after the Angular framework initializes the rendered DOM structure associated the following requesting code. <ul> <li>the component</li> <li>the descendants of the component</li> </ul> To learn more, see [Respond to view changes][AioGuideComponentLifecycleTutorialRespondToViewChanges].                                                                                                                                                                     |
+| `ngAfterViewInit`       | Respond after the Angular framework initializes the rendered DOM structure associated with the following requesting code. <ul> <li>the component</li> <li>the descendants of the component</li> </ul> To learn more, see [Respond to view changes][AioGuideComponentLifecycleTutorialRespondToViewChanges].                                                                                                                                                                     |
 | `ngAfterViewChecked`    | Respond after the Angular framework checks the rendered DOM structure associated the following requesting code. <ul> <li>the component</li> <li>the descendants of the component</li> </ul>                                                                                                                                                                                                                                                                                       |
 | `ngOnDestroy`           | Clean-up just before the Angular framework destroys the component. Unsubscribe `Observables` and detach event handlers to avoid memory leaks. To learn more, see [Clean before instance destruction][AioGuideComponentLifecycleCleanBeforeInstanceDestruction].                                                                                                                                         |                                                                                                                                                                                                                                  |
 
 ### Initialize a component
-
 
 Use the `ngOnInit` hook method to perform the following initialization tasks.
 
@@ -137,60 +136,30 @@ The `ngOnDestroy` hook method is also the time to notify other parts of the appl
 
 <!-- links -->
 
-[AioGuideComponentCreate]: guide/component/component-create
+[AioGuideComponentCreate]: guide/component/component-create "Create an Angular component | Angular"
 
-<!-- "Create an Angular component | Angular" -->
+[AioGuideComponentExampleLifecycleUseChangeDetectionHooks]: guide/component/component-example-lifecycle#use-change-detection-hooks "Use change detection hooks - Example: lifecycle hook methods | Angular"
 
-[AioGuideComponentLifecycleCleanBeforeInstanceDestruction]: guide/component/component-usage-lifecycle-hooks#clean-before-instance-destruction
+[AioGuideComponentLifecycleCleanBeforeInstanceDestruction]: guide/component/component-use-lifecycle-hooks#clean-before-instance-destruction "Clean before instance destruction - Use an Angular lifecycle hook method | Angular"
+[AioGuideComponentLifecycleInitializeAComponent]: guide/component/component-use-lifecycle-hooks#initialize-a-component "Initialize a component - Use an Angular lifecycle hook method | Angular"
 
-<!-- "Clean before instance destruction - Use an Angular lifecycle hook method | Angular" -->
+[AioGuideComponentLifecycleOverview]: guide/component/component-lifecycle-overview "Understand the lifecycle of a component | Angular"
+[AioGuideComponentLifecycleTutorialDefineCustomChangeDetection]: guide/component/component-example-lifecycle#define-custom-change-detection "Define custom change detection - Example: lifecycle hook methods | Angular"
+[AioGuideComponentLifecycleTutorialRespondToViewChanges]: guide/component/component-example-lifecycle#respond-to-view-changes "Respond to view changes - Example: lifecycle hook methods | Angular"
 
-[AioGuideComponentLifecycleInitializeAComponentOrDirective]: guide/component/component-usage-lifecycle-hooks#initialize-a-component-or-directive
+<!-- [AioGuideLifecycleHookLifecycleHookMethodUseChangeDetection]: guide/lifecycle-hook/lifecycle-hook-method-use-change-detection "Use change detection hook method | Angular" -->
 
-<!-- "Initialize a component - Use an Angular lifecycle hook method | Angular" -->
+[AioGuideGlossaryComponent]: guide/glossary#component "component - Glossary | Angular"
+[AioGuideGlossaryDirective]: guide/glossary#directive "directive - Glossary | Angular"
+[AioGuideGlossaryLifecycleHook]: guide/glossary#lifecycle-hook "lifecycle hook - Glossary | Angular"
 
-[AioGuideComponentLifecycle]: guide/component/component-lifecycle
+[AioGuideSetupLocalCreateAWorkspaceAndInitialApplication]: guide/setup-local#create-a-workspace-and-initial-application "Create a workspace and initial application - Setting up the local environment and workspace | Angular"
+[AioGuideSetupLocalInstallTheAngularCli]: guide/setup-local#install-the-angular-cli "Install the Angular CLI - Setting up the local environment and workspace | Angular"
 
-<!-- "Understand the lifecycle of a component | Angular" -->
-
-[AioGuideComponentLifecycleTutorialDefineCustomChangeDetection]: guide/component/component-example-lifecycle#define-custom-change-detection
-
-<!-- "Define custom change detection - Example: lifecycle hook methods | Angular" -->
-
-[AioGuideComponentLifecycleTutorialRespondToViewChanges]: guide/component/component-example-lifecycle#respond-to-view-changes
-
-<!-- "Respond to view changes - Example: lifecycle hook methods | Angular" -->
-
-[AioGuideComponentLifecycleTutorialUseChangeDetectionHooks]: guide/component/component-example-lifecycle#use-change-detection-hooks
-
-<!-- "Use change detection hooks - Example: lifecycle hook methods | Angular" -->
-
-[AioGuideGlossaryComponent]: guide/glossary#component
-
-<!-- "component - Glossary | Angular" -->
-
-[AioGuideGlossaryDirective]: guide/glossary#directive
-
-<!-- "directive - Glossary | Angular" -->
-
-[AioGuideGlossaryLifecycleHook]: guide/glossary#lifecycle-hook
-
-<!-- "lifecycle hook - Glossary | Angular" -->
-
-[AioGuideSetupLocalCreateAWorkspaceAndInitialApplication]: guide/setup-local#create-a-workspace-and-initial-application
-
-<!-- "Create a workspace and initial application - Setting up the local environment and workspace | Angular" -->
-
-[AioGuideSetupLocalInstallTheAngularCli]: guide/setup-local#install-the-angular-cli
-
-<!-- "Install the Angular CLI - Setting up the local environment and workspace | Angular" -->
-
-[AioTutorialTohPt4CallItInNgoninit]: tutorial/toh-pt4#call-it-in-ngoninit
-
-<!-- "Call it in ngOnInit() - Add services | Angular" -->
+[AioTutorialTohPt4CallItInNgoninit]: tutorial/toh-pt4#call-it-in-ngoninit "Call it in ngOnInit() - Add services | Angular"
 
 <!-- external links -->
 
 <!-- end links -->
 
-@reviewed 2022-04-13
+@reviewed 2022-08-22

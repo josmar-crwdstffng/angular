@@ -168,7 +168,7 @@ If you want to manage NgModule loading and the use of dependencies and services,
 
 <!-- links -->
 
-[AioGuideComponentLifecycle]: guide/component/component-lifecycle
+[AioGuideComponentLifecycle]: guide/component/component-lifecycle-overview
 
 <!-- "Understand the lifecycle of a component | Angular" -->
 
@@ -176,4 +176,4 @@ If you want to manage NgModule loading and the use of dependencies and services,
 
 <!-- end links -->
 
-@reviewed 2022-05-17
+@reviewed 2022-08-22

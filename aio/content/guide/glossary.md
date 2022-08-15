@@ -62,11 +62,11 @@ To learn more, see [decorator][AioGuideGlossaryDecoratorDecoration].
 
 ## app-shell
 
-App shell is a way to render a portion of your application using a route at build time.
+App shell is a way to render a smaller part of your application using a route at build time.
 This gives users a meaningful first paint of your application that appears quickly because the browser can render static HTML and CSS without the need to initialize JavaScript.
 To learn more, see [The App Shell Model][GoogleDevelopersWebFundamentalsArchitectureAppShell].
 
-You can use the Angular CLI to [generate][AioCliGenerateAppShell] an app shell.
+You can use the Angular CLI to [generate][AioCliGenerateAppShell] an application shell.
 This can improve the user experience by quickly launching a static rendered page while the browser downloads the full client version and switches to it automatically after the code loads.
 A static rendered page is a skeleton common to all pages.
 To learn more, see [Service Worker and PWA][AioGuideServiceWorkerIntro].
@@ -223,7 +223,7 @@ A custom element is recognized by a browser when it is added to the [CustomEleme
 A custom element is also referenced as a *web component*.
 
 You can use the API to transform an Angular component so that it can be registered with the browser and used in any HTML that you add directly to the DOM within an Angular application.
-The custom element tag inserts the view of the component, with change-detection and data-binding functionality, into content that would otherwise be displayed without Angular processing.
+The custom element tag inserts the view of the component, with change-detection and data-binding features, into content that would otherwise be displayed without Angular processing.
 See [Angular element][AioGuideGlossaryAngularElement].
 See also [dynamic component loading][AioGuideGlossaryDynamicComponentLoading].
 
@@ -301,7 +301,7 @@ Angular has three categories of directive:
 *   [Structural directives][AioGuideGlossaryStructuralDirective] modify the structure of the DOM.
 
 Angular supplies a number of built-in directives that begin with the `ng` prefix.
-You can also create new directives to implement your own functionality.
+You can also create new directives to implement your own features.
 You associate a *selector* with a custom directive; this extends the [template syntax][AioGuideTemplateSyntax] that you can use in your applications.
 A *selector* is an HTML tag, such as `<my-directive>`.
 
@@ -333,7 +333,7 @@ See also [lazy loading][AioGuideGlossaryLazyLoading].
 
 The [official JavaScript language specification][WikipediaWikiEcmascript].
 
-Not all browsers support the latest ECMAScript standard, but you can use a [transpiler][AioGuideGlossaryTranspile] to write code using the latest features, which will then be transpiled to code that runs on versions that are supported by browsers.
+Not all browsers support the latest ECMAScript standard, but you can use a [transpiler][AioGuideGlossaryTranspile] to write code using the latest features, which is then be transpiled to code that runs on versions that are supported by browsers.
 A example of a [transpiler][AioGuideGlossaryTranspile] is [TypeScript][AioGuideGlossaryTypescript].
 To learn more, see [Browser Support][AioGuideBrowserSupport].
 
@@ -406,7 +406,7 @@ Learn more about the injector hierarchy in [Hierarchical Dependency Injectors][A
 When defining a [directive][AioGuideGlossaryDirective], the `@Input()` decorator on a directive property makes that property available as a *target* of a [property binding][AioGuidePropertyBinding].
 Data values flow into an input property from the data source identified in the [template expression][AioGuideGlossaryTemplateExpression] to the right of the equal sign.
 
-To learn more, see [`@Input()` and `@Output()` decorator functions][AioGuideComponentUsageComponentDataSharingAndInheritance].
+To learn more, see [`@Input()` and `@Output()` decorator functions][AioGuideComponentUseShareDataOverview].
 
 ## interpolation
 
@@ -483,7 +483,7 @@ Angular runs these hook methods in the following order:
 | 7   | `ngAfterViewChecked`    | After every check of the views of a component.                                                    |
 | 8   | `ngOnDestroy`           | Just before the directive is destroyed.                                                           |
 
-To learn more, see [Lifecycle Hooks][AioGuideComponentLifecycle].
+To learn more, see [Lifecycle Hook methods][AioGuideComponentLifecycle].
 
 ## module
 
@@ -559,7 +559,7 @@ The object defines the callbacks for the [subscriber][AioGuideGlossarySubscriber
 When defining a [directive][AioGuideGlossaryDirective], the `@Output{}` decorator on a directive property makes that property available as a *target* of [event binding][AioGuideEventBinding].
 Events stream *out* of this property to the receiver identified in the [template expression][AioGuideGlossaryTemplateExpression] to the right of the equal sign.
 
-To learn more, see [`@Input()` and `@Output()` decorator functions][AioGuideComponentUsageComponentDataSharingAndInheritance].
+To learn more, see [`@Input()` and `@Output()` decorator functions][AioGuideComponentUseShareDataOverview].
 
 ## pipe
 
@@ -898,7 +898,7 @@ The new run follows the same direction as before, but succeeds in picking up the
 ## Universal
 
 A tool for implementing [server-side rendering][AioGuideGlossaryServerSideRendering] of an Angular application.
-When integrated with an app, Universal generates and serves static pages on the server in response to requests from browsers.
+When integrated with an application, Universal generates and serves static pages on the server in response to requests from browsers.
 The initial static page serves as a fast-loading placeholder while the full application is being prepared for normal execution in the browser.
 To learn more, see [Angular Universal: server-side rendering][AioGuideUniversal].
 
@@ -1069,17 +1069,17 @@ Learn more about zones in this [Brian Ford video][YoutubeWatchV3iqtmusceU].
 
 <!-- "Displaying and updating properties with ngModel - Built-in directives | Angular" -->
 
-[AioGuideComponentLifecycle]: guide/component/component-lifecycle
+[AioGuideComponentLifecycle]: guide/component/component-lifecycle-overview
 
-<!-- "Component Lifecycle | Angular" -->
+<!-- "Understand the lifecycle of a component | Angular" -->
 
 [AioGuideComponentLifecycleTutorialRespondToProjectedContentChanges]: guide/component/component-example-lifecycle#respond-to-projected-content-changes
 
 <!-- "Respond to projected content changes - Example: lifecycle hook methods | Angular" -->
 
-[AioGuideComponentUsageComponentDataSharingAndInheritance]: guide/component/component-usage#component-data-sharing-and-inheritance
+[AioGuideComponentUseShareDataOverview]: guide/component/component-use-share-data-overview
 
-<!-- "Component data sharing and inheritance - Use an Angular component | Angular" -->
+<!-- "Component data sharing and inheritance | Angular" -->
 
 [AioGuideElementCustomElement]: guide/element/custom-element
 
@@ -1643,4 +1643,4 @@ Learn more about zones in this [Brian Ford video][YoutubeWatchV3iqtmusceU].
 
 <!-- end links -->
 
-@reviewed 2022-05-17
+@reviewed 2022-08-22

@@ -12,9 +12,9 @@ The logic of a [component][AioGuideGlossaryComponent] class defines the followin
 <div class="alert is-helpful">
 
 **TIP**: <br />
-The Angular framework provides [lifecycle hook methods][AioGuideComponentLifecycleUseLifecycleHookMethod] to access [different phases of the rendering process][AioGuideComponentLifecycle] for each component.
-To learn more about the different phases of the rendering process, see [Understand the lifecycle of a component][AioGuideComponentLifecycle].
-To learn more about the lifecycle hook methods, see [Use lifecycle hook method][AioGuideComponentLifecycleUseLifecycleHookMethod].
+The Angular framework provides [lifecycle hook methods][AioGuideComponentUseLifecycleHooks] to access [different phases of the rendering process][AioGuideComponentLifecycleOverview] for each component.
+To learn more about the different phases of the rendering process, see [Understand the lifecycle of a component][AioGuideComponentLifecycleOverview].
+To learn more about the lifecycle hook methods, see [Use an Angular lifecycle hook method][AioGuideComponentUseLifecycleHooks].
 
 </div>
 
@@ -34,7 +34,7 @@ Each [component][AioGuideGlossaryComponent] class must have the following parts.
 
 ## `@component` decorator
 
-The following code example shows a component class without metadata.
+In the following code example, pseudo-code replaces the properties of the metadata in a component class.
 
 <code-example format="typescript" header="A component without metadata" language="typescript">
 
@@ -69,7 +69,7 @@ The Angular framework uses the value of `selector` property to completes the fol
 1.  Search the HTML template for the element tag that matches the value.
 1.  Replace the element tag with an instance of the component, the HTML template, and the rendered DOM structure.
 
-The following code example displays a component with metadata that includes the `selector` property.
+In the following code example, a component with metadata includes the `selector` property.
 
 <code-example format="typescript" header="A component with metadata for CSS selector" language="typescript">
 
@@ -99,7 +99,7 @@ Only specify a value for the `template` property or the `templateUrl` property, 
 The inline HTML template of the component.
 The `template` property takes a string that contains an HTML template.
 
-The following code example shows a component with metadata that includes the `selector` and `template` properties.
+In the following code example, the metadata in a component includes the `selector` and `template` properties.
 
 <code-example format="typescript" header="A component with metadata for inline HTML template" language="typescript">
 
@@ -117,7 +117,7 @@ The relative path to the HTML template file of the component.
 The `templateUrl` property takes a string that specifies an HTML template file.
 The path for the `templateUrl` property is relative to the directory in which the component resides.
 
-The following code example displays a component with metadata that includes the `selector` and `templateUrl` properties.
+In the following code example, the metadata in a component includes the `selector` and `templateUrl` properties.
 
 <code-example format="typescript" header="A component with metadata for HTML template file" language="typescript">
 
@@ -136,7 +136,7 @@ The use of separate files may help separate the concerns of presentation from be
 By default, the style definitions of a component only affect elements defined in the associated template of that component.
 
 Specify the `styles`, `styleUrls`, or both properties to add style definitions to your component.
-To learn more about the Angular approach to style definitions, see [Component style][AioGuideComponentStyle].
+To learn more about the Angular approach to style definitions, see [Use of component style][AioGuideComponentUseStyle].
 
 <div class="alert is-important">
 
@@ -150,7 +150,7 @@ The style definitions specified in the `styles` and `styleUrls` properties only 
 The inline CSS styles for the template of the component.
 The `styles` property takes an array of strings that contains CSS rule declarations.
 
-The following code example shows a component with metadata that includes the `selector`, `template`, and `styles` properties.
+In the following code example, the metadata in a component includes the `selector`, `template`, and `styles` properties.
 
 <code-example format="typescript" header="A component with metadata for inline HTML template and inline style definitions" language="typescript">
 
@@ -170,7 +170,7 @@ The `styleUrls` property takes an array of strings that specify one or more styl
 Supported style file extensions include `.css`, `.less`, and `.scss`.
 The path for the `styleUrls` property is relative to the directory in which the component resides.
 
-The following code example shows a component with metadata that includes the `selector`, `template`, and `styleUrls` properties.
+In the following code example, the metadata in a component includes the `selector`, `template`, and `styleUrls` properties.
 
 <code-example format="typescript" header="A component with metadata for HTML template file and SASS style file" language="typescript">
 
@@ -189,7 +189,7 @@ An array of [providers][AioGuideGlossaryProvider] for services the component req
 
 The Angular framework uses the array to provide an instance of the `{NameOfServiceProvider}` provider for the constructor of the component to display the content.
 
-The following code example shows a component with metadata that includes the `selector`, `templateUrl`, and `providers` properties.
+In the following code example, the metadata in a component includes the `selector`, `templateUrl`, and `providers` properties.
 
 <code-example format="typescript" header="A component with metadata for HTML template file and service provider" language="typescript">
 
@@ -207,46 +207,38 @@ export class &lcub;NameOfComponent&rcub; { }
 The `@component` is a specific type of attribute [directive][AioGuideGlossaryDirective].
 To learn more, see [Attribute directives][AioGuideAttributeDirectives].
 
+## Related content
+
+*   [Create an Angular component][AioGuideComponentCreate]
+*   [Manually create an Angular component][AioGuideComponentManualCreate]
+*   [Use an Angular component][AioGuideComponentUse]
+
 <!-- links -->
 
-[AioGuideAttributeDirectives]: guide/attribute-directives
+[AioGuideComponentManualCreate]: guide/component/component-manual-create "Manually create an Angular component | Angular"
 
-<!-- "Attribute directives | Angular" -->
+[AioGuideComponentCreate]: guide/component/component-create "Create an Angular component | Angular"
 
-[AioGuideComponentLifecycle]: guide/component/component-lifecycle
+[AioGuideAttributeDirectives]: guide/attribute-directives "Attribute directives | Angular"
 
-<!-- "Understand the lifecycle of a component | Angular" -->
+[AioGuideComponentLifecycleOverview]: guide/component/component-lifecycle-overview "Understand the lifecycle of a component | Angular"
 
-[AioGuideComponentLifecycleUseLifecycleHookMethod]: guide/component/component-lifecycle#use-lifecycle-hook-method
+[AioGuideComponentUse]: guide/component/component-use "Use an Angular component | Angular"
 
-<!-- "Use lifecycle hook method - Component Lifecycle | Angular" -->
+[AioGuideComponentUseLifecycleHooks]: guide/component/component-use-lifecycle-hooks "Use an Angular lifecycle hook method | Angular"
 
-[AioGuideComponentStyle]: guide/component/component-style
+[AioGuideComponentUseStyle]: guide/component/component-use-style "Use of component style | Angular"
 
-<!-- "Component style | Angular" -->
+[AioGuideGlossaryComponent]: guide/glossary#component "component - Glossary | Angular"
+[AioGuideGlossaryDirective]: guide/glossary#directive "directive - Glossary | Angular"
+[AioGuideGlossaryProvider]: guide/glossary#provider "provider - Glossary | Angular"
+[AioGuideGlossaryTemplate]: guide/glossary#template "template - Glossary | Angular"
+[AioGuideGlossaryView]: guide/glossary#view "view - Glossary | Angular"
 
-[AioGuideGlossaryComponent]: guide/glossary#component
-
-<!-- "component - Glossary | Angular" -->
-
-[AioGuideGlossaryProvider]: guide/glossary#provider
-
-<!-- "provider - Glossary | Angular" -->
-
-[AioGuideGlossaryTemplate]: guide/glossary#template
-
-<!-- "template - Glossary | Angular" -->
-
-[AioGuideGlossaryView]: guide/glossary#view
-
-<!-- "view - Glossary | Angular" -->
-
-[AioGuideTemplateSyntax]: guide/template-syntax
-
-<!-- "Template syntax | Angular" -->
+[AioGuideTemplateSyntax]: guide/template-syntax "Template syntax | Angular"
 
 <!-- external links -->
 
 <!-- end links -->
 
-@reviewed 2022-04-13
+@reviewed 2022-08-22

@@ -1,10 +1,15 @@
 # Project content in more complex environments
 
-Typically usage for [Multi-slot Content Projection][AioGuideComponentUsageMultiSlotContentProjection] includes using an attribute, element, style definition, or some combination of all three to identify where to project your content.
+To help you project your content, [Multi-slot Content Projection][AioGuideComponentUseMultiSlotContentProjection] includes the following parts.
+
+*   an attribute
+*   an element
+*   a CSS rule
+*   a combination of all three of an attribute, an element and a CSS rule
 
 The content you want to project lives inside another element.
 To project this content, use the `ngProjectAs` attribute.
-Angular uses a CSS selector as the value of the `ngProjectAs` attribute in order to project an entire `ng-container` element into a component.
+Angular uses a CSS selector as the value of the `ngProjectAs` attribute to project an entire `ng-container` element into a component.
 
 ## Prerequisites
 
@@ -50,24 +55,15 @@ The `ng-container` element does not get rendered in the DOM tree.
 
 <!-- links -->
 
-[AioGuideComponentCreate]: guide/component/component-create
+[AioGuideComponentCreate]: guide/component/component-create "Create an Angular component | Angular"
 
-<!-- "Create an Angular component | Angular" -->
+[AioGuideGlossaryComponent]: guide/glossary#component "component - Glossary | Angular"
 
-[AioGuideGlossaryComponent]: guide/glossary#component
-
-<!-- "component - Glossary | Angular" -->
-
-[AioGuideSetupLocalCreateAWorkspaceAndInitialApplication]: guide/setup-local#create-a-workspace-and-initial-application
-
-<!-- "Create a workspace and initial application - Setting up the local environment and workspace | Angular" -->
-
-[AioGuideSetupLocalInstallTheAngularCli]: guide/setup-local#install-the-angular-cli
-
-<!-- "Install the Angular CLI - Setting up the local environment and workspace | Angular" -->
+[AioGuideSetupLocalCreateAWorkspaceAndInitialApplication]: guide/setup-local#create-a-workspace-and-initial-application "Create a workspace and initial application - Setting up the local environment and workspace | Angular"
+[AioGuideSetupLocalInstallTheAngularCli]: guide/setup-local#install-the-angular-cli "Install the Angular CLI - Setting up the local environment and workspace | Angular"
 
 <!-- external links -->
 
 <!-- end links -->
 
-@reviewed 2022-04-13
+@reviewed 2022-08-22

@@ -13,7 +13,7 @@ Before learning template syntax, you should be familiar with the following:
 
 ## Enhancing HTML
 
-Angular extends the HTML syntax in your templates with additional functionality.  
+Angular extends the HTML syntax in your templates with additional functionality.
 For example, Angular’s data binding syntax helps to set Document Object Model (DOM) properties dynamically.
 
 Almost all HTML syntax is valid template syntax.  However, because an Angular template is only a fragment of the UI, it does not include elements such as `<html>`, `<body>`, or `<base>`.
@@ -65,11 +65,11 @@ You might also be interested in the following:
         <p>Listen to and modify the behavior and layout of HTML.</p>
         <p class="card-footer">Built-in directives</p>
     </a>
-    <a href="guide/component/component-usage#component-data-sharing-and-inheritance" class="docs-card" title="Component data sharing and inheritance">
+    <a href="guide/component/component-use-share-data-overview" class="docs-card" title="Component data sharing and inheritance">
         <section>Component data sharing and inheritance</section>
         <p>Share data between the parent component (or directive) and child component (or directive).</p>
         <p class="card-footer">Component data sharing and inheritance</p>
     </a>
 </div>
 
-@reviewed 2022-05-17
+@reviewed 2022-08-22

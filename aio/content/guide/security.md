@@ -100,9 +100,9 @@ Angular recognizes the value as unsafe and automatically sanitizes it, which rem
 
 </div>
 
-### Direct use of the DOM APIs and explicit sanitization calls
+### Direct use of the HTML DOM API and explicit sanitization calls
 
-Unless you enforce Trusted Types, the built-in browser DOM APIs don't automatically protect you from security vulnerabilities.
+Unless you enforce Trusted Types, the built-in browser [HTML DOM API][MdnDocsWebApiHtmlDomApi] don't automatically protect you from security vulnerabilities.
 For example, `document`, the node available through `ElementRef`, and many third-party APIs contain unsafe methods.
 In the same way, if you interact with other libraries that manipulate the DOM, you likely won't have the same automatic sanitization as with Angular interpolations.
 Avoid directly interacting with the DOM and instead use Angular templates where possible.
@@ -336,6 +336,8 @@ Angular-specific APIs that should be audited in a security review, such as the [
 <!-- links -->
 
 <!-- external links -->
+
+[MdnDocsWebApiHtmlDomApi]: https://developer.mozilla.org/docs/Web/API/HTML_DOM_API "The HTML DOM API | MDN"
 
 <!-- end links -->
 

@@ -1,8 +1,8 @@
-# Understand Angular components
+# Understand Angular component
 
 A [component][AioGuideGlossaryComponent] is the main building block for an Angular application.
 
-A component is a TypeScript class defined using the `@Component()` decorator.
+A component is a TypeScript class defined using the `@Component` decorator.
 
 <div class="alert is-helpful">
 
@@ -34,7 +34,7 @@ To simplify interactions with a part of the browser screen, the Angular framewor
 
 </div>
 
-## Learn about Angular components
+## Learn about Angular component
 
 <div class="card-container">
     <a href="guide/component/component-structure" class="docs-card" title="Understand the structure a component">
@@ -42,7 +42,7 @@ To simplify interactions with a part of the browser screen, the Angular framewor
         <p>Learn more about the structure of an Angular component.</p>
         <p class="card-footer">Understand the structure an Angular component</p>
     </a>
-    <a href="guide/component/component-lifecycle" class="docs-card" title="Understand the lifecycle of a component">
+    <a href="guide/component/component-lifecycle-overview" class="docs-card" title="Understand the lifecycle of a component">
         <section>The structural overview of a component</section>
         <p>Learn more about the lifecycle of an Angular component.</p>
         <p class="card-footer">Understand the lifecycle of an Angular component</p>
@@ -52,7 +52,7 @@ To simplify interactions with a part of the browser screen, the Angular framewor
         <p>Learn how to create, specify css, define a template, and declare a style for an Angular component.</p>
         <p class="card-footer">Create an Angular component</p>
     </a>
-    <a href="guide/component/component-usage" class="docs-card" title="Use an Angular component">
+    <a href="guide/component/component-use" class="docs-card" title="Use an Angular component">
         <section>Use a component</section>
         <p>Learn how to communicate between child and parent Angular components.</p>
         <p class="card-footer">Use an Angular component</p>
@@ -81,24 +81,15 @@ To simplify interactions with a part of the browser screen, the Angular framewor
 
 <!-- links -->
 
-[AioGuideGlossaryComponent]: guide/glossary#component
+[AioGuideGlossaryComponent]: guide/glossary#component "component - Glossary | Angular"
+[AioGuideGlossaryView]: guide/glossary#view "view - Glossary | Angular"
 
-<!-- "component - Glossary | Angular" -->
-
-[AioGuideGlossaryView]: guide/glossary#view
-
-<!-- "view - Glossary | Angular" -->
-
-[AioGuideTemplateOverview]: guide/template-overview
-
-<!-- "Understand templates | Angular" -->
+[AioGuideTemplateOverview]: guide/template-overview "Understand templates | Angular"
 
 <!-- external links -->
 
-[TypescriptlangDocsHandbookDecoratorsHtmlDecorators]: https://www.typescriptlang.org/docs/handbook/decorators.html#decorators
-
-<!-- "Decorators - Decorators | TypeScript" -->
+[TypescriptlangDocsHandbookDecoratorsHtmlDecorators]: https://www.typescriptlang.org/docs/handbook/decorators.html#decorators "Decorators - Decorators | TypeScript"
 
 <!-- end links -->
 
-@reviewed 2022-05-23
+@reviewed 2022-08-22

@@ -1,6 +1,6 @@
 # Send data to a child component
 
-The `@Input()` decorator function in a child component or directive signifies that the property is able to receive a value from the parent component.
+The `@Input` decorator function in a child component or directive signifies that the property is able to receive a value from the parent component.
 
 <div class="lightbox">
 
@@ -8,7 +8,7 @@ The `@Input()` decorator function in a child component or directive signifies th
 
 </div>
 
-The `@Input()` decorator function marks a property in a child component as a connection for data to travel from the parent component to the child component.
+The `@Input` decorator function marks a property in a child component as a connection for data to travel from the parent component to the child component.
 
 ## Prerequisites
 
@@ -20,10 +20,10 @@ Before you send data to a child component in an Angular [component][AioGuideGlos
 
 ## Configure the child component to receive data
 
-To use the `@Input()` decorator function in a child component class, complete the following actions.
+To use the `@Input` decorator function in a child component class, complete the following actions.
 
 1.  Import the `Input` module.
-1.  Add the `@Input()` decorator function to the property.
+1.  Add the `@Input` decorator function to the property.
 
     <code-example format="typescript" header="Add @Input property to child component" language="typescript">
 
@@ -33,7 +33,7 @@ To use the `@Input()` decorator function in a child component class, complete th
 
     </code-example>
 
-    Types for a property of the `@Input()` decorator function include `number`, `string`, `boolean`, and `object`.
+    Types for a property of the `@Input` decorator function include `number`, `string`, `boolean`, and `object`.
     The value for the `{nameOfChildProperty}` property comes from the parent component.
 
 1.  Add the following HTML content to the template of the component.
@@ -59,7 +59,7 @@ To bind the property in the template of the parent component, complete the follo
 
     </code-example>
 
-1.  In the parent component class, designate a value for `{nameOfParentProperty}`.
+1.  In the parent component class, set a value for `{nameOfParentProperty}`.
 
     <code-example format="typescript" header="Add property to class in parent component" language="typescript">
 
@@ -69,7 +69,7 @@ To bind the property in the template of the parent component, complete the follo
 
     </code-example>
 
-Angular uses the `@Input()` decorator to pass the value for `{nameOfParentProperty}` property to the child component.
+Angular uses the `@Input` decorator to pass the value for `{nameOfParentProperty}` property to the child component.
 The `{nameOfChildProperty}` property renders as `{valueOfParentProperty}` property.
 
 The following diagram shows the structure.
@@ -80,52 +80,37 @@ The following diagram shows the structure.
  &bsol;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;/  &bsol;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;/   &bsol;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;/
        &verbar;                          &verbar;                       &verbar;
   CSS selector                  Target:                 Source:
-    from                          @Input() property       property
+    from                          &commat;Input() property       property
     child component               from                    from
                                   child component         parent component
 
 </code-example>
 
-The target property placed between the square bracket \(`[` `]`\) characters is the property that you decorate with the `@Input()` decorator function in the child component.
+The target property placed between the square bracket \(`[` `]`\) characters is the property that you decorate with the `@Input` decorator function in the child component.
 The binding source, the part to the right of the equal sign, is the data that the parent component passes to the nested component.
 
 ## Watch for `@Input()` changes
 
-To watch for changes on a property of the `@Input()` decorator, use the `OnChanges` Angular [lifecycle hook][AioGuideComponentLifecycle].
+To watch for changes on a property of the `@Input` decorator, use the `OnChanges` Angular [lifecycle hook][AioGuideComponentUseLifecycleHooks].
 To learn more about the `OnChanges` lifecycle hook, see [Use change detection hooks][AioGuideComponentLifecycleTutorialUseChangeDetectionHooks] .
 
 <!-- links -->
 
-[AioGuideComponentCreate]: guide/component/component-create
+[AioGuideComponentCreate]: guide/component/component-create "Create an Angular component | Angular"
 
-<!-- "Create an Angular component | Angular" -->
+[AioGuideComponentLifecycleTutorialUseChangeDetectionHooks]: guide/component/component-example-lifecycle#use-change-detection-hooks "Use change detection hooks - Example: lifecycle hook methods | Angular"
 
-[AioGuideGlossaryComponent]: guide/glossary#component
+[AioGuideComponentUseLifecycleHooks]: guide/component/component-use-lifecycle-hooks "Understand the lifecycle of a component | Angular"
 
-<!-- "component - Glossary | Angular" -->
+[AioGuideGlossaryComponent]: guide/glossary#component "component - Glossary | Angular"
 
-[AioGuideComponentLifecycleTutorialUseChangeDetectionHooks]: guide/component/component-example-lifecycle#use-change-detection-hooks
+[AioGuidePropertyBinding]: guide/property-binding "Property binding | Angular"
 
-<!-- "Use change detection hooks - Example: lifecycle hook methods | Angular" -->
-
-[AioGuideComponentLifecycle]: guide/component/component-lifecycle
-
-<!-- "Component Lifecycle | Angular" -->
-
-[AioGuidePropertyBinding]: guide/property-binding
-
-<!-- "Property binding | Angular" -->
-
-[AioGuideSetupLocalCreateAWorkspaceAndInitialApplication]: guide/setup-local#create-a-workspace-and-initial-application
-
-<!-- "Create a workspace and initial application - Setting up the local environment and workspace | Angular" -->
-
-[AioGuideSetupLocalInstallTheAngularCli]: guide/setup-local#install-the-angular-cli
-
-<!-- "Install the Angular CLI - Setting up the local environment and workspace | Angular" -->
+[AioGuideSetupLocalCreateAWorkspaceAndInitialApplication]: guide/setup-local#create-a-workspace-and-initial-application "Create a workspace and initial application - Setting up the local environment and workspace | Angular"
+[AioGuideSetupLocalInstallTheAngularCli]: guide/setup-local#install-the-angular-cli "Install the Angular CLI - Setting up the local environment and workspace | Angular"
 
 <!-- external links -->
 
 <!-- end links -->
 
-@reviewed 2022-04-13
+@reviewed 2022-08-22

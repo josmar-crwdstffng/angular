@@ -227,7 +227,7 @@ Here are the code files discussed on this page.
 
 <!-- links -->
 
-[AioGuideComponentLifecycleInitializeAComponent]: guide/component/component-usage-lifecycle-hooks#initialize-a-component
+[AioGuideComponentLifecycleInitializeAComponent]: guide/component/component-use-lifecycle-hooks#initialize-a-component
 
 <!-- "Initialize a component - Use an Angular lifecycle hook method | Angular" -->
 
@@ -235,4 +235,4 @@ Here are the code files discussed on this page.
 
 <!-- end links -->
 
-@reviewed 2022-05-17
+@reviewed 2022-08-22

@@ -1,10 +1,10 @@
-# Component style
+# Use of component style
 
 Use standard CSS to style Angular applications.
 Your existing knowledge of CSS stylesheets, selectors, rules, and media queries is useful for Angular applications.
 
 Angular allows you to bundle component styles with your component.
-Since a component is modular, this allows you to use your stylesheet in a more modular way.
+Since a component is modular, this allows you to use your style sheet in a more modular way.
 
 ## Prerequisites
 
@@ -25,7 +25,8 @@ In the CSS styles for the template, specify the following items.
 
 Set the `styles` property in the component metadata.
 The `styles` property takes an array of strings that contains CSS rule declarations.
-The following code example shows the `styles` property with one string, which is the most common situation.
+In the following code example, the `styles` property contains one string.
+A single string assignment in the `styles` property is the most common situation.
 
 <code-example format="typescript" header="&lcub;NameOfComponent&rcub;.component.ts" language="typescript">
 
@@ -119,12 +120,12 @@ export class &lcub;NameOfComponent&rcub;Component {
 
 Create the following style to target the host element of the component.
 Any rule applied to the selector affects the host element and all associated descendants.
-In the following code example, the rule italicizes all of the text conatined in the element.
+In the following code example, the rule italicizes all text contained in the element.
 
 <code-example header="&lcub;NameOfComponent&rcub;.component.css: Add :host pseudo-class selector" path="component-styles/src/app/hero-details.component.css" region="host"></code-example>
 
-The `:host()`pseudo-class selector only targets the host element of the component.
-Any styles placed in the `:host()` block of a child component do not affect the assocaited parent components.
+The `:host()` pseudo-class selector only targets the host element of the component.
+A style placed in the `:host()` style block of a child component does not affect the associated parent component.
 
 To use the function form to conditionally apply host styles, add another selector after the `:host` pseudo-class selector inside of parentheses \(`(` `)`\) characters.
 
@@ -139,15 +140,18 @@ For example, use `:host h2` to target all `h2` element tags inside the rendered 
 <div class="alert is-important">
 
 **IMPORTANT**: <br />
-If another CSS selector is placed in front of the `:host` pseudo-class selector, the CSS selector is not scoped to the view of the component and targets the outer context.
-To avoid this behavior and to accurately target the outer context, use the `:host-context` pseudo-class selector in front of the `:host` pseudo-class selector.
+Do not place any CSS selector other than the `:host-context` pseudo-class selector in front of the `:host` pseudo-class selector.
 
 </div>
 
 ### `:host-context`
 
-To apply styles to elements within the template of a component based on a specific condition in an element tag that is an ancestor of the host element.
-For example, a CSS theme class applied to the `body` element tag for the rendered DOM structure and you want to change how your component matches the appearance.
+Use the `:host-context` pseudo-class selector to complete the following actions.
+
+*   Conditionally specify a CSS rule for an element in the template
+*   Target an ancestor of the host element
+
+<!-- For example, a CSS theme class applied to the `body` element tag for the rendered DOM structure and you want to change how your component matches the appearance. -->
 
 The `:host-context()` pseudo-class selector works like the function form of the `:host()` pseudo-class selector.
 The `:host-context()` pseudo-class selector looks for the specified CSS class in the ancestors of the host element for the component, up to the root of the rendered DOM structure.
@@ -171,16 +175,23 @@ Styles defined in the `:host-context()` pseudo-class selector only affect the ho
 **DEPRECATED**: <br />
 The shadow-piercing descendant combinator is deprecated.
 [Support is being removed from major browsers][ChromestatusFeature6750456638341120] and tools.
-The `>>>` pseudo-class selector and `::ng-deep` pseudo-class selector are aliases for the `/deep/` combinator.
-Angular plans to drop support for all 3 implementations \(`/deep/`, `>>>` and, `::ng-deep`\).
+The following selectors are aliases for the `/deep/` combinator.
+
+*   The `>>>` pseudo-class selector
+*   The `::ng-deep` pseudo-class selector
+
+Angular plans to drop support for all 3 implementations including `/deep/`, `>>>` and, `::ng-deep`.
 Until support is dropped, the `::ng-deep` pseudo-class selector is preferred for a broader tool compatibility.
 
 </div>
 
 Component styles normally apply only to the HTML in the template of the component.
 
-If you apply the `::ng-deep` pseudo-class selector to a CSS rule, view encapsulation is completely disabled for that CSS rule.
-If you apply the `::ng-deep` pseudo-class selector to a CSS rule, it becomes a global style.
+The following results occur when you apply the `::ng-deep` pseudo-class selector to a CSS rule.
+
+*   The view encapsulation is completely turned off for the CSS rule
+*   The CSS rule becomes a global style
+
 Always place the `::ng-deep` pseudo-class selector after the `:host` pseudo-class selector, otherwise the CSS rule bleeds into other components.
 
 In the following code example, the CSS rule targets all `h3` element tags that are located in the host element and any associated child elements.
@@ -204,7 +215,7 @@ Angular allows you to add styles to a component in the following ways
 |:---                       |:---     |
 | In the component metadata | Use the [`styles`](#styles-in-component-metadata) or [`styleUrls`](#style-files-in-component-metadata) metadata in the component |
 | In the HTML template      | Use the [`style`](#template-inline-styles) or [`link`](#template-link-tags) element tag in the HTML template                 |
-| In a CSS file             | Use [CSS `@imports`](#css-imports) in the style definition                                                                       |
+| In a CSS file             | Use [CSS `@imports`](#css-imports) in the CSS rule                                                                       |
 
 The scoping rules outlined earlier apply to each of these loading patterns.
 
@@ -279,7 +290,7 @@ ng generate component &lcub;NameOfComponent&rcub;
 </code-example>
 
 Use the `--style` flag to specify the type of external styles file.
-The following command specifies a CSS style type to create an empty styles file that uses the CSS style type and add the file path to the `styleUrls` metadata.
+The following command specifies a CSS style type to create an empty styles file that uses the CSS style type and add the relative path to the `styleUrls` metadata.
 
 <code-example format="shell" header="ng generate component command: Add empty inline CSS styles file" language="shell">
 
@@ -345,7 +356,7 @@ Specify the URI path value, relative to one of the following locations, in the `
 | The Angular application root  | `/{path/to/file}.css`                                 |
 | The component TypeScript file | `./{path/to/file}.css` <br /> `../{path/to/file}.css` |
 
-After you add the styles file, the Angular framework adds the stylesheet.
+After you add the styles file, the Angular framework adds the style sheet.
 
 </div>
 
@@ -356,7 +367,7 @@ To learn more about the standard CSS `@import` at-rule, see [`@import`][MdnDocsW
 
 Specify the URI path value, relative to the styles files, as the value of the `@import` at-rule.
 
-In the following code example, the file path is to the imported styles file is relative to the CSS file into which you are importing it.
+In the following code example, the path to the imported styles file is relative to the CSS file into which you are importing it.
 
 <code-example header="Import styles rules from hero-details-box.css" path="component-styles/src/app/hero-details.component.css" region="import"></code-example>
 
@@ -371,7 +382,7 @@ To learn more about the global `styles.css` file, see [Styles configuration guid
 
 ### Non-CSS style files
 
-The Angular framework requires that all of your styles files are written in one of the following formats.
+The Angular framework requires that all your styles files are written in one of the following formats.
 
 | Formats              | Extensions |
 |:---                  |:---        |
@@ -396,7 +407,7 @@ export class &lcub;NameOfComponent&rcub;Component {
 
 </code-example>
 
-The Angular framework build process detects and runs the relevent CSS pre-processor for an external styles file.
+The Angular framework build process detects and runs the relevant CSS pre-processor for an external styles file.
 To learn more about how to configure the Angular CLI to set the default to your preferred CSS preprocessor, see [Generation schematics][AioGuideWorkspaceConfigGenerationSchematics].
 
 <div class="alert is-important">
@@ -409,96 +420,49 @@ Style strings added to the `styles` metadata must be written in CSS.
 
 <!-- links -->
 
-[AioCliGenerate]: cli/generate
+[AioCliGenerate]: cli/generate "ng generate | CLI | Angular"
 
-<!-- "ng generate | CLI | Angular" -->
+[AioGuideComponentCreate]: guide/component/component-create "Create an Angular component | Angular"
 
-[AioGuideComponentCreate]: guide/component/component-create
+[AioGuideComponentEncapsuleStyle]: guide/component/component-encapsulate-style-overview "Understand encapsulated style in a view | Angular"
 
-<!-- "Create an Angular component | Angular" -->
+[AioGuideComponentEncapsuleStyleEmulatedEncapsulation]: guide/component/component-encapsulate-style-overview#emulated-encapsulation "Emulated encapsulation - Understand encapsulated style in a view | Angular"
 
-[AioGuideComponentEncapsuleStyle]: guide/component/component-encapsulate-style
+[AioGuideComponentExample]: guide/component/component-example "Example Angular component applications | Angular"
 
-<!-- "Encapsulate style in a view | Angular" -->
+[AioGuideComponentStructureStyleMetadata]: guide/component/component-structure#style-metadata "Style metadata - Understand the structure an Angular component | Angular"
 
-[AioGuideComponentEncapsuleStyleEmulatedEncapsulation]: guide/component/component-encapsulate-style#emulated-encapsulation
+[AioGuideGlossaryComponent]: guide/glossary#component "component - Glossary | Angular"
 
-<!-- "Emulated encapsulation - Encapsulate style in a view | Angular" -->
+[AioGuideSetupLocalCreateAWorkspaceAndInitialApplication]: guide/setup-local#create-a-workspace-and-initial-application "Create a workspace and initial application - Setting up the local environment and workspace | Angular"
+[AioGuideSetupLocalInstallTheAngularCli]: guide/setup-local#install-the-angular-cli "Install the Angular CLI - Setting up the local environment and workspace | Angular"
 
-[AioGuideComponentExample]: guide/component/component-example
-
-<!-- "Example Angular component applications | Angular" -->
-
-[AioGuideComponentStructureStyleMetadata]: guide/component/component-structure#style-metadata
-
-<!-- "Style metadata - Understand the structure an Angular component | Angular" -->
-
-[AioGuideGlossaryComponent]: guide/glossary#component
-
-<!-- "component - Glossary | Angular" -->
-
-[AioGuideSetupLocalCreateAWorkspaceAndInitialApplication]: guide/setup-local#create-a-workspace-and-initial-application
-
-<!-- "Create a workspace and initial application - Setting up the local environment and workspace | Angular" -->
-
-[AioGuideSetupLocalInstallTheAngularCli]: guide/setup-local#install-the-angular-cli
-
-<!-- "Install the Angular CLI - Setting up the local environment and workspace | Angular" -->
-
-[AioGuideWorkspaceConfigAssetsConfiguration]: guide/workspace-config#assets-configuration
-
-<!-- "Assets configuration - Angular workspace configuration | Angular" -->
-
-[AioGuideWorkspaceConfigGenerationSchematics]: guide/workspace-config#generation-schematics
-
-<!-- "Generation schematics - Angular workspace configuration | Angular" -->
-
-[AioGuideWorkspaceConfigStylesAndScriptsConfiguration]: guide/workspace-config#styles-and-scripts-configuration
-
-<!-- "Styles and scripts configuration - Angular workspace configuration | Angular" -->
+[AioGuideWorkspaceConfigAssetsConfiguration]: guide/workspace-config#assets-configuration "Assets configuration - Angular workspace configuration | Angular"
+[AioGuideWorkspaceConfigGenerationSchematics]: guide/workspace-config#generation-schematics "Generation schematics - Angular workspace configuration | Angular"
+[AioGuideWorkspaceConfigStylesAndScriptsConfiguration]: guide/workspace-config#styles-and-scripts-configuration "Styles and scripts configuration - Angular workspace configuration | Angular"
 
 <!-- external links -->
 
-[ChromestatusFeature6750456638341120]: https://www.chromestatus.com/feature/6750456638341120
+[ChromestatusFeature6750456638341120]: https://www.chromestatus.com/feature/6750456638341120 "Feature: Shadow-Piercing descendant combinator, '/deep/' (removed) - Chrome Platform Status"
 
-<!-- "Feature: Shadow-Piercing descendant combinator, '/deep/' (removed) - Chrome Platform Status" -->
+[LesscssMain]: http://lesscss.org "less.js"
 
-[LesscssMain]: http://lesscss.org
+[MdnMain]: https://developer.mozilla.org "MDN"
 
-<!-- "less.js" -->
+[MdnDocsWebCssImport]: https://developer.mozilla.org/docs/Web/CSS/@import "@import | MDN"
 
-[MdnMain]: https://developer.mozilla.org
+[MdnDocsWebCssPart]: https://developer.mozilla.org/docs/Web/CSS/::part "::part() | MDN"
 
-<!-- "MDN" -->
+[MdnDocsWebWebComponentsUsingShadowDom]: https://developer.mozilla.org/docs/Web/Web_Components/Using_shadow_DOM "Using Shadow DOM | MDN"
 
-[MdnDocsWebCssImport]: https://developer.mozilla.org/docs/Web/CSS/@import
+[SassLangMain]: https://sass-lang.com "Sass"
 
-<!-- "@import | MDN" -->
+[W3cMain]: https://w3.org "W3C"
 
-[MdnDocsWebCssPart]: https://developer.mozilla.org/docs/Web/CSS/::part
+[W3CssMain]: https://w3.org/CSS "Cascading Style Sheets | W3C"
 
-<!-- "::part() | MDN" -->
-
-[MdnDocsWebWebComponentsUsingShadowDom]: https://developer.mozilla.org/docs/Web/Web_Components/Using_shadow_DOM
-
-<!-- "Using Shadow DOM | MDN" -->
-
-[SassLangMain]: https://sass-lang.com
-
-<!-- "Sass" -->
-
-[W3cMain]: https://w3.org
-
-<!-- "W3C" -->
-
-[W3CssMain]: https://w3.org/CSS
-
-<!-- "Cascading Style Sheets | W3C" -->
-
-[W3TrCssScoping1]: https://w3.org/TR/css-scoping-1
-
-<!-- "CSS Scoping Module Level 1 | W3C" -->
+[W3TrCssScoping1]: https://w3.org/TR/css-scoping-1 "CSS Scoping Module Level 1 | W3C"
 
 <!-- end links -->
 
-@reviewed 2022-02-15
+@reviewed 2022-08-22

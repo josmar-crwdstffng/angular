@@ -556,7 +556,7 @@ For example, you might have a service called `HeroesService` in AngularJS:
 
 <code-example header="heroes.service.ts" path="upgrade-module/src/app/ajs-to-a-providers/heroes.service.ts"></code-example>
 
-You can upgrade the service using a Angular [factory provider][AioGuideDependencyInjectionProvidersFactoryProviders] that requests the service from the AngularJS `$injector`.
+You can upgrade the service using a Angular [factory provider][AioGuideDependencyInjectionProvidersFactoryProvidersUsefactory] that requests the service from the AngularJS `$injector`.
 
 Many developers prefer to declare the factory provider in a separate `ajs-upgraded-providers.ts` file so that they are all together, making it easier to reference them, create new ones and delete them once the upgrade is over.
 
@@ -1704,9 +1704,9 @@ And for the phone list component, a few adjustments to the router make the `Rout
 
 <!-- "Dependency injection in Angular | Angular" -->
 
-[AioGuideDependencyInjectionProvidersFactoryProviders]: guide/dependency-injection-providers#factory-providers
+[AioGuideDependencyInjectionProvidersFactoryProvidersUsefactory]: guide/dependency-injection-providers#factory-providers-usefactory
 
-<!-- "Using factory providers - Dependency providers | Angular" -->
+<!-- "Using factory providers: useFactory - Dependency providers | Angular" -->
 
 [AioGuideGlossaryLazyLoading]: guide/glossary#lazy-loading
 
@@ -1716,9 +1716,9 @@ And for the phone list component, a few adjustments to the router make the `Rout
 
 <!-- "Hierarchical injectors | Angular" -->
 
-[AioGuideComponentLifecycle]: guide/component/component-lifecycle
+[AioGuideComponentLifecycle]: guide/component/component-lifecycle-overview
 
-<!-- "Component Lifecycle | Angular" -->
+<!-- "Understand the lifecycle of a component | Angular" -->
 
 [AioGuideNgmodules]: guide/ngmodules
 
@@ -1864,4 +1864,4 @@ And for the phone list component, a few adjustments to the router make the `Rout
 
 <!-- end links -->
 
-@reviewed 2022-05-17
+@reviewed 2022-08-22

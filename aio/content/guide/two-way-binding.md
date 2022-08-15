@@ -15,7 +15,7 @@ To get the most out of two-way binding, you should have a basic understanding of
 
 *   [Property binding](guide/property-binding)
 *   [Event binding](guide/event-binding)
-*   [Component data sharing and inheritance][AioGuideComponentUsageComponentDataSharingAndInheritance]
+*   [Component data sharing and inheritance][AioGuideComponentUseShareDataOverview]
 
 Two-way binding combines property binding with event binding:
 
@@ -81,12 +81,12 @@ For more information on how to use two-way binding in forms, see Angular [NgMode
 
 <!-- links -->
 
-[AioGuideComponentUsageComponentDataSharingAndInheritance]: guide/component/component-usage#component-data-sharing-and-inheritance
+[AioGuideComponentUseShareDataOverview]: guide/component/component-use-share-data-overview
 
-<!-- "Component data sharing and inheritance - Use an Angular component | Angular" -->
+<!-- "Component data sharing and inheritance | Angular" -->
 
 <!-- external links -->
 
 <!-- end links -->
 
-@reviewed 2022-05-17
+@reviewed 2022-08-22
