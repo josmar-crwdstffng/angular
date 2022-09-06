@@ -58,7 +58,7 @@ The setter of the `name` input property in the child `NameChildComponent` trims 
 
 <code-example header="component-interaction/src/app/name-child.component.ts" path="component-interaction/src/app/name-child.component.ts"></code-example>
 
-Here's the `NameParentComponent` demonstrating name variations including a name with all spaces:
+Here is the `NameParentComponent` demonstrating name variations including a name with all spaces:
 
 <code-example header="component-interaction/src/app/name-parent.component.ts" path="component-interaction/src/app/name-parent.component.ts"></code-example>
 
@@ -98,7 +98,7 @@ The `VersionParentComponent` supplies the `minor` and `major` values and binds b
 
 <code-example header="component-interaction/src/app/version-parent.component.ts" path="component-interaction/src/app/version-parent.component.ts"></code-example>
 
-Here's the output of a button-pushing sequence:
+Here is the output of a button-pushing sequence:
 
 <div class="lightbox">
 
@@ -197,7 +197,7 @@ The *local variable* approach is straightforward.
 But it is limited because the parent-child wiring must be done entirely within the parent template.
 The parent component *itself* has no access to the child.
 
-You can't use the *local variable* technique if the parent component's *class* relies on the child component's *class*.
+You cannot use the *local variable* technique if the parent component's *class* relies on the child component's *class*.
 The parent-child relationship of the components is not established within each components respective *class* with the *local variable* technique.
 Because the *class* instances are not connected to one another, the parent *class* cannot access the child *class* properties and methods.
 
@@ -229,7 +229,7 @@ Instead, bind the buttons to the parent component's own `start` and `stop` metho
 These methods access the injected timer component directly.
 
 The `ngAfterViewInit()` lifecycle hook is an important wrinkle.
-The timer component isn't available until *after* Angular displays the parent view.
+The timer component is not available until *after* Angular displays the parent view.
 So it displays `0` seconds initially.
 
 Then Angular calls the `ngAfterViewInit` lifecycle hook at which time it is *too late* to update the parent view's display of the countdown seconds.
@@ -273,7 +273,7 @@ This is a memory-leak guard step.
 There is no actual risk in this application because the lifetime of a `AstronautComponent` is the same as the lifetime of the application itself.
 That *would not* always be true in a more complex application.
 
-You don't add this guard to the `MissionControlComponent` because, as the parent,
+You do not add this guard to the `MissionControlComponent` because, as the parent,
 it controls the lifetime of the `MissionService`.
 
 </div>

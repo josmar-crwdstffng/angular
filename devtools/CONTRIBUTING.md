@@ -12,7 +12,7 @@ today! As a contributor, here are the guidelines we would like you to follow:
 
 ## <a name="question"></a> Got a Question or Problem?
 
-Please, do not open issues for the general support questions as we want to keep GitHub issues for bug reports and feature requests. You've got much better chances of getting your question answered on [StackOverflow](stackoverflow.com/questions/tagged/angular-devtools) where the questions should be tagged with tag `angular-devtools`.
+Please, do not open issues for the general support questions as we want to keep GitHub issues for bug reports and feature requests. You have got much better chances of getting your question answered on [StackOverflow](stackoverflow.com/questions/tagged/angular-devtools) where the questions should be tagged with tag `angular-devtools`.
 
 StackOverflow is a much better place to ask questions since:
 
@@ -64,7 +64,7 @@ You can file new issues by filling out our [new issue form](https://github.com/a
 Before you submit your Pull Request (PR) consider the following guidelines:
 
 - Search [GitHub](https://github.com/angular/angular) for an open or closed PR
-  that relates to your submission. You don't want to duplicate effort.
+  that relates to your submission. You do not want to duplicate effort.
 - [Fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) the angular/angular repo.
 - In your forked repository, make your changes in a new git branch:
 
@@ -94,7 +94,7 @@ Before you submit your Pull Request (PR) consider the following guidelines:
 - If we suggest changes then:
 
   - Make the required updates.
-  - Re-run the Angular DevTools test and lint suites to ensure tests are still passing and you're following the coding style.
+  - Re-run the Angular DevTools test and lint suites to ensure tests are still passing and you are following the coding style.
   - Rebase your branch and force push to your GitHub repository (this will update your Pull Request):
 
     ```shell
@@ -102,7 +102,7 @@ Before you submit your Pull Request (PR) consider the following guidelines:
     git push -f
     ```
 
-That's it! Thank you for your contribution!
+That is it! Thank you for your contribution!
 
 #### After your pull request is merged
 
@@ -207,7 +207,7 @@ The scope could be anything specifying place of the commit change. For example
 The subject contains succinct description of the change:
 
 - use the imperative, present tense: "change" not "changed" nor "changes"
-- don't capitalize first letter
+- do not capitalize first letter
 - no dot (.) at the end
 
 ### Body

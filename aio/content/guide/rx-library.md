@@ -43,11 +43,11 @@ You can use *pipes* to link operators together.
 Pipes let you combine multiple functions into a single function.
 The `pipe()` function takes as its arguments the functions you want to combine, and returns a new function that, when executed, runs the composed functions in sequence.
 
-A set of operators applied to an observable is a recipe &mdash;that is, a set of instructions for producing the values you're interested in.
-By itself, the recipe doesn't do anything.
+A set of operators applied to an observable is a recipe &mdash;that is, a set of instructions for producing the values you are interested in.
+By itself, the recipe does not do anything.
 You need to call `subscribe()` to produce a result through the recipe.
 
-Here's an example:
+Here is an example:
 
 <code-example header="Standalone pipe function" path="rx-library/src/operators.1.ts"></code-example>
 
@@ -82,10 +82,10 @@ Chaining is used in many RxJS examples.
 In addition to the `error()` handler that you provide on subscription, RxJS provides the `catchError` operator that lets you handle known errors in the observable recipe.
 
 For instance, suppose you have an observable that makes an API request and maps to the response from the server.
-If the server returns an error or the value doesn't exist, an error is produced.
+If the server returns an error or the value does not exist, an error is produced.
 If you catch this error and supply a default value, your stream continues to process values rather than erroring out.
 
-Here's an example of using the `catchError` operator to do this:
+Here is an example of using the `catchError` operator to do this:
 
 <code-example header="catchError operator" path="rx-library/src/error-handling.ts"></code-example>
 
@@ -104,7 +104,7 @@ The following converts the previous example to retry the request before catching
 <div class="alert is-helpful">
 
 Do not retry **authentication** requests, since these should only be initiated by user action.
-We don't want to lock out user accounts with repeated login requests that the user has not initiated.
+We do not want to lock out user accounts with repeated login requests that the user has not initiated.
 
 </div>
 

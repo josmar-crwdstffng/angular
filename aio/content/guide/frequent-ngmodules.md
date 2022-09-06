@@ -50,7 +50,7 @@ Additionally, `BrowserModule` re-exports `CommonModule` making all of its direct
 
 For applications that run in the browser, import `BrowserModule` in the root `AppModule` because it provides services that are essential to launch and run a browser application.
 `BrowserModule`'s providers are for the whole application so it should only be in the root module, not in feature modules.
-Feature modules only need the common directives in `CommonModule`; they don't need to re-install app-wide providers.
+Feature modules only need the common directives in `CommonModule`; they do not need to re-install app-wide providers.
 
 If you do import `BrowserModule` into a lazy loaded feature module, Angular returns an error telling you to use `CommonModule` instead.
 

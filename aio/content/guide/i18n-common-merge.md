@@ -172,7 +172,7 @@ Compile once, then translate for each locale.
 
 </div>
 
-## What's next
+## What is next
 
 *   [Deploy multiple locales][AioGuideI18nCommonDeploy]
 

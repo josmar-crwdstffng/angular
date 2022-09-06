@@ -104,9 +104,9 @@ And in the same file, add it to the `@NgModule` `declarations` array:
 <code-example header="src/app/app.module.ts" path="bootstrapping/src/app/app.module.ts" region="declarations"></code-example>
 
 Now you could use your `ItemDirective` in a component.
-This example uses `AppModule`, but you'd do it the same way for a feature module.
+This example uses `AppModule`, but you would do it the same way for a feature module.
 For more about directives, see [Attribute Directives](guide/attribute-directives) and [Structural Directives](guide/structural-directives).
-You'd also use the same technique for [pipes](guide/pipes) and components.
+You would also use the same technique for [pipes](guide/pipes) and components.
 
 Remember, components, directives, and pipes belong to one module only.
 You only need to declare them once in your application because you share them by importing the necessary modules.
@@ -147,11 +147,11 @@ While you can put more than one component tree on a host web page, most applicat
 This one root component is usually called `AppComponent` and is in the root module's `bootstrap` array.
 
 In a situation where you want to bootstrap a component based on an API response,
-or you want to mount the `AppComponent` in a different DOM node that doesn't match the component selector, please refer to `ApplicationRef.bootstrap()` documentation.
+or you want to mount the `AppComponent` in a different DOM node that does not match the component selector, please refer to `ApplicationRef.bootstrap()` documentation.
 
 ## More about Angular Modules
 
-For more on NgModules you're likely to see frequently in applications, see [Frequently Used Modules](guide/frequent-ngmodules).
+For more on NgModules you are likely to see frequently in applications, see [Frequently Used Modules](guide/frequent-ngmodules).
 
 <!-- links -->
 

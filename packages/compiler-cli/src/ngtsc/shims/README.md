@@ -6,7 +6,7 @@ The shims package deals with the specification and generation of "shim files". T
 
 Shim generation is exposed through two interfaces: `TopLevelShimGenerator` and `PerFileShimGenerator`. Each implementation of one of these interfaces produces one or more shims of a particular type.
 
-A top-level shim is a shim which is a "singleton" with respect to the program - it's one file that's generated and added in addition to all the user files.
+A top-level shim is a shim which is a "singleton" with respect to the program - it is one file that is generated and added in addition to all the user files.
 
 A per-file shim is a shim generated from the contents of a particular file (like how `.ngfactory` shims are generated for each user input file, if requested).
 
@@ -25,7 +25,7 @@ The shim package exposes two specific pieces of functionality related to the int
 
 The shim adapter is responsible for recognizing when a path being loaded corresponds to a shim, and producing a `ts.SourceFile` for the shim if so.
 
-Recognizing a shim filename involves two steps. First, the path itself must match a pattern for a particular `PerFileShimGenerator`'s shims (for example, NgFactory shims end in `.ngfactory.ts`). From this filename, the "source" filename can be inferred (actually several source filenames, since the source file might be `.ts` or `.tsx`). Even if a path matches the pattern, it's only a valid shim if the source file actually exists.
+Recognizing a shim filename involves two steps. First, the path itself must match a pattern for a particular `PerFileShimGenerator`'s shims (for example, NgFactory shims end in `.ngfactory.ts`). From this filename, the "source" filename can be inferred (actually several source filenames, since the source file might be `.ts` or `.tsx`). Even if a path matches the pattern, it is only a valid shim if the source file actually exists.
 
 Once a filename has been recognized, the `ShimAdapter` caches the generated shim source file and can quickly produce it on request.
 
@@ -36,7 +36,7 @@ As TS starts from the root files and walks imports and references, it discovers 
 * As references on their source files (those added by `ShimReferenceTagger`).
 * As imports written by users.
 
-This means that it's not guaranteed for a source file to be loaded before its shim.
+This means that it is not guaranteed for a source file to be loaded before its shim.
 
 ### `ShimReferenceTagger`
 
@@ -54,7 +54,7 @@ Once the program has been created, the `referencedFiles` properties can be resto
 
 The shim system needs to keep track of various pieces of metadata for `ts.SourceFile`s:
 
-* Whether or not they're shims, and if so which generator created them.
+* Whether or not they are shims, and if so which generator created them.
 * If the file is not a shim, then the original `referenceFiles` for that file (so it can be restored later).
 
 Instead of `Map`s keyed with `ts.SourceFile`s which could lead to memory leaks, this information is instead patched directly onto the `ts.SourceFile` instances using an expando symbol property `NgExtension`.
@@ -64,7 +64,7 @@ Instead of `Map`s keyed with `ts.SourceFile`s which could lead to memory leaks, 
 
 ### Factory shim generation
 
-Generated factory files create a catch-22 in ngtsc. Their contents depends on static analysis of the current program, yet they're also importable from the current program. This importability gives rise to the requirement that the contents of the generated file must be known before program creation, so that imports of it are valid. However, until the program is created, the analysis to determine the contents of the generated file cannot take place.
+Generated factory files create a catch-22 in ngtsc. Their contents depends on static analysis of the current program, yet they are also importable from the current program. This importability gives rise to the requirement that the contents of the generated file must be known before program creation, so that imports of it are valid. However, until the program is created, the analysis to determine the contents of the generated file cannot take place.
 
 ngc used to get away with this because the analysis phase did not depend on program creation but on the metadata collection / global analysis process.
 

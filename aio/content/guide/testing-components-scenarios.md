@@ -4,7 +4,7 @@ This guide explores common component testing use cases.
 
 <div class="alert is-helpful">
 
-If you'd like to experiment with the application that this guide describes, <live-example name="testing" noDownload>run it in your browser</live-example> or <live-example name="testing" downloadOnly>download and run it locally</live-example>.
+If you would like to experiment with the application that this guide describes, <live-example name="testing" noDownload>run it in your browser</live-example> or <live-example name="testing" downloadOnly>download and run it locally</live-example>.
 
 </div>
 
@@ -20,7 +20,7 @@ As minimal as this is, you decide to add a test to confirm that component actual
 
 #### Query for the `<h1>`
 
-You'll write a sequence of tests that inspect the value of the `<h1>` element that wraps the *title* property interpolation binding.
+You will write a sequence of tests that inspect the value of the `<h1>` element that wraps the *title* property interpolation binding.
 
 You update the `beforeEach` to find that element with a standard HTML `querySelector` and assign it to the `h1` variable.
 
@@ -30,7 +30,7 @@ You update the `beforeEach` to find that element with a standard HTML `querySele
 
 #### `createComponent()` does not bind data
 
-For your first test you'd like to see that the screen displays the default `title`.
+For your first test you would like to see that the screen displays the default `title`.
 Your instinct is to write a test that immediately inspects the `<h1>` like this:
 
 <code-example path="testing/src/app/banner/banner.component.spec.ts" region="expect-h1-default-v1"></code-example>
@@ -61,7 +61,7 @@ Only then does the `<h1>` have the expected title.
 Delayed change detection is intentional and useful.
 It gives the tester an opportunity to inspect and change the state of the component *before Angular initiates data binding and calls [lifecycle hooks](guide/lifecycle-hooks)*.
 
-Here's another test that changes the component's `title` property *before* calling `fixture.detectChanges()`.
+Here is another test that changes the component's `title` property *before* calling `fixture.detectChanges()`.
 
 <code-example path="testing/src/app/banner/banner.component.spec.ts" region="after-change"></code-example>
 
@@ -72,7 +72,7 @@ Here's another test that changes the component's `title` property *before* calli
 The `BannerComponent` tests frequently call `detectChanges`.
 Some testers prefer that the Angular test environment run change detection automatically.
 
-That's possible by configuring the `TestBed` with the `ComponentFixtureAutoDetect` provider.
+That is possible by configuring the `TestBed` with the `ComponentFixtureAutoDetect` provider.
 First import it from the testing utility library:
 
 <code-example header="app/banner/banner.component.detect-changes.spec.ts (import)" path="testing/src/app/banner/banner.component.detect-changes.spec.ts" region="import-ComponentFixtureAutoDetect"></code-example>
@@ -95,7 +95,7 @@ The test must call `fixture.detectChanges()` manually to trigger another cycle o
 
 <div class="alert is-helpful">
 
-Rather than wonder when the test fixture will or won't perform change detection, the samples in this guide *always call* `detectChanges()` *explicitly*.
+Rather than wonder when the test fixture will or will not perform change detection, the samples in this guide *always call* `detectChanges()` *explicitly*.
 There is no harm in calling `detectChanges()` more often than is strictly necessary.
 
 </div>
@@ -109,8 +109,8 @@ To simulate user input, find the input element and set its `value` property.
 You will call `fixture.detectChanges()` to trigger Angular's change detection.
 But there is an essential, intermediate step.
 
-Angular doesn't know that you set the input element's `value` property.
-It won't read that property until you raise the element's `input` event by calling `dispatchEvent()`.
+Angular does not know that you set the input element's `value` property.
+It will not read that property until you raise the element's `input` event by calling `dispatchEvent()`.
 *Then* you call `detectChanges()`.
 
 The following example demonstrates the proper sequence.
@@ -127,10 +127,10 @@ Many components specify *external templates* and *external css* with the `@Compo
 
 This syntax tells the Angular compiler to read the external files during component compilation.
 
-That's not a problem when you run the CLI `ng test` command because it *compiles the application before running the tests*.
+That is not a problem when you run the CLI `ng test` command because it *compiles the application before running the tests*.
 
 However, if you run the tests in a **non-CLI environment**, tests of this component might fail.
-For example, if you run the `BannerComponent` tests in a web coding environment such as [plunker](https://plnkr.co), you'll see a message like this one:
+For example, if you run the `BannerComponent` tests in a web coding environment such as [plunker](https://plnkr.co), you will see a message like this one:
 
 <code-example format="output" hideCopy language="shell">
 
@@ -156,7 +156,7 @@ It knows who the user is based on a property of the injected `UserService`:
 <code-example header="app/welcome/welcome.component.ts" path="testing/src/app/welcome/welcome.component.ts"></code-example>
 
 The `WelcomeComponent` has decision logic that interacts with the service, logic that makes this component worth testing.
-Here's the testing module configuration for the spec file:
+Here is the testing module configuration for the spec file:
 
 <code-example header="app/welcome/welcome.component.spec.ts" path="testing/src/app/welcome/welcome.component.spec.ts" region="config-test-module"></code-example>
 
@@ -168,7 +168,7 @@ But not the real `UserService`.
 
 #### Provide service test doubles
 
-A *component-under-test* doesn't have to be injected with real services.
+A *component-under-test* does not have to be injected with real services.
 In fact, it is usually better if they are test doubles such as, stubs, fakes, spies, or mocks.
 The purpose of the spec is to test the component, not the service, and real services can be trouble.
 
@@ -218,7 +218,7 @@ For a use case in which `TestBed.inject()` does not work, see the [*Override com
 
 #### Final setup and tests
 
-Here's the complete `beforeEach()`, using `TestBed.inject()`:
+Here is the complete `beforeEach()`, using `TestBed.inject()`:
 
 <code-example header="app/welcome/welcome.component.spec.ts" path="testing/src/app/welcome/welcome.component.spec.ts" region="setup"></code-example>
 
@@ -267,7 +267,7 @@ The component starts the returned `Observable` with a placeholder value \(`'...'
 The `catchError` intercepts service errors, prepares an error message, and returns the placeholder value on the success channel.
 It must wait a tick to set the `errorMessage` in order to avoid updating that message twice in the same change detection cycle.
 
-These are all features you'll want to test.
+These are all features you will want to test.
 
 #### Testing with a spy
 
@@ -299,7 +299,7 @@ A key advantage of a synchronous `Observable` is that you can often turn asynchr
 
 Because the spy result returns synchronously, the `getQuote()` method updates the message on screen immediately *after* the first change detection cycle during which Angular calls `ngOnInit`.
 
-You're not so lucky when testing the error path.
+You are not so lucky when testing the error path.
 Although the service spy will return an error synchronously, the component method calls `setTimeout()`.
 The test must wait at least one full turn of the JavaScript engine before the value becomes available.
 The test must become *asynchronous*.
@@ -334,7 +334,7 @@ There is no nested syntax \(like a `Promise.then()`\) to disrupt the flow of con
 
 <div class="alert is-helpful">
 
-Limitation: The `fakeAsync()` function won't work if the test body makes an `XMLHttpRequest` \(XHR\) call.
+Limitation: The `fakeAsync()` function will not work if the test body makes an `XMLHttpRequest` \(XHR\) call.
 XHR calls within a test are rare, but if you need to call XHR, see the [`waitForAsync()`](#waitForAsync) section.
 
 </div>
@@ -355,7 +355,7 @@ The optional `tickOptions` parameter has a property named `processNewMacroTasksS
 <code-example path="testing/src/app/demo/async-helper.spec.ts" region="fake-async-test-tick"></code-example>
 
 The [tick()](api/core/testing/tick) function is one of the Angular testing utilities that you import with `TestBed`.
-It's a companion to `fakeAsync()` and you can only call it within a `fakeAsync()` body.
+It is a companion to `fakeAsync()` and you can only call it within a `fakeAsync()` body.
 
 #### tickOptions
 
@@ -363,7 +363,7 @@ In this example, you have a new macro task, the nested `setTimeout` function. By
 
 <code-example path="testing/src/app/demo/async-helper.spec.ts" region="fake-async-test-tick-new-macro-task-sync"></code-example>
 
-In some case, you don't want to trigger the new macro task when ticking. You can use `tick(millis, {processNewMacroTasksSynchronously: false})` to not invoke a new macro task.
+In some case, you do not want to trigger the new macro task when ticking. You can use `tick(millis, {processNewMacroTasksSynchronously: false})` to not invoke a new macro task.
 
 <code-example path="testing/src/app/demo/async-helper.spec.ts" region="fake-async-test-tick-new-macro-task-async"></code-example>
 
@@ -434,9 +434,9 @@ In order to make the `<canvas>` element Zone.js-aware in your app, you need to i
 
 You might be satisfied with the test coverage of these tests.
 
-However, you might be troubled by the fact that the real service doesn't quite behave this way.
+However, you might be troubled by the fact that the real service does not quite behave this way.
 The real service sends requests to a remote server.
-A server takes time to respond and the response certainly won't be available immediately as in the previous two tests.
+A server takes time to respond and the response certainly will not be available immediately as in the previous two tests.
 
 Your tests will reflect the real world more faithfully if you return an *asynchronous* observable from the `getQuote()` spy like this.
 
@@ -445,7 +445,7 @@ Your tests will reflect the real world more faithfully if you return an *asynchr
 #### Async observable helpers
 
 The async observable was produced by an `asyncData` helper.
-The `asyncData` helper is a utility function that you'll have to write yourself, or copy this one from the sample code.
+The `asyncData` helper is a utility function that you will have to write yourself, or copy this one from the sample code.
 
 <code-example header="testing/async-observable-helpers.ts" path="testing/src/testing/async-observable-helpers.ts" region="async-data"></code-example>
 
@@ -458,7 +458,7 @@ When something subscribes to *defer*'s observable, it adds the subscriber to a n
 The `defer()` operator transforms the `Promise.resolve()` into a new observable that, like `HttpClient`, emits once and completes.
 Subscribers are unsubscribed after they receive the data value.
 
-There's a similar helper for producing an async error.
+There is a similar helper for producing an async error.
 
 <code-example path="testing/src/testing/async-observable-helpers.ts" region="async-error"></code-example>
 
@@ -466,7 +466,7 @@ There's a similar helper for producing an async error.
 
 Now that the `getQuote()` spy is returning async observables, most of your tests will have to be async as well.
 
-Here's a `fakeAsync()` test that demonstrates the data flow you'd expect in the real world.
+Here is a `fakeAsync()` test that demonstrates the data flow you would expect in the real world.
 
 <code-example path="testing/src/app/twain/twain.component.spec.ts" region="fake-async-test"></code-example>
 
@@ -485,12 +485,12 @@ Then you can assert that the quote element displays the expected text.
 To use `waitForAsync()` functionality, you must import `zone.js/testing` in your test setup file.
 If you created your project with the Angular CLI, `zone-testing` is already imported in `src/test.ts`.
 
-Here's the previous `fakeAsync()` test, re-written with the `waitForAsync()` utility.
+Here is the previous `fakeAsync()` test, re-written with the `waitForAsync()` utility.
 
 <code-example path="testing/src/app/twain/twain.component.spec.ts" region="waitForAsync-test"></code-example>
 
 The `waitForAsync()` utility hides some asynchronous boilerplate by arranging for the tester's code to run in a special *async test zone*.
-You don't need to pass Jasmine's `done()` into the test and call `done()` because it is `undefined` in promise or observable callbacks.
+You do not need to pass Jasmine's `done()` into the test and call `done()` because it is `undefined` in promise or observable callbacks.
 
 But the test's asynchronous nature is revealed by the call to `fixture.whenStable()`, which breaks the linear flow of control.
 
@@ -514,7 +514,7 @@ The test resumes within the promise callback, which calls `detectChanges()` to u
 
 While the `waitForAsync()` and `fakeAsync()` functions greatly simplify Angular asynchronous testing, you can still fall back to the traditional technique and pass `it` a function that takes a [`done` callback](https://jasmine.github.io/2.0/introduction.html#section-Asynchronous_Support).
 
-You can't call `done()` in `waitForAsync()` or `fakeAsync()` functions, because the `done parameter` is `undefined`.
+You cannot call `done()` in `waitForAsync()` or `fakeAsync()` functions, because the `done parameter` is `undefined`.
 
 Now you are responsible for chaining promises, handling errors, and calling `done()` at the appropriate moments.
 
@@ -528,7 +528,7 @@ The first one subscribes to the `Observable` exposed to the template by the comp
 The RxJS `last()` operator emits the observable's last value before completing, which will be the test quote.
 The `subscribe` callback calls `detectChanges()` to update the quote element with the test quote, in the same manner as the earlier tests.
 
-In some tests, you're more interested in how an injected service method was called and what values it returned, than what appears on screen.
+In some tests, you are more interested in how an injected service method was called and what values it returned, than what appears on screen.
 
 A service spy, such as the `qetQuote()` spy of the fake `TwainService`, can give you that information and make assertions about the state of the view.
 
@@ -541,12 +541,12 @@ A service spy, such as the `qetQuote()` spy of the fake `TwainService`, can give
 The previous `TwainComponent` tests simulated an asynchronous observable response from the `TwainService` with the `asyncData` and `asyncError` utilities.
 
 These are short, simple functions that you can write yourself.
-Unfortunately, they're too simple for many common scenarios.
+Unfortunately, they are too simple for many common scenarios.
 An observable often emits multiple times, perhaps after a significant delay.
 A component might coordinate multiple observables with overlapping sequences of values and errors.
 
 **RxJS marble testing** is a great way to test observable scenarios, both simple and complex.
-You've likely seen the [marble diagrams](https://rxmarbles.com) that illustrate how observables work.
+You have likely seen the [marble diagrams](https://rxmarbles.com) that illustrate how observables work.
 Marble testing uses a similar marble language to specify the observable streams and expectations in your tests.
 
 The following examples revisit two of the `TwainComponent` tests with marble testing.
@@ -556,12 +556,12 @@ Then import the symbols you need.
 
 <code-example header="app/twain/twain.component.marbles.spec.ts (import marbles)" path="testing/src/app/twain/twain.component.marbles.spec.ts" region="import-marbles"></code-example>
 
-Here's the complete test for getting a quote:
+Here is the complete test for getting a quote:
 
 <code-example path="testing/src/app/twain/twain.component.marbles.spec.ts" region="get-quote-test"></code-example>
 
 Notice that the Jasmine test is synchronous.
-There's no `fakeAsync()`.
+There is no `fakeAsync()`.
 Marble testing uses a test scheduler to simulate the passage of time in a synchronous test.
 
 The beauty of marble testing is in the visual definition of the observable streams.
@@ -572,7 +572,7 @@ In the second argument you map the value marker \(`x`\) to the emitted value \(`
 
 The marble library constructs the corresponding observable, which the test sets as the `getQuote` spy's return value.
 
-When you're ready to activate the marble observables, you tell the `TestScheduler` to *flush* its queue of prepared tasks like this.
+When you are ready to activate the marble observables, you tell the `TestScheduler` to *flush* its queue of prepared tasks like this.
 
 <code-example path="testing/src/app/twain/twain.component.marbles.spec.ts" region="test-scheduler-flush"></code-example>
 
@@ -581,11 +581,11 @@ The balance of the test is the same as those examples.
 
 #### Marble error testing
 
-Here's the marble testing version of the `getQuote()` error test.
+Here is the marble testing version of the `getQuote()` error test.
 
 <code-example path="testing/src/app/twain/twain.component.marbles.spec.ts" region="error-test"></code-example>
 
-It's still an async test, calling `fakeAsync()` and [tick()](api/core/testing/tick), because the component itself calls `setTimeout()` when processing errors.
+It is still an async test, calling `fakeAsync()` and [tick()](api/core/testing/tick), because the component itself calls `setTimeout()` when processing errors.
 
 Look at the marble observable definition.
 
@@ -603,7 +603,7 @@ Each symbol \(`-`, `x`, `|`, `#`\) marks the passing of one frame.
 
 <a id="cold-observable"></a>
 
-A *cold* observable doesn't produce values until you subscribe to it.
+A *cold* observable does not produce values until you subscribe to it.
 Most of your application observables are cold.
 All [*HttpClient*](guide/http) methods return cold observables.
 
@@ -633,13 +633,13 @@ The `DashboardHeroComponent` is embedded in the `DashboardComponent` template li
 
 The `DashboardHeroComponent` appears in an `*ngFor` repeater, which sets each component's `hero` input property to the looping value and listens for the component's `selected` event.
 
-Here's the component's full definition:
+Here is the component's full definition:
 
 <a id="dashboard-hero-component"></a>
 
 <code-example header="app/dashboard/dashboard-hero.component.ts (component)" path="testing/src/app/dashboard/dashboard-hero.component.ts" region="component"></code-example>
 
-While testing a component this simple has little intrinsic value, it's worth knowing how.
+While testing a component this simple has little intrinsic value, it is worth knowing how.
 Use one of these approaches:
 
 *   Test it as used by `DashboardComponent`
@@ -651,7 +651,7 @@ A quick look at the `DashboardComponent` constructor discourages the first appro
 <code-example header="app/dashboard/dashboard.component.ts (constructor)" path="testing/src/app/dashboard/dashboard.component.ts" region="ctor"></code-example>
 
 The `DashboardComponent` depends on the Angular router and the `HeroService`.
-You'd probably have to replace them both with test doubles, which is a lot of work.
+You would probably have to replace them both with test doubles, which is a lot of work.
 The router seems particularly challenging.
 
 <div class="alert is-helpful">
@@ -666,7 +666,7 @@ The immediate goal is to test the `DashboardHeroComponent`, not the `DashboardCo
 
 #### Test `DashboardHeroComponent` stand-alone
 
-Here's the meat of the spec file setup.
+Here is the meat of the spec file setup.
 
 <code-example header="app/dashboard/dashboard-hero.component.spec.ts (setup)" path="testing/src/app/dashboard/dashboard-hero.component.spec.ts" region="setup"></code-example>
 
@@ -714,7 +714,7 @@ The test triggered a "click" event.
 
 <code-example path="testing/src/app/dashboard/dashboard-hero.component.spec.ts" region="trigger-event-handler"></code-example>
 
-In this case, the test correctly assumes that the runtime event handler, the component's `click()` method, doesn't care about the event object.
+In this case, the test correctly assumes that the runtime event handler, the component's `click()` method, does not care about the event object.
 
 <div class="alert is-helpful">
 
@@ -747,13 +747,13 @@ The default is a partial [left-button mouse event object](https://developer.mozi
 <div class="alert is-important">
 
 The `click()` helper function is **not** one of the Angular testing utilities.
-It's a function defined in *this guide's sample code*.
+It is a function defined in *this guide's sample code*.
 All of the sample tests use it.
 If you like it, add it to your own collection of helpers.
 
 </div>
 
-Here's the previous test, rewritten using the click helper.
+Here is the previous test, rewritten using the click helper.
 
 <code-example header="app/dashboard/dashboard-hero.component.spec.ts (test with click helper)" path="testing/src/app/dashboard/dashboard-hero.component.spec.ts" region="click-test-3"></code-example>
 
@@ -816,7 +816,7 @@ Mocking the `HeroService` with a spy is a [familiar story](#component-with-async
 But the `Router` has a complicated API and is entwined with other services and application preconditions.
 Might it be difficult to mock?
 
-Fortunately, not in this case because the `DashboardComponent` isn't doing much with the `Router`
+Fortunately, not in this case because the `DashboardComponent` is not doing much with the `Router`
 
 <code-example header="app/dashboard/dashboard.component.ts (goToDetail)" path="testing/src/app/dashboard/dashboard.component.ts" region="goto-detail" ></code-example>
 
@@ -845,14 +845,14 @@ The `:id` is a route parameter whose value is the `id` of the hero to edit.
 The `Router` matches that URL to a route to the `HeroDetailComponent`.
 It creates an `ActivatedRoute` object with the routing information and injects it into a new instance of the `HeroDetailComponent`.
 
-Here's the `HeroDetailComponent` constructor:
+Here is the `HeroDetailComponent` constructor:
 
 <code-example header="app/hero/hero-detail.component.ts (constructor)" path="testing/src/app/hero/hero-detail.component.ts" region="ctor"></code-example>
 
 The `HeroDetail` component needs the `id` parameter so it can fetch the corresponding hero using the `HeroDetailService`.
 The component has to get the `id` from the `ActivatedRoute.paramMap` property which is an `Observable`.
 
-It can't just reference the `id` property of the `ActivatedRoute.paramMap`.
+It cannot just reference the `id` property of the `ActivatedRoute.paramMap`.
 The component has to *subscribe* to the `ActivatedRoute.paramMap` observable and be prepared for the `id` to change during its lifetime.
 
 <code-example header="app/hero/hero-detail.component.ts (ngOnInit)" path="testing/src/app/hero/hero-detail.component.ts" region="ng-on-init"></code-example>
@@ -867,7 +867,7 @@ Tests can explore how the `HeroDetailComponent` responds to different `id` param
 
 You know how to spy on the `Router` and a data service.
 
-You'll take a different approach with `ActivatedRoute` because
+You will take a different approach with `ActivatedRoute` because
 
 *   `paramMap` returns an `Observable` that can emit more than one value during a test
 *   You need the router helper function, `convertToParamMap()`, to create a `ParamMap`
@@ -894,7 +894,7 @@ Consider writing a more capable version of this stub class with the [*marble tes
 
 #### Testing with `ActivatedRouteStub`
 
-Here's a test demonstrating the component's behavior when the observed `id` refers to an existing hero:
+Here is a test demonstrating the component's behavior when the observed `id` refers to an existing hero:
 
 <code-example header="app/hero/hero-detail.component.spec.ts (existing id)" path="testing/src/app/hero/hero-detail.component.spec.ts" region="route-good-id"></code-example>
 
@@ -913,7 +913,7 @@ This test expects the component to try to navigate to the `HeroListComponent`.
 
 <code-example header="app/hero/hero-detail.component.spec.ts (bad id)" path="testing/src/app/hero/hero-detail.component.spec.ts" region="route-bad-id"></code-example>
 
-While this application doesn't have a route to the `HeroDetailComponent` that omits the `id` parameter, it might add such a route someday.
+While this application does not have a route to the `HeroDetailComponent` that omits the `id` parameter, it might add such a route someday.
 The component should do something reasonable when there is no `id`.
 
 In this implementation, the component should create and display a new hero.
@@ -934,17 +934,17 @@ The `AppComponent`, for example, displays a navigation bar with anchors and thei
 
 While the `AppComponent` *class* is empty, you might want to write unit tests to confirm that the links are wired properly to the `RouterLink` directives, perhaps for the reasons as explained in the [following section](#why-stubbed-routerlink-tests).
 
-To validate the links, you don't need the `Router` to navigate and you don't need the `<router-outlet>` to mark where the `Router` inserts *routed components*.
+To validate the links, you do not need the `Router` to navigate and you do not need the `<router-outlet>` to mark where the `Router` inserts *routed components*.
 
 The `BannerComponent` and `WelcomeComponent` \(indicated by `<app-banner>` and `<app-welcome>`\) are also irrelevant.
 
-Yet any test that creates the `AppComponent` in the DOM also creates instances of these three components and, if you let that happen, you'll have to configure the `TestBed` to create them.
+Yet any test that creates the `AppComponent` in the DOM also creates instances of these three components and, if you let that happen, you will have to configure the `TestBed` to create them.
 
-If you neglect to declare them, the Angular compiler won't recognize the `<app-banner>`, `<app-welcome>`, and `<router-outlet>` tags in the `AppComponent` template and will throw an error.
+If you neglect to declare them, the Angular compiler will not recognize the `<app-banner>`, `<app-welcome>`, and `<router-outlet>` tags in the `AppComponent` template and will throw an error.
 
-If you declare the real components, you'll also have to declare *their* nested components and provide for *all* services injected in *any* component in the tree.
+If you declare the real components, you will also have to declare *their* nested components and provide for *all* services injected in *any* component in the tree.
 
-That's too much effort just to answer a few simple questions about links.
+That is too much effort just to answer a few simple questions about links.
 
 This section describes two techniques for minimizing the setup.
 Use them, alone or in combination, to stay focused on testing the primary component.
@@ -982,7 +982,7 @@ The `NO_ERRORS_SCHEMA` tells the Angular compiler to ignore unrecognized element
 
 The compiler recognizes the `<app-root>` element and the `routerLink` attribute because you declared a corresponding `AppComponent` and `RouterLinkDirectiveStub` in the `TestBed` configuration.
 
-But the compiler won't throw an error when it encounters `<app-banner>`, `<app-welcome>`, or `<router-outlet>`.
+But the compiler will not throw an error when it encounters `<app-banner>`, `<app-welcome>`, or `<router-outlet>`.
 It simply renders them as empty tags and the browser ignores them.
 
 You no longer need the stub components.
@@ -991,7 +991,7 @@ You no longer need the stub components.
 
 These are techniques for *Shallow Component Testing*, so-named because they reduce the visual surface of the component to just those elements in the component's template that matter for tests.
 
-The `NO_ERRORS_SCHEMA` approach is the easier of the two but don't overuse it.
+The `NO_ERRORS_SCHEMA` approach is the easier of the two but do not overuse it.
 
 The `NO_ERRORS_SCHEMA` also prevents the compiler from telling you about the missing components and attributes that you omitted inadvertently or misspelled.
 You could waste hours chasing phantom bugs that the compiler would have caught in an instant.
@@ -1077,7 +1077,7 @@ Stubbing the RouterLink and RouterOutlet is the best option for such limited tes
 Relying on the real router would make them brittle.
 They could fail for reasons unrelated to the component.
 For example, a navigation guard could prevent an unauthorized user from visiting the `HeroListComponent`.
-That's not the fault of the `AppComponent` and no change to that component could cure the failed test.
+That is not the fault of the `AppComponent` and no change to that component could cure the failed test.
 
 A *different* battery of tests can explore whether the application navigates as expected in the presence of conditions that influence guards such as whether the user is authenticated and authorized.
 
@@ -1099,7 +1099,7 @@ The `HeroDetailComponent` is a simple view with a title, two hero fields, and tw
 
 </div>
 
-But there's plenty of template complexity even in this simple form.
+But there is plenty of template complexity even in this simple form.
 
 <code-example
   path="testing/src/app/hero/hero-detail.component.html" header="app/hero/hero-detail.component.html"></code-example>
@@ -1164,7 +1164,7 @@ The test fails when the `TestBed` tries to create the component.
 Recall that the application hasn't been compiled.
 So when you call `createComponent()`, the `TestBed` compiles implicitly.
 
-That's not a problem when the source code is in memory.
+That is not a problem when the source code is in memory.
 But the `BannerComponent` requires external files that the compiler must read from the file system, an inherently *asynchronous* operation.
 
 If the `TestBed` were allowed to continue, the tests would run and fail mysteriously before the compiler could finished.
@@ -1177,7 +1177,7 @@ You must call `compileComponents()` within an asynchronous test function.
 
 <div class="alert is-critical">
 
-If you neglect to make the test function async (for example, forget to use `waitForAsync()` as described), you'll see this error message
+If you neglect to make the test function async (for example, forget to use `waitForAsync()` as described), you will see this error message
 
 <code-example format="output" hideCopy language="shell">
 
@@ -1238,7 +1238,7 @@ The `compileComponents()` method returns a promise so you can perform the synchr
 
 #### `compileComponents()` is harmless
 
-There's no harm in calling `compileComponents()` when it's not required.
+There is no harm in calling `compileComponents()` when it is not required.
 
 The component test file generated by the CLI calls `compileComponents()` even though it is never required when running `ng test`.
 
@@ -1286,7 +1286,7 @@ The test configuration can use the `SharedModule` too as seen in this alternativ
 
 <code-example header="app/hero/hero-detail.component.spec.ts (SharedModule setup)" path="testing/src/app/hero/hero-detail.component.spec.ts" region="setup-shared-module"></code-example>
 
-It's a bit tighter and smaller, with fewer import statements, which are not shown in this example.
+It is a bit tighter and smaller, with fewer import statements, which are not shown in this example.
 
 <a id="feature-module-import"></a>
 
@@ -1297,7 +1297,7 @@ Try a test configuration that imports the `HeroModule` like this one:
 
 <code-example header="app/hero/hero-detail.component.spec.ts (HeroModule setup)" path="testing/src/app/hero/hero-detail.component.spec.ts" region="setup-hero-module"></code-example>
 
-That's *really* crisp.
+That is *really* crisp.
 Only the *test doubles* in the `providers` remain.
 Even the `HeroDetailComponent` declaration is gone.
 
@@ -1317,7 +1317,7 @@ The `HeroDetailComponent` provides its own `HeroDetailService`.
 
 <code-example header="app/hero/hero-detail.component.ts (prototype)" path="testing/src/app/hero/hero-detail.component.ts" region="prototype"></code-example>
 
-It's not possible to stub the component's `HeroDetailService` in the `providers` of the `TestBed.configureTestingModule`.
+It is not possible to stub the component's `HeroDetailService` in the `providers` of the `TestBed.configureTestingModule`.
 Those are providers for the *testing module*, not the component.
 They prepare the dependency injector at the *fixture level*.
 
@@ -1325,7 +1325,7 @@ Angular creates the component with its *own* injector, which is a *child* of the
 It registers the component's providers \(the `HeroDetailService` in this case\) with the child injector.
 
 A test cannot get to child injector services from the fixture injector.
-And `TestBed.configureTestingModule` can't configure them either.
+And `TestBed.configureTestingModule` cannot configure them either.
 
 Angular has created new instances of the real `HeroDetailService` all along!
 
@@ -1342,7 +1342,7 @@ The [previous test configuration](#feature-module-import) replaces the real `Her
 
 </div>
 
-What if you aren't so lucky.
+What if you are not so lucky.
 What if faking the `HeroService` is hard?
 What if `HeroDetailService` makes its own server requests?
 
@@ -1350,7 +1350,7 @@ The `TestBed.overrideComponent` method can replace the component's `providers` w
 
 <code-example header="app/hero/hero-detail.component.spec.ts (Override setup)" path="testing/src/app/hero/hero-detail.component.spec.ts" region="setup-override"></code-example>
 
-Notice that `TestBed.configureTestingModule` no longer provides a fake `HeroService` because it's [not needed](#spy-stub).
+Notice that `TestBed.configureTestingModule` no longer provides a fake `HeroService` because it is [not needed](#spy-stub).
 
 <a id="override-component-method"></a>
 
@@ -1376,7 +1376,7 @@ type MetadataOverride&lt;T&gt; = {
 A metadata override object can either add-and-remove elements in metadata properties or completely reset those properties.
 This example resets the component's `providers` metadata.
 
-The type parameter, `T`, is the kind of metadata you'd pass to the `@Component` decorator:
+The type parameter, `T`, is the kind of metadata you would pass to the `@Component` decorator:
 
 <code-example language="javascript">
 
@@ -1395,7 +1395,7 @@ providers?: any[];
 This example completely replaces the component's `providers` array with a new array containing a `HeroDetailServiceSpy`.
 
 The `HeroDetailServiceSpy` is a stubbed version of the real `HeroDetailService` that fakes all necessary features of that service.
-It neither injects nor delegates to the lower level `HeroService` so there's no need to provide a test double for that.
+It neither injects nor delegates to the lower level `HeroService` so there is no need to provide a test double for that.
 
 The related `HeroDetailComponent` tests will assert that methods of the `HeroDetailService` were called by spying on the service methods.
 Accordingly, the stub implements its methods as spies:

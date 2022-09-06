@@ -47,7 +47,7 @@ Properties are features of DOM nodes.
 
     </code-example>
 
-*   Some HTML attributes don't have corresponding properties; for example,
+*   Some HTML attributes do not have corresponding properties; for example,
 
     <code-example format="html" hideCopy language="html">
 
@@ -55,7 +55,7 @@ Properties are features of DOM nodes.
 
     </code-example>
 
-*   Some DOM properties don't have corresponding attributes; for example,
+*   Some DOM properties do not have corresponding attributes; for example,
 
     <code-example format="html" hideCopy language="html">
 
@@ -71,7 +71,7 @@ Remember that HTML attributes and DOM properties are different things, even when
 
 In Angular, the only role of HTML attributes is to initialize element and directive state.
 
-When you write a data binding, you're dealing exclusively with the DOM properties and events of the target object.
+When you write a data binding, you are dealing exclusively with the DOM properties and events of the target object.
 
 #### Example 1: an `<input>`
 

@@ -9,20 +9,20 @@ Angular distinguishes components from services to increase modularity and reusab
 Ideally, a component's job is to enable only the user experience.
 A component should present properties and methods for data binding to mediate between the view and the application logic. The view is what the template renders and the application logic is what includes the notion of a *model*.
 
-A component should use services for tasks that don't involve the view or application logic. Services are good for tasks such as fetching data from the server, validating user input, or logging directly to the console. By defining such processing tasks in an *injectable service class*, you make those tasks available to any component.
+A component should use services for tasks that do not involve the view or application logic. Services are good for tasks such as fetching data from the server, validating user input, or logging directly to the console. By defining such processing tasks in an *injectable service class*, you make those tasks available to any component.
 You can also make your application more adaptable by injecting different providers of the same kind of service, as appropriate in different circumstances.
 
-Angular doesn't *enforce* these principles.
+Angular does not *enforce* these principles.
 Instead, Angular helps you *follow* these principles by making it easy to factor your application logic into services. In Angular, *dependency injection* makes those services available to components.
 
 ## Service examples
 
-Here's an example of a service class that logs to the browser console.
+Here is an example of a service class that logs to the browser console.
 
 <code-example header="src/app/logger.service.ts (class)" path="architecture/src/app/logger.service.ts" region="class"></code-example>
 
 Services can depend on other services.
-For example, here's a `HeroService` that depends on the `Logger` service, and also uses `BackendService` to get heroes.
+For example, here is a `HeroService` that depends on the `Logger` service, and also uses `BackendService` to get heroes.
 That service in turn might depend on the `HttpClient` service to fetch heroes asynchronously from a server.
 
 <code-example header="src/app/hero.service.ts (class)" path="architecture/src/app/hero.service.ts" region="class"></code-example>
@@ -43,7 +43,7 @@ Likewise, the `@Injectable()` decorator indicates that a component, class, pipe,
 
 *   The *injector* is the main mechanism.
     Angular creates an application-wide injector for you during the bootstrap process, and additional injectors as needed.
-    You don't have to create injectors.
+    You do not have to create injectors.
 
 *   An injector creates dependencies and maintains a *container* of dependency instances that it reuses, if possible.
 *   A *provider* is an object that tells an injector how to obtain or create a dependency
@@ -53,7 +53,7 @@ For a service, the provider is typically the service class itself.
 
 <div class="alert is-helpful">
 
-A dependency doesn't have to be a service &mdash;it could be a function, for example, or a value.
+A dependency does not have to be a service &mdash;it could be a function, for example, or a value.
 
 </div>
 
@@ -63,7 +63,7 @@ For example, the constructor of `HeroListComponent` needs `HeroService`.
 <code-example header="src/app/hero-list.component.ts (constructor)" path="architecture/src/app/hero-list.component.ts" region="ctor"></code-example>
 
 When Angular discovers that a component depends on a service, it first checks if the injector has any existing instances of that service.
-If a requested service instance doesn't yet exist, the injector makes one using the registered provider and adds it to the injector before returning the service to Angular.
+If a requested service instance does not yet exist, the injector makes one using the registered provider and adds it to the injector before returning the service to Angular.
 
 When all requested services have been resolved and returned, Angular can call the component's constructor with those services as arguments.
 
@@ -95,7 +95,7 @@ You register providers in the metadata of the service \(in the `@Injectable()` d
    When you provide the service at the root level, Angular creates a single, shared instance of `HeroService`
    and injects it into any class that asks for it.
    Registering the provider in the `@Injectable()` metadata also allows Angular to optimize an app
-   by removing the service from the compiled application if it isn't used, a process known as *tree-shaking*.
+   by removing the service from the compiled application if it is not used, a process known as *tree-shaking*.
 
 *   When you register a provider with a [specific NgModule](guide/architecture-modules), the same instance of a service is available to all components in that NgModule.
     To register at this level, use the `providers` property of the `@NgModule()` decorator.

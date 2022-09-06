@@ -22,7 +22,7 @@ A documentation linter message contains these elements. Starting from the top li
   * <img alt="documentation style error icon" src="generated/images/guide/docs-lint-errors/lint-error-icon.png"> **Error** (A red `x` in a circle)  Errors must be corrected before the file can be merged.
   * <img alt="documentation style warning icon" src="generated/images/guide/docs-lint-errors/lint-warn-icon.png"> **Warning** (A yellow exclamation mark in a triangle) Warnings should be corrected before the file is merged.
   * <img alt="documentation style info icon" src="generated/images/guide/docs-lint-errors/lint-info-icon.png"> **Info** (A blue lower-case `i` in a circle) Informational messages should be corrected before the file is merged.
-* The style rule message. The style rule message in this example is: *Did you really mean 'sdfdsfsdfdfssd'? It wasn't found in our dictionary.*
+* The style rule message. The style rule message in this example is: *Did you really mean 'sdfdsfsdfdfssd'? It was not found in our dictionary.*
 * The style reference. Some references are linked to a style guide topic that explains the rule. The style reference in this example is: *Vale(Angular.Angular_Spelling)*.
 * The location of the problem text in the document identified by source line and column as precisely as possible. Some messages might not have the exact location of the text that triggered the message. The location in this example is: *[Ln 8, Col 1]*.
 * The style test definition file that produced the message, which is linked to the file. The style test definition in this example is: *Angular_Spelling.yml[Ln 1, Col 1]: View rule*.
@@ -92,7 +92,7 @@ The following types of messages often occur in areas of the text that should be 
 
 ### A word is *too-wordy* or should be replaced by another
 
-Generally, technical documentation should use a simple and consistent vocabulary to be understood by a wide audience. Words that trigger this message are usually words for which there's a simpler way to convey the same thought.
+Generally, technical documentation should use a simple and consistent vocabulary to be understood by a wide audience. Words that trigger this message are usually words for which there is a simpler way to convey the same thought.
 
 <!-- vale Angular.Google_Spacing = NO -->
 <!-- vale Angular.Google_Headings = NO -->
@@ -168,14 +168,14 @@ Rewrite the text to replace the jargon or offensive language with more inclusive
 
 ### *Starting a sentence* messages
 
-Some words, such as *so* and *there is/are*, aren't necessary at the beginning of a sentence.
+Some words, such as *so* and *there is/are*, are not necessary at the beginning of a sentence.
 Sentences that start with the words identified by this message can usually be made shorter, simpler, and clearer by rewriting them without those openings.
 
 ### Cliches
 
 Cliches should be replaced by more literal text.
 
-Cliches make it difficult for people who don't understand English to understand the documentation. When cliches are translated by online tools such as Google translate, they can produce confusing results.
+Cliches make it difficult for people who do not understand English to understand the documentation. When cliches are translated by online tools such as Google translate, they can produce confusing results.
 
 ## If all else fails
 
@@ -217,7 +217,7 @@ When necessary, you can apply these exceptions to your content.
 
     ```html
     <!-- vale Style.Rule = NO -->
-    <!-- vale Style.Rule = YES --> 
+    <!-- vale Style.Rule = YES -->
     ```
 
     Replace `Style.Rule` in the comments with the style rule reference from the problem message displayed in the IDE.

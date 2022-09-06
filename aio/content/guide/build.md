@@ -485,7 +485,7 @@ In the CLI configuration file, `angular.json`, point to the JavaScript proxy con
 
 ### Bypass the proxy
 
-If you need to optionally bypass the proxy, or dynamically change the request before it's sent, add the bypass option, as shown in this JavaScript example.
+If you need to optionally bypass the proxy, or dynamically change the request before it is sent, add the bypass option, as shown in this JavaScript example.
 
 <code-example format="javascript" language="javascript">
 

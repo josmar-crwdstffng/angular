@@ -69,7 +69,7 @@ This section walks you through using the `CartService` to add a product to the c
 
     *   Takes the current `product` as an argument
     *   Uses the `CartService` `addToCart()` method to add the product to the cart
-    *   Displays a message that you've added a product to the cart
+    *   Displays a message that you have added a product to the cart
 
 1.  In `product-details.component.html`, add a button with the label **Buy**, and bind the `click()` event to the `addToCart()` method.
     This code updates the product details template with a **Buy** button that adds the current product to the cart.
@@ -135,9 +135,9 @@ For customers to see their cart, you can create the cart view in two steps:
     You can see the "cart works!" default text, and the URL has the pattern `https://getting-started.stackblitz.io/cart`, where `getting-started.stackblitz.io` may be different for your StackBlitz project.
 
     <div class="lightbox">
-    
+
     <img alt="Display cart view before customizing" src="generated/images/guide/start/cart-works.png">
-    
+
     </div>
 
 ### Display the cart items
@@ -232,7 +232,7 @@ For more information about Angular's `HttpClient`, see the [Client-Server Intera
 
 ## Create a shipping component
 
-Now that you've configured your application to retrieve shipping data, you can create a place to render that data.
+Now that you have configured your application to retrieve shipping data, you can create a place to render that data.
 
 1.  Generate a cart component named `shipping` in the terminal by running the following command:
 
@@ -251,7 +251,7 @@ Now that you've configured your application to retrieve shipping data, you can c
 
     <code-example header="src/app/app.module.ts" path="getting-started/src/app/app.module.ts" region="shipping-route"></code-example>
 
-    There's no link to the new shipping component yet, but you can see its template in the preview pane by entering the URL its route specifies.
+    There is no link to the new shipping component yet, but you can see its template in the preview pane by entering the URL its route specifies.
     The URL has the pattern: `https://angular-ynqttp--4200.local.webcontainer.io/shipping` where the `angular-ynqttp--4200.local.webcontainer.io` part may be different for your StackBlitz project.
 
 ### Configuring the `ShippingComponent` to use `CartService`
@@ -300,7 +300,7 @@ This section guides you through modifying the `ShippingComponent` to retrieve sh
 
     </div>
 
-## What's next
+## What is next
 
 You now have a store application with a product catalog, a shopping cart, and you can look up shipping prices.
 

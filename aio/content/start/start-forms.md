@@ -17,7 +17,7 @@ The form model determines the status of the form.
   <code-example header="src/app/cart/cart.component.ts" path="getting-started/src/app/cart/cart.component.ts" region="imports"></code-example>
 
 1. Inject the `FormBuilder` service in the `CartComponent` `constructor()`.
-  This service is part of the `ReactiveFormsModule` module, which you've already imported.
+  This service is part of the `ReactiveFormsModule` module, which you have already imported.
 
   <code-example header="src/app/cart/cart.component.ts" path="getting-started/src/app/cart/cart.component.ts" region="inject-form-builder"></code-example>
 
@@ -60,7 +60,7 @@ After putting a few items in the cart, users can review their items, enter their
 
 To confirm submission, open the console to see an object containing the name and address you submitted.
 
-## What's next
+## What is next
 
 You have a complete online store application with a product catalog, a shopping cart, and a checkout function.
 

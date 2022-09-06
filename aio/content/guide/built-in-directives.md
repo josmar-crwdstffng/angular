@@ -38,7 +38,7 @@ The most common attribute directives are as follows:
 <div class="alert is-helpful">
 
 Built-in directives use only public APIs.
-They do not have special access to any private APIs that other directives can't access.
+They do not have special access to any private APIs that other directives cannot access.
 
 </div>
 
@@ -56,7 +56,7 @@ To add or remove a *single* class, use [class binding](guide/class-binding) rath
 
 ### Using `NgClass` with an expression
 
-On the element you'd like to style, add `[ngClass]` and set it equal to an expression.
+On the element you would like to style, add `[ngClass]` and set it equal to an expression.
 In this case, `isSpecial` is a boolean set to `true` in `app.component.ts`.
 Because `isSpecial` is true, `ngClass` applies the class of `special` to the `<div>`.
 
@@ -144,7 +144,7 @@ For more information, see the API documentation on [DefaultValueAccessor](api/fo
 
 <div class="alert is-helpful">
 
-When you write an Angular component, you don't need a value accessor or `NgModel` if you  name the value and event properties according to Angular's [two-way binding syntax](guide/two-way-binding#how-two-way-binding-works).
+When you write an Angular component, you do not need a value accessor or `NgModel` if you  name the value and event properties according to Angular's [two-way binding syntax](guide/two-way-binding#how-two-way-binding-works).
 
 </div>
 
@@ -267,7 +267,7 @@ With the `*ngFor` `trackBy` property, Angular can change and re-render only thos
 
 1.  Add a method to the component that returns the value `NgFor` should track.
     In this example, the value to track is the item's `id`.
-    If the browser has already rendered `id`, Angular keeps track of it and doesn't re-query the server for the same `id`.
+    If the browser has already rendered `id`, Angular keeps track of it and does not re-query the server for the same `id`.
 
     <code-example header="src/app/app.component.ts" path="built-in-directives/src/app/app.component.ts" region="trackByItems"></code-example>
 
@@ -291,11 +291,11 @@ In the following illustration of the `trackBy` effect, **Reset items** creates n
 
 ## Hosting a directive without a DOM element
 
-The Angular `<ng-container>` is a grouping element that doesn't interfere with styles or layout because Angular doesn't put it in the DOM.
+The Angular `<ng-container>` is a grouping element that does not interfere with styles or layout because Angular does not put it in the DOM.
 
-Use `<ng-container>` when there's no single element to host the directive.
+Use `<ng-container>` when there is no single element to host the directive.
 
-Here's a conditional paragraph using `<ng-container>`.
+Here is a conditional paragraph using `<ng-container>`.
 
 <code-example header="src/app/app.component.html (ngif-ngcontainer)" path="structural-directives/src/app/app.component.html" region="ngif-ngcontainer"></code-example>
 
@@ -333,7 +333,7 @@ Angular puts only the selected element into the DOM.
 | `NgSwitch` directives | Details |
 |:---                   |:---     |
 | `NgSwitch`            | An attribute directive that changes the behavior of its companion directives.                                                                                          |
-| `NgSwitchCase`        | Structural directive that adds its element to the DOM when its bound value equals the switch value and removes its bound value when it doesn't equal the switch value. |
+| `NgSwitchCase`        | Structural directive that adds its element to the DOM when its bound value equals the switch value and removes its bound value when it does not equal the switch value. |
 | `NgSwitchDefault`     | Structural directive that adds its element to the DOM when there is no selected `NgSwitchCase`.                                                                        |
 
 1.  On an element, such as a `<div>`, add `[ngSwitch]` bound to an expression that returns the switch value, such as `feature`.
@@ -364,7 +364,7 @@ For example, you could replace the `<app-best-item>` switch case with a `<div>` 
 
 <code-example header="src/app/app.component.html" path="built-in-directives/src/app/app.component.html" region="NgSwitch-div"></code-example>
 
-## What's next
+## What is next
 
 For information on how to build your own custom directives, see [Attribute Directives](guide/attribute-directives) and [Structural Directives](guide/structural-directives).
 

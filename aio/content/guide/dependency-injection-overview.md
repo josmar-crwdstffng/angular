@@ -1,8 +1,8 @@
 # Dependency injection in Angular
 
-When you develop a smaller part of your system, like a module or a class, you may need to use features from other classes. For example, you may need an HTTP service to make backend calls. Dependency Injection, or DI, is a design pattern and mechanism for creating and delivering some parts of an application to other parts of an application that require them. Angular supports this design pattern and you can use it in your applications to increase flexibility and modularity. 
+When you develop a smaller part of your system, like a module or a class, you may need to use features from other classes. For example, you may need an HTTP service to make backend calls. Dependency Injection, or DI, is a design pattern and mechanism for creating and delivering some parts of an application to other parts of an application that require them. Angular supports this design pattern and you can use it in your applications to increase flexibility and modularity.
 
-In Angular, dependencies are typically services, but they also can be values, such as strings or functions. An injector for an application (created automatically during bootstrap) instantiates dependencies when needed, using a configured provider of the service or value. 
+In Angular, dependencies are typically services, but they also can be values, such as strings or functions. An injector for an application (created automatically during bootstrap) instantiates dependencies when needed, using a configured provider of the service or value.
 
 <div class="alert is-helpful">
 
@@ -12,7 +12,7 @@ See the <live-example></live-example> for a working example containing the code 
 
 ## Prerequisites
 
-You should be familiar with the Angular apps in general, and have the fundamental knowledge of Components, Directives, and NgModules. It's highly recommended that you complete the following tutorial:
+You should be familiar with the Angular apps in general, and have the fundamental knowledge of Components, Directives, and NgModules. It is highly recommended that you complete the following tutorial:
 
 [Tour of Heroes application and tutorial](tutorial)
 

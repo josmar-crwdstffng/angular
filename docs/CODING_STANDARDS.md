@@ -71,7 +71,7 @@ You can ignore this guidance when necessary for performance reasons in framework
 #### Optional arguments
 
 Use optional function arguments only when such an argument makes sense for an API or when required
-for performance. Don't use optional arguments merely for convenience in implementation.
+for performance. Do not use optional arguments merely for convenience in implementation.
 
 ### TypeScript
 
@@ -145,7 +145,7 @@ Boolean properties and return values should use "Whether..." as opposed to "True
 
 #### Try-Catch
 
-Only use `try-catch` blocks when dealing with legitimately unexpected errors. Don't use `try` to
+Only use `try-catch` blocks when dealing with legitimately unexpected errors. Do not use `try` to
 avoid checking for expected error conditions such as null dereference or out-of-bound array access.
 
 Each `try-catch` block **must** include a comment that explains the
@@ -171,7 +171,7 @@ Use `readonly` members wherever possible.
 
 ##### Observables
 
-Don't suffix observables with `$`.
+Do not suffix observables with `$`.
 
 ##### Classes
 

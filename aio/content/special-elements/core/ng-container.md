@@ -39,7 +39,7 @@ This can also be augmented with the an else statement alongside an `<ng-template
 
 Multiple structural directives cannot be used on the same element; if you need to take advantage of more than one structural directive, it is advised to use an `<ng-container>` per structural directive.
 
-The most common scenario is with `*ngIf` and `*ngFor`. For example, let's imagine that we have a list of items but each item needs to be displayed only if a certain condition is true. We could be tempted to try something like:
+The most common scenario is with `*ngIf` and `*ngFor`. For example, let us imagine that we have a list of items but each item needs to be displayed only if a certain condition is true. We could be tempted to try something like:
 
 <code-example format="html" language="html">
 
@@ -71,7 +71,7 @@ For more information see [one structural directive per element](guide/structural
 
 ### Use alongside ngTemplateOutlet
 
-The `NgTemplateOutlet` directive can be applied to any element but most of the time it's applied to `<ng-container>` ones. By combining the two, we get a very clear and easy to follow HTML and DOM structure in which no extra elements are necessary and template views are instantiated where requested.
+The `NgTemplateOutlet` directive can be applied to any element but most of the time it is applied to `<ng-container>` ones. By combining the two, we get a very clear and easy to follow HTML and DOM structure in which no extra elements are necessary and template views are instantiated where requested.
 
 For example, imagine a situation in which we have a large HTML, in which a small portion needs to be repeated in different places. A simple solution is to define an `<ng-template>` containing our repeating HTML and render that where necessary by using `<ng-container>` alongside an `NgTemplateOutlet`.
 

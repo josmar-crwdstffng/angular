@@ -55,24 +55,24 @@ Notice that even though the [@Optional](guide/dependency-injection-in-action#opt
 
 ### Unable to find a parent by its base class
 
-What if you *don't* know the concrete parent component class?
+What if you *do not* know the concrete parent component class?
 
 A re-usable component might be a child of multiple components.
 Imagine a component for rendering breaking news about a financial instrument.
 For business reasons, this news component makes frequent calls directly into its parent instrument as changing market data streams by.
 
 The app probably defines more than a dozen financial instrument components.
-If you're lucky, they all implement the same base class whose API your `NewsComponent` understands.
+If you are lucky, they all implement the same base class whose API your `NewsComponent` understands.
 
 <div class="alert is-helpful">
 
 Looking for components that implement an interface would be better.
-That's not possible because TypeScript interfaces disappear from the transpiled JavaScript, which doesn't support interfaces.
-There's no artifact to look for.
+That is not possible because TypeScript interfaces disappear from the transpiled JavaScript, which does not support interfaces.
+There is no artifact to look for.
 
 </div>
 
-This isn't necessarily good design.
+This is not necessarily good design.
 This example is examining *whether a component can inject its parent via the parent's base class*.
 
 The sample's `CraigComponent` explores this question.
@@ -84,7 +84,7 @@ The `CraigComponent` tries to inject `Base` into its `alex` constructor paramete
 
 <code-example header="parent-finder.component.ts (CraigComponent)" path="dependency-injection-in-action/src/app/parent-finder.component.ts" region="craig"></code-example>
 
-Unfortunately, this doesn't work.
+Unfortunately, this does not work.
 The <live-example name="dependency-injection-in-action"></live-example> confirms that the `alex` parameter is null.
 *You cannot inject a parent by its base class.*
 
@@ -96,7 +96,7 @@ You can find a parent component with a [class interface](guide/dependency-inject
 
 The parent must cooperate by providing an *alias* to itself in the name of a class interface token.
 
-Recall that Angular always adds a component instance to its own injector; that's why you could inject *Alex* into *Cathy* [earlier](#known-parent).
+Recall that Angular always adds a component instance to its own injector; that is why you could inject *Alex* into *Cathy* [earlier](#known-parent).
 
 Write an [*alias provider*](guide/dependency-injection-in-action#useexisting) &mdash;a `provide` object literal with a `useExisting` definition&mdash; that creates an *alternative* way to inject the same component instance and add that provider to the `providers` array of the `@Component()` metadata for the `AlexComponent`.
 
@@ -107,11 +107,11 @@ Write an [*alias provider*](guide/dependency-injection-in-action#useexisting) &m
 [Parent](#parent-token) is the provider's class interface token.
 The [*forwardRef*](guide/dependency-injection-in-action#forwardref) breaks the circular reference you just created by having the `AlexComponent` refer to itself.
 
-*Carol*, the third of *Alex*'s child components, injects the parent into its `parent` parameter, the same way you've done it before.
+*Carol*, the third of *Alex*'s child components, injects the parent into its `parent` parameter, the same way you have done it before.
 
 <code-example header="parent-finder.component.ts (CarolComponent class)" path="dependency-injection-in-action/src/app/parent-finder.component.ts" region="carol-class"></code-example>
 
-Here's *Alex* and family in action.
+Here is *Alex* and family in action.
 
 <div class="lightbox">
 
@@ -130,12 +130,12 @@ Both *Alice* and *Barry* implement the `Parent` class interface.
 He needs to reach his parent, *Alice*, and also be a parent to *Carol*.
 That means he must both *inject* the `Parent` class interface to get *Alice* and *provide* a `Parent` to satisfy *Carol*.
 
-Here's *Barry*.
+Here is *Barry*.
 
 <code-example header="parent-finder.component.ts (BarryComponent)" path="dependency-injection-in-action/src/app/parent-finder.component.ts" region="barry"></code-example>
 
 *Barry*'s `providers` array looks just like [*Alex*'s](#alex-providers).
-If you're going to keep writing [*alias providers*](guide/dependency-injection-in-action#useexisting) like this you should create a helper function.
+If you are going to keep writing [*alias providers*](guide/dependency-injection-in-action#useexisting) like this you should create a helper function.
 
 For now, focus on *Barry*'s constructor.
 
@@ -144,7 +144,7 @@ For now, focus on *Barry*'s constructor.
     <code-pane header="Carol's constructor" path="dependency-injection-in-action/src/app/parent-finder.component.ts" region="carol-ctor"></code-pane>
 </code-tabs>
 
-It's identical to *Carol*'s constructor except for the additional `@SkipSelf` decorator.
+It is identical to *Carol*'s constructor except for the additional `@SkipSelf` decorator.
 
 `@SkipSelf` is essential for two reasons:
 
@@ -157,7 +157,7 @@ It's identical to *Carol*'s constructor except for the additional `@SkipSelf` de
 
     </code-example>
 
-Here's *Alice*, *Barry*, and family in action.
+Here is *Alice*, *Barry*, and family in action.
 
 <div class="lightbox">
 
@@ -184,16 +184,16 @@ A component that could serve as a parent *should* implement the class interface 
 <code-example header="parent-finder.component.ts (AliceComponent class signature)" path="dependency-injection-in-action/src/app/parent-finder.component.ts" region="alice-class-signature"></code-example>
 
 Doing so adds clarity to the code.
-But it's not technically necessary.
+But it is not technically necessary.
 Although `AlexComponent` has a `name` property, as required by its `Base` class,
-its class signature doesn't mention `Parent`.
+its class signature does not mention `Parent`.
 
 <code-example header="parent-finder.component.ts (AlexComponent class signature)" path="dependency-injection-in-action/src/app/parent-finder.component.ts" region="alex-class-signature"></code-example>
 
 <div class="alert is-helpful">
 
 `AlexComponent` *should* implement `Parent` as a matter of proper style.
-It doesn't in this example *only* to demonstrate that the code will compile and run without the interface.
+It does not in this example *only* to demonstrate that the code will compile and run without the interface.
 
 </div>
 

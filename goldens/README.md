@@ -14,7 +14,7 @@ yarn public-api:update
 
 This golden file contains a list of all circular dependencies in the project. As part of the
 lint CI job we compare the current circular dependencies against this golden to ensure that
-we don't add more cycles. If cycles have been fixed, this file is also updated so that we can
+we do not add more cycles. If cycles have been fixed, this file is also updated so that we can
 slowly burn down the number of cycles in the project.
 
 To check or update the golden, run the following commands:

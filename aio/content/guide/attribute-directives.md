@@ -157,7 +157,7 @@ This section guides you through configuring your application so the developer ca
     <code-example header="src/app/highlight.directive.ts (mouse-enter)" path="attribute-directives/src/app/highlight.directive.ts" region="mouse-enter"></code-example>
 
 1.  To bind to the `AppComponent.color` and fall back to "violet" as the default color, add the following HTML.
-    In this case,  the `defaultColor` binding doesn't use square brackets, `[]`, because it is static.
+    In this case,  the `defaultColor` binding does not use square brackets, `[]`, because it is static.
 
     <code-example header="src/app/app.component.html (defaultColor)" path="attribute-directives/src/app/app.component.html" region="defaultColor"></code-example>
 

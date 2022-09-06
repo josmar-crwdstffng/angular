@@ -135,7 +135,7 @@ This package will provide following functionality.
       `Error inherit` issue.
 
     3. lazy: this is a feature to let you be able to get `ZoneJsInternalStackFrames` feature,
-     but not impact performance. But as a trade off, you can't get the `zone free stack
+     but not impact performance. But as a trade off, you cannot get the `zone free stack
      frames` by access `error.stack`. You can only get it by access `error.zoneAwareStack`.
 
 

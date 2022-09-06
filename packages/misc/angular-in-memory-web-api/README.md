@@ -10,27 +10,27 @@ for a quick introduction.
 
 _This package used to live [in its own repository](https://github.com/angular/in-memory-web-api)._
 
-### _It used to work and now it doesn't :-(_
+### _It used to work and now it does not :-(_
 
 Perhaps you installed a new version of this library? Check the
 [CHANGELOG.md](https://github.com/angular/angular/blob/main/packages/misc/angular-in-memory-web-api/CHANGELOG.md)
 for breaking changes that may have affected your app.
 
-If that doesn't explain it, create an
+If that does not explain it, create an
 [issue on github](https://github.com/angular/angular/issues),
 preferably with a small repro.
 
 ## Use cases
 
 * Demo apps that need to simulate CRUD data persistence operations without a real server.
-You won't have to build and start a test server.
+You will not have to build and start a test server.
 
 * Whip up prototypes and proofs of concept.
 
 * Share examples with the community in a web coding environment such as Plunker or CodePen.
 Create Angular issues and StackOverflow answers supported by live code.
 
-* Simulate operations against data collections that aren't yet implemented on your dev/test server.
+* Simulate operations against data collections that are not yet implemented on your dev/test server.
 You can pass requests thru to the dev/test server for collections that are supported.
 
 * Write unit test apps that read and write data.
@@ -38,7 +38,7 @@ Avoid the hassle of intercepting multiple http calls and manufacturing sequences
 The in-memory data store resets for each test so there is no cross-test data pollution.
 
 * End-to-end tests. If you can toggle the app into test mode
-using the in-memory web api, you won't disturb the real database.
+using the in-memory web api, you will not disturb the real database.
 This can be especially useful for CI (continuous integration) builds.
 
 
@@ -49,7 +49,7 @@ This can be especially useful for CI (continuous integration) builds.
 It is not supposed to emulate every possible real world web API and is not intended for production use.
 >
 >Most importantly, it is ***always experimental***.
-We will make breaking changes and we won't feel bad about it
+We will make breaking changes and we will not feel bad about it
 because this is a development tool, not a production product.
 We do try to tell you about such changes in the `CHANGELOG.md`
 and we fix bugs as fast as we can.
@@ -176,7 +176,7 @@ The `InMemoryBackendConfigArgs` defines a set of options. Add them as the second
 
 ## Request evaluation order
 This service can evaluate requests in multiple ways depending upon the configuration.
-Here's how it reasons:
+Here is how it reasons:
 1. If it looks like a [command](#commands), process as a command.
 2. If the [HTTP method is overridden](#method-override), try the override.
 3. If the resource name (after the api base path) matches one of the configured collections, process that.
@@ -342,7 +342,7 @@ responseOptions = this.responseInterceptor(responseOptions, requestInfo);
 <a id="method-override"></a>
 ## HTTP method interceptors
 
-You may have HTTP requests that the in-memory web api can't handle properly.
+You may have HTTP requests that the in-memory web api cannot handle properly.
 
 You can override any HTTP method by implementing a method
 of that name in your `InMemoryDbService`.

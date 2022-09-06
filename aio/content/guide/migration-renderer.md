@@ -7,19 +7,19 @@ This section provides guidance on migrating from this deprecated API to the newe
 
 ## Why should I migrate to Renderer2?
 
-The deprecated `Renderer` class has been removed in version 9 of Angular, so it's necessary to migrate to a supported API.
+The deprecated `Renderer` class has been removed in version 9 of Angular, so it is necessary to migrate to a supported API.
 Using `Renderer2` is the recommended strategy because it supports a similar set of functionality to `Renderer`.
 The API surface is quite large \(with 19 methods\, but the schematic should simplify this process for your applications.
 
 ## Is there action required on my end?
 
 No.
-The schematic should handle most cases with the exception of `Renderer.animate()` and `Renderer.setDebugInfo()`, which already aren't supported.
+The schematic should handle most cases with the exception of `Renderer.animate()` and `Renderer.setDebugInfo()`, which already are not supported.
 
 ## What are the `__ngRendererX` methods? Why are they necessary?
 
-Some methods either don't have exact equivalents in `Renderer2`, or they correspond to more than one expression.
-For example, both renderers have a `createElement()` method, but they're not equal because a call such as `renderer.createElement(parentNode, namespaceAndName)` in the `Renderer` corresponds to the following block of code in `Renderer2`:
+Some methods either do not have exact equivalents in `Renderer2`, or they correspond to more than one expression.
+For example, both renderers have a `createElement()` method, but they are not equal because a call such as `renderer.createElement(parentNode, namespaceAndName)` in the `Renderer` corresponds to the following block of code in `Renderer2`:
 
 <code-example format="typescript" language="typescript">
 
@@ -35,7 +35,7 @@ return el;
 Migration has to guarantee that the return values of functions and types of variables stay the same.
 To handle the majority of cases safely, the schematic declares helper functions at the bottom of the user's file.
 These helpers encapsulate your own logic and keep the replacements inside your code down to a single function call.
-Here's an example of how the `createElement()` migration looks:
+Here is an example of how the `createElement()` migration looks:
 
 **Before**:
 
@@ -73,13 +73,13 @@ __ngRendererSplitNamespace(nameAndNamespace: any) {
 
 </code-example>
 
-When implementing these helper functions, the schematic ensures that they're only declared once per file and that their names are unique enough that there's a small chance of colliding with pre-existing functions in your code.
-The schematic also keeps their parameter types as `any` so that it doesn't have to insert extra logic that ensures that their values have the correct type.
+When implementing these helper functions, the schematic ensures that they are only declared once per file and that their names are unique enough that there is a small chance of colliding with pre-existing functions in your code.
+The schematic also keeps their parameter types as `any` so that it does not have to insert extra logic that ensures that their values have the correct type.
 
-### I'm a library author. Should I run this migration?
+### I am a library author. Should I run this migration?
 
 **Library authors should definitely use this migration to move away from the `Renderer`.**
-**Otherwise, the libraries won't work with applications built with version 9.**
+**Otherwise, the libraries will not work with applications built with version 9.**
 
 ### Full list of method migrations
 

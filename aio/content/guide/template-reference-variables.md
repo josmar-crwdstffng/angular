@@ -84,11 +84,11 @@ In the following example, changing the text in the `<input>` changes the value i
 
 In this case, the `*ngIf` on `<span>` creates a new template scope, which includes the `ref1` variable from its parent scope.
 
-However, accessing a template variable from a child scope in the parent template doesn't work:
+However, accessing a template variable from a child scope in the parent template does not work:
 
 ```html
   <input *ngIf="true" #ref2 type="text" [(ngModel)]="secondExample" />
-  <span>Value: {{ ref2?.value }}</span> <!-- doesn't work -->
+  <span>Value: {{ ref2?.value }}</span> <!-- does not work -->
 ```
 
 Here, `ref2` is declared in the child scope created by `*ngIf`, and is not accessible from the parent template.

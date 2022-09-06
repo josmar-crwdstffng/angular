@@ -497,7 +497,7 @@ The example below shows how to toggle one or more values to configure the source
 <div class="alert is-helpful">
 
 When using hidden source maps, source maps will not be referenced in the bundle.
-These are useful if you only want source maps to map error stack traces in error reporting tools, but don't want to expose your source maps in the browser developer tools.
+These are useful if you only want source maps to map error stack traces in error reporting tools, but do not want to expose your source maps in the browser developer tools.
 
 </div>
 

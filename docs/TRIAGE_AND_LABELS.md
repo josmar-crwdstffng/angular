@@ -39,7 +39,7 @@ of this repo.
 * `comp: zones`
 
 There are few components which are cross-cutting.
-They don't have a clear location in the source tree.
+They do not have a clear location in the source tree.
 We will treat them as a component even thought no specific source tree is associated with them.
 
 * `comp: build & ci` - build and CI infrastructure for the angular/angular repo
@@ -92,13 +92,13 @@ provide further clarification. If the issue does have enough information, move o
 By default, all issues are considered bugs. Bug reports require only a priority label.
 
 If the issue is a feature request, apply the "feature" label. Use your judgement to determine
-whether the feature request is reasonable. If it's clear that the issue requests something
+whether the feature request is reasonable. If it is clear that the issue requests something
 infeasible, close the issue with a comment explaining why.
 
 If the issue is an RFC or discussion, apply the "discussion" label. Use your judgement to determine
 whether this discussion belongs on GitHub. Discussions here should pertain to the technical
 implementation details of Angular. Redirect requests for debugging help or advice to a more
-appropriate channel unless they're capturing a legitimate bug.
+appropriate channel unless they are capturing a legitimate bug.
 
 ### Step 3: Set a Priority
 
@@ -114,7 +114,7 @@ For bug reports, set a priority label.
 | P5 | The team acknowledges the request but (due to any number of reasons) does not plan to work on or accept contributions for this request. The issue remains open for discussion.                                                                       |
 
 
-Issues marked with "feature" or "discussion" don't require a priority.
+Issues marked with "feature" or "discussion" do not require a priority.
 
 ### Step 4: Apply additional information labels
 
@@ -202,7 +202,7 @@ If the PR author is a code owner themselves, the approval can come from _any_ re
 In any case, the reviewer should actually look through the code and provide feedback if necessary.
 
 Note that approved state does not mean a PR is ready to be merged.
-For example, a reviewer might approve the PR but request a minor tweak that doesn't need further review, e.g., a rebase or small uncontroversial change.
+For example, a reviewer might approve the PR but request a minor tweak that does not need further review, e.g., a rebase or small uncontroversial change.
 Only the `action: merge` label means that the PR is ready for merging.
 
 

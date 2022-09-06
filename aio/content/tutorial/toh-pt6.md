@@ -29,17 +29,17 @@ Next, still in the `AppModule`, add `HttpClientModule` to the `imports` array:
 
 This tutorial sample mimics communication with a remote data server by using the [In-memory Web API](https://github.com/angular/angular/tree/main/packages/misc/angular-in-memory-web-api "In-memory Web API") module.
 
-After installing the module, the application makes requests to and receive responses from the `HttpClient`. The application doesn't know that the *In-memory Web API* is intercepting those requests, applying them to an in-memory data store, and returning simulated responses.
+After installing the module, the application makes requests to and receive responses from the `HttpClient`. The application does not know that the *In-memory Web API* is intercepting those requests, applying them to an in-memory data store, and returning simulated responses.
 
-By using the In-memory Web API, you won't have to set up a server to learn about `HttpClient`.
+By using the In-memory Web API, you will not have to set up a server to learn about `HttpClient`.
 
 <div class="alert is-important">
 
 **IMPORTANT**: <br />
 The In-memory Web API module has nothing to do with HTTP in Angular.
 
-If you're reading this tutorial to learn about `HttpClient`, you can [skip over](#import-heroes) this step.
-If you're coding along with this tutorial, stay here and add the In-memory Web API now.
+If you are reading this tutorial to learn about `HttpClient`, you can [skip over](#import-heroes) this step.
+If you are coding along with this tutorial, stay here and add the In-memory Web API now.
 
 </div>
 
@@ -74,7 +74,7 @@ Replace the default contents of `in-memory-data.service.ts` with the following:
 <code-example header="src/app/in-memory-data.service.ts" path="toh-pt6/src/app/in-memory-data.service.ts" region="init"></code-example>
 
 The `in-memory-data.service.ts` file takes over the function of `mock-heroes.ts`.
-Don't delete `mock-heroes.ts` yet. You still need it for a few more steps of this tutorial.
+Do not delete `mock-heroes.ts` yet. You still need it for a few more steps of this tutorial.
 
 After the server is ready, detach the In-memory Web API so the application's requests can go through to the server.
 
@@ -112,7 +112,7 @@ Convert that method to use `HttpClient` as follows:
 Refresh the browser.
 The hero data should successfully load from the mock server.
 
-You've swapped `of()` for `http.get()` and the application keeps working without any other changes
+You have swapped `of()` for `http.get()` and the application keeps working without any other changes
 because both functions return an `Observable<Hero[]>`.
 
 ### `HttpClient` methods return one value
@@ -141,13 +141,13 @@ The *Tour of Heroes* data API returns the hero data as an array.
 Other APIs may bury the data that you want within an object.
 You might have to dig that data out by processing the `Observable` result with the RxJS `map()` operator.
 
-Although not discussed here, there's an example of `map()` in the `getHeroNo404()` method included in the sample source code.
+Although not discussed here, there is an example of `map()` in the `getHeroNo404()` method included in the sample source code.
 
 </div>
 
 ### Error handling
 
-Things go wrong, especially when you're getting data from a remote server.
+Things go wrong, especially when you are getting data from a remote server.
 The `HeroService.getHeroes()` method should catch errors and do something appropriate.
 
 To catch errors, you **"pipe" the observable** result from `http.get()` through an RxJS `catchError()` operator.
@@ -167,7 +167,7 @@ The following `handleError()` method reports the error and then returns an innoc
 
 #### `handleError`
 
-The following `handleError()` can be shared by many `HeroService` methods so it's generalized to meet their different needs.
+The following `handleError()` can be shared by many `HeroService` methods so it is generalized to meet their different needs.
 
 Instead of handling the error directly, it returns an error handler function to `catchError`. This function is configured with both the name of the operation that failed and a safe return value.
 
@@ -182,7 +182,7 @@ Because each service method returns a different kind of `Observable` result, `ha
 The `HeroService` methods taps into the flow of observable values and send a message, using the `log()` method, to the message area at the bottom of the page.
 
 The RxJS `tap()` operator enables this ability by looking at the observable values, doing something with those values, and passing them along.
-The `tap()` call back doesn't access the values themselves.
+The `tap()` call back does not access the values themselves.
 
 Here is the final version of `getHeroes()` with the `tap()` that logs the operation.
 
@@ -208,7 +208,7 @@ Update the `HeroService` `getHero()` method with the following to make that requ
 ## Update heroes
 
 Edit a hero's name in the hero detail view.
-As you type, the hero name updates the heading at the top of the page, yet 
+As you type, the hero name updates the heading at the top of the page, yet
 when you click **Go back**, your changes are lost.
 
 If you want changes to persist, you must write them back to the server.
@@ -256,12 +256,12 @@ Insert the following into the `HeroesComponent` template, after the heading:
 
 <code-example header="src/app/heroes/heroes.component.html (add)" path="toh-pt6/src/app/heroes/heroes.component.html" region="add"></code-example>
 
-In response to a click event, call the component's click handler, `add()`, and then clear the input field so that it's ready for another name.
+In response to a click event, call the component's click handler, `add()`, and then clear the input field so that it is ready for another name.
 Add the following to the `HeroesComponent` class:
 
 <code-example header="src/app/heroes/heroes.component.ts (add)" path="toh-pt6/src/app/heroes/heroes.component.ts" region="add"></code-example>
 
-When the given name isn't blank, the handler creates an object based on the hero's name.
+When the given name is not blank, the handler creates an object based on the hero's name.
 The handler passes the object name to the service's `addHero()` method.
 
 When `addHero()` creates a new object, the `subscribe()` callback receives the new hero and pushes it into to the `heroes` list for display.
@@ -298,7 +298,7 @@ Add the `delete()` handler to the component class.
 Although the component delegates hero deletion to the `HeroService`, it remains responsible for updating its own list of heroes.
 The component's `delete()` method immediately removes the *hero-to-delete* from that list, anticipating that the `HeroService` succeeds on the server.
 
-There's really nothing for the component to do with the `Observable` returned by `heroService.deleteHero()` **but it must subscribe anyway**.
+There is really nothing for the component to do with the `Observable` returned by `heroService.deleteHero()` **but it must subscribe anyway**.
 
 Next, add a `deleteHero()` method to `HeroService` like this.
 
@@ -308,14 +308,14 @@ Notice the following key points:
 
 *   `deleteHero()` calls `HttpClient.delete()`
 *   The URL is the heroes resource URL plus the `id` of the hero to delete
-*   You don't send data as you did with `put()` and `post()`
+*   You do not send data as you did with `put()` and `post()`
 *   You still send the `httpOptions`
 
 Refresh the browser and try the new delete capability.
 
 <div class="alert is-important">
 
-If you neglect to `subscribe()`, the service can't send the delete request to the server.
+If you neglect to `subscribe()`, the service cannot send the delete request to the server.
 As a rule, an `Observable` *does nothing* until something subscribes.
 
 Confirm this for yourself by temporarily removing the `subscribe()`, clicking **Dashboard**, then clicking **Heroes**.
@@ -382,8 +382,8 @@ The `$` is a convention that indicates `heroes$` is an `Observable`, not an arra
 
 <code-example header="src/app/hero-search/hero-search.component.html" path="toh-pt6/src/app/hero-search/hero-search.component.html" region="async"></code-example>
 
-Since `*ngFor` can't do anything with an `Observable`, use the pipe `|` character followed by `async`.
-This identifies Angular's `AsyncPipe` and subscribes to an `Observable` automatically so you won't have to do so in the component class.
+Since `*ngFor` cannot do anything with an `Observable`, use the pipe `|` character followed by `async`.
+This identifies Angular's `AsyncPipe` and subscribes to an `Observable` automatically so you will not have to do so in the component class.
 
 ### Edit the `HeroSearchComponent` class
 
@@ -424,14 +424,14 @@ Passing a new search term directly to the `searchHeroes()` after every user keys
 
 Instead, the `ngOnInit()` method pipes the `searchTerms` observable through a sequence of RxJS operators that reduce the number of calls to the `searchHeroes()`. Ultimately, this returns an observable of timely hero search results where each one is a `Hero[]`.
 
-Here's a closer look at the code.
+Here is a closer look at the code.
 
 <code-example header="src/app/hero-search/hero-search.component.ts" path="toh-pt6/src/app/hero-search/hero-search.component.ts" region="search"></code-example>
 
 Each operator works as follows:
 
 *   `debounceTime(300)` waits until the flow of new string events pauses for 300 milliseconds before passing along the latest string.
-   Requests aren't likely to happen more frequently than 300&nbsp;ms.
+   Requests are not likely to happen more frequently than 300&nbsp;ms.
 
 *   `distinctUntilChanged()` ensures that a request is sent only if the filter text changed.
 
@@ -448,15 +448,15 @@ Results from prior calls are canceled and discarded.
 
 <div class="alert is-helpful">
 
-Canceling a previous `searchHeroes()` Observable doesn't actually cancel a pending HTTP request.
+Canceling a previous `searchHeroes()` Observable does not actually cancel a pending HTTP request.
 Unwanted results are discarded before they reach your application code.
 
 </div>
 
 </div>
 
-Remember that the component *class* doesn't subscribe to the `heroes$` *observable*.
-That's the job of the [`AsyncPipe`](#asyncpipe) in the template.
+Remember that the component *class* does not subscribe to the `heroes$` *observable*.
+That is the job of the [`AsyncPipe`](#asyncpipe) in the template.
 
 #### Try it
 
@@ -472,7 +472,7 @@ Enter characters that match any existing hero names, and look for something like
 
 ## Final code review
 
-Here are the code files discussed on this page. They're found in the `src/app/` directory.
+Here are the code files discussed on this page. They are found in the `src/app/` directory.
 
 <a id="heroservice"></a>
 <a id="inmemorydataservice"></a>
@@ -529,7 +529,7 @@ Here are the code files discussed on this page. They're found in the `src/app/` 
 
 ## Summary
 
-You're at the end of your journey, and you've accomplished a lot.
+You are at the end of your journey, and you have accomplished a lot.
 
 *   You added the necessary dependencies to use HTTP in the application
 *   You refactored `HeroService` to load heroes from a web API
@@ -539,6 +539,6 @@ You're at the end of your journey, and you've accomplished a lot.
 *   You learned how to use observables
 
 This concludes the "Tour of Heroes" tutorial.
-You're ready to learn more about Angular development in the fundamentals section, starting with the [Architecture](guide/architecture "Architecture") guide.
+You are ready to learn more about Angular development in the fundamentals section, starting with the [Architecture](guide/architecture "Architecture") guide.
 
 @reviewed 2022-02-28

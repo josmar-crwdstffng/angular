@@ -114,7 +114,7 @@ It copies the data fields into the component's `config` object, which is data-bo
 
 ### Starting the request
 
-For all `HttpClient` methods, the method doesn't begin its HTTP request until you call `subscribe()` on the observable the method returns.
+For all `HttpClient` methods, the method does not begin its HTTP request until you call `subscribe()` on the observable the method returns.
 
 This is true for *all* `HttpClient` *methods*.
 
@@ -159,7 +159,7 @@ Specifying the response type acts as a type assertion at compile time.
 <div class="alert is-important">
 
 Specifying the response type is a declaration to TypeScript that it should treat your response as being of the given type.
-This is a build-time check and doesn't guarantee that the server actually responds with an object of this type.
+This is a build-time check and does not guarantee that the server actually responds with an object of this type.
 It is up to the server to ensure that the type specified by the server API is returned.
 
 </div>
@@ -271,7 +271,7 @@ As you can see, the response object has a `body` property of the correct type.
 
 ### Making a JSONP request
 
-Apps can use the `HttpClient` to make [JSONP](https://en.wikipedia.org/wiki/JSONP) requests across domains when a server doesn't support [CORS protocol](https://developer.mozilla.org/docs/Web/HTTP/CORS).
+Apps can use the `HttpClient` to make [JSONP](https://en.wikipedia.org/wiki/JSONP) requests across domains when a server does not support [CORS protocol](https://developer.mozilla.org/docs/Web/HTTP/CORS).
 
 Angular JSONP requests return an `Observable`.
 Follow the pattern for subscribing to observables and use the RxJS `map` operator to transform the response before using the [async pipe](api/common/AsyncPipe) to manage the results.
@@ -405,7 +405,7 @@ The `HeroesComponent` initiates the actual DELETE operation by subscribing to th
 
 <code-example header="app/heroes/heroes.component.ts (deleteHero)" path="http/src/app/heroes/heroes.component.ts" region="delete-hero-subscribe"></code-example>
 
-The component isn't expecting a result from the delete operation, so it subscribes without a callback.
+The component is not expecting a result from the delete operation, so it subscribes without a callback.
 Even though you are not using the result, you still have to subscribe.
 Calling the `subscribe()` method *executes* the observable, which is what initiates the DELETE request.
 
@@ -441,7 +441,7 @@ The `HeroesService` defines such headers in an `httpOptions` object that are pas
 
 ##### Updating headers
 
-You can't directly modify the existing headers within the previous options
+You cannot directly modify the existing headers within the previous options
 object because instances of the `HttpHeaders` class are immutable.
 Use the `set()` method instead, to return a clone of the current instance with the new changes applied.
 
@@ -548,7 +548,7 @@ Notice the `multi: true` option.
 This required setting tells Angular that `HTTP_INTERCEPTORS` is a token for a *multiprovider* that injects an array of values, rather than a single value.
 
 You *could* add this provider directly to the providers array of the `AppModule`.
-However, it's rather verbose and there's a good chance that you'll create more interceptors and provide them in the same way.
+However, it is rather verbose and there is a good chance that you will create more interceptors and provide them in the same way.
 You must also pay [close attention to the order](#interceptor-order) in which you provide these interceptors.
 
 Consider creating a "barrel" file that gathers all the interceptor providers into an `httpInterceptorProviders` array, starting with this first one, the `NoopInterceptor`.
@@ -559,7 +559,7 @@ Then import and add it to the `AppModule` `providers array` like this:
 
 <code-example header="app/app.module.ts (interceptor providers)" path="http/src/app/app.module.ts" region="interceptor-providers"></code-example>
 
-As you create new interceptors, add them to the `httpInterceptorProviders` array and you won't have to revisit the `AppModule`.
+As you create new interceptors, add them to the `httpInterceptorProviders` array and you will not have to revisit the `AppModule`.
 
 <div class="alert is-helpful">
 
@@ -589,7 +589,7 @@ The last interceptor in the process is always the `HttpBackend` that handles com
 </div>
 
 You cannot change the order or remove interceptors later.
-If you need to enable and disable an interceptor dynamically, you'll have to build that capability into the interceptor itself.
+If you need to enable and disable an interceptor dynamically, you will have to build that capability into the interceptor itself.
 
 <a id="interceptor-events"></a>
 
@@ -635,7 +635,7 @@ The `clone()` method's hash argument lets you mutate specific properties of the 
 
 #### Modifying a request body
 
-The `readonly` assignment guard can't prevent deep updates and, in particular, it can't prevent you from modifying a property of a request body object.
+The `readonly` assignment guard cannot prevent deep updates and, in particular, it cannot prevent you from modifying a property of a request body object.
 
 <code-example format="javascript" language="javascript">
 
@@ -684,7 +684,7 @@ Here is its `AuthInterceptor` that injects that service to get the token and add
 
 <code-example header="app/http-interceptors/auth-interceptor.ts" path="http/src/app/http-interceptors/auth-interceptor.ts"></code-example>
 
-The practice of cloning a request to set new headers is so common that there's a `setHeaders` shortcut for it:
+The practice of cloning a request to set new headers is so common that there is a `setHeaders` shortcut for it:
 
 <code-example path="http/src/app/http-interceptors/auth-interceptor.ts" region="set-header-shortcut"></code-example>
 
@@ -787,13 +787,13 @@ That `search()` method creates the custom `x-refresh` header and adds it to the 
 
 </div>
 
-The revised `CachingInterceptor` sets up a server request whether there's a cached value or not, using the same `sendRequest()` method described [above](#send-request).
+The revised `CachingInterceptor` sets up a server request whether there is a cached value or not, using the same `sendRequest()` method described [above](#send-request).
 The `results$` observable makes the request when subscribed.
 
-*   If there's no cached value, the interceptor returns `results$`.
-*   If there is a cached value, the code *pipes* the cached response onto `results$`. This produces a recomposed observable that emits two responses, so subscribers will see a sequence of these two responses:  
-  *   The cached response that's emitted immediately
-  *   The response from the server, that's emitted later
+*   If there is no cached value, the interceptor returns `results$`.
+*   If there is a cached value, the code *pipes* the cached response onto `results$`. This produces a recomposed observable that emits two responses, so subscribers will see a sequence of these two responses:
+  *   The cached response that is emitted immediately
+  *   The response from the server, that is emitted later
 
 <a id="report-progress"></a>
 
@@ -826,15 +826,15 @@ The `getEventMessage` method interprets each type of `HttpEvent` in the event st
 
 <div class="alert is-helpful">
 
-The sample app for this guide doesn't have a server that accepts uploaded files.
+The sample app for this guide does not have a server that accepts uploaded files.
 The `UploadInterceptor` in `app/http-interceptors/upload-interceptor.ts` intercepts and short-circuits upload requests by returning an observable of simulated events.
 
 </div>
 
 ## Optimizing server interaction with debouncing
 
-If you need to make an HTTP request in response to user input, it's not efficient to send a request for every keystroke.
-It's better to wait until the user stops typing and then send a request.
+If you need to make an HTTP request in response to user input, it is not efficient to send a request for every keystroke.
+It is better to wait until the user stops typing and then send a request.
 This technique is known as debouncing.
 
 Consider the following template, which lets a user enter a search term to find a package by name.
@@ -858,9 +858,9 @@ The following snippet implements debouncing for this input using RxJS operators.
 <code-example header="app/package-search/package-search.component.ts (excerpt)" path="http/src/app/package-search/package-search.component.ts" region="debounce"></code-example>
 
 The `searchText$` is the sequence of search-box values coming from the user.
-It's defined as an RxJS `Subject`, which means it is a multicasting `Observable` that can also emit values for itself by calling `next(value)`, as happens in the `search()` method.
+It is defined as an RxJS `Subject`, which means it is a multicasting `Observable` that can also emit values for itself by calling `next(value)`, as happens in the `search()` method.
 
-Rather than forward every `searchText` value directly to the injected `PackageSearchService`, the code in `ngOnInit()` pipes search values through three operators, so that a search value reaches the service only if it's a new value and the user stopped typing.
+Rather than forward every `searchText` value directly to the injected `PackageSearchService`, the code in `ngOnInit()` pipes search values through three operators, so that a search value reaches the service only if it is a new value and the user stopped typing.
 
 | RxJS operators           | Details |
 |:---                      |:---     |
@@ -892,7 +892,7 @@ If a previous search request is still in-flight, such as when the network connec
 
 <div class="alert is-helpful">
 
-If you think you'll reuse this debouncing logic, consider moving it to a utility function or into the `PackageSearchService` itself.
+If you think you will reuse this debouncing logic, consider moving it to a utility function or into the `PackageSearchService` itself.
 
 </div>
 
@@ -974,7 +974,7 @@ The last step, verifying that no requests remain outstanding, is common enough f
 
 #### Custom request expectations
 
-If matching by URL isn't sufficient, it's possible to implement your own matching function.
+If matching by URL is not sufficient, it is possible to implement your own matching function.
 For example, you could look for an outgoing request that has an authorization header:
 
 <code-example path="http/src/testing/http-client.spec.ts" region="predicate"></code-example>

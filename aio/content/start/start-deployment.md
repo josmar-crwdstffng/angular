@@ -90,9 +90,9 @@ A best practice is to run your project locally before you deploy it. To run your
     Because these files are static, you can host them on any web server capable of serving files; such as `Node.js`, Java, .NET, or any backend such as [Firebase](https://firebase.google.com/docs/hosting), [Google Cloud](https://cloud.google.com/solutions/web-hosting), or [App Engine](https://cloud.google.com/appengine/docs/standard/python/getting-started/hosting-a-static-website).
     For more information, see [Building & Serving](guide/build "Building and Serving Angular Apps") and [Deployment](guide/deployment "Deployment guide").
 
-## What's next
+## What is next
 
-In this tutorial, you've laid the foundation to explore the Angular world in areas such as mobile development, UX/UI development, and server-side rendering.
+In this tutorial, you have laid the foundation to explore the Angular world in areas such as mobile development, UX/UI development, and server-side rendering.
 You can go deeper by studying more of Angular's features, engaging with the vibrant community, and exploring the robust ecosystem.
 
 ### Learning more Angular
@@ -103,7 +103,7 @@ To explore Angular's foundational concepts, see the guides in the Understanding 
 
 ### Joining the community
 
-[Tweet that you've completed this tutorial](https://twitter.com/intent/tweet?url=https://angular.io/start&text=I%20just%20finished%20the%20Angular%20Getting%20Started%20Tutorial "Angular on Twitter"), tell us what you think, or submit [suggestions for future editions](https://github.com/angular/angular/issues/new/choose "Angular GitHub repository new issue form").
+[Tweet that you have completed this tutorial](https://twitter.com/intent/tweet?url=https://angular.io/start&text=I%20just%20finished%20the%20Angular%20Getting%20Started%20Tutorial "Angular on Twitter"), tell us what you think, or submit [suggestions for future editions](https://github.com/angular/angular/issues/new/choose "Angular GitHub repository new issue form").
 
 Keep current by following the [Angular blog](https://blog.angular.io/ "Angular blog").
 

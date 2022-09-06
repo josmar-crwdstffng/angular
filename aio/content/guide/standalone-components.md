@@ -4,8 +4,8 @@ In v14 and higher, **standalone components** provide a simplified way to build A
 
 <div class="alert is-important">
 
-The standalone component feature is available for developer preview. 
-It's ready for you to try; but it might change before it is stable.
+The standalone component feature is available for developer preview.
+It is ready for you to try; but it might change before it is stable.
 
 </div>
 
@@ -65,7 +65,7 @@ You can import a standalone component (or directive, or pipe) just like you woul
 ```ts
 @NgModule({
   declarations: [AlbumComponent],
-  exports: [AlbumComponent], 
+  exports: [AlbumComponent],
   imports: [PhotoGalleryComponent],
 })
 export class AlbumModule {}
@@ -165,12 +165,12 @@ export const ROUTES: Route[] = [
       path: 'teams', component: AdminTeamsComponent,
     ],
   },
-  // ... other application routes that don't
+  // ... other application routes that do not
   //     have access to ADMIN_API_KEY or AdminService.
 ];
 ```
 
-It's also possible to combine `providers` with `loadChildren` of additional routing configuration, to achieve the same effect of lazy loading an `NgModule` with additional routes and route-level providers. This example configures the same providers/child routes as above, but behind a lazy loaded boundary:
+It is also possible to combine `providers` with `loadChildren` of additional routing configuration, to achieve the same effect of lazy loading an `NgModule` with additional routes and route-level providers. This example configures the same providers/child routes as above, but behind a lazy loaded boundary:
 
 ```ts
 // Main application:
@@ -199,7 +199,7 @@ Note the use of an empty-path route to host `providers` that are shared among al
 
 ## Advanced topics
 
-This section goes into more details that are relevant only to more advanced usage patterns. You can safely skip this section when learning about standalone components, directives, and pipes for the first time. 
+This section goes into more details that are relevant only to more advanced usage patterns. You can safely skip this section when learning about standalone components, directives, and pipes for the first time.
 
 ### Standalone components for library authors
 
@@ -213,7 +213,7 @@ Standalone components, directives, and pipes can be exported from `NgModule`s th
 export class CarouselModule {}
 ```
 
-This pattern is useful for Angular libraries that publish a set of cooperating directives. In the above example, both the `ImageCarouselComponent` and `ImageSlideComponent` need to be present in a template to build up one logical "carousel widget". 
+This pattern is useful for Angular libraries that publish a set of cooperating directives. In the above example, both the `ImageCarouselComponent` and `ImageSlideComponent` need to be present in a template to build up one logical "carousel widget".
 
 As an alternative to publishing a `NgModule`, library authors might want to export an array of cooperating directives:
 
@@ -232,7 +232,7 @@ Angular applications can configure dependency injection by specifying a set of a
 
 #### Environment injectors
 
-Making `NgModule`s optional will require new ways of configuring "module" injectors with application-wide providers (for example, [HttpClient](https://angular.io/api/common/http/HttpClient)). In the standalone application (one created with `bootstrapApplication`), “module” providers can be configured during the bootstrap process, in the `providers` option: 
+Making `NgModule`s optional will require new ways of configuring "module" injectors with application-wide providers (for example, [HttpClient](https://angular.io/api/common/http/HttpClient)). In the standalone application (one created with `bootstrapApplication`), “module” providers can be configured during the bootstrap process, in the `providers` option:
 
 ```ts
 bootstrapApplication(PhotoAppComponent, {
@@ -244,7 +244,7 @@ bootstrapApplication(PhotoAppComponent, {
 });
 ```
 
-The new bootstrap API gives us back the means of configuring “module injectors” without using `NgModule`s. In this sense, the “module” part of the name is no longer relevant and we’ve decided to introduce a new term: “environment injectors”. 
+The new bootstrap API gives us back the means of configuring “module injectors” without using `NgModule`s. In this sense, the “module” part of the name is no longer relevant and we’ve decided to introduce a new term: “environment injectors”.
 
 Environment injectors can be configured using one of the following:
 
@@ -253,7 +253,7 @@ Environment injectors can be configured using one of the following:
 *   `providers` option in the `bootstrapApplication` call (in fully “standalone” applications);
 *   `providers` field in a `Route` configuration.
 
-Angular v14 introduces a new TypeScript type `EnvironmentInjector` to represent this new naming. The accompanying `createEnvironmentInjector` API makes it possible to create environment injectors programmatically: 
+Angular v14 introduces a new TypeScript type `EnvironmentInjector` to represent this new naming. The accompanying `createEnvironmentInjector` API makes it possible to create environment injectors programmatically:
 
 ```ts
 import {createEnvironmentInjector} from '@angular/core';
@@ -309,6 +309,6 @@ class DateModalComponent {
 
 In the above example, the component `DateModalComponent` is standalone - it can be consumed directly and has no NgModule which needs to be imported in order to use it. However, `DateModalComponent` has a dependency, the `DatePickerComponent,` which is imported via its NgModule (the `DatePickerModule`). This NgModule may declare providers (in this case: `CalendarService`) which are required for the `DatePickerComponent` to function correctly.
 
-When Angular creates a standalone component, it needs to know that the current injector has all of the necessary services for the standalone component's dependencies, including those based on NgModules. To guarantee that, in some cases Angular will create a new "standalone injector" as a child of the current environment injector. Today, this happens for all bootstrapped standalone components: it will be a child of the root environment injector. The same rule applies to the dynamically created (for example, by the router or the `ViewContainerRef` API) standalone components. 
+When Angular creates a standalone component, it needs to know that the current injector has all of the necessary services for the standalone component's dependencies, including those based on NgModules. To guarantee that, in some cases Angular will create a new "standalone injector" as a child of the current environment injector. Today, this happens for all bootstrapped standalone components: it will be a child of the root environment injector. The same rule applies to the dynamically created (for example, by the router or the `ViewContainerRef` API) standalone components.
 
 A separate standalone injector is created to ensure that providers imported by a standalone component are “isolated” from the rest of the application. This lets us think of standalone components as truly self-contained pieces that can’t “leak” their implementation details to the rest of the application.

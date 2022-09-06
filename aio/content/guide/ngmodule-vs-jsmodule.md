@@ -53,7 +53,7 @@ You can also use an NgModule to add [providers](guide/glossary#provider "Definit
 Rather than defining all member classes in one giant file as a JavaScript module, declare which components, directives, and pipes belong to the NgModule in the `@NgModule.declarations` list.
 These classes are called [declarables](guide/glossary#declarable "Definition of a declarable").
 An NgModule can export only the declarable classes it owns or imports from other NgModules.
-It doesn't declare or export any other kind of class.
+It does not declare or export any other kind of class.
 Declarables are the only classes that matter to the Angular compilation process.
 
 For a complete description of the NgModule metadata properties, see [Using the NgModule metadata](guide/ngmodule-api "Using the NgModule metadata").

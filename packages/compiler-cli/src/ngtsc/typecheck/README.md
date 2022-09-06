@@ -1,6 +1,6 @@
 # The Template Type Checking Engine
 
-The `typecheck` package is concerned with template type-checking, the process by which the compiler determines and understands the TypeScript types of constructs within component templates. It's used to perform actual type checking of templates (similarly to how TypeScript checks code for type errors). It also provides the `TemplateTypeChecker` API which is a conceptual analogue to TypeScript's own `ts.TypeChecker`, exposing various semantic details about template types to consumers such as the Angular Language Service.
+The `typecheck` package is concerned with template type-checking, the process by which the compiler determines and understands the TypeScript types of constructs within component templates. It is used to perform actual type checking of templates (similarly to how TypeScript checks code for type errors). It also provides the `TemplateTypeChecker` API which is a conceptual analogue to TypeScript's own `ts.TypeChecker`, exposing various semantic details about template types to consumers such as the Angular Language Service.
 
 The template type-checking engine is complex, as TypeScript itself is not very pluggable when it comes to the type system. The main algorithm for template type-checking is as follows:
 
@@ -17,7 +17,7 @@ This algorithm relies extensively on TypeScript's ability to rapidly type check 
 To understand and check the types of various operations and structures within templates, the `typecheck` system maps them to TypeScript code, encoding them in such a way as to express the intent of the operation within the type system.
 
 
-TCBs are not ever emitted, nor are they referenced from any other code (they're unused code as far as TypeScript is concerned). Their _runtime_ effect is therefore unimportant. What matters is that they express to TypeScript the type relationships of directives, bindings, and other entities in the template. Type errors within TCBs translate directly to type errors in the original template.
+TCBs are not ever emitted, nor are they referenced from any other code (they are unused code as far as TypeScript is concerned). Their _runtime_ effect is therefore unimportant. What matters is that they express to TypeScript the type relationships of directives, bindings, and other entities in the template. Type errors within TCBs translate directly to type errors in the original template.
 
 ### Theory
 
@@ -128,7 +128,7 @@ export class NgFor<T> {
 
 (Note: the real `NgFor` directive is more complex than the simplistic version examined here, but the same principles still apply)
 
-In this case, the `T` type parameter of `NgFor` represents the value type of the `Iterable` over which we're iterating. This depends entirely on the `Iterable` passed to `NgFor` - if the user passes a `User[]` array, then this should conceptually create an `NgFor<User>` instance. If they pass a `string[]` array, it should be an `NgFor<string>` instead.
+In this case, the `T` type parameter of `NgFor` represents the value type of the `Iterable` over which we are iterating. This depends entirely on the `Iterable` passed to `NgFor` - if the user passes a `User[]` array, then this should conceptually create an `NgFor<User>` instance. If they pass a `string[]` array, it should be an `NgFor<string>` instead.
 
 To infer a correct type for a generic directive, the TCB system generates a **type constructor** for the directive. The type constructor is a "fake" constructor which can be used to infer the directive type based on any provided input bindings.
 
@@ -186,10 +186,10 @@ function tcb(this: SomeCmp): void {
 
   // _t2 is the context type for the embedded views created by the NgFor structural directive.
   var _t2: any;
-  
+
   // _t3 is the let-user variable within the embedded view.
   var _t3 = _t2.$implicit;
-  
+
   // Represents the `{{user.name}}` interpolation within the embedded view.
   '' + _t3.name;
 }
@@ -205,7 +205,7 @@ To solve this problem, the template type-checking engine allows structural direc
 @Directive({selector: '[ngFor]'})
 export class NgFor<T> {
   @Input() ngForOf!: Iterable<T>;
-  
+
   static ngTemplateContextGuard<T>(dir: NgFor<T>, ctx: any): ctx is NgForContext<T> {
     return true; // implementation is not important
   }
@@ -227,12 +227,12 @@ function tcb(this: SomeCmp): void {
 
   // _t2 is the context type for the embedded views created by the NgFor structural directive.
   var _t2: any;
-  
+
   if (NgFor.ngTemplateContextGuard(_t1, _t2)) {
     // NgFor's ngTemplateContextGuard has narrowed the type of _t2
     // based on the type of _t1 (the NgFor directive itself).
     // Within this `if` block, _t2 is now of type NgForContext<User>.
-    
+
     // _t3 is the let-user variable within the embedded view.
     // Because _t2 is narrowed, _t3 is now of type User.
     var _t3 = _t2.$implicit;
@@ -261,10 +261,10 @@ Obviously, if `user` is potentially `null`, then this `NgIf` is intended to only
 function tcb(this: SomeCmp): void {
   // Type of the NgIf directive instance.
   var _t1: NgIf;
-  
+
   // Binding *ngIf="user != null".
   _t1.ngIf = this.user !== null;
-  
+
   // Nested template interpolation `{{user.name}}`
   '' + this.user.name;
 }
@@ -278,7 +278,7 @@ Similarly to `ngTemplateContextGuard`, the template type checking engine allows 
 @Directive({selector: '[ngIf]'})
 export class NgIf {
   @Input() ngIf!: boolean;
-  
+
   static ngTemplateGuard_ngIf: 'binding';
 }
 ```
@@ -289,16 +289,16 @@ The presence and type of this static property tells the template type-checking e
 function tcb(this: SomeCmp): void {
   // Type of the NgIf directive instance.
   var _t1: NgIf;
-  
+
   // Binding *ngIf="user != null".
   _t1.ngIf = this.user !== null;
-  
+
   // Guard generated due to the `ngTemplateGuard_ngIf` declaration by the NgIf directive.
   if (user !== null) {
     // Nested template interpolation `{{user.name}}`.
     // `this.user` here is appropriately narrowed to be non-nullable.
     '' + this.user.name;
-  } 
+  }
 }
 ```
 
@@ -378,11 +378,11 @@ When a parent `Scope` processing a template encounters an `<ng-template>` node:
 
 Resolution of names (such as local refs) within the template is also driven by the `Scope` hierarchy. Resolution of a name within a particular embedded view begins in that view's `Scope`. If the name is not defined there, resolution proceeds upwards to the parent `Scope`, all the way up to the root template `Scope`.
 
-If the name resolves in any given `Scope`, the associated `TcbOp` can be executed and returned. If the name does not resolve even at the root scope, then it's treated as a reference to the component context for the template.
+If the name resolves in any given `Scope`, the associated `TcbOp` can be executed and returned. If the name does not resolve even at the root scope, then it is treated as a reference to the component context for the template.
 
 #### Breaking cycles
 
-It's possible for a template to contain a referential cycle. As a contrived example, if a component is generic over one of its inputs:
+It is possible for a template to contain a referential cycle. As a contrived example, if a component is generic over one of its inputs:
 
 ```html
 <generic-cmp #ref [in]="ref.value"></generic-cmp>
@@ -412,7 +412,7 @@ function tcb(this: SomeCmp): void {
   // Generated to break the cycle for `ref` - infers a placeholder
   // type for the component without using any of its input bindings.
   var t1 = ctor1(null!);
-  
+
   // Infer the real type of the component using the `t1` placeholder
   // type for `ref`.
   var t2 = ctor1({in: t1.value});
@@ -428,7 +428,7 @@ Some `TcbOp`s are marked as optional. Optional operations are never executed as 
 
 The TCB node generated to represent a DOM element type (`TcbElementOp`) is an example of such an optional operation. Such nodes are only useful if the type of the element is referenced in some other context (such as via a `#ref` local reference). If not, then including it in the TCB only serves to bloat the TCB and increase the time it takes TypeScript to process it.
 
-Therefore, the `TcbElementOp` is optional. If nothing requires the element type, it won't be executed and no code will be generated for the element node.
+Therefore, the `TcbElementOp` is optional. If nothing requires the element type, it will not be executed and no code will be generated for the element node.
 
 ### Source mapping and diagnostic translation
 
@@ -473,19 +473,19 @@ To avoid this, generated code can be marked with a special comment indicating th
 
 #### Why not real sourcemaps?
 
-TypeScript unfortunately cannot consume sourcemaps, only produce them. Therefore, it's impossible to generate a source map to go along with the TCB code and feed it to TypeScript.
+TypeScript unfortunately cannot consume sourcemaps, only produce them. Therefore, it is impossible to generate a source map to go along with the TCB code and feed it to TypeScript.
 
 ### Generation diagnostics
 
 Not all template errors will be caught by TypeScript from generated TCB code. The template type checking engine may also detect errors during the creation of the TCB itself. Several classes of errors are caught this way:
 
-* DOM schema errors, like elements that don't exist or attributes that aren't correct.
+* DOM schema errors, like elements that do not exist or attributes that are not correct.
 * Missing pipes.
 * Missing `#ref` targets.
 * Duplicate `let-variable`s.
 * Attempts to write to a `let-variable`.
 
-These errors manifest as "generation diagnostics", diagnostics which are produced during TCB generation, before TCB code is fed to TypeScript. They're ultimately reported together with any converted TCB diagnostics, but are tracked separately by the type checking system.
+These errors manifest as "generation diagnostics", diagnostics which are produced during TCB generation, before TCB code is fed to TypeScript. They are ultimately reported together with any converted TCB diagnostics, but are tracked separately by the type checking system.
 
 ### Inline operations
 
@@ -534,7 +534,7 @@ interface PrivateInterface {
 @Directive({selector: '[dir]'})
 export class MyDir<T extends PrivateInterface> {
   @Input() value: T;
-  
+
   static ngTypeCtor<T extends PrivateInterface>(inputs: {value?: T}): MyDir<T> { return null!; }
 }
 ```
@@ -555,7 +555,7 @@ function tcb<T extends string>(this: SomeCmp<T>): void {
 
 If `SomeCmp`'s generic bounds are more complex and reference types that cannot be safely reproduced in the separate context of the TCB, then a similar workaround is employed: the compiler generates the TCB as an "inline" static method on the component.
 
-This can also happen for components which aren't themselves importable:
+This can also happen for components which are not themselves importable:
 
 ```typescript
 it('should type-check components declared within functions', () => {

@@ -12,21 +12,21 @@ Angular does not enforce these principles. Angular helps you follow these princi
 
 ## Service examples
 
-Here's an example of a service class that logs to the browser console.
+Here is an example of a service class that logs to the browser console.
 
 <code-example header="src/app/logger.service.ts (class)" path="architecture/src/app/logger.service.ts" region="class"></code-example>
 
 Services can depend on other services.
-For example, here's a `HeroService` that depends on the `Logger` service, and also uses `BackendService` to get heroes.
+For example, here is a `HeroService` that depends on the `Logger` service, and also uses `BackendService` to get heroes.
 That service in turn might depend on the `HttpClient` service to fetch heroes asynchronously from a server.
 
 <code-example header="src/app/hero.service.ts (class)" path="architecture/src/app/hero.service.ts" region="class"></code-example>
 
 ## Creating an injectable service
 
-Angular CLI provides a command to create a new service. In the following example, you add a new service to your application, which was created earlier with the `ng new` command. 
+Angular CLI provides a command to create a new service. In the following example, you add a new service to your application, which was created earlier with the `ng new` command.
 
-To generate a new `HeroService` class in the `src/app/heroes` folder, follow these steps: 
+To generate a new `HeroService` class in the `src/app/heroes` folder, follow these steps:
 
 1. Run this [Angular CLI](cli) command:
 
@@ -84,7 +84,7 @@ The following code tabs feature the `Logger` service and two versions of `HeroSe
 
 In this example, the `getHeroes()` method uses the `Logger` service by logging a message when fetching heroes.
 
-## What's next
+## What is next
 
 * [How to configure dependencies in DI](guide/dependency-injection-providers)
 * [How to use `InjectionTokens` to provide and inject values other than services/classes](guide/dependency-injection-providers#configuring-dependency-providers)

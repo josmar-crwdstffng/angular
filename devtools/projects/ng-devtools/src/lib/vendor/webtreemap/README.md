@@ -1,13 +1,13 @@
 # webtreemap
 
 > **New 2017-Oct-16**: master is now webtreemap v2, a complete rewrite with
-> bug fixes, more features, and a different (simpler) API. If you're looking
+> bug fixes, more features, and a different (simpler) API. If you are looking
 > for the old webtreemap, see the [v1] branch.
 
 [v1]: https://github.com/evmar/webtreemap/tree/v1
 
 A simple treemap implementation using web technologies (DOM nodes, CSS styling
-and transitions) rather than a big canvas/svg/plugin. It's usable as a library
+and transitions) rather than a big canvas/svg/plugin. It is usable as a library
 as part of a larger web app, but it also includes a command-line app that dumps
 a self-contained HTML file that displays a map.
 
@@ -47,7 +47,7 @@ by du, so this works:
 $ du -ab some_path | webtreemap -o out.html
 ```
 
-But note that there's nothing file-system-specific about the data format -- it
+But note that there is nothing file-system-specific about the data format -- it
 just uses slash as a nesting delimiter.
 
 ## Development

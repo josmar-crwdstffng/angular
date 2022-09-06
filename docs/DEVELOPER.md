@@ -14,7 +14,7 @@ It also explains the basic mechanics of using `git`, `node`, and `yarn`.
 * [Bazel Support](#bazel-support)
 
 See the [contribution guidelines](https://github.com/angular/angular/blob/main/CONTRIBUTING.md)
-if you'd like to contribute to Angular.
+if you would like to contribute to Angular.
 
 ## Prerequisite Software
 
@@ -115,7 +115,7 @@ A better way is to set up your IDE to format the changed file on each file save.
 ### VS Code
 1. Install [Clang-Format](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format) extension for VS Code.
 2. It will automatically pick up the settings from `.vscode/settings.json`.
-If you haven't already, create a `settings.json` file by following the instructions [here](../.vscode/README.md).
+If you have not already, create a `settings.json` file by following the instructions [here](../.vscode/README.md).
 
 ### WebStorm / IntelliJ
 1. Install the [ClangFormatIJ](https://plugins.jetbrains.com/plugin/8396-clangformatij) plugin
@@ -215,7 +215,7 @@ $ ./scripts/ci/publish-build-artifacts.sh [GitHub username]
 ```
 
 The script will publish the build snapshot to a branch with the same name as your current branch,
-and create it if it doesn't exist.
+and create it if it does not exist.
 
 ## Bazel Support
 

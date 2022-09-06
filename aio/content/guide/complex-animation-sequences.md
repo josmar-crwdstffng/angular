@@ -7,7 +7,7 @@ A basic understanding of the following concepts:
 *   [Introduction to Angular animations](guide/animations)
 *   [Transition and triggers](guide/transition-and-triggers)
 
-So far, we've learned simple animations of single HTML elements.
+So far, we have learned simple animations of single HTML elements.
 Angular also lets you animate coordinated sequences, such as an entire grid or list of elements as they enter and leave a page.
 You can choose to run multiple animations in parallel, or run discrete animations sequentially, one following another.
 
@@ -67,7 +67,7 @@ The following example demonstrates how to use the `query()` and `stagger()` func
 
 ## Parallel animation using group() function
 
-You've seen how to add a delay between each successive animation.
+You have seen how to add a delay between each successive animation.
 But you might also want to configure animations that happen in parallel.
 For example, you might want to animate two CSS properties of the same element but use a different `easing` function for each one.
 For this, you can use the animation [`group()`](api/animations/group) function.
@@ -140,11 +140,11 @@ If you need to animate the items of an `*ngFor` list and there is a possibility 
 
 ## Animations and Component View Encapsulation
 
-Angular animations are based on the components DOM structure and do not directly take [View Encapsulation](/guide/view-encapsulation) into account, this means that components using `ViewEncapsulation.Emulated` behave exactly as if they where using `ViewEncapsulation.None` (`ViewEncapsulation.ShadowDom` behaves differently as we'll discuss shortly).
+Angular animations are based on the components DOM structure and do not directly take [View Encapsulation](/guide/view-encapsulation) into account, this means that components using `ViewEncapsulation.Emulated` behave exactly as if they where using `ViewEncapsulation.None` (`ViewEncapsulation.ShadowDom` behaves differently as we will discuss shortly).
 
-For example if the `query()` function (which you'll see more of in the rest of the Animations guide) were to be applied at the top of a tree of components using the emulated view encapsulation, such query would be able to identify (and thus animate) DOM elements on any depth of the tree.
+For example if the `query()` function (which you will see more of in the rest of the Animations guide) were to be applied at the top of a tree of components using the emulated view encapsulation, such query would be able to identify (and thus animate) DOM elements on any depth of the tree.
 
-On the other hand the `ViewEncapsulation.ShadowDom` changes the component's DOM structure by "hiding" DOM elements inside [`ShadowRoot`](https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot) elements. Such DOM manipulations do prevent some of the animations implementation to work properly since it relies on simple DOM structures and doesn't take `ShadowRoot` elements into account. Therefore it is advised to avoid applying animations to views incorporating components using the ShadowDom view encapsulation.
+On the other hand the `ViewEncapsulation.ShadowDom` changes the component's DOM structure by "hiding" DOM elements inside [`ShadowRoot`](https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot) elements. Such DOM manipulations do prevent some of the animations implementation to work properly since it relies on simple DOM structures and does not take `ShadowRoot` elements into account. Therefore it is advised to avoid applying animations to views incorporating components using the ShadowDom view encapsulation.
 
 ## Animation sequence summary
 

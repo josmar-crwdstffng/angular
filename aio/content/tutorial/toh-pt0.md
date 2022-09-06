@@ -27,8 +27,8 @@ A _project_ is the set of files that make up an application or a library.
 
 To create a new workspace and an initial project:
 
-1.  Ensure that you aren't already in an Angular workspace directory.
-    For example, if you're in the Getting Started workspace from an earlier exercise, navigate to its parent.
+1.  Ensure that you are not already in an Angular workspace directory.
+    For example, if you are in the Getting Started workspace from an earlier exercise, navigate to its parent.
 
 2.  Run `ng new` followed by the application name as shown here:
 
@@ -50,7 +50,7 @@ This can take a few minutes.
 *   An initial skeleton application project in the `src/app` subdirectory
 *   Related configuration files
 
-The initial application project contains a simple application that's ready to run.
+The initial application project contains a simple application that is ready to run.
 
 ## Serve the application
 
@@ -102,7 +102,7 @@ In the IDE, locate these files, which make up the `AppComponent` that you just c
 When you ran `ng new`, Angular created test specifications for your new application.
 Making these changes, however, breaks your newly created specifications.
 
-That won't be a problem because Angular testing is outside the scope of this tutorial and won't be used.
+That will not be a problem because Angular testing is outside the scope of this tutorial and will not be used.
 
 To learn more about testing with Angular, see [Testing](guide/testing).
 

@@ -3,7 +3,7 @@
 TypeScript is a primary language for Angular application development.
 It is a superset of JavaScript with design-time support for type safety and tooling.
 
-Browsers can't execute TypeScript directly.
+Browsers cannot execute TypeScript directly.
 Typescript must be "transpiled" into JavaScript using the *tsc* compiler, which requires some configuration.
 
 This page covers some aspects of TypeScript configuration and the TypeScript environment
@@ -69,8 +69,8 @@ TypeScript developers disagree about whether the `noImplicitAny` flag should be 
 There is no correct answer and you can change the flag later.
 But your choice now can make a difference in larger projects, so it merits discussion.
 
-When the `noImplicitAny` flag is `false` \(the default\), and if the compiler cannot infer the variable type based on how it's used, the compiler silently defaults the type to `any`.
-That's what is meant by *implicit `any`*.
+When the `noImplicitAny` flag is `false` \(the default\), and if the compiler cannot infer the variable type based on how it is used, the compiler silently defaults the type to `any`.
+That is what is meant by *implicit `any`*.
 
 When the `noImplicitAny` flag is `true` and the TypeScript compiler cannot infer the type, it still generates the JavaScript files, but it also **reports an error**.
 Many seasoned developers prefer this stricter setting because type checking catches more unintentional errors at compile time.
@@ -97,8 +97,8 @@ For more information about how the TypeScript configuration affects compilation,
 
 ## TypeScript typings
 
-Many JavaScript libraries, such as jQuery, the Jasmine testing library, and Angular, extend the JavaScript environment with features and syntax that the TypeScript compiler doesn't recognize natively.
-When the compiler doesn't recognize something, it reports an error.
+Many JavaScript libraries, such as jQuery, the Jasmine testing library, and Angular, extend the JavaScript environment with features and syntax that the TypeScript compiler does not recognize natively.
+When the compiler does not recognize something, it reports an error.
 
 Use [TypeScript type definition files](https://www.typescriptlang.org/docs/handbook/writing-declaration-files.html) &mdash;`d.ts files`&mdash; to tell the compiler about the libraries you load.
 
@@ -111,7 +111,7 @@ The `node_modules/@angular/core/` folder of any Angular application contains sev
 
 <div class="alert is-helpful">
 
-You don't need to do anything to get *typings* files for library packages that include `d.ts` files.
+You do not need to do anything to get *typings* files for library packages that include `d.ts` files.
 Angular packages include them already.
 
 </div>

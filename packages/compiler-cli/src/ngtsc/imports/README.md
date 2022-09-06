@@ -14,9 +14,9 @@ This logic is based on the Angular Package Format, which dictates that libraries
 
 Thus, if `CommonModule` is imported from the specifier '@angular/common', and its `NgIf` directive is used in a template, the compiler will always import `NgIf` from '@angular/common' as well.
 
-It's important to note that this logic is transitive. If the user instead imported `BrowserModule` from '@angular/platform-browser' (which re-exports `CommonModule` and thus `NgIf`), the compiler will note that `BrowserModule` itself imported `CommonModule` from '@angular/common', and so `NgIf` will be imported from '@angular/common' still.
+It is important to note that this logic is transitive. If the user instead imported `BrowserModule` from '@angular/platform-browser' (which re-exports `CommonModule` and thus `NgIf`), the compiler will note that `BrowserModule` itself imported `CommonModule` from '@angular/common', and so `NgIf` will be imported from '@angular/common' still.
 
-This logic of course breaks down for non-Angular Package Format libraries, such as "internal" libraries within a monorepo, which frequently don't use `index.ts` files or entrypoints. In this case, the user will likely import NgModules directly from their declaration (e.g. via a 'lib/module' specifier), and the compiler cannot simply assume that the user has exported all of the directives/pipes from the NgModule via this same specifier. In this case a compiler feature called "aliasing" kicks in (see below) and generates private exports from the NgModule file.
+This logic of course breaks down for non-Angular Package Format libraries, such as "internal" libraries within a monorepo, which frequently do not use `index.ts` files or entrypoints. In this case, the user will likely import NgModules directly from their declaration (e.g. via a 'lib/module' specifier), and the compiler cannot simply assume that the user has exported all of the directives/pipes from the NgModule via this same specifier. In this case a compiler feature called "aliasing" kicks in (see below) and generates private exports from the NgModule file.
 
 2. Using a `UnifiedModulesHost`
 
@@ -28,7 +28,7 @@ To support these re-exports, a compiler feature called "aliasing" will create a 
 
 ## References
 
-At its heart, the compiler keeps track of the types (classes) it's operating on using the `ts.Declaration` of that class. This suffices to _identify_ a class; however, the compiler frequently needs to track not only the class itself, but how that class came to be known in a particular context. For example, the compiler might see that `CommonModule` is included in `AppModule`'s imports, but it also needs to keep track of from where `CommonModule` was imported to apply the logic of "module specifier tracking" described above.
+At its heart, the compiler keeps track of the types (classes) it is operating on using the `ts.Declaration` of that class. This suffices to _identify_ a class; however, the compiler frequently needs to track not only the class itself, but how that class came to be known in a particular context. For example, the compiler might see that `CommonModule` is included in `AppModule`'s imports, but it also needs to keep track of from where `CommonModule` was imported to apply the logic of "module specifier tracking" described above.
 
 To do this, the compiler will wrap the `ts.Declaration` of `CommonModule` into a `Reference`. A `Reference` is a pointer to a `ts.Declaration` plus any additional information and context about _how_ that reference came to be.
 
@@ -36,7 +36,7 @@ To do this, the compiler will wrap the `ts.Declaration` of `CommonModule` into a
 
 Where possible, the compiler tries to use existing user-provided imports to refer to classes, instead of generating new imports. This is possible because `Reference`s keep track of any `ts.Identifier`s encountered which refer to the referenced class. If Angular, in the course of processing a `ts.Expression` (such as the `declarations` array of an NgModule), determines that the `ts.Identifier` points to a `Reference`, it adds the `ts.Identifier` to that `Reference` for future use.
 
-The `Reference.getIdentityIn` method queries the `Reference` for a `ts.Identifier` that's valid in a given `ts.SourceFile`. This is used by the `LocalIdentifierStrategy` when emitting an `Expression` for the `Reference` (see the description of `ReferenceEmitter` below).
+The `Reference.getIdentityIn` method queries the `Reference` for a `ts.Identifier` that is valid in a given `ts.SourceFile`. This is used by the `LocalIdentifierStrategy` when emitting an `Expression` for the `Reference` (see the description of `ReferenceEmitter` below).
 
 #### Synthetic references
 
@@ -58,13 +58,13 @@ For convenience, the module specifier as a string is also made available as `Ref
 
 During evaluation of `ts.Expression`s, `Reference`s to specific directives/pipes/etc are created. During code generation, imports need to be generated for a particular component's template function, based on these `Reference`s. This job falls to the `ReferenceEmitter`.
 
-A `ReferenceEmitter` takes a `Reference` as well as a `ts.SourceFile` which will contain the import, and generates an `Expression` which can be used to refer to the referenced class within that file. This may or may not be an `ExternalExpression` (which would generate an import statement), depending on whether it's possible to rely on an existing import of the class within that file.
+A `ReferenceEmitter` takes a `Reference` as well as a `ts.SourceFile` which will contain the import, and generates an `Expression` which can be used to refer to the referenced class within that file. This may or may not be an `ExternalExpression` (which would generate an import statement), depending on whether it is possible to rely on an existing import of the class within that file.
 
 `ReferenceEmitter` is a wrapper around one or more `ReferenceEmitStrategy` instances. Each strategy is tried in succession until an `Expression` can be determined. An error is produced if no valid mechanism of referring to the referenced class can be found.
 
 ### `LocalIdentifierStrategy`
 
-This `ReferenceEmitStrategy` queries the `Reference` for a `ts.Identifier` that's valid in the requested file (see "identifier tracking" for `Reference`s above).
+This `ReferenceEmitStrategy` queries the `Reference` for a `ts.Identifier` that is valid in the requested file (see "identifier tracking" for `Reference`s above).
 
 ### `LogicalProjectStrategy`
 
@@ -129,7 +129,7 @@ In environments with "strict dependency checking" as described above, an NgModul
 
 A `UnifiedModulesAliasingHost` implements `AliasingHost` and makes full use of the aliasing system in the case of a `UnifiedModulesHost`.
 
-When compiling an NgModule, re-exports are added under a stable name for each directive/pipe that's re-exported by the NgModule.
+When compiling an NgModule, re-exports are added under a stable name for each directive/pipe that is re-exported by the NgModule.
 
 When importing that NgModule, alias `Expression`s are added to all the `Reference`s for those directives/pipes that are guaranteed to be from a direct dependency.
 
@@ -144,7 +144,7 @@ This `AliasingHost` does not tag any `Reference`s with aliases, and relies on th
 
 ## Default imports
 
-This aspect of the `imports` package is a little different than the rest of the code as it's not concerned with directive/pipe imports. Instead, it's concerned with a different problem: preventing the removal of default import statements which were converted from type-only to value imports through compilation.
+This aspect of the `imports` package is a little different than the rest of the code as it is not concerned with directive/pipe imports. Instead, it is concerned with a different problem: preventing the removal of default import statements which were converted from type-only to value imports through compilation.
 
 ### Type-to-value compilation
 
@@ -195,7 +195,7 @@ let foo_1 = require('./foo');
 inject(foo_1.Foo);
 ```
 
-The Angular compiler takes the `Foo` `ts.Identifier` from the import statement `import {Foo} from './foo'`, which has a "provenance" in TypeScript that indicates it's associated with the import statement. After transforms, TypeScript will scan the output code and notice this `ts.Identifier` is still present, and so it will choose to preserve the import statement.
+The Angular compiler takes the `Foo` `ts.Identifier` from the import statement `import {Foo} from './foo'`, which has a "provenance" in TypeScript that indicates it is associated with the import statement. After transforms, TypeScript will scan the output code and notice this `ts.Identifier` is still present, and so it will choose to preserve the import statement.
 
 If, however, `Foo` was a default import:
 
@@ -214,4 +214,4 @@ inject(foo_1.default);
 
 Note in this output, the `Foo` identifier from before has disappeared. TypeScript then does not find any `ts.Identifier`s which point back to the original import statement, and thus it concludes that the import is unused.
 
-It's likely that this case was overlooked in the design of the transformers API.
+It is likely that this case was overlooked in the design of the transformers API.

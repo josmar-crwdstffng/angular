@@ -202,7 +202,7 @@ For more information, see [Managing assets in a library](guide/creating-librarie
 
 ### Legacy resolution keys
 
-In addition to `"exports"`, the top-level `package.json` also defines legacy module resolution keys for resolvers that don't support `"exports"`.
+In addition to `"exports"`, the top-level `package.json` also defines legacy module resolution keys for resolvers that do not support `"exports"`.
 For `@angular/core` these are:
 
 <code-example language="javascript">
@@ -321,7 +321,7 @@ Please check out the excellent post ["The cost of small modules"](https://nolanl
 The Angular compiler can generate index ES module files. Tools like Rollup can use these files to generate flattened modules in a *Flattened ES Module* (FESM) file format.
 
 FESM is a file format created by flattening all ES Modules accessible from an entrypoint into a single ES Module.
-It's formed by following all imports from a package and copying that code into a single file while preserving all public ES exports and removing all private imports.
+It is formed by following all imports from a package and copying that code into a single file while preserving all public ES exports and removing all private imports.
 
 The abbreviated name, FESM, pronounced *phe-som*, can be followed by a number such as FESM5 or FESM2015.
 The number refers to the language level of the JavaScript inside the module.
@@ -361,11 +361,11 @@ The APF currently includes unflattened ESM2020 code for the purpose of validatin
 
 By default, EcmaScript Modules are side-effectful: importing from a module ensures that any code at the top level of that module should run.
 This is often undesirable, as most side-effectful code in typical modules is not truly side-effectful, but instead only affects specific symbols.
-If those symbols are not imported and used, it's often desirable to remove them in an optimization process known as tree-shaking, and the side-effectful code can prevent this.
+If those symbols are not imported and used, it is often desirable to remove them in an optimization process known as tree-shaking, and the side-effectful code can prevent this.
 
 Build tools such as Webpack support a flag which allows packages to declare that they do not depend on side-effectful code at the top level of their modules, giving the tools more freedom to tree-shake code from the package.
 The end result of these optimizations should be smaller bundle size and better code distribution in bundle chunks after code-splitting.
-This optimization can break your code if it contains non-local side-effects - this is however not common in Angular applications and it's usually a sign of bad design.
+This optimization can break your code if it contains non-local side-effects - this is however not common in Angular applications and it is usually a sign of bad design.
 The recommendation is for all packages to claim the side-effect free status by setting the `sideEffects` property to `false`, and that developers follow the [Angular Style Guide](https://angular.io/guide/styleguide) which naturally results in code without non-local side-effects.
 
 More info: [webpack docs on side-effects](https://github.com/webpack/webpack/tree/master/examples/side-effects)
@@ -446,7 +446,7 @@ Because of this, the Angular team often uses the language level specifier as a s
 
 An artifact in the form of a single JS file, produced by a build tool \(for example, [Webpack](https://webpack.js.org) or [Rollup](https://rollupjs.org)\) that contains symbols originating in one or more modules.
 Bundles are a browser-specific workaround that reduce network strain that would be caused if browsers were to start downloading hundreds if not tens of thousands of files.
-Node.js typically doesn't use bundles.
+Node.js typically does not use bundles.
 Common bundle formats are UMD and System.register.
 
 #### Language level

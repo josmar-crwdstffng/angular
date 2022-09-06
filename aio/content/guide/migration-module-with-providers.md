@@ -45,7 +45,7 @@ export class MyModule {
 
 </code-example>
 
-In the rare case that the schematic can't determine the type of `ModuleWithProviders`, you may see the schematic print a TODO comment to update the code manually.
+In the rare case that the schematic cannot determine the type of `ModuleWithProviders`, you may see the schematic print a TODO comment to update the code manually.
 
 ## Why is this migration necessary?
 
@@ -64,7 +64,7 @@ Yes, any time your code references the `ModuleWithProviders` type, it should hav
 ## What should I do if the schematic prints a TODO comment?
 
 The schematic will print a TODO comment in the event that it cannot detect the correct generic for the `ModuleWithProviders` type.
-In this case, you'll want to manually add the correct generic to `ModuleWithProviders`.
+In this case, you will want to manually add the correct generic to `ModuleWithProviders`.
 It should match the type of whichever `NgModule` is returned in the `ModuleWithProviders` object.
 
 ## What does this mean for libraries?

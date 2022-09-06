@@ -7,7 +7,7 @@ The following sections highlight some core router concepts.
 ## Router imports
 
 The Angular Router is an optional service that presents a particular component view for a given URL.
-It isn't part of the Angular core and thus is in its own library package, `@angular/router`.
+It is not part of the Angular core and thus is in its own library package, `@angular/router`.
 
 Import what you need from it as you would from any other Angular package.
 
@@ -71,7 +71,7 @@ It acts as a placeholder that marks the spot in the template where the router sh
 
 </code-example>
 
-Given the preceding configuration, when the browser URL for this application becomes `/heroes`, the router matches that URL to the route path `/heroes` and displays the `HeroListComponent` as a sibling element to the `RouterOutlet` that you've placed in the host component's template.
+Given the preceding configuration, when the browser URL for this application becomes `/heroes`, the router matches that URL to the route path `/heroes` and displays the `HeroListComponent` as a sibling element to the `RouterOutlet` that you have placed in the host component's template.
 
 <a id="basics-router-links"></a>
 <a id="router-link"></a>
@@ -189,9 +189,9 @@ Here are the key `Router` terms and their meanings:
 | `Routes`              | Defines an array of Routes, each mapping a URL path to a component.                                                                                                                              |
 | `Route`               | Defines how the router should navigate to a component based on a URL pattern. Most routes consist of a path and a component type.                                                                |
 | `RouterOutlet`        | The directive \(`<router-outlet>`\) that marks where the router displays a view.                                                                                                                 |
-| `RouterLink`          | The directive for binding a clickable HTML element to a route. Clicking an element with a `routerLink` directive that's bound to a *string* or a *link parameters array* triggers a navigation. |
+| `RouterLink`          | The directive for binding a clickable HTML element to a route. Clicking an element with a `routerLink` directive that is bound to a *string* or a *link parameters array* triggers a navigation. |
 | `RouterLinkActive`    | The directive for adding/removing classes from an HTML element when an associated `routerLink` contained on or inside the element becomes active/inactive. It can also set the `aria-current` of an active link for better accessibility.                                       |
-| `ActivatedRoute`      | A service that's provided to each route component that contains route specific information such as route parameters, static data, resolve data, global query parameters, and the global fragment.   |
+| `ActivatedRoute`      | A service that is provided to each route component that contains route specific information such as route parameters, static data, resolve data, global query parameters, and the global fragment.   |
 | `RouterState`         | The current state of the router including a tree of the currently activated routes together with convenience methods for traversing the route tree.                                              |
 | Link parameters array | An array that the router interprets as a routing instruction. You can bind that array to a `RouterLink` or pass the array as an argument to the `Router.navigate` method.                        |
 | Routing component     | An Angular component with a `RouterOutlet` that displays views based on router navigations.                                                                                                      |

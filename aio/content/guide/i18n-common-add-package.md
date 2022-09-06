@@ -16,7 +16,7 @@ If `@angular/localize` is not installed and you try to build a localized version
 
 <!--todo: add example error -->
 
-## What's next
+## What is next
 
 *   [Refer to locales by ID][AioGuideI18nCommonLocaleId]
 

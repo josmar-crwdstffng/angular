@@ -8,15 +8,15 @@ These are required. You can find the values for `SAUCE_USERNAME` and `SAUCE_ACCE
 If you are having trouble running Saucelabs tests locally you can contact [Joey Perrott](https://github.com/josephperrott) or [Greg Magolan](https://github.com/gregmagolan) for support.
 
 1. On OSX and Windows, you will also need to set `SAUCE_CONNECT` to the path of your `sc` binary (Sauce Connect Proxy).
-You will have to download Sauce Connect Proxy if you don't already have it downloaded. 
-It's available on the SauceLabs website [here](https://wiki.saucelabs.com/display/DOCS/Downloading+Sauce+Connect+Proxy).
+You will have to download Sauce Connect Proxy if you do not already have it downloaded.
+It is available on the SauceLabs website [here](https://wiki.saucelabs.com/display/DOCS/Downloading+Sauce+Connect+Proxy).
 Unzip it and point the SAUCE_CONNECT env variable to the `sc` binary.
 
 ```
 export SAUCE_CONNECT=/{path_to_sc}/bin/sc
 ```
 
-Note: it will not work to use the Sauce Connect that's already in node_modules unless you are using Linux. 
+Note: it will not work to use the Sauce Connect that is already in node_modules unless you are using Linux.
 Download the one above for other platforms.
 
 3. Once you have your environment variables set up, run the setup task in the root of the repo:
@@ -42,7 +42,7 @@ yarn bazel run //tools/saucelabs:sauce_service_log
 
 ## Additional test features
 
-To see the test output while the tests are running (as these are long tests), add the `--test_output=streamed` option. 
+To see the test output while the tests are running (as these are long tests), add the `--test_output=streamed` option.
 Note, this option will also prevent bazel from using the test cache and will force the test to run.
 
 `bazel query` is required gather up all karma saucelabs test labels so they can be run in one command as they are tagged `manual`.
@@ -57,8 +57,8 @@ yarn bazel test --config=saucelabs ${TESTS}
 
 ## Under the hood
 
-The `//tools/saucelabs:sauce_service_setup` target does not start the Sauce Connect proxy but it does start the process that then listens for the start signal from the service manager script. 
-This signal is sent by the karma wrapper script `//tools/saucelabs:karma-saucelabs` which calls `./tools/saucelabs/sauce-service.sh start`. 
+The `//tools/saucelabs:sauce_service_setup` target does not start the Sauce Connect proxy but it does start the process that then listens for the start signal from the service manager script.
+This signal is sent by the karma wrapper script `//tools/saucelabs:karma-saucelabs` which calls `./tools/saucelabs/sauce-service.sh start`.
 This is necessary as the Sauce Connect Proxy process must be started outside of `bazel test` as Bazel will automatically kill any processes spawned during a test when that tests completes, which would prevent the tunnel from being shared by multiple tests.
 
 The karma_web_test rule is to test with saucelabs with a modified `karma` attribute set to
@@ -94,12 +94,12 @@ These saucelabs targets must have a few important tags:
 
 **Q: How do I get the tests to run on IE? I only see Chromium.**
 
-If you see something like this at the end of your test output, it means you're not actually running SauceLabs: 
+If you see something like this at the end of your test output, it means you are not actually running SauceLabs:
 
 ```
 INFO: Build completed successfully, 43 total actions
 /packages/core/test:test_web_chromium
-``` 
+```
 
 This is a common error caused by forgetting to prefix your test target with "saucelabs_".
 For example, `/packages/core/test:test_web` becomes `/packages/core/test:saucelabs_test_web`.
@@ -107,9 +107,9 @@ For example, `/packages/core/test:test_web` becomes `/packages/core/test:saucela
 **Q: How can I tell that the SauceLabs connection was successfully made?**
 
 There is a dashboard at saucelabs.com where you can see active tunnel connections (Angular has an account).
-As soon as you actually run the test target (not after the setup task), you should see an active tunnel connection under the SAUCE_TUNNEL_IDENTIFICATION_KEY you entered. 
+As soon as you actually run the test target (not after the setup task), you should see an active tunnel connection under the SAUCE_TUNNEL_IDENTIFICATION_KEY you entered.
 If a tunnel connection is not there, you are not actually connecting with SauceLabs.
 
-Note: It may *look* like the tests are running because of the Bazel output. 
+Note: It may *look* like the tests are running because of the Bazel output.
 The progress Bazel is showing does not mean that SauceLabs is connected.
 If the tests are actually running, you should see the "..." test report for passing tests.

@@ -17,7 +17,7 @@ Follow these steps to align the angular.io app with new CLI apps.
 
 - Determine (for example, by examining git history) what is the last versions for which this process was performed.
   These will be referred to as `<FROM_VERSION_*>`.
-  If you can't determine these, use arbitrary versions, such as the previous major version.
+  If you cannot determine these, use arbitrary versions, such as the previous major version.
 
 - Run the following commands to automatically apply any available migrations to the project:
   ```sh

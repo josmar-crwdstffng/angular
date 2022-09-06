@@ -135,7 +135,7 @@ The [example-boilerplate.js](./example-boilerplate.js) script manages the depend
 - `example-boilerplate.js add`: create the `node_modules/` symlinks and copy the necessary boilerplate files into example folders.
 - `example-boilerplate.js remove`: remove all the boilerplate files from examples.
   It uses `git clean -xdf` to do the job.
-  It will remove all files that are not tracked by git, **including any new files that you are working on that haven't been staged yet.**
+  It will remove all files that are not tracked by git, **including any new files that you are working on that have not been staged yet.**
   So, be sure to commit your work before removing the boilerplate.
 - `example-boilerplate.js list-overrides`: print out a list of all example files that override boilerplate files.
   This is useful when updating the boilerplate files to a new version of Angular.

@@ -95,7 +95,7 @@ Because the value of the property `isUnchanged` is `true` in the `AppComponent`,
 
 <code-example path="property-binding/src/app/app.component.ts" region="boolean" header="src/app/app.component.ts"></code-example>
 
-## What's next
+## What is next
 
 * [Property binding best practices](guide/property-binding-best-practices)
 * [Event binding](guide/event-binding)

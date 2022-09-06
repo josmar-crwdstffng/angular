@@ -1,6 +1,6 @@
 # View encapsulation
 
-In Angular, a component's styles can be encapsulated within the component's host element so that they don't affect the rest of the application.
+In Angular, a component's styles can be encapsulated within the component's host element so that they do not affect the rest of the application.
 
 The `Component`'s decorator provides the [`encapsulation`](api/core/Component#encapsulation) option which can be used to control how the encapsulation is applied on a *per component* basis.
 

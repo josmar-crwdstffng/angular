@@ -12,7 +12,7 @@ This page describes a dependency-injection design pattern that supports proper t
 The lightweight injection token design pattern is especially important for library developers.
 It ensures that when an application uses only some of your library's capabilities, the unused code can be eliminated from the client's application bundle.
 
-When an application uses your library, there might be some services that your library supplies which the client application doesn't use.
+When an application uses your library, there might be some services that your library supplies which the client application does not use.
 In this case, the application developer should expect that service to be tree-shaken, and not contribute to the size of the compiled application.
 Because the application developer cannot know about or remedy a tree-shaking problem in the library, it is the responsibility of the library developer to do so.
 To prevent the retention of unused components, your library should use the lightweight injection token design pattern.

@@ -54,13 +54,13 @@ The observable continuously updates the view with the current time.
 
 [`Router.events`](api/router/Router#events) provides events as observables.
 You can use the `filter()` operator from RxJS to look for events of interest, and subscribe to them in order to make decisions based on the sequence of events in the navigation process.
-Here's an example:
+Here is an example:
 
 <code-example header="Router events" path="observables-in-angular/src/main.ts" region="router"></code-example>
 
 The [ActivatedRoute](api/router/ActivatedRoute) is an injected router service that makes use of observables to get information about a route path and parameters.
 For example, `ActivatedRoute.url` contains an observable that reports the route path or paths.
-Here's an example:
+Here is an example:
 
 <code-example header="ActivatedRoute" path="observables-in-angular/src/main.ts" region="activated_route"></code-example>
 

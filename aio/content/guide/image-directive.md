@@ -31,7 +31,7 @@ To activate the `NgOptimizedImage` directive, replace your image's `src` attribu
   &lt;img rawSrc=”cat.jpg" width="400" height="200"&gt;
 </code-example>
 
-The built-in third-party loaders prepend a shared base URL to `src`. If you're using one of these loaders (or any other loader that does this), make sure to omit the shared base URL path from `src` to prevent unnecessary duplication.
+The built-in third-party loaders prepend a shared base URL to `src`. If you are using one of these loaders (or any other loader that does this), make sure to omit the shared base URL path from `src` to prevent unnecessary duplication.
 
 You must also set the `width` and `height` attributes. This is done to prevent [image-related layout shifts](https://web.dev/css-web-vitals/#images-and-layout-shifts).  The `width` and `height` attributes should reflect the [intrinsic size](https://developer.mozilla.org/en-US/docs/Glossary/Intrinsic_Size) of the image. During development, the `NgOptimizedImage` warns if it detects that the `width` and `height` attributes have been set incorrectly.
 

@@ -16,7 +16,7 @@ A "loader" is a function that generates the [image transformation URL](https://w
 |:--- |:--- |
 | Generic loader | The URL returned by the generic loader will always match the value of `src`. In other words, this loader applies no transformations. Sites that use Angular to serve images are the primary intended use case for this loader.|
 | Loaders for third-party image services | The URL returned by the loaders for third-party image services will follow API conventions used by that particular image service. |
-| Custom loaders | A custom loader's behavior is defined by its developer. You should use a custom loader if your image service isn't supported by the loaders that come preconfigured with `NgOptimizedImage`.|
+| Custom loaders | A custom loader's behavior is defined by its developer. You should use a custom loader if your image service is not supported by the loaders that come preconfigured with `NgOptimizedImage`.|
 
 Based on the image services commonly used with Angular applications, `NgOptimizedImage` provides loaders preconfigured to work with the following image services:
 
@@ -29,7 +29,7 @@ Based on the image services commonly used with Angular applications, `NgOptimize
 
 You must configure an image loader to use `NgOptimizedImage`.
 
-These instructions explain how to setup an image loader for use with the `NgOptimizedImage`. 
+These instructions explain how to setup an image loader for use with the `NgOptimizedImage`.
 
 1. Import the `NgOptimizedImage` directive into the application by adding it to the `imports` section of an NgModule or a standalone Component.
 

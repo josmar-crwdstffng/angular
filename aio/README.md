@@ -92,7 +92,7 @@ extracting the documentation and generating JSON files that can be consumed by t
 
 ### Partial doc generation for editors
 
-Full doc generation can take up to one minute. That's too slow for efficient document creation and editing.
+Full doc generation can take up to one minute. That is too slow for efficient document creation and editing.
 
 You can make small changes in a smart editor that displays formatted markdown:
 >In VS Code, _Cmd-K, V_ opens markdown preview in side pane; _Cmd-B_ toggles left sidebar
@@ -102,7 +102,7 @@ with a quick, edit/view cycle time.
 
 For this purpose, use the `yarn docs-watch` task, which watches for changes to source files and only
 re-processes the files necessary to generate the docs that are related to the file that has changed.
-Since this task takes shortcuts, it is much faster (often less than 1 second) but it won't produce full
+Since this task takes shortcuts, it is much faster (often less than 1 second) but it will not produce full
 fidelity content. For example, links to other docs and code examples may not render correctly. This is
 most particularly noticed in links to other docs and in the embedded examples, which may not always render
 correctly.

@@ -14,7 +14,7 @@ Follow these steps to align the example apps with new CLI apps.
 
 - Determine (for example, by examining git history) what is the last versions for which this process was performed.
   These will be referred to as `<FROM_VERSION_*>`.
-  If you can't determine these, use arbitrary versions, such as the previous major version.
+  If you cannot determine these, use arbitrary versions, such as the previous major version.
 
 - In the [shared/](./shared) directory, run `yarn` to ensure the dependencies are installed in the [shared/node_modules/](./shared/node_modules) directory.
   This command will also ensure that the dependency versions of the `package.json` files in each sub-folder of [shared/boilerplate/](./shared/boilerplate) match the ones in [shared/package.json](./shared/package.json).

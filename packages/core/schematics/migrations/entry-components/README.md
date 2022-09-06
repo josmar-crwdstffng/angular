@@ -1,5 +1,5 @@
 ## entryComponents migration
-As of Angular version 13, the `entryComponents` option in `@NgModule` and `@Component` isn't
+As of Angular version 13, the `entryComponents` option in `@NgModule` and `@Component` is not
 necessary anymore. This migration will automatically remove any usages.
 
 #### Before

@@ -26,7 +26,7 @@ If so, the schematic removes the flag, as it now matches the default.
 
 &commat;ViewChild('foo') foo: ElementRef;
 
-// this query doesn't change because the static value is true
+// this query does not change because the static value is true
 &commat;ViewChild('bar', {static: true}) bar: ElementRef;
 
 </code-example>
@@ -72,7 +72,7 @@ In order to support applications that are still running with version 8, the safe
 
 | Library and application combination                        | Details |
 |:---                                                        |:---   |
-| Libraries on version 9 with applications running version 8 | The schematic won't run on libraries. As long as libraries retain their `static` flags from version 8, they should work with apps on 8. |
+| Libraries on version 9 with applications running version 8 | The schematic will not run on libraries. As long as libraries retain their `static` flags from version 8, they should work with apps on 8. |
 | Libraries on version 8 with applications running version 9 | Libraries will have explicit flags defined. The behavior with explicit flags has not changed.                                           |
 
 ### What about applications using non-migrated libraries?

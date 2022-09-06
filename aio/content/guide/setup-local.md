@@ -9,7 +9,7 @@ It includes information about prerequisites, installing the CLI, creating an ini
 
 If you are new to Angular, you might want to start with [Try it now!](start), which introduces the essentials of Angular in the context of a ready-made basic online store app for you to examine and modify.
 This standalone tutorial takes advantage of the interactive [StackBlitz](https://stackblitz.com) environment for online development.
-You don't need to set up your local environment until you're ready.
+You do not need to set up your local environment until you are ready.
 
 </div>
 

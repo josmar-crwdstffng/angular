@@ -59,7 +59,7 @@ To change the source locale of your project for the build, complete the followin
 1.  Open the [`angular.json`][AioGuideWorkspaceConfig] workspace build configuration file.
 1.  Change the source locale in the `sourceLocale` field.
 
-## What's next
+## What is next
 
 *   [Format data based on locale][AioGuideI18nCommonFormatDataLocale]
 

@@ -4,8 +4,8 @@
 
 Implements _Zones_ for JavaScript, inspired by [Dart](https://dart.dev/articles/archive/zones).
 
-> If you're using zone.js via unpkg (i.e. using `https://unpkg.com/zone.js`)
-> and you're using any of the following libraries, make sure you import them first
+> If you are using zone.js via unpkg (i.e. using `https://unpkg.com/zone.js`)
+> and you are using any of the following libraries, make sure you import them first
 
 > * 'newrelic' as it patches global.Promise before zone.js does
 > * 'async-listener' as it patches global.setTimeout, global.setInterval before zone.js does
@@ -41,7 +41,7 @@ Starting with Zone.js `v0.11.1+` the import changes to:
 import 'zone.js';
 ```
 
-Prior to `v0.11.1` the import would load the `ES5` bundle in `UMD` format from `dist/zone.js`. 
+Prior to `v0.11.1` the import would load the `ES5` bundle in `UMD` format from `dist/zone.js`.
 Starting with `v0.11.1` the import loads the `ES2015` bundle in `ESM` format instead.
 
 This is a breaking change for legacy browsers such as `IE11`.
@@ -55,7 +55,7 @@ import 'zone.js/dist/zone';
 
 For details, please refer the [changelog](./CHANGELOG.md) and the [PR](https://github.com/angular/angular/pull/36540).
 
-## What's a Zone?
+## What is a Zone?
 
 A Zone is an execution context that persists across async tasks.
 You can think of it as [thread-local storage](https://en.wikipedia.org/wiki/Thread-local_storage) for JavaScript VMs.

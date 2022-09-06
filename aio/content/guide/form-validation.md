@@ -100,7 +100,7 @@ All of these validators are synchronous, so they are passed as the second argume
 Notice that you can support multiple validators by passing the functions in as an array.
 
 This example also adds a few getter methods.
-In a reactive form, you can always access any form control through the `get` method on its parent group, but sometimes it's useful to define getters as shorthand for the template.
+In a reactive form, you can always access any form control through the `get` method on its parent group, but sometimes it is useful to define getters as shorthand for the template.
 
 If you look at the template for the `name` input again, it is fairly similar to the template-driven example.
 
@@ -110,16 +110,16 @@ This form differs from the template-driven version in that it no longer exports 
 Instead, it uses the `name` getter defined in  the component class.
 
 Notice that the `required` attribute is still present in the template.
-Although it's not necessary for validation, it should be retained to for accessibility purposes.
+Although it is not necessary for validation, it should be retained to for accessibility purposes.
 
 <a id="custom-validators"></a>
 
 ## Defining custom validators
 
-The built-in validators don't always match the exact use case of your application, so you sometimes need to create a custom validator.
+The built-in validators do not always match the exact use case of your application, so you sometimes need to create a custom validator.
 
 Consider the `forbiddenNameValidator` function from previous [reactive-form examples](#reactive-component-class).
-Here's what the definition of that function looks like.
+Here is what the definition of that function looks like.
 
 <code-example header="shared/forbidden-name.directive.ts (forbiddenNameValidator)" path="form-validation/src/app/shared/forbidden-name.directive.ts" region="custom-validator"></code-example>
 
@@ -170,7 +170,7 @@ For example:
 Notice that the custom validation directive is instantiated with `useExisting` rather than `useClass`.
 The registered validator must be *this instance* of the `ForbiddenValidatorDirective` &mdash;the instance in the form with its `forbiddenName` property bound to "bob".
 
-If you were to replace `useExisting` with `useClass`, then you'd be registering a new class instance, one that doesn't have a `forbiddenName`.
+If you were to replace `useExisting` with `useClass`, then you would be registering a new class instance, one that does not have a `forbiddenName`.
 
 </div>
 

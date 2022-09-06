@@ -26,7 +26,7 @@ To execute the observable you have created and begin receiving notifications, yo
 This is a JavaScript object that defines the handlers for the notifications you receive.
 The `subscribe()` call returns a `Subscription` object that has an `unsubscribe()` method, which you call to stop receiving notifications.
 
-Here's an example that demonstrates the basic usage model by showing how an observable could be used to provide geolocation updates.
+Here is an example that demonstrates the basic usage model by showing how an observable could be used to provide geolocation updates.
 
 <code-example header="Observe geolocation updates" class="no-auto-link" path="observables/src/geolocation.ts"></code-example>
 
@@ -42,7 +42,7 @@ It is an object that defines callback methods to handle the three types of notif
 | `complete`        | Optional. A handler for the execution-complete notification. Delayed values can continue to be delivered to the next handler after execution is complete. |
 
 An observer object can define any combination of these handlers.
-If you don't supply a handler for a notification type, the observer ignores notifications of that type.
+If you do not supply a handler for a notification type, the observer ignores notifications of that type.
 
 ## Subscribing
 
@@ -61,7 +61,7 @@ There is a constructor that you use to create new instances, but for illustratio
 
 </div>
 
-Here's an example of creating and subscribing to a simple observable, with an observer that logs the received message to the console:
+Here is an example of creating and subscribing to a simple observable, with an observer that logs the received message to the console:
 
 <code-example header="Subscribe using observer" path="observables/src/subscribing.ts" region="observer"></code-example>
 
@@ -111,11 +111,11 @@ Sometimes, instead of starting an independent execution for each subscriber, you
 This might be the case with something like an observable of clicks on the document object.
 
 *Multicasting* is the practice of broadcasting to a list of multiple subscribers in a single execution.
-With a multicasting observable, you don't register multiple listeners on the document, but instead re-use the first listener and send values out to each subscriber.
+With a multicasting observable, you do not register multiple listeners on the document, but instead re-use the first listener and send values out to each subscriber.
 
 When creating an observable you should determine how you want that observable to be used and whether or not you want to multicast its values.
 
-Let's look at an example that counts from 1 to 3, with a one-second delay after each number emitted.
+Let us look at an example that counts from 1 to 3, with a one-second delay after each number emitted.
 
 <code-example header="Create a delayed sequence" path="observables/src/multicasting.ts" region="delay_sequence"></code-example>
 

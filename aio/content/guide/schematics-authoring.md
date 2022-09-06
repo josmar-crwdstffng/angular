@@ -9,7 +9,7 @@ Manipulating the code in an application has the potential to be both very powerf
 For example, creating a file that already exists would be an error, and if it was applied immediately, it would discard all the other changes applied so far.
 The Angular Schematics tooling guards against side effects and errors by creating a virtual file system.
 A schematic describes a pipeline of transformations that can be applied to the virtual file system.
-When a schematic runs, the transformations are recorded in memory, and only applied in the real file system once they're confirmed to be valid.
+When a schematic runs, the transformations are recorded in memory, and only applied in the real file system once they are confirmed to be valid.
 
 ## Schematics concepts
 
@@ -17,7 +17,7 @@ The public API for schematics defines classes that represent the basic concepts.
 
 *   The virtual file system is represented by a `Tree`.
     The `Tree` data structure contains a *base* \(a set of files that already exists\) and a *staging area* \(a list of changes to be applied to the base\).
-    When making modifications, you don't actually change the base, but add those modifications to the staging area.
+    When making modifications, you do not actually change the base, but add those modifications to the staging area.
 
 *   A `Rule` object defines a function that takes a `Tree`, applies transformations, and returns a new `Tree`.
     The main file for a schematic, `index.ts`, defines a set of rules that implement the schematic's logic.
@@ -40,7 +40,7 @@ A `RuleFactory` object defines a higher-order function that creates a `Rule`.
 
 import { Rule, SchematicContext, Tree } from '&commat;angular-devkit/schematics';
 
-// You don't have to export the function as default.
+// You do not have to export the function as default.
 // You can also have more than one rule factory per file.
 export function helloWorld(_options: any): Rule {
  return (tree: Tree, _context: SchematicContext) =&gt; {

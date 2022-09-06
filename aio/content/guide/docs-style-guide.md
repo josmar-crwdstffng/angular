@@ -21,7 +21,7 @@ The categories of Angular documentation include:
 
 | Angular documentation categories | Details |
 |:---                              |:---     |
-| [Guides](docs)                   | Much of what's in the [documentation section of angular.io](docs). Guides walk the reader step-by-step through tasks to demonstrate concepts and are often accompanied by a working example. These include [Getting Started](start), [Tour of Heroes](tutorial), and pages about [Forms](guide/forms-overview), [Dependency Injection](guide/dependency-injection), and [HttpClient](guide/http). Contributing members of the community and Angular team members maintain this documentation in [Markdown](https://daringfireball.net/projects/markdown/syntax "Markdown"). |
+| [Guides](docs)                   | Much of what is in the [documentation section of angular.io](docs). Guides walk the reader step-by-step through tasks to demonstrate concepts and are often accompanied by a working example. These include [Getting Started](start), [Tour of Heroes](tutorial), and pages about [Forms](guide/forms-overview), [Dependency Injection](guide/dependency-injection), and [HttpClient](guide/http). Contributing members of the community and Angular team members maintain this documentation in [Markdown](https://daringfireball.net/projects/markdown/syntax "Markdown"). |
 | [API documentation](api)         | Reference documents for the [Angular Application Programming Interface, or API](api). These are more succinct than guides and serve as a reference for Angular features. They are especially helpful for people already acquainted with Angular concepts. The [angular.io](https://angular.io) infrastructure generates these documents from source code and comments that contributors edit.                                                                                                                                                                               |
 | [CLI documentation](cli)         | The [angular.io](https://angular.io) infrastructure generates these documents from CLI source code.                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
@@ -112,7 +112,7 @@ While you can use additional section headings, the [Table-of-contents (TOC)](#ta
 
 <code-example format="html" language="html">
 
-&num;&num;&num;&num; The TOC won't display this
+&num;&num;&num;&num; The TOC will not display this
 
 Content after a blank line.
 
@@ -124,7 +124,7 @@ Most pages display a table of contents or TOC.
 The TOC appears in the right panel when the viewport is wide.
 When narrow, the TOC appears in a collapsible region near the top of the page.
 
-You don't need to create your own TOC by hand because the TOC generator creates one automatically from the page's  `<h2>` and `<h3>` headers.
+You do not need to create your own TOC by hand because the TOC generator creates one automatically from the page's  `<h2>` and `<h3>` headers.
 
 To exclude a heading from the TOC, create the heading as an `<h2>` or `<h3>` element with a class called 'no-toc'.
 
@@ -422,7 +422,7 @@ In cases where you need unacceptable examples, you can set the `class` to `avoid
 By putting the word `avoid` in the filename or path, the documentation generator automatically adds the `avoid` class to the `<code-example>`.
 Either of these options frames the code snippet in bright red to grab the reader's attention.
 
-Here's the markup for an "avoid" example in the
+Here is the markup for an "avoid" example in the
 [Angular Style Guide](guide/styleguide#style-05-03 "Style 05-03: components as elements") that uses the word `avoid` in the path name:
 
 <code-example format="html" language="html">
@@ -565,7 +565,7 @@ The documentation generation process erases these comments before displaying the
 
 <div class="alert is-important">
 
-Because JSON does not allow comments, code snippet markup doesn't work in JSON files.
+Because JSON does not allow comments, code snippet markup does not work in JSON files.
 See the section on [JSON files](#json-files) for more information.
 
 </div>
@@ -694,12 +694,12 @@ export class AppComponent {
 The `<code-example>` component cannot display portions of a JSON file because JSON forbids comments.
 However, you can display an entire JSON file by referencing it in the `<code-example>` `src` attribute.
 
-For large JSON files, you could copy the nodes-of-interest into Markdown backticks, but as it's easy to mistakenly create invalid JSON that way, consider creating a JSON partial file with the fragment you want to display.
+For large JSON files, you could copy the nodes-of-interest into Markdown backticks, but as it is easy to mistakenly create invalid JSON that way, consider creating a JSON partial file with the fragment you want to display.
 
-You can't test a partial file nor use it in the application, but at least your editor can confirm that it is syntactically correct.
+You cannot test a partial file nor use it in the application, but at least your editor can confirm that it is syntactically correct.
 You can also store the partial file next to the original, so it is more likely that the author will remember to keep the two in sync.
 
-Here's an example that excerpts certain scripts from `package.json` into a partial file named `package.1.json`.
+Here is an example that excerpts certain scripts from `package.json` into a partial file named `package.1.json`.
 
 <code-example header="package.json (selected scripts)" path="docs-style-guide/package.1.json"></code-example>
 
@@ -717,7 +717,7 @@ Since the focus is generally on the full file rather than the partial, using the
 
 The step-by-step nature of the guides necessitate refactoring, which means there are code snippets that evolve through a guide.
 
-Use partial files to demonstrate intermediate versions of the final source code with fragments of code that don't appear in the final app.
+Use partial files to demonstrate intermediate versions of the final source code with fragments of code that do not appear in the final app.
 The sample naming convention adds a number before the file extension, as follows:
 
 <code-example format="html" language="html">
@@ -748,10 +748,10 @@ Adding `<live-example></live-example>` to a page generates two default links:
 <live-example></live-example>.
 
 The first is a link to the StackBlitz example, which the default `stackblitz.json` file defines.
-You can find the `stackblitz.json` file in the `content/examples/example-app` directory, where `example-app` is the sample application folder you're using for the guide.
+You can find the `stackblitz.json` file in the `content/examples/example-app` directory, where `example-app` is the sample application folder you are using for the guide.
 
 By default, the documentation generator uses the name of the guide as the name of the example.
-So, if you're working on `router.md`, and use `<live-example></live-example>` in the document, the documentation generator looks for `content/examples/router`.
+So, if you are working on `router.md`, and use `<live-example></live-example>` in the document, the documentation generator looks for `content/examples/router`.
 Clicking this link opens the code sample on StackBlitz in a new browser tab.
 
 The second link downloads the sample app.
@@ -929,7 +929,7 @@ The browser renders the following:
 
 This is a [link to that custom anchor name](#section-anchors).
 
-When editing a file, don't remove any anchors.
+When editing a file, do not remove any anchors.
 If you change the document structure, you can move an existing anchor within that same document without breaking a link.
 You can also add more anchors with more appropriate text.
 
@@ -1257,7 +1257,7 @@ The doc generator reads the image dimensions from an image file and adds `width`
 
 To control the size of the image, supply your own `width` and `height` attributes.
 
-Here's the "flying hero" markup with a 200px width:
+Here is the "flying hero" markup with a 200px width:
 
 <code-example format="html" language="html">
 
@@ -1352,11 +1352,11 @@ To explicitly clear a floated image, add `<br class="clear">` where the text sho
 
 <br class="clear">
 
-Generally, you don't wrap a floated image in a `<figure>` element.
+Generally, you do not wrap a floated image in a `<figure>` element.
 
 ### Floats within a subsection
 
-If you have a floated image inside an alert, callout, or a subsection, apply the `clear-fix` class to the `<div>` to ensure that the image doesn't overflow its container.
+If you have a floated image inside an alert, callout, or a subsection, apply the `clear-fix` class to the `<div>` to ensure that the image does not overflow its container.
 For example:
 
 <code-example format="html" language="html">
@@ -1391,7 +1391,7 @@ A subsection with **Markdown** formatted text.
 
 For specific language and grammar usage, a word list, style, tone, and formatting recommendations, see the [Google Developer Documentation Style Guide](https://developers.google.com/style).
 
-If you have any questions that this style guide doesn't answer or you would like to discuss documentation styles visit the [Angular repo](https://github.com/angular/angular) and [file a documentation issue](https://github.com/angular/angular/issues/new/choose).
+If you have any questions that this style guide does not answer or you would like to discuss documentation styles visit the [Angular repo](https://github.com/angular/angular) and [file a documentation issue](https://github.com/angular/angular/issues/new/choose).
 
 <!-- links -->
 

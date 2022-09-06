@@ -50,7 +50,7 @@ sudo docker run \
   # (See [here](vm-setup--set-up-secrets.md) for more info.)
   #
   # NOTE:
-  #   Omitting this is OK during development/debugging, when you don't care to interact with real
+  #   Omitting this is OK during development/debugging, when you do not care to interact with real
   #   external services.
   --volume <host-secrets-dir>:/aio-secrets:ro \
 
@@ -59,7 +59,7 @@ sudo docker run \
   #  this will be a directory inside the disk.)
   #
   # NOTE:
-  #   Omitting this is OK during development/debugging, when you don't care to interact with real
+  #   Omitting this is OK during development/debugging, when you do not care to interact with real
   #   external services.
   --volume <host-builds-dir>:/var/www/aio-builds \
 

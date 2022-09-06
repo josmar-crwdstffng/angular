@@ -30,7 +30,7 @@ part of the CI process and serving them publicly.
 - Because the PR author can change the scripts run on CI, any security mechanisms must be immune to
   such changes.
 
-- For security reasons, encrypted CircleCI variables are not available to PRs, so we can't rely on
+- For security reasons, encrypted CircleCI variables are not available to PRs, so we cannot rely on
   them to implement security.
 
 

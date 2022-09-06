@@ -60,7 +60,7 @@ Possible values are:
 
 | Values              | Details |
 |:---                 |:---     |
-| `false`             | Don't add the package to `package.json` |
+| `false`             | Do not add the package to `package.json` |
 | `true`              | Add the package to the dependencies     |
 | `"dependencies"`    | Add the package to the dependencies     |
 | `"devDependencies"` | Add the package to the devDependencies  |
@@ -98,7 +98,7 @@ To tell the library how to build the schematics, add a `tsconfig.schematics.json
 
 You can add a named schematic to your collection that lets your users use the `ng generate` command to create an artifact that is defined in your library.
 
-We'll assume that your library defines a service, `my-service`, that requires some setup.
+We will assume that your library defines a service, `my-service`, that requires some setup.
 You want your users to be able to generate it using the following CLI command.
 
 <code-example format="shell" language="shell">

@@ -35,7 +35,7 @@ These example types have separate boilerplate directories with the files that ar
 There are appropriate `package.json` files for each type of example in the boilerplate directories.
 If there is no special `package.json` file for an example type, the one from the `cli` boilerplate directory will be used instead.
 
-The `exampleZipper.mjs` won't include any `System.js` related files for CLI-based projects.
+The `exampleZipper.mjs` will not include any `System.js` related files for CLI-based projects.
 
 ## The zipper.json
 

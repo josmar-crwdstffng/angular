@@ -57,7 +57,7 @@ There are two main steps to setting up a lazy-loaded feature module:
 
 ### Set up an app
 
-If you don't already have an app, follow the following steps to create one with the CLI.
+If you do not already have an app, follow the following steps to create one with the CLI.
 If you already have an app, skip to [Configure the routes](#config-routes).
 Enter the following command where `customer-app` is the name of your app:
 
@@ -79,7 +79,7 @@ See [Keeping Up to Date](guide/updating).
 
 ### Create a feature module with routing
 
-Next, you'll need a feature module with a component to route to.
+Next, you will need a feature module with a component to route to.
 To make one, enter the following command in the terminal, where `customers` is the name of the feature module.
 The path for loading the `customers` feature modules is also `customers` because it is specified with the `--route` option:
 
@@ -163,12 +163,12 @@ In the `app-routing.module.ts` file, update the `routes` array with the followin
 
 The first two paths are the routes to the `CustomersModule` and the `OrdersModule`.
 The final entry defines a default route.
-The empty path matches everything that doesn't match an earlier path.
+The empty path matches everything that does not match an earlier path.
 
 ### Inside the feature module
 
 Next, take a look at the `customers.module.ts` file.
-If you're using the CLI and following the steps outlined in this page, you don't have to do anything here.
+If you are using the CLI and following the steps outlined in this page, you do not have to do anything here.
 
 <code-example header="src/app/customers/customers.module.ts" path="lazy-loading-ngmodules/src/app/customers/customers.module.ts" id="customers.module.ts" region="customers-module"></code-example>
 
@@ -246,7 +246,7 @@ You can preload modules or component data.
 
 ### Preloading modules
 
-Preloading modules improves UX by loading parts of your application in the background so users don't have to wait for the elements to download when they activate a route.
+Preloading modules improves UX by loading parts of your application in the background so users do not have to wait for the elements to download when they activate a route.
 
 To enable preloading of all lazy loaded modules, import the `PreloadAllModules` token from the Angular `router`.
 

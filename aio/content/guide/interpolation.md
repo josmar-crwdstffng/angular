@@ -24,7 +24,7 @@ In the following example, Angular evaluates the `title` and `itemImageUrl` prope
 
 <code-example path="interpolation/src/app/app.component.html" region="component-property"></code-example>
 
-## What's Next
+## What is Next
 
 * [Property binding](guide/property-binding)
 * [Event binding](guide/event-binding)

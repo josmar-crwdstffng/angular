@@ -4,7 +4,7 @@ This guide builds on the first step of the Getting Started tutorial, [Get starte
 
 At this stage of development, the online store application has a basic product catalog.
 
-In the following sections, you'll add the following features to the application:
+In the following sections, you will add the following features to the application:
 
 *   Type a URL in the address bar to navigate to a corresponding product page
 *   Click links on the page to navigate within your single-page application
@@ -58,7 +58,7 @@ This section shows you how to define a route to show individual product details.
 The `ProductDetailsComponent` handles the display of each product.
 The Angular Router displays components based on the browser's URL and [your defined routes](#define-routes).
 
-In this section, you'll use the Angular Router to combine the `products` data and route information to display the specific details for each product.
+In this section, you will use the Angular Router to combine the `products` data and route information to display the specific details for each product.
 
 1.  In `product-details.component.ts`, import `ActivatedRoute` from `@angular/router`, and the `products` array from `../products`.
 
@@ -106,7 +106,7 @@ When users click on a name in the product list, the router navigates them to the
 
 For more information about the Angular Router, see [Routing & Navigation](guide/router "Routing & Navigation guide").
 
-## What's next
+## What is next
 
 You have configured your application so you can view product details, each with a distinct URL.
 

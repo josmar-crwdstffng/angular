@@ -128,7 +128,7 @@ The metadata for a class in ivy is transformed to be what the metadata of the
 transformed .js file produced by the Ivy compiler would be. For example, a
 component's `@Component` is removed by the compiler and replaced by a `ɵcmp`.
 The `.metadata.json` file is similarly transformed but the content of the
-value assigned is elided (e.g. `"ɵcmp": {}`). The compiler doesn't
+value assigned is elided (e.g. `"ɵcmp": {}`). The compiler does not
 record the selector declared for a component but it is needed to produce the
 `ngModuleScope` so the information is recorded as if a static field
 `ngSelector` was declared on class with the value of the `selector` field

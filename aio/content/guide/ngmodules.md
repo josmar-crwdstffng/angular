@@ -20,7 +20,7 @@ Many third-party libraries are available as NgModules such as [Material Design](
 NgModules consolidate components, directives, and pipes into cohesive blocks of functionality, each focused on a feature area, application business domain, workflow, or common collection of utilities.
 
 Modules can also add services to the application.
-Such services might be internally developed, like something you'd develop yourself or come from outside sources, such as the Angular router and HTTP client.
+Such services might be internally developed, like something you would develop yourself or come from outside sources, such as the Angular router and HTTP client.
 
 Modules can be loaded eagerly when the application starts or lazy loaded asynchronously by the router.
 

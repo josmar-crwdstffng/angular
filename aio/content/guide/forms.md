@@ -57,7 +57,7 @@ Template-driven forms rely on directives defined in the `FormsModule`.
 | Directives     | Details |
 |:---            |:---     |
 | `NgModel`      | Reconciles value changes in the attached form element with changes in the data model, allowing you to respond to user input with input validation and error handling.                                                                                                           |
-| `NgForm`       | Creates a top-level `FormGroup` instance and binds it to a `<form>` element to track aggregated form value and validation status. As soon as you import `FormsModule`, this directive becomes active by default on all `<form>` tags. You don't need to add a special selector. |
+| `NgForm`       | Creates a top-level `FormGroup` instance and binds it to a `<form>` element to track aggregated form value and validation status. As soon as you import `FormsModule`, this directive becomes active by default on all `<form>` tags. You do not need to add a special selector. |
 | `NgModelGroup` | Creates and binds a `FormGroup` instance to a DOM element.                                                                                                                                                                                                                      |
 
 ### The sample application
@@ -81,7 +81,7 @@ Working with this form shows you:
 *  How to include validation logic
 *  How to customize the presentation with standard CSS
 *  How to handle error conditions to ensure valid input
-  
+
 If the user deletes the hero name, for example, the form becomes not valid.
 The application detects the changed status, and displays a validation error in an attention-grabbing style.
 The **Submit** button is not enabled, and the "required" bar to the left of the input control changes from green to red.
@@ -295,7 +295,7 @@ To see how the classes are added and removed by the framework, open the browser'
     </code-example>
 
 1.  Take the following actions on the **Name** `<input>` box, and observe which classes appear.
-    *   Look but don't touch.
+    *   Look but do not touch.
         The classes indicate that it is untouched, pristine, and valid.
 
     *   Click inside the name box, then click outside it.
@@ -337,7 +337,7 @@ To change the appearance in this way, take the following steps.
 ### Show and hide validation error messages
 
 The **Name** input box is required and clearing it turns the bar red.
-That indicates that something is wrong, but the user doesn't know what is wrong or what to do about it.
+That indicates that something is wrong, but the user does not know what is wrong or what to do about it.
 You can provide a helpful message by checking for and responding to the control's state.
 
 When the user deletes the name, the form should look like this:
@@ -348,7 +348,7 @@ When the user deletes the name, the form should look like this:
 
 </div>
 
-The **Hero Power** select box is also required, but it doesn't need this kind of error handling because the selection box already constrains the selection to valid values.
+The **Hero Power** select box is also required, but it does not need this kind of error handling because the selection box already constrains the selection to valid values.
 
 To define and show an error message when appropriate, take the following steps.
 
@@ -378,11 +378,11 @@ To define and show an error message when appropriate, take the following steps.
 In this example, you hide the message when the control is either valid or *pristine*.
 Pristine means the user hasn't changed the value since it was displayed in this form.
 If you ignore the `pristine` state, you would hide the message only when the value is valid.
-If you arrive in this component with a new, blank hero or an invalid hero, you'll see the error message immediately, before you've done anything.
+If you arrive in this component with a new, blank hero or an invalid hero, you will see the error message immediately, before you have done anything.
 
 You might want the message to display only when the user makes an invalid change.
 Hiding the message while the control is in the `pristine` state achieves that goal.
-You'll see the significance of this choice when you add a new hero to the form in the next step.
+You will see the significance of this choice when you add a new hero to the form in the next step.
 
 </div>
 
@@ -404,7 +404,7 @@ To let form users add a new hero, you will add a **New Hero** button that respon
 
     The form clears, and the *required* bars to the left of the input box are red, indicating invalid `name` and `power` properties.
     Notice that the error messages are hidden.
-    This is because the form is pristine; you haven't changed anything yet.
+    This is because the form is pristine; you have not changed anything yet.
 
 1.  Enter a name and click **New Hero** again.
 
@@ -439,12 +439,12 @@ To respond to this event, take the following steps.
     <code-example header="src/app/hero-form/hero-form.component.html (submit-button)" path="forms/src/app/hero-form/hero-form.component.html" region="submit-button"></code-example>
 
 1.  Run the application.
-    Notice that the button is enabled &mdash;although it doesn't do anything useful yet.
+    Notice that the button is enabled &mdash;although it does not do anything useful yet.
 
 1.  Delete the **Name** value.
     This violates the "required" rule, so it displays the error message &mdash;and notice that it also disables the **Submit** button.
 
-    You didn't have to explicitly wire the button's enabled state to the form's validity.
+    You did not have to explicitly wire the button's enabled state to the form's validity.
     The `FormsModule` did this automatically when you defined a template reference variable on the enhanced form element, then referred to that variable in the button control.
 
 ### Respond to form submission
@@ -486,7 +486,7 @@ framework features to provide support for data modification, validation, and mor
 *   Controlling the **Submit** button's enabled state by binding to `NgForm` validity
 *   Custom CSS classes that provide visual feedback to users about controls that are not valid
 
-Here's the code for the final version of the application:
+Here is the code for the final version of the application:
 
 <code-tabs>
     <code-pane header="hero-form/hero-form.component.ts" path="forms/src/app/hero-form/hero-form.component.ts" region="final"></code-pane>

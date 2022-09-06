@@ -4,7 +4,7 @@ The Angular Router supports a powerful matching strategy that you can use to hel
 This matching strategy supports static routes, variable routes with parameters, wildcard routes, and so on.
 Also, build your own custom pattern matching for situations in which the URLs are more complicated.
 
-In this tutorial, you'll build a custom route matcher using Angular's `UrlMatcher`.
+In this tutorial, you will build a custom route matcher using Angular's `UrlMatcher`.
 This matcher looks for a Twitter handle in the URL.
 
 For a working example of the final version of this tutorial, see the <live-example></live-example>.
@@ -84,7 +84,7 @@ This custom matcher is a function that performs the following tasks:
 *   The matcher verifies that the array contains only one segment
 *   The matcher employs a regular expression to ensure that the format of the username is a match
 *   If there is a match, the function returns the entire URL, defining a `username` route parameter as a substring of the path
-*   If there isn't a match, the function returns null and the router continues to look for other routes that match the URL
+*   If there is not a match, the function returns null and the router continues to look for other routes that match the URL
 
 <div class="is-helpful">
 

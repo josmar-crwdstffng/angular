@@ -8,8 +8,8 @@ At its simplest, a service worker is a script that runs in the web browser and m
 Service workers function as a network proxy.
 They intercept all outgoing HTTP requests made by the application and can choose how to respond to them.
 For example, they can query a local cache and deliver a cached response if one is available.
-Proxying isn't limited to requests made through programmatic APIs, such as `fetch`; it also includes resources referenced in HTML and even the initial request to `index.html`.
-Service worker-based caching is thus completely programmable and doesn't rely on server-specified caching headers.
+Proxying is not limited to requests made through programmatic APIs, such as `fetch`; it also includes resources referenced in HTML and even the initial request to `index.html`.
+Service worker-based caching is thus completely programmable and does not rely on server-specified caching headers.
 
 Unlike the other scripts that make up an application, such as the Angular application bundle, the service worker is preserved after the user closes the tab.
 The next time that browser loads the application, the service worker loads first, and can intercept every request for resources to load the application.
@@ -41,7 +41,7 @@ To achieve this, the Angular service worker follows these guidelines:
     The previous version of the application is served until an update is installed and ready.
 
 *   The service worker conserves bandwidth when possible.
-    Resources are only downloaded if they've changed.
+    Resources are only downloaded if they have changed.
 
 To support these behaviors, the Angular service worker loads a *manifest* file from the server.
 The file, called `ngsw.json` \(not to be confused with the [web app manifest](https://developer.mozilla.org/docs/Web/Manifest)\), describes the resources to cache and includes hashes of every file's contents.

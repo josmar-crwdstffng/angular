@@ -10,7 +10,7 @@ Bazel.
 ## Installation
 
 In order to ensure that everyone builds Angular in a _consistent_ way, Bazel
-will be installed through NPM. It's not necessary to install Bazel
+will be installed through NPM. It is not necessary to install Bazel
 manually.
 
 The binaries for Bazel will be provided by the [`@bazel/bazelisk`](https://github.com/bazelbuild/bazelisk)
@@ -27,7 +27,7 @@ The sources on [GitHub] are published from Google's internal
 repository (google3).
 
 Bazel accepts a lot of options. We check in some options in the
-`.bazelrc` file. See the [bazelrc doc]. For example, if you don't
+`.bazelrc` file. See the [bazelrc doc]. For example, if you do not
 want Bazel to create several symlinks in your project directory
 (`bazel-*`) you can add the line `build --symlink_prefix=/` to your
 `.bazelrc` file.
@@ -66,7 +66,7 @@ keeps the outputs up-to-date as you save sources.
 
 ### Various Flags Used For Tests
 
-If you're experiencing problems with seemingly unrelated tests failing, it may be because you're not using the proper flags with your Bazel test runs in Angular.
+If you are experiencing problems with seemingly unrelated tests failing, it may be because you are not using the proper flags with your Bazel test runs in Angular.
 
 - `--config=debug`: build and launch in debug mode (see [debugging](#debugging) instructions below)
 - `--test_arg=--node_options=--inspect=9228`: change the inspector port.
@@ -87,7 +87,7 @@ For additional info and testing options, see the
 [nodejs_test documentation](https://bazelbuild.github.io/rules_nodejs/Built-ins.html#nodejs_test).
 
 - Click on "Resume script execution" to let the code run until the first `debugger` statement or a previously set breakpoint.
-- If you're debugging a test and you want to inspect the generated template instructions, find the template of your component in the call stack and click on `(source mapped from [CompName].js)` at the bottom of the code. You can also disable sourcemaps in the options or go to sources and look into ng:// namespace to see all the generated code.
+- If you are debugging a test and you want to inspect the generated template instructions, find the template of your component in the call stack and click on `(source mapped from [CompName].js)` at the bottom of the code. You can also disable sourcemaps in the options or go to sources and look into ng:// namespace to see all the generated code.
 
 ### Debugging a Node Test in VSCode
 
@@ -104,7 +104,7 @@ First time setup:
     }
 ```
 
-**Setting breakpoints directly in your code files may not work in VSCode**. This is because the files you're actually debugging are built files that exist in a `./private/...` folder.
+**Setting breakpoints directly in your code files may not work in VSCode**. This is because the files you are actually debugging are built files that exist in a `./private/...` folder.
 The easiest way to debug a test for now is to add a `debugger` statement in the code
 and launch the bazel corresponding test (`yarn bazel test <target> --config=debug`).
 
@@ -139,7 +139,7 @@ open $(yarn -s bazel info output_base)/external/build_bazel_rules_nodejs/interna
 
 Bazel supports the ability to include non-hermetic information from the version control system in built artifacts. This is called stamping.
 You can see an overview at https://www.kchodorow.com/blog/2017/03/27/stamping-your-builds/
-In our repo, here is how it's configured:
+In our repo, here is how it is configured:
 
 1) In `tools/bazel_stamp_vars.js` we run the `git` commands to generate our versioning info.
 1) In `.bazelrc` we register this script as the value for the `workspace_status_command` flag. Bazel will run the script when it needs to stamp a binary.
@@ -178,10 +178,10 @@ build --config=angular-team --google_credentials=[ABSOLUTE_PATH_TO_SERVICE_KEY]
 This feature is experimental, and developed by the CircleCI team with guidance from Angular.
 Contact Alex Eagle with questions.
 
-*How it's configured*:
+*How it is configured*:
 
 1. In `.circleci/config.yml`, each CircleCI job downloads a proxy binary, which is built from https://github.com/notnoopci/bazel-remote-proxy. The download is done by running `.circleci/setup_cache.sh`. When the feature graduates from experimental, this proxy will be installed by default on every CircleCI worker, and this step will not be needed.
-1. Next, each job runs the `setup-bazel-remote-cache` anchor. This starts up the proxy running in the background. In the CircleCI UI, you'll see this step continues running while later steps run, and you can see logging from the proxy process.
+1. Next, each job runs the `setup-bazel-remote-cache` anchor. This starts up the proxy running in the background. In the CircleCI UI, you will see this step continues running while later steps run, and you can see logging from the proxy process.
 1. Bazel must be configured to connect to the proxy on a local port. This configuration lives in `.circleci/bazel.linux.rc` and is enabled because we overwrite the system Bazel settings in /etc/bazel.bazelrc with this file.
 1. Each `bazel` command in `.circleci/config.yml` picks up and uses the caching flags.
 

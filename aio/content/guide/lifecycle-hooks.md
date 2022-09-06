@@ -27,7 +27,7 @@ If you implement this method in your component or directive class, Angular calls
 
 <code-example header="peek-a-boo.directive.ts (excerpt)" path="lifecycle-hooks/src/app/peek-a-boo.directive.ts" region="ngOnInit"></code-example>
 
-You don't have to implement all \(or any\) of the lifecycle hooks, just the ones you need.
+You do not have to implement all \(or any\) of the lifecycle hooks, just the ones you need.
 
 <a id="hooks-purpose-timing"></a>
 
@@ -42,7 +42,7 @@ Use them to perform the following kinds of operations.
 |:---                       |:---                                                                                                                                                                                                                                                                                                                                                    |:---    |
 | `ngOnChanges()`           | Respond when Angular sets or resets data-bound input properties. The method receives a `SimpleChanges` object of current and previous property values. <br /> <div class="alert is-helpful"> **NOTE**: <br /> This happens frequently, so any operation you perform here impacts performance significantly. </div> See details in [Using change detection hooks](#onchanges) in this document. | Called before `ngOnInit()` \(if the component has bound inputs\) and whenever one or more data-bound input properties change. <br /> <div class="alert is-helpful"> **NOTE**: <br /> If your component has no inputs or you use it without providing any inputs, the framework will not call `ngOnChanges()`. </div> |
 | `ngOnInit()`              | Initialize the directive or component after Angular first displays the data-bound properties and sets the directive or component's input properties. See details in [Initializing a component or directive](#oninit) in this document.                                                                                                                 | Called once, after the first `ngOnChanges()`. `ngOnInit()` is still called even when `ngOnChanges()` is not \(which is the case when there are no template-bound inputs\).                                                                                              |
-| `ngDoCheck()`             | Detect and act upon changes that Angular can't or won't detect on its own. See details and example in [Defining custom change detection](#docheck) in this document.                                                                                                                                                                                   | Called immediately after `ngOnChanges()` on every change detection run, and immediately after `ngOnInit()` on the first run.                                                                                                                                            |
+| `ngDoCheck()`             | Detect and act upon changes that Angular cannot or will not detect on its own. See details and example in [Defining custom change detection](#docheck) in this document.                                                                                                                                                                                   | Called immediately after `ngOnChanges()` on every change detection run, and immediately after `ngOnInit()` on the first run.                                                                                                                                            |
 | `ngAfterContentInit()`    | Respond after Angular projects external content into the component's view, or into the view that a directive is in. <br /> See details and example in [Responding to changes in content](#aftercontent) in this document.                                                                                                                              | Called *once* after the first `ngDoCheck()`.                                                                                                                                                                                                                            |
 | `ngAfterContentChecked()` | Respond after Angular checks the content projected into the directive or component. <br /> See details and example in [Responding to projected content changes](#aftercontent) in this document.                                                                                                                                                       | Called after `ngAfterContentInit()` and every subsequent `ngDoCheck()`.                                                                                                                                                                                                 |
 | `ngAfterViewInit()`       | Respond after Angular initializes the component's views and child views, or the view that contains the directive. <br /> See details and example in [Responding to view changes](#afterview) in this document.                                                                                                                                         | Called *once* after the first `ngAfterContentChecked()`.                                                                                                                                                                                                                |
@@ -86,7 +86,7 @@ Use the `ngOnInit()` method to perform the following initialization tasks.
 
 Put cleanup logic in `ngOnDestroy()`, the logic that must run before Angular destroys the directive.
 
-This is the place to free resources that won't be garbage-collected automatically.
+This is the place to free resources that will not be garbage-collected automatically.
 You risk memory leaks if you neglect to do so.
 
 *   Unsubscribe from Observables and DOM events
@@ -155,7 +155,7 @@ The example does not perform any initialization or clean-up.
 It just tracks the appearance and disappearance of an element in the view by recording when the directive itself is instantiated and destroyed.
 
 A spy directive like this can provide insight into a DOM object that you cannot change directly.
-You can't access the implementation of a built-in `<div>`, or modify a third party component.
+You cannot access the implementation of a built-in `<div>`, or modify a third party component.
 You do have the option to watch these elements with a directive.
 
 The directive defines `ngOnInit()` and `ngOnDestroy()` hooks
@@ -204,7 +204,7 @@ The host `OnChangesParentComponent` binds to them as follows.
 
 <code-example header="src/app/on-changes-parent.component.html" path="lifecycle-hooks/src/app/on-changes-parent.component.html" region="on-changes"></code-example>
 
-Here's the sample in action as the user makes changes.
+Here is the sample in action as the user makes changes.
 
 <div class="lightbox">
 
@@ -230,7 +230,7 @@ The examples illustrate how to make such changes safely.
 
 The *AfterView* sample explores the `AfterViewInit()` and `AfterViewChecked()` hooks that Angular calls *after* it creates a component's child views.
 
-Here's a child view that displays a hero's name in an `<input>`:
+Here is a child view that displays a hero's name in an `<input>`:
 
 <code-example header="ChildViewComponent" path="lifecycle-hooks/src/app/child-view.component.ts" region="child-view"></code-example>
 
@@ -329,7 +329,7 @@ The following *AfterContent* hooks take action based on changing values in a *co
 <header>No need to wait for content updates</header>
 
 This component's `doSomething()` method updates the component's data-bound `comment` property immediately.
-There's no need to [delay the update to ensure proper rendering](#wait-a-tick "Delaying updates").
+There is no need to [delay the update to ensure proper rendering](#wait-a-tick "Delaying updates").
 
 Angular calls both *AfterContent* hooks before calling either of the *AfterView* hooks.
 Angular completes composition of the projected content *before* finishing the composition of this component's view.
@@ -341,8 +341,8 @@ There is a small window between the `AfterContent...` and `AfterView...` hooks t
 
 ## Defining custom change detection
 
-To monitor changes that occur where `ngOnChanges()` won't catch them, implement your own change check, as shown in the *DoCheck* example.
-This example shows how to use the `ngDoCheck()` hook to detect and act upon changes that Angular doesn't catch on its own.
+To monitor changes that occur where `ngOnChanges()` will not catch them, implement your own change check, as shown in the *DoCheck* example.
+This example shows how to use the `ngDoCheck()` hook to detect and act upon changes that Angular does not catch on its own.
 
 The *DoCheck* sample extends the *OnChanges* sample with the following `ngDoCheck()` hook:
 
@@ -360,7 +360,7 @@ The results are illuminating.
 
 While the `ngDoCheck()` hook can detect when the hero's `name` has changed, it is an expensive hook.
 This hook is called with enormous frequency &mdash;after *every* change detection cycle no matter where the change occurred.
-It's called over twenty times in this example before the user can do anything.
+It is called over twenty times in this example before the user can do anything.
 
 Most of these initial checks are triggered by Angular's first rendering of *unrelated data elsewhere on the page*.
 Just moving the cursor into another `<input>` triggers a call.

@@ -337,7 +337,7 @@ This service creates a zone named `angular` to automatically trigger change dete
 
 `Zone` handles most asynchronous APIs such as `setTimeout()`, `Promise.then()`, and `addEventListener()`.
 For the full list, see the [Zone Module document](https://github.com/angular/angular/blob/main/packages/zone.js/MODULE.md).
-Therefore in those asynchronous APIs, you don't need to trigger change detection manually.
+Therefore in those asynchronous APIs, you do not need to trigger change detection manually.
 
 There are still some third party APIs that Zone does not handle.
 In those cases, the `NgZone` service provides a [`run()`](api/core/NgZone#run) method that allows you to execute a function inside the Angular zone.
@@ -362,7 +362,7 @@ export class AppComponent implements OnInit {
 </code-example>
 
 By default, all asynchronous operations are inside the Angular zone, which triggers change detection automatically.
-Another common case is when you don't want to trigger change detection.
+Another common case is when you do not want to trigger change detection.
 In that situation, you can use another `NgZone` method: [`runOutsideAngular()`](api/core/NgZone#runoutsideangular).
 
 <code-example format="typescript" language="typescript">
@@ -371,12 +371,12 @@ export class AppComponent implements OnInit {
   constructor(private ngZone: NgZone) {}
   ngOnInit() {
     // You know no data will be updated,
-    // so you don't want to trigger change detection in this
+    // so you do not want to trigger change detection in this
     // specified operation. Instead, call ngZone.runOutsideAngular()
     this.ngZone.runOutsideAngular(() =&gt; {
       setTimeout(() =&gt; {
         // update component data
-        // but don't trigger change detection.
+        // but do not trigger change detection.
       });
     });
   }
@@ -437,7 +437,7 @@ For more information about what you can configure, see the [Zone.js](https://git
 
 `Zone` helps Angular know when to trigger change detection and let the developers focus on the application development.
 By default, `Zone` is loaded and works without additional configuration.
-However, you don't necessarily have to use `Zone` to make Angular work.
+However, you do not necessarily have to use `Zone` to make Angular work.
 Instead, you can opt to trigger change detection on your own.
 
 <div class="callout is-helpful">

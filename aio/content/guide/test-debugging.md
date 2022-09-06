@@ -1,6 +1,6 @@
 # Debugging tests
 
-If your tests aren't working as you expect them to, you can inspect and debug them in the browser.
+If your tests are not working as you expect them to, you can inspect and debug them in the browser.
 
 Debug specs in the browser in the same way that you debug an application.
 

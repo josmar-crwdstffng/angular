@@ -31,7 +31,7 @@ Unless otherwise commented, patterns use a **limited*** glob format that interna
 | `**`         | Matches 0 or more path segments                                                                        |
 | `*`          | Matches 0 or more characters excluding `/`                                                             |
 | `?`          | Matches exactly one character excluding `/`                                                            |
-| `!` prefix   | Marks the pattern as being negative, meaning that only files that don't match the pattern are included |
+| `!` prefix   | Marks the pattern as being negative, meaning that only files that do not match the pattern are included |
 
 <div class="alert is-helpful">
 
@@ -159,7 +159,7 @@ The `installMode` can be either of two values:
 
 | Values     | Details |
 |:---        |:---     |
-| `prefetch` | Tells the Angular service worker to fetch every single listed resource while it's caching the current version of the application. This is bandwidth-intensive but ensures resources are available whenever they're requested, even if the browser is currently offline.                                                                                                                       |
+| `prefetch` | Tells the Angular service worker to fetch every single listed resource while it is caching the current version of the application. This is bandwidth-intensive but ensures resources are available whenever they are requested, even if the browser is currently offline.                                                                                                                       |
 | `lazy`     | Does not cache any of the resources up front. Instead, the Angular service worker only caches resources for which it receives requests. This is an on-demand caching mode. Resources that are never requested are not cached. This is useful for things like images at different resolutions, so the service worker only caches the correct assets for the particular screen and orientation. |
 
 Defaults to `prefetch`.
@@ -172,7 +172,7 @@ Any resources in the group that have changed since the previous version are upda
 | Values     | Details |
 |:---        |:---     |
 | `prefetch` | Tells the service worker to download and cache the changed resources immediately.                                                                                                                                                        |
-| `lazy`     | Tells the service worker to not cache those resources. Instead, it treats them as unrequested and waits until they're requested again before updating them. An `updateMode` of `lazy` is only valid if the `installMode` is also `lazy`. |
+| `lazy`     | Tells the service worker to not cache those resources. Instead, it treats them as unrequested and waits until they are requested again before updating them. An `updateMode` of `lazy` is only valid if the `installMode` is also `lazy`. |
 
 Defaults to the value `installMode` is set to.
 
@@ -199,7 +199,7 @@ Currently, only the following options are supported:
 ### `dataGroups`
 
 Unlike asset resources, data requests are not versioned along with the application.
-They're cached according to manually-configured policies that are more useful for situations such as API requests and other data dependencies.
+They are cached according to manually-configured policies that are more useful for situations such as API requests and other data dependencies.
 
 This field contains an array of data groups, each of which defines a set of data resources and the policy by which they are cached.
 
@@ -323,7 +323,7 @@ The Angular service worker can use either of two caching strategies for data res
 
 | Caching strategies | Details |
 |:---                |:---     |
-| `performance`      | The default, optimizes for responses that are as fast as possible. If a resource exists in the cache, the cached version is used, and no network request is made. This allows for some staleness, depending on the `maxAge`, in exchange for better performance. This is suitable for resources that don't change often; for example, user avatar images. |
+| `performance`      | The default, optimizes for responses that are as fast as possible. If a resource exists in the cache, the cached version is used, and no network request is made. This allows for some staleness, depending on the `maxAge`, in exchange for better performance. This is suitable for resources that do not change often; for example, user avatar images. |
 | `freshness`        | Optimizes for currency of data, preferentially fetching requested data from the network. Only if the network times out, according to `timeout`, does the request fall back to the cache. This is useful for resources that change frequently; for example, account balances.                                                                              |
 
 <div class="alert is-helpful">
@@ -348,18 +348,18 @@ If not specified, the default value depends on the data group's configured strat
 
 | Strategies                             | Details |
 |:---                                    |:---     |
-| Groups with the `freshness` strategy   | The default value is `true` and the service worker caches opaque responses. These groups will request the data every time and only fall back to the cached response when offline or on a slow network. Therefore, it doesn't matter if the service worker caches an error response.                                    |
-| Groups with the `performance` strategy | The default value is `false` and the service worker doesn't cache opaque responses. These groups would continue to return a cached response until `maxAge` expires, even if the error was due to a temporary network or server issue. Therefore, it would be problematic for the service worker to cache an error response. |
+| Groups with the `freshness` strategy   | The default value is `true` and the service worker caches opaque responses. These groups will request the data every time and only fall back to the cached response when offline or on a slow network. Therefore, it does not matter if the service worker caches an error response.                                    |
+| Groups with the `performance` strategy | The default value is `false` and the service worker does not cache opaque responses. These groups would continue to return a cached response until `maxAge` expires, even if the error was due to a temporary network or server issue. Therefore, it would be problematic for the service worker to cache an error response. |
 
 <div class="callout is-important">
 
 <header>Comment on opaque responses</header>
 
-In case you are not familiar, an [opaque response][WhatwgFetchSpecConceptFilteredResponseOpaque] is a special type of response returned when requesting a resource that is on a different origin which doesn't return CORS headers.
-One of the characteristics of an opaque response is that the service worker is not allowed to read its status, meaning it can't check if the request was successful or not.
+In case you are not familiar, an [opaque response][WhatwgFetchSpecConceptFilteredResponseOpaque] is a special type of response returned when requesting a resource that is on a different origin which does not return CORS headers.
+One of the characteristics of an opaque response is that the service worker is not allowed to read its status, meaning it cannot check if the request was successful or not.
 See [Introduction to fetch()][GoogleDeveloperWebUpdates201503IntroductionToFetchResponseTypes] for more details.
 
-If you are not able to implement CORS &mdash;for example, if you don't control the origin&mdash; prefer using the `freshness` strategy for resources that result in opaque responses.
+If you are not able to implement CORS &mdash;for example, if you do not control the origin&mdash; prefer using the `freshness` strategy for resources that result in opaque responses.
 
 </div>
 
@@ -373,7 +373,7 @@ This optional section enables you to specify a custom list of URLs that will be 
 
 #### Handling navigation requests
 
-The ServiceWorker redirects navigation requests that don't match any `asset` or `data` group to the specified [index file](#index-file).
+The ServiceWorker redirects navigation requests that do not match any `asset` or `data` group to the specified [index file](#index-file).
 A request is considered to be a navigation request if:
 
 *   Its [method](https://developer.mozilla.org/docs/Web/API/Request/method) is `GET`

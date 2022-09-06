@@ -53,10 +53,10 @@ Angular compilation generates a number of synthetic files (files which did not e
 * A flat module index file, if requested.
 * The `__ng_typecheck__.ts` file, which supports template type-checking code.
 
-These files don't exist on disk, but need to appear as such to the `ts.Program`. This is accomplished by wrapping the `ts.CompilerHost` (which abstracts the outside world to the `ts.Program`) in an implementation which provides these synthetic files. This is the primary function of `NgCompilerHost`.
+These files do not exist on disk, but need to appear as such to the `ts.Program`. This is accomplished by wrapping the `ts.CompilerHost` (which abstracts the outside world to the `ts.Program`) in an implementation which provides these synthetic files. This is the primary function of `NgCompilerHost`.
 
 # API definitions
 
-The `core` package contains separate API definitions, which are used across the compiler. Of note is the interface `NgCompilerOptions`, which unifies various supported compilation options across Angular and TypeScript itself. It's assignable to `ts.CompilerOptions`, and implemented by the legacy `CompilerOptions` type in `//packages/compiler-cli/src/transformers/api.ts`.
+The `core` package contains separate API definitions, which are used across the compiler. Of note is the interface `NgCompilerOptions`, which unifies various supported compilation options across Angular and TypeScript itself. It is assignable to `ts.CompilerOptions`, and implemented by the legacy `CompilerOptions` type in `//packages/compiler-cli/src/transformers/api.ts`.
 
 The various types of options are split out into distinct interfaces according to their purpose and level of support.

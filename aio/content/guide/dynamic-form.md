@@ -140,7 +140,7 @@ To display an instance of the dynamic form, the `AppComponent` shell template pa
 <code-example header="app.component.ts" path="dynamic-form/src/app/app.component.ts"></code-example>
 
 The example provides a model for a job application for heroes, but there are no references to any specific hero question other than the objects returned by `QuestionService`.
-This separation of model and data lets you repurpose the components for any type of survey, as long as it's compatible with the *question* object model.
+This separation of model and data lets you repurpose the components for any type of survey, as long as it is compatible with the *question* object model.
 
 ### Ensuring valid data
 

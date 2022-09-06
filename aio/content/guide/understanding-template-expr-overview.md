@@ -8,7 +8,7 @@ This topic explores some aspects of Angular text interpolation.
 Template expressions are similar to JavaScript.
 Many JavaScript expressions are legal template expressions, with the following exceptions.
 
-You can't use JavaScript expressions that have or promote side effects, including:
+You cannot use JavaScript expressions that have or promote side effects, including:
 
 * Assignments (`=`, `+=`, `-=`, `...`)
 * Operators such as `new`, `typeof`, or `instanceof`
@@ -43,8 +43,8 @@ This next example features a template reference variable, `#customerInput`.
 <div class="alert is-helpful">
 
 Template expressions cannot refer to anything in the global namespace, except `undefined`.
-They can't refer to `window` or `document`.
-Additionally, they can't call `console.log()` or `Math.max()` and they are restricted to referencing members of the expression context.
+They cannot refer to `window` or `document`.
+Additionally, they cannot call `console.log()` or `Math.max()` and they are restricted to referencing members of the expression context.
 
 </div>
 
@@ -66,7 +66,7 @@ An `ngFor` then lists each `customer` in the `customers` array.
 
 The `customer` within the `ngFor` is in the context of an `<ng-template>` and so refers to the `customer` in the `customers` array, in this case Ebony and Chiho.
 This list does not feature Padma because `customer` outside of the `ngFor` is in a different context.
-Conversely, `customer` in the `<h1>` doesn't include Ebony or Chiho because the context for this `customer` is the class and the class value for `customer` is Padma.
+Conversely, `customer` in the `<h1>` does not include Ebony or Chiho because the context for this `customer` is the class and the class value for `customer` is Padma.
 
 ## Expression best practices
 
@@ -111,7 +111,7 @@ When using template expressions, follow these best practices:
 
   </div>
 
-## What's next
+## What is next
 
 * Property bindings
 

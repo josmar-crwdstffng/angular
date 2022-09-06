@@ -101,7 +101,7 @@ The key is to make the code more reusable, easier to read, and less mistake pron
 
 The following *negative* example defines the `AppComponent`, bootstraps the app,
 defines the `Hero` model object, and loads heroes from the server all in the same file.
-*Don't do this*.
+*Do not do this*.
 
 <code-example format="typescript" path="styleguide/src/01-01/app/heroes/hero.component.avoid.ts" language="typescript" header="app/heroes/hero.component.ts"></code-example>
 
@@ -576,7 +576,7 @@ The Angular HTML parser is case sensitive and recognizes lower camel case.
 
 <div class="s-rule avoid">
 
-**Don't** prefix a directive name with `ng` because that prefix is reserved for Angular and using it could cause bugs that are difficult to diagnose.
+**Do not** prefix a directive name with `ng` because that prefix is reserved for Angular and using it could cause bugs that are difficult to diagnose.
 
 </div>
 
@@ -786,7 +786,7 @@ All feature areas are in their own folder, with their own NgModule.
 All content is one asset per file.
 Each component, service, and pipe is in its own file.
 All third party vendor scripts are stored in another folder and not in the `src` folder.
-You didn't write them and you don't want them cluttering `src`.
+You did not write them and you do not want them cluttering `src`.
 Use the naming conventions for files in this guide.
 
 [Back to top](#toc)
@@ -932,7 +932,7 @@ Use a flatter structure until there is an obvious value to creating a new folder
 
 <div class="s-rule do">
 
-**Do** be DRY \(Don't Repeat Yourself\).
+**Do** be DRY \(Do not Repeat Yourself\).
 
 </div>
 
@@ -946,8 +946,8 @@ Use a flatter structure until there is an obvious value to creating a new folder
 
 **Why**? <br />
 Being DRY is important, but not crucial if it sacrifices the other elements of LIFT.
-That's why it's called *T-DRY*.
-For example, it's redundant to name a template `hero-view.component.html` because with the `.html` extension, it is obviously a view.
+That is why it is called *T-DRY*.
+For example, it is redundant to name a template `hero-view.component.html` because with the `.html` extension, it is obviously a view.
 But if something is not obvious or departs from a convention, then spell it out.
 
 </div>
@@ -1374,7 +1374,7 @@ module are referenced across the entire application.
 Services are usually singletons that are provided once for the entire application or in a particular feature module.
 There are exceptions, however.
 For example, in the sample code that follows, notice that the `SharedModule` provides `FilterTextService`.
-This is acceptable here because the service is stateless;that is, the consumers of the service aren't impacted by new instances.
+This is acceptable here because the service is stateless;that is, the consumers of the service are not impacted by new instances.
 
 </div>
 
@@ -1428,7 +1428,7 @@ A lazy loaded feature module that imports that shared module will make its own c
 <div class="s-why-last">
 
 **Why**? <br />
-You don't want each module to have its own separate instance of singleton services.
+You do not want each module to have its own separate instance of singleton services.
 Yet there is a real danger of that happening if the `SharedModule` provides a service.
 
 </div>
@@ -1652,8 +1652,8 @@ Large, inline templates and styles obscure the component's purpose and implement
 <div class="s-why">
 
 **Why**? <br />
-In most editors, syntax hints and code snippets aren't available when developing inline templates and styles.
-The Angular TypeScript Language Service \(forthcoming\) promises to overcome this deficiency for HTML templates in those editors that support it; it won't help with CSS styles.
+In most editors, syntax hints and code snippets are not available when developing inline templates and styles.
+The Angular TypeScript Language Service \(forthcoming\) promises to overcome this deficiency for HTML templates in those editors that support it; it will not help with CSS styles.
 
 </div>
 
@@ -1667,7 +1667,7 @@ A *component relative* URL requires no change when you move the component files,
 <div class="s-why-last">
 
 **Why**? <br />
-The `./` prefix is standard syntax for relative URLs; don't depend on Angular's current ability to do without that prefix.
+The `./` prefix is standard syntax for relative URLs; do not depend on Angular's current ability to do without that prefix.
 
 </div>
 
@@ -1757,7 +1757,7 @@ Two names for the same property \(one private, one public\) is inherently confus
 
 **Why**? <br />
 You should use an alias when the directive name is also an `input` property,
-and the directive name doesn't describe the property.
+and the directive name does not describe the property.
 
 </div>
 
@@ -1860,7 +1860,7 @@ Keeps the component slim, trim, and focused.
 
 <a id="05-16"></a>
 
-### Don't prefix `output` properties
+### Do not prefix `output` properties
 
 #### Style 05-16
 
@@ -1973,7 +1973,7 @@ Just suppressing the TypeScript error with `!` is insufficient and should be avo
 <div class="s-why">
 
 **Why**? <br />
-Attribute directives don't have an associated template.
+Attribute directives do not have an associated template.
 
 </div>
 
@@ -2023,7 +2023,7 @@ Compare with the less preferred `host` metadata alternative.
 <div class="s-why-last">
 
 **Why**? <br />
-The `host` metadata is only one term to remember and doesn't require extra ES imports.
+The `host` metadata is only one term to remember and does not require extra ES imports.
 
 </div>
 
@@ -2128,7 +2128,7 @@ This is ideal when a service is sharing methods or state.
 <div class="s-why">
 
 **Why**? <br />
-When you register a service in the `@Injectable` decorator of the service, optimization tools such as those used by the [Angular CLI's](cli) production builds can perform tree shaking and remove services that aren't used by your app.
+When you register a service in the `@Injectable` decorator of the service, optimization tools such as those used by the [Angular CLI's](cli) production builds can perform tree shaking and remove services that are not used by your app.
 
 </div>
 
@@ -2219,8 +2219,8 @@ This makes it easier to test \(mock or real\) the data calls when testing a comp
 The details of data management, such as headers, HTTP methods, caching, error handling, and retry logic, are irrelevant to components and other data consumers.
 
 A data service encapsulates these details.
-It's easier to evolve these details inside the service without affecting its consumers.
-And it's easier to test the consumers with mock service implementations.
+It is easier to evolve these details inside the service without affecting its consumers.
+And it is easier to test the consumers with mock service implementations.
 
 </div>
 

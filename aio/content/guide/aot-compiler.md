@@ -22,7 +22,7 @@ Here are some reasons you might want to use AOT.
 |:---                                     |:---     |
 | Faster rendering                        | With AOT, the browser downloads a pre-compiled version of the application. The browser loads executable code so it can render the application immediately, without waiting to compile the application first.                                       |
 | Fewer asynchronous requests             | The compiler *inlines* external HTML templates and CSS style sheets within the application JavaScript, eliminating separate ajax requests for those source files.                                                                                  |
-| Smaller Angular framework download size | There's no need to download the Angular compiler if the application is already compiled. The compiler is roughly half of Angular itself, so omitting it dramatically reduces the application payload.                                              |
+| Smaller Angular framework download size | There is no need to download the Angular compiler if the application is already compiled. The compiler is roughly half of Angular itself, so omitting it dramatically reduces the application payload.                                              |
 | Detect template errors earlier          | The AOT compiler detects and reports template binding errors during the build step before users can see them.                                                                                                                                      |
 | Better security                         | AOT compiles HTML templates and components into JavaScript files long before they are served to the client. With no templates to read and no risky client-side HTML or JavaScript evaluation, there are fewer opportunities for injection attacks. |
 
@@ -233,7 +233,7 @@ export class HeroComponent {
 
 </code-example>
 
-The compiler could not refer to the `template` constant because it isn't exported.
+The compiler could not refer to the `template` constant because it is not exported.
 The collector, however, can fold the `template` constant into the metadata definition by in-lining its contents.
 The effect is the same as if you had written:
 
@@ -306,7 +306,7 @@ If an expression is not foldable, the collector writes it to `.metadata.json` as
 
 The collector makes no attempt to understand the metadata that it collects and outputs to `.metadata.json`.
 It represents the metadata as best it can and records errors when it detects a metadata syntax violation.
-It's the compiler's job to interpret the `.metadata.json` in the code generation phase.
+It is the compiler's job to interpret the `.metadata.json` in the code generation phase.
 
 The compiler understands all syntax forms that the collector supports, but it may reject *syntactically* correct metadata if the *semantics* violate compiler rules.
 
@@ -398,7 +398,7 @@ for these methods to see how macros can simplify configuration of complex [NgMod
 
 The compiler treats object literals containing the fields `useClass`, `useValue`, `useFactory`, and `data` specially, converting the expression initializing one of these fields into an exported variable that replaces the expression.
 This process of rewriting these expressions removes all the restrictions on what can be in them because
-the compiler doesn't need to know the expression's value &mdash;it just needs to be able to generate a reference to the value.
+the compiler does not need to know the expression's value &mdash;it just needs to be able to generate a reference to the value.
 
 You might write something like:
 
@@ -436,7 +436,7 @@ export class TypicalModule {}
 This allows the compiler to generate a reference to `θ0` in the factory without having to know what the value of `θ0` contains.
 
 The compiler does the rewriting during the emit of the `.js` file.
-It does not, however, rewrite the `.d.ts` file, so TypeScript doesn't recognize it as being an export.
+It does not, however, rewrite the `.d.ts` file, so TypeScript does not recognize it as being an export.
 And it does not interfere with the ES module's exported API.
 
 <a id="binding-expression-validation"></a>

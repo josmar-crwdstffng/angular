@@ -132,7 +132,7 @@ The following steps demonstrate a typical implementation of conditional content 
     <code-example header="content-projection/src/app/example-zippy.component.ts" path="content-projection/src/app/example-zippy.component.ts" region="contentchild"></code-example>
 
     Prior to this step, your application has a component that instantiates a template when certain conditions are met.
-    You've also created a directive that provides a reference to that template.
+    You have also created a directive that provides a reference to that template.
     In this last step, the `@ContentChild` decorator instructs Angular to instantiate the template in the designated component.
 
     <div class="alert is-helpful">

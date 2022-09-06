@@ -19,7 +19,7 @@ After installing Angular DevTools, find the extension under the Angular tab in y
 
 </div>
 
-When you open the extension, you'll see two additional tabs:
+When you open the extension, you will see two additional tabs:
 
 | Tabs                      | Details |
 |:---                       |:---     |
@@ -32,7 +32,7 @@ When you open the extension, you'll see two additional tabs:
 
 </div>
 
-In the top-right corner of Angular DevTools you'll find which version of Angular is running on the page as well as the latest commit hash for the extension.
+In the top-right corner of Angular DevTools you will find which version of Angular is running on the page as well as the latest commit hash for the extension.
 
 ## Bug reports
 
@@ -52,7 +52,7 @@ Make sure that the Profiler recording does not contain any confidential informat
 
 The **Components** tab lets you explore the structure of your application.
 You can visualize and inspect the component and directive instances and preview or modify their state.
-In the next couple of sections we'll look into how to use this tab effectively to debug your application.
+In the next couple of sections we will look into how to use this tab effectively to debug your application.
 
 ### Explore the application structure
 
@@ -109,7 +109,7 @@ After you select a particular component, click the icon at the top-right of the 
 
 Like browsers' DevTools, the properties view lets you edit the value of an input, output, or another property.
 Right-click on the property value.
-If edit functionality is available for this value type, you'll see a text input.
+If edit functionality is available for this value type, you will see a text input.
 Type the new value and press `Enter`.
 
 <div class="lightbox">
@@ -189,7 +189,7 @@ Angular DevTools also indicates what triggered the change detection \(that is, t
 
 ### Understand component execution
 
-When you click on a bar, you'll find a detailed view about how much time your application spent in the particular directive or component:
+When you click on a bar, you will find a detailed view about how much time your application spent in the particular directive or component:
 
 <div class="lightbox">
 
@@ -211,12 +211,12 @@ It also shows the parent hierarchy of the directive selected.
 You can also preview the change detection execution in a flame graph-like view.
 Each tile in the graph represents an element on the screen at a specific position in the render tree.
 
-For example, if during one change detection cycle at a specific position in the component tree you had `ComponentA`, this component was removed and in its place Angular rendered `ComponentB`, you'll see both components at the same tile.
+For example, if during one change detection cycle at a specific position in the component tree you had `ComponentA`, this component was removed and in its place Angular rendered `ComponentB`, you will see both components at the same tile.
 
 Each tile is colored depending on how much time Angular spent there.
-DevTools determines the intensity of the color by the time spent relative to the tile where we've spent the most time in change detection.
+DevTools determines the intensity of the color by the time spent relative to the tile where we have spent the most time in change detection.
 
-When you click on a certain tile, you'll see details about it in the panel on the right.
+When you click on a certain tile, you will see details about it in the panel on the right.
 Double-clicking the tile zooms it in so you can preview the nested children.
 
 ### Debug OnPush

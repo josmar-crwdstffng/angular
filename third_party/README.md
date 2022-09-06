@@ -1,9 +1,9 @@
 # third_party vendored sources in Angular
 
-## TL;DR: don't copy sources into this repo
+## TL;DR: do not copy sources into this repo
 
 All sources in this repo should be authored from scratch by the committer.
-Don't copy sources you've found in any other location.
+Do not copy sources you have found in any other location.
 
 ## What if I have a good reason?
 
@@ -26,5 +26,5 @@ This directory is treated specially by Bazel.
 All BUILD.bazel files under `third_party` are required to have a `licenses` statement.
 See https://docs.bazel.build/versions/master/be/functions.html#licenses
 
-Note that we don't yet have a way to enumerate the licenses and include them in our distribution.
+Note that we do not yet have a way to enumerate the licenses and include them in our distribution.
 Follow https://github.com/bazelbuild/bazel/issues/188

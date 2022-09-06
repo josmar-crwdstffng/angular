@@ -5,9 +5,9 @@
 <header>Getting Started</header>
 
 In this tutorial, you build your own Angular application from the start.
-This is a good way to experience a typical development process as you learn Angular application-design concepts, tools, and terminology. 
+This is a good way to experience a typical development process as you learn Angular application-design concepts, tools, and terminology.
 
-If you're new to Angular, try the [**Try it now**](start) quick-start application first.
+If you are new to Angular, try the [**Try it now**](start) quick-start application first.
 **Try it now** is based on a ready-made  partially completed project.
 You can edit the application in StackBlitz and see the results in real time.
 
@@ -21,7 +21,7 @@ This *Tour of Heroes* tutorial provides an introduction to the fundamentals of A
 * Use the [Angular CLI](cli "CLI command reference") to develop an application
 
 The *Tour of Heroes* application that you build helps a staffing agency manage its stable of heroes.
-The application has many of the features that you'd expect to find in any data-driven application.
+The application has many of the features that you would expect to find in any data-driven application.
 
 The finished application:
 
@@ -55,7 +55,7 @@ After you complete all tutorial steps, the final application looks like this exa
 
 ## Design your new application
 
-Here's an image of where this tutorial leads, showing the Dashboard view and the most heroic heroes:
+Here is an image of where this tutorial leads, showing the Dashboard view and the most heroic heroes:
 
 <div class="lightbox">
 
@@ -95,7 +95,7 @@ The following diagram illustrates the navigation options.
 
 </div>
 
-Here's the application in action:
+Here is the application in action:
 
 <div class="lightbox">
 

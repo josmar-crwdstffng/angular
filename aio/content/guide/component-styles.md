@@ -49,7 +49,7 @@ While Angular's emulated style encapsulation prevents styles from escaping a com
 While component consumers should avoid directly overwriting the CSS internals of a component, you can offer a supported customization API via a CSS preprocessor like Sass.
 
 For example, a component may offer one or more supported mixins to customize various aspects of the component's appearance.
-While this approach uses global styles in it's implementation, it allows the component author to keep the mixins up to date with changes to the component's private DOM structure and CSS classes.
+While this approach uses global styles in it is implementation, it allows the component author to keep the mixins up to date with changes to the component's private DOM structure and CSS classes.
 
 #### 3. Customize with CSS `::part`
 
@@ -96,14 +96,14 @@ Add selectors behind the `:host` to select child elements, for example using `:h
 <div class="alert is-helpful">
 
 You should not add selectors \(other than `:host-context`\) in front of the `:host` selector to style a component based on the outer context of the component's view.
-Such selectors are not scoped to a component's view and will select the outer context, but it's not built-in behavior.
+Such selectors are not scoped to a component's view and will select the outer context, but it is not built-in behavior.
 Use `:host-context` selector for that purpose instead.
 
 </div>
 
 ### :host-context
 
-Sometimes it's useful to apply styles to elements within a component's template based on some condition in an element that is an ancestor of the host element.
+Sometimes it is useful to apply styles to elements within a component's template based on some condition in an element that is an ancestor of the host element.
 For example, a CSS theme class could be applied to the document `<body>` element, and you want to change how your component looks based on that.
 
 Use the `:host-context()` pseudo-class selector, which works just like the function form of `:host()`.
@@ -244,7 +244,7 @@ Once included, the CLI includes the stylesheet, whether the link tag's href URL 
 Import CSS files into the CSS files using the standard CSS `@import` rule.
 For details, see [`@import`](https://developer.mozilla.org/en/docs/Web/CSS/@import) on the [MDN](https://developer.mozilla.org) site.
 
-In this case, the URL is relative to the CSS file into which you're importing.
+In this case, the URL is relative to the CSS file into which you are importing.
 
 <code-example header="src/app/hero-details.component.css (excerpt)" path="component-styles/src/app/hero-details.component.css" region="import"></code-example>
 
@@ -258,7 +258,7 @@ See the [Styles configuration guide](guide/workspace-config#styles-and-scripts-c
 
 ### Non-CSS style files
 
-If you're building with the CLI, you can write style files in [sass](https://sass-lang.com), or [less](https://lesscss.org), and specify those files in the `@Component.styleUrls` metadata with the appropriate extensions \(`.scss`, `.less`\) as in the following example:
+If you are building with the CLI, you can write style files in [sass](https://sass-lang.com), or [less](https://lesscss.org), and specify those files in the `@Component.styleUrls` metadata with the appropriate extensions \(`.scss`, `.less`\) as in the following example:
 
 <code-example format="typescript" language="typescript">
 

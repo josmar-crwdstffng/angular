@@ -107,7 +107,7 @@ You import this module from `@angular/router`.
 
 ## Define your routes
 
-In this section, you'll define two routes:
+In this section, you will define two routes:
 
 *   The route `/crisis-center` opens the `crisis-center` component.
 *   The route `/heroes-list` opens the `heroes-list` component.
@@ -171,10 +171,10 @@ http://localhost:4200/heroes-list
 
 Currently, your application supports two routes.
 However, the only way to use those routes is for the user to manually type the path in the browser's address bar.
-In this section, you'll add two links that users can click to navigate between the `heroes-list` and `crisis-list` components.
-You'll also add some CSS styles.
+In this section, you will add two links that users can click to navigate between the `heroes-list` and `crisis-list` components.
+You will also add some CSS styles.
 While these styles are not required, they make it easier to identify the link for the currently-displayed component.
-You'll add that functionality in the next section.
+You will add that functionality in the next section.
 
 1.  Open the `app.component.html` file and add the following HTML below the title.
 
@@ -192,7 +192,7 @@ When you click on a link, the corresponding component appears.
 
 ## Identify the active route
 
-While users can navigate your application using the links you added in the previous section, they don't have a straightforward way to identify what the active route is.
+While users can navigate your application using the links you added in the previous section, they do not have a straightforward way to identify what the active route is.
 Add this functionality using Angular's `routerLinkActive` directive.
 
 1.  From your code editor, open the `app.component.html` file.
@@ -229,7 +229,7 @@ Now when you open your application, it displays the `heroes-list` component by d
 
 It is possible for a user to try to access a route that you have not defined.
 To account for this behavior, the best practice is to display a 404 page.
-In this section, you'll create a 404 page and update your route configuration to show that page for any unspecified routes.
+In this section, you will create a 404 page and update your route configuration to show that page for any unspecified routes.
 
 1.  From the terminal, create a new component, `PageNotFound`.
 
@@ -260,7 +260,7 @@ In this section, you'll create a 404 page and update your route configuration to
     </div>
 
 Try navigating to a non-existing route on your application, such as `http://localhost:4200/powers`.
-This route doesn't match anything defined in your `app.module.ts` file.
+This route does not match anything defined in your `app.module.ts` file.
 However, because you defined a wildcard route, the application automatically displays your `PageNotFound` component.
 
 ## Next steps

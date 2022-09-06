@@ -1,7 +1,7 @@
 # Security
 
 This topic describes Angular's built-in protections against common web-application vulnerabilities and attacks such as cross-site scripting attacks.
-It doesn't cover application-level security, such as authentication and authorization.
+It does not cover application-level security, such as authentication and authorization.
 
 For more information about the attacks and mitigations described below, see [OWASP Guide Project](https://www.owasp.org/index.php/Category:OWASP_Guide_Project).
 
@@ -28,7 +28,7 @@ For more information about how Google handles security issues, see [Google's sec
 | Practices                                                           | Details |
 |:---                                                                 |:---     |
 | Keep current with the latest Angular library releases               | We regularly update the Angular libraries, and these updates might fix security defects discovered in previous versions. Check the Angular [change log](https://github.com/angular/angular/blob/main/CHANGELOG.md) for security-related updates. |
-| Don't modify your copy of Angular                                   | Private, customized versions of Angular tend to fall behind the current version and might not include important security fixes and enhancements. Instead, share your Angular improvements with the community and make a pull request.              |
+| Do not modify your copy of Angular                                   | Private, customized versions of Angular tend to fall behind the current version and might not include important security fixes and enhancements. Instead, share your Angular improvements with the community and make a pull request.              |
 | Avoid Angular APIs marked in the documentation as "*Security Risk*" | For more information, see the [Trusting safe values](guide/security#bypass-security-apis) section of this page.                                                                                                                                    |
 
 </div>
@@ -41,7 +41,7 @@ This is one of the most common attacks on the web.
 
 To block XSS attacks, you must prevent malicious code from entering the DOM \(Document Object Model\).
 For example, if attackers can trick you into inserting a `<script>` tag in the DOM, they can run arbitrary code on your website.
-The attack isn't limited to `<script>` tags &mdash;many elements and properties in the DOM allow code execution, for example, `<img onerror="...">` and `<a href="javascript:...">`.
+The attack is not limited to `<script>` tags &mdash;many elements and properties in the DOM allow code execution, for example, `<img onerror="...">` and `<a href="javascript:...">`.
 If attacker-controlled data enters the DOM, expect security vulnerabilities.
 
 ### Angular's cross-site scripting security model
@@ -56,15 +56,15 @@ Doing this would enable attackers to [inject arbitrary code](https://en.wikipedi
 To prevent these vulnerabilities, always use the default [AOT template compiler](guide/security#offline-template-compiler) in production deployments.
 
 An additional layer of protection can be provided through the use of Content security policy and Trusted Types.
-These web platform features operate at the DOM level which is the most effective place to prevent XSS issues because they can't be bypassed using other, lower-level APIs.
+These web platform features operate at the DOM level which is the most effective place to prevent XSS issues because they cannot be bypassed using other, lower-level APIs.
 For this reason, we strongly encourage developers to take advantage of these features by configuring the [content security policy](#content-security-policy) for their application and enabling [trusted types enforcement](#trusted-types).
 
 ### Sanitization and security contexts
 
-*Sanitization* is the inspection of an untrusted value, turning it into a value that's safe to insert into the DOM.
-In many cases, sanitization doesn't change a value at all.
+*Sanitization* is the inspection of an untrusted value, turning it into a value that is safe to insert into the DOM.
+In many cases, sanitization does not change a value at all.
 Sanitization depends on context:
-A value that's harmless in CSS is potentially dangerous in a URL.
+A value that is harmless in CSS is potentially dangerous in a URL.
 
 Angular defines the following security contexts:
 
@@ -75,7 +75,7 @@ Angular defines the following security contexts:
 | URL               | Used for URL properties, such as `<a href>`.                                      |
 | Resource URL      | A URL that is loaded and executed as code, for example, in `<script src>`.        |
 
-Angular sanitizes untrusted values for HTML, styles, and URLs; sanitizing resource URLs isn't possible because they contain arbitrary code.
+Angular sanitizes untrusted values for HTML, styles, and URLs; sanitizing resource URLs is not possible because they contain arbitrary code.
 In development mode, Angular prints a console warning when it has to change a value during sanitization.
 
 ### Sanitization example
@@ -84,7 +84,7 @@ The following template binds the value of `htmlSnippet`, once by interpolating i
 
 <code-example header="src/app/inner-html-binding.component.html" path="security/src/app/inner-html-binding.component.html"></code-example>
 
-Interpolated content is always escaped &mdash;the HTML isn't interpreted and the browser displays angle brackets in the element's text content.
+Interpolated content is always escaped &mdash;the HTML is not interpreted and the browser displays angle brackets in the element's text content.
 
 For the HTML to be interpreted, bind it to an HTML property such as `innerHTML`.
 But binding a value that an attacker might control into `innerHTML` normally causes an XSS vulnerability.
@@ -102,9 +102,9 @@ Angular recognizes the value as unsafe and automatically sanitizes it, which rem
 
 ### Direct use of the DOM APIs and explicit sanitization calls
 
-Unless you enforce Trusted Types, the built-in browser DOM APIs don't automatically protect you from security vulnerabilities.
+Unless you enforce Trusted Types, the built-in browser DOM APIs do not automatically protect you from security vulnerabilities.
 For example, `document`, the node available through `ElementRef`, and many third-party APIs contain unsafe methods.
-In the same way, if you interact with other libraries that manipulate the DOM, you likely won't have the same automatic sanitization as with Angular interpolations.
+In the same way, if you interact with other libraries that manipulate the DOM, you likely will not have the same automatic sanitization as with Angular interpolations.
 Avoid directly interacting with the DOM and instead use Angular templates where possible.
 
 For cases where this is unavoidable, use the built-in Angular sanitization functions.
@@ -189,7 +189,7 @@ Trusted Types can also help simplify the auditing of application code.
 <div class="callout is-helpful">
 
 Trusted Types might not yet be available in all browsers your application targets.
-In the case your Trusted-Types-enabled application runs in a browser that doesn't support Trusted Types, the functionality of the application will be preserved, and your application will be guarded against XSS by way of Angular's DomSanitizer.
+In the case your Trusted-Types-enabled application runs in a browser that does not support Trusted Types, the functionality of the application will be preserved, and your application will be guarded against XSS by way of Angular's DomSanitizer.
 See [caniuse.com/trusted-types](https://caniuse.com/trusted-types) for the current browser support.
 
 </div>
@@ -268,7 +268,7 @@ HTML constructed on the server is vulnerable to injection attacks.
 Injecting template code into an Angular application is the same as injecting executable code into the application:
 It gives the attacker full control over the application.
 To prevent this, use a templating language that automatically escapes values to prevent XSS vulnerabilities on the server.
-Don't generate Angular templates on the server side using a templating language; doing this carries a high risk of introducing template-injection vulnerabilities.
+Do not generate Angular templates on the server side using a templating language; doing this carries a high risk of introducing template-injection vulnerabilities.
 
 <a id="http"></a>
 
@@ -287,22 +287,22 @@ Assume the user is logged into the application at `example-bank.com`.
 The user opens an email and clicks a link to `evil.com`, which opens in a new tab.
 
 The `evil.com` page immediately sends a malicious request to `example-bank.com`.
-Perhaps it's a request to transfer money from the user's account to the attacker's account.
+Perhaps it is a request to transfer money from the user's account to the attacker's account.
 The browser automatically sends the `example-bank.com` cookies \(including the authentication cookie\) with this request.
 
-If the `example-bank.com` server lacks XSRF protection, it can't tell the difference between a legitimate request from the application and the forged request from `evil.com`.
+If the `example-bank.com` server lacks XSRF protection, it cannot tell the difference between a legitimate request from the application and the forged request from `evil.com`.
 
 To prevent this, the application must ensure that a user request originates from the real application, not from a different site.
 The server and client must cooperate to thwart this attack.
 
 In a common anti-XSRF technique, the application server sends a randomly generated authentication token in a cookie.
 The client code reads the cookie and adds a custom request header with the token in all subsequent requests.
-The server compares the received cookie value to the request header value and rejects the request if the values are missing or don't match.
+The server compares the received cookie value to the request header value and rejects the request if the values are missing or do not match.
 
 This technique is effective because all browsers implement the *same origin policy*.
 Only code from the website on which cookies are set can read the cookies from that site and set custom headers on requests to that site.
 That means only your application can read this cookie token and set the custom header.
-The malicious code on `evil.com` can't.
+The malicious code on `evil.com` cannot.
 
 Angular's `HttpClient` has built-in support for the client-side half of this technique.
 Read about it more in the [HttpClient guide](guide/http#security-xsrf-protection).

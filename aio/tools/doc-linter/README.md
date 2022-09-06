@@ -14,7 +14,7 @@ Using it can help improve the documentation's readability and the consistency of
 
 The lint tool is helpful and has been tailored to the Angular documentation style guide.
 Unfortunately, it is not as powerful as the grammar and spelling features you find in contemporary document editors.
-While Vale helps, it doesn't replace the reviewers that you're currently using to help you write great documentation.
+While Vale helps, it does not replace the reviewers that you are currently using to help you write great documentation.
 
 **To use Vale in your documentation:**
 
@@ -122,7 +122,7 @@ When necessary, you can apply these exceptions to your content.
 
     ```markdown
     <!-- vale Style.Rule = NO -->
-    <!-- vale Style.Rule = YES --> 
+    <!-- vale Style.Rule = YES -->
     ```
 
     Replace `Style.Rule` in the comments with the style and rule from the problem message displayed in the IDE.
@@ -162,7 +162,7 @@ For more information, or to install Vale in another IDE or on another operating 
 Before you proceed, make sure that:
 
 1.  You have cloned the [`angular/angular` repo][GithubAngularAngular] on your system. You can work in a fork of the `angular/angular` repo,
-    but it's easier if your Vale installation uses an up-to-date clone of the `angular/angular` repo.
+    but it is easier if your Vale installation uses an up-to-date clone of the `angular/angular` repo.
 2.  You have a development or writing environment for `angular.io` in the `angular/angular` repo and you can build the `angular.io` docs.
     For information about how to create the authoring environment for `angular.io`, see [Angular documentation project][GithubAngularAngularTreeMainAioAngularDocumentationProjectHttpsangulario].
 3.  You have the required package manager installed on your system. If not, install it before continuing.
@@ -256,12 +256,12 @@ To install Vale in a different IDE, see [Installation][ValeDocsValeCliInstallati
 
 ### Known issues with the Visual Studio Code extension
 
-If you're having problems with the `0.15.0` version of the Vale extension to Visual Studio Code, try:
+If you are having problems with the `0.15.0` version of the Vale extension to Visual Studio Code, try:
 
 1. Uninstalling version `0.15.0` of the Vale extension.
 2. Installing version `0.14.2` of the Vale extension.
 
-If you're using version `0.14.2`, the Vale extension settings to use are:
+If you are using version `0.14.2`, the Vale extension settings to use are:
 
 <!-- vale Angular.WriteGood_Illusions = NO -->
 <!-- vale Angular.Angular_CliReference = NO -->
@@ -287,7 +287,7 @@ If you're using version `0.14.2`, the Vale extension settings to use are:
 
 The style tests are stored in your local clone of the [`angular/angular` repo][GithubAngularAngular] and
 are updated automatically when you pull the latest code to your system.
-If you're using another branch or fork of the `angular/angular` repo, be sure to also update that branch or fork.
+If you are using another branch or fork of the `angular/angular` repo, be sure to also update that branch or fork.
 
 <!-- links -->
 

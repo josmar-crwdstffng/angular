@@ -66,7 +66,7 @@ After each call, the `onKey()` method appends the contents of the input box valu
 The [interpolation](guide/interpolation) displays the accumulating input box changes from the `values` property.
 
 Suppose the user enters the letters "abc", and then backspaces to remove them one by one.
-Here's what the UI displays:
+Here is what the UI displays:
 
 <code-example>
 
@@ -112,14 +112,14 @@ The `OnKey` method more clearly expresses what it expects from the template and 
 
 Typing the event object reveals a significant objection to passing the entire DOM event into the method:
 The component has too much awareness of the template details.
-It can't extract information without knowing more than it should about the HTML implementation.
+It cannot extract information without knowing more than it should about the HTML implementation.
 That breaks the separation of concerns between the template \(*what the user sees*\) and the component \(*how the application processes user data*\).
 
 The next section shows how to use template reference variables to address this problem.
 
 ## Get user input from a template reference variable
 
-There's another way to get the user data:
+There is another way to get the user data:
 Use Angular [**template reference variables**](guide/template-reference-variables).
 These variables provide direct access to an element from within the template.
 To declare a template reference variable, precede an identifier with a hash \(or pound\) character \(`#`\).
@@ -132,7 +132,7 @@ The template reference variable named `box`, declared on the `<input>` element, 
 The code uses the `box` variable to get the input element's `value` and display it with interpolation between `<p>` tags.
 
 The template is completely self contained.
-It doesn't bind to the component, and the component does nothing.
+It does not bind to the component, and the component does nothing.
 
 Type something in the input box, and watch the display update with each keystroke.
 
@@ -144,7 +144,7 @@ Type something in the input box, and watch the display update with each keystrok
 
 <div class="callout is-helpful">
 
-<header>This won't work at all unless you bind to an event.</header>
+<header>This will not work at all unless you bind to an event.</header>
 
 Angular updates the bindings \(and therefore the screen\) only if the app does something in response to asynchronous events, such as keystrokes.
 This example code binds the `keyup` event to the number 0, the shortest template statement possible.
@@ -152,8 +152,8 @@ While the statement does nothing useful, it satisfies Angular's requirement so t
 
 </div>
 
-It's easier to get to the input box with the template reference variable than to go through the `$event` object.
-Here's a rewrite of the previous `keyup` example that uses a template reference variable to get the user's input.
+It is easier to get to the input box with the template reference variable than to go through the `$event` object.
+Here is a rewrite of the previous `keyup` example that uses a template reference variable to get the user's input.
 
 <code-example header="src/app/keyup.components.ts (v2)" path="user-input/src/app/keyup.components.ts" region="key-up-component-2"></code-example>
 
@@ -168,13 +168,13 @@ The `(keyup)` event handler hears *every keystroke*.
 Sometimes only the *Enter* key matters, because it signals that the user has finished typing.
 One way to reduce the noise would be to examine every `$event.keyCode` and take action only when the key is *Enter*.
 
-There's an easier way:
+There is an easier way:
 Bind to Angular's `keyup.enter` pseudo-event.
 Then Angular calls the event handler only when the user presses *Enter*.
 
 <code-example header="src/app/keyup.components.ts (v3)" path="user-input/src/app/keyup.components.ts" region="key-up-component-3"></code-example>
 
-Here's how it works.
+Here is how it works.
 
 <div class="lightbox">
 

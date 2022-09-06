@@ -102,12 +102,12 @@ For a more detailed discussion of these concepts, see [Introduction to component
 
 ## Services and dependency injection
 
-For data or logic that isn't associated with a specific view, and that you want to share across components, you create a *service* class.
+For data or logic that is not associated with a specific view, and that you want to share across components, you create a *service* class.
 A service class definition is immediately preceded by the `@Injectable()` decorator.
 The decorator provides the metadata that allows other providers to be **injected** as dependencies into your class.
 
 *Dependency injection* \(DI\) lets you keep your component classes lean and efficient.
-They don't fetch data from the server, validate user input, or log directly to the console; they delegate such tasks to services.
+They do not fetch data from the server, validate user input, or log directly to the console; they delegate such tasks to services.
 
 <div class="alert is-helpful">
 
@@ -122,7 +122,7 @@ It is modeled on the familiar browser navigation conventions:
 
 *   Enter a URL in the address bar and the browser navigates to a corresponding page
 *   Click links on the page and the browser navigates to a new page
-*   Click the browser's back and forward buttons and the browser navigates backward and forward through the history of pages you've seen
+*   Click the browser's back and forward buttons and the browser navigates backward and forward through the history of pages you have seen
 
 The router maps URL-like paths to views instead of pages.
 When a user performs an action, such as clicking a link, that would load a new page in the browser, the router intercepts the browser's behavior, and shows or hides view hierarchies.
@@ -143,9 +143,9 @@ For a more detailed discussion, see [Routing and navigation](guide/router).
 
 </div>
 
-## What's next
+## What is next
 
-You've learned the basics about the main building blocks of an Angular application.
+You have learned the basics about the main building blocks of an Angular application.
 The following diagram shows how these basic pieces are related.
 
 <div class="lightbox">
@@ -170,7 +170,7 @@ Each of these subjects is introduced in more detail in the following pages.
     *   [Pipes](guide/architecture-components#pipes)
 *   [Introduction to services and dependency injection](guide/architecture-services)
 
-When you're familiar with these fundamental building blocks, you can explore them in more detail in the documentation.
+When you are familiar with these fundamental building blocks, you can explore them in more detail in the documentation.
 To learn about more tools and techniques that are available to help you build and deploy Angular applications, see [Next steps: tools and techniques](guide/architecture-next-steps).
 
 </div>

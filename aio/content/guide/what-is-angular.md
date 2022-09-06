@@ -9,7 +9,7 @@ As a platform, Angular includes:
 *   A collection of well-integrated libraries that cover a wide variety of features, including routing, forms management, client-server communication, and more
 *   A suite of developer tools to help you develop, build, test, and update your code
 
-With Angular, you're taking advantage of a platform that can scale from single-developer projects to enterprise-level applications.
+With Angular, you are taking advantage of a platform that can scale from single-developer projects to enterprise-level applications.
 Angular is designed to make updating as straightforward as possible, so take advantage of the latest developments with a minimum of effort.
 Best of all, the Angular ecosystem consists of a diverse group of over 1.7 million developers, library authors, and content creators.
 
@@ -88,7 +88,7 @@ Angular also supports property bindings, to help you set values for properties a
 
 <code-example format="html" language="html" path="what-is-angular/src/app/hello-world-bindings/hello-world-bindings.component.html" region="bindings"></code-example>
 
-Notice the use of the square brackets—that syntax indicates that you're binding the property or attribute to a value in the component class.
+Notice the use of the square brackets—that syntax indicates that you are binding the property or attribute to a value in the component class.
 
 Declare event listeners to listen for and respond to user actions such as keystrokes, mouse movements, clicks, and touches.
 You declare an event listener by specifying the event name in parentheses:
@@ -162,7 +162,7 @@ Here are some examples:
 | [ng test](cli/test)         | Runs unit tests on a given project.                                   |
 | [ng e2e](cli/e2e)           | Builds and serves an Angular application, then runs end-to-end tests. |
 
-You'll find the Angular CLI a valuable tool for building out your applications.
+You will find the Angular CLI a valuable tool for building out your applications.
 
 For more information about the Angular CLI, see the [CLI Reference](cli) section.
 
@@ -170,7 +170,7 @@ For more information about the Angular CLI, see the [CLI Reference](cli) section
 
 ## First-party libraries
 
-The section, [Angular applications: The essentials](#essentials), provides a brief overview of a couple of the key architectural elements you'll use when building Angular applications.
+The section, [Angular applications: The essentials](#essentials), provides a brief overview of a couple of the key architectural elements you will use when building Angular applications.
 But the many benefits of Angular really become apparent when your application grows and you want to add additional functions such as site navigation or user input.
 Use the Angular platform to incorporate one of the many first-party libraries that Angular provides.
 
@@ -186,7 +186,7 @@ Some of the libraries available to you include:
 | [Angular Schematics](guide/schematics)    | Automated scaffolding, refactoring, and update tools that simplify development at large scale.                                                 |
 
 These libraries expand your application's functionality while also letting you focus more on the features that make your application unique.
-Add these libraries knowing that they're designed to integrate seamlessly into and update simultaneously with the Angular framework.
+Add these libraries knowing that they are designed to integrate seamlessly into and update simultaneously with the Angular framework.
 
 These libraries are only required if and when they can help you add functionality to your applications or solve a particular problem.
 

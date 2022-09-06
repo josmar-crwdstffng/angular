@@ -6,7 +6,7 @@ Entry components are deprecated, for more information, see [entryComponents depr
 
 </div>
 
-An entry component is any component that Angular loads imperatively, \(which means you're not referencing it in the template\), by type.
+An entry component is any component that Angular loads imperatively, \(which means you are not referencing it in the template\), by type.
 You specify an entry component by bootstrapping it in an NgModule, or including it in a routing definition.
 
 <div class="alert is-helpful">
@@ -46,7 +46,7 @@ The following is an example of specifying a bootstrapped component, `AppComponen
 A bootstrapped component is an entry component that Angular loads into the DOM during the bootstrap process \(application launch\).
 Other entry components are loaded dynamically by other means, such as with the router.
 
-Angular loads a root `AppComponent` dynamically because it's listed by type in `@NgModule.bootstrap`.
+Angular loads a root `AppComponent` dynamically because it is listed by type in `@NgModule.bootstrap`.
 
 <div class="alert is-helpful">
 
@@ -86,7 +86,7 @@ See [deprecations guide](guide/deprecations#entryComponents).
 
 </div>
 
-Though the `@NgModule` decorator has an `entryComponents` array, most of the time you won't have to explicitly set any entry components because Angular adds components listed in `@NgModule.bootstrap` and those in route definitions to entry components automatically.
+Though the `@NgModule` decorator has an `entryComponents` array, most of the time you will not have to explicitly set any entry components because Angular adds components listed in `@NgModule.bootstrap` and those in route definitions to entry components automatically.
 Though these two mechanisms account for most entry components, if your application happens to bootstrap or dynamically load a component by type imperatively, you must add it to `entryComponents` explicitly.
 
 ### `entryComponents` and the compiler
@@ -95,13 +95,13 @@ For production applications you want to load the smallest code possible.
 The code should contain only the classes that you actually need and exclude components that are never used.
 For this reason, the Angular compiler only generates code for components which are reachable from the `entryComponents`; This means that adding more references to `@NgModule.declarations` does not imply that they will necessarily be included in the final bundle.
 
-In fact, many libraries declare and export components you'll never use.
-For example, a material design library will export all components because it doesn't know which ones you will use.
+In fact, many libraries declare and export components you will never use.
+For example, a material design library will export all components because it does not know which ones you will use.
 However, it is unlikely that you will use them all.
-For the ones you don't reference, the tree shaker drops these components from the final code package.
+For the ones you do not reference, the tree shaker drops these components from the final code package.
 
-If a component isn't an *entry component* and isn't found in a template, the tree shaker will throw it away.
-So, it's best to add only the components that are truly entry components to help keep your app as trim as possible.
+If a component is not an *entry component* and is not found in a template, the tree shaker will throw it away.
+So, it is best to add only the components that are truly entry components to help keep your app as trim as possible.
 
 ## More on Angular modules
 

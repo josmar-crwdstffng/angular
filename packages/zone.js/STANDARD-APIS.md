@@ -129,7 +129,7 @@ It also passes promise A+ tests.
 
 ## UnpatchedEvents
 
-Sometimes we don't want some `event` to be patched by `zone.js`, we can instruct zone.js to leave
+Sometimes we do not want some `event` to be patched by `zone.js`, we can instruct zone.js to leave
 these `event` to be unpatched by following settings.
 
 ```javascript

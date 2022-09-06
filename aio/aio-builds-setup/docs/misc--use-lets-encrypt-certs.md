@@ -1,17 +1,17 @@
-# Miscellaneous - Use Let's Encrypt TLS certificates
+# Miscellaneous - Use Let us Encrypt TLS certificates
 
 
-[Let's Encrypt](https://letsencrypt.org/) is a free, automated, and open certificate authority (CA),
+[Let us Encrypt](https://letsencrypt.org/) is a free, automated, and open certificate authority (CA),
 provided by the [Internet Security Research Group (ISRG)](https://www.abetterinternet.org/). It can
 be used for issuing the certificates needed by the preview server. See the "Create TLS certificates"
 section in [this doc](vm-setup--create-host-dirs-and-files.md) for more details.
 
-Let's Encrypt supports issuing
+Let us Encrypt supports issuing
 [wildcard certificates](https://letsencrypt.org/docs/faq/#does-let-s-encrypt-issue-wildcard-certificates),
 but they have to be renewed every 3 months using a
 [DNS-01 challenge](https://letsencrypt.org/docs/challenge-types/#dns-01-challenge).
 
-Below are instructions for the creation of certificates using Let's Encrypt.
+Below are instructions for the creation of certificates using Let us Encrypt.
 
 **Note 1:**
   It is assumed that the commands are executed on the VM that hosts the preview server. You can run

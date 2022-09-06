@@ -1,7 +1,7 @@
 # Introduction to components and templates
 
 A *component* controls a patch of screen called a [*view*](guide/glossary#view "Definition of view"). It consists
-of a TypeScript class, an HTML template, and a CSS style sheet. The TypeScript class defines the interaction 
+of a TypeScript class, an HTML template, and a CSS style sheet. The TypeScript class defines the interaction
 of the HTML template and the rendered DOM structure, while the style sheet describes its appearance.
 
 An Angular application uses individual components to define and control different aspects of the application.
@@ -34,7 +34,7 @@ Your application can take action at each moment in this lifecycle through option
 
 The `@Component` decorator identifies the class immediately below it as a component class, and specifies its metadata.
 In the example code below, you can see that `HeroListComponent` is just a class, with no special Angular notation or syntax at all.
-It's not a component until you mark it as one with the `@Component` decorator.
+It is not a component until you mark it as one with the `@Component` decorator.
 
 The metadata for a component tells Angular where to get the major building blocks that it needs to create and present the component and its view.
 In particular, it associates a *template* with the component, either directly with inline code, or by reference.
@@ -42,7 +42,7 @@ Together, the component and its template describe a *view*.
 
 In addition to containing or pointing to the template, the `@Component` metadata configures, for example, how the component can be referenced in HTML and what services it requires.
 
-Here's an example of basic metadata for `HeroListComponent`.
+Here is an example of basic metadata for `HeroListComponent`.
 
 <code-example header="src/app/hero-list.component.ts (metadata)" path="architecture/src/app/hero-list.component.ts" region="metadata"></code-example>
 
@@ -126,7 +126,7 @@ This example from the `HeroListComponent` template uses three of these forms.
 | `{{hero.name}}` [interpolation](guide/interpolation)                     | Displays the component's `hero.name` property value within the `<button>` element.                                                |
 
 Two-way data binding \(used mainly in [template-driven forms](guide/forms)\) combines property and event binding in a single notation.
-Here's an example from the `HeroDetailComponent` template that uses two-way data binding with the `ngModel` directive.
+Here is an example from the `HeroDetailComponent` template that uses two-way data binding with the `ngModel` directive.
 
 <code-example header="src/app/hero-detail.component.html (ngModel)" path="architecture/src/app/hero-detail.component.html" region="ngModel"></code-example>
 
@@ -225,7 +225,7 @@ The `ngModel` directive, which implements two-way data binding, is an example of
 
 <code-example header="src/app/hero-detail.component.html (ngModel)" path="architecture/src/app/hero-detail.component.html" region="ngModel"></code-example>
 
-Angular includes pre-defined directives that change: 
+Angular includes pre-defined directives that change:
 
 * The layout structure, such as [ngSwitch](guide/built-in-directives#ngSwitch), and
 * Aspects of DOM elements and components, such as [ngStyle](guide/built-in-directives#ngstyle) and [ngClass](guide/built-in-directives#ngClass).

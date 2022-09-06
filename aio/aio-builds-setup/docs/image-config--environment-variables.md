@@ -8,7 +8,7 @@ environment variables and their default values can be found in the
 
 **Note:**
 Each variable has a `TEST_` prefixed counterpart, which is used for testing purposes. In most cases
-you don't need to specify values for those.
+you do not need to specify values for those.
 
 - `AIO_ARTIFACT_PATH`:
   The path used to identify the AIO build artifact on the CircleCI servers. This should be equal to

@@ -16,13 +16,13 @@ You can edit a topic in the GitHub web interface or in your favorite code editor
 In either case, you want to edit in your own fork of the Angular source code repo.
 
 To review a documentation topic, you want to be able to edit the topic.
-Even if you don't find any problem, you want to update the `@reviewed` tag at the end of the topic before you finish.
+Even if you do not find any problem, you want to update the `@reviewed` tag at the end of the topic before you finish.
 
 ## Finding topics to review
 
 Find topic a topic that has not been reviewed in the past six months.
 
-At the bottom of some topics, there's an `@reviewed` tag that shows the date it was last reviewed.
+At the bottom of some topics, there is an `@reviewed` tag that shows the date it was last reviewed.
 This is an example of such a tag taken from the bottom of a topic.
 
 <div class="lightbox">
@@ -46,7 +46,7 @@ Experience with the subject matter is helpful, but not required to provide copy 
 4.  If the topic requires an update, you can:
     *  [File an issue][GithubAngularAngularBlobMainContributingMdSubmitIssue] that describes the update required.
     *  Fix the issue and [create a pull request][GithubAngularAngularBlobMainContributingMdSubmitPr] with the update.
-5.  If the topic is accurate and doesn't need any revision, update, or add the `@reviewed` tag followed by the date you reviewed the topic. You can do this:
+5.  If the topic is accurate and does not need any revision, update, or add the `@reviewed` tag followed by the date you reviewed the topic. You can do this:
     * By using the [GitHub user interface][AioGuideUpdatingContentGithubUi]
     * By editing the file on your computer and creating a [standard pull request process][GithubAngularAngularBlobMainContributingMdSubmitPr] for Angular.
 

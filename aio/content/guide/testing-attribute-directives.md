@@ -7,7 +7,7 @@ Its name reflects the way the directive is applied: as an attribute on a host el
 
 <div class="alert is-helpful">
 
-If you'd like to experiment with the application that this guide describes, <live-example name="testing" noDownload>run it in your browser</live-example> or <live-example name="testing" downloadOnly>download and run it locally</live-example>.
+If you would like to experiment with the application that this guide describes, <live-example name="testing" noDownload>run it in your browser</live-example> or <live-example name="testing" downloadOnly>download and run it locally</live-example>.
 
 </div>
 
@@ -18,7 +18,7 @@ It also sets a custom property of the element \(`customProperty`\) to `true` for
 
 <code-example header="app/shared/highlight.directive.ts" path="testing/src/app/shared/highlight.directive.ts"></code-example>
 
-It's used throughout the application, perhaps most simply in the `AboutComponent`:
+It is used throughout the application, perhaps most simply in the `AboutComponent`:
 
 <code-example header="app/about/about.component.ts" path="testing/src/app/about/about.component.ts"></code-example>
 
@@ -30,7 +30,7 @@ However, testing a single use case is unlikely to explore the full range of a di
 Finding and testing all components that use the directive is tedious, brittle, and almost as unlikely to afford full coverage.
 
 *Class-only tests* might be helpful, but attribute directives like this one tend to manipulate the DOM.
-Isolated unit tests don't touch the DOM and, therefore, do not inspire confidence in the directive's efficacy.
+Isolated unit tests do not touch the DOM and, therefore, do not inspire confidence in the directive's efficacy.
 
 A better solution is to create an artificial test component that demonstrates all ways to apply the directive.
 

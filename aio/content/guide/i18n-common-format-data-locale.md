@@ -43,7 +43,7 @@ The locale specified for the `CurrencyPipe` overrides the global `LOCALE_ID` tok
 
 </div>
 
-## What's next
+## What is next
 
 *   [Prepare templates for translations][AioGuideI18nCommonPrepare]
 

@@ -10,7 +10,7 @@ component (`<dep>`).
 
 `trigger.ts` contains a component `TriggerComponent` that uses `<dep>` in its template. Normally,
 Ivy would want `DepComponent` to be listed in `TriggerComponent`'s definition. However, this
-requires adding an import from `trigger.ts` -> `index.ts`, and there's already an import from
+requires adding an import from `trigger.ts` -> `index.ts`, and there is already an import from
 `index.ts` to `trigger.ts` (for the NgModule).
 
 In this case, ngtsc decides to set the directives in `TriggerComponent`'s definition via a different

@@ -42,7 +42,7 @@ All the data is stored in an array where the Angular framework can read specific
 
 **Performance optimizations**
 
-Given we already have currency symbols for the default locale within `@angular/common/src/i18n`, we do not need to capture currencies that aren't different within a given locale. We just omit the data for such currencies and let the Angular framework fall back to the currency symbols from the default locale (this avoids unnecessary duplication).
+Given we already have currency symbols for the default locale within `@angular/common/src/i18n`, we do not need to capture currencies that are not different within a given locale. We just omit the data for such currencies and let the Angular framework fall back to the currency symbols from the default locale (this avoids unnecessary duplication).
 
 Additionally, if locale data is equal to locale data at a previous index, then the generation tool will not repeat the data but instead set `undefined`. The Angular framework will look for the previous value in that case. This reduces the payload size for locales even further. For example:
 

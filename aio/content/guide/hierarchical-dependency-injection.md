@@ -54,7 +54,7 @@ The `ModuleInjector` can be configured in one of two ways by using:
 
 <header>Tree-shaking and &commat;Injectable()</header>
 
-Using the `@Injectable()` `providedIn` property is preferable to using the `@NgModule()` `providers` array. With `@Injectable()` `providedIn`, optimization tools can perform tree-shaking, which removes services that your application isn't using. This results in smaller bundle sizes.
+Using the `@Injectable()` `providedIn` property is preferable to using the `@NgModule()` `providers` array. With `@Injectable()` `providedIn`, optimization tools can perform tree-shaking, which removes services that your application is not using. This results in smaller bundle sizes.
 
 Tree-shaking is especially useful for a library because the application which uses the library may not have a need to inject it.
 Read more about [tree-shakable providers](guide/architecture-services#providing-services) in [Introduction to services and dependency injection](guide/architecture-services).
@@ -105,7 +105,7 @@ For example, a browser has only one URL bar, no matter how many applications you
 You can configure additional platform-specific providers at the platform level by supplying `extraProviders` using the `platformBrowser()` function.
 
 The next parent injector in the hierarchy is the `NullInjector()`, which is the top of the tree.
-If you've gone so far up the tree that you are looking for a service in the `NullInjector()`, you'll get an error unless you've used `@Optional()` because ultimately, everything ends at the `NullInjector()` and it returns an error or, in the case of `@Optional()`, `null`.
+If you have gone so far up the tree that you are looking for a service in the `NullInjector()`, you will get an error unless you have used `@Optional()` because ultimately, everything ends at the `NullInjector()` and it returns an error or, in the case of `@Optional()`, `null`.
 For more information on `@Optional()`, see the [`@Optional()` section](guide/hierarchical-dependency-injection#optional) of this guide.
 
 The following diagram represents the relationship between the `root` `ModuleInjector` and its parent injectors as the previous paragraphs describe.
@@ -116,7 +116,7 @@ The following diagram represents the relationship between the `root` `ModuleInje
 
 </div>
 
-While the name `root` is a special alias, other `ModuleInjector` hierarchies don't have aliases.
+While the name `root` is a special alias, other `ModuleInjector` hierarchies do not have aliases.
 You have the option to create `ModuleInjector` hierarchies whenever a dynamically loaded component is created, such as with the Router, which will create child `ModuleInjector` hierarchies.
 
 All requests forward up to the root injector, whether you configured it with the `bootstrapModule()` method, or registered all providers with `root` in their own services.
@@ -184,12 +184,12 @@ If the component's injector lacks the provider, it passes the request up to its 
 
 The requests keep forwarding up until Angular finds an injector that can handle the request or runs out of ancestor `ElementInjector` hierarchies.
 
-If Angular doesn't find the provider in any `ElementInjector` hierarchies, it goes back to the element where the request originated and looks in the `ModuleInjector` hierarchy.
-If Angular still doesn't find the provider, it throws an error.
+If Angular does not find the provider in any `ElementInjector` hierarchies, it goes back to the element where the request originated and looks in the `ModuleInjector` hierarchy.
+If Angular still does not find the provider, it throws an error.
 
 If you have registered a provider for the same DI token at different levels, the first one Angular encounters is the one it uses to resolve the dependency.
 If, for example, a provider is registered locally in the component that needs a service,
-Angular doesn't look for another provider of the same service.
+Angular does not look for another provider of the same service.
 
 ## Resolution modifiers
 
@@ -202,7 +202,7 @@ For a working application showcasing the resolution modifiers that this section 
 
 Resolution modifiers fall into three categories:
 
-*   What to do if Angular doesn't find what you're looking for, that is `@Optional()`
+*   What to do if Angular does not find what you are looking for, that is `@Optional()`
 *   Where to start looking, that is `@SkipSelf()`
 *   Where to stop looking, `@Host()` and `@Self()`
 
@@ -216,8 +216,8 @@ Additionally, you can combine all of the modifiers except `@Host()` and `@Self()
 ### `@Optional()`
 
 `@Optional()` allows Angular to consider a service you inject to be optional.
-This way, if it can't be resolved at runtime, Angular resolves the service as `null`, rather than throwing an error.
-In the following example, the service, `OptionalService`, isn't provided in the service, `@NgModule()`, or component class, so it isn't available anywhere in the app.
+This way, if it cannot be resolved at runtime, Angular resolves the service as `null`, rather than throwing an error.
+In the following example, the service, `OptionalService`, is not provided in the service, `@NgModule()`, or component class, so it is not available anywhere in the app.
 
 <code-example header="resolution-modifiers/src/app/optional/optional.component.ts" path="resolution-modifiers/src/app/optional/optional.component.ts" region="optional-component"></code-example>
 
@@ -250,11 +250,11 @@ To see this in code, assume that the following value for `emoji` is what the par
 <code-example header="resolution-modifiers/src/app/leaf.service.ts" path="resolution-modifiers/src/app/leaf.service.ts" region="leafservice"></code-example>
 
 Imagine that in the child component, you had a different value, maple leaf <code>&#x1F341;</code> but you wanted to use the parent's value instead.
-This is when you'd use `@SkipSelf()`:
+This is when you would use `@SkipSelf()`:
 
 <code-example header="resolution-modifiers/src/app/skipself/skipself.component.ts" path="resolution-modifiers/src/app/skipself/skipself.component.ts" region="skipself-component"></code-example>
 
-In this case, the value you'd get for `emoji` would be fern <code>&#x1F33F;</code>, not maple leaf <code>&#x1F341;</code>.
+In this case, the value you would get for `emoji` would be fern <code>&#x1F33F;</code>, not maple leaf <code>&#x1F341;</code>.
 
 #### `@SkipSelf()` with `@Optional()`
 
@@ -273,7 +273,7 @@ class Person {
 ### `@Host()`
 
 `@Host()` lets you designate a component as the last stop in the injector tree when searching for providers.
-Even if there is a service instance further up the tree, Angular won't continue looking
+Even if there is a service instance further up the tree, Angular will not continue looking
 Use `@Host()` as follows:
 
 <code-example header="resolution-modifiers/src/app/host/host.component.ts" path="resolution-modifiers/src/app/host/host.component.ts" region="host-component"></code-example>
@@ -302,7 +302,7 @@ Components are used in your templates, as in the following example:
 Usually, you declare the components and their templates in separate files.
 For the purposes of understanding how the injection system works, it is useful to look at them from the point of view of a combined logical tree.
 The term _logical_ distinguishes it from the render tree, which is your application's DOM tree.
-To mark the locations of where the component templates are located, this guide uses the `<#VIEW>` pseudo element, which doesn't actually exist in the render tree and is present for mental model purposes only.
+To mark the locations of where the component templates are located, this guide uses the `<#VIEW>` pseudo element, which does not actually exist in the render tree and is present for mental model purposes only.
 
 </div>
 
@@ -341,7 +341,7 @@ To understand how the `providers` and `viewProviders` influence service visibili
 <div class="alert is-helpful">
 
 **NOTE**: <br />
-In the logical tree, you'll see `@Provide`, `@Inject`, and `@NgModule`, which are not real HTML attributes but are here to demonstrate what is going on under the hood.
+In the logical tree, you will see `@Provide`, `@Inject`, and `@NgModule`, which are not real HTML attributes but are here to demonstrate what is going on under the hood.
 
 | Angular service attribute                                                                                          | Details |
 |:---                                                                                                                |:---     |
@@ -441,7 +441,7 @@ In the example case, the constraints are:
 
     *   The ending location happens to be the same as the component itself, because it is the topmost component in this application.
 
-1.  The `AppModule` acts as the fallback injector when the injection token can't be found in the `ElementInjector` hierarchies.
+1.  The `AppModule` acts as the fallback injector when the injection token cannot be found in the `ElementInjector` hierarchies.
 
 ### Using the `providers` array
 
@@ -450,7 +450,7 @@ Now, in the `ChildComponent` class, add a provider for `FlowerService` to demons
 <code-example header="providers-viewproviders/src/app/child.component.ts" path="providers-viewproviders/src/app/child/child.component.1.ts" region="flowerservice"></code-example>
 
 Now that the `FlowerService` is provided in the `@Component()` decorator, when the `<app-child>` requests the service, the injector has only to look as far as the `ElementInjector` in the `<app-child>`.
-It won't have to continue the search any further through the injector tree.
+It will not have to continue the search any further through the injector tree.
 
 The next step is to add a binding to the `ChildComponent` template.
 
@@ -487,7 +487,7 @@ In the logical tree, this is represented as follows:
 
 When `<app-child>` requests the `FlowerService`, the injector begins its search at the `<#VIEW>` belonging to `<app-child>` \(`<#VIEW>` is included because it is injected from `@Component()`\) and ends with `<app-child>`.
 In this case, the `FlowerService` is resolved in the `providers` array with sunflower <code>&#x1F33B;</code> of the `<app-child>`.
-The injector doesn't have to look any further in the injector tree.
+The injector does not have to look any further in the injector tree.
 It stops as soon as it finds the `FlowerService` and never sees the red hibiscus <code>&#x1F33A;</code>.
 
 <a id="use-view-providers"></a>
@@ -570,7 +570,7 @@ The logic tree for this example of `viewProviders` is as follows:
 
 Just as with the `FlowerService` example, the `AnimalService` is provided in the `<app-child>` `@Component()` decorator.
 This means that since the injector first looks in the `ElementInjector` of the component, it finds the `AnimalService` value of dog <code>&#x1F436;</code>.
-It doesn't need to continue searching the `ElementInjector` tree, nor does it need to search the `ModuleInjector`.
+It does not need to continue searching the `ElementInjector` tree, nor does it need to search the `ModuleInjector`.
 
 ### `providers` vs. `viewProviders`
 
@@ -619,7 +619,7 @@ Emoji from AnimalService: &#x1F436;
 </code-example>
 
 These four bindings demonstrate the difference between `providers` and `viewProviders`.
-Since the dog <code>&#x1F436;</code> is declared inside the `<#VIEW>`, it isn't visible to the projected content.
+Since the dog <code>&#x1F436;</code> is declared inside the `<#VIEW>`, it is not visible to the projected content.
 Instead, the projected content sees the whale <code>&#x1F433;</code>.
 
 The next section though, where `InspectorComponent` is a child component of `ChildComponent`, `InspectorComponent` is inside the `<#VIEW>`, so when it asks for the `AnimalService`, it sees the dog <code>&#x1F436;</code>.
@@ -674,7 +674,7 @@ constructor(&commat;SkipSelf() public flower : FlowerService) { }
 
 </code-example>
 
-With `@SkipSelf()`, the `<app-child>` injector doesn't look to itself for the `FlowerService`.
+With `@SkipSelf()`, the `<app-child>` injector does not look to itself for the `FlowerService`.
 Instead, the injector starts looking for the `FlowerService` at the `ElementInjector` or the `<app-root>`, where it finds nothing.
 Then, it goes back to the `<app-child>` `ModuleInjector` and finds the red hibiscus <code>&#x1F33A;</code> value, which is available because the `<app-child>` `ModuleInjector` and the `<app-root>` `ModuleInjector` are flattened into one `ModuleInjector`.
 Thus, the UI renders the following:
@@ -706,7 +706,7 @@ Though `<app-child>` provides the sunflower <code>&#x1F33B;</code>, the applicat
 
 If you now add `@Host()` \(in addition to the `@SkipSelf()`\) to the `@Inject` of the `FlowerService`, the result will be `null`.
 This is because `@Host()` limits the upper bound of the search to the `<#VIEW>`.
-Here's the idea in the logical tree:
+Here is the idea in the logical tree:
 
 <code-example format="html" language="html">
 
@@ -722,7 +722,7 @@ Here's the idea in the logical tree:
 
 </code-example>
 
-Here, the services and their values are the same, but `@Host()` stops the injector from looking any further than the `<#VIEW>` for `FlowerService`, so it doesn't find it and returns `null`.
+Here, the services and their values are the same, but `@Host()` stops the injector from looking any further than the `<#VIEW>` for `FlowerService`, so it does not find it and returns `null`.
 
 <div class="alert is-helpful">
 
@@ -736,7 +736,7 @@ The example application uses `@Optional()` so the application does not throw an 
 The `<app-child>` currently provides the `AnimalService` in the `viewProviders` array with the value of dog <code>&#x1F436;</code>.
 Because the injector has only to look at the `ElementInjector` of the `<app-child>` for the `AnimalService`, it never sees the whale <code>&#x1F433;</code>.
 
-As in the `FlowerService` example, if you add `@SkipSelf()` to the constructor for the `AnimalService`, the injector won't look in the  `ElementInjector` oh the current `<app-child>` for the `AnimalService`.
+As in the `FlowerService` example, if you add `@SkipSelf()` to the constructor for the `AnimalService`, the injector will not look in the  `ElementInjector` oh the current `<app-child>` for the `AnimalService`.
 
 <code-example format="typescript" language="typescript">
 
@@ -941,7 +941,7 @@ The setter initializes the component's own instance of the `HeroTaxReturnService
 The getter always returns what that service says is the current state of the hero.
 The component also asks the service to save and restore this tax return.
 
-This won't work if the service is an application-wide singleton.
+This will not work if the service is an application-wide singleton.
 Every component would share the same service instance, and each component would overwrite the tax return that belonged to another hero.
 
 To prevent this, configure the component-level injector of `HeroTaxReturnComponent` to provide the service, using the  `providers` property in the component metadata.
@@ -969,7 +969,7 @@ The root injector, marked as \(A\), uses *generic* providers for details about `
 
 1. `Car` component \(A\).  Component \(A\) displays tire service data about a car and specifies generic services to provide more information about the car.
 
-2. Child component \(B\). Component \(B\) defines its own, *specialized* providers for `CarService` and `EngineService` that have special capabilities suitable for what's going on in component \(B\).
+2. Child component \(B\). Component \(B\) defines its own, *specialized* providers for `CarService` and `EngineService` that have special capabilities suitable for what is going on in component \(B\).
 
 3. Child component \(C\) as a childe of Component \(B\). Component \(C\) defines its own, even *more specialized* provider for `CarService`.
 
@@ -981,7 +981,7 @@ The root injector, marked as \(A\), uses *generic* providers for details about `
 
 Behind the scenes, each component sets up its own injector with zero, one, or more providers defined for that component itself.
 
-When you resolve an instance of `Car` at the deepest component \(C\), its injector produces: 
+When you resolve an instance of `Car` at the deepest component \(C\), its injector produces:
 
 * An instance of `Car` resolved by injector \(C\)
 * An `Engine` resolved by injector \(B\)

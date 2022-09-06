@@ -17,7 +17,7 @@ Therefore, using a new ID keeps the text change in sync with translations.
 
 However, some translation systems require a specific form or syntax for the ID.
 To address the requirement, use a custom ID to mark text.
-Most developers don't need to use a custom ID.
+Most developers do not need to use a custom ID.
 If you want to use a unique syntax to convey additional metadata, use a custom ID.
 Additional metadata may include the library, component, or area of the application in which the text appears.
 
@@ -41,7 +41,7 @@ When you specify a custom ID, the extractor generates a translation unit with th
 <code-example header="messages.fr.xlf.html" path="i18n/doc-files/messages.fr.xlf.html" region="custom-id"></code-example>
 
 If you change the text, the extractor does not change the ID.
-As a result, you don't have to take the extra step to update the translation.
+As a result, you do not have to take the extra step to update the translation.
 The drawback of using custom IDs is that if you change the text, your translation may be out-of-sync with the newly changed source text.
 
 #### Use a custom ID with a description

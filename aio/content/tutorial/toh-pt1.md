@@ -43,7 +43,7 @@ The [CSS element selector](https://developer.mozilla.org/docs/Web/CSS/Type_selec
 
 The `ngOnInit()` is a [lifecycle hook](guide/lifecycle-hooks#oninit).
 Angular calls `ngOnInit()` shortly after creating a component.
-It's a good place to put initialization logic.
+It is a good place to put initialization logic.
 
 Always `export` the component class so you can `import` it elsewhere &hellip; like in the `AppModule`.
 
@@ -143,11 +143,11 @@ for a message like
 <code-example format="output" hideCopy language="shell">
 
 Template parse errors:
-Can't bind to 'ngModel' since it isn't a known property of 'input'.
+Can't bind to 'ngModel' since it is not a known property of 'input'.
 
 </code-example>
 
-Although `ngModel` is a valid Angular directive, it isn't available by default.
+Although `ngModel` is a valid Angular directive, it is not available by default.
 
 It belongs to the optional `FormsModule` and you must *opt-in* to using it.
 
@@ -171,7 +171,7 @@ Open `app.module.ts` and import the `FormsModule` symbol from the `@angular/form
 <code-example path="toh-pt1/src/app/app.module.ts" header="app.module.ts (FormsModule symbol import)"
  region="formsmodule-js-import"></code-example>
 
-Add `FormsModule` to the  `imports` array in `@NgModule`. 
+Add `FormsModule` to the  `imports` array in `@NgModule`.
 The `imports` array contains the list of external modules that the application needs.
 
 <code-example header="app.module.ts (@NgModule imports)" path="toh-pt1/src/app/app.module.ts" region="ng-imports"></code-example>
@@ -183,7 +183,7 @@ You can edit the hero's name and see the changes reflected immediately in the `<
 
 Every component must be declared in *exactly one* [NgModule](guide/ngmodules).
 
-*You* didn't declare the `HeroesComponent`.
+*You* did not declare the `HeroesComponent`.
 Why did the application work?
 
 It worked because the `ng generate` declared `HeroesComponent` in `AppModule` when it created that component.

@@ -16,7 +16,7 @@ For example, features are released in the next minor after they are complete, or
 
 ### Implement APIs for optional NgModules
 
-In the process of making Angular simpler, we are working on introducing APIs that allow developers to initialize applications, instantiate components, and use the router without NgModules. Angular v14 introduces developer preview of the APIs for standalone components, directives, and pipes. In the next few quarters we'll collect feedback from developers and finalize the project making the APIs stable. As the next step we will work on improving use cases such as `TestBed`, Angular elements, etc.
+In the process of making Angular simpler, we are working on introducing APIs that allow developers to initialize applications, instantiate components, and use the router without NgModules. Angular v14 introduces developer preview of the APIs for standalone components, directives, and pipes. In the next few quarters we will collect feedback from developers and finalize the project making the APIs stable. As the next step we will work on improving use cases such as `TestBed`, Angular elements, etc.
 
 ### Improve image performance
 
@@ -24,12 +24,12 @@ The [Aurora](https://web.dev/introducing-aurora/) and the Angular teams are work
 
 ### Investigate micro frontend architecture for scalable development processes
 
-We conducted a series of 40 interviews to understand the requirements for micro-frontend architecture of the community. We followed up with a broader community survey. As the next step, we'll share analysis of the results publicly.
+We conducted a series of 40 interviews to understand the requirements for micro-frontend architecture of the community. We followed up with a broader community survey. As the next step, we will share analysis of the results publicly.
 
 ### Investigate modern bundles
 
 To improve development experience by speeding up build times research modern bundles.
-As part of the project experiment with [esbuild](https://esbuild.github.io) and other open source solutions, compare them with the state of the art tooling in Angular CLI, and report the findings. In Angular v14 we're releasing an [experimental support](https://github.com/angular/angular-cli/pull/22995) for esbuild. Next, the team will focus on validating the new prototype and implementing watch and Sass support.
+As part of the project experiment with [esbuild](https://esbuild.github.io) and other open source solutions, compare them with the state of the art tooling in Angular CLI, and report the findings. In Angular v14 we are releasing an [experimental support](https://github.com/angular/angular-cli/pull/22995) for esbuild. Next, the team will focus on validating the new prototype and implementing watch and Sass support.
 
 ### Modern CSS
 
@@ -67,7 +67,7 @@ Ensure all existing documentation fits into a consistent set of content types. U
 
 ### Explore hydration and server-side rendering usability improvements
 
-As part of this effort we'll explore the problem space of hydration with server-side rendering, different approaches, and opportunities for Angular. As outcome of this project we'll have validation of the effort as well as a plan for action.
+As part of this effort we will explore the problem space of hydration with server-side rendering, different approaches, and opportunities for Angular. As outcome of this project we will have validation of the effort as well as a plan for action.
 
 ### Revamp performance dashboards to detect regressions
 
@@ -97,11 +97,11 @@ For this purpose, we will explore and document the scope of the changes in v7 an
 
 ### Introduce dependency injection debugging APIs
 
-To improve the debugging utilities of Angular and Angular DevTools, we'll work on APIs that provide access the dependency injection runtime. As part of the project we'll expose debugging methods that allow us to explore the injector hierarchy and the dependencies across their associated providers.
+To improve the debugging utilities of Angular and Angular DevTools, we will work on APIs that provide access the dependency injection runtime. As part of the project we will expose debugging methods that allow us to explore the injector hierarchy and the dependencies across their associated providers.
 
 ### Support two-dimensional drag-and-drop
 
-As part of this project we'd like to implement mixed orientation support for the Angular CDK drag and drop. This is one of the most highly [requested features](https://github.com/angular/components/issues/13372) in the repository.
+As part of this project we would like to implement mixed orientation support for the Angular CDK drag and drop. This is one of the most highly [requested features](https://github.com/angular/components/issues/13372) in the repository.
 
 <details class="completed-details" open="true">
   <summary>
@@ -119,7 +119,7 @@ As part of this project we'd like to implement mixed orientation support for the
 
 *Completed Q2 2022*
 
-To improve the encapsulation of Angular components we enabled binding to protected members of the component instance. This way you'll no longer have to expose a field or a method as public to use it inside your templates.
+To improve the encapsulation of Angular components we enabled binding to protected members of the component instance. This way you will no longer have to expose a field or a method as public to use it inside your templates.
 
 ### Publish guides on advanced concepts
 

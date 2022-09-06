@@ -21,7 +21,7 @@ and can reuse that work for a class if it can prove that the results are not sta
 Emitting a file is a very expensive operation in TypeScript, involving the execution of many
 internal TS transforms (downleveling, module system, etc) as well as the synthesis of a large text
 buffer for the final JS output. Skipping emit of a file is the most effective optimizations ngtsc
-can do. It's also one of the most challenging. Even if ngtsc's _analysis_ of a specific file is not
+can do. It is also one of the most challenging. Even if ngtsc's _analysis_ of a specific file is not
 stale, that file may still need to be re-emitted if other changes in the program impact its
 semantics. For example, a change to a component selector affects other components which use that
 selector in their templates, even though no direct dependency exists between them.
@@ -179,7 +179,7 @@ match `Cmp`'s template, in which case `cmp.js` would need to be re-emitted.
 ### SemanticSymbols
 
 For each decorated class being processed, the compiler creates a `SemanticSymbol` representing the
-data regarding that class that's involved in these "indirect" relationships. During the
+data regarding that class that is involved in these "indirect" relationships. During the
 compiler's `resolve` phase, these `SemanticSymbol`s are connected together to form a "semantic
 dependency graph". Two classes of data are recorded:
 
@@ -215,7 +215,7 @@ this way.
 * By its unique path and name.
 
 If the file _has_ changed, then symbols can be located by their declaration path plus their name, if
-they have a name that's guaranteed to be unique. Currently, this means that the classes are declared
+they have a name that is guaranteed to be unique. Currently, this means that the classes are declared
 at the top level of the source file, so their names are in the module's scope. If this is the case,
 then a symbol can be matched to its ancestor even if the declaration itself has changed in the
 meantime. Note that there is no guarantee the symbol will be of the same type - an incremental step

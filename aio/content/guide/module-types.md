@@ -72,14 +72,14 @@ For more information about lifecycles, see [Hooking into the component lifecycle
 
 Use a routed NgModule for all [lazy-loaded NgModules](guide/lazy-loading-ngmodules "Lazy-loading an NgModule").
 Use the top component of the NgModule as the destination of a router navigation route.
-Routed NgModules don't export anything because their components never appear in the template of an external component.
+Routed NgModules do not export anything because their components never appear in the template of an external component.
 
-Don't import a lazy-loaded routed NgModule into another NgModule, as this would trigger an eager load, defeating the purpose of lazy loading.
+Do not import a lazy-loaded routed NgModule into another NgModule, as this would trigger an eager load, defeating the purpose of lazy loading.
 
 Routed NgModules rarely have providers because you load a routed NgModule only when needed \(such as for routing\).
 Services listed in the NgModules' `provider` array would not be available because the root injector wouldn't know about the lazy-loaded NgModule.
 If you include providers, the lifetime of the provided services should be the same as the lifetime of the NgModule.
-Don't provide app-wide [singleton services](guide/singleton-services) in a routed NgModule or in an NgModule that the routed NgModule imports.
+Do not provide app-wide [singleton services](guide/singleton-services) in a routed NgModule or in an NgModule that the routed NgModule imports.
 
 <div class="alert is-helpful">
 
@@ -115,7 +115,7 @@ All other routing NgModules are children that import `RouterModule.forChild(rout
 
 In your routing NgModule, re-export the `RouterModule` as a convenience so that components of the companion NgModule have access to router directives such as `RouterLink` and `RouterOutlet`.
 
-Don't use declarations in a routing NgModule.
+Do not use declarations in a routing NgModule.
 Components, directives, and pipes are the responsibility of the companion domain NgModule, not the routing NgModule.
 
 <a id="service"></a>

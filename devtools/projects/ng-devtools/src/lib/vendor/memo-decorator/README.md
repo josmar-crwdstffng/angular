@@ -66,10 +66,10 @@ class Qux {
 const a = new Qux();
 // Create a new cache entry and associate `1` with the result `42`.
 a.foo(1);
-// Do not invoke the original method `foo` because there's already a cache
+// Do not invoke the original method `foo` because there is already a cache
 // entry for the key `1` associated with the result of the method.
 a.foo(1);
-// Invoke the original `foo` because the cache doesn't contain an entry
+// Invoke the original `foo` because the cache does not contain an entry
 // for the key `2`.
 a.foo(2);
 
@@ -81,7 +81,7 @@ a.bar(1);
 a.bar(2);
 
 const b = new Qux();
-// Does not invoke the method `foo` because there's already an entry
+// Does not invoke the method `foo` because there is already an entry
 // in the cache which associates the key `1` to the result `42` from the
 // invocation of the method `foo` by the instance `a`.
 b.foo(1);

@@ -42,7 +42,7 @@ The following JavaScript and template expression syntax is not allowed:
 
 Statements have a context &mdash;a particular part of the application to which the statement belongs.
 
-Statements can refer only to what's in the statement context, which is typically the component instance.
+Statements can refer only to what is in the statement context, which is typically the component instance.
 For example, `deleteHero()` of `(click)="deleteHero()"` is a method of the component in the following snippet.
 
 <code-example header="src/app/app.component.html" path="template-syntax/src/app/app.component.html" region="context-component-statement"></code-example>
@@ -63,7 +63,7 @@ In the preceding `deleteHero(hero)`, the `hero` is the template input variable, 
 | Practices               | Details |
 |:---                     |:---     |
 | Conciseness             | Use method calls or basic property assignments to keep template statements minimal.                                                                                                                                                                                                         |
-| Work within the context | The context of a template statement can be the component class instance or the template. Because of this, template statements cannot refer to anything in the global namespace such as `window` or `document`. For example, template statements can't call `console.log()` or `Math.max()`. |
+| Work within the context | The context of a template statement can be the component class instance or the template. Because of this, template statements cannot refer to anything in the global namespace such as `window` or `document`. For example, template statements cannot call `console.log()` or `Math.max()`. |
 
 <!-- links -->
 

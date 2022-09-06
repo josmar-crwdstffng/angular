@@ -87,8 +87,8 @@ For more information on how to use StackBlitz, see the [StackBlitz documentation
 
 ## Create the product list
 
-In this section, you'll update the application to display a list of products.
-You'll use predefined product data from the `products.ts` file and methods from the `product-list.component.ts` file.
+In this section, you will update the application to display a list of products.
+You will use predefined product data from the `products.ts` file and methods from the `product-list.component.ts` file.
 This section guides you through editing the HTML, also known as the template.
 
 1.  In the `product-list` folder, open the template file `product-list.component.html`.
@@ -138,7 +138,7 @@ This section guides you through editing the HTML, also known as the template.
 
     The application now displays the name and description of each product in the list.
     Notice that the final product does not have a description paragraph.
-    Angular doesn't create the `<p>` element because the product's description property is empty.
+    Angular does not create the `<p>` element because the product's description property is empty.
 
     <div class="lightbox">
 
@@ -196,7 +196,7 @@ This section walks you through creating a child component, `ProductAlertsCompone
     <code-example format="shell" language="shell">
 
     ng generate component product-alerts
-  
+
     </code-example>
 
     The generator creates starter files for the three parts of the component:
@@ -261,7 +261,7 @@ The `ProductAlertsComponent` needs to emit an event when the user clicks **Notif
 <div class="alert is-helpful">
 
 In new components, the Angular Generator includes an empty `constructor()`, the `OnInit` interface, and the `ngOnInit()` method.
-Since these steps don't use them, the following code examples omit them for brevity.
+Since these steps do not use them, the following code examples omit them for brevity.
 
 </div>
 
@@ -303,9 +303,9 @@ For more information on communication between components, see [Component Interac
 
 <a id="whats-next"></a>
 
-## What's next
+## What is next
 
-In this section, you've created an application that iterates through data and features components that communicate with each other.
+In this section, you have created an application that iterates through data and features components that communicate with each other.
 
 To continue exploring Angular and developing this application:
 

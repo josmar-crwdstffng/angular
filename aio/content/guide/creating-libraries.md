@@ -23,7 +23,7 @@ ng generate library my-lib
 
 You should be very careful when choosing the name of your library if you want to publish it later in a public package registry such as npm.
 See [Publishing your library](guide/creating-libraries#publishing-your-library).
-  
+
 Avoid using a name that is prefixed with `ng-`, such as `ng-library`.
 The `ng-` prefix is a reserved keyword used from the Angular framework and its libraries.
 The `ngx-` prefix is preferred as a convention used to denote that the library is suitable for use with Angular.
@@ -88,7 +88,7 @@ Your library should supply documentation \(typically a README file\) for install
 To make your solution reusable, you need to adjust it so that it does not depend on application-specific code.
 Here are some things to consider in migrating application functionality to a library.
 
-*   Declarations such as components and pipes should be designed as stateless, meaning they don't rely on or alter external variables.
+*   Declarations such as components and pipes should be designed as stateless, meaning they do not rely on or alter external variables.
     If you do rely on state, you need to evaluate every case and decide whether it is application state or state that the library would manage.
 
 *   Any observables that the components subscribe to internally should be cleaned up and disposed of during the lifecycle of those components
@@ -197,7 +197,7 @@ If a library lists `@angular/core` in `dependencies` instead of `peerDependencie
 
 ## Using your own library in applications
 
-You don't have to publish your library to the npm package manager to use it in the same workspace, but you do have to build it first.
+You do not have to publish your library to the npm package manager to use it in the same workspace, but you do have to build it first.
 
 To use your own library in an application:
 
@@ -220,8 +220,8 @@ To use your own library in an application:
 
 ### Building and rebuilding your library
 
-The build step is important if you haven't published your library as an npm package and then installed the package back into your application from npm.
-For instance, if you clone your git repository and run `npm install`, your editor shows the `my-lib` imports as missing if you haven't yet built your library.
+The build step is important if you have not published your library as an npm package and then installed the package back into your application from npm.
+For instance, if you clone your git repository and run `npm install`, your editor shows the `my-lib` imports as missing if you have not yet built your library.
 
 <div class="alert is-helpful">
 
@@ -294,7 +294,7 @@ Code with this format is processed during the application build using the same v
 
 Avoid compiling libraries with full-Ivy code if you are publishing to npm because the generated Ivy instructions are not part of Angular's public API, and so might change between patch versions.
 
-If you've never published a package in npm before, you must create a user account.
+If you have never published a package in npm before, you must create a user account.
 Read more in [Publishing npm Packages](https://docs.npmjs.com/getting-started/publishing-npm-packages).
 
 ## Consuming partial-Ivy code outside the Angular CLI
@@ -303,7 +303,7 @@ An application installs many Angular libraries from npm into its `node_modules` 
 However, the code in these libraries cannot be bundled directly along with the built application as it is not fully compiled.
 To finish compilation, use the Angular linker.
 
-For applications that don't use the Angular CLI, the linker is available as a [Babel](https://babeljs.io) plugin.
+For applications that do not use the Angular CLI, the linker is available as a [Babel](https://babeljs.io) plugin.
 The plugin is to be imported from `@angular/compiler-cli/linker/babel`.
 
 The Angular linker Babel plugin supports build caching, meaning that libraries only need to be processed by the linker a single time, regardless of other npm operations.

@@ -76,7 +76,7 @@ To import it into the `AppModule`, add it to the imports in `app.module.ts` and 
 
 Now the `AppModule` knows about the feature module.
 If you were to add any service providers to the feature module, `AppModule` would know about those too, as would any other feature modules.
-However, NgModules don't expose their components by default.
+However, NgModules do not expose their components by default.
 
 ## Rendering a feature module's component template
 

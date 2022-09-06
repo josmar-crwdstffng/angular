@@ -2,7 +2,7 @@
 
 At the moment, the `HeroesComponent` displays both the list of heroes and the selected hero's details.
 
-Keeping all features in one component as the application grows won't be maintainable.
+Keeping all features in one component as the application grows will not be maintainable.
 This tutorial splits up large components into smaller sub-components, each focused on a specific task or workflow.
 
 The first step is to move the hero details into a separate, reusable `HeroDetailComponent` and end up with:
@@ -47,7 +47,7 @@ The pasted HTML refers to a `selectedHero`.
 The new `HeroDetailComponent` can present *any* hero, not just a selected hero.
 Replace `selectedHero` with `hero` everywhere in the template.
 
-When you're done, the `HeroDetailComponent` template should look like this:
+When you are done, the `HeroDetailComponent` template should look like this:
 
 <code-example header="src/app/hero-detail/hero-detail.component.html" path="toh-pt3/src/app/hero-detail/hero-detail.component.html"></code-example>
 
@@ -76,8 +76,8 @@ Add a `hero` property, preceded by the `@Input()` decorator.
 
 <code-example header="src/app/hero-detail/hero-detail.component.ts" path="toh-pt3/src/app/hero-detail/hero-detail.component.ts" region="input-hero"></code-example>
 
-That's the only change you should make to the `HeroDetailComponent` class.
-There are no more properties. There's no presentation logic.
+That is the only change you should make to the `HeroDetailComponent` class.
+There are no more properties. There is no presentation logic.
 This component only receives a hero object through its `hero` property and displays it.
 
 ## Show the `HeroDetailComponent`
@@ -89,7 +89,7 @@ The two components have a parent/child relationship.
 The parent, `HeroesComponent`, controls the child, `HeroDetailComponent` by
 sending it a new hero to display whenever the user selects a hero from the list.
 
-You don't need to change the `HeroesComponent` *class*, instead change its *template*.
+You do not need to change the `HeroesComponent` *class*, instead change its *template*.
 
 <a id="heroes-component-template"></a>
 
@@ -104,7 +104,7 @@ Bind the `HeroesComponent.selectedHero` to the element's `hero` property like th
 
 `[hero]="selectedHero"` is an Angular [property binding](guide/property-binding).
 
-It's a *one-way* data binding from
+It is a *one-way* data binding from
 the `selectedHero` property of the `HeroesComponent` to the `hero` property of the target element, which maps to the `hero` property of the `HeroDetailComponent`.
 
 Now when the user clicks a hero in the list, the `selectedHero` changes.

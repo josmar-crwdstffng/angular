@@ -115,7 +115,7 @@ discussion is outside the scope of this document (TODO link to docs), but here
 are some key concepts in brief.
 
 By default Angular uses "dirty checking" mechanism for finding model changes.
-This mechanism involves evaluating every bound expression that's active on the
+This mechanism involves evaluating every bound expression that is active on the
 UI. These usually include text interpolation via `{{expression}}` and property
 bindings via `[prop]="expression"`. If any of the evaluated expressions are
 costly to compute they could contribute to slow change detection. A good way to

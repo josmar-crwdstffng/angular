@@ -22,27 +22,27 @@ This command creates the following `UserService` skeleton:
 
 You can now inject `UserService` anywhere in your application.
 
-The service itself is a class that the CLI generated and that's decorated with `@Injectable()`.
+The service itself is a class that the CLI generated and that is decorated with `@Injectable()`.
 By default, this decorator has a `providedIn` property, which creates a provider for the service.
 In this case, `providedIn: 'root'` specifies that Angular should provide the service in the root injector.
 
 ## Provider scope
 
-When you add a service provider to the root application injector, it's available throughout the application.
+When you add a service provider to the root application injector, it is available throughout the application.
 Additionally, these providers are also available to all the classes in the application as long they have the lookup token.
 
 You should always provide your service in the root injector unless there is a case where you want the service to be available only if the consumer imports a particular `@NgModule`.
 
 ## `providedIn` and NgModules
 
-It's also possible to specify that a service should be provided in a particular `@NgModule`.
-For example, if you don't want `UserService` to be available to applications unless they import a `UserModule` you've created, you can specify that the service should be provided in the module:
+It is also possible to specify that a service should be provided in a particular `@NgModule`.
+For example, if you do not want `UserService` to be available to applications unless they import a `UserModule` you have created, you can specify that the service should be provided in the module:
 
 <code-example header="src/app/user.service.ts" path="providers/src/app/user.service.1.ts"></code-example>
 
 The example above shows the preferred way to provide a service in a module.
 This method is preferred because it enables tree-shaking of the service if nothing injects it.
-If it's not possible to specify in the service which module should provide it, you can also declare a provider for the service within the module:
+If it is not possible to specify in the service which module should provide it, you can also declare a provider for the service within the module:
 
 <code-example header="src/app/user.module.ts" path="providers/src/app/user.module.ts"></code-example>
 
@@ -54,8 +54,8 @@ In an eagerly loaded app, the root application injector makes all of the provide
 
 This behavior necessarily changes when you use lazy loading.
 Lazy loading is when you load modules only when you need them; for example, when routing.
-They aren't loaded right away like with eagerly loaded modules.
-This means that any services listed in their provider arrays aren't available because the root injector doesn't know about these modules.
+They are not loaded right away like with eagerly loaded modules.
+This means that any services listed in their provider arrays are not available because the root injector does not know about these modules.
 
 <!--todo: KW--Make diagram here -->
 <!--todo: KW--per Misko: not clear if the lazy modules are siblings or grand-children. They are both depending on router structure. -->
@@ -63,8 +63,8 @@ This means that any services listed in their provider arrays aren't available be
 When the Angular router lazy-loads a module, it creates a new injector.
 This injector is a child of the root application injector.
 Imagine a tree of injectors; there is a single root injector and then a child injector for each lazy loaded module.
-This child injector gets populated with all the module-specific providers, if any. 
-Look up resolution for every provider follows the [rules of dependency injection hierarchy](guide/hierarchical-dependency-injection#resolution-rules). 
+This child injector gets populated with all the module-specific providers, if any.
+Look up resolution for every provider follows the [rules of dependency injection hierarchy](guide/hierarchical-dependency-injection#resolution-rules).
 
 Any component created within a lazy loaded module's context, such as by router navigation, gets its own local instance of child provided services, not the instance in the root application injector.
 Components in external modules continue to receive the instances created for the application root injector.
@@ -92,7 +92,7 @@ Another way to limit provider scope is by adding the service you want to limit t
 Component providers and NgModule providers are independent of each other.
 This method is helpful when you want to eagerly load a module that needs a service all to itself.
 Providing a service in the component limits the service only to that component and its descendants.
-Other components in the same module can't access it.
+Other components in the same module cannot access it.
 
 <code-example header="src/app/app.component.ts" path="providers/src/app/app.component.ts" region="component-providers"></code-example>
 
@@ -100,7 +100,7 @@ Other components in the same module can't access it.
 
 Generally, provide services the whole application needs in the root module and scope services by providing them in lazy loaded modules.
 
-The router works at the root level so if you put providers in a component, even `AppComponent`, lazy loaded modules, which rely on the router, can't see them.
+The router works at the root level so if you put providers in a component, even `AppComponent`, lazy loaded modules, which rely on the router, cannot see them.
 
 <!-- KW--Make a diagram here -->
 Register a provider with a component when you must limit a service instance to a component and its component tree, that is, its child components.

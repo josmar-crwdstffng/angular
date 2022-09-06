@@ -22,7 +22,7 @@ To create a component, verify that you have met the following prerequisites:
 
 1.  [Install the Angular CLI.](guide/setup-local#install-the-angular-cli)
 1.  [Create an Angular workspace](guide/setup-local#create-a-workspace-and-initial-application) with initial application.
-    If you don't have a project, create one using `ng new <project-name>`, where `<project-name>` is the name of your Angular application.
+    If you do not have a project, create one using `ng new <project-name>`, where `<project-name>` is the name of your Angular application.
 
 ## Creating a component
 

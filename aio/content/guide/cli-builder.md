@@ -63,7 +63,7 @@ To create a builder, use the `createBuilder()` CLI Builder function, and return 
 
 <code-example header="src/my-builder.ts (builder skeleton)" path="cli-builder/src/my-builder.ts" region="builder-skeleton"></code-example>
 
-Now let's add some logic to it.
+Now let us add some logic to it.
 The following code retrieves the source and destination file paths from user options and copies the file from the source to the destination \(using the [Promise version of the built-in NodeJS `copyFile()` function](https://nodejs.org/api/fs.html#fs_fspromises_copyfile_src_dest_mode)\).
 If the copy operation fails, it returns an error with a message about the underlying problem.
 
@@ -90,13 +90,13 @@ The status string is unmodified unless you pass in a new string value.
 
 You can see an [example](https://github.com/angular/angular-cli/blob/ba21c855c0c8b778005df01d4851b5a2176edc6f/packages/angular_devkit/build_angular/src/tslint/index.ts#L107) of how the `tslint` builder reports progress.
 
-In our example, the copy operation either finishes or is still executing, so there's no need for a progress report, but you can report status so that a parent builder that called our builder would know what's going on.
+In our example, the copy operation either finishes or is still executing, so there is no need for a progress report, but you can report status so that a parent builder that called our builder would know what is going on.
 Use the `context.reportStatus()` method to generate a status string of any length.
 
 <div class="alert is-helpful">
 
 **NOTE**: <br />
-There's no guarantee that a long string will be shown entirely; it could be cut to fit the UI that displays it.
+There is no guarantee that a long string will be shown entirely; it could be cut to fit the UI that displays it.
 
 </div>
 
@@ -279,7 +279,7 @@ Only the  `context.scheduleTarget()` method resolves the configuration and overr
 
 ### Default architect configuration
 
-Let's create a simple `angular.json` file that puts target configurations into context.
+Let us create a simple `angular.json` file that puts target configurations into context.
 
 You can publish the builder to npm \(see [Publishing your Library](guide/creating-libraries#publishing-your-library)\), and install it using the following command:
 
@@ -335,12 +335,12 @@ This target tells the builder to copy the `package.json` file.
 
 You need to update the `angular.json` file to add a target for this builder to the "architect" section of our new project.
 
-*   We'll add a new target section to the "architect" object for our project
+*   We will add a new target section to the "architect" object for our project
 *   The target named "copy-package" uses our builder, which you published to `@example/copy-file`.
     \(See [Publishing your Library](guide/creating-libraries#publishing-your-library).\)
 
 *   The options object provides default values for the two inputs that you defined; `source`, which is the existing file you are copying, and `destination`, the path you want to copy to
-*   The `configurations` key is optional, we'll leave it out for now
+*   The `configurations` key is optional, we will leave it out for now
 
 <code-example format="json" header="angular.json" language="json">
 
@@ -416,9 +416,9 @@ Use integration testing for your builder, so that you can use the Architect sche
 *   In the builder source directory, you have created a new test file `my-builder.spec.ts`.
     The code creates new instances of `JsonSchemaRegistry` \(for schema validation\), `TestingArchitectHost` \(an in-memory implementation of `ArchitectHost`\), and `Architect`.
 
-*   We've added a `builders.json` file next to the builder's `package.json` file, and modified the package file to point to it.
+*   We have added a `builders.json` file next to the builder's `package.json` file, and modified the package file to point to it.
 
-Here's an example of a test that runs the copy file builder.
+Here is an example of a test that runs the copy file builder.
 The test uses the builder to copy the `package.json` file and validates that the copied file's contents are the same as the source.
 
 <code-example header="src/my-builder.spec.ts" path="cli-builder/src/my-builder.spec.ts"></code-example>
@@ -440,7 +440,7 @@ Architect can support watch mode, but there are some things to look out for.
     Architect subscribes to the Observable until it completes and might reuse it if the builder is scheduled again with the same arguments.
 
 *   The builder should always emit a `BuilderOutput` object after each execution.
-    Once it's been executed, it can enter a watch mode, to be triggered by an external event.
+    Once it is been executed, it can enter a watch mode, to be triggered by an external event.
     If an event triggers it to restart, the builder should execute the `context.reportRunning()` function to tell Architect that it is running again.
     This prevents Architect from stopping the builder if another run is scheduled.
 

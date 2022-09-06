@@ -45,9 +45,9 @@ class MyAppModule {
 }
 ```
 
-Notice that `ngtsc` can't remove `TooltipDirective` because it would need to know its selector and see if the directive matches in the component's template.
+Notice that `ngtsc` cannot remove `TooltipDirective` because it would need to know its selector and see if the directive matches in the component's template.
 Knowing the selector breaks locality and so we make an exception for some locality information such as selector, inputs and outputs.
-Since we are breaking the locality rule, we need to store the information someplace since `ngtsc` can't  have access to the `TooltipDirective` source.
+Since we are breaking the locality rule, we need to store the information someplace since `ngtsc` cannot  have access to the `TooltipDirective` source.
 We store the information in the `.d.ts` file like so.
 
 ```typescript

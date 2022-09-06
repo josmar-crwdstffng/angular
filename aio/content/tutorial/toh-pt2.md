@@ -1,6 +1,6 @@
 # Display a selection list
 
-This tutorial shows you how to: 
+This tutorial shows you how to:
 
 * Expand the Tour of Heroes application to display a list of heroes.
 * Allow users to select a hero and display the hero's details.
@@ -45,7 +45,7 @@ to look like this:
 
 <code-example header="heroes.component.html (heroes template)" path="toh-pt2/src/app/heroes/heroes.component.1.html" region="list"></code-example>
 
-That displays an error since the `hero` property doesn't exist.
+That displays an error since the `hero` property does not exist.
 To have access to each individual hero and list them all, add an `*ngFor` to the `<li>` to iterate through the list of heroes:
 
 <code-example path="toh-pt2/src/app/heroes/heroes.component.1.html" region="li"></code-example>
@@ -63,8 +63,8 @@ The syntax in this example is as follows:
 
 <div class="alert is-important">
 
-Don't forget to put the asterisk `*` in front of `ngFor`.
-It's a critical part of the syntax.
+Do not forget to put the asterisk `*` in front of `ngFor`.
+It is a critical part of the syntax.
 
 </div>
 
@@ -88,7 +88,7 @@ The heroes list should be attractive and should respond visually when users
 hover over and select a hero from the list.
 
 In the [first tutorial](tutorial/toh-pt0#app-wide-styles), you set the basic styles for the entire application in `styles.css`.
-That style sheet didn't include styles for this list of heroes.
+That style sheet did not include styles for this list of heroes.
 
 You could add more styles to `styles.css` and keep growing that style sheet as you add components.
 
@@ -107,7 +107,7 @@ Open the `heroes.component.css` file and paste in the private CSS styles for the
 <div class="alert is-important">
 
 Styles and style sheets identified in `@Component` metadata are scoped to that specific component.
-The `heroes.component.css` styles apply only to the `HeroesComponent` and don't affect the outer HTML or the HTML in any other component.
+The `heroes.component.css` styles apply only to the `HeroesComponent` and do not affect the outer HTML or the HTML in any other component.
 
 </div>
 
@@ -132,7 +132,7 @@ In the next section, define an `onSelect()` method in `HeroesComponent` to displ
 
 ### Add the click event handler
 
-Rename the component's `hero` property to `selectedHero` but don't assign any value to it since there is no *selected hero* when the application starts.
+Rename the component's `hero` property to `selectedHero` but do not assign any value to it since there is no *selected hero* when the application starts.
 
 Add the following `onSelect()` method, which assigns the clicked hero from the template to the component's `selectedHero`.
 
@@ -141,7 +141,7 @@ Add the following `onSelect()` method, which assigns the clicked hero from the t
 ### Add a details section
 
 Currently, you have a list in the component template.
-To show details about a hero when you click their name in the list, add a section 
+To show details about a hero when you click their name in the list, add a section
 in the template that displays their details.
 Add the following to `heroes.component.html` beneath the list section:
 
@@ -151,8 +151,8 @@ The hero details should only be displayed when a hero is selected. When a compon
 
 <div class="alert is-important">
 
-Don't forget the asterisk `*` character in front of `ngIf`.
-It's a critical part of the syntax.
+Do not forget the asterisk `*` character in front of `ngIf`.
+It is a critical part of the syntax.
 
 </div>
 

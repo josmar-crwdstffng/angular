@@ -32,7 +32,7 @@ The ad banner uses a helper directive called `AdDirective` to mark valid inserti
 
 `AdDirective` injects `ViewContainerRef` to gain access to the view container of the element that will host the dynamically added component.
 
-In the `@Directive` decorator, notice the selector name, `adHost`; that's what you use to apply the directive to the element.
+In the `@Directive` decorator, notice the selector name, `adHost`; that is what you use to apply the directive to the element.
 The next section shows you how.
 
 <a id="loading-components"></a>
@@ -49,7 +49,7 @@ Now Angular knows where to dynamically load components.
 
 <code-example header="src/app/ad-banner.component.ts (template)" path="dynamic-component-loader/src/app/ad-banner.component.ts" region="ad-host"></code-example>
 
-The `<ng-template>` element is a good choice for dynamic components because it doesn't render any additional output.
+The `<ng-template>` element is a good choice for dynamic components because it does not render any additional output.
 
 <a id="resolving-components"></a>
 
@@ -81,9 +81,9 @@ Then, it uses that value to select an `adItem` from the array.
 
 </div>
 
-Next, you're targeting the `viewContainerRef` that exists on this specific instance of the component.
-How do you know it's this specific instance?
-Because it's referring to `adHost`, and `adHost` is the directive you set up earlier to tell Angular where to insert dynamic components.
+Next, you are targeting the `viewContainerRef` that exists on this specific instance of the component.
+How do you know it is this specific instance?
+Because it is referring to `adHost`, and `adHost` is the directive you set up earlier to tell Angular where to insert dynamic components.
 
 As you may recall, `AdDirective` injects `ViewContainerRef` into its constructor.
 This is how the directive accesses the element that you want to use to host the dynamic component.

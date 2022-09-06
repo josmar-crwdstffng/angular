@@ -25,14 +25,14 @@ The most important properties are as follows.
 | `providers`    | Creators of [services](guide/architecture-services) that this NgModule contributes to the global collection of services; they become accessible in all parts of the application. \(You can also specify providers at the component level.\) |
 | `bootstrap`    | The main application view, called the *root component*, which hosts all other application views. Only the *root NgModule* should set the `bootstrap` property.                                                                              |
 
-Here's a simple root NgModule definition.
+Here is a simple root NgModule definition.
 
 <code-example header="src/app/app.module.ts" path="architecture/src/app/mini-app.ts" region="module"></code-example>
 
 <div class="alert is-helpful">
 
-`AppComponent` is included in the `exports` list here for illustration; it isn't actually necessary in this example.
-A root NgModule has no reason to *export* anything because other modules don't need to *import* the root NgModule.
+`AppComponent` is included in the `exports` list here for illustration; it is not actually necessary in this example.
+A root NgModule has no reason to *export* anything because other modules do not need to *import* the root NgModule.
 
 </div>
 
@@ -63,7 +63,7 @@ This is often the case, especially for UI libraries.
 
 <br class="clear">
 
-When you create a component, it's associated directly with a single view, called the *host view*.
+When you create a component, it is associated directly with a single view, called the *host view*.
 The host view can be the root of a view hierarchy, which can contain *embedded views*, which are in turn the host views of other components.
 Those components can be in the same NgModule, or can be imported from other NgModules.
 Views in the tree can be nested to any depth.
@@ -124,8 +124,8 @@ To access that material, add it to the `@NgModule` metadata `imports` like this.
 
 <code-example path="architecture/src/app/mini-app.ts" region="ngmodule-imports"></code-example>
 
-In this way, you're using the Angular and JavaScript module systems *together*.
-Although it's easy to confuse the two systems, which share the common vocabulary of "imports" and "exports", you will become familiar with the different contexts in which they are used.
+In this way, you are using the Angular and JavaScript module systems *together*.
+Although it is easy to confuse the two systems, which share the common vocabulary of "imports" and "exports", you will become familiar with the different contexts in which they are used.
 
 <div class="alert is-helpful">
 

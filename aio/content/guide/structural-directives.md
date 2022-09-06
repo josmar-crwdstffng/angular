@@ -20,7 +20,7 @@ For the example application that this page describes, see the <live-example name
 When structural directives are applied they generally are prefixed by an asterisk, `*`,  such as `*ngIf`. This convention is shorthand that Angular interprets and converts into a longer form.
 Angular transforms the asterisk in front of a structural directive into an `<ng-template>` that surrounds the host element and its descendants.
 
-For example, let's take the following code which uses an `*ngIf` to displays the hero's name if `hero` exists:
+For example, let us take the following code which uses an `*ngIf` to displays the hero's name if `hero` exists:
 
 <code-example path="structural-directives/src/app/app.component.html" header="src/app/app.component.html (asterisk)" region="asterisk"></code-example>
 
@@ -54,7 +54,7 @@ The parser applies PascalCase to all directives and prefixes them with the direc
 For example, the `ngFor` input properties, `of` and `trackBy`, map to `ngForOf` and `ngForTrackBy`.
 
 As the `NgFor` directive loops through the list, it sets and resets properties of its own context object.
-These properties can include, but aren't limited to, `index`, `odd`, and a special property
+These properties can include, but are not limited to, `index`, `odd`, and a special property
 named `$implicit`.
 
 Angular sets `let-hero` to the value of the context's `$implicit` property, which `NgFor` has initialized with the hero for the current iteration.
@@ -63,7 +63,7 @@ For more information, see the [NgFor API](api/common/NgForOf "API: NgFor") and [
 
 <div class="alert is-helpful">
 
-  Note that Angular's `<ng-template>` element defines a template that doesn't render anything by default, if you just wrap elements in an `<ng-template>` without applying a structural directive those elements will not be rendered.
+  Note that Angular's `<ng-template>` element defines a template that does not render anything by default, if you just wrap elements in an `<ng-template>` without applying a structural directive those elements will not be rendered.
 
   For more information, see the [ng-template API](api/core/ng-template) documentation.
 
@@ -73,7 +73,7 @@ For more information, see the [NgFor API](api/common/NgForOf "API: NgFor") and [
 <a id="one-per-element"></a>
 ## One structural directive per element
 
-It's a quite common use-case to repeat a block of HTML but only when a particular condition is true. An intuitive way to do that is to put both an `*ngFor` and an `*ngIf` on the same element. However, since both `*ngFor` and `*ngIf` are structural directives, this would be treated as an error by the compiler. You may apply only one _structural_ directive to an element.
+It is a quite common use-case to repeat a block of HTML but only when a particular condition is true. An intuitive way to do that is to put both an `*ngFor` and an `*ngIf` on the same element. However, since both `*ngFor` and `*ngIf` are structural directives, this would be treated as an error by the compiler. You may apply only one _structural_ directive to an element.
 
 The reason is simplicity. Structural directives can do complex things with the host element and its descendants.
 
@@ -83,7 +83,7 @@ Which should go first, the `NgIf` or the `NgFor`? Can the `NgIf` cancel the effe
 If so (and it seems like it should be so), how should Angular generalize the ability to cancel for other structural directives?
 
 There are no easy answers to these questions. Prohibiting multiple structural directives makes them moot.
-There's an easy solution for this use case: put the `*ngIf` on a container element that wraps the `*ngFor` element. One or both elements can be an `<ng-container>` so that no extra DOM elements are generated.
+There is an easy solution for this use case: put the `*ngIf` on a container element that wraps the `*ngFor` element. One or both elements can be an `<ng-container>` so that no extra DOM elements are generated.
 
 
 <a id="unless"></a>
@@ -136,7 +136,7 @@ The complete directive is as follows:
 
 ### Testing the directive
 
-In this section, you'll update your application to test the `UnlessDirective`.
+In this section, you will update your application to test the `UnlessDirective`.
 
 1.  Add a `condition` set to `false` in the `AppComponent`.
 
@@ -261,7 +261,7 @@ For example, consider the following structural directive that takes the result o
 </code-tabs>
 
 In this example, the `LoadingState<T>` type permits either of two states, `Loaded<T>` or `Loading`.
-The expression used as the directive's `state` input (aliased as `appIfLoaded`) is of the umbrella type `LoadingState`, as it's unknown what the loading state is at that point.
+The expression used as the directive's `state` input (aliased as `appIfLoaded`) is of the umbrella type `LoadingState`, as it is unknown what the loading state is at that point.
 
 The `IfLoadedDirective` definition declares the static field `ngTemplateGuard_appIfLoaded`, which expresses the narrowing behavior.
 Within the `AppComponent` template, the `*appIfLoaded` structural directive should render this template only when `state` is actually `Loaded<Hero>`.

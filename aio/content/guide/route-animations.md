@@ -24,7 +24,7 @@ To enable routing transition animation, do the following:
 
 Illustrate a router transition animation by navigating between two routes, *Home* and *About* associated with the `HomeComponent` and `AboutComponent` views respectively.
 Both of these component views are children of the top-most view, hosted by `AppComponent`.
-We'll implement a router transition animation that slides in the new view to the right and slides out the old view when the user navigates between the two routes.
+We will implement a router transition animation that slides in the new view to the right and slides out the old view when the user navigates between the two routes.
 
 <div class="lightbox">
 
@@ -58,7 +58,7 @@ The route configuration tells the Angular router to instantiate the `HomeCompone
 In addition to `path` and `component`, the `data` property of each route defines the key animation-specific configuration associated with a route.
 The `data` property value is passed into `AppComponent` when the route changes.
 You can also pass additional data in route configuration that is consumed within the animation.
-The data property value has to match the transitions defined in the `routeAnimation` trigger, which we'll define shortly.
+The data property value has to match the transitions defined in the `routeAnimation` trigger, which we will define shortly.
 
 <div class="alert is-helpful">
 
@@ -80,7 +80,7 @@ We can use the `data` property of each `Route` to animate our routing transition
 
 `AppComponent` defines a method that can detect when a view changes.
 The method assigns an animation state value to the animation trigger \(`@routeAnimation`\) based on the route configuration `data` property value.
-Here's an example of an `AppComponent` method that detects when a route change happens.
+Here is an example of an `AppComponent` method that detects when a route change happens.
 
 <code-example header="src/app/app.component.ts" path="animations/src/app/app.component.ts" region="get-route-animations-data"></code-example>
 
@@ -115,7 +115,7 @@ Make the animation definition available in your application by adding the reusab
 
 <code-example header="src/app/app.component.ts" path="animations/src/app/app.component.ts" region="define"></code-example>
 
-So, let's break down the animation definition and see more closely what it does&hellip;
+So, let us break down the animation definition and see more closely what it does&hellip;
 
 ### Styling the host and child components
 

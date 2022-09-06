@@ -2,7 +2,7 @@
 
 ## What does this schematic do?
 
-If you're using i18n, this schematic adds an import statement for `@angular/localize` to `polyfills.ts` that will look something like this:
+If you are using i18n, this schematic adds an import statement for `@angular/localize` to `polyfills.ts` that will look something like this:
 
 <code-example format="typescript" language="typescript">
 

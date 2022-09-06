@@ -197,7 +197,7 @@ However, if you change something *inside* a composite object \(such as the month
 ### How change detection works
 
 Angular looks for changes to data-bound values in a [change detection](guide/glossary#change-detection "Definition of change detection") process that runs after every DOM event: every keystroke, mouse move, timer tick, and server response.
-The following example, which doesn't use a pipe, demonstrates how Angular uses its default change detection strategy to monitor and update its display of every hero in the `heroes` array.
+The following example, which does not use a pipe, demonstrates how Angular uses its default change detection strategy to monitor and update its display of every hero in the `heroes` array.
 The example tabs show the following:
 
 | Files                               | Details |
@@ -250,7 +250,7 @@ This happens because the code that adds a hero does so by pushing it onto the `h
 
 <code-example header="src/app/flying-heroes.component.ts" path="pipes/src/app/flying-heroes.component.ts" region="push"></code-example>
 
-The change detector ignores changes to elements of an array, so the pipe doesn't run.
+The change detector ignores changes to elements of an array, so the pipe does not run.
 
 The reason Angular ignores the changed array element is that the *reference* to the array hasn't changed.
 Because the array is the same, Angular does not update the display.
@@ -260,7 +260,7 @@ Replace the array with a new array containing the newly changed elements, and th
 In the preceding example, create an array with the new hero appended, and assign that to `heroes`.
 Angular detects the change in the array reference and executes the pipe.
 
-To summarize, if you mutate the input array, the pure pipe doesn't execute.
+To summarize, if you mutate the input array, the pure pipe does not execute.
 If you *replace* the input array, the pipe executes and the display is updated.
 
 The preceding example demonstrates changing a component's code to accommodate a pipe.
@@ -286,7 +286,7 @@ Make a pipe impure by setting its `pure` flag to `false`:
 <code-example header="src/app/flying-heroes.pipe.ts" path="pipes/src/app/flying-heroes.pipe.ts" region="pipe-decorator"></code-example>
 
 The following code shows the complete implementation of `FlyingHeroesImpurePipe`, which extends `FlyingHeroesPipe` to inherit its characteristics.
-The example shows that you don't have to change anything else&mdash;the only difference is setting the `pure` flag as `false` in the pipe metadata.
+The example shows that you do not have to change anything else&mdash;the only difference is setting the `pure` flag as `false` in the pipe metadata.
 
 <code-tabs>
     <code-pane header="src/app/flying-heroes.pipe.ts (FlyingHeroesImpurePipe)" path="pipes/src/app/flying-heroes.pipe.ts" region="impure"></code-pane>

@@ -310,8 +310,8 @@ For more information about pluralization categories, see [Choosing plural catego
 
 <header>Background: Locales may not support some pluralization categories</header>
 
-Many locales don't support some of the pluralization categories.
-The default locale \(`en-US`\) uses a very simple `plural()` function that doesn't support the `few` pluralization category.
+Many locales do not support some of the pluralization categories.
+The default locale \(`en-US`\) uses a very simple `plural()` function that does not support the `few` pluralization category.
 Another locale with a simple `plural()` function is `es`.
 The following code example shows the [en-US `plural()`][GithubAngularAngularBlobEcffc3557fe1bff9718c01277498e877ca44588dPackagesCoreSrcI18nLocaleEnTsL14L18] function.
 
@@ -457,7 +457,7 @@ The following code example shows nested clauses based on the `gender` and `minut
 
 <code-example header="src/app/app.component.html" path="i18n/src/app/app.component.html" region="i18n-nested"></code-example>
 
-## What's next
+## What is next
 
 *   [Work with translation files][AioGuideI18nCommonTranslationFiles]
 

@@ -1,10 +1,10 @@
 # Understanding dependency injection
 
-Dependency injection, or DI, is one of the fundamental concepts in Angular. DI is wired into the Angular framework and allows classes with Angular decorators, such as Components, Directives, Pipes, and Injectables, to configure dependencies that they need. 
+Dependency injection, or DI, is one of the fundamental concepts in Angular. DI is wired into the Angular framework and allows classes with Angular decorators, such as Components, Directives, Pipes, and Injectables, to configure dependencies that they need.
 
-Two main roles exist in the DI system: dependency consumer and dependency provider. 
+Two main roles exist in the DI system: dependency consumer and dependency provider.
 
-Angular facilitates the interaction between dependency consumers and dependency providers using an abstraction called [Injector](guide/glossary#injector). When a dependency is requested, the injector checks its registry to see if there is an instance already available there. If not, a new instance is created and stored in the registry. Angular creates an application-wide injector (also known as "root" injector) during the application bootstrap process, as well as any other injectors as needed. In most cases you don't need to manually create injectors, but you should know that there is a layer that connects providers and consumers.
+Angular facilitates the interaction between dependency consumers and dependency providers using an abstraction called [Injector](guide/glossary#injector). When a dependency is requested, the injector checks its registry to see if there is an instance already available there. If not, a new instance is created and stored in the registry. Angular creates an application-wide injector (also known as "root" injector) during the application bootstrap process, as well as any other injectors as needed. In most cases you do not need to manually create injectors, but you should know that there is a layer that connects providers and consumers.
 
 This topic covers basic scenarios of how a class can act as a dependency. Angular also allows you to use functions, objects, primitive types such as string or Boolean, or any other types as dependencies. For more information, see [Dependency providers](guide/dependency-injection-providers).
 
@@ -55,7 +55,7 @@ When you register a provider with a specific NgModule, the same instance of a se
 class HeroService {}
 </code-example>
 
-When you provide the service at the root level, Angular creates a single, shared instance of the `HeroService` and injects it into any class that asks for it. Registering the provider in the `@Injectable` metadata also allows Angular to optimize an app by removing the service from the compiled application if it isn't used, a process known as tree-shaking.
+When you provide the service at the root level, Angular creates a single, shared instance of the `HeroService` and injects it into any class that asks for it. Registering the provider in the `@Injectable` metadata also allows Angular to optimize an app by removing the service from the compiled application if it is not used, a process known as tree-shaking.
 
 ## Injecting a dependency
 
@@ -68,7 +68,7 @@ class HeroListComponent {
 }
 </code-example>
 
-When Angular discovers that a component depends on a service, it first checks if the injector has any existing instances of that service. If a requested service instance doesn't yet exist, the injector creates one using the registered provider, and adds it to the injector before returning the service to Angular.
+When Angular discovers that a component depends on a service, it first checks if the injector has any existing instances of that service. If a requested service instance does not yet exist, the injector creates one using the registered provider, and adds it to the injector before returning the service to Angular.
 
 When all requested services have been resolved and returned, Angular can call the component's constructor with those services as arguments.
 
@@ -76,7 +76,7 @@ When all requested services have been resolved and returned, Angular can call th
   <img src="generated/images/guide/architecture/injector-injects.png" alt="Service" class="left">
 </div>
 
-## What's next
+## What is next
 
 * [Creating and injecting services](guide/creating-injectable-service)
 * [Dependency Injection in Action](guide/dependency-injection-in-action)

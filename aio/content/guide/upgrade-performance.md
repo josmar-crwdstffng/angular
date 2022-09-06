@@ -22,7 +22,7 @@ Because the steps are the same regardless of how you upgrade, refer to the [Prep
 
 With the `ngUpgrade` library in Angular you can upgrade an existing AngularJS application incrementally by building a hybrid app where you can run both frameworks side-by-side.
 In these hybrid applications you can mix and match AngularJS and Angular components and services and have them interoperate seamlessly.
-That means you don't have to do the upgrade work all at once as there is a natural coexistence between the two frameworks during the transition period.
+That means you do not have to do the upgrade work all at once as there is a natural coexistence between the two frameworks during the transition period.
 
 ### How `ngUpgrade` Works
 
@@ -96,7 +96,7 @@ In a sense, it "downgrades" an Angular module to an AngularJS module.
 
 There are a few things to remember, though:
 
-*   You don't pass the Angular module directly to `downgradeModule()`.
+*   You do not pass the Angular module directly to `downgradeModule()`.
     All `downgradeModule()` needs is a "recipe", for example, a factory function, to create an instance for your module.
 
 *   The Angular module is not instantiated until the application actually needs it.
@@ -156,24 +156,24 @@ Using a custom function requires slightly more code, but gives you greater flexi
 #### Instantiating the Angular module on-demand
 
 Another key difference between `downgradeModule()` and `UpgradeModule` is that the latter requires you to instantiate both the AngularJS and Angular modules up-front.
-This means that you have to pay the cost of instantiating the Angular part of the app, even if you don't use any Angular assets until later.
+This means that you have to pay the cost of instantiating the Angular part of the app, even if you do not use any Angular assets until later.
 `downgradeModule()` is again less aggressive.
 It will only instantiate the Angular part when it is required for the first time; that is, as soon as it needs to create a downgraded component.
 
 You could go a step further and not even download the code for the Angular part of the application to the user's browser until it is needed.
-This is especially useful when you use Angular on parts of the hybrid application that are not necessary for the initial rendering or that the user doesn't reach.
+This is especially useful when you use Angular on parts of the hybrid application that are not necessary for the initial rendering or that the user does not reach.
 
 A few examples are:
 
-*   You use Angular on specific routes only and you don't need it until/if a user visits such a route.
+*   You use Angular on specific routes only and you do not need it until/if a user visits such a route.
 *   You use Angular for features that are only visible to specific types of users; for example, logged-in users, administrators, or VIP members.
-    You don't need to load Angular until a user is authenticated.
+    You do not need to load Angular until a user is authenticated.
 
 *   You use Angular for a feature that is not critical for the initial rendering of the application and you can afford a small delay in favor of better initial load performance.
 
 ### Bootstrapping with `downgradeModule()`
 
-As you might have guessed, you don't need to change anything in the way you bootstrap your existing AngularJS application.
+As you might have guessed, you do not need to change anything in the way you bootstrap your existing AngularJS application.
 Unlike `UpgradeModule`&mdash;which requires some extra steps&mdash; `downgradeModule()` is able to take care of bootstrapping the Angular module, as long as you provide the recipe.
 
 In order to start using any `upgrade/static` APIs, you still need to load the Angular framework as you would in a normal Angular application.
@@ -253,7 +253,7 @@ See [Upgrading from AngularJS](guide/upgrade) to learn about:
 *   [Transcluding Angular Content into AngularJS Component Directives](guide/upgrade#transcluding-angular-content-into-angularjs-component-directives).
 *   [Making AngularJS Dependencies Injectable to Angular](guide/upgrade#making-angularjs-dependencies-injectable-to-angular).
 *   [Making Angular Dependencies Injectable to AngularJS](guide/upgrade#making-angular-dependencies-injectable-to-angularjs).
-    
+
     <div class="callout is-important">
 
     **NOTE**: <br />

@@ -1,7 +1,7 @@
 # Introduction to Angular animations
 
 Animation provides the illusion of motion: HTML elements change styling over time.
-Well-designed animations can make your application more fun and straightforward to use, but they aren't just cosmetic.
+Well-designed animations can make your application more fun and straightforward to use, but they are not just cosmetic.
 Animations can improve your application and user experience in a number of ways:
 
 *   Without animations, web page transitions can seem abrupt and jarring
@@ -24,7 +24,7 @@ The features described in this guide &mdash;and the more advanced features descr
 
 ## Prerequisites
 
-The guide assumes that you're familiar with building basic Angular apps, as described in the following sections:
+The guide assumes that you are familiar with building basic Angular apps, as described in the following sections:
 
 *   [Tutorial](tutorial)
 *   [Architecture Overview](guide/architecture)
@@ -71,10 +71,10 @@ You put the trigger that defines an animation within the `animations` metadata p
 
 ## Animating a transition
 
-Let's animate a transition that changes a single HTML element from one state to another.
+Let us animate a transition that changes a single HTML element from one state to another.
 For example, you can specify that a button displays either **Open** or **Closed** based on the user's last action.
-When the button is in the `open` state, it's visible and yellow.
-When it's the `closed` state, it's translucent and blue.
+When the button is in the `open` state, it is visible and yellow.
+When it is the `closed` state, it is translucent and blue.
 
 In HTML, these attributes are set using ordinary CSS styles such as color and opacity.
 In Angular, use the `style()` function to specify a set of CSS styles for use with animations.
@@ -82,7 +82,7 @@ Collect a set of styles in an animation state, and give the state a name, such a
 
 <div class="alert is-helpful">
 
-Let's create a new `open-close` component to animate with simple transitions.
+Let us create a new `open-close` component to animate with simple transitions.
 
 Run the following command in terminal to generate the component:
 
@@ -105,7 +105,7 @@ A unique name like `open` or `closed` and a `style()` function.
 Use the `style()` function to define a set of styles to associate with a given state name.
 You must use [*camelCase*](guide/glossary#case-conventions) for style attributes that contain dashes, such as `backgroundColor` or wrap them in quotes, such as `'background-color'`.
 
-Let's see how Angular's [`state()`](api/animations/state) function works with the `style⁣­(⁠)` function to set CSS style attributes.
+Let us see how Angular's [`state()`](api/animations/state) function works with the `style⁣­(⁠)` function to set CSS style attributes.
 In this code snippet, multiple style attributes are set at the same time for the state.
 In the `open` state, the button has a height of 200 pixels, an opacity of 1, and a yellow background color.
 
@@ -207,7 +207,7 @@ Some additional notes on using styles within [`state`](api/animations/state) and
 
 *   Use [`state()`](api/animations/state) to define styles that are applied at the end of each transition, they persist after the animation completes
 *   Use `transition()` to define intermediate styles, which create the illusion of motion during the animation
-*   When animations are disabled, `transition()` styles can be skipped, but [`state()`](api/animations/state) styles can't
+*   When animations are disabled, `transition()` styles can be skipped, but [`state()`](api/animations/state) styles cannot
 *   Include multiple state pairs within the same `transition()` argument:
 
     <code-example format="typescript" language="typescript">
@@ -225,16 +225,16 @@ The `trigger()` function collects the states and transitions, and gives the anim
 
 The `trigger()` function describes the property name to watch for changes.
 When a change occurs, the trigger initiates the actions included in its definition.
-These actions can be transitions or other functions, as we'll see later on.
+These actions can be transitions or other functions, as we will see later on.
 
-In this example, we'll name the trigger `openClose`, and attach it to the `button` element.
+In this example, we will name the trigger `openClose`, and attach it to the `button` element.
 The trigger describes the open and closed states, and the timings for the two transitions.
 
 <div class="alert is-helpful">
 
 **NOTE**: <br />
 Within each `trigger()` function call, an element can only be in one state at any given time.
-However, it's possible for multiple triggers to be active at once.
+However, it is possible for multiple triggers to be active at once.
 
 </div>
 
@@ -245,7 +245,7 @@ Put the code that defines your animations under the `animations:` property withi
 
 <code-example header="src/app/open-close.component.ts" path="animations/src/app/open-close.component.ts" region="component"></code-example>
 
-When you've defined an animation trigger for a component, attach it to an element in that component's template by wrapping the trigger name in brackets and preceding it with an `@` symbol.
+When you have defined an animation trigger for a component, attach it to an element in that component's template by wrapping the trigger name in brackets and preceding it with an `@` symbol.
 Then, you can bind the trigger to a template expression using standard Angular property binding syntax as shown below, where `triggerName` is the name of the trigger, and `expression` evaluates to a defined animation state.
 
 <code-example format="typescript" language="typescript">
@@ -261,7 +261,7 @@ The following code snippet binds the trigger to the value of the `isOpen` proper
 <code-example header="src/app/open-close.component.html" path="animations/src/app/open-close.component.1.html" region="trigger"></code-example>
 
 In this example, when the `isOpen` expression evaluates to a defined state of `open` or `closed`, it notifies the trigger `openClose` of a state change.
-Then it's up to the `openClose` code to handle the state change and kick off a state change animation.
+Then it is up to the `openClose` code to handle the state change and kick off a state change animation.
 
 For elements entering or leaving a page \(inserted or removed from the DOM\), you can make the animations conditional.
 For example, use `*ngIf` with the animation trigger in the HTML template.

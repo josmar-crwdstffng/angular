@@ -19,8 +19,8 @@ The compiler does not verify that the value of `user.address.city` is assignable
 
 The compiler also has some major limitations in this mode:
 
-*   Importantly, it doesn't check embedded views, such as `*ngIf`, `*ngFor`, other `<ng-template>` embedded view.
-*   It doesn't figure out the types of `#refs`, the results of pipes, or the type of `$event` in event bindings.
+*   Importantly, it does not check embedded views, such as `*ngIf`, `*ngFor`, other `<ng-template>` embedded view.
+*   It does not figure out the types of `#refs`, the results of pipes, or the type of `$event` in event bindings.
 
 In many cases, these things end up as type `any`, which can cause subsequent parts of the expression to go unchecked.
 
@@ -98,7 +98,7 @@ interface User {
 </code-example>
 
 The `<h2>` and the `<span>` are in the `*ngFor` embedded view.
-In basic mode, Angular doesn't check either of them.
+In basic mode, Angular does not check either of them.
 However, in full mode, Angular checks that `config` and `user` exist and assumes a type of `any`.
 In strict mode, Angular knows that the `user` in the `<span>` has a type of `User`, and that `address` is an object with a `city` property of type `string`.
 
@@ -106,17 +106,17 @@ In strict mode, Angular knows that the `user` in the `<span>` has a type of `Use
 
 ## Troubleshooting template errors
 
-With strict mode, you might encounter template errors that didn't arise in either of the previous modes.
+With strict mode, you might encounter template errors that did not arise in either of the previous modes.
 These errors often represent genuine type mismatches in the templates that were not caught by the previous tooling.
 If this is the case, the error message should make it clear where in the template the problem occurs.
 
-There can also be false positives when the typings of an Angular library are either incomplete or incorrect, or when the typings don't quite line up with expectations as in the following cases.
+There can also be false positives when the typings of an Angular library are either incomplete or incorrect, or when the typings do not quite line up with expectations as in the following cases.
 
 *   When a library's typings are wrong or incomplete \(for example, missing `null | undefined` if the library was not written with `strictNullChecks` in mind\)
 *   When a library's input types are too narrow and the library hasn't added appropriate metadata for Angular to figure this out.
     This usually occurs with disabled or other common Boolean inputs used as attributes, for example, `<input disabled>`.
 
-*   When using `$event.target` for DOM events \(because of the possibility of event bubbling, `$event.target` in the DOM typings doesn't have the type you might expect\)
+*   When using `$event.target` for DOM events \(because of the possibility of event bubbling, `$event.target` in the DOM typings does not have the type you might expect\)
 
 In case of a false positive like these, there are a few options:
 
@@ -142,7 +142,7 @@ Unless otherwise commented, each following option is set to the value for `stric
 
 If you still have issues after troubleshooting with these flags, fall back to full mode by disabling `strictTemplates`.
 
-If that doesn't work, an option of last resort is to turn off full mode entirely with `fullTemplateTypeCheck: false`.
+If that does not work, an option of last resort is to turn off full mode entirely with `fullTemplateTypeCheck: false`.
 
 A type-checking error that you cannot resolve with any of the recommended methods can be the result of a bug in the template type-checker itself.
 If you get errors that require falling back to basic mode, it is likely to be such a bug.
@@ -204,7 +204,7 @@ For example:
 
 *   Using the `async` pipe with an Observable which you know will emit synchronously.
 
-    The `async` pipe currently assumes that the Observable it subscribes to can be asynchronous, which means that it's possible that there is no value available yet.
+    The `async` pipe currently assumes that the Observable it subscribes to can be asynchronous, which means that it is possible that there is no value available yet.
     In that case, it still has to return something &mdash;which is `null`.
     In other words, the return type of the `async` pipe includes `null`, which might result in errors in situations where the Observable is known to emit a non-nullable value synchronously.
 

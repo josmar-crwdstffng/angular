@@ -119,7 +119,7 @@ The `EventEmitter` then relays the data to the parent component.
     </code-example>
 
 1.  In the component class, decorate a property with `@Output()`.
-    The following example `newItemEvent` `@Output()` has a type of `EventEmitter`, which means it's an event.
+    The following example `newItemEvent` `@Output()` has a type of `EventEmitter`, which means it is an event.
 
     <code-example header="src/app/item-output/item-output.component.ts" path="inputs-outputs/src/app/item-output/item-output.component.ts" region="item-output"></code-example>
 

@@ -33,7 +33,7 @@ For example, you can assert that `item` properties are also defined.
 
 <code-example header="src/app/app.component.html" path="template-expression-operators/src/app/app.component.html" region="non-null"></code-example>
 
-Often, you want to make sure that any property bindings aren't `null` or `undefined`.
+Often, you want to make sure that any property bindings are not `null` or `undefined`.
 However, there are situations in which such states are acceptable.
 For those situations, you can use Angular's non-null assertion operator to prevent TypeScript from reporting that a property is `null` or `undefined`.
 

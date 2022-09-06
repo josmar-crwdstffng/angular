@@ -10,7 +10,7 @@ provide up-to-date reproduction instructions.
 ## Why lock conversations?
 Automatically locking closed, inactive issues guides people towards filing new issues with updated
 context rather than commenting on a "resolved" issue that contains out-of-date or unrelated
-information. As an example, someone may comment "I'm still having this issue", but without
+information. As an example, someone may comment "I am still having this issue", but without
 providing any of the additional information the team needs to investigate.
 
 <a name="feature-request"></a>
